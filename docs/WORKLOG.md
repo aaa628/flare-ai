@@ -315,3 +315,24 @@ Did:
   O2 and psi ranges and NASA test-end counts; a phone-sized chart below 640 px.
 Verified by running: smoke 94/94 (4 new chart checks: no overlapping bubbles, window count, click-to-list, all-view);
   previewer 14/14; lab_ui 11/11; lab_function 18/18; all record pages OK; 390 px no overflow; screenshots reviewed.
+
+## 2026-10-31 — Scenario Check charts and results table, v3 (review fixes)
+
+No data, evidence rules or NASA values changed (data.js untouched). Changes are in site/js/app.js, site/css/style.css and tests.
+- One panel per experiment, so oxygen recorded by different methods is never drawn on one axis. Each axis names the method
+  ("Oxygen (%) as BASS-I recorded it"); each panel header states NASA's oxygen and pressure fields and the conversion.
+- Only tests whose dots would overlap on screen are grouped. A group is a dashed bubble at the group's average position, with
+  small dots at each test's real position. The tooltip and legend both say the average "is not itself a NASA test condition".
+  Single tests are plain dots at their real position. Zooming in splits groups apart.
+- Bubble size scale: area grows with the count (54 vs 29 now clearly differ), the exact count is printed, and a size key shows 1/10/50.
+  Count labels are placed so they never overlap each other, the scenario label or the window label (checked in 6 scenarios x 2 widths x 2 zooms).
+- The scenario marker is a hollow ring with ticks; its label sits in the least crowded direction with a leader line.
+- BASS-II (no per-test pressure) gets an oxygen-only strip: one stacked dot per test; the window label stays inside the chart.
+- A coverage summary computed from the records sits directly above the charts (e.g. ISS air, solids: 121 tests with both values,
+  84 inside; 127 oxygen-only, 43 matches; 15 omitted: 2 BASS-II with no confirmed starting O2, 13 SAFFIRE with approximate/missing O2).
+- The same four categories everywhere: inside / oxygen-only / outside / omitted. Verdict chips, charts and result tabs use the same counts.
+- Results table: tabs per category; under 700 px each row becomes a card with labelled fields (nothing clipped).
+Verified by running: smoke 103/103 (new: group tooltip wording, no overlapping count labels, axis names the method, category
+  counts 84/43/121/15 equal the tabs, summary above charts, one panel per experiment, strip label inside its chart, 390 px cards
+  and no overflow); previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation tests passed; all 537 record pages + 12 compare
+  + 4 main pages OK; CSP-served Scenario pages without errors; solid/liquid/gas modes at 1280 and 390 px with changed inputs.

@@ -57,7 +57,7 @@ so they are **never pooled into one chart or comparison**. Details: [`data/READM
 | Compare | built | Worked, limited and refusal examples for first-time users; "before charting" panel (source, method, units, missing/suspect fields); start/end bars, change chart, flow-direction donut; each chart lists what it left out, tagged by reason; refusals list which conditions failed (experiment, oxygen method, units) |
 | About | built | Rules, all sources, known limits, AI disclosure |
 | Intelligence Lab | built | Plain-English questions answered by Claude **only from retrieved Flare AI documents** (test records, NASA PSI texts, brief facts); every point cited and labelled NASA record / NASA text / brief / AI interpretation; invalid citations dropped; evidence grade computed by a fixed rule; abstains when unsupported; no probabilities. Runs in a Netlify Function so the API key never reaches the browser (see docs/DEPLOY.md); offline it falls back to keyword search |
-| Scenario Check | built | Enter fuel family, oxygen (%) and pressure (psi), or a preset (ISS air, the brief's Moon-base atmosphere, spacesuit): shows the real NASA tests inside a +-1.5 point / +-1.5 psi window, what NASA recorded, the tested range, and investigations whose tables span the conditions; abstains with "insufficient data" outside the window; for FLEX, NASA's test-end counts plus an honest leave-one-out consistency check against the always-majority baseline (74% vs 68%). No probabilities |
+| Scenario Check | built | Enter fuel family, oxygen (%) and pressure (psi), or a preset (ISS air, the brief's Moon-base atmosphere, spacesuit): shows the real NASA tests inside a +-1.5 point / +-1.5 psi window, what NASA recorded, the tested range, and investigations whose tables span the conditions; one chart panel per experiment (each experiment's own oxygen method, never pooled), overlapping tests grouped into counted bubbles at their average position (labelled as not a NASA test condition), every test counted as inside / oxygen-only / outside / omitted with the same numbers in the verdict, charts and results tabs; abstains with "insufficient data" outside the window; for FLEX, NASA's test-end counts plus an honest leave-one-out consistency check against the always-majority baseline (74% vs 68%). No probabilities |
 | Printable brief | planned | One-page printable summary with citations |
 
 ## How the data flows
@@ -92,7 +92,7 @@ package.json     dependencies of the function only (@anthropic-ai/sdk, @netlify/
 ```bash
 pip install playwright openpyxl
 python scripts/build_site_data.py
-python tests/site_smoke_test.py            # 94 browser checks (incl. all 24 investigation pages): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
+python tests/site_smoke_test.py            # 103 browser checks (incl. all 24 investigation pages and Scenario Check charts): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
 python tests/previewer_nav_test.py         # in-app links survive an injected <base> tag
 python tests/lab_ui_test.py                # Intelligence Lab page with a simulated server reply
 npm install && node tests/lab_function_test.mjs   # Lab function logic with a fake Claude client (no key needed)
