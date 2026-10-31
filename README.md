@@ -92,7 +92,7 @@ package.json     dependencies of the function only (@anthropic-ai/sdk, @netlify/
 ```bash
 pip install playwright openpyxl
 python scripts/build_site_data.py
-python tests/site_smoke_test.py            # 90 browser checks (incl. all 24 investigation pages): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
+python tests/site_smoke_test.py            # 94 browser checks (incl. all 24 investigation pages): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
 python tests/previewer_nav_test.py         # in-app links survive an injected <base> tag
 python tests/lab_ui_test.py                # Intelligence Lab page with a simulated server reply
 npm install && node tests/lab_function_test.mjs   # Lab function logic with a fake Claude client (no key needed)

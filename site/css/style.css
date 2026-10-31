@@ -527,3 +527,24 @@ ul.cov-list li b { font:700 18px var(--mono); } .cov-names { grid-column:1 / -1;
 .scen-t td, .scen-t th { font-size:13px; }
 @media (max-width:700px) { .need-tabs.three { grid-template-columns:1fr; } }
 .scen-out > *, .scen-out .grid > *, .lab-out > * { min-width:0; }
+
+/* ---------- Scenario chart (bubbles) ---------- */
+.scen-fig figcaption { align-items:center; }
+.seg { display:inline-flex; background:var(--panel-2); border:1px solid #2f3034; border-radius:99px; padding:3px; gap:2px; }
+.seg button { background:transparent; color:var(--muted); border-radius:99px; padding:6px 12px; font:600 12px var(--sans); }
+.seg button.on { background:var(--text); color:#111; } .seg button:hover { filter:none; color:var(--text); } .seg button.on:hover { color:#111; }
+.scen-legend { display:flex; flex-wrap:wrap; gap:6px 16px; margin:4px 0 6px; font-size:12px; color:var(--muted); align-items:center; }
+.scen-legend span { display:inline-flex; align-items:center; gap:6px; }
+.lg-dot { width:11px; height:11px; border-radius:50%; background:var(--c); display:inline-block; }
+.lg-dot.hollow { background:transparent; box-shadow:inset 0 0 0 1.6px var(--c); }
+.lg-size { display:inline-block; border-radius:50%; box-shadow:inset 0 0 0 1.4px #97999f; } .lg-size.s1 { width:7px; height:7px; } .lg-size.s2 { width:12px; height:12px; } .lg-size.s3 { width:18px; height:18px; }
+.lg-target { width:12px; height:12px; border-radius:50%; box-shadow:inset 0 0 0 2px #fff; display:inline-block; position:relative; }
+.chart.scen-chart .guide { stroke:#e9e9ee; stroke-opacity:.35; stroke-width:1; stroke-dasharray:3 4; }
+.chart.scen-chart .mwin { fill:rgba(255,255,255,.035); stroke:#e9e9ee; stroke-opacity:.7; stroke-width:1.2; stroke-dasharray:5 4; }
+.chart.scen-chart .mwin-l { fill:#c9cad0; font-size:10.5px; }
+.chart.scen-chart .target-ring { fill:none; stroke:#fff; stroke-width:2; } .chart.scen-chart .target-dot { fill:#fff; }
+.chart.scen-chart .bub { cursor:pointer; outline:none; } .chart.scen-chart .bub circle { transition:stroke-width .12s; }
+.chart.scen-chart .bub:hover circle, .chart.scen-chart .bub:focus circle { stroke-width:3; stroke:#fff; }
+.chart.scen-chart .bub-n { font:700 9.5px var(--mono); fill:#c9cad0; pointer-events:none; } .chart.scen-chart .bub-n.in { fill:#0b0c0f; }
+.scen-hidden { margin:2px 0 6px; }
+@media (max-width:640px) { .scen-fig figcaption { flex-direction:column; align-items:flex-start; gap:8px; } .seg button { padding:6px 10px; } .scen-legend { gap:4px 12px; } }
