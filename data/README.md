@@ -74,6 +74,26 @@ readings are numeric and in plausible ranges; no QC flag. `tests/crosscheck_muta
 It does **not** compare anything with the PDF. The text it reads is a text export of the PDF, so an error introduced by that export
 itself would pass. Only a person with the PDF can verify.
 
+## Data from NASA PSI (`scripts/import_psi.py`)
+
+NASA Physical Sciences Informatics (psi.nasa.gov, all CC0-1.0) holds the experiments' own data tables. Files used are
+committed in `source/psi/`: PSI-25 BASS-II experimental table, PSI-26 BASS "As Run Test Matrix" (xlsx), PSI-98/99/100
+SAFFIRE-I/II/III experimental tables. `import_psi.py` writes `bass1_psi.csv` (121 rows), `saffire_psi.csv` (13 rows) and
+`bass2_psi_extra.csv` (O20, O21, O22: in PSI-25 but not in the report). Each row stores its file and row number; all other
+recorded values are kept in `fields_json`, as written in NASA's file. Long computed decimals in the BASS-I spreadsheet are
+rounded to 4 places and marked "(rounded)". BASS-I O2 is logged as a fraction (0.221); the site shows it as printed and as
+vol% (x 100). SAFFIRE-II rows 2-6 and 2-9 have a blank material cell in NASA's file; shown as "not stated (row above: ...)".
+On every build `build_site_data.py` re-imports the source files; a row whose data no longer equals the file drops to
+unchecked (`tests/psi_import_test.py`). Verify by comparing a row with the file in `source/psi/`, then fill `verified_by`/`verified_date`.
+
+`scripts/psicheck_bass2.py` compares the 126 report rows with the PSI-25 table (column `psi_check`): 123 agree.
+Disagreements between NASA's two sources (shown on the site, never "fixed"): F3 final calibrated O2 (report 0.9 =
+formula leftover, PSI none), P22b final CO (report 236, PSI 239), P3a CO (report 33 then blank, PSI 2 then 33; the PDF
+image confirms the report's print).
+
+**Never compare O2 across experiments**: BASS-II = calibrated chamber sensor, BASS-I = logged O2 under "ISS environment",
+SAFFIRE = approximate values (SAFFIRE-II derived from CO2).
+
 ## Comparison with NASA's PDF (`scripts/pdfcheck_bass2.py`)
 
 Downloads the official PDF to `data/raw/` (git-ignored, 49 MB) and reads its text layer with `pdftotext` (a separate

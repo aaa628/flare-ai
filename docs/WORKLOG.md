@@ -155,3 +155,20 @@ Verified by running: pdfcheck 126/126; pdfcheck_mutation ALL CAUGHT; crosscheck 
   previewer 14/14; screenshots of Overview and B14 reviewed; P1 compared by eye with the PDF page image.
 Decisions + why: rows stay "machine-checked" (automated), never "verified"; that stays a person's signature.
 Next step I recommend: allow science.nasa.gov for PSI data; pull Saffire reports from NTRS; build Compare.
+
+## 2026-10-31 23:00 IST - Claude
+Did:
+- PSI reachable after the user allowed science.nasa.gov. Found the PSI JSON API; listed 24 combustion investigations; downloaded
+  the small files (tables, docs) for BASS-II (PSI-25), BASS (PSI-26), SAFFIRE-I/II/III (PSI-98/99/100). Raw video/images (100s of GB) skipped.
+- scripts/import_psi.py -> data/bass1_psi.csv (121), data/saffire_psi.csv (13), data/bass2_psi_extra.csv (O20-O22, PSI only).
+- scripts/psicheck_bass2.py -> psi_check column: 123/126 agree with NASA's PSI spreadsheet; 3 real disagreements (F3, P22b, P3a) shown.
+- build_site_data.py merges all; PSI rows machine-checked only if they still equal the source file. 5 sources added to sources.csv (DOIs).
+- Site: Experiment column + filter, per-row source card with DOI, generic detail page for PSI rows, "NASA's two sources disagree"
+  callout, overview chart by experiment, O2 chart restricted to BASS-II (one measurement method per chart), About lists all sources.
+Verified by running: import 121/13/3; psicheck 123/126; pdfcheck 126/126; crosscheck + pdfcheck + psi_import tests ALL CAUGHT;
+  smoke 38/38; previewer 14/14; screenshots of overview, explorer (SAFFIRE-II filter), BASS-I detail, P3a detail reviewed;
+  P3a/P22b checked against the PDF page image.
+Decisions + why: PSI rows labelled machine-checked (copied from NASA files, re-read every build), never verified. O2 never compared
+  across experiments (different methods).
+Open problems: 0 human-verified. BASS-I "Air display" and SAFFIRE airflow shown as logged; not yet used in any comparison.
+Next step I recommend: merge PR; build Compare (same experiment + same column only); then Intelligence Lab.

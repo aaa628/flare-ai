@@ -124,6 +124,12 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 
 ## 6. Current status (update at the end of every session)
 
+**2026-10-31 update:** 263 records from 6 sources (BASS-II report 126 + PSI-only O20-O22, BASS-I 121, SAFFIRE-I/II/III 13).
+All machine-checked (PDF comparison for report rows, file re-read for PSI rows), 0 human-verified. See data/README.md.
+Network for NASA hosts (ntrs.nasa.gov, psi.nasa.gov, science.nasa.gov) was enabled by the user in this session's settings.
+PSI API used: https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-NN (metadata + file list) and
+/geode-py/ws/studies/PSI-NN/download?file=NAME&redirect=false (returns a signed S3 URL).
+
 DONE
 - Static site (Overview with computed counts + 2 SVG charts + label legend; Explorer with search / investigator / flow mode / starting-O2 filters and natural sort; detail page with Measured readings, log note, Published conclusion, Our interpretation, Source card, QC callouts, raw-text drawer; About). Empty state when 0 verified; `?preview=draft` banner mode.
 - Tested in headless Chromium from `file://`: 29/29 checks, zero console errors, desktop + 390px screenshots reviewed. **Not yet seen on the team's machines / Safari / Firefox.**

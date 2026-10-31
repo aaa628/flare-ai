@@ -63,11 +63,22 @@ python scripts/build_site_data.py
 python tests/site_smoke_test.py
 python tests/previewer_nav_test.py
 python tests/crosscheck_mutation_test.py   # proves the cross-check catches corrupted rows
+python tests/pdfcheck_mutation_test.py     # proves the PDF comparison catches corrupted rows
+python tests/psi_import_test.py            # proves edited PSI records drop to unchecked
 ```
 
 ## Data
 
-Source so far: NASA/TM-20210011385, BASS-II Summary Report (NTRS). NASA does not endorse this project.
+263 test records from 6 NASA sources (NASA does not endorse this project):
+
+| Experiment | Records | Source | How checked |
+|---|---|---|---|
+| BASS-II | 126 | NASA/TM-20210011385 report, Appendix A (NTRS) | matches the PDF value for value; 123 also agree with NASA's PSI spreadsheet, 3 disagreements shown |
+| BASS-II | 3 (O20-O22) | PSI-25 experimental table (DOI 10.60555/4qc4-de67) | re-read from NASA's file on every build; not in the report |
+| BASS-I | 121 | PSI-26 As Run Test Matrix (DOI 10.60555/58h4-dy80) | re-read from NASA's file on every build |
+| SAFFIRE-I/II/III | 2 / 9 / 2 | PSI-98/99/100 experimental tables | re-read from NASA's file on every build |
+
+Building the site needs `pip install openpyxl`; the PDF comparison also needs `pdftotext` (poppler-utils).
 
 ## Team
 

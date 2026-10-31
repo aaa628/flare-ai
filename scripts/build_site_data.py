@@ -43,6 +43,40 @@ def load_crosscheck():
     return mod
 
 
+def load(name):
+    spec = importlib.util.spec_from_file_location(name, ROOT / "scripts" / (name + ".py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def psi_records():
+    """Records imported from NASA PSI files. Machine level only if every data column still equals the source file."""
+    ip = load("import_psi")
+    try:
+        exp = ip.expected()
+    except ImportError as err:  # openpyxl missing
+        print("WARNING: cannot re-read PSI source files (" + str(err) + "); run: pip install openpyxl. PSI rows marked unchecked.")
+        exp = None
+    out = []
+    for key, path in ip.OUT.items():
+        rows = read(path.name)
+        want = {r["id"]: r for r in exp[key]} if exp else {}
+        for r in rows:
+            src = want.get(r["id"])
+            same = bool(src) and all(r.get(c, "") == src.get(c, "") for c in ip.DATA_COLS)
+            r["verified"] = is_verified(r)
+            r["machine"] = same and not r["verified"]
+            r["level"] = "human" if r["verified"] else "machine" if r["machine"] else "none"
+            r["auto_check_notes"] = (f"copied from NASA's PSI file {r['source_file']}, row {r['source_row']}; "
+                                     "re-read at build time: every value equals the file") if same else \
+                "differs from the NASA source file or could not be re-read"
+            r["fields"] = json.loads(r.pop("fields_json") or "[]")
+            r["pdf"] = False
+            out.append(r)
+    return out
+
+
 def main():
     cc = load_crosscheck()
     spans = cc.table_pages()
@@ -65,10 +99,15 @@ def main():
             pdf_live = pc.compare(records)
     except Exception as err:  # e.g. no pdftotext installed: fall back to the stored column
         print("note: PDF comparison not re-run here:", err)
+    psi_live = load("psicheck_bass2").compare(records)
     for r in records:
         if pdf_live is not None:
             r["pdf_check"] = pdf_live[r["id"]]
         r["pdf"] = r.get("pdf_check", "").startswith("match")
+        r["psi_check"] = psi_live[r["id"]]
+        r["experiment"], r["source_id"] = "BASS-II", "20210011385"
+        r["source_file"] = f"Appendix A, report page {r['source_page']}"
+    records += psi_records()
     sources = read("sources.csv")
     n_ver = sum(1 for r in records if r["level"] == "human")
     n_mach = sum(1 for r in records if r["level"] == "machine")
@@ -77,7 +116,11 @@ def main():
         "sources": sources,
         "counts": {"records": len(records), "verified": n_ver, "machine": n_mach,
                    "unchecked": len(records) - n_ver - n_mach, "shown": n_ver + n_mach,
-                   "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"])},
+                   "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"]),
+                   "psi_agree": sum(1 for r in records if r.get("psi_check", "").startswith("agrees")),
+                   "psi_differ": sum(1 for r in records if r.get("psi_check", "").startswith("DIFFERS")),
+                   "experiments": {e: sum(1 for r in records if r["experiment"] == e)
+                                   for e in sorted({r["experiment"] for r in records})}},
     }
     if stale:
         print("WARNING: edited after the automated check, downgraded to unchecked:", ", ".join(stale))
