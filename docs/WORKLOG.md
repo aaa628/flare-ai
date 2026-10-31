@@ -200,3 +200,21 @@ Did:
 Verified by running: smoke 46/46 (new: axis not clipped, no horizontal scroll at 390px); previewer 14/14; screenshots of
   4 states + 390px reviewed.
 Next step I recommend: Intelligence Lab (user still to choose: Claude-backed function vs search only).
+
+## 2026-11-01 03:00 IST - Claude
+Did:
+- Hosting conflict resolved: site/index.html back to relative asset links (offline + any static host); netlify.toml (publish site/,
+  no build, CSP + nosniff headers); docs/DEPLOY.md (offline, local server, Netlify Drop / Git, alternatives, why not raw GitHub).
+- Evidence status: shared LEVEL vocabulary; chips carry glyphs (✓ verified, ◇ machine-checked dashed, ! unchecked); compact legend
+  with counts at the top of Overview and Explorer; test pages get one Evidence card (how it was checked + source evidence).
+- Overview: hero groups headline, explanation, "what this site can answer", one primary action, dataset status + legend; table of the
+  three experiment families and how each was measured; question-led charts with units and how-to-read lines.
+- Explorer: active-filter chips with remove + "Reset all", count beside them, warning when the O2 filter spans experiments, sticky
+  headings (scrolling table), rows focusable and open on Enter, arrow column, hint line, O2 method tag, stacked cards under 700px.
+- Compare: "Before charting" panel (source, oxygen method, other values/units, check level, missing/suspect per test); each chart says
+  what it left out right under it; refusal shows the differing methods; how-to-read on every chart; SVG title + aria-label summaries.
+- Docs synced to the generated data (README rewritten, data/README status table, HANDOFF).
+Verified by running: smoke 59/59 (new checks for legend counts, primary action, families table, filter chips, sticky header, Enter
+  opens a row, evidence card, before-charting panel, per-chart limits, text alternatives); previewer 14/14; crosscheck, pdfcheck,
+  psi_import tests ALL CAUGHT; CSP from netlify.toml served locally: no errors; screenshots at 1280px and 390px reviewed, no overflow.
+Not done: actual Netlify deployment (needs the user's Netlify account).
