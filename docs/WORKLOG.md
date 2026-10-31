@@ -121,3 +121,20 @@ Verified by running:
 Decisions + why: none new.
 Open problems / assumptions: unchanged (see CONTINUATION_SUMMARY section 7).
 Next step I recommend: new session reads CONTINUATION_SUMMARY + HANDOFF_PROMPT, then asks the user the 3 check-in questions.
+
+## 2026-10-31 20:00 IST - Claude
+Did:
+- User asked to put all rows in the machine-checked category. Read the 22 remaining rows one by one against their printed row text.
+  All extracted fields match the print. Findings stored per row in data/ai_review_bass2.csv.
+- Found that in paired a/b tests (B2, F3, P22a, P22b, T28a, T28b) "final calibrated O2" is a spreadsheet formula leftover
+  (= starting calibrated O2 -/+ raw value; checked numerically for all 6). New qc flag o2_cal_final_formula_artifact + red callout on the site.
+- scripts/crosscheck_bass2.py: hard (text-faithfulness) vs soft (flags, dashes, offset) problems; soft-only rows pass if reviewed.
+- Overview O2 chart now counts only rows with both calibrated and raw starting readings (124).
+Verified by running:
+- crosscheck: 126/126 machine-checked; mutation test ALL CAUGHT (incl. 4 hard corruptions x 22 reviewed rows);
+  site_smoke_test 34/34 (made unchecked-row check conditional, added P22b callout check); previewer_nav_test 14/14; screenshots reviewed.
+- NOT done: any comparison with the PDF (NASA download blocked by network; no PDF attached). Still 0 human-verified.
+Decisions + why:
+- "Please read" notice kept: no person has compared rows with the PDF. It disappears automatically once rows are human-verified.
+Next step I recommend:
+- Get the PDF (pages 103-113) for a real PDF comparison; verifier signs rows; then build Compare.

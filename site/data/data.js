@@ -179,13 +179,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_not_numeric; non-numeric/blank: o2_cal_final,o2_raw_final,co2_final,co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All 8 gas fields match the printed row; NASA printed only starting readings (final columns are dashes). Brief ignition, then extinction.",
    "raw_text": "--------- 47 B14 174m 1-cm-wide, 200-µm\u0002thick PMMA Integral 2 Opposed ---------------- 5, 3, 2, extinction 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 5 ---- 15.0 ----- 14.1 ----- 0.00 ----- 0.2 ---- HCl O, only brief ignition, flame extinguished",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B15",
@@ -360,18 +360,18 @@ window.FLARE_DATA = {
    "observation": "No stills taken, cable came loose; not quite a straight on edge view",
    "setup_raw": "Integral 2 Opposed 62 5 50 --- 8 NA N CL A –4 off --- F2 1,000",
    "source_page": "104",
-   "qc_flag": "o2_final_reading_suspect",
+   "qc_flag": "o2_final_reading_suspect;o2_cal_final_formula_artifact",
    "parse_ok": "yes",
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '1.6' equals 22.2 - 20.6 (calibrated minus raw starting O2): a spreadsheet formula leftover in NASA's table, not a reading. Do not use it.",
    "raw_text": "8 B2 155 200-µm PMMA film, 2 cm wide Integral 2 Opposed 62 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 none 22.2 1.6 20.6 ----- 0.44 ----- 6 ---- No stills taken, cable came loose; not quite a straight on edge view",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B20",
@@ -737,13 +737,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: cal-raw starting O2 offset 0.0 outside 0.2-2.5",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. NASA printed the same value for calibrated and raw O2 (21 / 21.0), unlike other rows, so the usual ~1 vol% offset is absent; shown as printed.",
    "raw_text": "-------- 103 F2 228m Nomex® natural (Nomex III) Integral 2 Concurrent 92 15 250 NA NA N CL M NA NA 1/10 F2 1,000 Cont 8 72 21 21.0 21 21.0 0.37 0.39 105 82 Tried to ignite, flame would not sustain",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-F3",
@@ -763,18 +763,18 @@ window.FLARE_DATA = {
    "observation": "Brief ignition flash, no sustained flame; no postburn sensor readings taken",
    "setup_raw": "Integral 1 Concurrent 61 8 50 NA NA N CL A –3 NA ------ F2 1,000",
    "source_page": "105",
-   "qc_flag": "o2_final_reading_suspect",
+   "qc_flag": "o2_final_reading_suspect;o2_cal_final_formula_artifact",
    "parse_ok": "yes",
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '0.9' equals 21.7 - 20.8: spreadsheet formula leftover, not a reading. Log note confirms no post-burn readings were taken.",
    "raw_text": "8:58:25 115 F3 229m Nomex® natural (Nomex III) Integral 1 Concurrent 61 8 50 NA NA N CL A –3 NA ------ F2 1,000 Cont 13 46 21.7 0.9 20.8 ------ 0.36 ------ 2 --- Brief ignition flash, no sustained flame; no postburn sensor readings taken",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-F4",
@@ -1290,18 +1290,18 @@ window.FLARE_DATA = {
    "observation": "Extinguished at higher flow, possibly rod not preheated enough by a bit, CO readings elevated, slow response",
    "setup_raw": "–35 2 Opposed 5, 0.36, 0.32 extinction after some time 5 down to extinction 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000",
    "source_page": "107",
-   "qc_flag": "o2_final_reading_suspect",
+   "qc_flag": "o2_final_reading_suspect;o2_cal_final_formula_artifact",
    "parse_ok": "yes",
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '0.6' equals 20.8 - 20.2: spreadsheet formula leftover (paired test a/b: final readings are on row P22b).",
    "raw_text": "---------- 68 P22a 200m 9.525-mm black rod –35 2 Opposed 5, 0.36, 0.32 extinction after some time 5 down to extinction 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 83 20.8 0.6 20.2 ---- 0.32 ---- 4 ---- Extinguished at higher flow, possibly rod not preheated enough by a bit, CO readings elevated, slow response",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P22b",
@@ -1321,18 +1321,18 @@ window.FLARE_DATA = {
    "observation": "Extinguished at lower flow than P22a by a bit, longer slower decrease in flow, CO elevated, slow response",
    "setup_raw": "–35 2 Opposed 5, 0.36, 0.34, 0.33, 0.32, 0.31, extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000",
    "source_page": "107",
-   "qc_flag": "o2_final_reading_suspect",
+   "qc_flag": "o2_final_reading_suspect;o2_cal_final_formula_artifact",
    "parse_ok": "yes",
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_initial,co2_initial,co_initial_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '39.1' equals 20.0 + 19.1: spreadsheet formula leftover. Starting readings for this pair are on row P22a.",
    "raw_text": "---------- 69 P22b 200m 9.525-mm black rod –35 2 Opposed 5, 0.36, 0.34, 0.33, 0.32, 0.31, extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 155 20.0 39.1 ---- 19.1 ---- 1.09 ---- 236 Extinguished at lower flow than P22a by a bit, longer slower decrease in flow, CO elevated, slow response",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P23",
@@ -1450,13 +1450,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row; NASA left final CO blank (dashes).",
    "raw_text": "6/16/2014 ---------- 27 P3a 215M 6.35-mm clear rod –22 2 Opposed ------------ 5, 2.5 (1.15, 0.5, 0.35, 0.33. 0.32, 0.315, 0.31, 0.3) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 8 304 17.7 17.4 16.6 16.3 0.27 0.51 33 ---- Repeat of last test with clear rod; extinguished at 0.3 pot very small flame, but steady spread",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P3b",
@@ -1481,13 +1481,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co2_final",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row; NASA printed 'failed' for final CO2 (log note mentions a power problem).",
    "raw_text": "6/16/2014 ---------- 28 P3b 215M 6.35-mm clear rod –22 2 Opposed ------------ 5, very low (0.85, 0.32, 0.31, 0.305, 0.30, 0.295) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 9 303 17.4 16.8 16.3 15.7 0.51 failed 33 79 Very low velocity test to get limiting spread rate, pot 0.32 spread, 0.31 spread, etc.; power failed to camera?; fan still running; camera power cable needed repair and taping to camera body to make it work",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P4",
@@ -2132,13 +2132,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect;hand_keyed; parse_ok=manual; non-numeric/blank: co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Hand-keyed row; all fields match the printed text. O2 drop 22.2 to 19.0 keeps the normal 1.6 offset to the raw sensor (20.6 to 17.4) and CO2 rose to 3.22, consistent with a long burn; looks like a real reading. Final CO printed as '>500' (off-scale).",
    "raw_text": "--------- 18 M5 167 3-mm-thick PMMA, two-sided, 2 cm thick Integral 0 Opposed 20, 13, 10, 8, 5 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 10, 14 300+ +102 22.2 19.0 20.6 17.4 0.44 3.22 9 >500 Rick ignited while we were loss of signal and out of contact with ISS, unfortunately; ignition was ~3 min per his verbal call down when we came back; flame already burning ~1/3 of sample, both sides, long and sooty; more vapor jetting on bottom due to molten ball attached there, visible when lights on to change camera card; turned down to 10 cm/s, then further down in increments to 5 cm/s; extinguished at 5 cm/s after prolonged flashing; during soot cleaning, Rick noticed damage to front door corner by the switches; He sent pictures down for us to evaluate for damage; CO reading posttest was off-scale; came back during purge reading 500",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M6",
@@ -2287,13 +2287,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. NASA printed '?' in the flow-mode column, so flow mode stays blank.",
    "raw_text": "16:20- 5 O1 207 6.35-mm clear rod 0020-23 2 ? 89, 62, 50, 41 20, 10, 5, 2, 1 50 ---- 8 NA N CH A –5 9F 1.0 --- F4 1,600 7s 3 62 22.2 21.7 20.6 20.1 0.44 0.85 -1 51 Bracket test with decreasing flows; very sooty long flame at high flows; rod very thinned out and was wobbling due to vapor jetting later in test; Rick broke it off holder during readjustments",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O10",
@@ -2380,13 +2380,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_initial_ppm,co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. CO printed as '+OR' (over range) at start and end; non-numeric, kept as printed.",
    "raw_text": "-------- 67 O12 217m 9.525-mm clear rod –32 2 Stagnation pots 1.4, 3, 0.9, 0.7 No ignition at any flow 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 6 52 13.6 13.5 12.7 12.6 1.72 1.71 +OR +OR No sustained flame at any flow, flame with igniter but died immediately upon igniter removal, HCL 12.3",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O13a",
@@ -2442,13 +2442,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. Final CO printed as 'Over' (off-scale); kept as printed.",
    "raw_text": "17:57 92 O13b 221m 12.7-mm clear PMMA rod –29 2 Concurrent 1.3, 0.9 7, 4? (49, ?) 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 17 6 14.6 14.4 13.6 13.4 1.85 2.09 950 Over Only stayed lit at 0.9 for less than a minute",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O14",
@@ -2566,13 +2566,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: hand_keyed; parse_ok=manual",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Hand-keyed row; all fields match the printed text. Row carries the remark 'postburn only' before the readings, so treat the readings with care.",
    "raw_text": "-------- 106 O16 219m 9.525-mm clear rod –31 2 Stagnation 60 (2.6) 5 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 7 10 postburn only 14.5 14.5 13.4 13.4 0.27 0.32 2 33 Brief flame at end of first ignition, but no joy on sustained flame",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O17",
@@ -2690,13 +2690,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. NASA printed '?' in the flow-mode column, so flow mode stays blank.",
    "raw_text": "-------- 6 O2 204 6.35-mm clear rod 0020-23 2 ? 0.54 pot and 0.45 pot 0 50 ---- 8 NA N CL A –4 Off --- F4 1,600 Cont 3 287 22.2 21.9 20.6 20.3 0.44 0.59 –1 23 Ignited at 2 cm/s, and got dim flame that got sooty with lots of vapor jetting, reduced flow to 1.5 pot and got less vapor jetting test; still sooty at these low flows ",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O3a",
@@ -2783,13 +2783,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. Final CO printed as '+OR' (over range); kept as printed.",
    "raw_text": "-------- 66 O4 216m 9.525-mm clear rod –32 2 Stagnation 5, 0.7, 0.5, 0.4, 0.36 extinction 5 down to extinction 250 ---- NA NA N CH A –3 NA --- F2 1,000 Cont 13 249 14.8 13.6 13.9 12.7 0.72 1.72 290 +OR Larger rod, decreased flow, extinguished at 0.36, HCl 9.7",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O5a",
@@ -3031,13 +3031,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. Table A.6 early rows give no flow-mode word, so flow mode stays blank.",
    "raw_text": "1 T1 128 SIBAL 2 cm Integrated 2 1 80 10 50 0.97 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 2 85 18.5 18.5 17.3 17.3 0.35 0.41 0 40 Compound Specific Analyzer-Combustion Products (CSA\u0002CP) unit 1024; Carbon Dioxide Monitor (CDM) unit 1018; Prefill O2 reading = 20.9 percent; GN2 fill was from video display time 10:53 to 12:31 at maximum GN2 flow rate (pot = 10); Video display time is currently 1 day plus 6 min 10 s ahead of actual GMT; flow velocity held constant",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T10",
@@ -3217,13 +3217,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. No flow-mode word printed, so flow mode stays blank.",
    "raw_text": "4 T15 138 SIBAL 2 cm Integrated 0 1 80, 122 9, 29 50 1.68 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 5 46 18.7 18.7 17.5 17.5 0.45 0.51 72 102 Initial air reading is 15, but Rick did not wait long enough for the anemometer to stabilize; actual airspeed is about 9 cm/s; no flow restrictors installed, but flow only maxed out to 29 cm/s; no blowoff attained",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T16",
@@ -3372,13 +3372,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. No flow-mode word printed, so flow mode stays blank.",
    "raw_text": "2 T2 129 SIBAL 2 cm Integrated 2 1 80, 59, 55 9, 5, 4 50 0.64 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 2 100 18.5 18.5 17.3 17.3 0.41 0.45 40 78 Flow velocity changed to 9 to 5 fairly early then very late in the burn changed to 4",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T20",
@@ -3646,18 +3646,18 @@ window.FLARE_DATA = {
    "observation": "Tried to get one-sided ignition, but flame only briefly flashed then went out",
    "setup_raw": "39 1 Concurrent 53 5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000",
    "source_page": "113",
-   "qc_flag": "o2_final_reading_suspect",
+   "qc_flag": "o2_final_reading_suspect;o2_cal_final_formula_artifact",
    "parse_ok": "yes",
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '0.9' equals 20.7 - 19.8: spreadsheet formula leftover (paired test a/b).",
    "raw_text": "17:21:03 123 T28a 144m 1 cm SIBAL 39 1 Concurrent 53 5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 19 20.7 0.9 19.8 ------ 0.41 ------ –1 ---- Tried to get one-sided ignition, but flame only briefly flashed then went out",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T28b",
@@ -3677,18 +3677,18 @@ window.FLARE_DATA = {
    "observation": "Tried to get one-sided ignition, but again flame only briefly flashed then went out",
    "setup_raw": "39 1 Concurrent 53 5 250 -------- NA NA N CL M NA NA 1/8 F2 1,000",
    "source_page": "113",
-   "qc_flag": "o2_final_reading_suspect",
+   "qc_flag": "o2_final_reading_suspect;o2_cal_final_formula_artifact",
    "parse_ok": "yes",
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_initial,co2_initial,co_initial_ppm",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '40.4' equals 20.7 + 19.7: spreadsheet formula leftover. Starting readings for this pair are on row T28a.",
    "raw_text": "17:29:49 124 T28b 144m 1 cm SIBAL 39 1 Concurrent 53 5 250 -------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 27 20.7 40.4 ------ 19.7 ------ 0.42 ---- 2 Tried to get one-sided ignition, but again flame only briefly flashed then went out",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T29",
@@ -3744,13 +3744,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: hand_keyed; parse_ok=manual",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Hand-keyed row; all fields match the printed text (sample angle printed as '-24 broke, -25').",
    "raw_text": "---------- 43 T3 182m 4 cm spherical section -24 broke, -25 2 Stagnation 63 10 250 -------- NA NA N CL A –4 NA 1/4 F4 1,000 Cont 3, 8 166 17.2 16.8 16.3 15.9 0.42 0.7 45 113 Multiple ignition attempts on card 3, brief flames go out",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T4",
@@ -3775,13 +3775,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
-   "auto_checked_by": "",
-   "auto_checked_date": "",
-   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. No flow-mode word printed, so flow mode stays blank.",
    "raw_text": "3 T4 130 SIBAL 2 cm Integrated 2 1 80, 46 9,1 50 0.19 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 5 97 18.7 18.7 17.5 17.5 0.44 0.45 59 72 O2 reading creeped up slightly after a long pause in operations; flow velocity changed immediately after ignition down to 1 (fan pot 0.9); extinguished after turning into flamelet",
    "verified": false,
-   "machine": false,
-   "level": "none"
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T5",
@@ -3921,9 +3921,9 @@ window.FLARE_DATA = {
  "counts": {
   "records": 126,
   "verified": 0,
-  "machine": 104,
-  "unchecked": 22,
-  "shown": 104,
+  "machine": 126,
+  "unchecked": 0,
+  "shown": 126,
   "sources": 1
  }
 };

@@ -8,8 +8,10 @@ cc = importlib.util.module_from_spec(spec); spec.loader.exec_module(cc)
 
 spans = cc.table_pages()
 rows = list(csv.DictReader(open(ROOT / "data" / "bass2_draft.csv", encoding="utf-8")))
-good = [r for r in rows if not cc.check(r, spans)[0]]
-print(f"{len(good)} of {len(rows)} rows pass unmodified")
+strict = [r for r in rows if not cc.check(r, spans, {})[0]]
+good = strict
+reviewed = [r for r in rows if r not in strict and not cc.check(r, spans)[0]]
+print(f"{len(strict)} rows pass strictly, {len(reviewed)} more pass via row-by-row review, of {len(rows)}")
 ok = True
 
 def expect_fail(name, fn, sample):
@@ -34,6 +36,9 @@ def shift(m):  # classic column shift: every gas value moves one place left
     for k, v in zip(ks, vals): m[k] = v
 def blank(m): m["co_final_ppm"] = ""
 
+for name, fn in [("REVIEWED wrong table page", page), ("REVIEWED observation edited", obs),
+                 ("REVIEWED wrong sample number", sample), ("REVIEWED all readings shifted one column", shift)]:
+    expect_fail(name, fn, reviewed)
 expect_fail("two readings swapped", swap, good)
 expect_fail("one reading changed by 0.01", bump, good)
 expect_fail("wrong table page", page, good)

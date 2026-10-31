@@ -105,7 +105,7 @@ Dark mission-control look. Tokens in `site/css/style.css :root`: bg `#0a0e17`, p
 **`data/bass2_draft.csv`: 126 rows** from Appendix A (Tables A.1-A.6, one per investigator): B Bhattacharjee 22 (A.1), F Ferkul 4 (A.2), P Fernandez-Pello 27 (A.3), M Miller 20 (A.4), O Olson 24 (A.5), T T'ien 29 (A.6). IDs `BASSII-<letter><n>[a|b]` (e.g. `BASSII-P3a`).
 Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial, o2_cal_final, o2_raw_initial, o2_raw_final, co2_initial, co2_final, co_initial_ppm, co_final_ppm, observation, setup_raw, source_page, qc_flag, parse_ok, verified_by, verified_date, verifier_notes, auto_checked_by, auto_checked_date, auto_check_notes, raw_text`. Units: O2/CO2 vol%, CO ppm. Values are strings exactly as printed.
 
-**Three check levels** (computed in `scripts/build_site_data.py`, shown everywhere on the site): `human` = `verified_by` + `verified_date` filled by a person who compared the row with the PDF; `machine` = passed `scripts/crosscheck_bass2.py` (automated, re-run at build time so an edited row drops back); `none` = hidden except in preview. Default site view = human + machine. **Current counts: 0 human, 104 machine, 22 none.** The 22 `none` rows (B14, B2, F2, F3, P22a, P22b, P3a, P3b, M5, O1, O12, O13b, O16, O2, O4, T1, T15, T2, T28a, T28b, T3, T4) carry the reason in `auto_check_notes` ("NEEDS HUMAN CHECK: ..."). `tests/crosscheck_mutation_test.py` proves the check rejects corrupted rows.
+**Three check levels** (computed in `scripts/build_site_data.py`, shown everywhere on the site): `human` = `verified_by` + `verified_date` filled by a person who compared the row with the PDF; `machine` = passed `scripts/crosscheck_bass2.py` (automated, re-run at build time so an edited row drops back); `none` = hidden except in preview. Default site view = human + machine. **Current counts: 0 human, 126 machine (104 strict + 22 via row-by-row review in `data/ai_review_bass2.csv`), 0 none.** The 22 reviewed rows (B14, B2, F2, F3, P22a, P22b, P3a, P3b, M5, O1, O12, O13b, O16, O2, O4, T1, T15, T2, T28a, T28b, T3, T4) keep their flags; reviewed rows still must pass the strict text checks. Flag `o2_cal_final_formula_artifact` (B2, F3, P22a, P22b, T28a, T28b): final calibrated O2 is a spreadsheet formula leftover, never use it. `tests/crosscheck_mutation_test.py` proves the check rejects corrupted rows.
 
 **Facts and traps (do not rediscover these):**
 - `parse_ok`: 123 `yes`, 3 `manual` (M5, O16, T3 were hand-keyed from irregular layouts; flagged `hand_keyed`).
@@ -127,10 +127,10 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 DONE
 - Static site (Overview with computed counts + 2 SVG charts + label legend; Explorer with search / investigator / flow mode / starting-O2 filters and natural sort; detail page with Measured readings, log note, Published conclusion, Our interpretation, Source card, QC callouts, raw-text drawer; About). Empty state when 0 verified; `?preview=draft` banner mode.
 - Tested in headless Chromium from `file://`: 29/29 checks, zero console errors, desktop + 390px screenshots reviewed. **Not yet seen on the team's machines / Safari / Firefox.**
-- 126 rows extracted + QC-flagged; automated cross-check cleared 104 (labelled "machine-checked" on the site); **0 human-verified**.
+- 126 rows extracted + QC-flagged; automated cross-check cleared 104 strictly + 22 via row-by-row review = 126 (labelled "machine-checked" on the site); **0 human-verified**.
 
 BLOCKED ON HUMANS
-- **Human verification** of `bass2_draft.csv`: do the 22 "NEEDS HUMAN CHECK" rows first, then the 104 machine-checked rows. Checklist in `data/README.md`. Until then the site honestly says 0 human-verified.
+- **Human verification** of `bass2_draft.csv`: do the 22 reviewed rows (flagged ones) first, then the other 104. Checklist in `data/README.md`. Until then the site honestly says 0 human-verified.
 - Team must open `site/index.html` and `site/index.html?preview=draft` and report problems.
 
 ## 7. Build backlog with specs (priority order)

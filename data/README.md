@@ -20,8 +20,9 @@ Every row has a **check level**:
 
 ## For the verifier
 
-Currently 126 rows: **0 human-verified, 104 machine-checked, 22 unchecked.** The 22 are the ones the machine could not clear
-(flags, hand-keyed values, missing readings): filter `auto_check_notes` for "NEEDS HUMAN CHECK" and do those FIRST.
+Currently 126 rows: **0 human-verified, 126 machine-checked (104 strictly + 22 via the row-by-row review in
+`ai_review_bass2.csv`), 0 unchecked.** Do the 22 reviewed rows FIRST (their `auto_check_notes` contain "row-by-row review"):
+they carry flags, hand-keyed values, NASA dashes or `+OR`/`Over`/`failed` entries.
 Then work through the machine-checked rows; the machine check does not replace your comparison with the PDF.
 
 1. Open `bass2_draft.csv` next to the PDF. `source_page` is the report page number; the Appendix A table is
@@ -73,6 +74,15 @@ readings are numeric and in plausible ranges; no QC flag. `tests/crosscheck_muta
 
 It does **not** compare anything with the PDF. The text it reads is a text export of the PDF, so an error introduced by that export
 itself would pass. Only a person with the PDF can verify.
+
+## Row-by-row review (`ai_review_bass2.csv`)
+
+The 22 rows that fail only the soft checks (flags, dashes or non-numeric NASA entries, unusual offset) were read one by one
+against the report text by Claude; the finding is stored per row. They still must pass every strict text check, so an edit
+to such a row drops it back to unchecked. Main finding: in paired a/b tests (B2, F3, P22a, P22b, T28a, T28b) the printed
+"final calibrated O2" is a spreadsheet formula leftover (it equals starting calibrated O2 minus or plus the raw value, e.g.
+P22a 0.6 = 20.8 - 20.2, P22b 39.1 = 20.0 + 19.1). Those rows carry the flag `o2_cal_final_formula_artifact`; never use
+that value. The site's oxygen chart counts only rows that have both a calibrated and a raw starting reading.
 
 ## Comparison rule
 

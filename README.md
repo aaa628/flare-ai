@@ -11,7 +11,7 @@ Built for the **NASA Space Apps Challenge 2026: Flame in Freefall**.
 
 Double-click **`site/index.html`**. It is a static website (plain HTML, CSS, JavaScript) and works straight from disk.
 
-- Default view shows **human-verified** and **machine-checked** rows, each labelled with how it was checked. Right now none is human-verified.
+- Default view shows **human-verified** and **machine-checked** rows (currently all 126 machine-checked, 0 human-verified), each labelled with how it was checked. Right now none is human-verified.
 - Rows with no check are hidden. The team can reveal them with the footer link "Team preview: show unchecked rows" (or `?preview=draft`); a red banner appears on every page.
 
 ## Principles (non-negotiable)

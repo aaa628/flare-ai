@@ -16,7 +16,8 @@
     o2_final_reading_suspect: "O2 reading suspect",
     hand_keyed: "hand-keyed",
     flow_mode_not_stated: "flow mode not stated",
-    o2_final_not_numeric: "O2 end not numeric"
+    o2_final_not_numeric: "O2 end not numeric",
+    o2_cal_final_formula_artifact: "O2 end is a formula leftover"
   };
   var main = document.getElementById("main");
 
@@ -155,7 +156,7 @@
       var usable = 0;
       ROWS.forEach(function (r) {
         var v = num(r.o2_cal_initial);
-        if (isNaN(v)) return;
+        if (isNaN(v) || isNaN(num(r.o2_raw_initial))) return; /* no raw reading = starting value not confirmed */
         usable++;
         hist.forEach(function (b) { if (v >= b.lo && v < b.hi) b.value++; });
       });
@@ -164,7 +165,7 @@
           h("p", { class: "note" }, "Count of " + shown + " records, from the data above."),
           barChart(items, { label: "Number of test records per principal investigator" })),
         h("div", { class: "card" }, h("h3", null, "Starting oxygen level"),
-          h("p", { class: "note" }, "Calibrated initial O2 for " + usable + " records with a numeric value."),
+          h("p", { class: "note" }, "Calibrated initial O2 for " + usable + " records with both a calibrated and a raw starting reading."),
           barChart(hist, { label: "Number of tests by starting oxygen band", alt: true }))));
     }
 
@@ -286,6 +287,10 @@
     if (flags.indexOf("o2_final_reading_suspect") >= 0) callouts.push(h("div", { class: "callout" },
       h("b", null, "O2 reading suspect. "), "The final oxygen reading differs from the start by more than 3 vol%. " +
       "NASA's table shows this value, but it may be a sensor glitch. It is shown exactly as printed and should not be used for numeric analysis."));
+    if (flags.indexOf("o2_cal_final_formula_artifact") >= 0) callouts.push(h("div", { class: "callout" },
+      h("b", null, "Final calibrated O2 is not a reading. "), "In NASA's table this number equals the starting calibrated O2 " +
+      "plus or minus the raw sensor value, a spreadsheet formula leftover (this is half of a paired a/b test). " +
+      "It is shown exactly as printed and is never used in any calculation."));
     if (flags.indexOf("hand_keyed") >= 0) callouts.push(h("div", { class: "callout info" },
       h("b", null, "Hand-keyed row. "), "This row's layout in the PDF was irregular, so its values were typed in by hand. Check it extra carefully."));
     if (flags.indexOf("flow_mode_not_stated") >= 0) callouts.push(h("div", { class: "callout info" },
