@@ -187,3 +187,16 @@ Did:
 Verified by running: dataviz validator (dark, surface #191a1d) PASS for 4 categorical slots and the fell/rose pair;
   smoke 44/44 (6 new Compare checks); previewer 14/14; screenshots of 4 compare states reviewed; 390px: no horizontal scroll.
 Next step I recommend: Intelligence Lab (in-browser retrieval with evidence grade), then Scenario Check + PDF brief.
+
+## 2026-11-01 01:30 IST - Claude
+Did:
+- PR #4 merged; branch fast-forwarded to main. Restyled the Compare screen after the user's dashboard reference images:
+  toolbar with pill selects, test chips + dashed preset chips, summary pills (experiment, tests, values charted, left out),
+  stat tiles per test (first tile highlighted in the accent colour; tiny glyph drawn from that test's own values), card headers
+  with icon badges and unit pills, bars with gradient + soft glow (start) and hatched texture (end), dashed gridlines with y
+  ticks, pill-track change chart, thicker donut with hub and value legend, "How this comparison works" checklist card,
+  refusal card. CSS block at the end of site/css/style.css replaced; colours unchanged (validated palette).
+- Fixed: y-axis ticks could stop below the tallest bar (raw O2 at 16.6 clipped at 15).
+Verified by running: smoke 46/46 (new: axis not clipped, no horizontal scroll at 390px); previewer 14/14; screenshots of
+  4 states + 390px reviewed.
+Next step I recommend: Intelligence Lab (user still to choose: Claude-backed function vs search only).

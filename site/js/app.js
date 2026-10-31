@@ -498,84 +498,144 @@
     return tip;
   }
   /* Vertical bar with only its data end rounded (r=4), anchored at the zero line. */
-  function barPath(x, y0, y1, w) {
-    var r = Math.min(4, w / 2, Math.abs(y1 - y0)), up = y1 < y0;
+  function barPath(x, y0, y1, w, rad) {
+    var r = Math.min(rad || 4, w / 2, Math.abs(y1 - y0)), up = y1 < y0;
     if (up) return "M" + x + "," + y0 + "V" + (y1 + r) + "Q" + x + "," + y1 + " " + (x + r) + "," + y1 + "H" + (x + w - r) +
       "Q" + (x + w) + "," + y1 + " " + (x + w) + "," + (y1 + r) + "V" + y0 + "Z";
     return "M" + x + "," + y0 + "V" + (y1 - r) + "Q" + x + "," + y1 + " " + (x + r) + "," + y1 + "H" + (x + w - r) +
       "Q" + (x + w) + "," + y1 + " " + (x + w) + "," + (y1 - r) + "V" + y0 + "Z";
   }
-  /* Grouped vertical bars: groups = tests, series = e.g. start / end. One axis, zero baseline. */
+  /* ---------- chart kit (dark dashboard style; palette validated on #191a1d) ---------- */
+  var uid = 0;
+  var ICON = {
+    flame: "M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-4.5 2.5-6 .4 1.5 1.2 2.3 2.5 2.3C10 7 11 4.5 12 2z",
+    o2: "M12 4a8 8 0 1 0 0 16a8 8 0 1 0 0-16zM9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0",
+    cloud: "M7 18h10a4 4 0 0 0 .6-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z",
+    gauge: "M4 16a8 8 0 1 1 16 0M12 16l4-5",
+    wind: "M3 9h11a3 3 0 1 0-3-3M3 15h15a3 3 0 1 1-3 3M3 12h8",
+    timer: "M12 7v5l3 2M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M10 1h4",
+    bolt: "M13 2L4 14h7l-1 8 9-12h-7z",
+    pie: "M12 3v9h9A9 9 0 1 1 12 3zM15 3.5A9 9 0 0 1 20.5 9H15z",
+    table: "M4 5h16v14H4zM4 10h16M4 15h16M10 5v14",
+    swap: "M7 7h12l-3-3M17 17H5l3 3",
+    alert: "M12 3l10 18H2zM12 10v5M12 18v.5"
+  };
+  function icon(name) {
+    return svg("svg", { viewBox: "0 0 24 24", class: "ico", "aria-hidden": "true" },
+      svg("path", { d: ICON[name] || ICON.flame, fill: "none", stroke: "currentColor", "stroke-width": 1.8, "stroke-linecap": "round", "stroke-linejoin": "round" }));
+  }
+  function badge(name, cls) { return h("span", { class: "badge " + (cls || "") }, icon(name)); }
+  function cardHead(ico, title, right) {
+    return h("div", { class: "vhead" }, badge(ico), h("h3", null, title), h("div", { class: "vhead-r" }, right));
+  }
+  function niceTicks(lo, hi, n) {
+    var span = hi - lo || 1, step = Math.pow(10, Math.floor(Math.log10(span / n))), err = span / n / step;
+    step *= err >= 7.5 ? 10 : err >= 3.5 ? 5 : err >= 1.5 ? 2 : 1;
+    var out = [], t = Math.floor(lo / step) * step;
+    out.push(+t.toFixed(6));
+    while (out[out.length - 1] < hi) { t += step; out.push(+t.toFixed(6)); } /* last tick always >= the largest value */
+    return out;
+  }
+  function defs(s, color, id) {
+    var d = svg("defs", null,
+      svg("linearGradient", { id: "g" + id, x1: 0, y1: 0, x2: 0, y2: 1 },
+        svg("stop", { offset: "0%", "stop-color": color, "stop-opacity": 1 }),
+        svg("stop", { offset: "100%", "stop-color": color, "stop-opacity": 0.45 })),
+      svg("pattern", { id: "h" + id, width: 6, height: 6, patternUnits: "userSpaceOnUse", patternTransform: "rotate(45)" },
+        svg("rect", { width: 6, height: 6, fill: color, "fill-opacity": 0.28 }),
+        svg("line", { x1: 0, y1: 0, x2: 0, y2: 6, stroke: color, "stroke-width": 3 })));
+    s.appendChild(d);
+  }
+  /* Grouped vertical bars with faint gridlines and y ticks. Series may be hatched (texture = second encoding). */
   function groupedBars(groups, series, unit, label) {
-    var W = 380, H = 200, top = 22, bot = 40, left = 6, right = 6;
+    var W = 420, H = 230, top = 16, bot = 34, left = 40, right = 8;
     var all = []; series.forEach(function (s) { s.vals.forEach(function (v) { if (!isNaN(v.n)) all.push(v.n); }); });
-    var lo = Math.min(0, Math.min.apply(null, all.concat([0]))), hi = Math.max.apply(null, all.concat([0])) || 1;
+    var ticks = niceTicks(Math.min(0, Math.min.apply(null, all)), Math.max(0, Math.max.apply(null, all)) || 1, 4);
+    var lo = ticks[0], hi = ticks[ticks.length - 1];
     var y = function (v) { return top + (H - top - bot) * (hi - v) / ((hi - lo) || 1); };
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": label });
-    s.appendChild(svg("line", { x1: left, x2: W - right, y1: y(0), y2: y(0), class: "axis" }));
-    var gw = (W - left - right) / groups.length, bw = Math.min(30, (gw * 0.62 - 2 * (series.length - 1)) / series.length);
+    var ids = series.map(function (sr) { var id = ++uid; defs(s, sr.color, id); return id; });
+    ticks.forEach(function (t) {
+      s.appendChild(svg("line", { x1: left, x2: W - right, y1: y(t), y2: y(t), class: t === 0 ? "axis" : "grid" }));
+      s.appendChild(svg("text", { x: left - 8, y: y(t) + 4, "text-anchor": "end", class: "tick" }, fmt(t)));
+    });
+    var gw = (W - left - right) / groups.length, gap = 4, bw = Math.min(34, (gw * 0.6 - gap * (series.length - 1)) / series.length);
     groups.forEach(function (g, gi) {
-      var gx = left + gi * gw + (gw - (bw * series.length + 2 * (series.length - 1))) / 2;
+      var gx = left + gi * gw + (gw - (bw * series.length + gap * (series.length - 1))) / 2;
+      s.appendChild(svg("rect", { x: left + gi * gw + 4, y: top, width: gw - 8, height: H - top - bot, rx: 10, class: "col" }));
       series.forEach(function (sr, si) {
-        var v = sr.vals[gi], x = gx + si * (bw + 2);
+        var v = sr.vals[gi], x = gx + si * (bw + gap);
         if (isNaN(v.n)) {
-          s.appendChild(svg("text", { x: x + bw / 2, y: y(0) - 6, "text-anchor": "middle", class: "na", tabindex: 0,
-            "data-tip": g + " · " + sr.name + ": not comparable — " + v.why }, "n/a"));
+          s.appendChild(svg("rect", { x: x, y: y(0) - 22, width: bw, height: 22, rx: 6, class: "na-box", tabindex: 0,
+            "data-tip": g + " · " + sr.name + ": left out — " + v.why }));
+          s.appendChild(svg("text", { x: x + bw / 2, y: y(0) - 8, "text-anchor": "middle", class: "na" }, "n/a"));
           return;
         }
-        s.appendChild(svg("path", { d: barPath(x, y(0), y(v.n), bw), fill: sr.color, class: "mark", tabindex: 0,
+        s.appendChild(svg("path", { d: barPath(x, y(0), y(v.n), bw, 8), fill: "url(#" + (sr.hatch ? "h" : "g") + ids[si] + ")",
+          class: "mark" + (sr.hatch ? " hatch" : " glow"), style: "--c:" + sr.color, tabindex: 0,
           "data-tip": g + " · " + sr.name + ": " + v.text + " " + unit, "aria-label": g + " " + sr.name + " " + v.text + " " + unit }));
-        s.appendChild(svg("text", { x: x + bw / 2, y: v.n >= 0 ? y(v.n) - 5 : y(v.n) + 13, "text-anchor": "middle", class: "val small" }, fmt(v.n)));
+        if (sr.hatch) s.appendChild(svg("path", { d: barPath(x, y(0), y(v.n), bw, 8), fill: "none", stroke: sr.color, "stroke-width": 1.2, class: "outline" }));
+        s.appendChild(svg("text", { x: x + bw / 2, y: v.n >= 0 ? y(v.n) - 6 : y(v.n) + 14, "text-anchor": "middle", class: "val small" }, fmt(v.n)));
       });
-      s.appendChild(svg("text", { x: left + gi * gw + gw / 2, y: H - bot + 18, "text-anchor": "middle" }, g));
+      s.appendChild(svg("text", { x: left + gi * gw + gw / 2, y: H - 10, "text-anchor": "middle", class: "xlab" }, g));
     });
     return s;
   }
-  /* Horizontal diverging bars for the change during each test (end minus start). */
+  /* Change during the test: pill track per test, bar grows left (fell) or right (rose) from the centre. */
   function changeBars(groups, deltas, unit, label) {
-    var W = 380, rowH = 26, H = groups.length * rowH + 8, mid = 230, half = 110, lab = 70;
+    var W = 420, rowH = 30, H = groups.length * rowH + 4, lab = 54, x0 = lab + 10, x1 = W - 54, mid = (x0 + x1) / 2, half = (x1 - x0) / 2;
     var max = Math.max.apply(null, deltas.filter(function (d) { return !isNaN(d.n); }).map(function (d) { return Math.abs(d.n); }).concat([0])) || 1;
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": label });
-    s.appendChild(svg("line", { x1: mid, x2: mid, y1: 0, y2: H, class: "axis" }));
     groups.forEach(function (g, i) {
-      var d = deltas[i], yy = i * rowH + 6;
-      s.appendChild(svg("text", { x: lab, y: yy + 13, "text-anchor": "end" }, g));
+      var d = deltas[i], yy = i * rowH + 4;
+      s.appendChild(svg("text", { x: lab, y: yy + 15, "text-anchor": "end", class: "xlab" }, g));
+      s.appendChild(svg("rect", { x: x0, y: yy + 4, width: x1 - x0, height: 14, rx: 7, class: "track" }));
+      s.appendChild(svg("line", { x1: mid, x2: mid, y1: yy + 1, y2: yy + 21, class: "axis" }));
       if (isNaN(d.n)) {
-        s.appendChild(svg("text", { x: mid + 8, y: yy + 13, class: "na", tabindex: 0, "data-tip": g + ": change not computed — " + d.why }, "not computed"));
+        s.appendChild(svg("text", { x: mid, y: yy + 15, "text-anchor": "middle", class: "na", tabindex: 0, "data-tip": g + ": change not computed — " + d.why }, "not computed"));
         return;
       }
-      var w = Math.max(2, half * Math.abs(d.n) / max), x = d.n >= 0 ? mid + 1 : mid - 1 - w;
-      s.appendChild(svg("rect", { x: x, y: yy + 2, width: w, height: 14, rx: 3, fill: d.n >= 0 ? COLORS.rose : COLORS.fell, class: "mark", tabindex: 0,
+      var w = Math.max(3, half * Math.abs(d.n) / max), x = d.n >= 0 ? mid : mid - w, c = d.n >= 0 ? COLORS.rose : COLORS.fell;
+      s.appendChild(svg("rect", { x: x, y: yy + 4, width: w, height: 14, rx: 7, fill: c, class: "mark glow", style: "--c:" + c, tabindex: 0,
         "data-tip": g + ": " + (d.n >= 0 ? "rose by " : "fell by ") + fmt(Math.abs(d.n)) + " " + unit + " (end minus start, both from NASA’s table)" }));
-      s.appendChild(svg("text", { x: d.n >= 0 ? x + w + 6 : x - 6, y: yy + 13, "text-anchor": d.n >= 0 ? "start" : "end", class: "val small" },
-        (d.n > 0 ? "+" : "") + fmt(d.n)));
+      s.appendChild(svg("text", { x: x1 + 8, y: yy + 15, class: "val small" }, (d.n > 0 ? "+" : "") + fmt(d.n)));
     });
     return s;
   }
-  /* Donut for one whole split into a few parts (flow direction mix). 2px surface gap between slices. */
   function donut(parts, label) {
-    var total = parts.reduce(function (a, p) { return a + p.value; }, 0), R = 70, r = 44, cx = 90, cy = 90, a0 = -Math.PI / 2;
-    var s = svg("svg", { viewBox: "0 0 180 180", class: "chart viz donut", role: "img", "aria-label": label });
+    var total = parts.reduce(function (a, p) { return a + p.value; }, 0), R = 80, r = 54, cx = 100, cy = 100, a0 = -Math.PI / 2;
+    var s = svg("svg", { viewBox: "0 0 200 200", class: "chart viz donut", role: "img", "aria-label": label });
+    s.appendChild(svg("circle", { cx: cx, cy: cy, r: (R + r) / 2, fill: "none", stroke: "rgba(255,255,255,.04)", "stroke-width": R - r + 14 }));
     parts.forEach(function (p) {
       var a1 = a0 + 2 * Math.PI * p.value / total, large = a1 - a0 > Math.PI ? 1 : 0;
       var pt = function (rad, a) { return (cx + rad * Math.cos(a)).toFixed(2) + "," + (cy + rad * Math.sin(a)).toFixed(2); };
-      var d = p.value === total ? "M" + (cx + R) + "," + cy + "A" + R + "," + R + " 0 1 1 " + (cx - R) + "," + cy + "A" + R + "," + R + " 0 1 1 " + (cx + R) + "," + cy +
-        "M" + (cx + r) + "," + cy + "A" + r + "," + r + " 0 1 0 " + (cx - r) + "," + cy + "A" + r + "," + r + " 0 1 0 " + (cx + r) + "," + cy + "Z" :
-        "M" + pt(R, a0) + "A" + R + "," + R + " 0 " + large + " 1 " + pt(R, a1) + "L" + pt(r, a1) + "A" + r + "," + r + " 0 " + large + " 0 " + pt(r, a0) + "Z";
-      s.appendChild(svg("path", { d: d, fill: p.color, class: "mark slice", tabindex: 0, "fill-rule": "evenodd",
+      var d = "M" + pt(R, a0) + "A" + R + "," + R + " 0 " + large + " 1 " + pt(R, a1) + "L" + pt(r, a1) + "A" + r + "," + r + " 0 " + large + " 0 " + pt(r, a0) + "Z";
+      s.appendChild(svg("path", { d: d, fill: p.color, class: "mark slice glow", style: "--c:" + p.color, tabindex: 0,
         "data-tip": p.label + ": " + p.value + " of " + total + " tests (" + Math.round(100 * p.value / total) + "%)" }));
       a0 = a1;
     });
-    s.appendChild(svg("text", { x: cx, y: cy - 2, "text-anchor": "middle", class: "val big" }, String(total)));
-    s.appendChild(svg("text", { x: cx, y: cy + 15, "text-anchor": "middle" }, "tests"));
+    s.appendChild(svg("circle", { cx: cx, cy: cy, r: r - 8, class: "hub" }));
+    s.appendChild(svg("text", { x: cx, y: cy + 2, "text-anchor": "middle", class: "val big" }, String(total)));
+    s.appendChild(svg("text", { x: cx, y: cy + 20, "text-anchor": "middle", class: "xlab" }, "tests"));
     return s;
   }
   function legendRow(items) {
     return h("div", { class: "viz-legend" }, items.map(function (it) {
-      return h("span", null, h("i", { style: "background:" + it.color }), it.label);
+      return h("span", null, h("i", { class: it.hatch ? "hatch" : "", style: "--c:" + it.color }), it.label);
     }));
   }
+  /* Tiny real-data glyph for a tile: bars scaled to the tile's own values. */
+  function miniBars(vals, color) {
+    var ok = vals.filter(function (v) { return !isNaN(v); }), max = Math.max.apply(null, ok.concat([0])) || 1;
+    var s = svg("svg", { viewBox: "0 0 64 40", class: "mini", "aria-hidden": "true" });
+    vals.forEach(function (v, i) {
+      var hgt = isNaN(v) ? 4 : Math.max(4, 36 * v / max);
+      s.appendChild(svg("rect", { x: 4 + i * 16, y: 40 - hgt, width: 10, height: hgt, rx: 5, fill: isNaN(v) ? "currentColor" : color, "fill-opacity": isNaN(v) ? 0.2 : (i === vals.length - 1 ? 1 : 0.55) }));
+    });
+    return s;
+  }
   var FLOW_COLOR = { "Opposed": COLORS.s1, "Concurrent": COLORS.s2, "Stagnation": COLORS.s3 };
+  var MEASURE_ICON = { o2c: "o2", o2r: "o2", o2: "o2", co2: "cloud", co: "cloud", p: "gauge", air: "wind", ipw: "bolt", ign: "timer", burn: "flame" };
 
   function viewCompare(arg) {
     setTitle("Compare");
@@ -584,11 +644,10 @@
     var picked = ids.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean).slice(0, MAX_PICK);
     function go2(list) { location.hash = "#/compare/" + list.map(function (r) { return encodeURIComponent(r.id); }).join(","); }
 
-    /* picker */
     var exps = EXP_ORDER.filter(function (e) { return ROWS.some(function (r) { return r.experiment === e; }); });
     var curExp = picked.length ? picked[0].experiment : "BASS-II";
-    var expSel = h("select", { id: "cexp" }, exps.map(function (e) { return h("option", { value: e, selected: e === curExp }, e); }));
-    var testSel = h("select", { id: "ctest" });
+    var expSel = h("select", { id: "cexp", class: "pill-select" }, exps.map(function (e) { return h("option", { value: e, selected: e === curExp }, e); }));
+    var testSel = h("select", { id: "ctest", class: "pill-select wide" });
     function fillTests() {
       testSel.textContent = "";
       ROWS.filter(function (r) { return r.experiment === expSel.value && picked.indexOf(r) < 0; }).forEach(function (r) {
@@ -597,112 +656,143 @@
     }
     expSel.addEventListener("change", fillTests);
     fillTests();
-    var addBtn = h("button", { type: "button", disabled: picked.length >= MAX_PICK, onclick: function () {
+    var full = picked.length >= MAX_PICK;
+    var addBtn = h("button", { type: "button", class: "pill-btn", disabled: full, onclick: function () {
       var r = ROWS.filter(function (x) { return x.id === testSel.value; })[0];
       if (r) go2(picked.concat([r]));
-    } }, picked.length >= MAX_PICK ? "Up to 4 tests" : "Add test");
-    var chips = h("div", { class: "pick-chips" }, picked.map(function (r) {
-      return h("span", { class: "pick" }, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r)),
-        h("button", { type: "button", class: "x", "aria-label": "Remove " + shortId(r), onclick: function () {
-          go2(picked.filter(function (x) { return x !== r; })); } }, "×"));
-    }));
-    var presets = h("div", { class: "presets" },
-      h("span", { class: "muted" }, "Try: "),
-      preset("Three opposed-flow rods (BASS-II)", ["BASSII-P1", "BASSII-P10", "BASSII-P12"]),
-      preset("Same rod, 5 cm/s vs pot 1.3 (BASS-II)", ["BASSII-P13a", "BASSII-P13b"]),
-      preset("SAFFIRE-II samples", ["SAFFIREII-2-5", "SAFFIREII-2-6", "SAFFIREII-2-8"]),
-      preset("A comparison Flare AI refuses", ["BASSII-B1", "BASSI-1-1"]));
+    } }, full ? "4 tests max" : "+ Add test");
     function preset(text, list) {
       var rows = list.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean);
-      return rows.length === list.length ? h("button", { type: "button", class: "ghost small", onclick: function () { go2(rows); } }, text) : null;
+      return rows.length === list.length ? h("button", { type: "button", class: "chip-btn", onclick: function () { go2(rows); } }, text) : null;
     }
+    var toolbar = h("div", { class: "toolbar" },
+      h("div", { class: "tb-l" }, h("h1", null, "Compare"),
+        h("p", { class: "muted tb-sub" }, "2–4 NASA tests side by side. Like with like only, or Flare AI refuses and says why.")),
+      h("div", { class: "tb-r" },
+        h("label", { class: "sr", for: "cexp" }, "Experiment"), expSel,
+        h("label", { class: "sr", for: "ctest" }, "Test"), testSel, addBtn));
+    var chipsRow = h("div", { class: "pick-chips" },
+      picked.map(function (r, i) {
+        return h("span", { class: "pick" + (i === 0 ? " lead" : "") }, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r)),
+          h("button", { type: "button", class: "x", "aria-label": "Remove " + shortId(r), onclick: function () { go2(picked.filter(function (x) { return x !== r; })); } }, "×"));
+      }),
+      h("span", { class: "presets" }, h("span", { class: "muted" }, "Try"),
+        preset("Opposed-flow rods", ["BASSII-P1", "BASSII-P10", "BASSII-P12"]),
+        preset("Same rod, two flows", ["BASSII-P13a", "BASSII-P13b"]),
+        preset("SAFFIRE-II samples", ["SAFFIREII-2-5", "SAFFIREII-2-6", "SAFFIREII-2-8"]),
+        preset("A comparison we refuse", ["BASSII-B1", "BASSI-1-1"])));
 
-    var head = [h("h1", null, "Compare"),
-      h("p", { class: "lead" }, "Put 2 to 4 NASA tests side by side. Flare AI only compares like with like: same experiment, same measurement. When a comparison would mislead, it refuses and says why."),
-      h("div", { class: "filters", style: "margin-top:18px" },
-        h("div", { class: "field" }, h("label", { for: "cexp" }, "Experiment"), expSel),
-        h("div", { class: "field wide" }, h("label", { for: "ctest" }, "Test"), testSel),
-        addBtn),
-      chips, presets];
-
-    if (picked.length < 2) return h("div", null, head, h("div", { class: "empty", style: "margin-top:20px" },
-      h("h3", null, picked.length ? "Add at least one more test" : "Pick two or more tests"),
+    if (picked.length < 2) return h("div", { class: "cmp" }, toolbar, chipsRow, h("div", { class: "empty glass", style: "margin-top:18px" },
+      badge("swap", "lg"), h("h3", null, picked.length ? "Add at least one more test" : "Pick two or more tests"),
       h("p", { class: "muted" }, "Choose an experiment and add tests, or start from one of the examples above.")));
 
     var groups = picked.map(shortId);
     var expsPicked = picked.map(function (r) { return r.experiment; }).filter(function (e, i, a) { return a.indexOf(e) === i; });
-    var idTable = sideTable(picked, [["Experiment", function (r) { return r.experiment; }], ["Material", function (r) { return r.material_raw; }],
-      ["Flow direction", function (r) { return r.flow_mode || "not stated"; }], ["Airflow, as logged", function (r) { return r.airflow_raw || (fromReport(r) ? "fan settings only (see test page)" : "—"); }],
-      ["Check level", function (r) { return r.level === "human" ? "verified" : r.level === "machine" ? "machine-checked" : "unchecked"; }]]);
+    var tableCard = h("div", { class: "card vcard span2" }, cardHead("table", "Side by side", null),
+      h("div", { class: "tablewrap flat" }, sideTable(picked, [["Experiment", function (r) { return r.experiment; }], ["Material", function (r) { return r.material_raw; }],
+        ["Flow direction", function (r) { return r.flow_mode || "not stated"; }], ["Airflow, as logged", function (r) { return r.airflow_raw || (fromReport(r) ? "fan settings only (see test page)" : "—"); }],
+        ["Check level", function (r) { return levelChip(r); }]])));
 
     if (expsPicked.length > 1) {
-      return h("div", null, head,
-        h("div", { class: "callout refuse", style: "margin-top:18px" },
-          h("b", null, "Flare AI won’t compare these numbers. "),
-          "These tests come from different experiments (" + expsPicked.join(" and ") + "), and each one measured things differently. " +
-          "BASS-II used a calibrated oxygen sensor in the test chamber; BASS-I logged the oxygen of the surrounding station air as a fraction; " +
-          "SAFFIRE gives approximate values or none. Putting them on one chart would look precise and mean nothing. " +
-          "You can still read them side by side below, or compare tests within one experiment."),
-        h("div", { class: "tablewrap", style: "margin-top:14px" }, idTable));
+      return h("div", { class: "cmp" }, toolbar, chipsRow,
+        h("div", { class: "refuse-card" }, badge("alert", "warn lg"),
+          h("div", null, h("h3", null, "Flare AI won’t compare these numbers"),
+            h("p", null, "These tests come from different experiments (" + expsPicked.join(" and ") + "), and each measured things differently. " +
+              "BASS-II used a calibrated oxygen sensor in the test chamber; BASS-I logged the oxygen of the surrounding station air as a fraction; " +
+              "SAFFIRE gives approximate values or none. One chart would look precise and mean nothing."),
+            h("p", { class: "muted", style: "margin:0" }, "You can still read them side by side, or compare tests within one experiment."))),
+        h("div", { class: "viz-grid" }, tableCard));
     }
 
     var exp = expsPicked[0], cautions = [];
     var flows = picked.map(function (r) { return r.flow_mode || "not stated"; }).filter(function (e, i, a) { return a.indexOf(e) === i; });
-    if (flows.length > 1) cautions.push("Flow direction differs (" + flows.join(", ") + "). Differences below may come from how air met the flame, not from oxygen or material.");
+    if (flows.length > 1) cautions.push("Flow direction differs (" + flows.join(", ") + "). Differences may come from how air met the flame, not from oxygen or material.");
     var mats = picked.map(function (r) { return r.material_raw.toLowerCase(); }).filter(function (e, i, a) { return a.indexOf(e) === i; });
     if (mats.length > 1) cautions.push("Materials differ. A thicker or different fuel burns differently, so differences may come from the sample itself.");
 
-    var cards = [], footnotes = [];
-    measuresFor(exp).forEach(function (m) {
+    var measures = measuresFor(exp), cards = [], footnotes = [], nUsed = 0, nOut = 0;
+    measures.forEach(function (m) {
+      var tag = h("span", { class: "unit-pill" }, m.unit);
       if (m.pair) {
         var st = picked.map(function (r) { return value(m.pair[0](r), m.unit, r, m, false); });
         var en = picked.map(function (r) { return value(m.pair[1](r), m.unit, r, m, true); });
+        st.concat(en).forEach(function (v) { if (isNaN(v.n)) nOut++; else nUsed++; });
         if (!st.concat(en).some(function (v) { return !isNaN(v.n); })) return footnotes.push(m.label + ": no comparable values for these tests.");
         var deltas = st.map(function (a, i) {
           var b = en[i];
           return isNaN(a.n) || isNaN(b.n) ? { n: NaN, why: (isNaN(a.n) ? "start: " + a.why : "end: " + b.why) } : { n: b.n - a.n };
         });
-        cards.push(h("div", { class: "card viz-card" },
-          h("h3", null, m.label, h("span", { class: "unit" }, " " + m.unit)), chip("measured", "Measured"),
-          legendRow([{ color: COLORS.s1, label: "Start of test" }, { color: COLORS.s2, label: "End of test" }]),
-          groupedBars(groups, [{ name: "start", color: COLORS.s1, vals: st }, { name: "end", color: COLORS.s2, vals: en }], m.unit, m.label + " at start and end of each test"),
-          h("p", { class: "viz-sub" }, "Change during the test (end minus start)"),
-          legendRow([{ color: COLORS.fell, label: "fell" }, { color: COLORS.rose, label: "rose" }]),
+        cards.push(h("div", { class: "card vcard" },
+          cardHead(MEASURE_ICON[m.key], m.label, [tag, chip("measured", "Measured")]),
+          legendRow([{ color: COLORS.s1, label: "Start of test" }, { color: COLORS.s2, label: "End of test", hatch: true }]),
+          groupedBars(groups, [{ name: "start", color: COLORS.s1, vals: st }, { name: "end", color: COLORS.s2, vals: en, hatch: true }], m.unit, m.label + " at start and end of each test"),
+          h("div", { class: "subhead" }, h("span", null, "Change during the test"), legendRow([{ color: COLORS.fell, label: "fell" }, { color: COLORS.rose, label: "rose" }])),
           changeBars(groups, deltas, m.unit, "Change in " + m.label + " during each test")));
         st.concat(en).forEach(function (v, i) { if (isNaN(v.n) && v.why !== "no value recorded") footnotes.push(groups[i % groups.length] + " · " + m.label + " " + (i < groups.length ? "start" : "end") + ": " + v.why + "."); });
       } else {
         var vs = picked.map(function (r) { return value(m.single(r), m.unit, r, m, false); });
+        vs.forEach(function (v) { if (isNaN(v.n)) nOut++; else nUsed++; });
         if (!vs.some(function (v) { return !isNaN(v.n); })) return footnotes.push(m.label + ": no comparable values for these tests.");
-        cards.push(h("div", { class: "card viz-card" },
-          h("h3", null, m.label, h("span", { class: "unit" }, " " + m.unit)), chip("measured", "Measured"),
+        cards.push(h("div", { class: "card vcard" },
+          cardHead(MEASURE_ICON[m.key], m.label, [tag, chip("measured", "Measured")]),
           groupedBars(groups, [{ name: m.label, color: COLORS.s1, vals: vs }], m.unit, m.label + " for each test")));
         vs.forEach(function (v, i) { if (isNaN(v.n) && v.why !== "no value recorded") footnotes.push(groups[i] + " · " + m.label + ": " + v.why + "."); });
       }
     });
 
-    /* Part-to-whole context: flow direction mix across the whole experiment. */
+    /* Stat tiles, one per test: the experiment's headline measure, NASA's own values, with a tiny glyph of them. */
+    var hm = measures[measures.length === 4 && exp !== "BASS-II" ? 3 : 0];
+    var tiles = h("div", { class: "tiles" }, picked.map(function (r, i) {
+      var main, sub, glyph;
+      if (hm.pair) {
+        var a = value(hm.pair[0](r), hm.unit, r, hm, false), b = value(hm.pair[1](r), hm.unit, r, hm, true);
+        main = [h("span", null, isNaN(a.n) ? "n/a" : fmt(a.n)), h("span", { class: "arr" }, "→"), h("span", null, isNaN(b.n) ? "n/a" : fmt(b.n))];
+        sub = hm.label + ", start → end (" + hm.unit + ")";
+        glyph = miniBars([a.n, b.n], i === 0 ? "#1a0a02" : COLORS.s1);
+      } else {
+        var v = value(hm.single(r), hm.unit, r, hm, false);
+        main = h("span", null, isNaN(v.n) ? "n/a" : fmt(v.n));
+        sub = hm.label + " (" + hm.unit + ")";
+        glyph = miniBars(picked.map(function (x) { return value(hm.single(x), hm.unit, x, hm, false).n; }).map(function (n, j) { return j === i ? n : NaN; }), i === 0 ? "#1a0a02" : COLORS.s1);
+      }
+      return h("a", { class: "tile" + (i === 0 ? " hot" : ""), href: "#/experiment/" + r.id },
+        h("div", { class: "tile-top" }, badge("flame", i === 0 ? "dark" : ""), h("div", null, h("b", null, r.experiment + " " + shortId(r)), h("span", null, r.material_raw))),
+        h("div", { class: "tile-bot" }, h("div", null, h("div", { class: "big" }, main), h("div", { class: "small" }, sub)), glyph));
+    }));
+
     var pool = ROWS.filter(function (r) { return r.experiment === exp; }), counts = {};
     pool.forEach(function (r) { var k = r.flow_mode || "not stated"; counts[k] = (counts[k] || 0) + 1; });
     var order = ["Opposed", "Concurrent", "Stagnation"].filter(function (k) { return counts[k]; })
       .concat(Object.keys(counts).filter(function (k) { return ["Opposed", "Concurrent", "Stagnation", "not stated"].indexOf(k) < 0; }))
       .concat(counts["not stated"] ? ["not stated"] : []);
     var parts = order.map(function (k) { return { label: k, value: counts[k], color: FLOW_COLOR[k] || (k === "not stated" ? COLORS.neutral : COLORS.s4) }; });
-    var mixCard = h("div", { class: "card viz-card" }, h("h3", null, "Where these tests sit: flow direction in all " + exp + " tests"),
+    var mixCard = h("div", { class: "card vcard" }, cardHead("pie", "Flow direction, all " + exp + " tests", null),
       parts.length > 1 ? h("div", { class: "donut-wrap" }, donut(parts, "Flow direction mix of " + pool.length + " " + exp + " tests"),
         h("ul", { class: "donut-legend" }, parts.map(function (p) {
           var mine = picked.filter(function (r) { return (r.flow_mode || "not stated") === p.label; }).length;
-          return h("li", null, h("i", { style: "background:" + p.color }), h("b", null, p.label), " " + p.value + " (" + Math.round(100 * p.value / pool.length) + "%)" +
-            (mine ? " · " + mine + " selected" : ""));
+          return h("li", null, h("i", { style: "--c:" + p.color }), h("span", { class: "dl" }, p.label, mine ? h("em", null, mine + " selected") : null),
+            h("b", null, Math.round(100 * p.value / pool.length) + "%"), h("span", { class: "dn" }, String(p.value)));
         }))) :
-        h("p", { class: "note" }, "All " + pool.length + " " + exp + " tests: flow direction " + (parts[0] ? parts[0].label : "not stated") + " in NASA’s file, so there is no mix to show."));
+        h("div", { class: "empty-mini" }, badge("pie"), h("p", { class: "note" }, "All " + pool.length + " " + exp + " tests: flow direction " + (parts[0] ? parts[0].label : "not stated") + " in NASA’s file, so there is no mix to show.")));
 
-    return h("div", null, head,
-      cautions.length ? h("div", { class: "callout info", style: "margin-top:18px" }, h("b", null, "Read with care. "), cautions.join(" ")) : null,
-      h("div", { class: "tablewrap", style: "margin-top:14px" }, idTable),
-      h("div", { class: "viz-grid" }, cards, mixCard),
-      footnotes.length ? h("div", { class: "card", style: "margin-top:14px" }, h("h3", null, "Left out, and why"),
-        h("ul", { class: "fn" }, footnotes.map(function (t) { return h("li", null, t); }))) : null,
-      h("p", { class: "note", style: "margin-top:12px" }, "Every number is copied from NASA’s record; hover a bar to see it. No averages or trend lines: with 2 to 4 tests they would claim more than the data shows."));
+    var summary = h("div", { class: "summary" },
+      h("span", null, h("b", null, exp)), h("span", null, h("b", null, String(picked.length)), " tests"),
+      h("span", null, h("b", null, String(nUsed)), " values charted"),
+      h("span", { class: nOut ? "warn" : "" }, h("b", null, String(nOut)), " left out"));
+
+    return h("div", { class: "cmp" }, toolbar, chipsRow, summary,
+      cautions.length ? h("div", { class: "caution" }, badge("alert", "amber"), h("p", null, h("b", null, "Read with care. "), cautions.join(" "))) : null,
+      tiles,
+      h("div", { class: "viz-grid" }, cards, mixCard,
+        h("div", { class: "card vcard" }, cardHead("alert", footnotes.length ? "Left out, and why" : "How this comparison works", null),
+          footnotes.length ? h("ul", { class: "fn" }, footnotes.map(function (t) { return h("li", null, t); })) : null,
+          h("ul", { class: "rules" },
+            h("li", { class: "ok" }, h("b", null, "Same experiment. "), "All " + picked.length + " tests are " + exp + ", measured the same way."),
+            h("li", { class: "ok" }, h("b", null, "Same measurement. "), "Each chart shows one column from NASA\u2019s table; calibrated and raw oxygen are never mixed."),
+            h("li", { class: nOut ? "warn" : "ok" }, h("b", null, nOut + " value" + (nOut === 1 ? "" : "s") + " left out. "), nOut ? "Flagged, missing or not plain numbers; each shows as n/a with the reason on hover." : "Every value could be charted."),
+            h("li", { class: "ok" }, h("b", null, "No averages. "), "Two to four tests are too few for averages or trends."))),
+        tableCard),
+      h("p", { class: "note", style: "margin-top:14px" }, "Every number is copied from NASA’s record; hover a bar to see it. No averages or trend lines: with 2 to 4 tests they would claim more than the data shows."));
   }
   function sideTable(rows, spec) {
     return h("table", { class: "side" },
