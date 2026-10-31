@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verification Helper</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  body { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+  table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+  th, td { border: 1px solid var(--line); padding: 0.5rem; text-align: left; vertical-align: top; }
+  th { background-color: var(--panel); }
+  .flagged { background-color: rgba(255, 92, 108, 0.1); }
+  .suspect { color: var(--warning); font-weight: bold; }
+  .controls { margin: 1rem 0; padding: 1rem; background-color: var(--panel); display: flex; gap: 1rem; align-items: center;}
+  input[type="text"] { background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: 0.25rem 0.5rem; }
+  button { background: var(--accent); color: var(--bg); border: none; padding: 0.5rem 1rem; cursor: pointer; font-weight: bold;}
+  button:hover { opacity: 0.9; }
+  .raw-text { font-family: monospace; font-size: 0.85em; color: var(--muted); display: block; margin-top: 0.5rem; padding: 0.5rem; background: var(--bg); border-radius: 4px; }
+  .col-side { width: 50%; }
+</style>
+</head>
+<body>
+  <h1>Data Verification Helper</h1>
+  <p>Review the draft CSV against NASA TM-20210011385. Enter your initials and the date to verify.</p>
+
+  <div class="controls">
+    <label>Verifier Initials: <input type="text" id="initials" placeholder="e.g. AB"></label>
+    <label>Date: <input type="text" id="vdate" placeholder="YYYY-MM-DD"></label>
+    <button onclick="exportCSV()">Export CSV (UTF-8)</button>
+  </div>
+
+  <div id="table-container">Loading...</div>
+
+  <script>
+    let csvData = [];
+    let headers = [];
+
+    async function loadData() {
+      try {
+        const response = await fetch('../../data/bass2_draft.csv');
+        const text = await response.text();
+        parseCSV(text);
+        renderTable();
+      } catch (e) {
+        document.getElementById('table-container').innerHTML =
+          `<p class="suspect">Could not load CSV automatically. <br>
+           Please run a local server or use a file input.</p>
+           <input type="file" id="fileInput" accept=".csv" onchange="handleFile(event)">`;
+      }
+    }
+
+    function handleFile(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          parseCSV(e.target.result);
+          renderTable();
+        };
+        reader.readAsText(file);
+      }
+    }
+
+    // Better CSV parser
+    function parseCSV(text) {
+      const lines = text.split('\n').filter(l => l.trim() !== '');
+
+      const splitCSV = (str) => {
+        const result = [];
+        let cur = '';
+        let inQuotes = false;
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] === '"') {
+            if (inQuotes && str[i+1] === '"') {
+              cur += '"';
+              i++; // skip escaped quote
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (str[i] === ',' && !inQuotes) {
+            result.push(cur);
+            cur = '';
+          } else {
+            cur += str[i];
+          }
+        }
+        result.push(cur);
+        return result;
+      };
+
+      headers = splitCSV(lines[0]);
+      csvData = lines.slice(1).map(l => {
+        const vals = splitCSV(l);
+        const obj = {};
+        headers.forEach((h, i) => obj[h] = vals[i] || '');
+        return obj;
+      });
+
+      csvData.sort((a, b) => {
+        if (a.qc_flag && !b.qc_flag) return -1;
+        if (!a.qc_flag && b.qc_flag) return 1;
+        return 0;
+      });
+    }
+
+    function renderTable() {
+      let html = `<table><tr>
+        <th>ID / QC / Page</th>
+        <th class="col-side">CSV Extraction (Proposed)</th>
+        <th class="col-side">Raw Text Source (Verify against this)</th>
+        <th>Verify</th>
+      </tr>`;
+
+      csvData.forEach((row, i) => {
+        const hasFlag = row.qc_flag !== '';
+        html += `<tr class="${hasFlag ? 'flagged' : ''}">
+          <td>
+            <strong>${row.id}</strong><br>
+            Pg: ${row.source_page}<br>
+            <span class="suspect">${row.qc_flag.replace(/;/g, '<br>')}</span>
+          </td>
+          <td>
+            <strong>Material:</strong> ${row.material_raw}<br>
+            <strong>Mode:</strong> ${row.flow_mode}<br>
+            <strong>O2 Cal:</strong> ${row.o2_cal_initial} &rarr; ${row.o2_cal_final}<br>
+            <strong>O2 Raw:</strong> ${row.o2_raw_initial} &rarr; ${row.o2_raw_final}<br>
+            <strong>CO2:</strong> ${row.co2_initial} &rarr; ${row.co2_final}<br>
+            <strong>CO:</strong> ${row.co_initial_ppm} &rarr; ${row.co_final_ppm}<br>
+            <strong>Obs:</strong> ${row.observation}<br>
+            <strong>Setup:</strong> ${row.setup_raw}
+          </td>
+          <td>
+            <div class="raw-text">${row.raw_text}</div>
+          </td>
+          <td>
+            <label><input type="checkbox" onchange="toggleVerify(${i}, this.checked)"
+                   ${row.verified_by ? 'checked' : ''}> Verified</label>
+            <input type="text" placeholder="Notes (optional)" onchange="updateNotes(${i}, this.value)" value="${row.verifier_notes || ''}" style="width:100%; margin-top:0.5rem; font-size:0.8em; padding:0.2rem;">
+          </td>
+        </tr>`;
+      });
+      html += '</table>';
+      document.getElementById('table-container').innerHTML = html;
+    }
+
+    function toggleVerify(index, isChecked) {
+      const initials = document.getElementById('initials').value;
+      const vdate = document.getElementById('vdate').value;
+
+      if (isChecked) {
+        if (!initials || !vdate) {
+          alert('Please enter initials and date at the top first.');
+          renderTable();
+          return;
+        }
+        csvData[index].verified_by = initials;
+        csvData[index].verified_date = vdate;
+      } else {
+        csvData[index].verified_by = '';
+        csvData[index].verified_date = '';
+      }
+    }
+
+    function updateNotes(index, value) {
+      csvData[index].verifier_notes = value;
+    }
+
+    function escapeCSV(val) {
+      if (val === null || val === undefined) return '';
+      val = String(val);
+      if (val.includes(',') || val.includes('"') || val.includes('\n')) {
+        return '"' + val.replace(/"/g, '""') + '"';
+      }
+      return val;
+    }
+
+    function exportCSV() {
+      let csvContent = headers.map(escapeCSV).join(',') + '\n';
+
+      const sortedData = [...csvData].sort((a,b) => {
+          return a.id.localeCompare(b.id, undefined, {numeric: true});
+      });
+
+      sortedData.forEach(row => {
+        csvContent += headers.map(h => escapeCSV(row[h])).join(',') + '\n';
+      });
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", "bass2_draft.csv");
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    window.onload = loadData;
+  </script>
+</body>
+</html>

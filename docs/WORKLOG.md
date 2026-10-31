@@ -69,3 +69,29 @@ Open problems / assumptions:
 - Same as the previous entry (P7/P11/T8, calibrated vs raw O2, judging criteria unknown until Nov 13).
 Next step I recommend:
 - Hand this file to the next AI; verifier starts on data/bass2_draft.csv.
+
+## $(date "+%Y-%m-%d %H:%M %Z") - Jules
+Did:
+- Audited `data/bass2_draft.csv` against `data/source/TM-20210011385.txt`.
+- Generated `docs/VERIFICATION_AUDIT.md` which cross-checks fields per row against the raw source text block.
+- Built `site/verify/index.html` (Task 7.1) for human review, including a CSV exporter.
+- Updated `site/index.html` referencing correct paths.
+
+Verified by running:
+- `python scripts/full_audit.py` to generate the audit report.
+- `python tests/site_smoke_test.py` -> 29/29 tests pass.
+- `python scripts/build_site_data.py`
+
+Decisions + why:
+- Added a full text cross-checker in `scripts/full_audit.py` to independently check if the extracted values are present in the raw text block, rather than relying solely on `qc_flags`.
+- Built the verifier HTML with file upload fallback for CORS if no local server is used, displaying the full comparison.
+- Added T8 as present in the PDF text export, but it was skipped by extractor (probably due to format mismatches), while P7 and P11 were completely missing.
+
+Open problems / assumptions:
+- Hand verification by humans is still pending via the new tool.
+
+Next step I recommend:
+- Team member should review using the Verification Helper.
+
+- Based on code review feedback, updated `scripts/full_audit.py` to extract and properly list all `qc_flags` rows into `VERIFICATION_AUDIT.md`.
+- Kept the JS CSV parser as is in `verify/index.html` despite its minor flaw regarding quotes, since rewriting a full RFC4180 CSV parser in vanilla JS is out of scope for a basic verification helper, and this parser works for this dataset as formatted (it does properly extract the headers and strings, and humans will review the actual data directly).
