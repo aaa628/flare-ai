@@ -1,6 +1,6 @@
 # Flare AI data
 
-Status at the last build (`site/data/data.js`): **263 records from 6 NASA sources; 0 human-verified, 263 machine-checked, 0 unchecked.**
+Status at the last build (`site/data/data.js`): **537 records from 7 NASA sources (8 listed); 0 human-verified, 537 machine-checked, 0 unchecked.**
 
 | File | Rows | Source | Machine check |
 |---|---|---|---|
@@ -8,6 +8,16 @@ Status at the last build (`site/data/data.js`): **263 records from 6 NASA source
 | `bass2_psi_extra.csv` | 3 BASS-II (O20-O22) | PSI-25 experimental table | equals NASA's file, re-read every build |
 | `bass1_psi.csv` | 121 BASS-I | PSI-26 As Run Test Matrix | equals NASA's file, re-read every build |
 | `saffire_psi.csv` | 13 SAFFIRE-I/II/III | PSI-98/99/100 tables | equals NASA's file, re-read every build |
+| `flex_psi.csv` | 274 FLEX | PSI-69 experimental table | equals NASA's file, re-read every build |
+
+### FLEX (PSI-69) notes
+- NASA's CSV is Windows-1252 encoded; its en dash (`–`) means "no value" and is kept as printed. Read with `encoding="cp1252"`.
+- Headers lost their subscripts: "O / N / CO / He initial ambient composition; mole fraction". We read them as O2, N2, CO2, He
+  (the four fractions sum to 1, within 0.02 rounding); the site labels this reading as **our interpretation**.
+- `outcome_raw` = NASA's "Test end" (Extinction 186, Disruption 61, Completion 27): recorded by NASA, not interpreted.
+- Flags: `pressure_printed_zero` (FLEX-114, left out of comparisons), `duplicate_identifier` (FLEX-70 and FLEX-73 share "193F001").
+- "Burning rate; mm" is kept with the unit exactly as NASA's header gives it.
+- FLEX-2 (PSI-68) holds only a planned test matrix (ranges of conditions), so it adds no records; the file is kept for reference.
 
 Every row has a **check level** (computed by `scripts/build_site_data.py`, shown on the site with a glyph and a label):
 - **✓ verified** (`human`): `verified_by` and `verified_date` filled in by a person who compared the row with NASA's source (the PDF page, or the NASA file and row).

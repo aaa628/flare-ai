@@ -4802,6 +4802,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.221",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Nice symmetric burn, some soot at 10 cm/s, Steady spreading, flame seems to reach a steady length. Decreasing flow shrinks flame and changes to mostly blue, but still spreading. Gets very dim near end of sample as it shrinks and extinguishes at burnout. Don noted the fiberglass matrix was still intact after the burn.",
    "verified_by": "",
    "verified_date": "",
@@ -4884,6 +4886,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.221",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Don noted significant vapor jetting. Flame not very long , but very sooty. Don set up a 2nd still camera taking pictures 1/s at F7, Aperture priority, spot metering on center of sphere in brackets of 3. Don noted equatorial division between 'charred' front like coating on meterorites, and matt black sooty rear hemispheres. Broke igniter. 2 minute burn.",
    "verified_by": "",
    "verified_date": "",
@@ -4966,6 +4970,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.221",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Very bright sooty ball. Lots of vapor jetting. N2 on at 1 minute. Blew off stagnation region but N2 did not extinguish wake, even with air flow off. Don turned off air, then N2 after some seconds. Wake flame sooty and wind-blown. Only extinguishes when all flow stops. N2 is entraining air to flame zone. Don noted that there was no soot on the sphere, just the 'char layer'. ~ 2 minute total burn.",
    "verified_by": "",
    "verified_date": "",
@@ -5048,6 +5054,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.219",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.9",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "~ 40 s burn, Don asked if images were too saturated, Paul said OK. Don set up 2nd still camera for additional images.",
    "verified_by": "",
    "verified_date": "",
@@ -5130,6 +5138,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.219",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.9",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "~ 60 s burn, Don said he like to watch solid samples burn in space and it makes him appreciate that he wouldn't want to be be there in a real fire - it wouldn't be pretty.",
    "verified_by": "",
    "verified_date": "",
@@ -5212,6 +5222,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "same sphere as previous. Did not remove soot. Don again has 2nd still camera set up. Picked -4 ev for next test based on a quick scroll of these images.",
    "verified_by": "",
    "verified_date": "",
@@ -5290,6 +5302,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Filter on test. Don didn't reset the camera trigger, so only got 100 frames.",
    "verified_by": "",
    "verified_date": "",
@@ -5368,6 +5382,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "No filter on this test. Don didn't reset the camera trigger, so only got 100 frames. Very low flows possible (AIR reading 0) at FAN 42. Apparent at end with N2 extinguishment. Flame doesn't go out until fan goes to 38.",
    "verified_by": "",
    "verified_date": "",
@@ -5446,6 +5462,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2189 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "sample 18 and 19 mix up on names. Logging actual sample barcode used here. Grew from blue flame to sooty envelope flame. To extinguish, turned flow off, and flame turned to blue sphere expanding upwind with a few soot particles.",
    "verified_by": "",
    "verified_date": "",
@@ -5528,6 +5546,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2189 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Still a sooty flame even at 1 cm/s. Turned blue and extinguished when fan off, lots of vapor jetting during extinguishment. Lots of fuel vapor flushed out of duct when extinguished.",
    "verified_by": "",
    "verified_date": "",
@@ -5610,6 +5630,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2189 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Burning laminar but sooty at 42, turned down very slowly to 41 and flame started to turn blue and vapor jet. Turned fan to max, and flame did not blow off stagnation region. Burning rate incredibly fast. Turned off flow right when fuel completely ran out. Don examined igniter and there is one thin spot, so may not last much longer.",
    "verified_by": "",
    "verified_date": "",
@@ -5692,6 +5714,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2163 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.63",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Originally identified sample as 7, but 7 was last one left on GMT 222. Don commented on blue outer zone noted with yellow inside. Don asked about a flash right after ignition. He checked igniter and it was still intact. Burned sample on video at 14:59. Long flame, probably not a steady size. No recirculation zone formed downstream of sample. 26 s burn.",
    "verified_by": "",
    "verified_date": "",
@@ -5774,6 +5798,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2163 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.63",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Huge ignition kernel, then rest of video very dim. 1 cm wide sample. Don noted a flash on the top side late in test.",
    "verified_by": "",
    "verified_date": "",
@@ -5856,6 +5882,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2163 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.63",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Ignited and burned for only 2 s. Died when igniter turned off. Repeated re-ignition attempts failed. Don didn't want it to burn since their flight suits are made of this stuff. He felt like he should have left the igniter on longer. Fan cal and GN2 cal at ~16:00",
    "verified_by": "",
    "verified_date": "",
@@ -5938,6 +5966,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "No Don camera. Wake flame very dim on video, all blue, spread very slowly upwind. Ignited GBX time 16:14:44, N2 on at 16:17:18, did not extinguish, increased to pot 10, at 16:18:37, N2 off at 16:19:19. Accidentaly turned fan up briefly instead of N2. Fan turned to 40 at 16:19:22, flame and flame went out at 16:19:34. All times GBX.",
    "verified_by": "",
    "verified_date": "",
@@ -6020,6 +6050,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "difficult to ignite,very dim blue, got some soot at 16:33:51 gbx time, N2 on at 34:18, soot faded a bit, still have a pimple of soot, N2 off at 34:48, fan 42:35:04, all blue flame again, like blue crescent moon. Fan off at 35:30 ish. Flame extinuishes right away. Don noted no soot deposition on the sphere. Just has bubbles.",
    "verified_by": "",
    "verified_date": "",
@@ -6102,6 +6134,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Adjusted igniter closer. LOS after fan change, 17:36 fan to 43. (MSG time). Came back at 17:39:40 or so. Don described it as flame was taking off growing around sphere, LE blue, trailing soot. Illuminating circumference of sphere. Vapor jetting just starting to do that when turned off fan, and it extinguished right away. MSG playback started at 17:37 during session (1:27 into downlink video).",
    "verified_by": "",
    "verified_date": "",
@@ -6184,6 +6218,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "readjusted igniter again. Fan 41 at 17:54:20 ish. Very dim blue flame. When he turned flow down to 40.5ish flame extinguished.",
    "verified_by": "",
    "verified_date": "",
@@ -6266,6 +6302,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.217",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.7",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "bonus test. LOS partway through burn. Don instructed to let it burn about 2 minutes then turn fan off. Did not get playback during session. Requested it. Fan cal done at end of session. Playback occurred GMT 181:11:12. Started out all blue, got a pimple of soot. Long sooty tail at high flow. Extinguished when flow turned off.",
    "verified_by": "",
    "verified_date": "",
@@ -6348,6 +6386,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2117 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "new 1 cm sphere. Got sooty quickly, overexposed still images on main SLR camera. Don has 2nd bonus camera set up too., Burned about 3 min. Turbulent vapor jetting, quite sooty. Change camera settings for next test.",
    "verified_by": "",
    "verified_date": "",
@@ -6430,6 +6470,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2117 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited within 15 s (still hot?), sooting by 35 s, fully engulfed by ~ 1 min. Extinguished when pot ~ 39. Camera settings much better.",
    "verified_by": "",
    "verified_date": "",
@@ -6512,6 +6554,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2117 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Don says sphere is ~ 0.7 cm. Igniter has hot spot. Bar code 015M. Nice images. All blue sphere just before extinction.",
    "verified_by": "",
    "verified_date": "",
@@ -6594,6 +6638,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2117 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Igniter too far away 2st attempt 15:48. Igniter broke on 2nd attempt 15:51. New igiter. Ignited at 16:05 turned flow down to ~40.5 ish, and flame got very spherical, alternating blue and orange?(filter on)",
    "verified_by": "",
    "verified_date": "",
@@ -6676,6 +6722,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2117 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "preheated by briefly heating igniter wire then hitting it full, did not ignite but smoked . He said it popped up about 1 mm due to residueal spring tension. Will readjust it again.",
    "verified_by": "",
    "verified_date": "",
@@ -6754,6 +6802,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2117 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "12 pulses and then on, no joy. Not even much smoke.",
    "verified_by": "",
    "verified_date": "",
@@ -6832,6 +6882,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "sphere closer to nozzle. New igniter. 1st ign, flame died when turned down to 41, flickering to 40. 2nd ignition flame stabilized at 42 then 41. grew to stokes flow envelope flame, N2 blew out stag region but flame remained side stabilized, long burn , extinguished when flow is turned off. Mostly blue, strenthening near end. Still images have stag region out of fov, and only part of sample was burning? Don commented on unusual soot pattern - waje still pristine, stagnation zone has discrete large opaque bubbles.",
    "verified_by": "",
    "verified_date": "",
@@ -6910,6 +6962,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "moved sphere 1 cm downstream, readjusted igniter. Repeat of previous test. (Flame from GMT 15:05:30 to 15:10:50) Don adjusted sphere by sliding 1 cm downstream so the camera could capture the entire flame. Ignition at 9 cm/s (FAN 60), reduced FAN indication to 42, then slowly to 41. Turned nitrogen on full; flame opened up and became side stabilized. Turned nitrogen off to allow flame to spread back to stagnation point. Then slowly turned off flow. Flame had only minimal amounts of soot, coinciding with bubble jetting.",
    "verified_by": "",
    "verified_date": "",
@@ -6988,6 +7042,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Flame from GMT 15:30:00 to 15:33:00) Ignition at 9 cm/s (FAN 60) then set FAN to 42, then slowly to 41. After several minutes, shut flow off. Fan was nice and blue and fairly stable. Unfortunately, Don did not trigger the 35mm camera properly so there were no top images. But he did say he got images with his side view camera.",
    "verified_by": "",
    "verified_date": "",
@@ -7070,6 +7126,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "(Flame from GMT 15:44:30 to 15:47:10) Ignition at 9 cm/s (FAN 60) then set FAN to 42, then slowly to 41. After several minutes, shut flow off. Flame became very dim blue before extinguishing. Don’s observation: “There was a swelling action with the PMMA in which the fuel vapor coming from the sphere makes the flame swell.”",
    "verified_by": "",
    "verified_date": "",
@@ -7152,6 +7210,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2089 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "20.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Joe 1st day, ignited at 9.75 cm/s, flame mostly envelope by end of ignition, turned flow slowly to 42, so lots of vapor jetting and soot. At fan off, flame turns blue, and oscilates before extinction.",
    "verified_by": "",
    "verified_date": "",
@@ -7234,6 +7294,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2089 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "20.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited at 10 cm/s, fan to 42, less vapor jetting noted, bullet shaped flame, sooty. Fan to 41, similar, slightly smaller flame. Fan off flame all blue and pulses a few times before extinguished. Jay saw cloud go by when he turned on fan at GMT 17:12 ish.",
    "verified_by": "",
    "verified_date": "",
@@ -7316,6 +7378,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2089 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "20.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "adjusted igniter, start at 60, ignite, fan to 42, N2 on max, did not blow out even leading edge, N2 and air off, turned all blue, he turned lights on before flame completely out. 42 digital images, last one shows blue spherical flame with finger of soot through it. Oly about 1 mm x 3 mm left around rod.",
    "verified_by": "",
    "verified_date": "",
@@ -7394,6 +7458,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2089 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "20.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "adjusted igniter, ignited at 43, he started to turn fan down when fuel ran out and flame extinguished.",
    "verified_by": "",
    "verified_date": "",
@@ -7476,6 +7542,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2175 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.75",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Joe, multiops procedures. Nice over the shoulder view. Ignited quickly, all blue, spread slowly upstream. Got sooty at 3.5 minutes, burned for ~ 4.75 min. Not wrapped all the way.",
    "verified_by": "",
    "verified_date": "",
@@ -7558,6 +7626,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2175 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.75",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "sooty at 1:15 , 4 minute burn, got long sooty tail, didn't quite wrap around to stag zone, nice symmetric flame, over the shoulder view shows nice image of flame through msg window.",
    "verified_by": "",
    "verified_date": "",
@@ -7640,6 +7710,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2175 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.75",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "started all blue, got sooty tail , wrapped all the way around to stagnation region/envelope flame at ~6 minutes, then flow off goes out. Nice long test. Could see it in over the shoulder view once it got sooty.",
    "verified_by": "",
    "verified_date": "",
@@ -7722,6 +7794,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2175 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.75",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Ignited and turned flow down, then N2 on while flame was small and blue. Flame did not go out completely, but only seemed to spread on the top side of the video view. It wrapped around quite far on top, but not quite to stag. Region. Turned N2 off and flame grew and got sottier. Extinguished with flow off at6.75 minutes or so. Joe asked about why N2 didn't put out flame.",
    "verified_by": "",
    "verified_date": "",
@@ -7800,6 +7874,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2198 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.98",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignite at 5 cm/s, reduce to 3, 1.5, 1. Extinguished at fan 41, became circular at extinction, sphere shrank to extinction. About 2.5 cm left, could use for an opposed flow test. Sample 9 used instead of sample 8. Playback of stills.",
    "verified_by": "",
    "verified_date": "",
@@ -7882,6 +7958,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2198 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.98",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited and left igniter on until flame spread away. Flame propagated to ~ 1 cm of end. Don showed image of it, spread only in center of sample, maybe 1 cm wide, and got narrower once igniter was off. Don says he saw smoke stream (laminar) from igniter diverts upward around flame and comes back down downstream. Showed image at GMT 16:41. Playback of stills.",
    "verified_by": "",
    "verified_date": "",
@@ -7964,6 +8042,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2198 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.98",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Ignition was very quick, and very sooty. Flame wrapped around stagnation zone, Lots of vapor jetting. Turned flow to 46, turned all blue and vapor jetting fades away. Flame seems to reach a ss size, and propagates very slowly downstream (base burnout). Flame extinguished all by itself. Top view image playback showed nearly spherical blue flame. SAmple has sooty streak downstream all along sample. Don examined sample, 2-3 mm of material completely consumed, Circular burnout base, and then depression (like fingernail scrape) about 12-13 mm downstream before full cross section of fuel.",
    "verified_by": "",
    "verified_date": "",
@@ -8046,6 +8126,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2198 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.98",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Igniter seems to have broken prior to ignition. No, 1 ohm resistance is still there. Don trying again. No go. A different igniter works, so igniter is broken. No useful digital stills.",
    "verified_by": "",
    "verified_date": "",
@@ -8120,6 +8202,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2189 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Ign at low flow (41.5 fan, ~ 1 cm/s). Quite spread by end of ignition, very dim blue. Became sooty and then vapor jetting very strongly, creating large dark particulate blobs that drift very slwoly downstream. Once fuel heated, vapor jetting was reduced. N2 on and flame brightened and stabilized, extinction when air flow off. Don played back videos and commented on vortex rings during vapor jetting at these low flows.",
    "verified_by": "",
    "verified_date": "",
@@ -8202,6 +8286,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2189 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "long ignition, fully engulfed by the end. Very slow flow, not much vapor jetting. Burned out completely.",
    "verified_by": "",
    "verified_date": "",
@@ -8284,6 +8370,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2189 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "just smoked slightly, no ignition.",
    "verified_by": "",
    "verified_date": "",
@@ -8366,6 +8454,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2189 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.89",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Using preburned sample in opposed flow config to see if flame will spread upstream. Ignited and spread a bit on top side only, seemed to quench 5 mm from the end. Curved flame leading edge. Don's last run. He had some nice words about the hands-on features of these combustion experiments.",
    "verified_by": "",
    "verified_date": "",
@@ -8448,6 +8538,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2222 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.22",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "opposed flow flame test, steady spread at 9 cm/s! started turning down flow late, but didn't complete change before burned out whole sample. This doesn't burn in 1g like this.",
    "verified_by": "",
    "verified_date": "",
@@ -8530,6 +8622,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2222 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.22",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "1st candle test! Bracketing, very sooty flame, 18 brackets. Flame extinguished when fan set to 40. All blue briefly before that.",
    "verified_by": "",
    "verified_date": "",
@@ -8612,6 +8706,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2222 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.22",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "BG-7 filter on camera for bracketing set. Smaller flame, no problem re-igniting. Out at 40 again. 1 shy of 13 brackets",
    "verified_by": "",
    "verified_date": "",
@@ -8694,6 +8790,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2222 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.22",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "same candle, no filter, changed iso. Burned to completion. Frayed wick glowing in flame zone (fuel drying out)",
    "verified_by": "",
    "verified_date": "",
@@ -8776,6 +8874,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2222 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.22",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "re-ignite slightly downstream where black and transparent meet. Tiny blue flame. Self-extinguished.",
    "verified_by": "",
    "verified_date": "",
@@ -8858,6 +8958,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2238 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.38",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "igniter 15-1 broke during setup, put in 15-5. Tried igniting at least 5 x, got a brief flame a few times, but went out. He is moving sample upstream to get igniter over more fuel. Igniter is broken again. Moving on to next sample. Interesting note: radiometer spikes each time he turns on the igniter, even when it is broken. Ground loop?",
    "verified_by": "",
    "verified_date": "",
@@ -8940,6 +9042,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2238 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.38",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited on 3rd try, started getting sooty, then turned on N2. weakened briefly then got sooty again. Slowly turned up GN2 to max, and flame got weak and all blue, flashed a bit and got smaller. Then it strengthened again and got sooty. Turned off GN2 and flame strengthened, then turned off air flow and flame went out.",
    "verified_by": "",
    "verified_date": "",
@@ -9022,6 +9126,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2238 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.38",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited after a few tries, turned N2 on 5.0 pot, flame still very sooty but only on top half of sphere in video, fan to 42, still sooty but dimmer, fan 41, similar. Leading edge all the way to the post, N2 Off, soot moves upstream, air off, flame out, 6 minute burn!",
    "verified_by": "",
    "verified_date": "",
@@ -9100,6 +9206,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2238 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.38",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited at 62, fan up to 87 then 100, got long sooty tail, comet. Envelope flame, very bright and sooty, then fan to 42, blue LE and sooty tail. Fan 41, slightly dimmer but still sooty tail. Joe turned pot to 0.32 (read after) to get minimum flame (very dim blue LE only), GN2 on max did not blow it out right away, but did eventually extinguish it. LE blew off and ring flame stabilized for a number of s. Card full on still camera. Didn't seem to get the GN2 on the digital stills. Leaving igniter in msg. Still fuel left.",
    "verified_by": "",
    "verified_date": "",
@@ -9182,6 +9290,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2272 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.72",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "N2 repress going on during this ops ~ 3 mm Hg. Joe helping out. Did not blow out. Fan increased a bit slowly, so only got to max flow near end.",
    "verified_by": "",
    "verified_date": "",
@@ -9264,6 +9374,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2267 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.67",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Did not blow out. Got smaller at max flow, still images show one half of flame (maybe both sides) went out.",
    "verified_by": "",
    "verified_date": "",
@@ -9346,6 +9458,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2253 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.53",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "leave igniter on entire test to provide additional heat to flame. Did not ignite. Not even any smoke. Flow too high?",
    "verified_by": "",
    "verified_date": "",
@@ -9424,6 +9538,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2253 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.53",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "brief ignition and extinguished in ~ 3 s. No spread.",
    "verified_by": "",
    "verified_date": "",
@@ -9506,6 +9622,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2253 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.53",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "brief ignition and extinguished after 4 seconds. No spread.",
    "verified_by": "",
    "verified_date": "",
@@ -9588,6 +9706,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2251 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.51",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "igniter broke before ignition. No stills taken.",
    "verified_by": "",
    "verified_date": "",
@@ -9670,6 +9790,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2258 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.58",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "igniter 2-6 unstowed as broken, so no more std size igniters. 1 ea of short and long left. Ignition was prolonged, and so flame was strong when flow turned up. Did not blow out either at high flow or with GN2 although stagnation region blew out.",
    "verified_by": "",
    "verified_date": "",
@@ -9748,6 +9870,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2258 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.58",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "try blowing out the flame with GN2. blew out bottom half, but not top half. Could see where the leading edge gradually blew out with incre GN2",
    "verified_by": "",
    "verified_date": "",
@@ -9826,6 +9950,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2258 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.58",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "flame did blow out with GN2 at about a pot 6.",
    "verified_by": "",
    "verified_date": "",
@@ -9904,6 +10030,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2258 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.58",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "1,2,3,3.5,5, 6, 10 pot on GN2. Stag blew out at 3.5, flame strong enough did not blow out at 10.",
    "verified_by": "",
    "verified_date": "",
@@ -9982,6 +10110,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2258 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "22.58",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Igniter is broken! Igniter inventory done. 2 good ones left. No images taken",
    "verified_by": "",
    "verified_date": "",
@@ -10052,6 +10182,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2152 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.52",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "nice burn, left igniter on a bit long and then on again. Camera set to GMT, not MSG. Appeared to reach a ss size ~ 3 cm long.",
    "verified_by": "",
    "verified_date": "",
@@ -10134,6 +10266,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2158 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.58",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "sample 7 apparently not used. (Don supposedly used on 5/10), flame kept going. At lowest flows shrank but kept going to end of sample. Became oval away from edges at lowest flows.",
    "verified_by": "",
    "verified_date": "",
@@ -10216,6 +10350,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2158 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.58",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "spice igniter, sample 22, trying to see if it works. Worked like a charm! Slightly non-symmetric ignition point. Ss velocity for Makoto's model.",
    "verified_by": "",
    "verified_date": "",
@@ -10298,6 +10434,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Over the shoulder view. iso auto control on, max sensitivity 3200 iso, min shutter 1/4s, shutter hold 5 s. new igniter, have to bend it into shape. Did not ignite first 2 attempts. Haze on window? wax deposits? LOS wider coils on igniter, windows clean, ignited and was all blue initially, then got soot spot, decreased flow but soot persisted until 0.32 pot when soot disappeared then flame went out.",
    "verified_by": "",
    "verified_date": "",
@@ -10380,6 +10518,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "realigned crooked candle, cleaned windows, spread out coil loops. Ignited very quickly on 2nd try, and was sooty immediately. Decreased flow gradually, took 11 brackets. Got very low flows.",
    "verified_by": "",
    "verified_date": "",
@@ -10462,6 +10602,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "same candle, 3rd test, trying for longer time at low flow. Burned out all wax, only 2 brackets. Flame got smaller quickly flow rates due to lack of wax.",
    "verified_by": "",
    "verified_date": "",
@@ -10544,6 +10686,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "P mode is auto-everything. Very long burn (~ 10 min), waited at every flow condition, steady radiometer at 0.32 pot ~ 2.2 (lowest for flame). Consistenly goes out at pot 0.31",
    "verified_by": "",
    "verified_date": "",
@@ -10626,6 +10770,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "A mode. Trying to heat and then step to low flow immediately. But running out of wax. Extinguished/burned out at 0.31",
    "verified_by": "",
    "verified_date": "",
@@ -10708,6 +10854,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Last one with over the shoulder view on this session. Got hot then stepped to 0 flow, went out.",
    "verified_by": "",
    "verified_date": "",
@@ -10790,6 +10938,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Turned on N2 at each flow setting starting at 0.35, not at 0.31. At 0.31, flame persisted for a long time, went out when fan off (38). All blue and dim. 2 frames shy of 13 brackets/",
    "verified_by": "",
    "verified_date": "",
@@ -10872,6 +11022,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2124 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "higher flow test, but ran out of fuel too quickly.",
    "verified_by": "",
    "verified_date": "",
@@ -10954,6 +11106,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2193 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.93",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited well and had initial sooty flame wrapped around leading edge of sample. Reduced flow to 7 cm/s and flame turned all blue -Emmons shape. Reached a steady size and spread downstream very slowly, all blue flame. Top stills look like about 1 cm long flame with curved base and slightly curved tail, mostly oval. All blue with intermittent yellow streaks. Very stable. Spread maybe 1 cm?",
    "verified_by": "",
    "verified_date": "",
@@ -11036,6 +11190,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2193 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.93",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "igniter didn't work, must have burned out. Replaced with long igniter. Ignited and got immediate dim blue flame. Let it burn for 8 minutes, got 294 images all blue lopsided oval, longer than previous run. Spread maybe 1 cm",
    "verified_by": "",
    "verified_date": "",
@@ -11118,6 +11274,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2193 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.93",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "first wax slab test. Ignited nicely. Very sooty flame wrapped around leading edge. Turned flow down to 3 cm/s. Flame sooty for a while, then as it burned out leading edge it got dimmer, shorter and eventully all blue. Shrank slowly and extinguished by itself.",
    "verified_by": "",
    "verified_date": "",
@@ -11200,6 +11358,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2193 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.93",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "tried igniting at 6 cm/s. Flame went out when igniter was retracted, with a puff of smoke. Tried a 2nd time, same effect. 3rd try igniter broke/failed. Sample showed blackened spot around mid-sample in over the shoulder view at 15:15 GMT. Stowed igniters in bag. Last run until January when we get new igniters up.",
    "verified_by": "",
    "verified_date": "",
@@ -11278,6 +11438,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1707",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.07",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "1st vititation test with CSA-CP. N2 on at 495 from 12:34:15 with fan 122 =31 cm/s, N2 off at msg 14:28:20.. Calc 17.07% O2 , nice ignition, blue leading edge, some soot later in tail. All still frames black because lens cap still on.",
    "verified_by": "",
    "verified_date": "",
@@ -11356,6 +11518,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1707",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.07",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "same atmosphere. Re-igntion after removing lens cap. Good burn, sooty tail. Extinguished at very low flow. Pictures look sooty, 166 images.",
    "verified_by": "",
    "verified_date": "",
@@ -11438,6 +11602,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.211",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "wake ign, 3/3 initial frames before bracket. Still camera only took initial and final set of pics, he didn't repress camera at call, he unlocked it 'reset'. Igniter failed after this test.",
    "verified_by": "",
    "verified_date": "",
@@ -11520,6 +11686,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.211",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "wake ign, dim flame propagates upstream, some soot late in burn, slightly non-symmetric with top spreading faster than bottom",
    "verified_by": "",
    "verified_date": "",
@@ -11602,6 +11770,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.211",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "wake ign, fan pot to 0.5 (42), started getting soot before we put it out (air off) 125 frames this test",
    "verified_by": "",
    "verified_date": "",
@@ -11684,6 +11854,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.211",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "wake ign too far away, needed to go in and readjust igniter, ignition started again at 10:50 gmt. Flame spread all the way upstream. Went out at 0.32 pot, got spherical and flashed out.",
    "verified_by": "",
    "verified_date": "",
@@ -11766,6 +11938,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.211",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "increased flow to 20 cm/s, got a very sooty tail. After turning flow back to 8 cm/s, soot tail remained. Even down to 1 cm/s flame had sooty tail. Sphere down to about 1 cm, smooth after this last burn.",
    "verified_by": "",
    "verified_date": "",
@@ -11848,6 +12022,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2111 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.11",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "sample is actually down to about 1 cm, GN2 pot actually set to 8, reading 397, flow start 12:41 flow stop 14:44:30, final O2 is 17.3%. Had Chris anneal the igniter before ignition. We lost video during ignition for a minute or two. Chris didn't press shutter until Paul told him we lost video. So images start late. Will need to schedule playback of this test. Flame went out when fan set to 39. Playback attempted 15:47 but it was streaky.",
    "verified_by": "",
    "verified_date": "",
@@ -11926,6 +12102,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2111 (rounded)",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.11",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "new candle, started GN2 at 15:26 00 gmt 15:31:10 msg stopped gmt 17:20:20, O2 16.8%. Bracketing images 7 s hold. Filled up card with bracket images. Chris noted the flame was not moving at all, unlike the 'contamination' of the acrylic shape. At 42 (pot 0.5) was all blue initially, but had soot after a bit. At 41 (pot 0.4), flame was steady all blue.",
    "verified_by": "",
    "verified_date": "",
@@ -12004,6 +12182,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2113",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.13",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "changed out card for unknown card, 1 handed with glove on! Hopefully it wasn't #6! We still don't have that data. Got sooty pretty quickly, turned up accidentally to 43 pot, tnen down to 41. went out on its own at 18:04:30 ish. He described it as being the side of a pencil eraser, with the back end open.",
    "verified_by": "",
    "verified_date": "",
@@ -12082,6 +12262,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.173",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.3",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "new sphere, issue with numbers, sample 20 is a stump, completely gone. LOS for setup/GN2 start Gn2 on 10:44 pff 12:26 , vitiation to 17.3 % o2. Lots of vapor jetting at low flow. At 0.33 pot flame got all blue just around stagnation region. Last pic still had a flame~3:15 burn",
    "verified_by": "",
    "verified_date": "",
@@ -12156,6 +12338,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.171",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Gn2 start, max, at msg 13:07:40, off 14:54:55, O2 17.1% O2. Igniter broke, he replaced it 1 handed! Igniton at 62 then turned down to 41.5 then 41 (0.35 pot), stable at 0.35 pot. Out when fan off.",
    "verified_by": "",
    "verified_date": "",
@@ -12230,6 +12414,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.171",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Igniter too far away readjusted 1 handed. Over the shoulder view, out of focus a bit. Burned out sample. Held up sample to camera view, just crunchy bits on the end.",
    "verified_by": "",
    "verified_date": "",
@@ -12304,6 +12490,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.159",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "15.9",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "LONG candle burn at very low flow rates. Sooty at 2 cm/s and then at 1 cm/s. All blue at fan41. Candle out at flow change.",
    "verified_by": "",
    "verified_date": "",
@@ -12370,6 +12558,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1753",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.53",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Ign took 3 min. Only spread top half of video initially. Wrapped some later. All blue. Extinguished on last flow change pot 0.35-0.32, shrank to leading edge",
    "verified_by": "",
    "verified_date": "",
@@ -12436,6 +12626,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1753",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.53",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Ign took 2 min, flame on top half. Used GN2 to try and blow out at low flow. No joy even at max GN2. Extinguished when flow off.",
    "verified_by": "",
    "verified_date": "",
@@ -12506,6 +12698,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.205",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "20.5",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "Ign in 1 min. Symmetric growth. Gets sooty, even when flow reduced to 41. Gets all blue at 18:38, out at 18:40 at finite extremely low flow.",
    "verified_by": "",
    "verified_date": "",
@@ -12572,6 +12766,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1667",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "16.67",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "repeated ignition attempts, no luck at 52, brief flame at 62 but also 'flamed out'. Chris says 1/3 of sphere is gone from wake region. Need to readjust igniter wire.",
    "verified_by": "",
    "verified_date": "",
@@ -12638,6 +12834,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1667",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "16.67",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "took about 3 min to ignite, repeated attempts. Got blue flame that was 1/2 way or mor around top. Turned fan down in increments:12:10:20 0.6 (43); 11:15 0.5 (42); 11:50 0.35 (41) and 12:35 0.32 (41) flame self-extinguished.",
    "verified_by": "",
    "verified_date": "",
@@ -12700,6 +12898,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.178",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.8",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "flame lit on 2nd try, quickly turned sooty, spread around small remaining sphere. All blue at lower flows, burned out fuel. Very nice over the shoulder zoomed in view of flame. Better than expt video!",
    "verified_by": "",
    "verified_date": "",
@@ -12774,6 +12974,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.21",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "repeated ignition attempts, no luck keeping the flame sustained. After igniter retract, the blue flame leading edge shrinks back, the tail shrinks, the flame becomes parallel to the fuel surface, and then winks out. Apparently not flammable in opposed flow for the same concurrent flow. Heat losses are different though, due to the metal holder around the back end of sample but not on front edge.",
    "verified_by": "",
    "verified_date": "",
@@ -12852,6 +13054,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.21",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "moved igniter upstream of 'crater' we created on last test. Got a flame briefly, but did not sustain for any spread, shrank and winked out after maybe 15 s or so. Broke the igniter trying to re-ignite.",
    "verified_by": "",
    "verified_date": "",
@@ -12930,6 +13134,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1734",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.34",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "broke 2 igniters on this trying to get it to ignite. 3rd one was suspect, and didn't work. 2nd vitiation, got it ignited, burned just on forward stagnation region, minimal spread. Went out at finite flow. Post burn shape was crater and protrusion on lower half.",
    "verified_by": "",
    "verified_date": "",
@@ -13008,6 +13214,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1734",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.34",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "started igniting the protrusion and then went LOS for a minute. Came back and sample bump is gone, pot down to flow of 2 cm/s, radiometer increased so still growing flame. Pot to 0.4 and flame still growing fan 41.5, pot 0.33 radiometer drops to 0.7, fan 41, down to 0.3 but camera ran out and we shut off flow to put flame out. Sample shape much more spherical.",
    "verified_by": "",
    "verified_date": "",
@@ -13090,6 +13298,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1605",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "16.05",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "ignited 'concurrent' or stagnation.17:45 - 0.5; 18:30-0.4; 19:20-0.35; 20:20-0.33; 21:30-0.32; out 14:22:50",
    "verified_by": "",
    "verified_date": "",
@@ -13164,6 +13374,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1605",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "16.05",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "no ignition, despite prolonged attempted ignition. No pictures were taken. Candle out of wax?",
    "verified_by": "",
    "verified_date": "",
@@ -13242,6 +13454,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.163",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "16.3",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "nice blue flame with inner soot until low flows. At extinction, the stag zone opened up before the flame goes out (out of wax).",
    "verified_by": "",
    "verified_date": "",
@@ -13324,6 +13538,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.163",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "16.3",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "new sample. Blue flame wrapped around leading edge, didn't propagate at all. Went out on its own at a flow of 0.4 after 75 seconds",
    "verified_by": "",
    "verified_date": "",
@@ -13398,6 +13614,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.172",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.2",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "new sphere, took 4 min to ignite with repeated tries and brief flames . All blue to start, grew to wrap past 90 degrees . Short burn about 2 minutes.",
    "verified_by": "",
    "verified_date": "",
@@ -13468,6 +13686,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.172",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.2",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "broke igniter just before it was going to stay lit. New igniter trying again. Repeat of test 50. takes 4 min to ignite sphere at this O2. blue flame. Post-burn sample had large amounts of soot on it that had to be wiped off.",
    "verified_by": "",
    "verified_date": "",
@@ -13538,6 +13758,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.171",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.1",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "broke igniter. All blue with intermittent soot balls streaking back. Might be able to get flow measurements from those. Lab view zoomed in on flame also.",
    "verified_by": "",
    "verified_date": "",
@@ -13608,6 +13830,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1713",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.13",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "broke 2 igniters. No ignition on this test. No stills. Record for the day - broke 4 igniters!",
    "verified_by": "",
    "verified_date": "",
@@ -13678,6 +13902,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1717",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "new igniter, anneal it. 3 min to ignite, turned flow to 7 cm/s, let it wrap around sphere, then reduced flow to < 1 cm/s. All blue flame. Nice video from the over the shoulder view. Sphere is very flat on front,w ith blackened bubble layer extending past 90 degreees on the sphere. Back ~40% of sphere still fairly pristine.",
    "verified_by": "",
    "verified_date": "",
@@ -13748,6 +13974,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1717",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.17",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "nice over the shoulder view, very hard to see dim flame in expt video. Ignition in 1.5 min.",
    "verified_by": "",
    "verified_date": "",
@@ -13810,6 +14038,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1724",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "stills during ignition.flame ignited over lower part of sphere, wrapped around and then decreased flow to near limit flow, flame shrank forward and oscillated slightly at pot 0.35, went out when pot turned down to 0.29.",
    "verified_by": "",
    "verified_date": "",
@@ -13876,6 +14106,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.1724",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.24",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "got dim flame with stills during ignition, then had Chris do incr and decr flow flame got very long soot tail at around 10 cm/s and dim blue spherical flame at really low flows. Flame went out at pot 0.27, with oscillations and a big flash at extinction.",
    "verified_by": "",
    "verified_date": "",
@@ -13942,6 +14174,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.174",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "17.4",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "igniter 20-11 wass reported broken when he was getting it ready. Tested 20-132 and it was fine. Sample ignited briefly - blue curving around leading edge, but went out. Couldn't get it ignited again at leading edge. Adjusted igniter dcownstream. No luck. No stills taken.",
    "verified_by": "",
    "verified_date": "",
@@ -14008,6 +14242,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "tried igniting in air at 10 cm/s. Not enough fuel in forward patch on sample. No flame. So readjusted igniter to downstream patch (~ 1/2 of sample). Igniter 20-13 broken, installing 20-12, uncoiled.",
    "verified_by": "",
    "verified_date": "",
@@ -14078,6 +14314,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "tried to ignite, no joy, just a puff of smoke each time.",
    "verified_by": "",
    "verified_date": "",
@@ -14148,6 +14386,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "stagnation ignition in air. Dynamic flow changes planned after igntion. Good ignition, good dynamics from dim blue to sooty tail. Bracketing was on - 2 brackets plus dark frames.",
    "verified_by": "",
    "verified_date": "",
@@ -14214,6 +14454,8 @@ window.FLARE_DATA = {
    "o2_raw": "0.2118",
    "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
    "o2_vol_pct": "21.18",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "same as previous, with continuous pictures. Dropped out los for test, got playback of expt video but lost over theshoulder view for most of test. Up to fan 73 down to 39. Limit pot setting about 0.28. 149 total pics -27-2extras for camera check.",
    "verified_by": "",
    "verified_date": "",
@@ -14280,6 +14522,8 @@ window.FLARE_DATA = {
    "o2_raw": "21.5 - 21.7",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14342,6 +14586,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 21.5",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14404,6 +14650,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 21.5",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14498,6 +14746,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 22.1",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14592,6 +14842,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 22.1",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14686,6 +14938,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 22.1",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14780,6 +15034,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 22.1",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14874,6 +15130,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 22.1",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -14968,6 +15226,8 @@ window.FLARE_DATA = {
    "o2_raw": "~ 22.1",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15062,6 +15322,8 @@ window.FLARE_DATA = {
    "o2_raw": "22.1 to 22.0",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15156,6 +15418,8 @@ window.FLARE_DATA = {
    "o2_raw": "22.0 to 21.9",
    "o2_note": "O2 as printed in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15250,6 +15514,8 @@ window.FLARE_DATA = {
    "o2_raw": "",
    "o2_note": "No O2 value in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15296,6 +15562,8 @@ window.FLARE_DATA = {
    "o2_raw": "",
    "o2_note": "No O2 value in NASA's table",
    "o2_vol_pct": "",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15342,6 +15610,8 @@ window.FLARE_DATA = {
    "o2_raw": "16.5",
    "o2_note": "Calibrated initial O2 (vol%) from NASA's PSI table; this test is not in the report's Appendix A",
    "o2_vol_pct": "16.5",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15424,6 +15694,8 @@ window.FLARE_DATA = {
    "o2_raw": "15.9",
    "o2_note": "Calibrated initial O2 (vol%) from NASA's PSI table; this test is not in the report's Appendix A",
    "o2_vol_pct": "15.9",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15506,6 +15778,8 @@ window.FLARE_DATA = {
    "o2_raw": "15.4",
    "o2_note": "Calibrated initial O2 (vol%) from NASA's PSI table; this test is not in the report's Appendix A",
    "o2_vol_pct": "15.4",
+   "outcome_raw": "",
+   "qc_flag": "",
    "observation": "",
    "verified_by": "",
    "verified_date": "",
@@ -15574,6 +15848,20518 @@ window.FLARE_DATA = {
    ],
    "pdf": false,
    "source_href": "sources/psi/PSI-25_experimental_table_BASS-II.csv"
+  },
+  {
+   "id": "FLEX-1",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "2",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 2; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "20CAL08"
+    ],
+    [
+     "Test Date",
+     "3/5/2009"
+    ],
+    [
+     "Test GMT",
+     "17:22:03"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "757.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.69"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.89"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "4.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-2",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "3",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 3; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "20CAL10"
+    ],
+    [
+     "Test Date",
+     "3/5/2009"
+    ],
+    [
+     "Test GMT",
+     "19:20:06"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.86"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.94"
+    ],
+    [
+     "Burning rate; mm",
+     "0.6"
+    ],
+    [
+     "Burn time; s",
+     "5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-3",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "4",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 4; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "20CAL12"
+    ],
+    [
+     "Test Date",
+     "3/5/2009"
+    ],
+    [
+     "Test GMT",
+     "21:17:46"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.61"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.92"
+    ],
+    [
+     "Burning rate; mm",
+     "0.58"
+    ],
+    [
+     "Burn time; s",
+     "3.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-4",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "5",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 5; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "30CAL02"
+    ],
+    [
+     "Test Date",
+     "3/31/2009"
+    ],
+    [
+     "Test GMT",
+     "17:16:18"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.06"
+    ],
+    [
+     "Burning rate; mm",
+     "0.6"
+    ],
+    [
+     "Burn time; s",
+     "7.64"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-5",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "6",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 6; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "30CAL03"
+    ],
+    [
+     "Test Date",
+     "3/31/2009"
+    ],
+    [
+     "Test GMT",
+     "19:00:48"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.92"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.81"
+    ],
+    [
+     "Burning rate; mm",
+     "0.48"
+    ],
+    [
+     "Burn time; s",
+     "6.34"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-6",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "7",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 7; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "40CAL01"
+    ],
+    [
+     "Test Date",
+     "3/31/2009"
+    ],
+    [
+     "Test GMT",
+     "20:05:49"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.54"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.53"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "9.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-7",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "8",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 8; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "20CAL13"
+    ],
+    [
+     "Test Date",
+     "4/10/2009"
+    ],
+    [
+     "Test GMT",
+     "13:26:11"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.87"
+    ],
+    [
+     "Burning rate; mm",
+     "0.67"
+    ],
+    [
+     "Burn time; s",
+     "5.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-8",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "9",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 9; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "30CAL06"
+    ],
+    [
+     "Test Date",
+     "4/10/2009"
+    ],
+    [
+     "Test GMT",
+     "18:07:15"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.95"
+    ],
+    [
+     "Burning rate; mm",
+     "0.79"
+    ],
+    [
+     "Burn time; s",
+     "14.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-9",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "10",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 10; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "30CAL07"
+    ],
+    [
+     "Test Date",
+     "4/10/2009"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-10",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "11",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 11; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "256F002"
+    ],
+    [
+     "Test Date",
+     "5/22/2009"
+    ],
+    [
+     "Test GMT",
+     "14:53:27"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "2319.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.86"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "13.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-11",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "12",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 12; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "256R001"
+    ],
+    [
+     "Test Date",
+     "5/22/2009"
+    ],
+    [
+     "Test GMT",
+     "15:33:47"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "2318.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.03"
+    ],
+    [
+     "Burning rate; mm",
+     "0.4"
+    ],
+    [
+     "Burn time; s",
+     "16.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-12",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "13",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 13; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "264F003"
+    ],
+    [
+     "Test Date",
+     "5/22/2009"
+    ],
+    [
+     "Test GMT",
+     "19:23:35"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "2319.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.74"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-13",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "14",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 14; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "256R002"
+    ],
+    [
+     "Test Date",
+     "6/25/2009"
+    ],
+    [
+     "Test GMT",
+     "15:33:05"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "2074.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.59"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "10.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-14",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "15",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 15; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "256F007"
+    ],
+    [
+     "Test Date",
+     "6/29/2009"
+    ],
+    [
+     "Test GMT",
+     "12:26:06"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "2055.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.7"
+    ],
+    [
+     "Burn time; s",
+     "11.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-15",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "16",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 16; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "256F008"
+    ],
+    [
+     "Test Date",
+     "6/29/2009"
+    ],
+    [
+     "Test GMT",
+     "13:56:06"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "2066.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.42"
+    ],
+    [
+     "Burn time; s",
+     "23.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-16",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "17",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 17; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "256F009"
+    ],
+    [
+     "Test Date",
+     "6/29/2009"
+    ],
+    [
+     "Test GMT",
+     "15:34:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "2072.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.66"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "3.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-17",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "18",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 18; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "240R003"
+    ],
+    [
+     "Test Date",
+     "7/1/2009"
+    ],
+    [
+     "Test GMT",
+     "12:28:41"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "1545.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.67"
+    ],
+    [
+     "Burn time; s",
+     "2.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-18",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "19",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 19; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "248F001"
+    ],
+    [
+     "Test Date",
+     "7/1/2009"
+    ],
+    [
+     "Test GMT",
+     "16:28:56"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "1553.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.09"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.74"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.77"
+    ],
+    [
+     "Burning rate; mm",
+     "0.61"
+    ],
+    [
+     "Burn time; s",
+     "8.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-19",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "20",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 20; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "196F001"
+    ],
+    [
+     "Test Date",
+     "8/26/2009"
+    ],
+    [
+     "Test GMT",
+     "19:07:28"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "539.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.9"
+    ],
+    [
+     "Burn time; s",
+     "4.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-20",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "21",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 21; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "192F001"
+    ],
+    [
+     "Test Date",
+     "10/24/09"
+    ],
+    [
+     "Test GMT",
+     "14:09:04"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "539.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.56"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "17.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-21",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "22",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 22; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "192F002"
+    ],
+    [
+     "Test Date",
+     "10/24/09"
+    ],
+    [
+     "Test GMT",
+     "15:15:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "540.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.49"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.95"
+    ],
+    [
+     "Burning rate; mm",
+     "0.66"
+    ],
+    [
+     "Burn time; s",
+     "17.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-22",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "23",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 23; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "192F003"
+    ],
+    [
+     "Test Date",
+     "10/24/09"
+    ],
+    [
+     "Test GMT",
+     "15:39:48"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "540.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.5"
+    ],
+    [
+     "Burning rate; mm",
+     "0.65"
+    ],
+    [
+     "Burn time; s",
+     "18.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-23",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "24",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 24; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "196F002"
+    ],
+    [
+     "Test Date",
+     "10/24/09"
+    ],
+    [
+     "Test GMT",
+     "18:29:53"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "541.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.01"
+    ],
+    [
+     "Burning rate; mm",
+     "0.73"
+    ],
+    [
+     "Burn time; s",
+     "13.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-24",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "25",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 25; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "196F003"
+    ],
+    [
+     "Test Date",
+     "10/24/09"
+    ],
+    [
+     "Test GMT",
+     "19:44:04"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "542.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "–"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-25",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "26",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 26; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "191R001"
+    ],
+    [
+     "Test Date",
+     "11/9/2009"
+    ],
+    [
+     "Test GMT",
+     "11:42:23"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.6"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.59"
+    ],
+    [
+     "Burning rate; mm",
+     "0.65"
+    ],
+    [
+     "Burn time; s",
+     "10.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-26",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "27",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 27; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "191F001"
+    ],
+    [
+     "Test Date",
+     "11/9/2009"
+    ],
+    [
+     "Test GMT",
+     "11:59:59"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "538.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.63"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.4"
+    ],
+    [
+     "Burning rate; mm",
+     "0.62"
+    ],
+    [
+     "Burn time; s",
+     "22.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-27",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "28",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 28; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "195F001"
+    ],
+    [
+     "Test Date",
+     "11/9/2009"
+    ],
+    [
+     "Test GMT",
+     "14:04:11"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "540.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.87"
+    ],
+    [
+     "Burning rate; mm",
+     "0.64"
+    ],
+    [
+     "Burn time; s",
+     "23.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-28",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "29",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 29; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "195F002"
+    ],
+    [
+     "Test Date",
+     "11/9/2009"
+    ],
+    [
+     "Test GMT",
+     "14:56:05"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "539.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.36"
+    ],
+    [
+     "Burning rate; mm",
+     "0.64"
+    ],
+    [
+     "Burn time; s",
+     "17.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-29",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "30",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 30; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "178R001"
+    ],
+    [
+     "Test Date",
+     "11/13/09"
+    ],
+    [
+     "Test GMT",
+     "13:11:23"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.57"
+    ],
+    [
+     "Burning rate; mm",
+     "0.74"
+    ],
+    [
+     "Burn time; s",
+     "10.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-30",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "31",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 31; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "178F001"
+    ],
+    [
+     "Test Date",
+     "11/13/09"
+    ],
+    [
+     "Test GMT",
+     "14:03:46"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "769.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.26"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.32"
+    ],
+    [
+     "Burning rate; mm",
+     "0.59"
+    ],
+    [
+     "Burn time; s",
+     "15.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-31",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "32",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 32; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "182F001"
+    ],
+    [
+     "Test Date",
+     "11/13/09"
+    ],
+    [
+     "Test GMT",
+     "18:33:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.85"
+    ],
+    [
+     "Burn time; s",
+     "18.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-32",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "33",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 33; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "182F002"
+    ],
+    [
+     "Test Date",
+     "11/13/09"
+    ],
+    [
+     "Test GMT",
+     "19:04:33"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "771"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.07"
+    ],
+    [
+     "Burning rate; mm",
+     "0.68"
+    ],
+    [
+     "Burn time; s",
+     "14"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-33",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "34",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 34; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "177R002"
+    ],
+    [
+     "Test Date",
+     "11/27/09"
+    ],
+    [
+     "Test GMT",
+     "10:02:15"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.62"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.25"
+    ],
+    [
+     "Burning rate; mm",
+     "0.48"
+    ],
+    [
+     "Burn time; s",
+     "11.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-34",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "35",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 35; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "177F001"
+    ],
+    [
+     "Test Date",
+     "11/27/09"
+    ],
+    [
+     "Test GMT",
+     "11:15:38"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.89"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2"
+    ],
+    [
+     "Burning rate; mm",
+     "0.44"
+    ],
+    [
+     "Burn time; s",
+     "27.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-35",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "36",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 36; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "181F001"
+    ],
+    [
+     "Test Date",
+     "11/27/09"
+    ],
+    [
+     "Test GMT",
+     "13:01:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.85"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.34"
+    ],
+    [
+     "Burning rate; mm",
+     "0.43"
+    ],
+    [
+     "Burn time; s",
+     "8.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-36",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "37",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 37; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "190R002"
+    ],
+    [
+     "Test Date",
+     "12/15/09"
+    ],
+    [
+     "Test GMT",
+     "10:39:35"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "539"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.8"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.67"
+    ],
+    [
+     "Burning rate; mm",
+     "0.45"
+    ],
+    [
+     "Burn time; s",
+     "7.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-37",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "38",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 38; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "220R001"
+    ],
+    [
+     "Test Date",
+     "1/7/2010"
+    ],
+    [
+     "Test GMT",
+     "19:08:46"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.31"
+    ],
+    [
+     "Burning rate; mm",
+     "0.72"
+    ],
+    [
+     "Burn time; s",
+     "10.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-38",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "39",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 39; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "220R002"
+    ],
+    [
+     "Test Date",
+     "1/7/2010"
+    ],
+    [
+     "Test GMT",
+     "19:20:38"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.59"
+    ],
+    [
+     "Burning rate; mm",
+     "0.71"
+    ],
+    [
+     "Burn time; s",
+     "15.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-39",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "40",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.34",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "34",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 40; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "224F001"
+    ],
+    [
+     "Test Date",
+     "1/7/2010"
+    ],
+    [
+     "Test GMT",
+     "21:51:19"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.34"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.66"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.91"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.8"
+    ],
+    [
+     "Burn time; s",
+     "9.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-40",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "41",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 41; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "219R001"
+    ],
+    [
+     "Test Date",
+     "1/8/2010"
+    ],
+    [
+     "Test GMT",
+     "5:02:52"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.77"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.62"
+    ],
+    [
+     "Burn time; s",
+     "19.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-41",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "42",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 42; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "219F001"
+    ],
+    [
+     "Test Date",
+     "1/8/2010"
+    ],
+    [
+     "Test GMT",
+     "4:41:55"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.35"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.65"
+    ],
+    [
+     "Burn time; s",
+     "14.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-42",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "43",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 43; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "223F001"
+    ],
+    [
+     "Test Date",
+     "1/8/2010"
+    ],
+    [
+     "Test GMT",
+     "1:02:04"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.92"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.58"
+    ],
+    [
+     "Burn time; s",
+     "11.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-43",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "44",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 44; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "223F002"
+    ],
+    [
+     "Test Date",
+     "1/8/2010"
+    ],
+    [
+     "Test GMT",
+     "3:16:16"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.97"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.78"
+    ],
+    [
+     "Burn time; s",
+     "11.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-44",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "45",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 45; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "206F001"
+    ],
+    [
+     "Test Date",
+     "1/11/2010"
+    ],
+    [
+     "Test GMT",
+     "10:33:22"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.49"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.63"
+    ],
+    [
+     "Burn time; s",
+     "16.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-45",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "46",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 46; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "206R001"
+    ],
+    [
+     "Test Date",
+     "1/11/2010"
+    ],
+    [
+     "Test GMT",
+     "10:54:25"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.42"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.01"
+    ],
+    [
+     "Burning rate; mm",
+     "0.73"
+    ],
+    [
+     "Burn time; s",
+     "6.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-46",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "47",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 47; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "205R001"
+    ],
+    [
+     "Test Date",
+     "1/12/2010"
+    ],
+    [
+     "Test GMT",
+     "13:14:25"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "769.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.78"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.08"
+    ],
+    [
+     "Burning rate; mm",
+     "0.54"
+    ],
+    [
+     "Burn time; s",
+     "13.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-47",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "48",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 48; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "209F001"
+    ],
+    [
+     "Test Date",
+     "1/12/2010"
+    ],
+    [
+     "Test GMT",
+     "15:48:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.36"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.5"
+    ],
+    [
+     "Burn time; s",
+     "17.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-48",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "49",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 49; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "205F001"
+    ],
+    [
+     "Test Date",
+     "1/12/2010"
+    ],
+    [
+     "Test GMT",
+     "12:14:55"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.66"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.27"
+    ],
+    [
+     "Burn time; s",
+     "23.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-49",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "50",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 50; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "209F003"
+    ],
+    [
+     "Test Date",
+     "1/19/2010"
+    ],
+    [
+     "Test GMT",
+     "9:09:16"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.46"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.78"
+    ],
+    [
+     "Burning rate; mm",
+     "0.59"
+    ],
+    [
+     "Burn time; s",
+     "8.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-50",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "51",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 51; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "209F004"
+    ],
+    [
+     "Test Date",
+     "1/19/2010"
+    ],
+    [
+     "Test GMT",
+     "14:08:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.57"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.98"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "8.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-51",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "52",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 52; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "209F005"
+    ],
+    [
+     "Test Date",
+     "1/19/2010"
+    ],
+    [
+     "Test GMT",
+     "16:38:35"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "771.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.41"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.65"
+    ],
+    [
+     "Burn time; s",
+     "8.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-52",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "53",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.3",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "30",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 53; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "210F002"
+    ],
+    [
+     "Test Date",
+     "1/11/2010"
+    ],
+    [
+     "Test GMT",
+     "13:46:44"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "771.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.7"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.53"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.7"
+    ],
+    [
+     "Burn time; s",
+     "18.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-53",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "54",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 54; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "209F002"
+    ],
+    [
+     "Test Date",
+     "1/12/2010"
+    ],
+    [
+     "Test GMT",
+     "16:29:37"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Burn time; s",
+     "18.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-54",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "55",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 55; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "190F003"
+    ],
+    [
+     "Test Date",
+     "1/29/2010"
+    ],
+    [
+     "Test GMT",
+     "11:27:01"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "541.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.8"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.56"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "29"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-55",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "56",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 56; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "218F001"
+    ],
+    [
+     "Test Date",
+     "1/29/2010"
+    ],
+    [
+     "Test GMT",
+     "16:06:50"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "542.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.8"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.37"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "20.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-56",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "57",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 57; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "194F001"
+    ],
+    [
+     "Test Date",
+     "1/29/2010"
+    ],
+    [
+     "Test GMT",
+     "19:13:22"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "544.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.56"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.04"
+    ],
+    [
+     "Burning rate; mm",
+     "0.44"
+    ],
+    [
+     "Burn time; s",
+     "7.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-57",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "58",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 58; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "303F001"
+    ],
+    [
+     "Test Date",
+     "1/29/2010"
+    ],
+    [
+     "Test GMT",
+     "19:50:16"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "544.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.1"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.49"
+    ],
+    [
+     "Burning rate; mm",
+     "0.54"
+    ],
+    [
+     "Burn time; s",
+     "6.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-58",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "59",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 59; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "176F001"
+    ],
+    [
+     "Test Date",
+     "2/4/2010"
+    ],
+    [
+     "Test GMT",
+     "2:32:01"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "773.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.82"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.69"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "29.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-59",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "60",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 60; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "176R001"
+    ],
+    [
+     "Test Date",
+     "2/4/2010"
+    ],
+    [
+     "Test GMT",
+     "0:26:28"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "769.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.82"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.93"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.43"
+    ],
+    [
+     "Burn time; s",
+     "17.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-60",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "61",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 61; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "204F001"
+    ],
+    [
+     "Test Date",
+     "2/4/2010"
+    ],
+    [
+     "Test GMT",
+     "3:26:05"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "773.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.82"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.43"
+    ],
+    [
+     "Burning rate; mm",
+     "0.45"
+    ],
+    [
+     "Burn time; s",
+     "23.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-61",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "62",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 62; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "204R001"
+    ],
+    [
+     "Test Date",
+     "2/4/2010"
+    ],
+    [
+     "Test GMT",
+     "3:52:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "774.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.82"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.68"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "25.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-62",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "63",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 63; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "301F001"
+    ],
+    [
+     "Test Date",
+     "3/11/2010"
+    ],
+    [
+     "Test GMT",
+     "21:37:48"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.82"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.43"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.17"
+    ],
+    [
+     "Burning rate; mm",
+     "0.39"
+    ],
+    [
+     "Burn time; s",
+     "4.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-63",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "64",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 64; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "301F002"
+    ],
+    [
+     "Test Date",
+     "3/11/2010"
+    ],
+    [
+     "Test GMT",
+     "23:07:51"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.81"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.15"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "9.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-64",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "65",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 65; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "302F001"
+    ],
+    [
+     "Test Date",
+     "3/11/2010"
+    ],
+    [
+     "Test GMT",
+     "22:12:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.81"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.69"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.07"
+    ],
+    [
+     "Burning rate; mm",
+     "0.6"
+    ],
+    [
+     "Burn time; s",
+     "5.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-65",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "66",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 66; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "189R001"
+    ],
+    [
+     "Test Date",
+     "3/19/2010"
+    ],
+    [
+     "Test GMT",
+     "8:42:53"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.37"
+    ],
+    [
+     "Burning rate; mm",
+     "0.4"
+    ],
+    [
+     "Burn time; s",
+     "24.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-66",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "67",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 67; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "189F001"
+    ],
+    [
+     "Test Date",
+     "3/19/2010"
+    ],
+    [
+     "Test GMT",
+     "9:26:45"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.52"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.32"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "12.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-67",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "68",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 68; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "189F002"
+    ],
+    [
+     "Test Date",
+     "3/19/2010"
+    ],
+    [
+     "Test GMT",
+     "10:17:06"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.97"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.3"
+    ],
+    [
+     "Burning rate; mm",
+     "0.36"
+    ],
+    [
+     "Burn time; s",
+     "14.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-68",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "69",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 69; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "189R003"
+    ],
+    [
+     "Test Date",
+     "3/19/2010"
+    ],
+    [
+     "Test GMT",
+     "12:04:45"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.38"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.29"
+    ],
+    [
+     "Burning rate; mm",
+     "0.39"
+    ],
+    [
+     "Burn time; s",
+     "10.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-69",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "70",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 70; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "193R002"
+    ],
+    [
+     "Test Date",
+     "3/23/2010"
+    ],
+    [
+     "Test GMT",
+     "10:23:00"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.1"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.94"
+    ],
+    [
+     "Burn time; s",
+     "1.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-70",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "71",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "duplicate_identifier",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 71; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "193F001"
+    ],
+    [
+     "Test Date",
+     "3/23/2010"
+    ],
+    [
+     "Test GMT",
+     "7:25:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.67"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "4.6"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "1.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-71",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "72",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 72; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "189R002"
+    ],
+    [
+     "Test Date",
+     "3/19/2010"
+    ],
+    [
+     "Test GMT",
+     "11:19:22"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.25"
+    ],
+    [
+     "Burning rate; mm",
+     "0.4"
+    ],
+    [
+     "Burn time; s",
+     "8.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-72",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "73",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 73; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "193R001"
+    ],
+    [
+     "Test Date",
+     "3/23/2010"
+    ],
+    [
+     "Test GMT",
+     "9:06:37"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.13"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "2.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-73",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "74",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "duplicate_identifier",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 74; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "193F001"
+    ],
+    [
+     "Test Date",
+     "3/23/2010"
+    ],
+    [
+     "Test GMT",
+     "7:25:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.64"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "4.58"
+    ],
+    [
+     "Burning rate; mm",
+     "0.56"
+    ],
+    [
+     "Burn time; s",
+     "1.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-74",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "75",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 75; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "221F001"
+    ],
+    [
+     "Test Date",
+     "3/23/2010"
+    ],
+    [
+     "Test GMT",
+     "9:44:36"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.33"
+    ],
+    [
+     "Burning rate; mm",
+     "0.77"
+    ],
+    [
+     "Burn time; s",
+     "2.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-75",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "76",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 76; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "203R002"
+    ],
+    [
+     "Test Date",
+     "3/29/2010"
+    ],
+    [
+     "Test GMT",
+     "21:06:40"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.54"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.78"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "9.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-76",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "77",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 77; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "203F001"
+    ],
+    [
+     "Test Date",
+     "3/29/2010"
+    ],
+    [
+     "Test GMT",
+     "19:24:36"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "769.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.21"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.78"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "8.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-77",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "78",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 78; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "175R001"
+    ],
+    [
+     "Test Date",
+     "3/29/2010"
+    ],
+    [
+     "Test GMT",
+     "18:39:20"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.33"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.91"
+    ],
+    [
+     "Burning rate; mm",
+     "0.34"
+    ],
+    [
+     "Burn time; s",
+     "8.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-78",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "79",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 79; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "175F001"
+    ],
+    [
+     "Test Date",
+     "3/29/2010"
+    ],
+    [
+     "Test GMT",
+     "17:49:23"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.66"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.66"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "12.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-79",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "80",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 80; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "179F001"
+    ],
+    [
+     "Test Date",
+     "3/30/2010"
+    ],
+    [
+     "Test GMT",
+     "0:40:16"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.92"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.86"
+    ],
+    [
+     "Burning rate; mm",
+     "0.25"
+    ],
+    [
+     "Burn time; s",
+     "1.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-80",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "81",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 81; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "207F001"
+    ],
+    [
+     "Test Date",
+     "3/30/2010"
+    ],
+    [
+     "Test GMT",
+     "2:29:19"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "–"
+    ],
+    [
+     "Burn time; s",
+     "1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-81",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "82",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 82; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "207F002"
+    ],
+    [
+     "Test Date",
+     "3/30/2010"
+    ],
+    [
+     "Test GMT",
+     "3:59:28"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "–"
+    ],
+    [
+     "Burn time; s",
+     "1.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-82",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "83",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 83; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "304F001"
+    ],
+    [
+     "Test Date",
+     "4/19/2010"
+    ],
+    [
+     "Test GMT",
+     "17:19:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.84"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "7.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-83",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "84",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 84; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "304F002"
+    ],
+    [
+     "Test Date",
+     "4/19/2010"
+    ],
+    [
+     "Test GMT",
+     "21:18:05"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "772"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "–"
+    ],
+    [
+     "Burn time; s",
+     "5.45"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-84",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "85",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 85; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "304R001"
+    ],
+    [
+     "Test Date",
+     "4/19/2010"
+    ],
+    [
+     "Test GMT",
+     "17:51:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.35"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.42"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "10.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-85",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "86",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 86; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "304R002"
+    ],
+    [
+     "Test Date",
+     "4/19/2010"
+    ],
+    [
+     "Test GMT",
+     "20:12:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "771.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.77"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "9.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-86",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "87",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 87; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "305F002"
+    ],
+    [
+     "Test Date",
+     "4/19/2010"
+    ],
+    [
+     "Test GMT",
+     "19:16:37"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "770"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.07"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.56"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-87",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "88",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 88; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "305F003"
+    ],
+    [
+     "Test Date",
+     "4/19/2010"
+    ],
+    [
+     "Test GMT",
+     "20:38:54"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "771.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.64"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.92"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "9.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-88",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "89",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.25",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "25",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 89; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "053R001"
+    ],
+    [
+     "Test Date",
+     "5/5/2010"
+    ],
+    [
+     "Test GMT",
+     "22:37:54"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.6"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.01"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "14.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-89",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "90",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.25",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "25",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 90; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "053F001"
+    ],
+    [
+     "Test Date",
+     "5/5/2010"
+    ],
+    [
+     "Test GMT",
+     "22:19:33"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.6"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.7"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "24"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-90",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "91",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.25",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "25",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 91; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "141R001"
+    ],
+    [
+     "Test Date",
+     "5/6/2010"
+    ],
+    [
+     "Test GMT",
+     "0:07:51"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "539.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.6"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.62"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "20.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-91",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "92",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.25",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "25",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 92; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "141F001"
+    ],
+    [
+     "Test Date",
+     "5/5/2010"
+    ],
+    [
+     "Test GMT",
+     "23:10:01"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "538.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.6"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.51"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "18"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-92",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "93",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.25",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "25",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 93; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "061F002"
+    ],
+    [
+     "Test Date",
+     "6/14/2010"
+    ],
+    [
+     "Test GMT",
+     "22:54:56"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.6"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.41"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.55"
+    ],
+    [
+     "Burn time; s",
+     "21.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-93",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "94",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.25",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "25",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 94; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "149F001"
+    ],
+    [
+     "Test Date",
+     "6/15/2010"
+    ],
+    [
+     "Test GMT",
+     "0:32:31"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.6"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.48"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.71"
+    ],
+    [
+     "Burn time; s",
+     "8.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-94",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "95",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 95; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08H101"
+    ],
+    [
+     "Test Date",
+     "6/15/2010"
+    ],
+    [
+     "Test GMT",
+     "2:10:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "533.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.53"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.76"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "10.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-95",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "96",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 96; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08H201"
+    ],
+    [
+     "Test Date",
+     "6/15/2010"
+    ],
+    [
+     "Test GMT",
+     "3:22:41"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.6"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.04"
+    ],
+    [
+     "Burning rate; mm",
+     "0.58"
+    ],
+    [
+     "Burn time; s",
+     "8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-96",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "97",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 97; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08H301"
+    ],
+    [
+     "Test Date",
+     "6/15/2010"
+    ],
+    [
+     "Test GMT",
+     "4:37:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "–"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burn time; s",
+     "5.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-97",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "98",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 98; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08M101"
+    ],
+    [
+     "Test Date",
+     "6/16/2010"
+    ],
+    [
+     "Test GMT",
+     "22:43:35"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.25"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.6"
+    ],
+    [
+     "Burning rate; mm",
+     "0.45"
+    ],
+    [
+     "Burn time; s",
+     "26.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-98",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "99",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 99; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M201"
+    ],
+    [
+     "Test Date",
+     "6/21/2010"
+    ],
+    [
+     "Test GMT",
+     "14:21:26"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.64"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.74"
+    ],
+    [
+     "Burning rate; mm",
+     "0.47"
+    ],
+    [
+     "Burn time; s",
+     "22.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-99",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "100",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 100; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M101"
+    ],
+    [
+     "Test Date",
+     "6/21/2010"
+    ],
+    [
+     "Test GMT",
+     "12:57:34"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.28"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.32"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "33"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-100",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "101",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 101; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09H101"
+    ],
+    [
+     "Test Date",
+     "6/29/2010"
+    ],
+    [
+     "Test GMT",
+     "8:30:46"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.14"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.98"
+    ],
+    [
+     "Burning rate; mm",
+     "0.34"
+    ],
+    [
+     "Burn time; s",
+     "6.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-101",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "102",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 102; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09H201"
+    ],
+    [
+     "Test Date",
+     "6/29/2010"
+    ],
+    [
+     "Test GMT",
+     "9:38:10"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "538.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.88"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.45"
+    ],
+    [
+     "Burning rate; mm",
+     "0.5"
+    ],
+    [
+     "Burn time; s",
+     "6.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-102",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "103",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 103; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C10H101"
+    ],
+    [
+     "Test Date",
+     "6/29/2010"
+    ],
+    [
+     "Test GMT",
+     "11:21:09"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.57"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.43"
+    ],
+    [
+     "Burning rate; mm",
+     "0.33"
+    ],
+    [
+     "Burn time; s",
+     "4.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-103",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "104",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 104; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C10H201"
+    ],
+    [
+     "Test Date",
+     "6/29/2010"
+    ],
+    [
+     "Test GMT",
+     "11:56:02"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.88"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "3.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-104",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "105",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 105; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08M201"
+    ],
+    [
+     "Test Date",
+     "6/16/2010"
+    ],
+    [
+     "Test GMT",
+     "23:04:00"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.6"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.58"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "23.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-105",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "106",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 106; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08M301"
+    ],
+    [
+     "Test Date",
+     "6/16/2010"
+    ],
+    [
+     "Test GMT",
+     "23:29:19"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.17"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2"
+    ],
+    [
+     "Burning rate; mm",
+     "0.47"
+    ],
+    [
+     "Burn time; s",
+     "30.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-106",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "107",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 107; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M401"
+    ],
+    [
+     "Test Date",
+     "6/21/2010"
+    ],
+    [
+     "Test GMT",
+     "15:52:51"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "538.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.08"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.75"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "14.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-107",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "108",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 108; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08M401"
+    ],
+    [
+     "Test Date",
+     "6/16/2010"
+    ],
+    [
+     "Test GMT",
+     "23:51:26"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.18"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "15.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-108",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "109",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 109; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M301"
+    ],
+    [
+     "Test Date",
+     "6/21/2010"
+    ],
+    [
+     "Test GMT",
+     "15:35:57"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "538.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.75"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.47"
+    ],
+    [
+     "Burn time; s",
+     "24.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-109",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "110",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 110; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C10M102"
+    ],
+    [
+     "Test Date",
+     "8/31/2010"
+    ],
+    [
+     "Test GMT",
+     "5:38:01"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.56"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.92"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-110",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "111",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 111; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C10M201"
+    ],
+    [
+     "Test Date",
+     "8/31/2010"
+    ],
+    [
+     "Test GMT",
+     "7:16:40"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.83"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.57"
+    ],
+    [
+     "Burning rate; mm",
+     "0.45"
+    ],
+    [
+     "Burn time; s",
+     "13"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-111",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "112",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 112; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C10M303"
+    ],
+    [
+     "Test Date",
+     "8/31/2010"
+    ],
+    [
+     "Test GMT",
+     "8:58:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.37"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.1"
+    ],
+    [
+     "Burning rate; mm",
+     "0.45"
+    ],
+    [
+     "Burn time; s",
+     "16.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-112",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "113",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 113; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C10M401"
+    ],
+    [
+     "Test Date",
+     "9/1/2010"
+    ],
+    [
+     "Test GMT",
+     "15:27:44"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "530.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.99"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.35"
+    ],
+    [
+     "Burning rate; mm",
+     "0.43"
+    ],
+    [
+     "Burn time; s",
+     "25.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-113",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "114",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 114; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C11M101"
+    ],
+    [
+     "Test Date",
+     "9/1/2010"
+    ],
+    [
+     "Test GMT",
+     "19:17:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.2"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.85"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "18.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-114",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "115",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "pressure_printed_zero",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 115; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C11M201"
+    ],
+    [
+     "Test Date",
+     "9/6/2010"
+    ],
+    [
+     "Test GMT",
+     "19:14:22"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "0"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.23"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.68"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "18.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-115",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "116",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 116; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C11M301"
+    ],
+    [
+     "Test Date",
+     "9/1/2010"
+    ],
+    [
+     "Test GMT",
+     "20:40:16"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.97"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.61"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "22.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-116",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "117",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 117; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C11M401"
+    ],
+    [
+     "Test Date",
+     "9/1/2010"
+    ],
+    [
+     "Test GMT",
+     "20:57:41"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.16"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.57"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "16.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-117",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "118",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 118; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C11H101"
+    ],
+    [
+     "Test Date",
+     "9/6/2010"
+    ],
+    [
+     "Test GMT",
+     "18:14:53"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.84"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.77"
+    ],
+    [
+     "Burning rate; mm",
+     "0.25"
+    ],
+    [
+     "Burn time; s",
+     "2.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-118",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "119",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 119; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C11H201"
+    ],
+    [
+     "Test Date",
+     "9/6/2010"
+    ],
+    [
+     "Test GMT",
+     "19:14:22"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.44"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.03"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.93"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "2.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-119",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "120",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 120; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C12H103"
+    ],
+    [
+     "Test Date",
+     "9/7/2010"
+    ],
+    [
+     "Test GMT",
+     "1:50:01"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.6"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.48"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "1.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-120",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "121",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 121; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C12H201"
+    ],
+    [
+     "Test Date",
+     "9/7/2010"
+    ],
+    [
+     "Test GMT",
+     "1:08:26"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.45"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "1.43"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-121",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "122",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 122; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C12M101"
+    ],
+    [
+     "Test Date",
+     "9/8/2010"
+    ],
+    [
+     "Test GMT",
+     "19:21:31"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "526.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.25"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.92"
+    ],
+    [
+     "Burning rate; mm",
+     "0.34"
+    ],
+    [
+     "Burn time; s",
+     "8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-122",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "123",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 123; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C12M201"
+    ],
+    [
+     "Test Date",
+     "9/8/2010"
+    ],
+    [
+     "Test GMT",
+     "21:44:37"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.46"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.58"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "13.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-123",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "124",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 124; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C12M301"
+    ],
+    [
+     "Test Date",
+     "9/8/2010"
+    ],
+    [
+     "Test GMT",
+     "22:16:51"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.13"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.79"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "8.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-124",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "125",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 125; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C12M401"
+    ],
+    [
+     "Test Date",
+     "9/8/2010"
+    ],
+    [
+     "Test GMT",
+     "22:45:54"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.87"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.74"
+    ],
+    [
+     "Burning rate; mm",
+     "0.3"
+    ],
+    [
+     "Burn time; s",
+     "2.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-125",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "126",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 126; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C13M103"
+    ],
+    [
+     "Test Date",
+     "9/13/2010"
+    ],
+    [
+     "Test GMT",
+     "21:07:02"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.63"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.37"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "5.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-126",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "127",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 127; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C13M201"
+    ],
+    [
+     "Test Date",
+     "9/13/2010"
+    ],
+    [
+     "Test GMT",
+     "18:11:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.8"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.84"
+    ],
+    [
+     "Burning rate; mm",
+     "0.4"
+    ],
+    [
+     "Burn time; s",
+     "11.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-127",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "128",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 128; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C13M301"
+    ],
+    [
+     "Test Date",
+     "9/13/2010"
+    ],
+    [
+     "Test GMT",
+     "19:22:49"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.22"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.53"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "11"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-128",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "129",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 129; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C13M401"
+    ],
+    [
+     "Test Date",
+     "9/13/2010"
+    ],
+    [
+     "Test GMT",
+     "19:49:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.91"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.39"
+    ],
+    [
+     "Burn time; s",
+     "11.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-129",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "130",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 130; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C13H102"
+    ],
+    [
+     "Test Date",
+     "9/17/2010"
+    ],
+    [
+     "Test GMT",
+     "1:32:49"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.33"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.34"
+    ],
+    [
+     "Burning rate; mm",
+     "0.33"
+    ],
+    [
+     "Burn time; s",
+     "0.55"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-130",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "131",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 131; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C13H201"
+    ],
+    [
+     "Test Date",
+     "9/17/2010"
+    ],
+    [
+     "Test GMT",
+     "3:55:59"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.91"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.89"
+    ],
+    [
+     "Burning rate; mm",
+     "0.05"
+    ],
+    [
+     "Burn time; s",
+     "0.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-131",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "132",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 132; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H101"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "11:28:52"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "763.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.72"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.52"
+    ],
+    [
+     "Burning rate; mm",
+     "0.61"
+    ],
+    [
+     "Burn time; s",
+     "4.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-132",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "133",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 133; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H201"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "12:59:06"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.63"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.53"
+    ],
+    [
+     "Burning rate; mm",
+     "0.6"
+    ],
+    [
+     "Burn time; s",
+     "12.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-133",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "134",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 134; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H301"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "13:59:59"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.25"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.55"
+    ],
+    [
+     "Burning rate; mm",
+     "0.56"
+    ],
+    [
+     "Burn time; s",
+     "19"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-134",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "135",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 135; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H401"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "14:57:06"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.66"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.88"
+    ],
+    [
+     "Burning rate; mm",
+     "0.56"
+    ],
+    [
+     "Burn time; s",
+     "9.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-135",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "136",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 136; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H501"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "16:22:15"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.78"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0"
+    ],
+    [
+     "Burning rate; mm",
+     "0.59"
+    ],
+    [
+     "Burn time; s",
+     "10.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-136",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "137",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 137; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H302"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "17:30:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.08"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "17"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-137",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "138",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 138; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H303"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "17:53:35"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.13"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.55"
+    ],
+    [
+     "Burn time; s",
+     "17.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-138",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "139",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 139; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H304"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "18:08:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "–"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-139",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "140",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 140; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C21H305"
+    ],
+    [
+     "Test Date",
+     "10/6/2010"
+    ],
+    [
+     "Test GMT",
+     "19:09:45"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.75"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.63"
+    ],
+    [
+     "Burn time; s",
+     "5.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-140",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "141",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 141; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C14M101"
+    ],
+    [
+     "Test Date",
+     "11/4/2010"
+    ],
+    [
+     "Test GMT",
+     "16:52:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "533.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.5"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.98"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.95"
+    ],
+    [
+     "Burning rate; mm",
+     "0.2"
+    ],
+    [
+     "Burn time; s",
+     "1.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-141",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "142",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 142; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C14M201"
+    ],
+    [
+     "Test Date",
+     "11/4/2010"
+    ],
+    [
+     "Test GMT",
+     "18:07:51"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.5"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.86"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.73"
+    ],
+    [
+     "Burning rate; mm",
+     "0.3"
+    ],
+    [
+     "Burn time; s",
+     "2.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-142",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "143",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 143; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C14M301"
+    ],
+    [
+     "Test Date",
+     "11/4/2010"
+    ],
+    [
+     "Test GMT",
+     "19:11:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.5"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.86"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.48"
+    ],
+    [
+     "Burning rate; mm",
+     "0.39"
+    ],
+    [
+     "Burn time; s",
+     "3.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-143",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "144",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 144; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C14M302"
+    ],
+    [
+     "Test Date",
+     "11/4/2010"
+    ],
+    [
+     "Test GMT",
+     "20:19:22"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.5"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.25"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.06"
+    ],
+    [
+     "Burning rate; mm",
+     "0.36"
+    ],
+    [
+     "Burn time; s",
+     "2.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-144",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "145",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 145; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01M101"
+    ],
+    [
+     "Test Date",
+     "11/16/10"
+    ],
+    [
+     "Test GMT",
+     "9:42:08"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.53"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.53"
+    ],
+    [
+     "Burning rate; mm",
+     "0.45"
+    ],
+    [
+     "Burn time; s",
+     "23.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-145",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "146",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 146; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01M201"
+    ],
+    [
+     "Test Date",
+     "11/16/10"
+    ],
+    [
+     "Test GMT",
+     "10:21:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "763.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.33"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.61"
+    ],
+    [
+     "Burning rate; mm",
+     "0.45"
+    ],
+    [
+     "Burn time; s",
+     "20"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-146",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "147",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 147; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01M301"
+    ],
+    [
+     "Test Date",
+     "11/16/10"
+    ],
+    [
+     "Test GMT",
+     "10:54:23"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.35"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.95"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "39.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-147",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "148",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 148; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C13M102"
+    ],
+    [
+     "Test Date",
+     "9/13/2010"
+    ],
+    [
+     "Test GMT",
+     "17:35:49"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.02"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.49"
+    ],
+    [
+     "Burning rate; mm",
+     "0.4"
+    ],
+    [
+     "Burn time; s",
+     "7.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-148",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "149",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 149; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01H101"
+    ],
+    [
+     "Test Date",
+     "11/18/10"
+    ],
+    [
+     "Test GMT",
+     "8:39:27"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.58"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.15"
+    ],
+    [
+     "Burning rate; mm",
+     "0.54"
+    ],
+    [
+     "Burn time; s",
+     "11.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-149",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "150",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 150; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01H201"
+    ],
+    [
+     "Test Date",
+     "11/18/10"
+    ],
+    [
+     "Test GMT",
+     "9:25:38"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.21"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.82"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "8.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-150",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "151",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 151; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01H302"
+    ],
+    [
+     "Test Date",
+     "11/18/10"
+    ],
+    [
+     "Test GMT",
+     "10:17:02"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.18"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.54"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-151",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "152",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 152; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03M101"
+    ],
+    [
+     "Test Date",
+     "12/8/2010"
+    ],
+    [
+     "Test GMT",
+     "18:31:22"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.86"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.36"
+    ],
+    [
+     "Burn time; s",
+     "31.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-152",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "153",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 153; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03M201"
+    ],
+    [
+     "Test Date",
+     "12/8/2010"
+    ],
+    [
+     "Test GMT",
+     "20:10:32"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.33"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.23"
+    ],
+    [
+     "Burning rate; mm",
+     "0.43"
+    ],
+    [
+     "Burn time; s",
+     "23.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-153",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "154",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 154; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03M301"
+    ],
+    [
+     "Test Date",
+     "12/8/2010"
+    ],
+    [
+     "Test GMT",
+     "21:08:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.78"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.19"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "15.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-154",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "155",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 155; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03H101"
+    ],
+    [
+     "Test Date",
+     "12/9/2010"
+    ],
+    [
+     "Test GMT",
+     "16:02:14"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.7"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.6"
+    ],
+    [
+     "Burning rate; mm",
+     "0.34"
+    ],
+    [
+     "Burn time; s",
+     "2.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-155",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "156",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 156; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03H201"
+    ],
+    [
+     "Test Date",
+     "12/9/2010"
+    ],
+    [
+     "Test GMT",
+     "17:49:08"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.73"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.52"
+    ],
+    [
+     "Burning rate; mm",
+     "0.39"
+    ],
+    [
+     "Burn time; s",
+     "2.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-156",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "157",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 157; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03H401"
+    ],
+    [
+     "Test Date",
+     "12/9/2010"
+    ],
+    [
+     "Test GMT",
+     "19:12:27"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.34"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.45"
+    ],
+    [
+     "Burning rate; mm",
+     "0.48"
+    ],
+    [
+     "Burn time; s",
+     "3.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-157",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "158",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 158; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C05M101"
+    ],
+    [
+     "Test Date",
+     "12/14/10"
+    ],
+    [
+     "Test GMT",
+     "13:41:00"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.59"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.24"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.96"
+    ],
+    [
+     "Burning rate; mm",
+     "0.3"
+    ],
+    [
+     "Burn time; s",
+     "7.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-158",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "159",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 159; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C05M201"
+    ],
+    [
+     "Test Date",
+     "12/14/10"
+    ],
+    [
+     "Test GMT",
+     "14:30:46"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.59"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.7"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.22"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "10.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-159",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "160",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 160; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C05M301"
+    ],
+    [
+     "Test Date",
+     "12/14/10"
+    ],
+    [
+     "Test GMT",
+     "15:17:59"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.59"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.71"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.34"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "14.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-160",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "161",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 161; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C05M401"
+    ],
+    [
+     "Test Date",
+     "12/14/10"
+    ],
+    [
+     "Test GMT",
+     "17:51:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.59"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.77"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.52"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "14.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-161",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "162",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 162; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C06M101"
+    ],
+    [
+     "Test Date",
+     "12/28/10"
+    ],
+    [
+     "Test GMT",
+     "11:41:39"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "763.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.54"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.32"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.72"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.5"
+    ],
+    [
+     "Burning rate; mm",
+     "0.28"
+    ],
+    [
+     "Burn time; s",
+     "6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-162",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "163",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 163; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C06M201"
+    ],
+    [
+     "Test Date",
+     "12/28/10"
+    ],
+    [
+     "Test GMT",
+     "12:05:23"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.53"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.32"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.05"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.54"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "8.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-163",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "164",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 164; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C06M301"
+    ],
+    [
+     "Test Date",
+     "12/28/10"
+    ],
+    [
+     "Test GMT",
+     "13:00:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.53"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.32"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.59"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.63"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "11.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-164",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "165",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 165; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C06M401"
+    ],
+    [
+     "Test Date",
+     "12/28/10"
+    ],
+    [
+     "Test GMT",
+     "13:36:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.53"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.32"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.59"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.79"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "8.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-165",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "166",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 166; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03H302"
+    ],
+    [
+     "Test Date",
+     "12/9/2010"
+    ],
+    [
+     "Test GMT",
+     "18:51:34"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.96"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.54"
+    ],
+    [
+     "Burn time; s",
+     "3.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-166",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "167",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 167; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C07M101"
+    ],
+    [
+     "Test Date",
+     "1/12/2011"
+    ],
+    [
+     "Test GMT",
+     "21:56:45"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.5"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.36"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.22"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.08"
+    ],
+    [
+     "Burning rate; mm",
+     "0.28"
+    ],
+    [
+     "Burn time; s",
+     "3.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-167",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "168",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 168; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C07M201"
+    ],
+    [
+     "Test Date",
+     "1/12/2011"
+    ],
+    [
+     "Test GMT",
+     "22:11:40"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.5"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.36"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.32"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.84"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "5.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-168",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "169",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 169; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C15M101"
+    ],
+    [
+     "Test Date",
+     "1/18/2011"
+    ],
+    [
+     "Test GMT",
+     "12:54:25"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "763.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.64"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.03"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.57"
+    ],
+    [
+     "Burning rate; mm",
+     "0.48"
+    ],
+    [
+     "Burn time; s",
+     "15.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-169",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "170",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 170; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C15M201"
+    ],
+    [
+     "Test Date",
+     "1/18/2011"
+    ],
+    [
+     "Test GMT",
+     "14:19:29"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.64"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.05"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.28"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "16.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-170",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "171",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 171; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C15M301"
+    ],
+    [
+     "Test Date",
+     "1/18/2011"
+    ],
+    [
+     "Test GMT",
+     "15:58:46"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.64"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.53"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.59"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "23.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-171",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "172",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 172; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03H501"
+    ],
+    [
+     "Test Date",
+     "2/21/2011"
+    ],
+    [
+     "Test GMT",
+     "17:56:40"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.74"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.68"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "2.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-172",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "173",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 173; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03H601"
+    ],
+    [
+     "Test Date",
+     "2/21/2011"
+    ],
+    [
+     "Test GMT",
+     "19:07:48"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.96"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "4.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-173",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "174",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 174; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03H701"
+    ],
+    [
+     "Test Date",
+     "2/21/2011"
+    ],
+    [
+     "Test GMT",
+     "19:17:37"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.35"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.47"
+    ],
+    [
+     "Burning rate; mm",
+     "0.5"
+    ],
+    [
+     "Burn time; s",
+     "3.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-174",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "175",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 175; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08H502"
+    ],
+    [
+     "Test Date",
+     "2/21/2011"
+    ],
+    [
+     "Test GMT",
+     "22:15:54"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.5"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.21"
+    ],
+    [
+     "Burning rate; mm",
+     "0.56"
+    ],
+    [
+     "Burn time; s",
+     "11.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-175",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "176",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 176; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08H601"
+    ],
+    [
+     "Test Date",
+     "2/21/2011"
+    ],
+    [
+     "Test GMT",
+     "22:43:37"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.88"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.55"
+    ],
+    [
+     "Burn time; s",
+     "15.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-176",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "177",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 177; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08M501"
+    ],
+    [
+     "Test Date",
+     "4/18/2011"
+    ],
+    [
+     "Test GMT",
+     "20:27:36"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.53"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "38.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-177",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "178",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 178; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C08M601"
+    ],
+    [
+     "Test Date",
+     "4/18/2011"
+    ],
+    [
+     "Test GMT",
+     "20:52:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "537"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.02"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.35"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "14.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-178",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "179",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 179; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09H501"
+    ],
+    [
+     "Test Date",
+     "4/20/2011"
+    ],
+    [
+     "Test GMT",
+     "17:56:25"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "533.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.32"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.61"
+    ],
+    [
+     "Burning rate; mm",
+     "0.5"
+    ],
+    [
+     "Burn time; s",
+     "8.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-179",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "180",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 180; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09H601"
+    ],
+    [
+     "Test Date",
+     "4/20/2011"
+    ],
+    [
+     "Test GMT",
+     "18:22:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.07"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.48"
+    ],
+    [
+     "Burning rate; mm",
+     "0.57"
+    ],
+    [
+     "Burn time; s",
+     "7.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-180",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "181",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.19",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "19",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 181; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C02H101"
+    ],
+    [
+     "Test Date",
+     "4/20/2011"
+    ],
+    [
+     "Test GMT",
+     "20:00:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "758.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.19"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.71"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.1"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.13"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "4.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-181",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "182",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.19",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "19",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 182; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C02H201"
+    ],
+    [
+     "Test Date",
+     "4/20/2011"
+    ],
+    [
+     "Test GMT",
+     "21:14:08"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.19"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.71"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.1"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.48"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.68"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-182",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "183",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.19",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "19",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 183; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C02H202"
+    ],
+    [
+     "Test Date",
+     "4/20/2011"
+    ],
+    [
+     "Test GMT",
+     "21:26:02"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.19"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.71"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.1"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.64"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.49"
+    ],
+    [
+     "Burning rate; mm",
+     "0.54"
+    ],
+    [
+     "Burn time; s",
+     "5.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-183",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "184",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 184; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M501"
+    ],
+    [
+     "Test Date",
+     "8/8/2011"
+    ],
+    [
+     "Test GMT",
+     "13:14:11"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.72"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "26.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-184",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "185",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 185; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M502"
+    ],
+    [
+     "Test Date",
+     "8/8/2011"
+    ],
+    [
+     "Test GMT",
+     "13:30:14"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.42"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "15.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-185",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "186",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 186; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M601"
+    ],
+    [
+     "Test Date",
+     "8/8/2011"
+    ],
+    [
+     "Test GMT",
+     "13:42:04"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "535.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.8"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.33"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "12.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-186",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "187",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 187; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C09M701"
+    ],
+    [
+     "Test Date",
+     "8/8/2011"
+    ],
+    [
+     "Test GMT",
+     "14:52:15"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "536.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.47"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.21"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "9.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-187",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "188",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.19",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "19",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 188; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C02M101"
+    ],
+    [
+     "Test Date",
+     "8/8/2011"
+    ],
+    [
+     "Test GMT",
+     "16:16:48"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "758"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.19"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.71"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.1"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.38"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.29"
+    ],
+    [
+     "Burning rate; mm",
+     "0.47"
+    ],
+    [
+     "Burn time; s",
+     "21.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-188",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "189",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.19",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "19",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 189; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C02M201"
+    ],
+    [
+     "Test Date",
+     "8/8/2011"
+    ],
+    [
+     "Test GMT",
+     "17:49:19"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "758.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.19"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.71"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.1"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.47"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.08"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "11"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-189",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "190",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 190; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03M501"
+    ],
+    [
+     "Test Date",
+     "8/9/2011"
+    ],
+    [
+     "Test GMT",
+     "10:53:21"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.77"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.78"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "30.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-190",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "191",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 191; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03M601"
+    ],
+    [
+     "Test Date",
+     "8/9/2011"
+    ],
+    [
+     "Test GMT",
+     "12:28:41"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.74"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.95"
+    ],
+    [
+     "Burning rate; mm",
+     "0.5"
+    ],
+    [
+     "Burn time; s",
+     "14"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-191",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "192",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 192; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C03M701"
+    ],
+    [
+     "Test Date",
+     "8/9/2011"
+    ],
+    [
+     "Test GMT",
+     "12:46:53"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.76"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.81"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "5.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-192",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "193",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 193; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C04M101"
+    ],
+    [
+     "Test Date",
+     "8/9/2011"
+    ],
+    [
+     "Test GMT",
+     "17:07:27"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.46"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.39"
+    ],
+    [
+     "Burn time; s",
+     "21.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-193",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "194",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 194; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C04M201"
+    ],
+    [
+     "Test Date",
+     "8/9/2011"
+    ],
+    [
+     "Test GMT",
+     "18:26:45"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.77"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.27"
+    ],
+    [
+     "Burning rate; mm",
+     "0.4"
+    ],
+    [
+     "Burn time; s",
+     "15.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-194",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "195",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 195; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C04H101"
+    ],
+    [
+     "Test Date",
+     "8/17/2011"
+    ],
+    [
+     "Test GMT",
+     "22:31:20"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "752"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.76"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.71"
+    ],
+    [
+     "Burning rate; mm",
+     "0.29"
+    ],
+    [
+     "Burn time; s",
+     "1.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-195",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "196",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 196; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C04H201"
+    ],
+    [
+     "Test Date",
+     "8/17/2011"
+    ],
+    [
+     "Test GMT",
+     "22:53:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "752.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.9"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.79"
+    ],
+    [
+     "Burning rate; mm",
+     "0.36"
+    ],
+    [
+     "Burn time; s",
+     "1.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-196",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "197",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 197; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01H501"
+    ],
+    [
+     "Test Date",
+     "8/18/2011"
+    ],
+    [
+     "Test GMT",
+     "0:24:31"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "758.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.06"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.28"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "8.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-197",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "198",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 198; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01H601"
+    ],
+    [
+     "Test Date",
+     "8/18/2011"
+    ],
+    [
+     "Test GMT",
+     "1:38:10"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.04"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.33"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "8.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-198",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "199",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 199; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01H701"
+    ],
+    [
+     "Test Date",
+     "8/18/2011"
+    ],
+    [
+     "Test GMT",
+     "1:55:56"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.12"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.13"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "8.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-199",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "200",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 200; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01M501"
+    ],
+    [
+     "Test Date",
+     "8/24/2011"
+    ],
+    [
+     "Test GMT",
+     "15:07:47"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "754"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.37"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.98"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "21"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-200",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "201",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 201; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01M602"
+    ],
+    [
+     "Test Date",
+     "8/24/2011"
+    ],
+    [
+     "Test GMT",
+     "15:56:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "756.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.57"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.13"
+    ],
+    [
+     "Burning rate; mm",
+     "0.47"
+    ],
+    [
+     "Burn time; s",
+     "11.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-201",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "202",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 202; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "C01M603"
+    ],
+    [
+     "Test Date",
+     "8/24/2011"
+    ],
+    [
+     "Test GMT",
+     "16:18:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "756.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.05"
+    ],
+    [
+     "Burning rate; mm",
+     "0.48"
+    ],
+    [
+     "Burn time; s",
+     "10.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-202",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "203",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 203; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01M101"
+    ],
+    [
+     "Test Date",
+     "8/24/2011"
+    ],
+    [
+     "Test GMT",
+     "21:05:01"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.3"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.42"
+    ],
+    [
+     "Burning rate; mm",
+     "0.47"
+    ],
+    [
+     "Burn time; s",
+     "19.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-203",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "204",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 204; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01M201"
+    ],
+    [
+     "Test Date",
+     "8/24/2011"
+    ],
+    [
+     "Test GMT",
+     "21:58:36"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.75"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.11"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "12.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-204",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "205",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 205; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H101"
+    ],
+    [
+     "Test Date",
+     "8/29/2011"
+    ],
+    [
+     "Test GMT",
+     "19:04:50"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "756.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.56"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.43"
+    ],
+    [
+     "Burn time; s",
+     "23.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-205",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "206",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 206; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H102"
+    ],
+    [
+     "Test Date",
+     "8/29/2011"
+    ],
+    [
+     "Test GMT",
+     "19:21:49"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "757.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.58"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "24"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-206",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "207",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 207; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H201"
+    ],
+    [
+     "Test Date",
+     "8/29/2011"
+    ],
+    [
+     "Test GMT",
+     "20:28:30"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.96"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.47"
+    ],
+    [
+     "Burning rate; mm",
+     "0.5"
+    ],
+    [
+     "Burn time; s",
+     "17.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-207",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "208",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 208; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H202"
+    ],
+    [
+     "Test Date",
+     "8/29/2011"
+    ],
+    [
+     "Test GMT",
+     "21:54:40"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.72"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.13"
+    ],
+    [
+     "Burning rate; mm",
+     "0.54"
+    ],
+    [
+     "Burn time; s",
+     "11.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-208",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "209",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 209; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H301"
+    ],
+    [
+     "Test Date",
+     "8/29/2011"
+    ],
+    [
+     "Test GMT",
+     "22:19:47"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "762.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.92"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "–"
+    ],
+    [
+     "Burning rate; mm",
+     "0.69"
+    ],
+    [
+     "Burn time; s",
+     "12.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-209",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "210",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 210; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N02H101"
+    ],
+    [
+     "Test Date",
+     "8/29/2011"
+    ],
+    [
+     "Test GMT",
+     "23:36:18"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.34"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.18"
+    ],
+    [
+     "Burning rate; mm",
+     "0.34"
+    ],
+    [
+     "Burn time; s",
+     "3.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-210",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "211",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 211; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N02H201"
+    ],
+    [
+     "Test Date",
+     "8/29/2011"
+    ],
+    [
+     "Test GMT",
+     "23:51:11"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-211",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "212",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 212; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N02H203"
+    ],
+    [
+     "Test Date",
+     "8/30/2011"
+    ],
+    [
+     "Test GMT",
+     "0:58:06"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.84"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.52"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.13"
+    ],
+    [
+     "Burning rate; mm",
+     "0.42"
+    ],
+    [
+     "Burn time; s",
+     "4.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-212",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "213",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 213; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N03H101"
+    ],
+    [
+     "Test Date",
+     "9/1/2011"
+    ],
+    [
+     "Test GMT",
+     "19:44:42"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.85"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.55"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.31"
+    ],
+    [
+     "Burning rate; mm",
+     "0.37"
+    ],
+    [
+     "Burn time; s",
+     "3.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-213",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "214",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 214; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N04H101"
+    ],
+    [
+     "Test Date",
+     "9/1/2011"
+    ],
+    [
+     "Test GMT",
+     "22:54:16"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.86"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "4.16"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "4.15"
+    ],
+    [
+     "Burning rate; mm",
+     "0.24"
+    ],
+    [
+     "Burn time; s",
+     "1.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-214",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "215",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 215; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N04H201"
+    ],
+    [
+     "Test Date",
+     "9/1/2011"
+    ],
+    [
+     "Test GMT",
+     "23:17:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.86"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.83"
+    ],
+    [
+     "Burning rate; mm",
+     "0.39"
+    ],
+    [
+     "Burn time; s",
+     "3.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-215",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "216",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 216; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N04M101"
+    ],
+    [
+     "Test Date",
+     "9/8/2011"
+    ],
+    [
+     "Test GMT",
+     "17:00:27"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "757.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.86"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.5"
+    ],
+    [
+     "Burning rate; mm",
+     "0.3"
+    ],
+    [
+     "Burn time; s",
+     "26"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-216",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "217",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 217; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N04M201"
+    ],
+    [
+     "Test Date",
+     "9/8/2011"
+    ],
+    [
+     "Test GMT",
+     "17:21:15"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "758.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.86"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.67"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.27"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "15.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-217",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "218",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 218; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N05M101"
+    ],
+    [
+     "Test Date",
+     "9/8/2011"
+    ],
+    [
+     "Test GMT",
+     "19:00:48"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.46"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.96"
+    ],
+    [
+     "Burning rate; mm",
+     "0.36"
+    ],
+    [
+     "Burn time; s",
+     "9.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-218",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "219",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 219; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N05M201"
+    ],
+    [
+     "Test Date",
+     "9/8/2011"
+    ],
+    [
+     "Test GMT",
+     "20:24:20"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.87"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.75"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.46"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "16.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-219",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "220",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 220; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N06M101"
+    ],
+    [
+     "Test Date",
+     "9/9/2011"
+    ],
+    [
+     "Test GMT",
+     "13:09:53"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.88"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.6"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.09"
+    ],
+    [
+     "Burning rate; mm",
+     "0.36"
+    ],
+    [
+     "Burn time; s",
+     "6.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-220",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "221",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 221; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N06M201"
+    ],
+    [
+     "Test Date",
+     "9/9/2011"
+    ],
+    [
+     "Test GMT",
+     "13:28:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.88"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.94"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.05"
+    ],
+    [
+     "Burning rate; mm",
+     "0.35"
+    ],
+    [
+     "Burn time; s",
+     "7.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-221",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "222",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.12",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "12",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 222; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N06M202"
+    ],
+    [
+     "Test Date",
+     "9/9/2011"
+    ],
+    [
+     "Test GMT",
+     "14:26:07"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "763.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.12"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.88"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.84"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.04"
+    ],
+    [
+     "Burning rate; mm",
+     "0.38"
+    ],
+    [
+     "Burn time; s",
+     "6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-222",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "223",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 223; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H01M102"
+    ],
+    [
+     "Test Date",
+     "9/9/2011"
+    ],
+    [
+     "Test GMT",
+     "17:41:47"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.91"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.12"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "14.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-223",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "224",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 224; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H01M104"
+    ],
+    [
+     "Test Date",
+     "9/9/2011"
+    ],
+    [
+     "Test GMT",
+     "18:27:14"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "Burn time; s",
+     "~6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-224",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "225",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 225; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H01H102"
+    ],
+    [
+     "Test Date",
+     "9/13/2011"
+    ],
+    [
+     "Test GMT",
+     "11:55:40"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "755.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.75"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.05"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.25"
+    ],
+    [
+     "Burning rate; mm",
+     "0.57"
+    ],
+    [
+     "Burn time; s",
+     "~9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-225",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "226",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.19",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "19",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 226; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H02M101"
+    ],
+    [
+     "Test Date",
+     "9/21/2011"
+    ],
+    [
+     "Test GMT",
+     "22:28:54"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "753.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.19"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.71"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.1"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.78"
+    ],
+    [
+     "Burning rate; mm",
+     "0.57"
+    ],
+    [
+     "Burn time; s",
+     "12.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-226",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "227",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 227; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H03M101"
+    ],
+    [
+     "Test Date",
+     "9/22/2011"
+    ],
+    [
+     "Test GMT",
+     "0:02:52"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.79"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.3"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "12.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-227",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "228",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 228; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H03M201"
+    ],
+    [
+     "Test Date",
+     "9/22/2011"
+    ],
+    [
+     "Test GMT",
+     "0:44:55"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "760.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.95"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.67"
+    ],
+    [
+     "Burning rate; mm",
+     "0.53"
+    ],
+    [
+     "Burn time; s",
+     "11.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-228",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "229",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 229; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H401"
+    ],
+    [
+     "Test Date",
+     "9/23/2011"
+    ],
+    [
+     "Test GMT",
+     "23:18:09"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "767.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.32"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.37"
+    ],
+    [
+     "Burning rate; mm",
+     "0.52"
+    ],
+    [
+     "Burn time; s",
+     "17.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-229",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "230",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 230; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H502"
+    ],
+    [
+     "Test Date",
+     "9/24/2011"
+    ],
+    [
+     "Test GMT",
+     "0:06:41"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "768.1"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.57"
+    ],
+    [
+     "Burn time; s",
+     "10.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-230",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "231",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 231; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "N01H601"
+    ],
+    [
+     "Test Date",
+     "9/24/2011"
+    ],
+    [
+     "Test GMT",
+     "1:06:33"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "769.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.79"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.65"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.85"
+    ],
+    [
+     "Burning rate; mm",
+     "0.57"
+    ],
+    [
+     "Burn time; s",
+     "9.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-231",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "232",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.19",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "19",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 232; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H02H101"
+    ],
+    [
+     "Test Date",
+     "9/24/2011"
+    ],
+    [
+     "Test GMT",
+     "2:44:09"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "758.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.19"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.71"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.1"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.59"
+    ],
+    [
+     "Burning rate; mm",
+     "0.54"
+    ],
+    [
+     "Burn time; s",
+     "12"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-232",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "233",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 233; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H03H101"
+    ],
+    [
+     "Test Date",
+     "9/27/2011"
+    ],
+    [
+     "Test GMT",
+     "12:08:14"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "763.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.52"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.28"
+    ],
+    [
+     "Burning rate; mm",
+     "0.41"
+    ],
+    [
+     "Burn time; s",
+     "4.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-233",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "234",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 234; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H03H201"
+    ],
+    [
+     "Test Date",
+     "9/27/2011"
+    ],
+    [
+     "Test GMT",
+     "13:00:54"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "765.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.3"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "9.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-234",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "235",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 235; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H03H202"
+    ],
+    [
+     "Test Date",
+     "9/27/2011"
+    ],
+    [
+     "Test GMT",
+     "13:25:07"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.67"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.27"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "8.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-235",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "236",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 236; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H04H101"
+    ],
+    [
+     "Test Date",
+     "9/27/2011"
+    ],
+    [
+     "Test GMT",
+     "15:00:33"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.85"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.6"
+    ],
+    [
+     "Burning rate; mm",
+     "0.46"
+    ],
+    [
+     "Burn time; s",
+     "3.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-236",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "237",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 237; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H04H201"
+    ],
+    [
+     "Test Date",
+     "9/27/2011"
+    ],
+    [
+     "Test GMT",
+     "15:12:24"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.12"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.39"
+    ],
+    [
+     "Burning rate; mm",
+     "0.59"
+    ],
+    [
+     "Burn time; s",
+     "4.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-237",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "238",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 238; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H04H302"
+    ],
+    [
+     "Test Date",
+     "9/27/2011"
+    ],
+    [
+     "Test GMT",
+     "16:18:19"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Burn time; s",
+     "1.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-238",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "239",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 239; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H04H303"
+    ],
+    [
+     "Test Date",
+     "9/27/2011"
+    ],
+    [
+     "Test GMT",
+     "16:40:04"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.61"
+    ],
+    [
+     "Burning rate; mm",
+     "0.91"
+    ],
+    [
+     "Burn time; s",
+     "2.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-239",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "240",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 240; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H04M101"
+    ],
+    [
+     "Test Date",
+     "10/1/2011"
+    ],
+    [
+     "Test GMT",
+     "0:34:58"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "754.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.99"
+    ],
+    [
+     "Burning rate; mm",
+     "0.49"
+    ],
+    [
+     "Burn time; s",
+     "9.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-240",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "241",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 241; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H04M202"
+    ],
+    [
+     "Test Date",
+     "10/1/2011"
+    ],
+    [
+     "Test GMT",
+     "1:21:41"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "757"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.63"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.9"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.42"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "13.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-241",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "242",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 242; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H05M102"
+    ],
+    [
+     "Test Date",
+     "10/1/2011"
+    ],
+    [
+     "Test GMT",
+     "2:58:40"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.59"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.4"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.79"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "7.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-242",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "243",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 243; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H05M202"
+    ],
+    [
+     "Test Date",
+     "10/1/2011"
+    ],
+    [
+     "Test GMT",
+     "4:26:52"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "761"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.59"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "Burn time; s",
+     "5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-243",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "244",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.16",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "16",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 244; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H05H103"
+    ],
+    [
+     "Test Date",
+     "10/5/2011"
+    ],
+    [
+     "Test GMT",
+     "14:58:32"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "757.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.16"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.59"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.49"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.69"
+    ],
+    [
+     "Burning rate; mm",
+     "0.6"
+    ],
+    [
+     "Burn time; s",
+     "2.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-244",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "245",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 245; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H06M102"
+    ],
+    [
+     "Test Date",
+     "10/7/2011"
+    ],
+    [
+     "Test GMT",
+     "12:12:14"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "755.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.55"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.67"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.47"
+    ],
+    [
+     "Burning rate; mm",
+     "0.43"
+    ],
+    [
+     "Burn time; s",
+     "3.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-245",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "246",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.15",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "15",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 246; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H06M201"
+    ],
+    [
+     "Test Date",
+     "10/7/2011"
+    ],
+    [
+     "Test GMT",
+     "13:00:56"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "756.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.55"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.52"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.06"
+    ],
+    [
+     "Burning rate; mm",
+     "0.56"
+    ],
+    [
+     "Burn time; s",
+     "4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-246",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "247",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 247; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H07M101"
+    ],
+    [
+     "Test Date",
+     "10/7/2011"
+    ],
+    [
+     "Test GMT",
+     "14:25:42"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.51"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.44"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.26"
+    ],
+    [
+     "Burning rate; mm",
+     "0.56"
+    ],
+    [
+     "Burn time; s",
+     "1.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-247",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "248",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.14",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "14",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 248; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H07M202"
+    ],
+    [
+     "Test Date",
+     "10/7/2011"
+    ],
+    [
+     "Test GMT",
+     "15:06:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "759.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.14"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.51"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.88"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.73"
+    ],
+    [
+     "Burning rate; mm",
+     "0.58"
+    ],
+    [
+     "Burn time; s",
+     "1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-248",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "249",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.13",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "13",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 249; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H08M101"
+    ],
+    [
+     "Test Date",
+     "10/11/11"
+    ],
+    [
+     "Test GMT",
+     "12:11:56"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "763.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.13"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.47"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.56"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.54"
+    ],
+    [
+     "Burning rate; mm",
+     "0.51"
+    ],
+    [
+     "Burn time; s",
+     "0.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-249",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "250",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 250; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H10H101"
+    ],
+    [
+     "Test Date",
+     "10/12/11"
+    ],
+    [
+     "Test GMT",
+     "20:16:43"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.78"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.52"
+    ],
+    [
+     "Burning rate; mm",
+     "0.72"
+    ],
+    [
+     "Burn time; s",
+     "12.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-250",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "251",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 251; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H11H101"
+    ],
+    [
+     "Test Date",
+     "10/12/11"
+    ],
+    [
+     "Test GMT",
+     "21:58:55"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.8"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.12"
+    ],
+    [
+     "Burning rate; mm",
+     "0.71"
+    ],
+    [
+     "Burn time; s",
+     "11.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-251",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "252",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 252; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H10M101"
+    ],
+    [
+     "Test Date",
+     "11/18/11"
+    ],
+    [
+     "Test GMT",
+     "14:48:10"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.82"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.03"
+    ],
+    [
+     "Burning rate; mm",
+     "0.62"
+    ],
+    [
+     "Burn time; s",
+     "11.2"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-252",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "253",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.24",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "24",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 253; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H10M102"
+    ],
+    [
+     "Test Date",
+     "11/18/11"
+    ],
+    [
+     "Test GMT",
+     "15:19:28"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "534.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.24"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.56"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.79"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.53"
+    ],
+    [
+     "Burning rate; mm",
+     "0.7"
+    ],
+    [
+     "Burn time; s",
+     "8.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-253",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "254",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 254; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H11M101"
+    ],
+    [
+     "Test Date",
+     "11/18/11"
+    ],
+    [
+     "Test GMT",
+     "16:59:20"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.45"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.86"
+    ],
+    [
+     "Burning rate; mm",
+     "0.6"
+    ],
+    [
+     "Burn time; s",
+     "8.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-254",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "255",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.23",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "23",
+   "outcome_raw": "Disruption",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 255; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H11M102"
+    ],
+    [
+     "Test Date",
+     "11/18/11"
+    ],
+    [
+     "Test GMT",
+     "17:51:23"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.8"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.23"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.52"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.25"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.61"
+    ],
+    [
+     "Burning rate; mm",
+     "0.73"
+    ],
+    [
+     "Burn time; s",
+     "6.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-255",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "256",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 256; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H12M101"
+    ],
+    [
+     "Test Date",
+     "11/18/11"
+    ],
+    [
+     "Test GMT",
+     "18:53:50"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.22"
+    ],
+    [
+     "Burning rate; mm",
+     "0.56"
+    ],
+    [
+     "Burn time; s",
+     "10.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-256",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "257",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 257; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H12M102"
+    ],
+    [
+     "Test Date",
+     "11/18/11"
+    ],
+    [
+     "Test GMT",
+     "21:29:35"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.25"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.78"
+    ],
+    [
+     "Burning rate; mm",
+     "0.65"
+    ],
+    [
+     "Burn time; s",
+     "12.1"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-257",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "258",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 258; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H12M201"
+    ],
+    [
+     "Test Date",
+     "11/18/11"
+    ],
+    [
+     "Test GMT",
+     "21:53:16"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.67"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.42"
+    ],
+    [
+     "Burning rate; mm",
+     "0.7"
+    ],
+    [
+     "Burn time; s",
+     "7.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-258",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "259",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 259; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H12H101"
+    ],
+    [
+     "Test Date",
+     "11/22/11"
+    ],
+    [
+     "Test GMT",
+     "13:04:17"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "529.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.23"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.33"
+    ],
+    [
+     "Burning rate; mm",
+     "0.67"
+    ],
+    [
+     "Burn time; s",
+     "7.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-259",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "260",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 260; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H12H201"
+    ],
+    [
+     "Test Date",
+     "11/22/11"
+    ],
+    [
+     "Test GMT",
+     "15:49:36"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "529"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.49"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.3"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.86"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.71"
+    ],
+    [
+     "Burning rate; mm",
+     "0.7"
+    ],
+    [
+     "Burn time; s",
+     "11"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-260",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "261",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 261; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H13H101"
+    ],
+    [
+     "Test Date",
+     "11/22/11"
+    ],
+    [
+     "Test GMT",
+     "20:40:42"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.69"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "3.32"
+    ],
+    [
+     "Burning rate; mm",
+     "0.61"
+    ],
+    [
+     "Burn time; s",
+     "4.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-261",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "262",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 262; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H13H201"
+    ],
+    [
+     "Test Date",
+     "11/22/11"
+    ],
+    [
+     "Test GMT",
+     "20:58:21"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.08"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.69"
+    ],
+    [
+     "Burning rate; mm",
+     "0.67"
+    ],
+    [
+     "Burn time; s",
+     "5.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-262",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "263",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 263; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H13M102"
+    ],
+    [
+     "Test Date",
+     "11/28/11"
+    ],
+    [
+     "Test GMT",
+     "13:13:31"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "527.6"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.87"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.24"
+    ],
+    [
+     "Burning rate; mm",
+     "0.6"
+    ],
+    [
+     "Burn time; s",
+     "17.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-263",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "264",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "20",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 264; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H13M201"
+    ],
+    [
+     "Test Date",
+     "11/28/11"
+    ],
+    [
+     "Test GMT",
+     "13:24:55"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "527.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.2"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.35"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.95"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.5"
+    ],
+    [
+     "Burning rate; mm",
+     "0.63"
+    ],
+    [
+     "Burn time; s",
+     "10.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-264",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "265",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 265; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H14M101"
+    ],
+    [
+     "Test Date",
+     "11/28/11"
+    ],
+    [
+     "Test GMT",
+     "15:07:28"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.5"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.67"
+    ],
+    [
+     "Burning rate; mm",
+     "0.59"
+    ],
+    [
+     "Burn time; s",
+     "7.8"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-265",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "266",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 266; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H14M201"
+    ],
+    [
+     "Test Date",
+     "11/28/11"
+    ],
+    [
+     "Test GMT",
+     "15:35:38"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.9"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.7"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.92"
+    ],
+    [
+     "Burning rate; mm",
+     "0.63"
+    ],
+    [
+     "Burn time; s",
+     "5.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-266",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "267",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 267; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H14M202"
+    ],
+    [
+     "Test Date",
+     "11/28/11"
+    ],
+    [
+     "Test GMT",
+     "15:54:09"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "533.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.84"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.3"
+    ],
+    [
+     "Burning rate; mm",
+     "0.62"
+    ],
+    [
+     "Burn time; s",
+     "2.3"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-267",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "268",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 268; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H14H101"
+    ],
+    [
+     "Test Date",
+     "11/30/11"
+    ],
+    [
+     "Test GMT",
+     "8:39:18"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "528"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.27"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.64"
+    ],
+    [
+     "Burning rate; mm",
+     "0.71"
+    ],
+    [
+     "Burn time; s",
+     "3.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-268",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "269",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.18",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "18",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 269; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H14H201"
+    ],
+    [
+     "Test Date",
+     "11/30/11"
+    ],
+    [
+     "Test GMT",
+     "9:49:07"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "530.3"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.18"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.42"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.4"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.86"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.84"
+    ],
+    [
+     "Burning rate; mm",
+     "0.77"
+    ],
+    [
+     "Burn time; s",
+     "3.5"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-269",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "270",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 270; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H15H101"
+    ],
+    [
+     "Test Date",
+     "11/30/11"
+    ],
+    [
+     "Test GMT",
+     "11:30:51"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.22"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "1.86"
+    ],
+    [
+     "Burning rate; mm",
+     "0.76"
+    ],
+    [
+     "Burn time; s",
+     "1.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-270",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "271",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Completion",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 271; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H15H201"
+    ],
+    [
+     "Test Date",
+     "11/30/11"
+    ],
+    [
+     "Test GMT",
+     "12:09:00"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "532.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "1.61"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.91"
+    ],
+    [
+     "Burning rate; mm",
+     "1.06"
+    ],
+    [
+     "Burn time; s",
+     "1.4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-271",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "272",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 272; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H15M102"
+    ],
+    [
+     "Test Date",
+     "12/5/2011"
+    ],
+    [
+     "Test GMT",
+     "22:54:10"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "530.4"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.79"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.3"
+    ],
+    [
+     "Burning rate; mm",
+     "0.63"
+    ],
+    [
+     "Burn time; s",
+     "4"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-272",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "273",
+   "material_raw": "Methanol droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.17",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "17",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 273; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H15M201"
+    ],
+    [
+     "Test Date",
+     "12/5/2011"
+    ],
+    [
+     "Test GMT",
+     "23:39:04"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "531.5"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.17"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.38"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.45"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.68"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.31"
+    ],
+    [
+     "Burning rate; mm",
+     "0.66"
+    ],
+    [
+     "Burn time; s",
+     "2.9"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-273",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "274",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 274; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H19H101"
+    ],
+    [
+     "Test Date",
+     "12/8/2011"
+    ],
+    [
+     "Test GMT",
+     "22:29:44"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "764.7"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.64"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "3.54"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "2.91"
+    ],
+    [
+     "Burning rate; mm",
+     "0.55"
+    ],
+    [
+     "Burn time; s",
+     "7.6"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
+  },
+  {
+   "id": "FLEX-274",
+   "experiment": "FLEX",
+   "pi": "",
+   "source_id": "PSI-69",
+   "source_file": "PSI-69_experimental_table_FLEX.csv",
+   "source_row": "275",
+   "material_raw": "Heptane droplet",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.21",
+   "o2_note": "O2 mole fraction of the ambient gas (NASA header: “O initial ambient composition; mole fraction”); ×100 shown as mole %",
+   "o2_vol_pct": "21",
+   "outcome_raw": "Extinction",
+   "qc_flag": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-69_experimental_table_FLEX.csv, row 275; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "FLEX Identifier",
+     "H19H201"
+    ],
+    [
+     "Test Date",
+     "12/8/2011"
+    ],
+    [
+     "Test GMT",
+     "23:41:45"
+    ],
+    [
+     "Ambient pressure; mmHg",
+     "766.2"
+    ],
+    [
+     "O initial ambient composition; mole fraction",
+     "0.21"
+    ],
+    [
+     "N initial ambient composition; mole fraction",
+     "0.64"
+    ],
+    [
+     "CO initial ambient composition; mole fraction",
+     "0"
+    ],
+    [
+     "He initial ambient composition; mole fraction",
+     "0.15"
+    ],
+    [
+     "Droplet initial diameter; mm",
+     "2.82"
+    ],
+    [
+     "Visible flame extinction diameter; mm",
+     "0.73"
+    ],
+    [
+     "Burning rate; mm",
+     "0.65"
+    ],
+    [
+     "Burn time; s",
+     "11.7"
+    ]
+   ],
+   "pdf": false,
+   "source_href": "sources/psi/PSI-69_experimental_table_FLEX.csv"
   }
  ],
  "sources": [
@@ -15624,21 +36410,38 @@ window.FLARE_DATA = {
    "date": "2024-09-18",
    "url": "https://doi.org/10.60555/040q-4h36",
    "type": "NASA PSI dataset PSI-100, DOI 10.60555/040q-4h36, CC0-1.0"
+  },
+  {
+   "source_id": "PSI-69",
+   "title": "Flame Extinguishment Experiment (FLEX): Experimental table",
+   "authors": "NASA Physical Sciences Informatics (PSI), NASA GRC",
+   "date": "2016-07-31",
+   "url": "https://doi.org/10.60555/mbq8-0451",
+   "type": "NASA PSI dataset PSI-69, DOI 10.60555/mbq8-0451, CC0-1.0"
+  },
+  {
+   "source_id": "PSI-68",
+   "title": "Flame Extinguishment Experiment-2 (FLEX-2): planned test matrix",
+   "authors": "NASA Physical Sciences Informatics (PSI), NASA GRC",
+   "date": "2019-09-30",
+   "url": "https://doi.org/10.60555/byp8-h018",
+   "type": "NASA PSI dataset PSI-68, DOI 10.60555/byp8-h018, CC0-1.0 (planned conditions only; no per-test results in PSI)"
   }
  ],
  "counts": {
-  "records": 263,
+  "records": 537,
   "verified": 0,
-  "machine": 263,
+  "machine": 537,
   "unchecked": 0,
-  "shown": 263,
-  "sources": 6,
+  "shown": 537,
+  "sources": 8,
   "pdf_match": 126,
   "psi_agree": 123,
   "psi_differ": 3,
   "experiments": {
    "BASS-I": 121,
    "BASS-II": 129,
+   "FLEX": 274,
    "SAFFIRE-I": 2,
    "SAFFIRE-II": 9,
    "SAFFIRE-III": 2

@@ -249,3 +249,15 @@ Did:
 Verified by running: smoke 69/69; previewer 14/14; all 263 record pages + Compare combos + main pages: no errors; tamper tests ALL
   CAUGHT; netlify.toml CSP served locally: no errors; 1280px and 390px screenshots, no overflow.
 Not checked: the hosted Netlify site (URL unknown; netlify.app not in this session's allowed domains).
+
+## 2026-11-01 07:00 IST - Claude
+Did:
+- Challenge page and its mirrors are blocked here; public repos of other teams consistently cite NASA PSI with BASS-II (PSI-25) and
+  FLEX (PSI-69) as the challenge datasets. Added FLEX from PSI-69 (274 tests; Windows-1252 CSV) via import_psi.flex_rows(); added
+  PSI-68 FLEX-2 as a listed source (planned matrix only, no records). sources.csv now 8 rows; 537 records.
+- Site: FLEX in Explorer (mol% tag), Overview families table + "How did FLEX droplet fires end?" chart (NASA's labels), Compare
+  measures (O2 mole fraction, pressure, droplet/extinction diameter, burn time), donut shows NASA's test end for FLEX, worked example,
+  provenance rows (lost-subscript reading labelled as our interpretation), flag callouts (pressure printed as 0, duplicate identifier).
+Verified by running: import 274 rows; build 537/537 machine-checked; smoke 72/72; previewer 14/14; tamper tests ALL CAUGHT; all 537
+  record pages + Compare + main pages: no errors; CSP served locally: no errors; 1280/390 px screenshots, no overflow.
+Not verified: the official challenge resource list itself (spaceappschallenge.org not reachable from this session).

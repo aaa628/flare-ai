@@ -19,9 +19,9 @@ Built for the **NASA Space Apps Challenge 2026: Flame in Freefall**.
 
 | | Count |
 |---|---|
-| Test records | **263** from **6** NASA sources |
+| Test records | **537** from **7** NASA sources with records (8 listed; FLEX-2 has planned conditions only) |
 | Human-verified (a person compared the record with NASA's source and signed it) | **0** |
-| Machine-checked (automated checks against NASA's PDF or data file; not "verified") | **263** |
+| Machine-checked (automated checks against NASA's PDF or data file; not "verified") | **537** |
 | Unchecked (hidden unless the team preview is on) | **0** |
 
 | Experiment family | Records | Source | How it was checked |
@@ -29,9 +29,11 @@ Built for the **NASA Space Apps Challenge 2026: Flame in Freefall**.
 | BASS-II | 126 | NASA/TM-20210011385 report, Appendix A (NTRS) | matches the PDF value for value (126/126); 123 also agree with NASA's PSI spreadsheet, 3 disagreements (F3, P22b, P3a) shown on those records; 22 flagged rows passed via a written row-by-row review |
 | BASS-II | 3 (O20-O22) | NASA PSI-25 experimental table (DOI 10.60555/4qc4-de67) | copied from NASA's file, re-read on every build; not in the report |
 | BASS-I | 121 | NASA PSI-26 As Run Test Matrix (DOI 10.60555/58h4-dy80) | copied from NASA's file, re-read on every build |
+| FLEX | 274 | NASA PSI-69 experimental table (DOI 10.60555/mbq8-0451) | copied from NASA's file, re-read on every build; includes NASA's recorded test end (Extinction / Disruption / Completion) |
 | SAFFIRE-I / II / III | 2 / 9 / 2 | NASA PSI-98/99/100 experimental tables | copied from NASA's file, re-read on every build |
+| FLEX-2 | 0 | NASA PSI-68 planned test matrix (DOI 10.60555/byp8-h018) | listed as a source; no per-test results in PSI |
 
-The three families recorded oxygen differently (calibrated chamber sensor / logged station O2 as a fraction / approximate values),
+The four families recorded oxygen differently (calibrated chamber sensor / logged station O2 as a fraction / ambient mole fraction / approximate values),
 so they are **never pooled into one chart or comparison**. Details: [`data/README.md`](data/README.md).
 
 ## Principles (non-negotiable)
