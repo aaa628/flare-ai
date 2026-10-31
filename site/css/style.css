@@ -145,3 +145,38 @@ main > div > div[style*="display:flex"] > .btn.ghost[href="#/about"]:hover {
 
 /* check-level chip (machine-checked): added alongside the label chips */
 .chip.mach { color: #b69cff; }
+
+/* ---------- Compare (charts follow the validated dark palette: #3987e5 #d95926 #199e70 #c98500) ---------- */
+.viz-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:14px; margin-top:14px; }
+.viz-card { position:relative; }
+.viz-card > .chip { position:absolute; top:18px; right:18px; }
+.viz-card h3 { padding-right:110px; }
+.viz-card .unit { color:var(--muted); font:500 12px var(--mono); }
+.viz-sub { margin:14px 0 2px; color:var(--muted); font-size:13px; }
+.chart.viz .axis { stroke:var(--line); stroke-width:1; }
+.chart.viz .mark { cursor:default; transition:opacity .15s; }
+.chart.viz:hover .mark { opacity:.75; } .chart.viz .mark:hover, .chart.viz .mark:focus { opacity:1; outline:none; }
+.chart.viz .mark:focus { stroke:var(--text); stroke-width:1.5; }
+.chart.viz .slice { stroke:var(--panel); stroke-width:2; }
+.chart.viz .na { fill:var(--muted); font-size:11px; text-decoration:underline dotted; }
+.chart.viz .val.small { font-size:11px; } .chart.viz .val.big { font:700 22px var(--sans); fill:var(--text); }
+.viz-legend { display:flex; gap:14px; flex-wrap:wrap; margin:8px 0 4px; font-size:12px; color:var(--muted); }
+.viz-legend i, .donut-legend i { display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:6px; vertical-align:-1px; }
+.viz-tip { position:fixed; z-index:50; max-width:280px; background:#0d0e10; color:var(--text); border:1px solid var(--line);
+  border-radius:8px; padding:7px 10px; font-size:12.5px; line-height:1.4; pointer-events:none; box-shadow:0 6px 24px rgba(0,0,0,.5); }
+.donut-wrap { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.donut-wrap .donut { width:170px; flex:0 0 auto; }
+.donut-legend { list-style:none; margin:0; padding:0; font-size:13.5px; color:var(--muted); }
+.donut-legend li { margin:7px 0; } .donut-legend b { color:var(--text); font-weight:600; }
+.pick-chips { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0 0; }
+.pick { display:inline-flex; align-items:center; gap:6px; background:var(--panel-2); border:1px solid var(--line); border-radius:99px; padding:4px 6px 4px 12px; font:13px var(--mono); }
+.pick a { color:var(--text); text-decoration:none; }
+.pick .x { background:transparent; color:var(--muted); padding:0 6px; font-size:16px; line-height:1; border-radius:99px; }
+.pick .x:hover { color:var(--warn); }
+.presets { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:12px; font-size:13px; }
+button.small, .btn.small { padding:6px 10px; font-size:12.5px; border-radius:8px; }
+button:disabled { opacity:.45; cursor:not-allowed; }
+.callout.refuse { border-color:var(--warn); }
+table.side th[scope=row] { color:var(--muted); font-weight:500; text-align:left; white-space:nowrap; }
+table.side td, table.side th { vertical-align:top; }
+ul.fn { margin:0; padding-left:18px; color:var(--muted); font-size:13.5px; } ul.fn li { margin:4px 0; }

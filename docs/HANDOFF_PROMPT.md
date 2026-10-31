@@ -53,7 +53,7 @@ Non-negotiables for how you work:
 | Overview | **built** |
 | Flame Explorer + per-test detail | **built** |
 | About | **built** |
-| Compare | planned (nav shows greyed "soon") |
+| Compare | **built** (2026-10-31): see 7.3; route `#/compare/ID1,ID2,...` |
 | Intelligence Lab | planned |
 | Scenario Check + PDF brief | planned |
 
@@ -147,7 +147,12 @@ A verification helper (static page or printable checklist) listing rows by qc_fl
 ### 7.2 Sources
 Add a `sources.csv` row for every document actually used. Detail page source card must keep working.
 
-### 7.3 Compare (nav item exists as placeholder)
+### 7.3 Compare (BUILT 2026-10-31; spec kept for reference)
+Built in `site/js/app.js` (`viewCompare`). Charts: per-measure grouped bars (start = #3987e5, end = #d95926), change bars
+(fell = #9085e9, rose = #e66767), flow-direction donut (Opposed/Concurrent/Stagnation = #3987e5/#d95926/#199e70, not stated
+= grey). Palette validated with the dataviz skill's validator on the panel colour #191a1d. Hover tooltips on every mark.
+Refuses across experiments (no charts); excludes suspect/formula-leftover O2, unconfirmed paired-test start O2, non-numeric
+and approximate ("~") values, listing each in "Left out, and why"; caution when flow direction or material differ; no averages.
 Pick 2-3 verified tests -> side-by-side table + one SVG chart + missing-data flags.
 **Refusal rules (show a plain-language reason; do not silently skip):**
 - Only compare the **same column**: O2 calibrated vs O2 calibrated, CO vs CO, etc. **Refuse** calibrated vs raw O2, and any attempt to compare fan settings with velocities.

@@ -172,3 +172,18 @@ Decisions + why: PSI rows labelled machine-checked (copied from NASA files, re-r
   across experiments (different methods).
 Open problems: 0 human-verified. BASS-I "Air display" and SAFFIRE airflow shown as logged; not yet used in any comparison.
 Next step I recommend: merge PR; build Compare (same experiment + same column only); then Intelligence Lab.
+
+## 2026-11-01 00:30 IST - Claude
+Did:
+- PR #3 was merged; continued on branch claude/stoic-pasteur-c8vrts from main (fast-forward of the old branch).
+- Built the Compare screen (site/js/app.js viewCompare, CSS block at end of style.css, nav link enabled; "Compare with other
+  tests" link on every test page). Pick 2-4 tests; presets incl. "A comparison Flare AI refuses".
+- Charts: grouped start/end bars per measure (BASS-II: calibrated O2, raw O2, CO2, CO; BASS-I: O2, pressure, CO2;
+  SAFFIRE: air flow, ignition power/time, burn time), diverging "change during the test" bars, flow-direction donut for the
+  experiment, shared hover tooltip, side-by-side table.
+- Rules: refuses across experiments; excludes flagged O2 and non-numeric/approximate values with reasons; caution on differing
+  flow direction/material; no averages. User asked for pie charts: used one donut for the only true part-to-whole view
+  (flow-direction mix); comparisons use bars (pies mislead for close values).
+Verified by running: dataviz validator (dark, surface #191a1d) PASS for 4 categorical slots and the fell/rose pair;
+  smoke 44/44 (6 new Compare checks); previewer 14/14; screenshots of 4 compare states reviewed; 390px: no horizontal scroll.
+Next step I recommend: Intelligence Lab (in-browser retrieval with evidence grade), then Scenario Check + PDF brief.
