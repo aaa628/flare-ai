@@ -27,10 +27,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "7 B1 147 100-µm PMMA film, 2 cm wide Integral 2 Opposed 62 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 57 22.2 22.2 20.6 20.6 0.44 0.44 0 6 Ignited very quickly, turned flow off after spread halfway; flame extinguished very quickly; and sooty with blue leading edge",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B10",
@@ -58,10 +64,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 62 B10 173m 1-cm, 0.2- mm PMMA film Integral 2 Opposed 1.7 (52), 1.25, 0.9, 0.6, 0.4, 0.35 5, 4, 3, 2, 1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 16 123 21.0 20.8 20.1 19.9 0.33 0.44 0 23 Multiple velocities for steady spread, extinguished at pot 0.35",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B11",
@@ -89,10 +101,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 61 B11 158m 2-cm, 0.2- mm PMMA film Integral 2 Opposed 2.5 (59), 1.3, 0.7, 0.5, 0.35 5, 3, 1, <1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 5 131 21.0 20.7 20.1 19.8 0.33 0.47 0 46 Multiple velocities for steady spread, extinguished at pot 0.35",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B12",
@@ -120,10 +138,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.7 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "13 B12 160 300-µm film, 2 cm wide Integral 2 Opposed 46.5 2 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 4 160 22.2 22.1 20.5 20.4 0.51 0.56 17 33 Mostly blue, soot only on bottom",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B13",
@@ -151,17 +175,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 63 B13 162m 2-cm, 0.4- mm thick film Integral 2 Opposed 3.5 (68), 1.7, 1.25, 0.9, 0.6, 0.4, 0.35 10, 5, 4, 3, 2, 1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 16 311 21.0 20.5 20.1 19.6 0.33 0.65 0 61 Multiple velocities for steady spread, extinguished at pot 0.35",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B14",
    "pi": "Bhattacharjee",
    "as_run_no": "47",
    "sample_no": "174m",
-   "material_raw": "1-cm-wide, 200-µm\u0002thick PMMA",
+   "material_raw": "1-cm-wide, 200-µm-thick PMMA",
    "flow_mode": "Opposed",
    "o2_cal_initial": "15.0",
    "o2_cal_final": "",
@@ -182,10 +212,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All 8 gas fields match the printed row; NASA printed only starting readings (final columns are dashes). Brief ignition, then extinction.",
-   "raw_text": "--------- 47 B14 174m 1-cm-wide, 200-µm\u0002thick PMMA Integral 2 Opposed ---------------- 5, 3, 2, extinction 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 5 ---- 15.0 ----- 14.1 ----- 0.00 ----- 0.2 ---- HCl O, only brief ignition, flame extinguished",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "--------- 47 B14 174m 1-cm-wide, 200-µm-thick PMMA Integral 2 Opposed ---------------- 5, 3, 2, extinction 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 5 ---- 15.0 ----- 14.1 ----- 0.00 ----- 0.2 ---- HCl O, only brief ignition, flame extinguished",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B15",
@@ -213,10 +249,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 59 B15 149m 2-cm, 0.1- mm PMMA film Integral 0 Opposed 1.4 (50) increase to 10.0 pot 10, max 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 12 122 21.0 20.8 20.1 19.9 0.33 0.43 0 22 Spread at 10 cm/s, did not blowoff",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B16",
@@ -244,17 +286,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.8 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 51 B16 150m 2-cm 100- µm-thick PMMA Integral 2 Opposed ---------------- 3, 5 pot, 0.4 pot 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 7 94 17.3 17.2 16.5 16.4 0.47 0.51 103 119 HCl 1.1 > 1.3; flame quenched after prolonged burn at 0.4 pot, one-sided flame; spread to top side and quenched immediately; did igniter wire affect top flame?",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B17",
    "pi": "Bhattacharjee",
    "as_run_no": "48",
    "sample_no": "175m",
-   "material_raw": "1-cm-wide, 200-µm\u0002thick PMMA",
+   "material_raw": "1-cm-wide, 200-µm-thick PMMA",
    "flow_mode": "Opposed",
    "o2_cal_initial": "17.5",
    "o2_cal_final": "17.4",
@@ -275,17 +323,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
-   "raw_text": "--------- 48 B17 175m 1-cm-wide, 200-µm\u0002thick PMMA Integral 2 Opposed ---------------- 5, 3, pot 0.4 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 17 190 17.5 17.4 16.6 16.5 0.2 0.34 0 47 Burned steadily at higher flows, extinguished just as we reached a pot of 0.4; vapor jetting more on bottom, possibly because of sample tilted slightly to flow?",
+   "pdf_check": "match: NASA PDF text layer, report page 103, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "--------- 48 B17 175m 1-cm-wide, 200-µm-thick PMMA Integral 2 Opposed ---------------- 5, 3, pot 0.4 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 17 190 17.5 17.4 16.6 16.5 0.2 0.34 0 47 Burned steadily at higher flows, extinguished just as we reached a pot of 0.4; vapor jetting more on bottom, possibly because of sample tilted slightly to flow?",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 103"
   },
   {
    "id": "BASSII-B18",
    "pi": "Bhattacharjee",
    "as_run_no": "49",
    "sample_no": "176m",
-   "material_raw": "1-cm-wide, 200-µm\u0002thick PMMA",
+   "material_raw": "1-cm-wide, 200-µm-thick PMMA",
    "flow_mode": "Opposed",
    "o2_cal_initial": "17.4",
    "o2_cal_final": "17.4",
@@ -306,10 +360,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
-   "raw_text": "--------- 49 B18 176m 1-cm-wide, 200-µm\u0002thick PMMA Integral 0 Opposed ---------------- 10, blowoff 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 11 152 17.4 17.4 16.5 16.5 0.34 0.42 47 78 HCl 0.6 > 0.9, flame blew out at a fan pot of 7.0",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "--------- 49 B18 176m 1-cm-wide, 200-µm-thick PMMA Integral 0 Opposed ---------------- 10, blowoff 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 11 152 17.4 17.4 16.5 16.5 0.34 0.42 47 78 HCl 0.6 > 0.9, flame blew out at a fan pot of 7.0",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B19",
@@ -337,10 +397,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 52 B19 151m 2-cm, 100- µm-thick PMMA Integral 0 Opposed ---------------- 10, blowoff 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 2 95 17.3 17.2 16.4 16.3 0.51 0.57 119 131 HCl 1.3 > 1.4; flame blew out at a pot of 6.0",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B2",
@@ -368,10 +434,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '1.6' equals 22.2 - 20.6 (calibrated minus raw starting O2): a spreadsheet formula leftover in NASA's table, not a reading. Do not use it.",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "8 B2 155 200-µm PMMA film, 2 cm wide Integral 2 Opposed 62 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 none 22.2 1.6 20.6 ----- 0.44 ----- 6 ---- No stills taken, cable came loose; not quite a straight on edge view",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B20",
@@ -399,17 +471,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 50 B20 152m 2-cm, 100- µm-thick PMMA Integral 2 Opposed ---------------- 5, 3, pot 0.5 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 9 111 17.4 17.4 16.5 16.5 0.42 0.47 78 103 HCl 0.9 > 1.1; flame burned entire sample",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B21",
    "pi": "Bhattacharjee",
    "as_run_no": "121",
    "sample_no": "174m",
-   "material_raw": "1-cm-wide, 200-µm\u0002thick PMMA",
+   "material_raw": "1-cm-wide, 200-µm-thick PMMA",
    "flow_mode": "Opposed",
    "o2_cal_initial": "20.8",
    "o2_cal_final": "20.6",
@@ -430,17 +508,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
-   "raw_text": "12:48:30 121 B21 174m 1-cm-wide, 200-µm\u0002thick PMMA 46 1 Opposed 53 and down 5 down to extinction 250 --- NA NA N CL A –3 NA --- F2 1,000 Cont 5 88 20.8 20.6 19.8 19.6 0.36 0.44 –1 18 Ignition at 5 cm/s then fan pot turned down slowly after flame; spreads halfway; flame goes out at 0.355 pot setting",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "12:48:30 121 B21 174m 1-cm-wide, 200-µm-thick PMMA 46 1 Opposed 53 and down 5 down to extinction 250 --- NA NA N CL A –3 NA --- F2 1,000 Cont 5 88 20.8 20.6 19.8 19.6 0.36 0.44 –1 18 Ignition at 5 cm/s then fan pot turned down slowly after flame; spreads halfway; flame goes out at 0.355 pot setting",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B22",
    "pi": "Bhattacharjee",
    "as_run_no": "126",
    "sample_no": "176m",
-   "material_raw": "1-cm-wide, 200-µm\u0002thick PMMA",
+   "material_raw": "1-cm-wide, 200-µm-thick PMMA",
    "flow_mode": "Opposed",
    "o2_cal_initial": "20.7",
    "o2_cal_final": "20.5",
@@ -461,10 +545,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
-   "raw_text": "17:56:02 126 B22 176m 1-cm-wide, 200-µm\u0002thick PMMA 39 1 Opposed 53, 42, 41, 40.5 5, 2, 0 250 --- NA NA N CL A –3 NA --- F2 1,000 Cont 8 77 20.7 20.5 19.8 19.6 0.41 0.47 –1 10 Ignition at 5 cm/s then decreased flow in step, fan pot 1.7, 0.5, 0.4, 0.36 (flame out)",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "17:56:02 126 B22 176m 1-cm-wide, 200-µm-thick PMMA 39 1 Opposed 53, 42, 41, 40.5 5, 2, 0 250 --- NA NA N CL A –3 NA --- F2 1,000 Cont 8 77 20.7 20.5 19.8 19.6 0.41 0.47 –1 10 Ignition at 5 cm/s then decreased flow in step, fan pot 1.7, 0.5, 0.4, 0.36 (flame out)",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B3",
@@ -492,10 +582,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "11 B3 148 100-µm film, 2 cm wide Integral 2 Opposed 47 2 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 253 22.2 21.8 20.9 20.5 0.43 0.49 12 19 Probably 20.6 O2 to start; lower flow flames much more blue overall; still some soot though",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B4",
@@ -523,10 +619,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "9 B4 159 300-µm PMMA film, 2 cm wide Integral 2 Opposed 61 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 137 22.2 22.2 20.6 20.6 0.44 0.51 –1 10 Bubble layer thickness increases with sample thickness",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B5",
@@ -554,10 +656,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "10 B5 156 200 µm 2 cm wide Integral 2 Opposed 59 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 206 22.2 21.9 20.9 20.6 0.43 0.43 0 12 Repeat of B2 test conditions, to get top view images; question the 20.9 reading; all others were 20.6 this day",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B6",
@@ -585,10 +693,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 57 B6 153m 2-cm, 0.1-mm PMMA film Integral 2 Opposed 0.9, 1.3, 2.75 3, 5, approaching 10 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 8 80 21.0 20.9 20.1 20.0 0.33 0.41 0 0.3 Steady burning at 3 and 5 cm/s, did not reach 10 cm/s before end of sample, complete burnout, HCl –>0.3",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B7",
@@ -616,10 +730,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "12 B7 161 400-µm film, 2 cm wide Integral 2 Opposed 47 2 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 4 84 22.2 22.1 20.6 20.5 0.45 0.51 1 17 Very long bubble layer",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B8",
@@ -647,10 +767,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 60 B8 157m 2-cm, 0.2-mm PMMA film Integral 0 Opposed 1.4, increase to 10.0 10, maximum 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 12 226 21.0 20.5 20.1 19.6 0.33 0.58 0 131 Spread at 10 cm/s, did not blowoff",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-B9",
@@ -678,10 +804,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 104, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 58 B9 154m 2-cm, 0.1-mm PMMA film Integral 2 Opposed 0.6, 0.35 2, <1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 12 45 21.0 20.9 20.1 20.0 0.33 0.35 0 10 Steady burning at 2 cm/s, extinguished at 0.35",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 104"
   },
   {
    "id": "BASSII-F1",
@@ -709,10 +841,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 105, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "14 F1 227 Nomex® (DuPontTM) natural (Nomex III) Integral 2 Concurrent 82 9.5 250 8 NA N CL M NA off 1/10 F2 1,000 Cont 4 208 22.2 22.2 20.6 20.6 0.46 0.45 0 2 Ignited briefly but did not spread at all and extinguished while the igniter was still on",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 105"
   },
   {
    "id": "BASSII-F2",
@@ -740,10 +878,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. NASA printed the same value for calibrated and raw O2 (21 / 21.0), unlike other rows, so the usual ~1 vol% offset is absent; shown as printed.",
+   "pdf_check": "match: NASA PDF text layer, report page 105, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 103 F2 228m Nomex® natural (Nomex III) Integral 2 Concurrent 92 15 250 NA NA N CL M NA NA 1/10 F2 1,000 Cont 8 72 21 21.0 21 21.0 0.37 0.39 105 82 Tried to ignite, flame would not sustain",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 105"
   },
   {
    "id": "BASSII-F3",
@@ -771,10 +915,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '0.9' equals 21.7 - 20.8: spreadsheet formula leftover, not a reading. Log note confirms no post-burn readings were taken.",
+   "pdf_check": "match: NASA PDF text layer, report page 105, readings + material + full note (2026-10-31)",
+   "psi_check": "DIFFERS: calibrated O2 end: report 0.9, PSI table none",
    "raw_text": "8:58:25 115 F3 229m Nomex® natural (Nomex III) Integral 1 Concurrent 61 8 50 NA NA N CL A –3 NA ------ F2 1,000 Cont 13 46 21.7 0.9 20.8 ------ 0.36 ------ 2 --- Brief ignition flash, no sustained flame; no postburn sensor readings taken",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 105"
   },
   {
    "id": "BASSII-F4",
@@ -802,10 +952,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 105, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/24/2018 -------- 36 F4 39M Japan Wax candle Integral 2 Stagnation See notes 3 ignition 250 NA NA N CH A –5 9F 1.0 ------ F2 1,600 7 s 3 270 17.4 17.4 16.2 16.2 0.38 0.48 22 56 Long ignition, but blue flame established at 3 cm/s, reduced flow in increments: potentiometers 0.6, 0.4, 0.35, 0.32, 0.31, 0.305 flame extinguished a Greenwich Mean Time.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 105"
   },
   {
    "id": "BASSII-P1",
@@ -833,10 +989,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 25 P1 185m 6.35-mm black rod –22 2 Opposed ------------ 5, 2, slow decrease to extinction 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 6 307 17.7 17.5 16.6 16.4 0.27 0.44 1 14 Broke –20, –21 igniters, –22 worked; nice flame, got down to extinction at pot 0.315 (finite low flow), very slow increments",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P10",
@@ -864,10 +1026,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 55 P10 187m 6.35-mm black rod –35 2 Opposed 48, 41 5, pots 0.4, 0.36, 0.32, 0.31, 0.30 extinguished 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 15 221 17 16.4 16.1 15.5 0.29 0.72 2 44 HCl 0.3 > 0.9, steady burn at multiple velocities, finite quench at pot 0.3",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P12",
@@ -895,10 +1063,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 104 P12 199m 9.525-mm black rod –36 2 Opposed 60, 52, 48, 44.5, 42, 41.5, 41 (2.6, 1.6, 1.2, 0.75, 0.5, 0.4, 0.36, 0.34) 5, 3, 2, 1, 0.5, lower 250 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 3 273 17.5 16.8 16.4 15.7 0.29 0.95 2 57 Loss of signal before extinguished, oscillating at 0.36, out immediately at 0.34, multiple steady spread flows",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P13a",
@@ -926,10 +1100,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "14:30:00 85 P13a 203m 12.7-mm black rod –37 2 Opposed Fan pot 1.1 (5cm/s), 0.4, 0.36, 0.32, 0.3, 0.28, 0.26, 0 ext 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 14 255 20.7 19.1 19.8 18.2 0.36 1.63 38 450 Fan pot 1.1 (5 cm/s), 0.4, 0.36, 0.32, 0.3, 0.28, 0.26; flame out when pot turned to 0; HCL 0.5 > 4.1; flame reached front of sample and began to wrap around",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P13b",
@@ -957,10 +1137,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "16:04:00 86 P13b 203m 12.7-mm black rod –37 2 Opposed Fan pot 1.3 (5cm/s), 0.4, 0.36, 0.32 ext 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 10 94 20.6 20.2 19.7 19.3 0.41 0.62 5 72 Fan pot 1.3 (5 cm/s), 0.4, 0.36, 0.32; flame out when pot turned to 0.32",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P14",
@@ -988,10 +1174,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/23/2014 ---------- 29 P14 189M 6.35-mm black rod –22 2 Opposed 46, 41 5, low (0.85, 0.4, 0.32) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 4 162 18.4 18.0 17.1 16.7 0.34 0.62 3 90 All blue, extinguished at 0.31",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P15",
@@ -1019,10 +1211,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/23/2014 ---------- 30 P15 190M 6.35-mm black rod –22 2 Opposed 46, 41 5, (0.36) 250, 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 7 170 18.0 17.5 16.7 16.2 0.62 1.11 90 108 Nice stable burn with sooty tail but blue leading edge",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P16",
@@ -1050,10 +1248,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 93 P16 191m 6.35-mm black rod –36 2 Concurrent 49, 62, 44, 41.5, 41 (pots 1.3, 2.8, 0.7, 0.4, 0.36, 0.32) 5, 8, 2, low 250, 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 17 129 18.2 17.4 17.2 16.4 0.30 0.92 0 56 Extinguished at pot 0.32, one high flow setting",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P17",
@@ -1081,10 +1285,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 105 P17 192m 6.35-mm rod –36 2 Opposed 60, 52, 48, 233, 48, 41 (2.6, 1.6, 1.2, 10, 1.2, 0.36, 0.34) 5, 3, 2, 22, 2, low 250 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 186 16.8 16.5 15.7 15.4 0.95 1.34 57 68 A few finite flows, then tried blowoff without success, turned back down to 2 cm/s, then 0.36, 0.34 pots, oscillated and out at 0.34; leading edge receded slightly but did not blowoff",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P18",
@@ -1112,10 +1322,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "10:46:00 107 P18 193m 6.35-mm black rod 36 2 Opposed 55, 47, etc. (pot 1,2,1,2, etc.) 2, 0, 2, 0, etc. 250 Saturated NA NA N CL A –3 NA ---- F2 1,000 Cont 7 280 20.0 19.0 18.8 17.8 0.34 1.20 1 26 Alternated fan pot between 1 and 2 at 1-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.32",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P19",
@@ -1143,10 +1359,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 94 P19 194m 6.35-mm black rod –36 2 Concurrent 49, 62, 44, 41.5, 122, 41 (pots 1.3, 2.8, 0.7, 0.4, 0.36, 10., 0.32) 5, 8, 2, maximum, 0 250, 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 2 279 17.5 16.7 16.5 15.7 0.90 1.61 54 94 Tried blowoff, did not blowoff at pot 10 2 restrictors, flame out at 0.32, sample mostly gone",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P2",
@@ -1174,10 +1396,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/16/2014 ---------- 26 P2 188M 6.35-mm black rod –22 2 Opposed ------------ 5, 2.5, 2 (pot 0.9, 0.5, 0.35, 0.33) 250 Nearly saturated NA NA N CL A –4 NA ---- F2 1,000 Cont 7 303 17.4 17.2 16.4 16.2 0.44 0.66 14 26 Nice stable burn at low velocity, mostly blue with some inner soot at higher flow, stable flame at pot 0.33, did not get extinction on stills, but was just fan off, not slow ramp",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P20",
@@ -1205,10 +1433,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "15:22:22 109 P20 195m 6.35-mm black rod 36 2 Opposed 55, 47, etc. (pot 1, 2, 1, 2, etc.) 2, 0, 2, 0, etc. 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 2 311 19.0 18.2 17.9 17.1 0.34 1.05 2 78 Alternated fan pot between 1 and 2 at 1-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.335",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P21a",
@@ -1236,10 +1470,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 31 P21a 196M 6.35-mm black rod –22 2 Opposed 46 5 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 9 57 16.3 16.3 15 15.0 0.96 1.00 86 94 Flame self-extinguished at 5 cm/s after sample end became flat, dim flame",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P21b",
@@ -1267,10 +1507,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 106, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/23/2014 ---------- 32 P21b 196M 6.35-mm black rod –22 2 Opposed 46 5 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 9 14 16.3 16.3 15 15.0 1.00 1.03 94 98 Igniter broke after third attempt to ignite flattened end of sample a Greenwich Mean Time.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 106"
   },
   {
    "id": "BASSII-P22a",
@@ -1298,10 +1544,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '0.6' equals 20.8 - 20.2: spreadsheet formula leftover (paired test a/b: final readings are on row P22b).",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 68 P22a 200m 9.525-mm black rod –35 2 Opposed 5, 0.36, 0.32 extinction after some time 5 down to extinction 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 83 20.8 0.6 20.2 ---- 0.32 ---- 4 ---- Extinguished at higher flow, possibly rod not preheated enough by a bit, CO readings elevated, slow response",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P22b",
@@ -1329,10 +1581,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '39.1' equals 20.0 + 19.1: spreadsheet formula leftover. Starting readings for this pair are on row P22a.",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "DIFFERS: CO end: report 236, PSI table 239",
    "raw_text": "---------- 69 P22b 200m 9.525-mm black rod –35 2 Opposed 5, 0.36, 0.34, 0.33, 0.32, 0.31, extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 155 20.0 39.1 ---- 19.1 ---- 1.09 ---- 236 Extinguished at lower flow than P22a by a bit, longer slower decrease in flow, CO elevated, slow response",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P23",
@@ -1360,10 +1618,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "16:18:33 110 P23 201m 9.525-mm black rod 36 2 Opposed 55, 47, etc. (pot 1, 2, 1, 2, etc.) 2, 0, 2, 0, etc. 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 10 242 18.2 17.0 17.1 15.9 1.05 2.08 78 159 Alternated fan pot between 1 and 2 at 1-min then 2-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.38",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P24",
@@ -1391,10 +1655,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "11:13:35 108 P24 819L 9.525-mm black rod 36 2 Opposed 55, 47, etc. (pot 1,2,1,2, etc.) 2, 0, 2, 0, etc. 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 4 308 19.0 17.5 17.8 16.3 1.20 2.24 26 260 Alternated fan pot between 1 and 2 at 1-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.30",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P25",
@@ -1422,10 +1692,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 70 P25 217m 9.525-mm clear rod –36 2 Opposed 5, 0.36, 0.34, 0.33, 0.32, 0.31, extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 17 246 20.9 20.2 19.9 19.2 0.38 1.00 43 205 Reburn of 217m in opposed geometry, repeat of P22b, extinguished at same 0.31 pot, more sparklers from flame, and less leading edge vapor jetting, or more central jetting; rod warped downward in video view at end of test, asymmetrical instabilities noted briefly at pot change to 0.32, CO elevated, slow response",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P3a",
@@ -1453,10 +1729,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row; NASA left final CO blank (dashes).",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "DIFFERS: CO start: report 33, PSI table 2; CO end: report blank, PSI table 33",
    "raw_text": "6/16/2014 ---------- 27 P3a 215M 6.35-mm clear rod –22 2 Opposed ------------ 5, 2.5 (1.15, 0.5, 0.35, 0.33. 0.32, 0.315, 0.31, 0.3) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 8 304 17.7 17.4 16.6 16.3 0.27 0.51 33 ---- Repeat of last test with clear rod; extinguished at 0.3 pot very small flame, but steady spread",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P3b",
@@ -1484,10 +1766,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row; NASA printed 'failed' for final CO2 (log note mentions a power problem).",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/16/2014 ---------- 28 P3b 215M 6.35-mm clear rod –22 2 Opposed ------------ 5, very low (0.85, 0.32, 0.31, 0.305, 0.30, 0.295) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 9 303 17.4 16.8 16.3 15.7 0.51 failed 33 79 Very low velocity test to get limiting spread rate, pot 0.32 spread, 0.31 spread, etc.; power failed to camera?; fan still running; camera power cable needed repair and taping to camera body to make it work",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P4",
@@ -1515,10 +1803,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 54 P4 197m 9.525-mm black rod –35 2 Opposed 48, 41 5, pots 0.4, 0.36, 0.32, 0.308, .3, off 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 4 297 18.5 17.1 17.6 16.2 0.62 1.8 64 493 HCl 0.9 > 1.8, long slow burn, steady at multiple pots until turned off flow",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P5",
@@ -1546,10 +1840,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "13:18:00 83 P5 202m 12.7-mm black rod –37 2 Opposed Fan pot 1.5 (5cm/s), 0.9, 0.4, 0.36, 0.32, 0.308, 0.3, 0.29, 0.28, 0, extinction 5 down to extinction 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 8 313 19.3 17.6 18.4 16.7 0.32 1.67 0 525 Fan pot 1.5 (5 cm/s), 0.9, 0.4, 0.36, 0.32, 0.308, 0.3, 0.29, 0.28 (flame persisted for all) finally turned down flow to 0 to extinguish; HCL 0 > 4.7; lots of fuel left behind, conical shape",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P6",
@@ -1577,10 +1877,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 53 P6 186m 6.35-mm black rod –35 2 Opposed 48, 41 5, pots 0.4, 0.36, 0.32, 0.31, off 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 10 162 18.9 18.5 18 17.6 0.3 0.62 0 64 HCl 0 > 0.9, steady burning until turned flow off, multiple pot settings",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P8",
@@ -1608,10 +1914,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 56 P8 197m 9.525-mm black rod –35 2 Opposed 48, 62, 75 5, would not stay lit, 10, 15 ibid 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 14 66 16.4 16.3 15.5 15.4 0.72 0.81 44 69 HCl 0.9 > 0.9, would not stay lit, tip of sample was flat",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-P9",
@@ -1639,10 +1951,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 107, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "13:57:00 84 P9 202m 12.7-mm black rod –37 2 Opposed Fan pot 1.5 (5cm/s), 0.9, 0.4, 0.36, 0.32, 0.3, 0.28 extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 15 148 17.6 17.1 16.7 16.2 1.67 2.10 525 535 Fan pot 1.5 (5 cm/s), 0.9, 0.4, 0.36, 0.32, 0.3, 0.28 flame out at 0.28; HCL 4.7 > 4.5; flame did not leave conical portion behind, rather fuel was consumed but final sample shape was very irregular a Greenwich Mean Time.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 107"
   },
   {
    "id": "BASSII-M1",
@@ -1670,10 +1988,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 15 M1 222 1-mm-thick PMMA, one-sided, 2 cm Integral 2 Opposed 58, 54 10, 8 50 ----------- 8 NA N CL A –4 Off ---- F2 1,000 Cont 6 304 22.2 21.9 20.6 20.3 0.45 0.61 0 60 Prolonged ignition, flame initially on both sides, after igniter off and flame moved away from end, bottom flame died and top flame became all blue and small; very slow propagation; changed flow from 10 to 8 cm/s and flame shrank to a circle; spread just over 1/3 of sample when we ran out of camera card, and put flame out by turning off flow",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M10",
@@ -1701,10 +2025,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:38 97 M10 180m 4-mm-thick, 1-cm-wide PMMA slab Integral 2 Opposed 75, 105, 94/91, 72/69, 63/61 (4.4, 8.0, 6.6/6.3, 4.0/3.7, 3/0/2.7) 10, 17, 14, 10, 8 250, 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 16 209 20.1 18.6 19 17.5 0.36 1.59 –1 536 Long burn, quick ignition, flame in seconds, kept it on 40 s + 2nd on for another 10 to 15 s when it was shrinking; multiple flows for steady spreading; flame big at 17, so only left it there 3 min; other flows longer; flame self-extinguished at 8 cm/s after almost 10 min; Alex saw it going out and locked shutter for the last few seconds; pictures start after ignition, about every 8 s",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M11",
@@ -1732,10 +2062,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 80 M11 181m 1-cm-wide PMMA 5 mm thick Integral 2 Opposed 3.9, 6.5, 4.6, 3.3, 2.9, 2.8; 62.5, 93, 77, 66, 63, 62 10, 20, 15, 12 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 7 247 20.0 18.5 19.1 17.6 0.58 1.68 46 577 29-min burn; extinguished at 12 cm/s., HCl 0.5 > 5.0",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M12",
@@ -1763,10 +2099,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "14:35:20 114 M12 165m 2-mm-thick PMMA, 2 cm wide Integral 1 Opposed 41, 42, 41 <1 250 > 50 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 12 271 21.7 20.4 20.7 19.4 0.42 1.42 15 443 Vigorous ignition led to trying to get flame under control; finally had about plateaus at pot = 0.35, 0.4, and again 0.35",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M13",
@@ -1794,17 +2136,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "12:18:54 112 M13 169m 4-mm-thick PMMA, 2 cm wide Integral 1 Opposed 52, 47, 43 6, 5, 4 250 > 50 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 11 258 20.8 19.0 19.8 18.0 0.36 1.75 0 487 Mild ignition at 10 cm/s; decreased flow down holding constant for 6 min at pot settings of 1.7, 1.0, and 0.55; finally extinguished by turning pot down to 0.3",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M14",
    "pi": "Miller",
    "as_run_no": "16",
    "sample_no": "223",
-   "material_raw": "2-mm-thick PMMA, one\u0002sided, 2 cm wide",
+   "material_raw": "2-mm-thick PMMA, one-sided, 2 cm wide",
    "flow_mode": "Opposed",
    "o2_cal_initial": "22.2",
    "o2_cal_final": "21.6",
@@ -1825,10 +2173,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
-   "raw_text": "--------- 16 M14 223 2-mm-thick PMMA, one\u0002sided, 2 cm wide Integral 2 Opposed Pot 2.4, 1.87 (54) 10, ~8 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 8 259 22.2 21.6 20.6 20.0 0.45 0.98 0 198 Prolonged ignition, followed by flow reduction after flame moved away from igniter region and spread steadily; flame self-extinguished at an air reading of 9 cm/s.",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "--------- 16 M14 223 2-mm-thick PMMA, one-sided, 2 cm wide Integral 2 Opposed Pot 2.4, 1.87 (54) 10, ~8 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 8 259 22.2 21.6 20.6 20.0 0.45 0.98 0 198 Prolonged ignition, followed by flow reduction after flame moved away from igniter region and spread steadily; flame self-extinguished at an air reading of 9 cm/s.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M15",
@@ -1856,10 +2210,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 64 M15 225m 2-cm, 4-mm, one-sided PMMA slab Integral 2 Opposed Ignited 10, adjusted down then up to 20, down in increments to 15 10, 8, 7, 8, 10, 20, 18, 16, 15 10, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 7 153 21.0 20.0 20.1 19.1 0.37 1.10 1 220 Ignited and turned flow down to control flame size during end burning, then turned flow up to 20 cm/s and got steady spreading there, turned down flow to 15 and got spreading and slow extinction there.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M16",
@@ -1887,10 +2247,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "00:25 99 M16 164m 1-mm-thick PMMA, 2 cm wide Integral 2 Opposed 73, 57, 59, 48, 45, 43, 75 (4.2, 2.2, 2.4, 1.2, 0.8, 0.5, 4.4) 10, 6, 3, 2, 1, 10 250, 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 7 299 19.2 18.7 18.1 17.6 0.95 1.75 118 421 Burned at decreasing flow down to 1 cm/s or so, still fine, at end of sample, turned up flow to 10 cm/s and flame got really long; turned it down but Alex reported some soot on the door and some on the heat sink; dry wipe would not wipe off; try Monday with some other—water?",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M17",
@@ -1918,10 +2284,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "15:12:00 88 M17 166m 2-cm-wide PMMA, 2 mm thick Integral 2 Opposed Fan pot 3.7, 1.7, 1.5, 1.3, 0.8, 0.6, 0.5, 0.3 extinction 10, 5, 3, 0, extinction 250 > 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 11 309 18.8 17.1 17.8 16.1 0.35 1.70 4 485 30-min burn targeted constant flows of 10, 5, and 3; finally turned fan pot to 0 to extinguish. HCl 0.3 > 3.7",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M18",
@@ -1949,17 +2321,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 108, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "12:40:00 87 M18 168m 2-cm-wide PMMA, 3 mm thick Integral 2 Opposed Fan pot 3.5, 5 (brief), 3,5, 2.2 10, 15 (brief), 10, 8 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 178 17.9 16.8 16.9 15.8 0.32 1.31 0 335 26-min burn; flow briefly at 15 cm/s but flame was too strong so turned down; HCl 0 > 3.1, extinguished 8 cm/s",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 108"
   },
   {
    "id": "BASSII-M19",
    "pi": "Miller",
    "as_run_no": "98",
    "sample_no": "170m",
-   "material_raw": "4-mm-thick, 2-cm, two\u0002sided PMMA slab",
+   "material_raw": "4-mm-thick, 2-cm, two-sided PMMA slab",
    "flow_mode": "Opposed",
    "o2_cal_initial": "19.0",
    "o2_cal_final": "17.4",
@@ -1980,17 +2358,23 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
-   "raw_text": "23:37 98 M19 170m 4-mm-thick, 2-cm, two\u0002sided PMMA slab Integral 2 Opposed 75, 105, 94, 75, 77, 79, 59, 61, 57, 55, 53 (4.4, 8.0, 6.6, 4.4, 4.6, 4.8, 2.5, 2.7, 2.2, 2.0, 1.8) 10, 17, 14, 10, 7, 5 250, 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 8 201 19.0 17.4 17.9 16.3 0.35 1.60 3 357 Burned with decreasing flows until it went out on its own at 5 cm/s",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "23:37 98 M19 170m 4-mm-thick, 2-cm, two-sided PMMA slab Integral 2 Opposed 75, 105, 94, 75, 77, 79, 59, 61, 57, 55, 53 (4.4, 8.0, 6.6, 4.4, 4.6, 4.8, 2.5, 2.7, 2.2, 2.0, 1.8) 10, 17, 14, 10, 7, 5 250, 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 8 201 19.0 17.4 17.9 16.3 0.35 1.60 3 357 Burned with decreasing flows until it went out on its own at 5 cm/s",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M2",
    "pi": "Miller",
    "as_run_no": "17",
    "sample_no": "224",
-   "material_raw": "3-mm-thick PMMA one\u0002sided, 2 cm wide",
+   "material_raw": "3-mm-thick PMMA one-sided, 2 cm wide",
    "flow_mode": "Opposed",
    "o2_cal_initial": "22.2",
    "o2_cal_final": "21.2",
@@ -2000,7 +2384,7 @@ window.FLARE_DATA = {
    "co2_final": "1.33",
    "co_initial_ppm": "12",
    "co_final_ppm": "325",
-   "observation": "Ignite at 20 cm/s, turn down to 15 cm/s after spread away from igniter; seemed steady, so turned down to 13 cm/s; flame got very dim, so increased flow to 14 cm/s, but it self\u0002extinguished",
+   "observation": "Ignite at 20 cm/s, turn down to 15 cm/s after spread away from igniter; seemed steady, so turned down to 13 cm/s; flame got very dim, so increased flow to 14 cm/s, but it self-extinguished",
    "setup_raw": "Integral 0 Opposed 20, 15, 13 50 ----------- ? NA N S A –4 Off ---- F2 1,000",
    "source_page": "109",
    "qc_flag": "",
@@ -2011,10 +2395,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
-   "raw_text": "--------- 17 M2 224 3-mm-thick PMMA one\u0002sided, 2 cm wide Integral 0 Opposed 20, 15, 13 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 9 262 22.2 21.2 20.6 19.6 0.46 1.33 12 325 Ignite at 20 cm/s, turn down to 15 cm/s after spread away from igniter; seemed steady, so turned down to 13 cm/s; flame got very dim, so increased flow to 14 cm/s, but it self\u0002extinguished",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "--------- 17 M2 224 3-mm-thick PMMA one-sided, 2 cm wide Integral 0 Opposed 20, 15, 13 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 9 262 22.2 21.2 20.6 19.6 0.46 1.33 12 325 Ignite at 20 cm/s, turn down to 15 cm/s after spread away from igniter; seemed steady, so turned down to 13 cm/s; flame got very dim, so increased flow to 14 cm/s, but it self-extinguished",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M20",
@@ -2042,10 +2432,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "11:10:50 116 M20 172m 5-mm-thick PMMA, 2 cm wide Integral 1 Opposed 67, 58 10, 8 50 0.4 > 1.2 > 0.8 NA NA N CL A –3 NA ---- F2 1,000 Cont 9 168 18.0 17.4 17.1 16.5 0.30 0.75 0 157 Flame took some time to establish, initially only on bottom of fuel; ignition at 10 cm/s (left 8 min) then flow down to 8 cm/s (flame out after 3 more minutes)",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M3",
@@ -2073,10 +2469,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 82 M3 226m 2-cm-wide, 5-mm-thick, one-sided PMMA Integral 2 Opposed 3.0, 3.1, 3.2, 6.4, 5.5, 5.4 10, 20, 18 250 > 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 16 ----- 20.8 19.7 19.9 18.8 0.33 1.18 11 300 Extinguished at 18 cm/s; HCl 0.6 > 2.6",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M4",
@@ -2104,10 +2506,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "13:59:12 113 M4 171m 5-mm-thick PMMA, 2 cm wide Integral 1 Opposed 52, 47, 43 5, 4, 3 250 > 50 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 16 262 21.8 19.8 20.7 18.7 0.42 2.15 2 561 Mild ignition at 10 cm/s; decreased flow down holding constant for 6 min at pot settings of 1.7, 1.0, and 0.55; finally extinguished by turning pot down to 0.3",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M5",
@@ -2135,10 +2543,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Hand-keyed row; all fields match the printed text. O2 drop 22.2 to 19.0 keeps the normal 1.6 offset to the raw sensor (20.6 to 17.4) and CO2 rose to 3.22, consistent with a long burn; looks like a real reading. Final CO printed as '>500' (off-scale).",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 18 M5 167 3-mm-thick PMMA, two-sided, 2 cm thick Integral 0 Opposed 20, 13, 10, 8, 5 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 10, 14 300+ +102 22.2 19.0 20.6 17.4 0.44 3.22 9 >500 Rick ignited while we were loss of signal and out of contact with ISS, unfortunately; ignition was ~3 min per his verbal call down when we came back; flame already burning ~1/3 of sample, both sides, long and sooty; more vapor jetting on bottom due to molten ball attached there, visible when lights on to change camera card; turned down to 10 cm/s, then further down in increments to 5 cm/s; extinguished at 5 cm/s after prolonged flashing; during soot cleaning, Rick noticed damage to front door corner by the switches; He sent pictures down for us to evaluate for damage; CO reading posttest was off-scale; came back during purge reading 500",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M6",
@@ -2166,10 +2580,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "11:12:57 111 M6 163m 1-mm-thick PMMA, 2 cm wide Integral 1 Opposed 68, 52, 47, 43, 42, 41 10, 5, 3, 0 250 Saturated at start NA NA N CL A –3 NA ---- F2 1,000 Cont 17 269 21.8 20.7 20.8 19.7 0.38 1.27 1 345 Aggressive ignition led to large flame initially; once flame settled down, we kept flow low and had two flow plateaus (pot 0.4 and 0.36); when flame reached end of sample it started backing up and spreading along the edges.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M7",
@@ -2197,10 +2617,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 81 M7 177m 1-cm-wide PMMA, 1 mm thick Integral 2 Opposed 2.6, 1.3, 0.8, 0.7, 0.6, 0.5; 60, 49, 45, 44, 43, 42 10, 6, 5, 4.5, 4, 3 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 12 ----- 18.9 18.4 18 17.5 1.42 1.84 398 612 18 min burn; burned entire sample; HCl 2.2 > 3.9",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M8",
@@ -2228,10 +2654,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 79 M8 178m 1-cm-wide PMMA, 2 mm thick Integral 2 Opposed 3.3, 1.6, 1.0, decrease 10, 5 > 7, 5 decrease 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 5 292 19.1 18.2 18.2 17.3 0.44 1.28 52 467 25-min burn; turned down flow to extinguish, went out at pot 0.4; HCl 0.4 > 4.6",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-M9",
@@ -2259,10 +2691,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 109, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "--------- 78 M9 179m 1-cm-wide PMMA, 3 mm thick Integral 2 Opposed 3.3, 4.8; 66, 79 10, 14 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 2 156 18.0 17.6 17.1 16.7 0.26 0.54 0 191 Ignited at 10 cm/s, photographs every 5 s or so, turned up flow when flame looked weak; died after 15 min at 14 cm/s; 17-min burn; HCl 0 > 1.7 a Greenwich Mean Time. b Polymethylmethacrylate (PMMA). c Potentiometer (pot).",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 109"
   },
   {
    "id": "BASSII-O1",
@@ -2290,10 +2728,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. NASA printed '?' in the flow-mode column, so flow mode stays blank.",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "16:20- 5 O1 207 6.35-mm clear rod 0020-23 2 ? 89, 62, 50, 41 20, 10, 5, 2, 1 50 ---- 8 NA N CH A –5 9F 1.0 --- F4 1,600 7s 3 62 22.2 21.7 20.6 20.1 0.44 0.85 -1 51 Bracket test with decreasing flows; very sooty long flame at high flows; rod very thinned out and was wobbling due to vapor jetting later in test; Rick broke it off holder during readjustments",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O10",
@@ -2321,10 +2765,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "13:26 95 O10 210m 6.35-mm clear rod –31 2 Concurrent 49, 44, 41, 122 (1.3, 0.7, 0.4, 0.36, 0.32, 10) 5, 2, 0, maximum 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 6 172 16.7 16.1 15.7 15.1 1.61 2.10 94 287 Leading edge (LE) blew out at fan 81, 25 s for rest of flame to blowoff at maximum flow",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O11",
@@ -2352,10 +2802,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 65 O11 184m 6.35-mm black rod –32 2 Stagnation Ignition, 5, 0.36, 0.32, 0.31, 0.305, blowoff 6.0 5, down then blowoff 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 11 271 15.4 14.8 14.5 13.9 0.27 0.72 2 290 Repeat of clear rod O8b test, to compare black versus clear for stagnation flame, blowoff at pot of 6.0, fan slightly higher than O8b, HCl 2.8",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O12",
@@ -2383,10 +2839,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. CO printed as '+OR' (over range) at start and end; non-numeric, kept as printed.",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 67 O12 217m 9.525-mm clear rod –32 2 Stagnation pots 1.4, 3, 0.9, 0.7 No ignition at any flow 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 6 52 13.6 13.5 12.7 12.6 1.72 1.71 +OR +OR No sustained flame at any flow, flame with igniter but died immediately upon igniter removal, HCL 12.3",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O13a",
@@ -2414,10 +2876,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:22 91 O13a 221m 12.7-mm clear PMMA rod –29 2 Concurrent 1.3, 0.7, 0.45, 0.36, 0.32, 0.31 49, 44, 42, 41, 41, 40.5 (5, 2, 0) 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 4 199 15.9 14.6 14.9 13.6 0.91 1.85 389 950 Ignited and burned at 5 pot settings, flame self-extinguished after 3+ min at pot 0.31",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O13b",
@@ -2445,10 +2913,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. Final CO printed as 'Over' (off-scale); kept as printed.",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:57 92 O13b 221m 12.7-mm clear PMMA rod –29 2 Concurrent 1.3, 0.9 7, 4? (49, ?) 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 17 6 14.6 14.4 13.6 13.4 1.85 2.09 950 Over Only stayed lit at 0.9 for less than a minute",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O14",
@@ -2476,10 +2950,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "16:18:00 117 O14 183m 6.35-mm black rod 39 1 Concurrent 52 and down 5 down to extinction 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 8 279 16.3 15.3 15.3 14.3 0.29 0.86 4 352 Ignition at 5 cm/s then slow pot decreases to quenching pot 0.28",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O15a",
@@ -2507,10 +2987,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "11:36 msg 100 O15a 218m 9.525-mm clear rod –31 2 Stagnation 57.5, 47, 42, 41 (2.3, 1.0, 0.5, 0.35, 0.32) 5,0 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 15 124 17.1 16.7 16 15.6 0.27 0.62 0 176 Decrease flow to extinction at 0.32 pot, from 0.35 pot. 1.5 min at 5 cm/s; 2.5 min pot 1.0; 3.5 min at 0.5; 3.5 min 0.35; slow turn down to 0.32, flame out fairly quickly",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O15b",
@@ -2538,10 +3024,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "101 O15b 218m 9.525-mm clear rod –31 2 Stagnation 57.5, 42, 41, 40 (2.3, 0.5, 0.35, 0.34, 0.33, 0.32, 0.31, 0.30, 0.29, 0.28, 0.27) 5, 0 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 9 316 16.7 15.6 15.6 14.5 0.62 1.63 176 751 Reburn of same rod as previous; decreased flow to extinction at 0.27 pot, much lower than previous; rod heatup effect? 1 min 5 cm/s; 3.5 min pot 0.5; 5 min 0.35; 4 min 0.34; 4 min 0.33; 3 min 0.32; 1 min 0.31; 1 min 0.3; 1 min 0.29; 1.5 min 0.28; 0.27 out",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O16",
@@ -2569,10 +3061,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Hand-keyed row; all fields match the printed text. Row carries the remark 'postburn only' before the readings, so treat the readings with care.",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 106 O16 219m 9.525-mm clear rod –31 2 Stagnation 60 (2.6) 5 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 7 10 postburn only 14.5 14.5 13.4 13.4 0.27 0.32 2 33 Brief flame at end of first ignition, but no joy on sustained flame",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O17",
@@ -2600,10 +3098,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 96 O17 211m 6.35-mm clear rod –31 2 Concurrent 49, 46.5, 44, 42,41,72, decrease (1.3, 1.0, 0.7, 0.5, 0.4, 4.0, decrease) 3, 0, 11 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 12 174 15.1 14.3 14.1 13.3 0.31 0.90 2 377 Stable burns at slightly higher flows, LE blowoff at fan 72 and turned down flow but flame did not recover and extinguished even after flow was down to 43-44",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O18",
@@ -2631,10 +3135,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "11:05 102 O18 212m 6.35-mm clear rod –31 2 Stagnation 57, 51, 47, 72, 51, 72, 51, 47 (2.3, 1.5, 1.0, 4.0, 1.5, 4.0, 1.5, 1.0) 5, 2, 0, 11, 2, 11, 2, 0 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 5 176 15.2 14.5 14.1 13.4 1.45 1.94 523 816 Got rod hot, blue flame, turned flow up to pot 4.0, stag region blew out, Alex turned down quickly to 1.5 and got it to restabilize; we repeated it but it would not restabilize second time and flame extinguished after multiple oscillations at pot 1.0, after 1.5 would not restabilize",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O19",
@@ -2662,10 +3172,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "16:49:00 118 O19 213m 6.35-mm clear rod 39 1 Concurrent 52 and down 5 down to extinction 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 15 266 15.3 14.6 14.3 13.6 0.86 1.51 352 686 Ignition at 5 cm/s then slow pot decreases to quenching pot 0.288",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O2",
@@ -2693,10 +3209,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. NASA printed '?' in the flow-mode column, so flow mode stays blank.",
+   "pdf_check": "match: NASA PDF text layer, report page 110, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 6 O2 204 6.35-mm clear rod 0020-23 2 ? 0.54 pot and 0.45 pot 0 50 ---- 8 NA N CL A –4 Off --- F4 1,600 Cont 3 287 22.2 21.9 20.6 20.3 0.44 0.59 –1 23 Ignited at 2 cm/s, and got dim flame that got sooty with lots of vapor jetting, reduced flow to 1.5 pot and got less vapor jetting test; still sooty at these low flows ",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 110"
   },
   {
    "id": "BASSII-O3a",
@@ -2724,10 +3246,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 23 O3a 205M 6.35-mm clear rod –23 2 Concurrent ------------ 5, 3 1,000 ---- 8 NA N CL A –4 NA --- F2 1,000 Cont 9 85 18.0 18.0 15.9 15.9 0.25 0.28 16 22 Flame extinguished as soon as he turned flow down, probably overshot, flame sooty at 5 cm/s",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O3b",
@@ -2755,10 +3283,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 24 O3b 205M 6.35-mm clear rod –23 2 Concurrent ------------ 5, 3, 2, 1, low 1,000 and 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 9 306 18.0 17.7 15.9 15.6 0.28 0.53 22 116 Flame sooty even at lower flows, didn't get blue until air reading was zero",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O4",
@@ -2786,10 +3320,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. Final CO printed as '+OR' (over range); kept as printed.",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "-------- 66 O4 216m 9.525-mm clear rod –32 2 Stagnation 5, 0.7, 0.5, 0.4, 0.36 extinction 5 down to extinction 250 ---- NA NA N CH A –3 NA --- F2 1,000 Cont 13 249 14.8 13.6 13.9 12.7 0.72 1.72 290 +OR Larger rod, decreased flow, extinguished at 0.36, HCl 9.7",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O5a",
@@ -2817,10 +3357,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "15:59 89 O5a 220m 12.7-mm clear pmma rod –41, –42, – 30 2 Concurrent 1.3, 2.7, 1.3, 0.7, 0.45, 4.0 5, 10, 5, 2, 0 (49, 62, 49, 44, 42) 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 13 164 15.1 14.2 14.1 13.2 0.25 1.05 -2 496 Hard to ignite, broke two igniters, burned for 9 min then blew out with pot of 4.0, tried to stay lit but blew off after multiple oscillations.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O5b",
@@ -2848,10 +3394,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:02 90 O5b 220m 12.7-mm clear pmma rod –30 2 Concurrent 1.3 49, 5 cm/s 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 4 2 14.2 14.1 13.2 13.1 1.05 1.14 496 590 Would not sustain a flame without igniter on, broke igniter again",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O6",
@@ -2879,10 +3431,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/26/2014 -------- 37 O6 206M 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.31, 0.305, out 0.275 See fan 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 2 241 16.7 16.0 15.8 15.1 0.32 0.74 1 232 -----------------------------------------",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O7",
@@ -2910,10 +3468,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/26/2014 -------- 38 O7 214m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.305, blowoff fan max 10 ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 14 254 16.0 15.5 15.1 14.6 0.74 1.27 232 512 Blowoff fan 97, HCl post 4.9",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O8a",
@@ -2941,10 +3505,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/26/2014 -------- 39 O8a 208m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.31, extinguished ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 15 133 15.7 15.3 14.8 14.4 1.23 1.44 436 536 Quench at pot 0.31, HCL 4.8 to 5.9",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O8b",
@@ -2972,10 +3542,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/26/2014 -------- 40 O8b 208m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.31 blowoff fan pot 6.0 ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 17 152 15.5 15.2 14.4 14.1 1.44 1.74 536 660 Blowoff fan 78, HCl prepost 5.9 to 7.9",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-O9",
@@ -3003,10 +3579,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 111, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/26/2014 -------- 41 O9 209m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32 blowoff pot 4.0 ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 13 154 15.0 14.8 14.1 13.9 1.74 1.96 660 794 Blowoff fan 68, HCl 7.5 to 9.3",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 111"
   },
   {
    "id": "BASSII-T1",
@@ -3023,7 +3605,7 @@ window.FLARE_DATA = {
    "co2_final": "0.41",
    "co_initial_ppm": "0",
    "co_final_ppm": "40",
-   "observation": "Compound Specific Analyzer-Combustion Products (CSA\u0002CP) unit 1024; Carbon Dioxide Monitor (CDM) unit 1018; Prefill O2 reading = 20.9 percent; GN2 fill was from video display time 10:53 to 12:31 at maximum GN2 flow rate (pot = 10); Video display time is currently 1 day plus 6 min 10 s ahead of actual GMT; flow velocity held constant",
+   "observation": "Compound Specific Analyzer-Combustion Products (CSA-CP) unit 1024; Carbon Dioxide Monitor (CDM) unit 1018; Prefill O2 reading = 20.9 percent; GN2 fill was from video display time 10:53 to 12:31 at maximum GN2 flow rate (pot = 10); Video display time is currently 1 day plus 6 min 10 s ahead of actual GMT; flow velocity held constant",
    "setup_raw": "Integrated 2 1 80 10 50 0.97 maximum 10 0 N CL M NA NA 1/8 F2 1,000",
    "source_page": "112",
    "qc_flag": "flow_mode_not_stated",
@@ -3034,10 +3616,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. Table A.6 early rows give no flow-mode word, so flow mode stays blank.",
-   "raw_text": "1 T1 128 SIBAL 2 cm Integrated 2 1 80 10 50 0.97 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 2 85 18.5 18.5 17.3 17.3 0.35 0.41 0 40 Compound Specific Analyzer-Combustion Products (CSA\u0002CP) unit 1024; Carbon Dioxide Monitor (CDM) unit 1018; Prefill O2 reading = 20.9 percent; GN2 fill was from video display time 10:53 to 12:31 at maximum GN2 flow rate (pot = 10); Video display time is currently 1 day plus 6 min 10 s ahead of actual GMT; flow velocity held constant",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
+   "raw_text": "1 T1 128 SIBAL 2 cm Integrated 2 1 80 10 50 0.97 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 2 85 18.5 18.5 17.3 17.3 0.35 0.41 0 40 Compound Specific Analyzer-Combustion Products (CSA-CP) unit 1024; Carbon Dioxide Monitor (CDM) unit 1018; Prefill O2 reading = 20.9 percent; GN2 fill was from video display time 10:53 to 12:31 at maximum GN2 flow rate (pot = 10); Video display time is currently 1 day plus 6 min 10 s ahead of actual GMT; flow velocity held constant",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T10",
@@ -3065,10 +3653,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/24/2018 ---------- 34 T10 134M 2 cm SIBAL Integral 2 Concurrent Pot 1.1 5 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 6 43 16.4 16.5 15.2 15.3 0.31 0.33 9 14 Brief ignition but flame extinguished before spreading beyond igniter",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T11",
@@ -3096,10 +3690,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/27/2014 ---------- 42 T11 135m 2 cm SIBAL Integral 2 Concurrent 48 5 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 12 109 17.1 17.0 16.2 16.1 0.35 0.39 1 45 Burned completely, steady, HCl 0.3 to 0.9",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T12",
@@ -3127,10 +3727,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 44 T12 136m 2 cm SIBAL Integral 2 Concurrent Pot 1.1 5 250 --------- NA NA N CL M NA NA ---- F2 1000 Cont 16 39 16.8 16.9 15.9 16.0 0.7 0.7 113 117 Extinguished quickly",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T13",
@@ -3158,10 +3764,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 21 T13 137 2 cm SIBAL Integral 2 Concurrent 5,1 50 --------- 8 NA n CL M NA NA 1/8 F2 1,000 Cont 14 55 17.5 17.6 15.9 16.0 0.19 0.20 2 12 HCL 0.2 end, 0.1 start, no HCN, flame extinguished quickly after flow change.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T14",
@@ -3189,10 +3801,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 45 T14 140m 2 cm SIBAL Integral 2 Concurrent 5, 3 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 16 119 16.9 16.9 16 16.0 0.7 0.72 117 152 Extinguished as we reduced flow below 3 cm/s",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T15",
@@ -3220,10 +3838,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. No flow-mode word printed, so flow mode stays blank.",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "4 T15 138 SIBAL 2 cm Integrated 0 1 80, 122 9, 29 50 1.68 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 5 46 18.7 18.7 17.5 17.5 0.45 0.51 72 102 Initial air reading is 15, but Rick did not wait long enough for the anemometer to stabilize; actual airspeed is about 9 cm/s; no flow restrictors installed, but flow only maxed out to 29 cm/s; no blowoff attained",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T16",
@@ -3251,10 +3875,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 22 T16 139 2 cm SIBAL Integral 2 Concurrent 5, 3 50 --------- 8 NA N CL M NA NA 1/8 F2 1,000 Cont 14 100 17.6 17.5 16.0 15.9 0.21 0.21 17 41 Initial HCl 0.2 final 0.5, no HCN, flame spread whole sample at 3 cm/s",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T17",
@@ -3282,10 +3912,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 46 T17 142m 2 cm SIBAL Integral 0 Concurrent 6, 53 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 6 83 16.9 16.9 16 16.0 0.72 0.75 152 190 Tried to blowoff, but did not",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T18",
@@ -3313,10 +3949,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/24/2018 ---------- 35 T18 141M 2 cm SIBAL Integral 2 Concurrent 5, 2 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 5 49 17.4 17.4 16.2 16.2 0.36 0.38 2 22 Brief ignition but flame extinguished as it spread away from igniter, further than previous runs today",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T19",
@@ -3344,10 +3986,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 71 T19 143m 1 cm SIBAL Integral 2 Concurrent 68.5, pot 3.6 11 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 73 17.2 17.2 16.3 16.3 0.29 0.31 1 20 Steady burn, HCL 0.3 > 0.6",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T2",
@@ -3375,10 +4023,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. No flow-mode word printed, so flow mode stays blank.",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "2 T2 129 SIBAL 2 cm Integrated 2 1 80, 59, 55 9, 5, 4 50 0.64 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 2 100 18.5 18.5 17.3 17.3 0.41 0.45 40 78 Flow velocity changed to 9 to 5 fairly early then very late in the burn changed to 4",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T20",
@@ -3406,10 +4060,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 72 T20 144m 1 cm SIBAL Integral 2 Concurrent 3.6, 0.9 11, 3 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 117 17.2 17.2 16.3 16.3 0.31 0.31 20 34 Quick extinction when we turned air down to 3 cm/s, HCl 0.8 end",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T21",
@@ -3437,10 +4097,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 73 T21 145m 1 cm SIBAL Integral 0 Concurrent 1.6 pot, 52 11, maximum (47) 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 151 17.2 17.2 16.3 16.3 0.31 0.32 34 45 Successful blowoff! HCl still 0.8 end",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T22",
@@ -3468,10 +4134,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 76 T22 146m 1 cm SIBAL Integral 2 Concurrent 3.4, 1.7 10, 5 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 4 38 17.1 17.0 16.2 16.1 0.59 0.62 140 162 Ignited at 11, turned down to 5 and extinguished, HCl 2.0",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T23",
@@ -3499,10 +4171,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 74 T23 133m 2 cm SI, moved igniter Integral 2 Concurrent 3.3, 66 10 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 203 17.2 17.3 16.3 16.4 0.32 0.32 45 49 Did not ignite with moved igniter, HCl 0.8",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T24",
@@ -3530,10 +4208,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.5 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 112, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 77 T24 133m 1 cm SIBAL, top side ign –29 2 Concurrent 3.3, 66 10 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 4 130 18.2 18.2 17.7 17.7 0.51 0.53 85 107 Ignited top of sample with retractable igniter and got steady spread of a one-sided flame a Greenwich Mean Time. b SIBAL is Solid Inflammability Boundary at Low Speeds.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 112"
   },
   {
    "id": "BASSII-T25",
@@ -3561,10 +4245,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "12:13:20 119 T25 138m SIBAL 2 cm 39 1 Concurrent 53, 45 5, 2.5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 14 75 20.8 20.7 19.8 19.7 0.36 0.39 –1 17 Ignition at 5 cm/s then decrease to 2.5 cm/s and hold constant",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T26",
@@ -3592,10 +4282,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "12:28:44 120 T26 137m SIBAL 2 cm 39 1 Concurrent 53, 45 5, 2.5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 14 87 20.8 20.7 19.8 19.7 0.36 0.43 –1 24 Ignition at 5 cm/s then decrease to 2.5 cm/s and hold constant",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T27",
@@ -3623,10 +4319,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:08:10 122 T27 146m 1 cm SIBAL 39 1 Concurrent 53, 45 5, 2 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 58 20.7 20.6 19.8 19.7 0.41 0.42 –1 9 Ignition at 5 cm/s, then quickly to 2 cm/s (fan pot 0.7); fuel is burned out",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T28a",
@@ -3654,10 +4356,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '0.9' equals 20.7 - 19.8: spreadsheet formula leftover (paired test a/b).",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:21:03 123 T28a 144m 1 cm SIBAL 39 1 Concurrent 53 5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 19 20.7 0.9 19.8 ------ 0.41 ------ –1 ---- Tried to get one-sided ignition, but flame only briefly flashed then went out",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T28b",
@@ -3685,10 +4393,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Fields match the printed row. Final calibrated O2 '40.4' equals 20.7 + 19.7: spreadsheet formula leftover. Starting readings for this pair are on row T28a.",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:29:49 124 T28b 144m 1 cm SIBAL 39 1 Concurrent 53 5 250 -------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 27 20.7 40.4 ------ 19.7 ------ 0.42 ---- 2 Tried to get one-sided ignition, but again flame only briefly flashed then went out",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T29",
@@ -3716,10 +4430,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "17:39:30 125 T29 145m 1 cm SIBAL 39 1 Concurrent 53, 43 5, 2(?) 250 -------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 60 20.7 20.5 19.8 19.6 0.41 0.44 –1 10 Alex commented that he thought the angle of the igniter should be reversed to get one-sided ignition, so he tried that; one-sided flame initially but quickly became two-sided; after ignition, fan pot changed to 0.6 and flame went out after a few seconds",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T3",
@@ -3747,10 +4467,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: Hand-keyed row; all fields match the printed text (sample angle printed as '-24 broke, -25').",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 43 T3 182m 4 cm spherical section -24 broke, -25 2 Stagnation 63 10 250 -------- NA NA N CL A –4 NA 1/4 F4 1,000 Cont 3, 8 166 17.2 16.8 16.3 15.9 0.42 0.7 45 113 Multiple ignition attempts on card 3, brief flames go out",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T4",
@@ -3778,10 +4504,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; row-by-row review: All fields match the printed row. No flow-mode word printed, so flow mode stays blank.",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "3 T4 130 SIBAL 2 cm Integrated 2 1 80, 46 9,1 50 0.19 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 5 97 18.7 18.7 17.5 17.5 0.44 0.45 59 72 O2 reading creeped up slightly after a long pause in operations; flow velocity changed immediately after ignition down to 1 (fan pot 0.9); extinguished after turning into flamelet",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T5",
@@ -3809,10 +4541,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "19 T5 131 2 cm SIBAL Integral 2 Concurrent 2.72, 0.50, 0.42 10, 2, 1 50 -------- 8 NA N CL M NA NA 1/8 F2 1,000 Cont 11 100 18.8 18.9 16.7 16.8 0.20 0.25 2 41 HCN 0 HCL 0.6; ignited at 10, turned down to 2, then 1, sample very small and dim, but seemed to burn full sample length as a flamelet",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T6",
@@ -3840,10 +4578,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "20 T6 132 2 cm SIBAL Integral 2 Concurrent 5, 2, 1, <1 50 ---------- 8 NA N CL M NA NA 1/8 F2 1,000 Cont 11 117 18.8 18.8 16.7 16.7 0.24 0.28 39 77 HCL 0.9 at the end, still did not extinguish",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T7",
@@ -3871,10 +4615,16 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "---------- 75 T7 182m 4 cm spherical section -33, -34 2 Stagnation 3.4, 67 10, 5, 3, 1, decrease 250 --------- NA NA N CL A –3 NA ---- F2 1,000 Cont 3 299 17.3 17.1 16.4 16.2 0.32 0.59 49 140 Broke one igniter quickly, took a while to ignite, turned pot down in series ignition at 3.4, 1.6, 1.0, 0.4, 0.36, 0.34, 0.32, 0.31, 0.30, 0.29, 0.285, 0.28 extinction finally, HCl 1.8",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
   },
   {
    "id": "BASSII-T9",
@@ -3902,10 +4652,10665 @@ window.FLARE_DATA = {
    "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
    "auto_checked_date": "2026-10-31",
    "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
+   "pdf_check": "match: NASA PDF text layer, report page 113, readings + material + full note (2026-10-31)",
+   "psi_check": "agrees: NASA PSI table (PSI-25) has the same sample no., calibrated O2, CO2 and CO",
    "raw_text": "6/24/2018 ---------- 33 T9 133M 2 cm SIBAL Integral 2 Concurrent Pot 2.5 10 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 6 48 16.4 16.4 15.2 15.2 0.30 0.31 0 9 Brief ignition but flame extinguished before spreading beyond igniter a Greenwich Mean Time. b SIBAL is Solid Inflammability Boundary at Low Speeds.",
    "verified": false,
    "machine": true,
-   "level": "machine"
+   "level": "machine",
+   "pdf": true,
+   "experiment": "BASS-II",
+   "source_id": "20210011385",
+   "source_file": "Appendix A, report page 113"
+  },
+  {
+   "id": "BASSI-1-1",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "4",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10, 5",
+   "o2_raw": "0.221",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.1",
+   "observation": "Nice symmetric burn, some soot at 10 cm/s, Steady spreading, flame seems to reach a steady length. Decreasing flow shrinks flame and changes to mostly blue, but still spreading. Gets very dim near end of sample as it shrinks and extinguishes at burnout. Don noted the fiberglass matrix was still intact after the burn.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 4; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-03-30"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "90 - 11:10"
+    ],
+    [
+     "Sample no.",
+     "4"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "66 > 52"
+    ],
+    [
+     "Air display",
+     "10, 5"
+    ],
+    [
+     "GN2 Pot",
+     "4"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "5 brackets"
+    ],
+    [
+     "O2 % by volume",
+     "0.221"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.44"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-2-42",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "5",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10, 5, 3",
+   "o2_raw": "0.221",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.1",
+   "observation": "Don noted significant vapor jetting. Flame not very long , but very sooty. Don set up a 2nd still camera taking pictures 1/s at F7, Aperture priority, spot metering on center of sphere in brackets of 3. Don noted equatorial division between 'charred' front like coating on meterorites, and matt black sooty rear hemispheres. Broke igniter. 2 minute burn.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 5; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-03-30"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "90 - 12:02"
+    ],
+    [
+     "Sample no.",
+     "24"
+    ],
+    [
+     "Igniter",
+     "2-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "66 > 52 > 45"
+    ],
+    [
+     "Air display",
+     "10, 5, 3"
+    ],
+    [
+     "GN2 Pot",
+     "4"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "6 brackets"
+    ],
+    [
+     "O2 % by volume",
+     "0.221"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.44"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-3-18",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "6",
+   "material_raw": "PMMA sphere 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "10, 3-4",
+   "o2_raw": "0.221",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.1",
+   "observation": "Very bright sooty ball. Lots of vapor jetting. N2 on at 1 minute. Blew off stagnation region but N2 did not extinguish wake, even with air flow off. Don turned off air, then N2 after some seconds. Wake flame sooty and wind-blown. Only extinguishes when all flow stops. N2 is entraining air to flame zone. Don noted that there was no soot on the sphere, just the 'char layer'. ~ 2 minute total burn.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 6; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-03-30"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "90 - 14:41"
+    ],
+    [
+     "Sample no.",
+     "19"
+    ],
+    [
+     "Igniter",
+     "2-6"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "66 > 47"
+    ],
+    [
+     "Air display",
+     "10, 3-4"
+    ],
+    [
+     "GN2 Pot",
+     "4.0 > 8.0 > max"
+    ],
+    [
+     "GN2 display",
+     "198 to 497"
+    ],
+    [
+     "total frames shot",
+     "9 brackets"
+    ],
+    [
+     "O2 % by volume",
+     "0.221"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.44"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-4-7",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "7",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.219",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.9",
+   "observation": "~ 40 s burn, Don asked if images were too saturated, Paul said OK. Don set up 2nd still camera for additional images.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 7; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-04-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "96 13:00"
+    ],
+    [
+     "Sample no.",
+     "10"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "66"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "398 check only"
+    ],
+    [
+     "total frames shot",
+     "47 flame"
+    ],
+    [
+     "O2 % by volume",
+     "0.219"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.12"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-5-8",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "8",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.219",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.9",
+   "observation": "~ 60 s burn, Don said he like to watch solid samples burn in space and it makes him appreciate that he wouldn't want to be be there in a real fire - it wouldn't be pretty.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 8; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-04-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "96 13:16:30"
+    ],
+    [
+     "Sample no.",
+     "11"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "52"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "GN2 Pot",
+     "n/a"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "65 flame"
+    ],
+    [
+     "O2 % by volume",
+     "0.219"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.12"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-6-43",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "9",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10, 6",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "same sphere as previous. Did not remove soot. Don again has 2nd still camera set up. Picked -4 ev for next test based on a quick scroll of these images.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 9; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "100 9:25"
+    ],
+    [
+     "Sample no.",
+     "24"
+    ],
+    [
+     "Igniter",
+     "2-6?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "66 ign, 52 burn"
+    ],
+    [
+     "Air display",
+     "10, 6"
+    ],
+    [
+     "GN2 Pot",
+     "8.0 > max"
+    ],
+    [
+     "total frames shot",
+     "80 (almost 9 brackets)"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-7-44",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "10",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10,2-3",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "Filter on test. Don didn't reset the camera trigger, so only got 100 frames.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 10; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "100 9:47"
+    ],
+    [
+     "Sample no.",
+     "24"
+    ],
+    [
+     "Igniter",
+     "2-6?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "66 ign, 46 burn"
+    ],
+    [
+     "Air display",
+     "10,2-3"
+    ],
+    [
+     "GN2 Pot",
+     "8.0 > max"
+    ],
+    [
+     "total frames shot",
+     "100 flame"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-8-45",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "11",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10, 1-2",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "No filter on this test. Don didn't reset the camera trigger, so only got 100 frames. Very low flows possible (AIR reading 0) at FAN 42. Apparent at end with N2 extinguishment. Flame doesn't go out until fan goes to 38.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 11; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "100 10:04"
+    ],
+    [
+     "Sample no.",
+     "24"
+    ],
+    [
+     "Igniter",
+     "2-6?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "66, 47, 45, 43, 42"
+    ],
+    [
+     "Air display",
+     "10, 1-2"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "total frames shot",
+     "100 flame"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-9-19",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "12",
+   "material_raw": "PMMA sphere 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "6",
+   "o2_raw": "0.2189 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.89",
+   "observation": "sample 18 and 19 mix up on names. Logging actual sample barcode used here. Grew from blue flame to sooty envelope flame. To extinguish, turned flow off, and flame turned to blue sphere expanding upwind with a few soot particles.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 12; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-02"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "123 10:33"
+    ],
+    [
+     "Sample no.",
+     "19"
+    ],
+    [
+     "Igniter",
+     "2-6?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "52"
+    ],
+    [
+     "Air display",
+     "6"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "49 frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2189 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9901 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-10-20",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "13",
+   "material_raw": "PMMA sphere 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "6, 3-2, 1-0",
+   "o2_raw": "0.2189 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.89",
+   "observation": "Still a sooty flame even at 1 cm/s. Turned blue and extinguished when fan off, lots of vapor jetting during extinguishment. Lots of fuel vapor flushed out of duct when extinguished.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 13; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-02"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "123 10:51"
+    ],
+    [
+     "Sample no.",
+     "19"
+    ],
+    [
+     "Igniter",
+     "2-6?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "52 > 43, 42"
+    ],
+    [
+     "Air display",
+     "6, 3-2, 1-0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "78 frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2189 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9901 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-11-21",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "14",
+   "material_raw": "PMMA sphere 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "1 , 0.5?, 26?",
+   "o2_raw": "0.2189 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.89",
+   "observation": "Burning laminar but sooty at 42, turned down very slowly to 41 and flame started to turn blue and vapor jet. Turned fan to max, and flame did not blow off stagnation region. Burning rate incredibly fast. Turned off flow right when fuel completely ran out. Don examined igniter and there is one thin spot, so may not last much longer.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 14; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-02"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "123 11:13"
+    ],
+    [
+     "Sample no.",
+     "19"
+    ],
+    [
+     "Igniter",
+     "2-6?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "42 > 41, max, off"
+    ],
+    [
+     "Air display",
+     "1 , 0.5?, 26?"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "100 frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2189 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9901 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-12-4",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "15",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "22",
+   "o2_raw": "0.2163 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.63",
+   "observation": "Originally identified sample as 7, but 7 was last one left on GMT 222. Don commented on blue outer zone noted with yellow inside. Don asked about a flash right after ignition. He checked igniter and it was still intact. Burned sample on video at 14:59. Long flame, probably not a steady size. No recirculation zone formed downstream of sample. 26 s burn.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 15; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-10"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "131:14:50"
+    ],
+    [
+     "Sample no.",
+     "12"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "95"
+    ],
+    [
+     "Air display",
+     "22"
+    ],
+    [
+     "GN2 Pot",
+     "n/a"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "38+9 dark"
+    ],
+    [
+     "O2 % by volume",
+     "0.2163 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9837 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.51"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-13-10",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "16",
+   "material_raw": "SIBAL 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "11",
+   "o2_raw": "0.2163 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.63",
+   "observation": "Huge ignition kernel, then rest of video very dim. 1 cm wide sample. Don noted a flash on the top side late in test.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 16; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-10"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "131:15:12"
+    ],
+    [
+     "Sample no.",
+     "2"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "62"
+    ],
+    [
+     "Air display",
+     "11"
+    ],
+    [
+     "GN2 Pot",
+     "n/a"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "111"
+    ],
+    [
+     "O2 % by volume",
+     "0.2163 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9837 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.51"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-14-12",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "17",
+   "material_raw": "Nomex blend 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "15",
+   "o2_raw": "0.2163 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.63",
+   "observation": "Ignited and burned for only 2 s. Died when igniter turned off. Repeated re-ignition attempts failed. Don didn't want it to burn since their flight suits are made of this stuff. He felt like he should have left the igniter on longer. Fan cal and GN2 cal at ~16:00",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 17; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-10"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "131:15:36"
+    ],
+    [
+     "Sample no.",
+     "27"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "75"
+    ],
+    [
+     "Air display",
+     "15"
+    ],
+    [
+     "GN2 Pot",
+     "n/a"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "62"
+    ],
+    [
+     "O2 % by volume",
+     "0.2163 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9837 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.51"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-15-54",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "18",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "11",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "No Don camera. Wake flame very dim on video, all blue, spread very slowly upwind. Ignited GBX time 16:14:44, N2 on at 16:17:18, did not extinguish, increased to pot 10, at 16:18:37, N2 off at 16:19:19. Accidentaly turned fan up briefly instead of N2. Fan turned to 40 at 16:19:22, flame and flame went out at 16:19:34. All times GBX.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 18; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "132:16:11"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "wake 3-2?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "61, 40 late"
+    ],
+    [
+     "Air display",
+     "11"
+    ],
+    [
+     "GN2 Pot",
+     "8, 10"
+    ],
+    [
+     "GN2 display",
+     "396.5, 495"
+    ],
+    [
+     "total frames shot",
+     "217 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.984"
+    ],
+    [
+     "CO2, mm Hg",
+     "?"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-16-55",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "19",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "6.5",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "difficult to ignite,very dim blue, got some soot at 16:33:51 gbx time, N2 on at 34:18, soot faded a bit, still have a pimple of soot, N2 off at 34:48, fan 42:35:04, all blue flame again, like blue crescent moon. Fan off at 35:30 ish. Flame extinuishes right away. Don noted no soot deposition on the sphere. Just has bubbles.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 19; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "132:16:26"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49, 42"
+    ],
+    [
+     "Air display",
+     "6.5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "395"
+    ],
+    [
+     "total frames shot",
+     "233"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.984"
+    ],
+    [
+     "CO2, mm Hg",
+     "?"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-17-56",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "20",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "6, 3.5",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "Adjusted igniter closer. LOS after fan change, 17:36 fan to 43. (MSG time). Came back at 17:39:40 or so. Don described it as flame was taking off growing around sphere, LE blue, trailing soot. Illuminating circumference of sphere. Vapor jetting just starting to do that when turned off fan, and it extinguished right away. MSG playback started at 17:37 during session (1:27 into downlink video).",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 20; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "132:17:30"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49, 43, 41"
+    ],
+    [
+     "Air display",
+     "6, 3.5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "154"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.984"
+    ],
+    [
+     "CO2, mm Hg",
+     "?"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-18-57",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "21",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "7, 0 (slow)",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "readjusted igniter again. Fan 41 at 17:54:20 ish. Very dim blue flame. When he turned flow down to 40.5ish flame extinguished.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 21; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "132: 17:49"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49, 41"
+    ],
+    [
+     "Air display",
+     "7, 0 (slow)"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "190"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.984"
+    ],
+    [
+     "CO2, mm Hg",
+     "?"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-19-110",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "22",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "6.5, 21",
+   "o2_raw": "0.217",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.7",
+   "observation": "bonus test. LOS partway through burn. Don instructed to let it burn about 2 minutes then turn fan off. Did not get playback during session. Requested it. Fan cal done at end of session. Playback occurred GMT 181:11:12. Started out all blue, got a pimple of soot. Long sooty tail at high flow. Extinguished when flow turned off.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 22; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-05-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "132:18:07"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49, 86"
+    ],
+    [
+     "Air display",
+     "6.5, 21"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "103"
+    ],
+    [
+     "O2 % by volume",
+     "0.217"
+    ],
+    [
+     "pressure, atm",
+     "0.984"
+    ],
+    [
+     "CO2, mm Hg",
+     "?"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-20-30",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "23",
+   "material_raw": "PMMA 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "5.5",
+   "o2_raw": "0.2117 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.17",
+   "observation": "new 1 cm sphere. Got sooty quickly, overexposed still images on main SLR camera. Don has 2nd bonus camera set up too., Burned about 3 min. Turbulent vapor jetting, quite sooty. Change camera settings for next test.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 23; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "157:14:11"
+    ],
+    [
+     "Sample no.",
+     "15"
+    ],
+    [
+     "Igniter",
+     "wake, same one"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49"
+    ],
+    [
+     "Air display",
+     "5.5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "76 incl dark frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2117 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9721 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.62"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-21-31",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "24",
+   "material_raw": "PMMA 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "6, 2",
+   "o2_raw": "0.2117 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.17",
+   "observation": "ignited within 15 s (still hot?), sooting by 35 s, fully engulfed by ~ 1 min. Extinguished when pot ~ 39. Camera settings much better.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 24; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "157:14:28"
+    ],
+    [
+     "Sample no.",
+     "15"
+    ],
+    [
+     "Igniter",
+     "wake, same one"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49, 42"
+    ],
+    [
+     "Air display",
+     "6, 2"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "78"
+    ],
+    [
+     "O2 % by volume",
+     "0.2117 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9721 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.62"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-22-32",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "25",
+   "material_raw": "PMMA 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "5, 0",
+   "o2_raw": "0.2117 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.17",
+   "observation": "Don says sphere is ~ 0.7 cm. Igniter has hot spot. Bar code 015M. Nice images. All blue sphere just before extinction.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 25; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "157:15:33"
+    ],
+    [
+     "Sample no.",
+     "15"
+    ],
+    [
+     "Igniter",
+     "wake, same one"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49, 41"
+    ],
+    [
+     "Air display",
+     "5, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "50"
+    ],
+    [
+     "O2 % by volume",
+     "0.2117 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9721 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.62"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-23-33",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "26",
+   "material_raw": "PMMA 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "5, 0",
+   "o2_raw": "0.2117 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.17",
+   "observation": "Igniter too far away 2st attempt 15:48. Igniter broke on 2nd attempt 15:51. New igiter. Ignited at 16:05 turned flow down to ~40.5 ish, and flame got very spherical, alternating blue and orange?(filter on)",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 26; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "157:15:48"
+    ],
+    [
+     "Sample no.",
+     "15"
+    ],
+    [
+     "Igniter",
+     "wake, new igniter 3-5?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "49, 41>40.5ish"
+    ],
+    [
+     "Air display",
+     "5, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "97"
+    ],
+    [
+     "O2 % by volume",
+     "0.2117 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9721 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.62"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-24-12-R",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "27",
+   "material_raw": "Nomex blend 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "9",
+   "o2_raw": "0.2117 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.17",
+   "observation": "preheated by briefly heating igniter wire then hitting it full, did not ignite but smoked . He said it popped up about 1 mm due to residueal spring tension. Will readjust it again.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 27; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "157: 17:34"
+    ],
+    [
+     "Sample no.",
+     "27"
+    ],
+    [
+     "Igniter",
+     "radjusted pre-installed igniter"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "60"
+    ],
+    [
+     "Air display",
+     "9"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "O2 % by volume",
+     "0.2117 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9721 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.62"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-24-12-R2",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "28",
+   "material_raw": "Nomex blend 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "9",
+   "o2_raw": "0.2117 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.17",
+   "observation": "12 pulses and then on, no joy. Not even much smoke.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 28; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "157: 17:40"
+    ],
+    [
+     "Sample no.",
+     "27"
+    ],
+    [
+     "Igniter",
+     "radjusted pre-installed igniter"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest downstream"
+    ],
+    [
+     "Fan display",
+     "60"
+    ],
+    [
+     "Air display",
+     "9"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "O2 % by volume",
+     "0.2117 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9721 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.62"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-25-46",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "29",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "9.5, 0",
+   "o2_raw": "0.2118 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "sphere closer to nozzle. New igniter. 1st ign, flame died when turned down to 41, flickering to 40. 2nd ignition flame stabilized at 42 then 41. grew to stokes flow envelope flame, N2 blew out stag region but flame remained side stabilized, long burn , extinguished when flow is turned off. Mostly blue, strenthening near end. Still images have stag region out of fov, and only part of sample was burning? Don commented on unusual soot pattern - waje still pristine, stagnation zone has discrete large opaque bubbles.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 29; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "163:11:59"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "4, 25 mm from downstream most position"
+    ],
+    [
+     "Fan display",
+     "60, 41, 60, 42,41"
+    ],
+    [
+     "Air display",
+     "9.5, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8, 10"
+    ],
+    [
+     "total frames shot",
+     "295, incl dark frames, 200?"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9859 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.73"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-26-47",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "30",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "9, 0",
+   "o2_raw": "0.2118 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "moved sphere 1 cm downstream, readjusted igniter. Repeat of previous test. (Flame from GMT 15:05:30 to 15:10:50) Don adjusted sphere by sliding 1 cm downstream so the camera could capture the entire flame. Ignition at 9 cm/s (FAN 60), reduced FAN indication to 42, then slowly to 41. Turned nitrogen on full; flame opened up and became side stabilized. Turned nitrogen off to allow flame to spread back to stagnation point. Then slowly turned off flow. Flame had only minimal amounts of soot, coinciding with bubble jetting.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 30; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "163:15:05"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1.5 cm from downstream"
+    ],
+    [
+     "Fan display",
+     "60,42,41"
+    ],
+    [
+     "Air display",
+     "9, 0"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "total frames shot",
+     "270"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9859 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.73"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-27-48",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "31",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "9, 0",
+   "o2_raw": "0.2118 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "Flame from GMT 15:30:00 to 15:33:00) Ignition at 9 cm/s (FAN 60) then set FAN to 42, then slowly to 41. After several minutes, shut flow off. Fan was nice and blue and fairly stable. Unfortunately, Don did not trigger the 35mm camera properly so there were no top images. But he did say he got images with his side view camera.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 31; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "163: 15:30"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1.5 cm from downstream"
+    ],
+    [
+     "Fan display",
+     "60, 42,41"
+    ],
+    [
+     "Air display",
+     "9, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "0"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9859 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.73"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-28-49",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "32",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "9, 0",
+   "o2_raw": "0.2118 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "(Flame from GMT 15:44:30 to 15:47:10) Ignition at 9 cm/s (FAN 60) then set FAN to 42, then slowly to 41. After several minutes, shut flow off. Flame became very dim blue before extinguishing. Don’s observation: “There was a swelling action with the PMMA in which the fuel vapor coming from the sphere makes the flame swell.”",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 32; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-11"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "163:15:44"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1.5 cm from downstream"
+    ],
+    [
+     "Fan display",
+     "60, 42,41"
+    ],
+    [
+     "Air display",
+     "9, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "92"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9859 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.73"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-29-22",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "33",
+   "material_raw": "1 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "9.75, 0",
+   "o2_raw": "0.2089 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "20.89",
+   "observation": "Joe 1st day, ignited at 9.75 cm/s, flame mostly envelope by end of ignition, turned flow slowly to 42, so lots of vapor jetting and soot. At fan off, flame turns blue, and oscilates before extinction.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 33; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-14"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "166:16:41"
+    ],
+    [
+     "Sample no.",
+     "18"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "4, modified to 15 mm from downstream"
+    ],
+    [
+     "Fan display",
+     "60, 42"
+    ],
+    [
+     "Air display",
+     "9.75, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "99 + 9 dark + 1 =109"
+    ],
+    [
+     "O2 % by volume",
+     "0.2089 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.6"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-30-23",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "34",
+   "material_raw": "1 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "10, 0",
+   "o2_raw": "0.2089 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "20.89",
+   "observation": "ignited at 10 cm/s, fan to 42, less vapor jetting noted, bullet shaped flame, sooty. Fan to 41, similar, slightly smaller flame. Fan off flame all blue and pulses a few times before extinguished. Jay saw cloud go by when he turned on fan at GMT 17:12 ish.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 34; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-14"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "166:17:10"
+    ],
+    [
+     "Sample no.",
+     "18"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "4, modified to 15 mm from downstream"
+    ],
+    [
+     "Fan display",
+     "60, 42,41"
+    ],
+    [
+     "Air display",
+     "10, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "93"
+    ],
+    [
+     "O2 % by volume",
+     "0.2089 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.6"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-31-24",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "35",
+   "material_raw": "1 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "10, 0",
+   "o2_raw": "0.2089 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "20.89",
+   "observation": "adjusted igniter, start at 60, ignite, fan to 42, N2 on max, did not blow out even leading edge, N2 and air off, turned all blue, he turned lights on before flame completely out. 42 digital images, last one shows blue spherical flame with finger of soot through it. Oly about 1 mm x 3 mm left around rod.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 35; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-14"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "166:17:26"
+    ],
+    [
+     "Sample no.",
+     "18"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "4, modified to 15 mm from downstream"
+    ],
+    [
+     "Fan display",
+     "60, 42"
+    ],
+    [
+     "Air display",
+     "10, 0"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "total frames shot",
+     "42"
+    ],
+    [
+     "O2 % by volume",
+     "0.2089 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.6"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-32-25",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "36",
+   "material_raw": "1 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "4",
+   "o2_raw": "0.2089 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "20.89",
+   "observation": "adjusted igniter, ignited at 43, he started to turn fan down when fuel ran out and flame extinguished.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 36; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-14"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "166:16:38"
+    ],
+    [
+     "Sample no.",
+     "18"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "4, modified to 15 mm from downstream"
+    ],
+    [
+     "Fan display",
+     "43"
+    ],
+    [
+     "Air display",
+     "4"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "38"
+    ],
+    [
+     "O2 % by volume",
+     "0.2089 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.6"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-33-58",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "37",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "6, 4, 9",
+   "o2_raw": "0.2175 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.75",
+   "observation": "Joe, multiops procedures. Nice over the shoulder view. Ignited quickly, all blue, spread slowly upstream. Got sooty at 3.5 minutes, burned for ~ 4.75 min. Not wrapped all the way.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 37; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-18"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "170:15:17"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "3-5, wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2, upstream"
+    ],
+    [
+     "Fan display",
+     "51, 46, 0"
+    ],
+    [
+     "Air display",
+     "6, 4, 9"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "179 (with 9 dark frames)"
+    ],
+    [
+     "O2 % by volume",
+     "0.2175 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9761 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.16"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-34-59",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "38",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "6.5, 11, 0",
+   "o2_raw": "0.2175 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.75",
+   "observation": "sooty at 1:15 , 4 minute burn, got long sooty tail, didn't quite wrap around to stag zone, nice symmetric flame, over the shoulder view shows nice image of flame through msg window.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 38; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-18"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "170:15:40"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "3-5, wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2 upstream"
+    ],
+    [
+     "Fan display",
+     "51, 64, 0"
+    ],
+    [
+     "Air display",
+     "6.5, 11, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "165"
+    ],
+    [
+     "O2 % by volume",
+     "0.2175 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9761 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.16"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-35-60",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "39",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "7, 2, 0",
+   "o2_raw": "0.2175 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.75",
+   "observation": "started all blue, got sooty tail , wrapped all the way around to stagnation region/envelope flame at ~6 minutes, then flow off goes out. Nice long test. Could see it in over the shoulder view once it got sooty.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 39; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-18"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "170:15:58"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "3-5, wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2 upstream"
+    ],
+    [
+     "Fan display",
+     "51, 42"
+    ],
+    [
+     "Air display",
+     "7, 2, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "247"
+    ],
+    [
+     "O2 % by volume",
+     "0.2175 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9761 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.16"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-36-61",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "40",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "6.5, 2",
+   "o2_raw": "0.2175 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.75",
+   "observation": "Ignited and turned flow down, then N2 on while flame was small and blue. Flame did not go out completely, but only seemed to spread on the top side of the video view. It wrapped around quite far on top, but not quite to stag. Region. Turned N2 off and flame grew and got sottier. Extinguished with flow off at6.75 minutes or so. Joe asked about why N2 didn't put out flame.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 40; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-18"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "170:16:37"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "3-5, wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2, upstream"
+    ],
+    [
+     "Fan display",
+     "51,42"
+    ],
+    [
+     "Air display",
+     "6.5, 2"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "total frames shot",
+     "251"
+    ],
+    [
+     "O2 % by volume",
+     "0.2175 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9761 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.16"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-37-5",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "41",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "5.75,",
+   "o2_raw": "0.2198 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.98",
+   "observation": "ignite at 5 cm/s, reduce to 3, 1.5, 1. Extinguished at fan 41, became circular at extinction, sphere shrank to extinction. About 2.5 cm left, could use for an opposed flow test. Sample 9 used instead of sample 8. Playback of stills.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 41; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-28"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "180:16:10"
+    ],
+    [
+     "Sample no.",
+     "9"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1, downstream end"
+    ],
+    [
+     "Fan display",
+     "50, 46, 42,41"
+    ],
+    [
+     "Air display",
+     "5.75,"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "92 (incl 9 dark frames)"
+    ],
+    [
+     "O2 % by volume",
+     "0.2198 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9765 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.85"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-38-14",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "42",
+   "material_raw": "Nomex III Natural",
+   "flow_mode": "",
+   "airflow_raw": "14.5",
+   "o2_raw": "0.2198 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.98",
+   "observation": "ignited and left igniter on until flame spread away. Flame propagated to ~ 1 cm of end. Don showed image of it, spread only in center of sample, maybe 1 cm wide, and got narrower once igniter was off. Don says he saw smoke stream (laminar) from igniter diverts upward around flame and comes back down downstream. Showed image at GMT 16:41. Playback of stills.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 42; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-28"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "180:16:33"
+    ],
+    [
+     "Sample no.",
+     "29"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1, downstream end"
+    ],
+    [
+     "Fan display",
+     "74"
+    ],
+    [
+     "Air display",
+     "14.5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "63"
+    ],
+    [
+     "O2 % by volume",
+     "0.2198 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9765 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.85"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-39-66",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "43",
+   "material_raw": "PMMA slab",
+   "flow_mode": "",
+   "airflow_raw": "10, 4",
+   "o2_raw": "0.2198 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.98",
+   "observation": "Ignition was very quick, and very sooty. Flame wrapped around stagnation zone, Lots of vapor jetting. Turned flow to 46, turned all blue and vapor jetting fades away. Flame seems to reach a ss size, and propagates very slowly downstream (base burnout). Flame extinguished all by itself. Top view image playback showed nearly spherical blue flame. SAmple has sooty streak downstream all along sample. Don examined sample, 2-3 mm of material completely consumed, Circular burnout base, and then depression (like fingernail scrape) about 12-13 mm downstream before full cross section of fuel.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 43; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-28"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "180:17:29"
+    ],
+    [
+     "Sample no.",
+     "33"
+    ],
+    [
+     "Igniter",
+     "2-4"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "manual to get ignition at upstream edge of video view"
+    ],
+    [
+     "Fan display",
+     "62, 46"
+    ],
+    [
+     "Air display",
+     "10, 4"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "239, incl 1 test shot"
+    ],
+    [
+     "O2 % by volume",
+     "0.2198 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9765 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.85"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-40-67",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "44",
+   "material_raw": "PMMA slab",
+   "flow_mode": "",
+   "airflow_raw": "left vm and resent message",
+   "o2_raw": "0.2198 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.98",
+   "observation": "Igniter seems to have broken prior to ignition. No, 1 ohm resistance is still there. Don trying again. No go. A different igniter works, so igniter is broken. No useful digital stills.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 44; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-28"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "180: 17:51"
+    ],
+    [
+     "Sample no.",
+     "33"
+    ],
+    [
+     "Igniter",
+     "2-4"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "55"
+    ],
+    [
+     "Air display",
+     "left vm and resent message"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "O2 % by volume",
+     "0.2198 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9765 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.85"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-41-34",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "45",
+   "material_raw": "1 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "0",
+   "o2_raw": "0.2189 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.89",
+   "observation": "Ign at low flow (41.5 fan, ~ 1 cm/s). Quite spread by end of ignition, very dim blue. Became sooty and then vapor jetting very strongly, creating large dark particulate blobs that drift very slwoly downstream. Once fuel heated, vapor jetting was reduced. N2 on and flame brightened and stabilized, extinction when air flow off. Don played back videos and commented on vortex rings during vapor jetting at these low flows.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 45; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-29"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "181:9:19"
+    ],
+    [
+     "Sample no.",
+     "16"
+    ],
+    [
+     "Igniter",
+     "3-5 ? Wake"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2, upstream"
+    ],
+    [
+     "Fan display",
+     "41.5"
+    ],
+    [
+     "Air display",
+     "0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "393"
+    ],
+    [
+     "total frames shot",
+     "197 incl 9 dark frames, maybe an extra shot too"
+    ],
+    [
+     "O2 % by volume",
+     "0.2189 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9870 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-42-35",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "46",
+   "material_raw": "1 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "0",
+   "o2_raw": "0.2189 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.89",
+   "observation": "long ignition, fully engulfed by the end. Very slow flow, not much vapor jetting. Burned out completely.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 46; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "6/29/`12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "181:9:55"
+    ],
+    [
+     "Sample no.",
+     "16"
+    ],
+    [
+     "Igniter",
+     "3-5"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2, upstream"
+    ],
+    [
+     "Fan display",
+     "41"
+    ],
+    [
+     "Air display",
+     "0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "51"
+    ],
+    [
+     "O2 % by volume",
+     "0.2189 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9870 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-43-16",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "47",
+   "material_raw": "ultem sheet",
+   "flow_mode": "",
+   "airflow_raw": "14.5",
+   "o2_raw": "0.2189 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.89",
+   "observation": "just smoked slightly, no ignition.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 47; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-29"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "181:10:16"
+    ],
+    [
+     "Sample no.",
+     "31"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1, downstream"
+    ],
+    [
+     "Fan display",
+     "75"
+    ],
+    [
+     "Air display",
+     "14.5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "27"
+    ],
+    [
+     "O2 % by volume",
+     "0.2189 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9870 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-44-5b",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "48",
+   "material_raw": "SIBAL 2 cm, opposed flow",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.2189 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.89",
+   "observation": "Using preburned sample in opposed flow config to see if flame will spread upstream. Ignited and spread a bit on top side only, seemed to quench 5 mm from the end. Curved flame leading edge. Don's last run. He had some nice words about the hands-on features of these combustion experiments.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 48; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-06-29"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "181:10:48"
+    ],
+    [
+     "Sample no.",
+     "9"
+    ],
+    [
+     "Igniter",
+     "3-5"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2 upstream"
+    ],
+    [
+     "Fan display",
+     "62"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "46"
+    ],
+    [
+     "O2 % by volume",
+     "0.2189 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9870 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-45-6",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "49",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "9",
+   "o2_raw": "0.2222 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.22",
+   "observation": "opposed flow flame test, steady spread at 9 cm/s! started turning down flow late, but didn't complete change before burned out whole sample. This doesn't burn in 1g like this.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 49; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-03"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "185:8:46"
+    ],
+    [
+     "Sample no.",
+     "8"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "5, opposed flow"
+    ],
+    [
+     "Fan display",
+     "62, 50"
+    ],
+    [
+     "Air display",
+     "9"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "92 incl dark frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2222 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9875"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.37"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-46-82",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "50",
+   "material_raw": "candle",
+   "flow_mode": "",
+   "airflow_raw": "10, etc",
+   "o2_raw": "0.2222 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.22",
+   "observation": "1st candle test! Bracketing, very sooty flame, 18 brackets. Flame extinguished when fan set to 40. All blue briefly before that.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 50; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-03"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "185:9:08"
+    ],
+    [
+     "Sample no.",
+     "35"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1, downstream end"
+    ],
+    [
+     "Fan display",
+     "62, 55, 47, 42, 40"
+    ],
+    [
+     "Air display",
+     "10, etc"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "162"
+    ],
+    [
+     "O2 % by volume",
+     "0.2222 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9875"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.37"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-47-82a",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "51",
+   "material_raw": "candle",
+   "flow_mode": "",
+   "airflow_raw": "7, etc",
+   "o2_raw": "0.2222 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.22",
+   "observation": "BG-7 filter on camera for bracketing set. Smaller flame, no problem re-igniting. Out at 40 again. 1 shy of 13 brackets",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 51; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-03"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "185:9:34"
+    ],
+    [
+     "Sample no.",
+     "35"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1 downstream"
+    ],
+    [
+     "Fan display",
+     "52,42, 41,40"
+    ],
+    [
+     "Air display",
+     "7, etc"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "116"
+    ],
+    [
+     "O2 % by volume",
+     "0.2222 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9875"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.37"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-48-82b",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "52",
+   "material_raw": "candle",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.2222 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.22",
+   "observation": "same candle, no filter, changed iso. Burned to completion. Frayed wick glowing in flame zone (fuel drying out)",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 52; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-03"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "185:9:45"
+    ],
+    [
+     "Sample no.",
+     "35"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1 downstream"
+    ],
+    [
+     "Fan display",
+     "45, 42, 41"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "127"
+    ],
+    [
+     "O2 % by volume",
+     "0.2222 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9875"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.37"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-49-68",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "53",
+   "material_raw": "pmma slab",
+   "flow_mode": "",
+   "airflow_raw": "6",
+   "o2_raw": "0.2222 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.22",
+   "observation": "re-ignite slightly downstream where black and transparent meet. Tiny blue flame. Self-extinguished.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 53; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-03"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "185:10:06"
+    ],
+    [
+     "Sample no.",
+     "33"
+    ],
+    [
+     "Igniter",
+     "1-1"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "where igniter reaches"
+    ],
+    [
+     "Fan display",
+     "50"
+    ],
+    [
+     "Air display",
+     "6"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "73"
+    ],
+    [
+     "O2 % by volume",
+     "0.2222 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9875"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.37"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-50-69",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "54",
+   "material_raw": "pmma slab",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.2238 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.38",
+   "observation": "igniter 15-1 broke during setup, put in 15-5. Tried igniting at least 5 x, got a brief flame a few times, but went out. He is moving sample upstream to get igniter over more fuel. Igniter is broken again. Moving on to next sample. Interesting note: radiometer spikes each time he turns on the igniter, even when it is broken. Ground loop?",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 54; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "194:9:56"
+    ],
+    [
+     "Sample no.",
+     "33"
+    ],
+    [
+     "Igniter",
+     "1-1, 1-5"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "where igniter reaches"
+    ],
+    [
+     "Fan display",
+     "62"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "?"
+    ],
+    [
+     "O2 % by volume",
+     "0.2238 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.57"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-51-111",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "55",
+   "material_raw": "2 cm sphere, wake ign",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.2238 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.38",
+   "observation": "ignited on 3rd try, started getting sooty, then turned on N2. weakened briefly then got sooty again. Slowly turned up GN2 to max, and flame got weak and all blue, flashed a bit and got smaller. Then it strengthened again and got sooty. Turned off GN2 and flame strengthened, then turned off air flow and flame went out.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 55; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "194:10:38"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "3-5"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "upstream"
+    ],
+    [
+     "Fan display",
+     "62"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "GN2 Pot",
+     "2.5 pot, to max"
+    ],
+    [
+     "GN2 display",
+     "123, to max"
+    ],
+    [
+     "total frames shot",
+     "274 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.2238 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.57"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-52-112",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "56",
+   "material_raw": "2 cm sphere, wake ign",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.2238 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.38",
+   "observation": "ignited after a few tries, turned N2 on 5.0 pot, flame still very sooty but only on top half of sphere in video, fan to 42, still sooty but dimmer, fan 41, similar. Leading edge all the way to the post, N2 Off, soot moves upstream, air off, flame out, 6 minute burn!",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 56; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "194:11:17"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "3-5"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "upstream"
+    ],
+    [
+     "Fan display",
+     "62"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "GN2 Pot",
+     "5.0 pot, to max"
+    ],
+    [
+     "total frames shot",
+     "273"
+    ],
+    [
+     "O2 % by volume",
+     "0.2238 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.57"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-53-113",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "57",
+   "material_raw": "2 cm sphere, wake ign",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.2238 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.38",
+   "observation": "ignited at 62, fan up to 87 then 100, got long sooty tail, comet. Envelope flame, very bright and sooty, then fan to 42, blue LE and sooty tail. Fan 41, slightly dimmer but still sooty tail. Joe turned pot to 0.32 (read after) to get minimum flame (very dim blue LE only), GN2 on max did not blow it out right away, but did eventually extinguish it. LE blew off and ring flame stabilized for a number of s. Card full on still camera. Didn't seem to get the GN2 on the digital stills. Leaving igniter in msg. Still fuel left.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 57; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "194:11:35"
+    ],
+    [
+     "Sample no.",
+     "21"
+    ],
+    [
+     "Igniter",
+     "3-5"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "upstream"
+    ],
+    [
+     "Fan display",
+     "62"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "GN2 Pot",
+     "max"
+    ],
+    [
+     "GN2 display",
+     "495"
+    ],
+    [
+     "total frames shot",
+     "321"
+    ],
+    [
+     "O2 % by volume",
+     "0.2238 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9880 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.57"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-54-2",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "58",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "9, 44",
+   "o2_raw": "0.2272 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.72",
+   "observation": "N2 repress going on during this ops ~ 3 mm Hg. Joe helping out. Did not blow out. Fan increased a bit slowly, so only got to max flow near end.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 58; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-19"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "201:8:52"
+    ],
+    [
+     "Sample no.",
+     "5"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1, downstreamq"
+    ],
+    [
+     "Fan display",
+     "51, then max"
+    ],
+    [
+     "Air display",
+     "9, 44"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "71 tot"
+    ],
+    [
+     "O2 % by volume",
+     "0.2272 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9949 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-55-3",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "59",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10, 20, 44",
+   "o2_raw": "0.2267 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.67",
+   "observation": "Did not blow out. Got smaller at max flow, still images show one half of flame (maybe both sides) went out.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 59; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-19"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "201:9:11"
+    ],
+    [
+     "Sample no.",
+     "6"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "5, flipped 180"
+    ],
+    [
+     "Fan display",
+     "51, 71, max"
+    ],
+    [
+     "Air display",
+     "10, 20, 44"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "76"
+    ],
+    [
+     "O2 % by volume",
+     "0.2267 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0039 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-56-15",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "60",
+   "material_raw": "nomex natural III",
+   "flow_mode": "",
+   "airflow_raw": "30",
+   "o2_raw": "0.2253 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.53",
+   "observation": "leave igniter on entire test to provide additional heat to flame. Did not ignite. Not even any smoke. Flow too high?",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 60; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-19"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "201:10:55"
+    ],
+    [
+     "Sample no.",
+     "30"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1 downstream"
+    ],
+    [
+     "Fan display",
+     "91"
+    ],
+    [
+     "Air display",
+     "30"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "O2 % by volume",
+     "0.2253 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0076 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-57-13",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "61",
+   "material_raw": "Nomex blend 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "15",
+   "o2_raw": "0.2253 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.53",
+   "observation": "brief ignition and extinguished in ~ 3 s. No spread.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 61; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-19"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "201:11:27"
+    ],
+    [
+     "Sample no.",
+     "28"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1 downstream,"
+    ],
+    [
+     "Fan display",
+     "61"
+    ],
+    [
+     "Air display",
+     "15"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "41"
+    ],
+    [
+     "O2 % by volume",
+     "0.2253 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0076 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-58-17",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "62",
+   "material_raw": "ultem sheet",
+   "flow_mode": "",
+   "airflow_raw": "8",
+   "o2_raw": "0.2253 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.53",
+   "observation": "brief ignition and extinguished after 4 seconds. No spread.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 62; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-19"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "201:11:38"
+    ],
+    [
+     "Sample no.",
+     "32"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1 downstream"
+    ],
+    [
+     "Fan display",
+     "47"
+    ],
+    [
+     "Air display",
+     "8"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "27"
+    ],
+    [
+     "O2 % by volume",
+     "0.2253 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0076 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-59-114",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "63",
+   "material_raw": "pmma sphere",
+   "flow_mode": "",
+   "airflow_raw": "6.5",
+   "o2_raw": "0.2251 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.51",
+   "observation": "igniter broke before ignition. No stills taken.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 63; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-19"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "201:11:57"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "3-5"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "wake"
+    ],
+    [
+     "Fan display",
+     "43"
+    ],
+    [
+     "Air display",
+     "6.5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "0"
+    ],
+    [
+     "O2 % by volume",
+     "0.2251 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0076 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-60-62",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "64",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10, 44",
+   "o2_raw": "0.2258 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.58",
+   "observation": "igniter 2-6 unstowed as broken, so no more std size igniters. 1 ea of short and long left. Ignition was prolonged, and so flame was strong when flow turned up. Did not blow out either at high flow or with GN2 although stagnation region blew out.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 64; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "205:10:19"
+    ],
+    [
+     "Sample no.",
+     "23"
+    ],
+    [
+     "Igniter",
+     "1-3"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1 downstream"
+    ],
+    [
+     "Fan display",
+     "53, max"
+    ],
+    [
+     "Air display",
+     "10, 44"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "total frames shot",
+     "74 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.2258 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0087 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.36"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-61-63",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "65",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.2258 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.58",
+   "observation": "try blowing out the flame with GN2. blew out bottom half, but not top half. Could see where the leading edge gradually blew out with incre GN2",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 65; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "205:10:36"
+    ],
+    [
+     "Sample no.",
+     "23"
+    ],
+    [
+     "Igniter",
+     "1-3"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1"
+    ],
+    [
+     "Fan display",
+     "53"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "GN2 Pot",
+     "1 to max"
+    ],
+    [
+     "total frames shot",
+     "51"
+    ],
+    [
+     "O2 % by volume",
+     "0.2258 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0087 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.36"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-62-64",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "66",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.2258 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.58",
+   "observation": "flame did blow out with GN2 at about a pot 6.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 66; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "205:10:50"
+    ],
+    [
+     "Sample no.",
+     "23"
+    ],
+    [
+     "Igniter",
+     "1-3"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1"
+    ],
+    [
+     "Fan display",
+     "45"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "GN2 Pot",
+     "1 to max"
+    ],
+    [
+     "total frames shot",
+     "23"
+    ],
+    [
+     "O2 % by volume",
+     "0.2258 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0087 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.36"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-63-65",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "67",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.2258 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.58",
+   "observation": "1,2,3,3.5,5, 6, 10 pot on GN2. Stag blew out at 3.5, flame strong enough did not blow out at 10.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 67; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "205:11:15"
+    ],
+    [
+     "Sample no.",
+     "23"
+    ],
+    [
+     "Igniter",
+     "1-3"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1"
+    ],
+    [
+     "Fan display",
+     "45"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "GN2 Pot",
+     "1 to max increments"
+    ],
+    [
+     "total frames shot",
+     "112"
+    ],
+    [
+     "O2 % by volume",
+     "0.2258 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0087 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.36"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-64-118",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "68",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2258 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "22.58",
+   "observation": "Igniter is broken! Igniter inventory done. 2 good ones left. No images taken",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 68; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-07-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "205:11:11"
+    ],
+    [
+     "Sample no.",
+     "23"
+    ],
+    [
+     "Igniter",
+     "1-3"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Sample distance",
+     "1"
+    ],
+    [
+     "Fan display",
+     "42"
+    ],
+    [
+     "GN2 Pot",
+     "1 to max increments"
+    ],
+    [
+     "O2 % by volume",
+     "0.2258 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "1.0087 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.36"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-65-11",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "70",
+   "material_raw": "SIBAL 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "20",
+   "o2_raw": "0.2152 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.52",
+   "observation": "nice burn, left igniter on a bit long and then on again. Camera set to GMT, not MSG. Appeared to reach a ss size ~ 3 cm long.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 70; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/9/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "9 days, 6:10:10"
+    ],
+    [
+     "Sample no.",
+     "3"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "1, furthest downstream"
+    ],
+    [
+     "Fan display",
+     "98"
+    ],
+    [
+     "Air display",
+     "20"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "85, incl dark frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2152 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9907 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.44"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-66-9",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "71",
+   "material_raw": "SIBAL 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "10,",
+   "o2_raw": "0.2158 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.58",
+   "observation": "sample 7 apparently not used. (Don supposedly used on 5/10), flame kept going. At lowest flows shrank but kept going to end of sample. Became oval away from edges at lowest flows.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 71; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/9/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "9 days, 6:17:34"
+    ],
+    [
+     "Sample no.",
+     "7"
+    ],
+    [
+     "Igniter",
+     "pre-wired"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "5, flipped 180 degrees"
+    ],
+    [
+     "Fan display",
+     "65, 56,48,43,41,40"
+    ],
+    [
+     "Air display",
+     "10,"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "104"
+    ],
+    [
+     "O2 % by volume",
+     "0.2158 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9907 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-67-102",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "72",
+   "material_raw": "PMMA sphere 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.2158 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.58",
+   "observation": "spice igniter, sample 22, trying to see if it works. Worked like a charm! Slightly non-symmetric ignition point. Ss velocity for Makoto's model.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 72; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/9/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "9 days, 6:17:51"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "spice"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~4"
+    ],
+    [
+     "Fan display",
+     "51"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "82"
+    ],
+    [
+     "O2 % by volume",
+     "0.2158 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9907 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.5"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-68-83a",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "73",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "Over the shoulder view. iso auto control on, max sensitivity 3200 iso, min shutter 1/4s, shutter hold 5 s. new igniter, have to bend it into shape. Did not ignite first 2 attempts. Haze on window? wax deposits? LOS wider coils on igniter, windows clean, ignited and was all blue initially, then got soot spot, decreased flow but soot persisted until 0.32 pot when soot disappeared then flame went out.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 73; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "229:11:19"
+    ],
+    [
+     "Sample no.",
+     "36"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pot 0.53, .45,.4, .35, 0.32 (out)"
+    ],
+    [
+     "Air display",
+     "0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "99 tota"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-69-83b",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "74",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "2, 0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "realigned crooked candle, cleaned windows, spread out coil loops. Ignited very quickly on 2nd try, and was sooty immediately. Decreased flow gradually, took 11 brackets. Got very low flows.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 74; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "9 days, 13:11:35"
+    ],
+    [
+     "Sample no.",
+     "36"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~2"
+    ],
+    [
+     "Fan display",
+     "pot 0.53, .45,.4, .35, 0.32, 0.31 (out)"
+    ],
+    [
+     "Air display",
+     "2, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "198 tot"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-70-83c",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "75",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "2,0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "same candle, 3rd test, trying for longer time at low flow. Burned out all wax, only 2 brackets. Flame got smaller quickly flow rates due to lack of wax.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 75; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "9 days, 13:11:51"
+    ],
+    [
+     "Sample no.",
+     "36"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~2"
+    ],
+    [
+     "Fan display",
+     "Pot 0.53, 0.45, incr to 0.55 (did not complete before extinction"
+    ],
+    [
+     "Air display",
+     "2,0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "216 total pics"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-71-84a",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "76",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "2, 0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "P mode is auto-everything. Very long burn (~ 10 min), waited at every flow condition, steady radiometer at 0.32 pot ~ 2.2 (lowest for flame). Consistenly goes out at pot 0.31",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 76; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "9 days, 13:12:56"
+    ],
+    [
+     "Sample no.",
+     "37"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~2"
+    ],
+    [
+     "Fan display",
+     "0.53, 0.45, 0.4, 0.35, 0.33, 0.32, 0.31 (extinguished)"
+    ],
+    [
+     "Air display",
+     "2, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "117 tot, 13 brackets"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-72-84b",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "77",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "2, 0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "A mode. Trying to heat and then step to low flow immediately. But running out of wax. Extinguished/burned out at 0.31",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 77; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "229:13:17"
+    ],
+    [
+     "Sample no.",
+     "37"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~2"
+    ],
+    [
+     "Fan display",
+     "0.53, 0.38, 0.31"
+    ],
+    [
+     "Air display",
+     "2, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "153 tot, 4 brackets"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-73-86a",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "78",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "2, 0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "Last one with over the shoulder view on this session. Got hot then stepped to 0 flow, went out.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 78; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "229:13:34"
+    ],
+    [
+     "Sample no.",
+     "38"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~2"
+    ],
+    [
+     "Fan display",
+     "0.53, 0.40, 0.35, 0.31 (out)"
+    ],
+    [
+     "Air display",
+     "2, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "207 total , 6 brackets"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-74-86b",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "79",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "2, 0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "Turned on N2 at each flow setting starting at 0.35, not at 0.31. At 0.31, flame persisted for a long time, went out when fan off (38). All blue and dim. 2 frames shy of 13 brackets/",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 79; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "229:13:48"
+    ],
+    [
+     "Sample no.",
+     "38"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~2"
+    ],
+    [
+     "Fan display",
+     "0.53, 0.4, 0.35, 0.32, 0.31, off (out)"
+    ],
+    [
+     "Air display",
+     "2, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8, 10"
+    ],
+    [
+     "GN2 display",
+     "multi"
+    ],
+    [
+     "total frames shot",
+     "322 total (full)"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-75-86c",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "80",
+   "material_raw": "Japan Wax Candle, wake",
+   "flow_mode": "",
+   "airflow_raw": "1-0",
+   "o2_raw": "0.2124 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.24",
+   "observation": "higher flow test, but ran out of fuel too quickly.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 80; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "8/16/12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "229:14:29"
+    ],
+    [
+     "Sample no.",
+     "38"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "~2"
+    ],
+    [
+     "Fan display",
+     "0.53,"
+    ],
+    [
+     "Air display",
+     "1-0"
+    ],
+    [
+     "GN2 Pot",
+     "8, 10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "11 shot (2 from last, then 9)"
+    ],
+    [
+     "O2 % by volume",
+     "0.2124 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9724 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.54"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-76-70",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "81",
+   "material_raw": "PMMA slab",
+   "flow_mode": "",
+   "airflow_raw": "9, 7",
+   "o2_raw": "0.2193 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.93",
+   "observation": "ignited well and had initial sooty flame wrapped around leading edge of sample. Reduced flow to 7 cm/s and flame turned all blue -Emmons shape. Reached a steady size and spread downstream very slowly, all blue flame. Top stills look like about 1 cm long flame with curved base and slightly curved tail, mostly oval. All blue with intermittent yellow streaks. Very stable. Spread maybe 1 cm?",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 81; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-08-21"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "234:13:04"
+    ],
+    [
+     "Sample no.",
+     "34"
+    ],
+    [
+     "Igniter",
+     "2-4"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "manual to get ignition at upstream edge of video view"
+    ],
+    [
+     "Fan display",
+     "67, 60"
+    ],
+    [
+     "Air display",
+     "9, 7"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "254 incl 9 dark"
+    ],
+    [
+     "O2 % by volume",
+     "0.2193 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9727 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-77-71",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "82",
+   "material_raw": "PMMA slab",
+   "flow_mode": "",
+   "airflow_raw": "9",
+   "o2_raw": "0.2193 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.93",
+   "observation": "igniter didn't work, must have burned out. Replaced with long igniter. Ignited and got immediate dim blue flame. Let it burn for 8 minutes, got 294 images all blue lopsided oval, longer than previous run. Spread maybe 1 cm",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 82; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-08-21"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "234:14:03"
+    ],
+    [
+     "Sample no.",
+     "34"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "manual to get ignition at upstream edge of video view"
+    ],
+    [
+     "Fan display",
+     "67"
+    ],
+    [
+     "Air display",
+     "9"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "294"
+    ],
+    [
+     "O2 % by volume",
+     "0.2193 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9727 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-78-74",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "83",
+   "material_raw": "paraffin wax slab",
+   "flow_mode": "",
+   "airflow_raw": "5, 3",
+   "o2_raw": "0.2193 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.93",
+   "observation": "first wax slab test. Ignited nicely. Very sooty flame wrapped around leading edge. Turned flow down to 3 cm/s. Flame sooty for a while, then as it burned out leading edge it got dimmer, shorter and eventully all blue. Shrank slowly and extinguished by itself.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 83; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-08-21"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "234:14:25"
+    ],
+    [
+     "Sample no.",
+     "41"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "manual to get ignition at upstream edge of video view"
+    ],
+    [
+     "Fan display",
+     "53, 47"
+    ],
+    [
+     "Air display",
+     "5, 3"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "249"
+    ],
+    [
+     "O2 % by volume",
+     "0.2193 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9727 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-79-75",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "84",
+   "material_raw": "parrafin wax slab",
+   "flow_mode": "",
+   "airflow_raw": "6",
+   "o2_raw": "0.2193 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.93",
+   "observation": "tried igniting at 6 cm/s. Flame went out when igniter was retracted, with a puff of smoke. Tried a 2nd time, same effect. 3rd try igniter broke/failed. Sample showed blackened spot around mid-sample in over the shoulder view at 15:15 GMT. Stowed igniters in bag. Last run until January when we get new igniters up.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 84; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2012-08-21"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "234:15:07"
+    ],
+    [
+     "Sample no.",
+     "41"
+    ],
+    [
+     "Igniter",
+     "3-3"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "manual to get ignition at upstream edge of video view"
+    ],
+    [
+     "Fan display",
+     "57"
+    ],
+    [
+     "Air display",
+     "6"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "O2 % by volume",
+     "0.2193 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.9727 (rounded)"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.98"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-80-98",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "89",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "12",
+   "o2_raw": "0.1707",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.07",
+   "observation": "1st vititation test with CSA-CP. N2 on at 495 from 12:34:15 with fan 122 =31 cm/s, N2 off at msg 14:28:20.. Calc 17.07% O2 , nice ignition, blue leading edge, some soot later in tail. All still frames black because lens cap still on.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 89; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "13-095: 14:20ish?"
+    ],
+    [
+     "Sample no.",
+     "24"
+    ],
+    [
+     "Igniter",
+     "15-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "68"
+    ],
+    [
+     "Air display",
+     "12"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "total frames shot",
+     "98"
+    ],
+    [
+     "O2 % by volume",
+     "0.1707"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.15"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-81-99",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "90",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "12",
+   "o2_raw": "0.1707",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.07",
+   "observation": "same atmosphere. Re-igntion after removing lens cap. Good burn, sooty tail. Extinguished at very low flow. Pictures look sooty, 166 images.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 90; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-05"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "13-095: 14:45"
+    ],
+    [
+     "Sample no.",
+     "24"
+    ],
+    [
+     "Igniter",
+     "15-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "2"
+    ],
+    [
+     "Fan display",
+     "68, 51, slowly to zero"
+    ],
+    [
+     "Air display",
+     "12"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "264 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.1707"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.15"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-82-114",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "91",
+   "material_raw": "PMMA 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "7.5, 2",
+   "o2_raw": "0.211",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.1",
+   "observation": "wake ign, 3/3 initial frames before bracket. Still camera only took initial and final set of pics, he didn't repress camera at call, he unlocked it 'reset'. Igniter failed after this test.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 91; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 13-099 9:15"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "25-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "62, 44"
+    ],
+    [
+     "Air display",
+     "7.5, 2"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "132 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.211"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-83-115",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "92",
+   "material_raw": "pmma 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "7.5, 0",
+   "o2_raw": "0.211",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.1",
+   "observation": "wake ign, dim flame propagates upstream, some soot late in burn, slightly non-symmetric with top spreading faster than bottom",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 92; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 13-099 9:50"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "62, 42"
+    ],
+    [
+     "Air display",
+     "7.5, 0"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "139"
+    ],
+    [
+     "O2 % by volume",
+     "0.211"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-84-116",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "93",
+   "material_raw": "pmma 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "8, 0",
+   "o2_raw": "0.211",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.1",
+   "observation": "wake ign, fan pot to 0.5 (42), started getting soot before we put it out (air off) 125 frames this test",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 93; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 13-099 10:03"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "62, 42"
+    ],
+    [
+     "Air display",
+     "8, 0"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "264 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.211"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-85-117",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "94",
+   "material_raw": "pmma 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "8, <1 flow",
+   "o2_raw": "0.211",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.1",
+   "observation": "wake ign too far away, needed to go in and readjust igniter, ignition started again at 10:50 gmt. Flame spread all the way upstream. Went out at 0.32 pot, got spherical and flashed out.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 94; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 13-099 10:39"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "62, 0.4, 0.38, 0.32 pot"
+    ],
+    [
+     "Air display",
+     "8, <1 flow"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "204"
+    ],
+    [
+     "O2 % by volume",
+     "0.211"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-85-117a",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "95",
+   "material_raw": "pmma 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "8, 20, 8, 1, 0",
+   "o2_raw": "0.211",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.1",
+   "observation": "increased flow to 20 cm/s, got a very sooty tail. After turning flow back to 8 cm/s, soot tail remained. Even down to 1 cm/s flame had sooty tail. Sphere down to about 1 cm, smooth after this last burn.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 95; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-09"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 13-099 11:03"
+    ],
+    [
+     "Sample no.",
+     "25"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "62, 98, 62, 42, off"
+    ],
+    [
+     "Air display",
+     "8, 20, 8, 1, 0"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "329 total (full)"
+    ],
+    [
+     "O2 % by volume",
+     "0.211"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-86-100",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "96",
+   "material_raw": "pmma 2 cm",
+   "flow_mode": "",
+   "airflow_raw": "8, 5, 0",
+   "o2_raw": "0.2111 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.11",
+   "observation": "sample is actually down to about 1 cm, GN2 pot actually set to 8, reading 397, flow start 12:41 flow stop 14:44:30, final O2 is 17.3%. Had Chris anneal the igniter before ignition. We lost video during ignition for a minute or two. Chris didn't press shutter until Paul told him we lost video. So images start late. Will need to schedule playback of this test. Flame went out when fan set to 39. Playback attempted 15:47 but it was streaky.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 96; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-102 14:50"
+    ],
+    [
+     "Sample no.",
+     "24"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "62, 52, 42, 39"
+    ],
+    [
+     "Air display",
+     "8, 5, 0"
+    ],
+    [
+     "GN2 Pot",
+     "10"
+    ],
+    [
+     "total frames shot",
+     "163 total (incl 9 dark frames)"
+    ],
+    [
+     "O2 % by volume",
+     "0.2111 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-87-85",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "97",
+   "material_raw": "candle, paraffin, wake",
+   "flow_mode": "",
+   "airflow_raw": "3",
+   "o2_raw": "0.2111 (rounded)",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.11",
+   "observation": "new candle, started GN2 at 15:26 00 gmt 15:31:10 msg stopped gmt 17:20:20, O2 16.8%. Bracketing images 7 s hold. Filled up card with bracket images. Chris noted the flame was not moving at all, unlike the 'contamination' of the acrylic shape. At 42 (pot 0.5) was all blue initially, but had soot after a bit. At 41 (pot 0.4), flame was steady all blue.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 97; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-102 17:33:30"
+    ],
+    [
+     "Sample no.",
+     "43"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "42"
+    ],
+    [
+     "Air display",
+     "3"
+    ],
+    [
+     "GN2 Pot",
+     "0"
+    ],
+    [
+     "total frames shot",
+     "full, unknown number of frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2111 (rounded)"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-88-93",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "98",
+   "material_raw": "candle, paraffin, wake",
+   "flow_mode": "",
+   "airflow_raw": "3,?, 0",
+   "o2_raw": "0.2113",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.13",
+   "observation": "changed out card for unknown card, 1 handed with glove on! Hopefully it wasn't #6! We still don't have that data. Got sooty pretty quickly, turned up accidentally to 43 pot, tnen down to 41. went out on its own at 18:04:30 ish. He described it as being the side of a pencil eraser, with the back end open.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 98; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-12"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-102 18:02:"
+    ],
+    [
+     "Sample no.",
+     "43"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "42, 43, 41"
+    ],
+    [
+     "Air display",
+     "3,?, 0"
+    ],
+    [
+     "GN2 Pot",
+     "0"
+    ],
+    [
+     "total frames shot",
+     "131 frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.2113"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-89-26",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "99",
+   "material_raw": "pmma 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.173",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.3",
+   "observation": "new sphere, issue with numbers, sample 20 is a stump, completely gone. LOS for setup/GN2 start Gn2 on 10:44 pff 12:26 , vitiation to 17.3 % o2. Lots of vapor jetting at low flow. At 0.33 pot flame got all blue just around stagnation region. Last pic still had a flame~3:15 burn",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 99; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-16"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-106 12:31:00"
+    ],
+    [
+     "Sample no.",
+     "17"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "ign at 62, then pots: 0.5, 0.45, 0.40, 0.39, 0.33"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "182"
+    ],
+    [
+     "O2 % by volume",
+     "0.173"
+    ],
+    [
+     "pressure, atm",
+     "0.99"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.2"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-90-27",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "100",
+   "material_raw": "pmma 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.171",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.1",
+   "observation": "Gn2 start, max, at msg 13:07:40, off 14:54:55, O2 17.1% O2. Igniter broke, he replaced it 1 handed! Igniton at 62 then turned down to 41.5 then 41 (0.35 pot), stable at 0.35 pot. Out when fan off.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 100; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-16"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-106 15:17"
+    ],
+    [
+     "Sample no.",
+     "17"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "62, pot 0.4, 0.35, , off"
+    ],
+    [
+     "GN2 Pot",
+     "0"
+    ],
+    [
+     "total frames shot",
+     "86"
+    ],
+    [
+     "O2 % by volume",
+     "0.171"
+    ],
+    [
+     "pressure, atm",
+     "0.99"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.2"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-91-28",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "101",
+   "material_raw": "pmma 1 cm",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.171",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.1",
+   "observation": "Igniter too far away readjusted 1 handed. Over the shoulder view, out of focus a bit. Burned out sample. Held up sample to camera view, just crunchy bits on the end.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 101; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-16"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-106 15:40"
+    ],
+    [
+     "Sample no.",
+     "17"
+    ],
+    [
+     "Igniter",
+     "25-11 broke, 15-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "?"
+    ],
+    [
+     "Fan display",
+     "52, pot 0.4, 0.35"
+    ],
+    [
+     "GN2 Pot",
+     "0"
+    ],
+    [
+     "total frames shot",
+     "149 total (63 this test)"
+    ],
+    [
+     "O2 % by volume",
+     "0.171"
+    ],
+    [
+     "pressure, atm",
+     "0.99"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.2"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-89-87",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "102",
+   "material_raw": "candle, Japan wax",
+   "flow_mode": "",
+   "airflow_raw": "1,2,1,0",
+   "o2_raw": "0.159",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "15.9",
+   "observation": "LONG candle burn at very low flow rates. Sooty at 2 cm/s and then at 1 cm/s. All blue at fan41. Candle out at flow change.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 102; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-113 MSG 15:27:04-15:41"
+    ],
+    [
+     "Sample no.",
+     "40"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "42,43,42,41"
+    ],
+    [
+     "Air display",
+     "1,2,1,0"
+    ],
+    [
+     "total frames shot",
+     "117"
+    ],
+    [
+     "O2 % by volume",
+     "0.159"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-90-103",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "103",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.1753",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.53",
+   "observation": "Ign took 3 min. Only spread top half of video initially. Wrapped some later. All blue. Extinguished on last flow change pot 0.35-0.32, shrank to leading edge",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 103; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-113 MSG 17:40:50-15:41"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "52"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "total frames shot",
+     "145"
+    ],
+    [
+     "O2 % by volume",
+     "0.1753"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-91-104",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "104",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "5,2,1, <1",
+   "o2_raw": "0.1753",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.53",
+   "observation": "Ign took 2 min, flame on top half. Used GN2 to try and blow out at low flow. No joy even at max GN2. Extinguished when flow off.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 104; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-113 MSG 17:58:00-18:06"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "52, 43, 41"
+    ],
+    [
+     "Air display",
+     "5,2,1, <1"
+    ],
+    [
+     "GN2 Pot",
+     "8, 10"
+    ],
+    [
+     "total frames shot",
+     "266"
+    ],
+    [
+     "O2 % by volume",
+     "0.1753"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-92-105",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "105",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "5,1, <1",
+   "o2_raw": "0.205",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "20.5",
+   "observation": "Ign in 1 min. Symmetric growth. Gets sooty, even when flow reduced to 41. Gets all blue at 18:38, out at 18:40 at finite extremely low flow.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 105; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-23"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-113 MSG 18:34:30-18:40:20"
+    ],
+    [
+     "Sample no.",
+     "22"
+    ],
+    [
+     "Igniter",
+     "25-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "52,42,41"
+    ],
+    [
+     "Air display",
+     "5,1, <1"
+    ],
+    [
+     "total frames shot",
+     "260"
+    ],
+    [
+     "O2 % by volume",
+     "0.205"
+    ],
+    [
+     "pressure, atm",
+     "0.97"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-93-38",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "106",
+   "material_raw": "1 cm sphere, wake",
+   "flow_mode": "",
+   "airflow_raw": "6, 8",
+   "o2_raw": "0.1667",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "16.67",
+   "observation": "repeated ignition attempts, no luck at 52, brief flame at 62 but also 'flamed out'. Chris says 1/3 of sphere is gone from wake region. Need to readjust igniter wire.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 106; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-26"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-113 MSG 11:46-11:54"
+    ],
+    [
+     "Sample no.",
+     "20"
+    ],
+    [
+     "Igniter",
+     "15-13?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "52, 62"
+    ],
+    [
+     "Air display",
+     "6, 8"
+    ],
+    [
+     "total frames shot",
+     "101"
+    ],
+    [
+     "O2 % by volume",
+     "0.1667"
+    ],
+    [
+     "pressure, atm",
+     "0.976"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-94-39",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "107",
+   "material_raw": "1 cm wake sphere",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.1667",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "16.67",
+   "observation": "took about 3 min to ignite, repeated attempts. Got blue flame that was 1/2 way or mor around top. Turned fan down in increments:12:10:20 0.6 (43); 11:15 0.5 (42); 11:50 0.35 (41) and 12:35 0.32 (41) flame self-extinguished.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 107; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-26"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-116 MSG: 12:06:50-12:13"
+    ],
+    [
+     "Sample no.",
+     "20"
+    ],
+    [
+     "Igniter",
+     "15-13?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "total frames shot",
+     "290 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.1667"
+    ],
+    [
+     "pressure, atm",
+     "0.976"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.8"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-95-40",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "108",
+   "material_raw": "1 cm wake sphere",
+   "flow_mode": "",
+   "airflow_raw": "8, 2, 1, 0",
+   "o2_raw": "0.178",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.8",
+   "observation": "flame lit on 2nd try, quickly turned sooty, spread around small remaining sphere. All blue at lower flows, burned out fuel. Very nice over the shoulder zoomed in view of flame. Better than expt video!",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 108; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-26"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-116 MSG14:17-14:23"
+    ],
+    [
+     "Sample no.",
+     "20"
+    ],
+    [
+     "Igniter",
+     "15-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "62, 0.5, 0.4, 0.35, 0.32, 0.31, 0.3"
+    ],
+    [
+     "Air display",
+     "8, 2, 1, 0"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "total frames shot",
+     "196"
+    ],
+    [
+     "O2 % by volume",
+     "0.178"
+    ],
+    [
+     "pressure, atm",
+     "0.976"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.8"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-96-72",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "109",
+   "material_raw": "pmma slab opposed",
+   "flow_mode": "",
+   "airflow_raw": "9",
+   "o2_raw": "0.21",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21",
+   "observation": "repeated ignition attempts, no luck keeping the flame sustained. After igniter retract, the blue flame leading edge shrinks back, the tail shrinks, the flame becomes parallel to the fuel surface, and then winks out. Apparently not flammable in opposed flow for the same concurrent flow. Heat losses are different though, due to the metal holder around the back end of sample but not on front edge.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 109; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-26"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-116 MSG14:55-15:02"
+    ],
+    [
+     "Sample no.",
+     "34"
+    ],
+    [
+     "Igniter",
+     "25-15"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest upstream"
+    ],
+    [
+     "Fan display",
+     "65"
+    ],
+    [
+     "Air display",
+     "9"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "total frames shot",
+     "59"
+    ],
+    [
+     "O2 % by volume",
+     "0.21"
+    ],
+    [
+     "pressure, atm",
+     "0.976"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.8"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-97-73",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "110",
+   "material_raw": "pmma slab, oppsed",
+   "flow_mode": "",
+   "airflow_raw": "15",
+   "o2_raw": "0.21",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21",
+   "observation": "moved igniter upstream of 'crater' we created on last test. Got a flame briefly, but did not sustain for any spread, shrank and winked out after maybe 15 s or so. Broke the igniter trying to re-ignite.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 110; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-26"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-116 MSG 15:17-15:20"
+    ],
+    [
+     "Sample no.",
+     "34"
+    ],
+    [
+     "Igniter",
+     "25-15"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "farthest upstream"
+    ],
+    [
+     "Fan display",
+     "82"
+    ],
+    [
+     "Air display",
+     "15"
+    ],
+    [
+     "GN2 Pot",
+     "8"
+    ],
+    [
+     "total frames shot",
+     "136 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.21"
+    ],
+    [
+     "pressure, atm",
+     "0.976"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.8"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-98-118",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "111",
+   "material_raw": "2 cm pmma sphere",
+   "flow_mode": "",
+   "airflow_raw": "8,4,<1",
+   "o2_raw": "0.1734",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.34",
+   "observation": "broke 2 igniters on this trying to get it to ignite. 3rd one was suspect, and didn't work. 2nd vitiation, got it ignited, burned just on forward stagnation region, minimal spread. Went out at finite flow. Post burn shape was crater and protrusion on lower half.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 111; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-29"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT-13- 119 MSG 17:03:30-17:10:30"
+    ],
+    [
+     "Sample no.",
+     "23"
+    ],
+    [
+     "Igniter",
+     "15-14"
+    ],
+    [
+     "Sample distance",
+     "downstream"
+    ],
+    [
+     "Fan display",
+     "pot 3, 1, 0.32"
+    ],
+    [
+     "Air display",
+     "8,4,<1"
+    ],
+    [
+     "GN2 Pot",
+     "n/a"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "146, incl 9 dark"
+    ],
+    [
+     "O2 % by volume",
+     "0.1734"
+    ],
+    [
+     "pressure, atm",
+     "0.983"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.2"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-99-119",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "112",
+   "material_raw": "2 cm pmma sphere",
+   "flow_mode": "",
+   "airflow_raw": "8, 2, <1",
+   "o2_raw": "0.1734",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.34",
+   "observation": "started igniting the protrusion and then went LOS for a minute. Came back and sample bump is gone, pot down to flow of 2 cm/s, radiometer increased so still growing flame. Pot to 0.4 and flame still growing fan 41.5, pot 0.33 radiometer drops to 0.7, fan 41, down to 0.3 but camera ran out and we shut off flow to put flame out. Sample shape much more spherical.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 112; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-04-29"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 13-119 17:24-17:31"
+    ],
+    [
+     "Sample no.",
+     "23"
+    ],
+    [
+     "Igniter",
+     "15-14"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "downstream"
+    ],
+    [
+     "Fan display",
+     "pot 3, pot 0.67, 0.33, 0.3, 0"
+    ],
+    [
+     "Air display",
+     "8, 2, <1"
+    ],
+    [
+     "GN2 Pot",
+     "n/a"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "336 full"
+    ],
+    [
+     "O2 % by volume",
+     "0.1734"
+    ],
+    [
+     "pressure, atm",
+     "0.983"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.2"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-100-89",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "113",
+   "material_raw": "parrafin wax candle",
+   "flow_mode": "",
+   "airflow_raw": "5, 2, 1.5, etc",
+   "o2_raw": "0.1605",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "16.05",
+   "observation": "ignited 'concurrent' or stagnation.17:45 - 0.5; 18:30-0.4; 19:20-0.35; 20:20-0.33; 21:30-0.32; out 14:22:50",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 113; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-02"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT-13 122 14:15-14:23"
+    ],
+    [
+     "Sample no.",
+     "44"
+    ],
+    [
+     "Igniter",
+     "20-14"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "downstream"
+    ],
+    [
+     "Fan display",
+     "51, pots 0.5, 0.4, 0.35, 0.33, 0.32"
+    ],
+    [
+     "Air display",
+     "5, 2, 1.5, etc"
+    ],
+    [
+     "total frames shot",
+     "135"
+    ],
+    [
+     "O2 % by volume",
+     "0.1605"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.4"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-101-95",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "114",
+   "material_raw": "paraffin wax candle",
+   "flow_mode": "",
+   "airflow_raw": "5, 10",
+   "o2_raw": "0.1605",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "16.05",
+   "observation": "no ignition, despite prolonged attempted ignition. No pictures were taken. Candle out of wax?",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 114; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-02"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT-13 122 14:29:30-14:38"
+    ],
+    [
+     "Sample no.",
+     "44"
+    ],
+    [
+     "Igniter",
+     "20-14"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "downstream"
+    ],
+    [
+     "Fan display",
+     "pot 1.5 ign, 3.5"
+    ],
+    [
+     "Air display",
+     "5, 10"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "0"
+    ],
+    [
+     "O2 % by volume",
+     "0.1605"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.4"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-102-92",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "115",
+   "material_raw": "candle, Japan wax",
+   "flow_mode": "",
+   "airflow_raw": "5,3, 2, etc",
+   "o2_raw": "0.163",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "16.3",
+   "observation": "nice blue flame with inner soot until low flows. At extinction, the stag zone opened up before the flame goes out (out of wax).",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 115; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-02"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT-13 122"
+    ],
+    [
+     "Sample no.",
+     "40"
+    ],
+    [
+     "Igniter",
+     "20-14"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "downstream"
+    ],
+    [
+     "Fan display",
+     "Pots 1.5, 1 0.5, 0.4"
+    ],
+    [
+     "Air display",
+     "5,3, 2, etc"
+    ],
+    [
+     "GN2 Pot",
+     "n/a"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "81"
+    ],
+    [
+     "O2 % by volume",
+     "0.163"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.4"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-103-78",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "116",
+   "material_raw": "paraffin wax slab",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.163",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "16.3",
+   "observation": "new sample. Blue flame wrapped around leading edge, didn't propagate at all. Went out on its own at a flow of 0.4 after 75 seconds",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 116; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-02"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT-13 122"
+    ],
+    [
+     "Sample no.",
+     "42"
+    ],
+    [
+     "Igniter",
+     "20-14"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Sample distance",
+     "intermediate"
+    ],
+    [
+     "Fan display",
+     "Pots 1.5, 1 0.5, 0.4"
+    ],
+    [
+     "GN2 display",
+     "n/a"
+    ],
+    [
+     "total frames shot",
+     "328"
+    ],
+    [
+     "O2 % by volume",
+     "0.163"
+    ],
+    [
+     "pressure, atm",
+     "0.982"
+    ],
+    [
+     "CO2, mm Hg",
+     "3.4"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-104-50",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "117",
+   "material_raw": "2 cm pmma sphere",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.172",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.2",
+   "observation": "new sphere, took 4 min to ignite with repeated tries and brief flames . All blue to start, grew to wrap past 90 degrees . Short burn about 2 minutes.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 117; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2103-05-15"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT-13 135 MSG 11:43"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-14"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "52"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "total frames shot",
+     "102 tot incl dark frames"
+    ],
+    [
+     "O2 % by volume",
+     "0.172"
+    ],
+    [
+     "pressure, atm",
+     "0.977"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-105-51",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "118",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "5",
+   "o2_raw": "0.172",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.2",
+   "observation": "broke igniter just before it was going to stay lit. New igniter trying again. Repeat of test 50. takes 4 min to ignite sphere at this O2. blue flame. Post-burn sample had large amounts of soot on it that had to be wiped off.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 118; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-15"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-135 msg 12:22"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-16"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "52"
+    ],
+    [
+     "Air display",
+     "5"
+    ],
+    [
+     "total frames shot",
+     "180 total"
+    ],
+    [
+     "O2 % by volume",
+     "0.172"
+    ],
+    [
+     "pressure, atm",
+     "0.977"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-106-52",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "119",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "10, 5,2, 0",
+   "o2_raw": "0.171",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.1",
+   "observation": "broke igniter. All blue with intermittent soot balls streaking back. Might be able to get flow measurements from those. Lab view zoomed in on flame also.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 119; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-15"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT13-135 msg 14:57"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-16, 15-14 ?"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pots 3.4 for ign, 1.5, then 0.5"
+    ],
+    [
+     "Air display",
+     "10, 5,2, 0"
+    ],
+    [
+     "total frames shot",
+     "91"
+    ],
+    [
+     "O2 % by volume",
+     "0.171"
+    ],
+    [
+     "pressure, atm",
+     "0.977"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-107-53",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "120",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.1713",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.13",
+   "observation": "broke 2 igniters. No ignition on this test. No stills. Record for the day - broke 4 igniters!",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 120; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-15"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 135"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "15-14, 15-16"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pot 3.4"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "total frames shot",
+     "0"
+    ],
+    [
+     "O2 % by volume",
+     "0.1713"
+    ],
+    [
+     "pressure, atm",
+     "0.977"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-108-106",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "121",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "10, 7, <1",
+   "o2_raw": "0.1717",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.17",
+   "observation": "new igniter, anneal it. 3 min to ignite, turned flow to 7 cm/s, let it wrap around sphere, then reduced flow to < 1 cm/s. All blue flame. Nice video from the over the shoulder view. Sphere is very flat on front,w ith blackened bubble layer extending past 90 degreees on the sphere. Back ~40% of sphere still fairly pristine.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 121; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-17"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT137 MSG 12:25-12:31"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pots 4.0, 2.6, 0.5, 0"
+    ],
+    [
+     "Air display",
+     "10, 7, <1"
+    ],
+    [
+     "total frames shot",
+     "133"
+    ],
+    [
+     "O2 % by volume",
+     "0.1717"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-109-107",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "122",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.1717",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.17",
+   "observation": "nice over the shoulder view, very hard to see dim flame in expt video. Ignition in 1.5 min.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 122; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-17"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 137 msg 12:46-12:52"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pots 4.0, 1.0, 0.4, 0"
+    ],
+    [
+     "O2 % by volume",
+     "0.1717"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-110-108",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "123",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.1724",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.24",
+   "observation": "stills during ignition.flame ignited over lower part of sphere, wrapped around and then decreased flow to near limit flow, flame shrank forward and oscillated slightly at pot 0.35, went out when pot turned down to 0.29.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 123; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-05-17"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 137 MSG 15:03-15:08"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pots 4.0, 2.6, 0.35, 0.29"
+    ],
+    [
+     "total frames shot",
+     "186"
+    ],
+    [
+     "O2 % by volume",
+     "0.1724"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-111-109",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "124",
+   "material_raw": "2 cm sphere",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.1724",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.24",
+   "observation": "got dim flame with stills during ignition, then had Chris do incr and decr flow flame got very long soot tail at around 10 cm/s and dim blue spherical flame at really low flows. Flame went out at pot 0.27, with oscillations and a big flash at extinction.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 124; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-06-01"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 137"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-11"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pots, 4.0, 1.0, 0.4, 0.35, then oscillating high low for a few times. Then turn down until it goes out, very slowly."
+    ],
+    [
+     "total frames shot",
+     "321 (full)"
+    ],
+    [
+     "O2 % by volume",
+     "0.1724"
+    ],
+    [
+     "pressure, atm",
+     "0.98"
+    ],
+    [
+     "CO2, mm Hg",
+     "1.9"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-112-79",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "125",
+   "material_raw": "flat wax slab",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.174",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "17.4",
+   "observation": "igniter 20-11 wass reported broken when he was getting it ready. Tested 20-132 and it was fine. Sample ignited briefly - blue curving around leading edge, but went out. Couldn't get it ignited again at leading edge. Adjusted igniter dcownstream. No luck. No stills taken.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 125; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-06-01"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 150 10:43-11:00"
+    ],
+    [
+     "Sample no.",
+     "42"
+    ],
+    [
+     "Igniter",
+     "20-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pot 3.4"
+    ],
+    [
+     "total frames shot",
+     "0"
+    ],
+    [
+     "O2 % by volume",
+     "0.174"
+    ],
+    [
+     "pressure, atm",
+     "0.9963"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-113-80",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "126",
+   "material_raw": "flat wax slab",
+   "flow_mode": "",
+   "airflow_raw": "10,",
+   "o2_raw": "0.2118",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "tried igniting in air at 10 cm/s. Not enough fuel in forward patch on sample. No flame. So readjusted igniter to downstream patch (~ 1/2 of sample). Igniter 20-13 broken, installing 20-12, uncoiled.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 126; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-06-01"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 150 11:10-11:42"
+    ],
+    [
+     "Sample no.",
+     "42"
+    ],
+    [
+     "Igniter",
+     "20-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pot 3.4"
+    ],
+    [
+     "Air display",
+     "10,"
+    ],
+    [
+     "total frames shot",
+     "0"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118"
+    ],
+    [
+     "pressure, atm",
+     "0.9963"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-114-75",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "127",
+   "material_raw": "flat wax slab",
+   "flow_mode": "",
+   "airflow_raw": "10",
+   "o2_raw": "0.2118",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "tried to ignite, no joy, just a puff of smoke each time.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 127; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-06-01"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 150 11:47-11:52"
+    ],
+    [
+     "Sample no.",
+     "41"
+    ],
+    [
+     "Igniter",
+     "20-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pot 3.4"
+    ],
+    [
+     "Air display",
+     "10"
+    ],
+    [
+     "total frames shot",
+     "0"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118"
+    ],
+    [
+     "pressure, atm",
+     "0.9963"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-115-53",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "128",
+   "material_raw": "pmma sphere",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2118",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "stagnation ignition in air. Dynamic flow changes planned after igntion. Good ignition, good dynamics from dim blue to sooty tail. Bracketing was on - 2 brackets plus dark frames.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 128; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-06-01"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 150 16:11-16:14"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pot 3, then variable"
+    ],
+    [
+     "total frames shot",
+     "27"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118"
+    ],
+    [
+     "pressure, atm",
+     "0.9963"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSI-116-53a",
+   "experiment": "BASS-I",
+   "pi": "",
+   "source_id": "PSI-26",
+   "source_file": "PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\"",
+   "source_row": "129",
+   "material_raw": "pmma sphere",
+   "flow_mode": "",
+   "airflow_raw": "",
+   "o2_raw": "0.2118",
+   "o2_note": "O2 as logged under “ISS environment” in the as-run matrix (fraction by volume); vol% = fraction × 100",
+   "o2_vol_pct": "21.18",
+   "observation": "same as previous, with continuous pictures. Dropped out los for test, got playback of expt video but lost over theshoulder view for most of test. Up to fan 73 down to 39. Limit pot setting about 0.28. 149 total pics -27-2extras for camera check.",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-26_as_run_test_matrix_BASS.xlsx, sheet \"as run matrix\", row 129; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Actual Date (for SPICE Display Date, add 1 for Leap Year)",
+     "2013-06-01"
+    ],
+    [
+     "Approx Start Time ( with GMT)",
+     "GMT 15016:24-16:28"
+    ],
+    [
+     "Sample no.",
+     "26"
+    ],
+    [
+     "Igniter",
+     "20-13"
+    ],
+    [
+     "Flow restrictor",
+     "2"
+    ],
+    [
+     "Fan display",
+     "pot 3 then variable"
+    ],
+    [
+     "total frames shot",
+     "120"
+    ],
+    [
+     "O2 % by volume",
+     "0.2118"
+    ],
+    [
+     "pressure, atm",
+     "0.9963"
+    ],
+    [
+     "CO2, mm Hg",
+     "2.3"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREI-S1",
+   "experiment": "SAFFIRE-I",
+   "pi": "",
+   "source_id": "PSI-98",
+   "source_file": "PSI-98_experimental_table_SAFFIRE-I.csv",
+   "source_row": "2",
+   "material_raw": "SIBAL Fabric",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20",
+   "o2_raw": "21.5 - 21.7",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-98_experimental_table_SAFFIRE-I.csv, row 2; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Sample Thickness (cm)",
+     "0.37"
+    ],
+    [
+     "Sample Length (cm)",
+     "40.6"
+    ],
+    [
+     "Sample Width (cm)",
+     "94"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20"
+    ],
+    [
+     "Percent O2",
+     "21.5 - 21.7"
+    ],
+    [
+     "Ignition Power (W)",
+     "182"
+    ],
+    [
+     "Ignition Time (s)",
+     "8"
+    ],
+    [
+     "Burn Time (s)",
+     "420"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREI-S2",
+   "experiment": "SAFFIRE-I",
+   "pi": "",
+   "source_id": "PSI-98",
+   "source_file": "PSI-98_experimental_table_SAFFIRE-I.csv",
+   "source_row": "3",
+   "material_raw": "SIBAL Fabric",
+   "flow_mode": "Opposed",
+   "airflow_raw": "20",
+   "o2_raw": "~ 21.5",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-98_experimental_table_SAFFIRE-I.csv, row 3; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Sample Thickness (cm)",
+     "0.37"
+    ],
+    [
+     "Sample Length (cm)",
+     "40.6"
+    ],
+    [
+     "Sample Width (cm)",
+     "94"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20"
+    ],
+    [
+     "Percent O2",
+     "~ 21.5"
+    ],
+    [
+     "Ignition Power (W)",
+     "182"
+    ],
+    [
+     "Ignition Time (s)",
+     "8"
+    ],
+    [
+     "Burn Time (s)",
+     "70"
+    ],
+    [
+     "Flow Direction",
+     "Opposed"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-1",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "2",
+   "material_raw": "Silicone",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "~ 21.5",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 2; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "0.27 mm"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "~ 21.5"
+    ],
+    [
+     "Ignition Power (W)",
+     "80 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "9.2 s"
+    ],
+    [
+     "Burn Time (s)",
+     "Insignificant"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "~ 0"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "n/a"
+    ],
+    [
+     "1-g Burn Length",
+     "Complete"
+    ],
+    [
+     "1-g Spread Rate",
+     "Acceleratory"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-2",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "3",
+   "material_raw": "Silicone",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "~ 22.1",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 3; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "0.61 mm"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "~ 22.1"
+    ],
+    [
+     "Ignition Power (W)",
+     "80 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "9.2 s"
+    ],
+    [
+     "Burn Time (s)",
+     "Insignificant"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "~ 0"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "n/a"
+    ],
+    [
+     "1-g Burn Length",
+     "7.6 cm"
+    ],
+    [
+     "1-g Spread Rate",
+     "1.2 mm/s"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-3",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "4",
+   "material_raw": "Silicone",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "~ 22.1",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 4; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "1.03 mm"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "~ 22.1"
+    ],
+    [
+     "Ignition Power (W)",
+     "80 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "9.2 s"
+    ],
+    [
+     "Burn Time (s)",
+     "Insignificant"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "~ 0"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "n/a"
+    ],
+    [
+     "1-g Burn Length",
+     "~ 0"
+    ],
+    [
+     "1-g Spread Rate",
+     "n/a"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-4",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "5",
+   "material_raw": "Silicone",
+   "flow_mode": "Opposed",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "~ 22.1",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 5; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "037 mm"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "~ 22.1"
+    ],
+    [
+     "Ignition Power (W)",
+     "80 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "9.2 s"
+    ],
+    [
+     "Burn Time (s)",
+     "Insignificant"
+    ],
+    [
+     "Flow Direction",
+     "Opposed"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "~ 0"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "n/a"
+    ],
+    [
+     "1-g Burn Length",
+     "Complete"
+    ],
+    [
+     "1-g Spread Rate",
+     "0.6 mm/s"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-5",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "6",
+   "material_raw": "Cotton-Fiberglass (SIBAL)",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "~ 22.1",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 6; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "037 mm"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "~ 22.1"
+    ],
+    [
+     "Ignition Power (W)",
+     "80 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "9.2 s"
+    ],
+    [
+     "Burn Time (s)",
+     "145 s"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "29 cm"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "2.1 mm/s"
+    ],
+    [
+     "1-g Burn Length",
+     "Complete"
+    ],
+    [
+     "1-g Spread Rate",
+     "Acceleratory"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-6",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "7",
+   "material_raw": "not stated in NASA's file (row above: Cotton-Fiberglass (SIBAL))",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "~ 22.1",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 7; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "037 mm"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "~ 22.1"
+    ],
+    [
+     "Ignition Power (W)",
+     "80 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "9.2 s"
+    ],
+    [
+     "Burn Time (s)",
+     "115 s"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "29 cm"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "2.6 mm/s"
+    ],
+    [
+     "1-g Burn Length",
+     "Complete"
+    ],
+    [
+     "1-g Spread Rate",
+     "Acceleratory"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-7",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "8",
+   "material_raw": "PMMA & Nomex",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "~ 22.1",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 8; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "0.85 and 0.37 mm"
+    ],
+    [
+     "Sample Length",
+     "5 and 24 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "~ 22.1"
+    ],
+    [
+     "Ignition Power (W)",
+     "80 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "9.2 s"
+    ],
+    [
+     "Burn Time (s)",
+     "140 s"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "5 cm & 0 (note 2)"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "n/a (Nomex)"
+    ],
+    [
+     "1-g Burn Length",
+     "~ 0 (Nomex)"
+    ],
+    [
+     "1-g Spread Rate",
+     "n/a (Nomex)"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-8",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "9",
+   "material_raw": "PMMA",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "22.1 to 22.0",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 9; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "See Fig. 5"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "22.1 to 22.0"
+    ],
+    [
+     "Ignition Power (W)",
+     "97 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "30 s"
+    ],
+    [
+     "Burn Time (s)",
+     "600 s"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "~ 10 cm (note 3)"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "Note 4"
+    ],
+    [
+     "1-g Burn Length",
+     "Complete"
+    ],
+    [
+     "1-g Spread Rate",
+     "Acceleratory"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREII-2-9",
+   "experiment": "SAFFIRE-II",
+   "pi": "",
+   "source_id": "PSI-99",
+   "source_file": "PSI-99_experimental_table_SAFFIRE-II.csv",
+   "source_row": "10",
+   "material_raw": "not stated in NASA's file (row above: PMMA)",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "20 cm/s",
+   "o2_raw": "22.0 to 21.9",
+   "o2_note": "O2 as printed in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-99_experimental_table_SAFFIRE-II.csv, row 10; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Samle Thickness",
+     "1 cm"
+    ],
+    [
+     "Sample Length",
+     "29 cm"
+    ],
+    [
+     "Sample Width (cm)",
+     "5 cm"
+    ],
+    [
+     "Air Flow (cm/s)",
+     "20 cm/s"
+    ],
+    [
+     "Percent O2 (Note 1)",
+     "22.0 to 21.9"
+    ],
+    [
+     "Ignition Power (W)",
+     "97 W"
+    ],
+    [
+     "Ignition Time (s)",
+     "30 s"
+    ],
+    [
+     "Burn Time (s)",
+     "900 s"
+    ],
+    [
+     "Flow Direction",
+     "Concurrent"
+    ],
+    [
+     "µg (printed as ?-g) Burn Length",
+     "~ 10 cm (note 4)"
+    ],
+    [
+     "µg (printed as ?-g) Spread Length",
+     "Note 4"
+    ],
+    [
+     "1-g Burn Length",
+     "Complete"
+    ],
+    [
+     "1-g Spread Rate",
+     "Acceleratory"
+    ],
+    [
+     "Note in NASA's file",
+     "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 3 This is the length of fuel with significant visible damage."
+    ],
+    [
+     "Note in NASA's file",
+     "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREIII-S1",
+   "experiment": "SAFFIRE-III",
+   "pi": "",
+   "source_id": "PSI-100",
+   "source_file": "PSI-100_experimental_table_SAFFIRE-III.csv",
+   "source_row": "2",
+   "material_raw": "SIBAL Fabric",
+   "flow_mode": "Concurrent",
+   "airflow_raw": "30 cm/s",
+   "o2_raw": "",
+   "o2_note": "No O2 value in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-100_experimental_table_SAFFIRE-III.csv, row 2; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Sample Thickness",
+     ".33 cm"
+    ],
+    [
+     "Sample Length",
+     "94 cm"
+    ],
+    [
+     "Sample Width",
+     "40.6 cm"
+    ],
+    [
+     "Air Flow",
+     "30 cm/s"
+    ],
+    [
+     "Direction",
+     "Concurrent"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "SAFFIREIII-S2",
+   "experiment": "SAFFIRE-III",
+   "pi": "",
+   "source_id": "PSI-100",
+   "source_file": "PSI-100_experimental_table_SAFFIRE-III.csv",
+   "source_row": "3",
+   "material_raw": "SIBAL Fabric",
+   "flow_mode": "Opposed",
+   "airflow_raw": "30 cm/s",
+   "o2_raw": "",
+   "o2_note": "No O2 value in NASA's table",
+   "o2_vol_pct": "",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-100_experimental_table_SAFFIRE-III.csv, row 3; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Sample Thickness",
+     ".33 cm"
+    ],
+    [
+     "Sample Length",
+     "94 cm"
+    ],
+    [
+     "Sample Width",
+     "40.6 cm"
+    ],
+    [
+     "Air Flow",
+     "30 cm/s"
+    ],
+    [
+     "Direction",
+     "Opposed"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSII-O20",
+   "experiment": "BASS-II",
+   "pi": "Olson",
+   "source_id": "PSI-25",
+   "source_file": "PSI-25_experimental_table_BASS-II.csv",
+   "source_row": "72",
+   "material_raw": "1/4\" clear rod",
+   "flow_mode": "",
+   "airflow_raw": "5 8 incr to max 38.5",
+   "o2_raw": "16.5",
+   "o2_note": "Calibrated initial O2 (vol%) from NASA's PSI table; this test is not in the report's Appendix A",
+   "o2_vol_pct": "16.5",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-25_experimental_table_BASS-II.csv, row 72; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Date",
+     "2/26/2016"
+    ],
+    [
+     "GMT",
+     "57"
+    ],
+    [
+     "Sample #",
+     "204m"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Fan display",
+     "49 (1.3 pot) pots 7 8 9 10"
+    ],
+    [
+     "Air display",
+     "5 8 incr to max 38.5"
+    ],
+    [
+     "Radiometer gain (1000 250 50 10)",
+     "50"
+    ],
+    [
+     "Total Frames Shot",
+     "video"
+    ],
+    [
+     "Calibrated initial O2 % by vol",
+     "16.5"
+    ],
+    [
+     "Calibrated final O2 % by vol",
+     "15.9"
+    ],
+    [
+     "Initial CO2 % by vol",
+     "0.2"
+    ],
+    [
+     "Final CO2 % by vol",
+     "0.57"
+    ],
+    [
+     "Initial CO (ppm)",
+     "-3"
+    ],
+    [
+     "Final CO (ppm)",
+     "57"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSII-O21",
+   "experiment": "BASS-II",
+   "pi": "Olson",
+   "source_id": "PSI-25",
+   "source_file": "PSI-25_experimental_table_BASS-II.csv",
+   "source_row": "73",
+   "material_raw": "3/8\" clear rod",
+   "flow_mode": "",
+   "airflow_raw": "incr to 28",
+   "o2_raw": "15.9",
+   "o2_note": "Calibrated initial O2 (vol%) from NASA's PSI table; this test is not in the report's Appendix A",
+   "o2_vol_pct": "15.9",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-25_experimental_table_BASS-II.csv, row 73; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Date",
+     "2/26/2016"
+    ],
+    [
+     "GMT",
+     "57"
+    ],
+    [
+     "Sample #",
+     "219m"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Fan display",
+     "46 (pot 0.8) pot 7 10"
+    ],
+    [
+     "Air display",
+     "incr to 28"
+    ],
+    [
+     "Radiometer gain (1000 250 50 10)",
+     "50"
+    ],
+    [
+     "Total Frames Shot",
+     "video"
+    ],
+    [
+     "Calibrated initial O2 % by vol",
+     "15.9"
+    ],
+    [
+     "Calibrated final O2 % by vol",
+     "15.4"
+    ],
+    [
+     "Initial CO2 % by vol",
+     "0.53"
+    ],
+    [
+     "Final CO2 % by vol",
+     "0.95"
+    ],
+    [
+     "Initial CO (ppm)",
+     "52"
+    ],
+    [
+     "Final CO (ppm)",
+     "187"
+    ]
+   ],
+   "pdf": false
+  },
+  {
+   "id": "BASSII-O22",
+   "experiment": "BASS-II",
+   "pi": "Olson",
+   "source_id": "PSI-25",
+   "source_file": "PSI-25_experimental_table_BASS-II.csv",
+   "source_row": "74",
+   "material_raw": "1/2\" clear rod",
+   "flow_mode": "",
+   "airflow_raw": "4 incr to 26.5",
+   "o2_raw": "15.4",
+   "o2_note": "Calibrated initial O2 (vol%) from NASA's PSI table; this test is not in the report's Appendix A",
+   "o2_vol_pct": "15.4",
+   "observation": "",
+   "verified_by": "",
+   "verified_date": "",
+   "verifier_notes": "",
+   "verified": false,
+   "machine": true,
+   "level": "machine",
+   "auto_check_notes": "copied from NASA's PSI file PSI-25_experimental_table_BASS-II.csv, row 74; re-read at build time: every value equals the file",
+   "fields": [
+    [
+     "Date",
+     "2/26/2016"
+    ],
+    [
+     "GMT",
+     "57"
+    ],
+    [
+     "Sample #",
+     "220m"
+    ],
+    [
+     "Flow restrictor",
+     "0"
+    ],
+    [
+     "Fan display",
+     "49 (pot 1.1) blowoff pot 5 out at fan 87"
+    ],
+    [
+     "Air display",
+     "4 incr to 26.5"
+    ],
+    [
+     "Radiometer gain (1000 250 50 10)",
+     "50"
+    ],
+    [
+     "Total Frames Shot",
+     "video"
+    ],
+    [
+     "Calibrated initial O2 % by vol",
+     "15.4"
+    ],
+    [
+     "Calibrated final O2 % by vol",
+     "14.9"
+    ],
+    [
+     "Initial CO2 % by vol",
+     "0.92"
+    ],
+    [
+     "Final CO2 % by vol",
+     "1.33"
+    ],
+    [
+     "Initial CO (ppm)",
+     "185"
+    ],
+    [
+     "Final CO (ppm)",
+     "322"
+    ]
+   ],
+   "pdf": false
   }
  ],
  "sources": [
@@ -3916,14 +15321,64 @@ window.FLARE_DATA = {
    "date": "2021-10-01",
    "url": "https://ntrs.nasa.gov/citations/20210011385",
    "type": "NASA Technical Memorandum NASA/TM-20210011385 (E-19939)"
+  },
+  {
+   "source_id": "PSI-25",
+   "title": "Burning and Suppression of Solids - II (BASS-II): Experimental table",
+   "authors": "NASA Physical Sciences Informatics (PSI); project scientist S.L. Olson, NASA GRC",
+   "date": "2022-12-31",
+   "url": "https://doi.org/10.60555/4qc4-de67",
+   "type": "NASA PSI dataset PSI-25, DOI 10.60555/4qc4-de67, CC0-1.0"
+  },
+  {
+   "source_id": "PSI-26",
+   "title": "Burning and Suppression of Solids (BASS): As Run Test Matrix",
+   "authors": "NASA Physical Sciences Informatics (PSI); project scientist S.L. Olson, NASA GRC",
+   "date": "2013-06-30",
+   "url": "https://doi.org/10.60555/58h4-dy80",
+   "type": "NASA PSI dataset PSI-26, DOI 10.60555/58h4-dy80, CC0-1.0"
+  },
+  {
+   "source_id": "PSI-98",
+   "title": "Spacecraft Fire Safety Experiment-I (SAFFIRE-I): Experimental table",
+   "authors": "NASA Physical Sciences Informatics (PSI), NASA GRC",
+   "date": "2024-09-18",
+   "url": "https://doi.org/10.60555/0t15-1z43",
+   "type": "NASA PSI dataset PSI-98, DOI 10.60555/0t15-1z43, CC0-1.0"
+  },
+  {
+   "source_id": "PSI-99",
+   "title": "Spacecraft Fire Experiment-II (SAFFIRE-II): Experimental table",
+   "authors": "NASA Physical Sciences Informatics (PSI), NASA GRC",
+   "date": "2024-09-18",
+   "url": "https://doi.org/10.60555/2chp-m469",
+   "type": "NASA PSI dataset PSI-99, DOI 10.60555/2chp-m469, CC0-1.0"
+  },
+  {
+   "source_id": "PSI-100",
+   "title": "Spacecraft Fire Experiment-III (SAFFIRE-III): Experimental table",
+   "authors": "NASA Physical Sciences Informatics (PSI), NASA GRC",
+   "date": "2024-09-18",
+   "url": "https://doi.org/10.60555/040q-4h36",
+   "type": "NASA PSI dataset PSI-100, DOI 10.60555/040q-4h36, CC0-1.0"
   }
  ],
  "counts": {
-  "records": 126,
+  "records": 263,
   "verified": 0,
-  "machine": 126,
+  "machine": 263,
   "unchecked": 0,
-  "shown": 126,
-  "sources": 1
+  "shown": 263,
+  "sources": 6,
+  "pdf_match": 126,
+  "psi_agree": 123,
+  "psi_differ": 3,
+  "experiments": {
+   "BASS-I": 121,
+   "BASS-II": 129,
+   "SAFFIRE-I": 2,
+   "SAFFIRE-II": 9,
+   "SAFFIRE-III": 2
+  }
  }
 };

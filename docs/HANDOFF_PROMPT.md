@@ -117,12 +117,18 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 - **No flow-velocity (cm/s) column.** The report uses fan/potentiometer settings and sometimes velocities in parentheses, in formats that differ by investigator. `setup_raw` keeps the original. **Never treat fan settings as velocities.**
 - **No pressure** per test. **No `outcome`** (spread/extinguished/...); coding it is interpretation (see 7.5).
 - `observation` = NASA test-log note; the site labels it **Measured** ("recorded in the log").
-- "Calibrated" vs "raw" O2: shown as labelled in NASA's table; **meaning not yet confirmed** from report Section 1.3 / Appendix B. Confirm before making claims.
+- "Calibrated" vs "raw" O2: PDF column headings confirm the order (calibrated initial/final, then sensor initial/final). What the calibration does is described in report Section 1.3 / Appendix B; read it before making claims.
 - `material_raw` once held igniter/flow junk for 62 rows; fixed in `extract_bass2.py` (regex splits material | igniter | restrictor+mode). **Re-running `extract_bass2.py` overwrites verifier edits; only re-run before verification starts.**
 - NTRS 20160000593 is a 2014 conference summary with **no per-test table**. Its abstract (paraphrased): flames are very sensitive to airflow between 0 and 5 cm/s; below ~1 cm/s they can persist as dim steady blue flames but can flare up if airflow rises; >100 tests incl. BASS-I.
 - Not yet pulled: NASA PSI (psi.nasa.gov, CC0: BASS, BASS-II, Saffire, FLEX), Saffire (unmanned spacecraft-scale fires; strong cabin-fire relevance).
 
 ## 6. Current status (update at the end of every session)
+
+**2026-10-31 update:** 263 records from 6 sources (BASS-II report 126 + PSI-only O20-O22, BASS-I 121, SAFFIRE-I/II/III 13).
+All machine-checked (PDF comparison for report rows, file re-read for PSI rows), 0 human-verified. See data/README.md.
+Network for NASA hosts (ntrs.nasa.gov, psi.nasa.gov, science.nasa.gov) was enabled by the user in this session's settings.
+PSI API used: https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-NN (metadata + file list) and
+/geode-py/ws/studies/PSI-NN/download?file=NAME&redirect=false (returns a signed S3 URL).
 
 DONE
 - Static site (Overview with computed counts + 2 SVG charts + label legend; Explorer with search / investigator / flow mode / starting-O2 filters and natural sort; detail page with Measured readings, log note, Published conclusion, Our interpretation, Source card, QC callouts, raw-text drawer; About). Empty state when 0 verified; `?preview=draft` banner mode.
