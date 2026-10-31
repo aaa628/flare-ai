@@ -36,7 +36,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B10",
@@ -73,7 +74,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B11",
@@ -110,7 +112,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B12",
@@ -147,7 +150,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B13",
@@ -184,7 +188,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B14",
@@ -221,7 +226,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B15",
@@ -258,7 +264,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B16",
@@ -295,7 +302,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B17",
@@ -332,7 +340,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 103"
+   "source_file": "Appendix A, report page 103",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=111"
   },
   {
    "id": "BASSII-B18",
@@ -369,7 +378,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B19",
@@ -406,7 +416,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B2",
@@ -443,7 +454,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B20",
@@ -480,7 +492,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B21",
@@ -517,7 +530,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B22",
@@ -554,7 +568,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B3",
@@ -591,7 +606,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B4",
@@ -628,7 +644,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B5",
@@ -665,7 +682,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B6",
@@ -702,7 +720,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B7",
@@ -739,7 +758,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B8",
@@ -776,7 +796,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-B9",
@@ -813,7 +834,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 104"
+   "source_file": "Appendix A, report page 104",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=112"
   },
   {
    "id": "BASSII-F1",
@@ -850,7 +872,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 105"
+   "source_file": "Appendix A, report page 105",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=113"
   },
   {
    "id": "BASSII-F2",
@@ -887,7 +910,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 105"
+   "source_file": "Appendix A, report page 105",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=113"
   },
   {
    "id": "BASSII-F3",
@@ -924,7 +948,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 105"
+   "source_file": "Appendix A, report page 105",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=113"
   },
   {
    "id": "BASSII-F4",
@@ -961,7 +986,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 105"
+   "source_file": "Appendix A, report page 105",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=113"
   },
   {
    "id": "BASSII-P1",
@@ -998,7 +1024,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P10",
@@ -1035,7 +1062,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P12",
@@ -1072,7 +1100,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P13a",
@@ -1109,7 +1138,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P13b",
@@ -1146,7 +1176,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P14",
@@ -1183,7 +1214,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P15",
@@ -1220,7 +1252,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P16",
@@ -1257,7 +1290,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P17",
@@ -1294,7 +1328,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P18",
@@ -1331,7 +1366,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P19",
@@ -1368,7 +1404,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P2",
@@ -1405,7 +1442,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P20",
@@ -1442,7 +1480,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P21a",
@@ -1479,7 +1518,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P21b",
@@ -1516,7 +1556,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 106"
+   "source_file": "Appendix A, report page 106",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=114"
   },
   {
    "id": "BASSII-P22a",
@@ -1553,7 +1594,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P22b",
@@ -1590,7 +1632,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P23",
@@ -1627,7 +1670,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P24",
@@ -1664,7 +1708,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P25",
@@ -1701,7 +1746,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P3a",
@@ -1738,7 +1784,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P3b",
@@ -1775,7 +1822,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P4",
@@ -1812,7 +1860,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P5",
@@ -1849,7 +1898,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P6",
@@ -1886,7 +1936,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P8",
@@ -1923,7 +1974,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-P9",
@@ -1960,7 +2012,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 107"
+   "source_file": "Appendix A, report page 107",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=115"
   },
   {
    "id": "BASSII-M1",
@@ -1997,7 +2050,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M10",
@@ -2034,7 +2088,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M11",
@@ -2071,7 +2126,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M12",
@@ -2108,7 +2164,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M13",
@@ -2145,7 +2202,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M14",
@@ -2182,7 +2240,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M15",
@@ -2219,7 +2278,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M16",
@@ -2256,7 +2316,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M17",
@@ -2293,7 +2354,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M18",
@@ -2330,7 +2392,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 108"
+   "source_file": "Appendix A, report page 108",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=116"
   },
   {
    "id": "BASSII-M19",
@@ -2367,7 +2430,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M2",
@@ -2404,7 +2468,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M20",
@@ -2441,7 +2506,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M3",
@@ -2478,7 +2544,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M4",
@@ -2515,7 +2582,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M5",
@@ -2552,7 +2620,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M6",
@@ -2589,7 +2658,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M7",
@@ -2626,7 +2696,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M8",
@@ -2663,7 +2734,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-M9",
@@ -2700,7 +2772,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 109"
+   "source_file": "Appendix A, report page 109",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=117"
   },
   {
    "id": "BASSII-O1",
@@ -2737,7 +2810,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O10",
@@ -2774,7 +2848,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O11",
@@ -2811,7 +2886,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O12",
@@ -2848,7 +2924,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O13a",
@@ -2885,7 +2962,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O13b",
@@ -2922,7 +3000,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O14",
@@ -2959,7 +3038,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O15a",
@@ -2996,7 +3076,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O15b",
@@ -3033,7 +3114,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O16",
@@ -3070,7 +3152,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O17",
@@ -3107,7 +3190,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O18",
@@ -3144,7 +3228,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O19",
@@ -3181,7 +3266,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O2",
@@ -3218,7 +3304,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 110"
+   "source_file": "Appendix A, report page 110",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=118"
   },
   {
    "id": "BASSII-O3a",
@@ -3255,7 +3342,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O3b",
@@ -3292,7 +3380,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O4",
@@ -3329,7 +3418,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O5a",
@@ -3366,7 +3456,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O5b",
@@ -3403,7 +3494,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O6",
@@ -3440,7 +3532,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O7",
@@ -3477,7 +3570,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O8a",
@@ -3514,7 +3608,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O8b",
@@ -3551,7 +3646,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-O9",
@@ -3588,7 +3684,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 111"
+   "source_file": "Appendix A, report page 111",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=119"
   },
   {
    "id": "BASSII-T1",
@@ -3625,7 +3722,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T10",
@@ -3662,7 +3760,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T11",
@@ -3699,7 +3798,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T12",
@@ -3736,7 +3836,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T13",
@@ -3773,7 +3874,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T14",
@@ -3810,7 +3912,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T15",
@@ -3847,7 +3950,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T16",
@@ -3884,7 +3988,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T17",
@@ -3921,7 +4026,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T18",
@@ -3958,7 +4064,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T19",
@@ -3995,7 +4102,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T2",
@@ -4032,7 +4140,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T20",
@@ -4069,7 +4178,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T21",
@@ -4106,7 +4216,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T22",
@@ -4143,7 +4254,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T23",
@@ -4180,7 +4292,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T24",
@@ -4217,7 +4330,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 112"
+   "source_file": "Appendix A, report page 112",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=120"
   },
   {
    "id": "BASSII-T25",
@@ -4254,7 +4368,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T26",
@@ -4291,7 +4406,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T27",
@@ -4328,7 +4444,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T28a",
@@ -4365,7 +4482,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T28b",
@@ -4402,7 +4520,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T29",
@@ -4439,7 +4558,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T3",
@@ -4476,7 +4596,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T4",
@@ -4513,7 +4634,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T5",
@@ -4550,7 +4672,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T6",
@@ -4587,7 +4710,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T7",
@@ -4624,7 +4748,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSII-T9",
@@ -4661,7 +4786,8 @@ window.FLARE_DATA = {
    "pdf": true,
    "experiment": "BASS-II",
    "source_id": "20210011385",
-   "source_file": "Appendix A, report page 113"
+   "source_file": "Appendix A, report page 113",
+   "source_href": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page=121"
   },
   {
    "id": "BASSI-1-1",
@@ -4742,7 +4868,8 @@ window.FLARE_DATA = {
      "2.44"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-2-42",
@@ -4823,7 +4950,8 @@ window.FLARE_DATA = {
      "2.44"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-3-18",
@@ -4904,7 +5032,8 @@ window.FLARE_DATA = {
      "2.44"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-4-7",
@@ -4985,7 +5114,8 @@ window.FLARE_DATA = {
      "3.12"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-5-8",
@@ -5066,7 +5196,8 @@ window.FLARE_DATA = {
      "3.12"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-6-43",
@@ -5143,7 +5274,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-7-44",
@@ -5220,7 +5352,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-8-45",
@@ -5297,7 +5430,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-9-19",
@@ -5378,7 +5512,8 @@ window.FLARE_DATA = {
      "1.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-10-20",
@@ -5459,7 +5594,8 @@ window.FLARE_DATA = {
      "1.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-11-21",
@@ -5540,7 +5676,8 @@ window.FLARE_DATA = {
      "1.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-12-4",
@@ -5621,7 +5758,8 @@ window.FLARE_DATA = {
      "1.51"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-13-10",
@@ -5702,7 +5840,8 @@ window.FLARE_DATA = {
      "2.51"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-14-12",
@@ -5783,7 +5922,8 @@ window.FLARE_DATA = {
      "3.51"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-15-54",
@@ -5864,7 +6004,8 @@ window.FLARE_DATA = {
      "?"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-16-55",
@@ -5945,7 +6086,8 @@ window.FLARE_DATA = {
      "?"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-17-56",
@@ -6026,7 +6168,8 @@ window.FLARE_DATA = {
      "?"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-18-57",
@@ -6107,7 +6250,8 @@ window.FLARE_DATA = {
      "?"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-19-110",
@@ -6188,7 +6332,8 @@ window.FLARE_DATA = {
      "?"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-20-30",
@@ -6269,7 +6414,8 @@ window.FLARE_DATA = {
      "2.62"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-21-31",
@@ -6350,7 +6496,8 @@ window.FLARE_DATA = {
      "2.62"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-22-32",
@@ -6431,7 +6578,8 @@ window.FLARE_DATA = {
      "2.62"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-23-33",
@@ -6512,7 +6660,8 @@ window.FLARE_DATA = {
      "2.62"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-24-12-R",
@@ -6589,7 +6738,8 @@ window.FLARE_DATA = {
      "2.62"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-24-12-R2",
@@ -6666,7 +6816,8 @@ window.FLARE_DATA = {
      "2.62"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-25-46",
@@ -6743,7 +6894,8 @@ window.FLARE_DATA = {
      "2.73"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-26-47",
@@ -6820,7 +6972,8 @@ window.FLARE_DATA = {
      "2.73"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-27-48",
@@ -6901,7 +7054,8 @@ window.FLARE_DATA = {
      "2.73"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-28-49",
@@ -6982,7 +7136,8 @@ window.FLARE_DATA = {
      "2.73"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-29-22",
@@ -7063,7 +7218,8 @@ window.FLARE_DATA = {
      "2.6"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-30-23",
@@ -7144,7 +7300,8 @@ window.FLARE_DATA = {
      "2.6"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-31-24",
@@ -7221,7 +7378,8 @@ window.FLARE_DATA = {
      "2.6"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-32-25",
@@ -7302,7 +7460,8 @@ window.FLARE_DATA = {
      "2.6"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-33-58",
@@ -7383,7 +7542,8 @@ window.FLARE_DATA = {
      "3.16"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-34-59",
@@ -7464,7 +7624,8 @@ window.FLARE_DATA = {
      "3.16"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-35-60",
@@ -7545,7 +7706,8 @@ window.FLARE_DATA = {
      "3.16"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-36-61",
@@ -7622,7 +7784,8 @@ window.FLARE_DATA = {
      "3.16"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-37-5",
@@ -7703,7 +7866,8 @@ window.FLARE_DATA = {
      "2.85"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-38-14",
@@ -7784,7 +7948,8 @@ window.FLARE_DATA = {
      "2.85"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-39-66",
@@ -7865,7 +8030,8 @@ window.FLARE_DATA = {
      "2.85"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-40-67",
@@ -7938,7 +8104,8 @@ window.FLARE_DATA = {
      "2.85"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-41-34",
@@ -8019,7 +8186,8 @@ window.FLARE_DATA = {
      "2.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-42-35",
@@ -8100,7 +8268,8 @@ window.FLARE_DATA = {
      "2.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-43-16",
@@ -8181,7 +8350,8 @@ window.FLARE_DATA = {
      "2.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-44-5b",
@@ -8262,7 +8432,8 @@ window.FLARE_DATA = {
      "2.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-45-6",
@@ -8343,7 +8514,8 @@ window.FLARE_DATA = {
      "1.37"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-46-82",
@@ -8424,7 +8596,8 @@ window.FLARE_DATA = {
      "1.37"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-47-82a",
@@ -8505,7 +8678,8 @@ window.FLARE_DATA = {
      "1.37"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-48-82b",
@@ -8586,7 +8760,8 @@ window.FLARE_DATA = {
      "1.37"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-49-68",
@@ -8667,7 +8842,8 @@ window.FLARE_DATA = {
      "1.37"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-50-69",
@@ -8748,7 +8924,8 @@ window.FLARE_DATA = {
      "1.57"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-51-111",
@@ -8829,7 +9006,8 @@ window.FLARE_DATA = {
      "1.57"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-52-112",
@@ -8906,7 +9084,8 @@ window.FLARE_DATA = {
      "1.57"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-53-113",
@@ -8987,7 +9166,8 @@ window.FLARE_DATA = {
      "1.57"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-54-2",
@@ -9068,7 +9248,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-55-3",
@@ -9149,7 +9330,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-56-15",
@@ -9226,7 +9408,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-57-13",
@@ -9307,7 +9490,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-58-17",
@@ -9388,7 +9572,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-59-114",
@@ -9469,7 +9654,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-60-62",
@@ -9546,7 +9732,8 @@ window.FLARE_DATA = {
      "2.36"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-61-63",
@@ -9623,7 +9810,8 @@ window.FLARE_DATA = {
      "2.36"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-62-64",
@@ -9700,7 +9888,8 @@ window.FLARE_DATA = {
      "2.36"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-63-65",
@@ -9777,7 +9966,8 @@ window.FLARE_DATA = {
      "2.36"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-64-118",
@@ -9846,7 +10036,8 @@ window.FLARE_DATA = {
      "2.36"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-65-11",
@@ -9927,7 +10118,8 @@ window.FLARE_DATA = {
      "2.44"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-66-9",
@@ -10008,7 +10200,8 @@ window.FLARE_DATA = {
      "2.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-67-102",
@@ -10089,7 +10282,8 @@ window.FLARE_DATA = {
      "2.5"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-68-83a",
@@ -10170,7 +10364,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-69-83b",
@@ -10251,7 +10446,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-70-83c",
@@ -10332,7 +10528,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-71-84a",
@@ -10413,7 +10610,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-72-84b",
@@ -10494,7 +10692,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-73-86a",
@@ -10575,7 +10774,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-74-86b",
@@ -10656,7 +10856,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-75-86c",
@@ -10737,7 +10938,8 @@ window.FLARE_DATA = {
      "2.54"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-76-70",
@@ -10818,7 +11020,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-77-71",
@@ -10899,7 +11102,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-78-74",
@@ -10980,7 +11184,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-79-75",
@@ -11057,7 +11262,8 @@ window.FLARE_DATA = {
      "1.98"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-80-98",
@@ -11134,7 +11340,8 @@ window.FLARE_DATA = {
      "3.15"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-81-99",
@@ -11215,7 +11422,8 @@ window.FLARE_DATA = {
      "3.15"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-82-114",
@@ -11296,7 +11504,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-83-115",
@@ -11377,7 +11586,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-84-116",
@@ -11458,7 +11668,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-85-117",
@@ -11539,7 +11750,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-85-117a",
@@ -11620,7 +11832,8 @@ window.FLARE_DATA = {
      "2.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-86-100",
@@ -11697,7 +11910,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-87-85",
@@ -11774,7 +11988,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-88-93",
@@ -11851,7 +12066,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-89-26",
@@ -11924,7 +12140,8 @@ window.FLARE_DATA = {
      "3.2"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-90-27",
@@ -11997,7 +12214,8 @@ window.FLARE_DATA = {
      "3.2"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-91-28",
@@ -12070,7 +12288,8 @@ window.FLARE_DATA = {
      "3.2"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-89-87",
@@ -12135,7 +12354,8 @@ window.FLARE_DATA = {
      "0.97"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-90-103",
@@ -12200,7 +12420,8 @@ window.FLARE_DATA = {
      "0.97"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-91-104",
@@ -12269,7 +12490,8 @@ window.FLARE_DATA = {
      "0.97"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-92-105",
@@ -12334,7 +12556,8 @@ window.FLARE_DATA = {
      "0.97"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-93-38",
@@ -12399,7 +12622,8 @@ window.FLARE_DATA = {
      "0.976"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-94-39",
@@ -12460,7 +12684,8 @@ window.FLARE_DATA = {
      "2.8"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-95-40",
@@ -12533,7 +12758,8 @@ window.FLARE_DATA = {
      "2.8"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-96-72",
@@ -12610,7 +12836,8 @@ window.FLARE_DATA = {
      "2.8"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-97-73",
@@ -12687,7 +12914,8 @@ window.FLARE_DATA = {
      "2.8"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-98-118",
@@ -12764,7 +12992,8 @@ window.FLARE_DATA = {
      "3.2"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-99-119",
@@ -12845,7 +13074,8 @@ window.FLARE_DATA = {
      "3.2"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-100-89",
@@ -12918,7 +13148,8 @@ window.FLARE_DATA = {
      "3.4"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-101-95",
@@ -12995,7 +13226,8 @@ window.FLARE_DATA = {
      "3.4"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-102-92",
@@ -13076,7 +13308,8 @@ window.FLARE_DATA = {
      "3.4"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-103-78",
@@ -13149,7 +13382,8 @@ window.FLARE_DATA = {
      "3.4"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-104-50",
@@ -13218,7 +13452,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-105-51",
@@ -13287,7 +13522,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-106-52",
@@ -13356,7 +13592,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-107-53",
@@ -13425,7 +13662,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-108-106",
@@ -13494,7 +13732,8 @@ window.FLARE_DATA = {
      "1.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-109-107",
@@ -13555,7 +13794,8 @@ window.FLARE_DATA = {
      "1.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-110-108",
@@ -13620,7 +13860,8 @@ window.FLARE_DATA = {
      "1.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-111-109",
@@ -13685,7 +13926,8 @@ window.FLARE_DATA = {
      "1.9"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-112-79",
@@ -13750,7 +13992,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-113-80",
@@ -13819,7 +14062,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-114-75",
@@ -13888,7 +14132,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-115-53",
@@ -13953,7 +14198,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "BASSI-116-53a",
@@ -14018,7 +14264,8 @@ window.FLARE_DATA = {
      "2.3"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx"
   },
   {
    "id": "SAFFIREI-S1",
@@ -14079,7 +14326,8 @@ window.FLARE_DATA = {
      "Concurrent"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-98_experimental_table_SAFFIRE-I.csv"
   },
   {
    "id": "SAFFIREI-S2",
@@ -14140,7 +14388,8 @@ window.FLARE_DATA = {
      "Opposed"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-98_experimental_table_SAFFIRE-I.csv"
   },
   {
    "id": "SAFFIREII-2-1",
@@ -14233,7 +14482,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-2",
@@ -14326,7 +14576,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-3",
@@ -14419,7 +14670,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-4",
@@ -14512,7 +14764,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-5",
@@ -14605,7 +14858,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-6",
@@ -14698,7 +14952,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-7",
@@ -14791,7 +15046,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-8",
@@ -14884,7 +15140,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREII-2-9",
@@ -14977,7 +15234,8 @@ window.FLARE_DATA = {
      "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"
   },
   {
    "id": "SAFFIREIII-S1",
@@ -15022,7 +15280,8 @@ window.FLARE_DATA = {
      "Concurrent"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-100_experimental_table_SAFFIRE-III.csv"
   },
   {
    "id": "SAFFIREIII-S2",
@@ -15067,7 +15326,8 @@ window.FLARE_DATA = {
      "Opposed"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-100_experimental_table_SAFFIRE-III.csv"
   },
   {
    "id": "BASSII-O20",
@@ -15148,7 +15408,8 @@ window.FLARE_DATA = {
      "57"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-25_experimental_table_BASS-II.csv"
   },
   {
    "id": "BASSII-O21",
@@ -15229,7 +15490,8 @@ window.FLARE_DATA = {
      "187"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-25_experimental_table_BASS-II.csv"
   },
   {
    "id": "BASSII-O22",
@@ -15310,7 +15572,8 @@ window.FLARE_DATA = {
      "322"
     ]
    ],
-   "pdf": false
+   "pdf": false,
+   "source_href": "sources/psi/PSI-25_experimental_table_BASS-II.csv"
   }
  ],
  "sources": [

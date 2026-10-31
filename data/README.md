@@ -84,6 +84,12 @@ itself would pass. Only a person with the PDF can verify.
 
 ## Data from NASA PSI (`scripts/import_psi.py`)
 
+`build_site_data.py` also copies these files, unchanged, to `site/sources/psi/`, so every PSI record on the site can open
+its exact NASA file (and the dataset page on psi.nasa.gov). Report records link to NASA's PDF at the right page
+(PDF page = report page + 8). Conversions shown on the site: BASS-I O2 is stored by NASA as a fraction under the header
+"O2 % by volume" and is displayed x100 as vol%; long spreadsheet decimals are rounded to 4 places and marked "(rounded)".
+Nothing else is converted.
+
 NASA Physical Sciences Informatics (psi.nasa.gov, all CC0-1.0) holds the experiments' own data tables. Files used are
 committed in `source/psi/`: PSI-25 BASS-II experimental table, PSI-26 BASS "As Run Test Matrix" (xlsx), PSI-98/99/100
 SAFFIRE-I/II/III experimental tables. `import_psi.py` writes `bass1_psi.csv` (121 rows), `saffire_psi.csv` (13 rows) and

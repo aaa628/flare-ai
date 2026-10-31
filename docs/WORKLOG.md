@@ -232,3 +232,20 @@ Verified by running: all 263 record pages + 10 Compare combinations + 4 main pag
   full pipeline re-run reproduces committed data; smoke 59/59; previewer 14/14; 3 tamper tests ALL CAUGHT.
 Not checked: the live Netlify site (netlify.app is not in this session's allowed network domains; URL not known yet).
 Open: no LICENSE file (team decision).
+
+## 2026-11-01 05:30 IST - Claude
+Did:
+- Overview dataset status: separate, prominent "Human sign-off: 0 of 263" box, then each automated check with exact counts (126/126
+  PDF match, 123/126 PSI agree + the 3 disagreements named, 22 row-by-row reviewed, 137 re-read from NASA files). Same on About.
+- Source attribution: build copies NASA PSI files to site/sources/psi/; every record links to its source (report: NASA PDF at the
+  page; PSI: dataset page on psi.nasa.gov, the exact file, DOI) with file/sheet/row shown.
+- Provenance table on every test page: value, NASA's field name, unit as recorded, method/conversion (BASS-I O2 header says "%" but
+  stores fractions -> x100; SAFFIRE-II O2 from CO2 per NASA's Note 1; BASS airflow = fan settings, not converted).
+- Test page hierarchy: one record header (identity + check status + sign-off state + source reference + actions); readings and log
+  note next; provenance; labels; technical setup and raw text collapsed at the bottom.
+- Compare: worked / limited / refusal example cards (empty state + drawer); refusal lists failed conditions; each chart's left-out
+  list tags the reason (suspect reading, missing value, unconfirmed, approximate, not a number).
+- Overview charts: "included / left out" notes with exact counts. Favicon (data URI) added.
+Verified by running: smoke 69/69; previewer 14/14; all 263 record pages + Compare combos + main pages: no errors; tamper tests ALL
+  CAUGHT; netlify.toml CSP served locally: no errors; 1280px and 390px screenshots, no overflow.
+Not checked: the hosted Netlify site (URL unknown; netlify.app not in this session's allowed domains).

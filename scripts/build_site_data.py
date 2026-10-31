@@ -17,6 +17,7 @@ Usage: python scripts/build_site_data.py
 import csv
 import importlib.util
 import json
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -108,6 +109,19 @@ def main():
         r["experiment"], r["source_id"] = "BASS-II", "20210011385"
         r["source_file"] = f"Appendix A, report page {r['source_page']}"
     records += psi_records()
+    # Serve copies of NASA's PSI source files with the site, so every record can open its exact source file
+    # (also offline). They are CC0; the copies are byte-identical to data/source/psi/.
+    psi_dir = ROOT / "site" / "sources" / "psi"
+    psi_dir.mkdir(parents=True, exist_ok=True)
+    for f in (DATA / "source" / "psi").iterdir():
+        if f.is_file():
+            shutil.copyfile(f, psi_dir / f.name)
+    for r in records:
+        if r.get("source_file") and r.get("source_id", "").startswith("PSI"):
+            r["source_href"] = "sources/psi/" + r["source_file"].split(",")[0]
+        elif r.get("source_page", "").isdigit():  # report page -> PDF page (report page 103 is PDF page 111)
+            r["source_href"] = ("https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page="
+                                + str(int(r["source_page"]) + 8))
     sources = read("sources.csv")
     n_ver = sum(1 for r in records if r["level"] == "human")
     n_mach = sum(1 for r in records if r["level"] == "machine")
