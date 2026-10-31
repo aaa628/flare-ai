@@ -112,3 +112,12 @@ Open problems / assumptions:
 - The cross-check shares its text source with the extractor. P7/P11/T8 still missing. "calibrated vs raw" O2 meaning unconfirmed.
 Next step I recommend:
 - Verifier: do the 22 NEEDS HUMAN CHECK rows first, then the 104 machine-checked ones against the PDF; stamp verified_by/date; rebuild.
+
+## 2026-10-31 19:00 IST - Claude (Sonnet 5.5)
+Did:
+- Wrote docs/CONTINUATION_SUMMARY.md (whole-chat summary + exact latest state) for the user's move to a different account.
+Verified by running:
+- git fetch/status: in sync with origin, clean tree, last code commit c62b93d; data.js counts {records:126, verified:0, machine:104, unchecked:22}.
+Decisions + why: none new.
+Open problems / assumptions: unchanged (see CONTINUATION_SUMMARY section 7).
+Next step I recommend: new session reads CONTINUATION_SUMMARY + HANDOFF_PROMPT, then asks the user the 3 check-in questions.
