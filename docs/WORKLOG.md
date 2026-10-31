@@ -69,3 +69,24 @@ Open problems / assumptions:
 - Same as the previous entry (P7/P11/T8, calibrated vs raw O2, judging criteria unknown until Nov 13).
 Next step I recommend:
 - Hand this file to the next AI; verifier starts on data/bass2_draft.csv.
+
+## 2026-10-31 16:40 IST - Claude (Sonnet 5.5)
+Did:
+- User reported "Open Flame Explorer" and "How we handle evidence" opened raw unstyled pages. Pulled the user's 4 commits (CSS restyle +
+  index.html assets pointed at raw.githubusercontent.com for a hosted previewer).
+- Root cause: previewers inject a <base href>; bare `href="#/explorer"` resolves against it and navigates to the raw file (text/plain).
+  This broke ALL in-app links (nav, brand, test rows), not just the two buttons.
+- Fix in site/js/app.js: one delegated click handler for `#/...` and `#main`; preview mode is now a runtime toggle (setPreview) instead of
+  reload/hand-built URLs. User's CSS and asset URLs left untouched.
+- Added tests/previewer_nav_test.py (simulated previewer); smoke test now serves raw.githubusercontent asset URLs from local files.
+Verified by running:
+- Reproduced first: 5 FAIL (click landed on http://raw.test/site/#/explorer). After fix: previewer test 14/14, smoke test 29/29,
+  `node --check` OK, screenshot of the restyled page reviewed.
+- NOT run: in the user's real previewer tool (unknown which one); on their devices.
+Decisions + why:
+- Handle links in JS rather than rewriting hrefs: works under any <base>, keeps hrefs meaningful for no-JS and right-click.
+Open problems / assumptions:
+- index.html now depends on absolute raw.githubusercontent URLs (works only in the user's previewer). Must go back to relative paths
+  before real deployment or local double-click use. raw.githubusercontent caches ~5 min, so a pushed fix can take a few minutes to appear.
+Next step I recommend:
+- Deploy to a real static host (Netlify Drop is the quickest), revert asset URLs to relative, then continue with verification + Compare.

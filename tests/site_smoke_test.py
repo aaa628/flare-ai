@@ -15,7 +15,23 @@ def check(name, cond, extra=""):
 async def main():
     async with async_playwright() as p:
         b = await p.chromium.launch()
-        pg = await b.new_page(viewport={"width":1280,"height":900})
+        import mimetypes
+
+        async def newpage(**kw):
+            """New page whose https://raw.githubusercontent.com/<owner>/<repo>/<branch>/site/* requests are
+            served from the local site/ folder (index.html may point its CSS/JS at those URLs)."""
+            ctx = await b.new_context(**kw)
+
+            async def serve(route):
+                import re as _re
+                rel = _re.sub(r"^https://raw\.githubusercontent\.com/[^/]+/[^/]+/[^/]+/site/", "", route.request.url).split("?")[0]
+                f = ROOT / "site" / rel
+                if not f.is_file():
+                    return await route.fulfill(status=404, body="nf")
+                await route.fulfill(status=200, content_type=mimetypes.guess_type(str(f))[0] or "text/plain", body=f.read_bytes())
+            await ctx.route("https://raw.githubusercontent.com/**", serve)
+            return await ctx.new_page()
+        pg = await newpage(viewport={"width":1280,"height":900})
         pg.on("console", lambda m: errs.append(("console", m.text)) if m.type in ("error","warning") else None)
         pg.on("pageerror", lambda e: errs.append(("pageerror", str(e))))
 
@@ -82,7 +98,7 @@ async def main():
         await pg.screenshot(path=SH+"05_about.png", full_page=True)
 
         # 4. mobile
-        m = await b.new_page(viewport={"width":390,"height":800})
+        m = await newpage(viewport={"width":390,"height":800})
         m.on("pageerror", lambda e: errs.append(("pageerror", str(e))))
         await m.goto(SITE+"?preview=draft"); await m.wait_for_selector(".chart")
         sw = await m.evaluate("document.documentElement.scrollWidth"); 

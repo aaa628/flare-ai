@@ -7,7 +7,8 @@
   var D = window.FLARE_DATA || { records: [], sources: [], counts: {} };
   var PREVIEW = new URLSearchParams(location.search).get("preview") === "draft";
   var ALL = D.records.slice().sort(naturalOrder);
-  var ROWS = PREVIEW ? ALL : ALL.filter(function (r) { return r.verified; });
+  function rowsFor(preview) { return preview ? ALL : ALL.filter(function (r) { return r.verified; }); }
+  var ROWS = rowsFor(PREVIEW);
   var SOURCE = (D.sources || [])[0] || null;
   var TABLE = { B: "A.1", F: "A.2", P: "A.3", M: "A.4", O: "A.5", T: "A.6" };
   var FLAG_TEXT = {
@@ -63,15 +64,30 @@
   function setTitle(t) { document.title = (t ? t + " · " : "") + "Flare AI"; }
 
   /* ---------- preview banner ---------- */
-  (function banner() {
+  function drawBanner() {
     var b = document.getElementById("preview-banner");
+    b.textContent = "";
+    b.hidden = !PREVIEW;
     if (!PREVIEW) return;
-    b.hidden = false;
     b.appendChild(document.createTextNode(
       "PREVIEW: showing " + D.counts.records + " UNVERIFIED draft rows (" + D.counts.verified +
       " verified). These have not been checked against the NASA report and are not findings. "));
-    b.appendChild(h("a", { href: location.pathname, onclick: function (e) { e.preventDefault(); location.href = location.pathname + location.hash; } }, "Exit preview"));
-  })();
+    b.appendChild(h("a", { href: "#/", onclick: function (e) { e.preventDefault(); setPreview(false); } }, "Exit preview"));
+  }
+  /* Preview is a runtime switch: no reload, no hand-built URLs (those break under <base> tags
+   * that hosted HTML previewers inject). The URL is kept in sync only when the browser allows it. */
+  function setPreview(on) {
+    PREVIEW = on;
+    ROWS = rowsFor(on);
+    drawBanner();
+    try {
+      var u = new URL(location.href);
+      if (on) u.searchParams.set("preview", "draft"); else u.searchParams.delete("preview");
+      history.replaceState(null, "", u.toString());
+    } catch (err) { /* sandboxed previewers may refuse; the switch still works */ }
+    render();
+  }
+  drawBanner();
 
   /* ---------- charts (plain SVG) ---------- */
   function barChart(items, opts) {
@@ -108,7 +124,7 @@
           "Flare AI never shows unchecked rows as findings."),
         h("p", { class: "note" }, "Team members can look at the unchecked draft with the preview switch below. " +
           "It carries a warning banner on every page."),
-        h("a", { class: "btn ghost", href: location.pathname + "?preview=draft" + location.hash }, "Open unverified preview")));
+        h("a", { class: "btn ghost", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(true); } }, "Open unverified preview")));
     } else {
       var byPi = {};
       ROWS.forEach(function (r) { byPi[r.pi] = (byPi[r.pi] || 0) + 1; });
@@ -344,5 +360,21 @@
     window.scrollTo(0, 0);
   }
   window.addEventListener("hashchange", render);
+
+  /* In-app links ("#/explorer", "#main") are handled here instead of by the browser's link
+   * resolution. Hosted HTML previewers add a <base href> that makes a bare "#/explorer" resolve to
+   * the raw file on GitHub (shown as unstyled text). Setting location.hash always uses the
+   * document's own URL, so navigation stays on this page. Modified clicks fall through. */
+  document.addEventListener("click", function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (href === "#main") { e.preventDefault(); main.focus(); main.scrollIntoView(); return; }
+    if (href.indexOf("#/") !== 0) return;
+    e.preventDefault();
+    if (location.hash === href) render(); else location.hash = href;
+  });
+
   render();
 })();
