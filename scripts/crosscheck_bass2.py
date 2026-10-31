@@ -13,7 +13,11 @@ Checks (a row must pass ALL to be marked machine-checked; any doubt -> left for 
   3. ALIGNMENT: calibrated - raw starting O2 lies in 0.2..2.5 vol% (in this report it is ~1.0 for
      nearly every row, so a shifted column breaks it). This check does not use the parser at all.
   4. RANGES: starting O2 10..25 vol%, CO2 0..6 vol%, CO >= -5 ppm (tiny negatives are instrument offset as printed), all eight readings numeric.
-  5. NO FLAGS: no qc_flag, parse_ok == "yes" (hand-keyed, suspect or incomplete rows always go to a human).
+  5. NO FLAGS: no qc_flag, parse_ok == "yes".
+
+Rows that fail ONLY the soft checks (3, 4, 5: flags, dashes/non-numeric NASA entries, unusual offset) can still pass
+if data/ai_review_bass2.csv has a row-by-row review finding for them. They must still pass the strict text checks
+(1, 2, test id, sample number), so an edited row still fails. Their flags stay on the row and on the site.
 
 Writes auto_checked_by / auto_checked_date / auto_check_notes only; every other column is preserved.
 Safe to re-run. Usage: python scripts/crosscheck_bass2.py
@@ -32,6 +36,14 @@ LETTER_TABLE = {"B": 1, "F": 2, "P": 3, "M": 4, "O": 5, "T": 6}
 PAGE_RE = re.compile(r"^NASA/TM-20210011385\s+(\d+)")
 TABLE_RE = re.compile(r"^TABLE A\.(\d)\.")
 DASH = re.compile(r"^-+$|^none$", re.I)
+REVIEW = ROOT / "data" / "ai_review_bass2.csv"
+
+
+def load_review():
+    if not REVIEW.exists():
+        return {}
+    with REVIEW.open(newline="", encoding="utf-8") as f:
+        return {r["id"]: r for r in csv.DictReader(f) if r.get("finding", "").strip()}
 
 
 def num(s):
@@ -62,17 +74,20 @@ def table_pages():
     return {k: (min(v), max(v)) for k, v in sorted(seen.items())}
 
 
-def check(row, spans):
-    problems = []
+def check(row, spans, review=None):
+    """Returns (problems, offset). review: dict from load_review(); None loads the file, {} = strict mode."""
+    if review is None:
+        review = load_review()
+    problems, hard = [], []
     letter = re.match(r"BASSII-([A-Z])", row["id"]).group(1)
     # 1. table / page
     try:
         pg = int(row["source_page"])
         lo, hi = spans[LETTER_TABLE[letter]]
         if not lo <= pg <= hi:
-            problems.append(f"page {pg} outside Table A.{LETTER_TABLE[letter]} pages {lo}-{hi}")
+            hard.append(f"page {pg} outside Table A.{LETTER_TABLE[letter]} pages {lo}-{hi}")
     except (ValueError, KeyError):
-        problems.append("page/table could not be checked")
+        hard.append("page/table could not be checked")
     # 5. flags first (cheap)
     if row["qc_flag"].strip():
         problems.append("has qc_flag: " + row["qc_flag"])
@@ -107,19 +122,23 @@ def check(row, spans):
             found = True
             break
     if not found:
-        problems.append("gas fields/observation do not partition the printed row tail")
+        hard.append("gas fields/observation do not partition the printed row tail")
     short = row["id"].split("-")[1]
     if short not in tokens:
-        problems.append("test id not printed in row text")
+        hard.append("test id not printed in row text")
     if row["sample_no"] not in tokens:
-        problems.append("sample number not printed in row text")
+        hard.append("sample number not printed in row text")
     if not obs:
-        problems.append("empty observation")
-    return problems, (v["o2_cal_initial"] - v["o2_raw_initial"]) if not blank else None
+        hard.append("empty observation")
+    off = (v["o2_cal_initial"] - v["o2_raw_initial"]) if not blank else None
+    if not hard and problems and row["id"] in review:
+        return [], off  # soft issues only, explained by a row-by-row review finding
+    return hard + problems, off
 
 
 def main():
     spans = table_pages()
+    review = load_review()
     with CSV.open(newline="", encoding="utf-8") as f:
         rd = csv.DictReader(f)
         fields, rows = list(rd.fieldnames), list(rd)
@@ -129,15 +148,19 @@ def main():
     today = date.today().isoformat()
     n_ok = 0
     for r in rows:
-        problems, off = check(r, spans)
+        problems, off = check(r, spans, review)
         if problems:
             r["auto_checked_by"], r["auto_checked_date"] = "", ""
             r["auto_check_notes"] = "NEEDS HUMAN CHECK: " + "; ".join(problems)
         else:
             n_ok += 1
             r["auto_checked_by"], r["auto_checked_date"] = BY, today
-            r["auto_check_notes"] = ("table/page ok; row tail tokens match source; "
-                                     f"calibrated-raw starting O2 offset {off:.1f} vol%")
+            if r["id"] in review and check(r, spans, {})[0]:
+                r["auto_check_notes"] = ("table/page ok; row tail tokens match source; row-by-row review: "
+                                         + review[r["id"]]["finding"])
+            else:
+                r["auto_check_notes"] = ("table/page ok; row tail tokens match source; "
+                                         f"calibrated-raw starting O2 offset {off:.1f} vol%")
     with CSV.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
