@@ -53,8 +53,7 @@ Units: O2 and CO2 in vol%, CO in ppm. Values are strings kept exactly as printed
 
 ## Known limits (be honest about these in the pitch)
 
-- IDs `P7`, `P11` and `T8` do not appear in the report's text export, so they are not in the data.
-  Check the PDF; if they are there, add them. Tests flown as pairs appear as `a`/`b` (e.g. `P3a`, `P3b`).
+- IDs `P7`, `P11` and `T8` do not appear in the report's tables (checked in the PDF), so they are not in the data. Tests flown as pairs appear as `a`/`b` (e.g. `P3a`, `P3b`).
 - Flow velocity (cm/s) is **not** a column. The report gives fan/potentiometer settings and, in some rows,
   velocities in parentheses, in formats that differ by investigator. Any velocity-based comparison must be keyed
   carefully by hand and must not mix settings with true velocities.
@@ -74,6 +73,20 @@ readings are numeric and in plausible ranges; no QC flag. `tests/crosscheck_muta
 
 It does **not** compare anything with the PDF. The text it reads is a text export of the PDF, so an error introduced by that export
 itself would pass. Only a person with the PDF can verify.
+
+## Comparison with NASA's PDF (`scripts/pdfcheck_bass2.py`)
+
+Downloads the official PDF to `data/raw/` (git-ignored, 49 MB) and reads its text layer with `pdftotext` (a separate
+extraction from `source/TM-20210011385.txt`). For every row: printed on the stated page; exactly one table line starts
+with the test ID + sample number; the 8 readings are consecutive on that line; the material name and the FULL log note
+match word for word. Result per row in column `pdf_check`. **Result: 126 of 126 match.**
+`tests/pdfcheck_mutation_test.py` corrupts every row 5 ways; all caught. It is still automated, so rows stay
+"machine-checked" until a team member signs `verified_by`.
+Corrections made from the PDF (2026-10-31): the old text export had a control character (byte 0x02) instead of a hyphen
+in 8 material names (B14, B17, B18, B21, B22: "200-µm-thick"; M2, M14: "one-sided"; M19: "two-sided") and in 2 notes
+(M2 "self-extinguished", T1 "CSA-CP"). Fixed in `bass2_draft.csv` (re-running `extract_bass2.py` would bring the bug back).
+The PDF's column headings confirm the order: calibrated initial/final O2, then sensor initial/final O2, CO2, CO.
+P7, P11 and T8 are not in the PDF's tables either.
 
 ## Row-by-row review (`ai_review_bass2.csv`)
 

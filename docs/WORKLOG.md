@@ -138,3 +138,20 @@ Decisions + why:
 - "Please read" notice kept: no person has compared rows with the PDF. It disappears automatically once rows are human-verified.
 Next step I recommend:
 - Get the PDF (pages 103-113) for a real PDF comparison; verifier signs rows; then build Compare.
+
+## 2026-10-31 21:30 IST - Claude
+Did:
+- User allowed ntrs.nasa.gov + psi.nasa.gov in the network settings. Downloaded the official PDF (NTRS 20210011385, 144 pages,
+  tables on PDF pages 111-121) to data/raw/ (git-ignored).
+- scripts/pdfcheck_bass2.py: compares every row with the PDF text layer (pdftotext): page, row line, 8 readings, material, full note.
+  126/126 match after fixing a text-export bug: byte 0x02 instead of a hyphen in 8 materials + 2 notes (see data/README.md).
+- tests/pdfcheck_mutation_test.py: 5 corruptions x 126 rows, all caught.
+- build_site_data.py re-runs the PDF comparison when the PDF is present; counts.pdf_match. Site: amber "Please read" box replaced by a
+  one-line note ("126 of 126 records match NASA's original PDF ... team sign-off in progress"); detail pages say the row matches the PDF.
+- Confirmed from the PDF: column order of the O2 columns; P7, P11, T8 absent from the tables.
+- PSI (psi.nasa.gov) now redirects to science.nasa.gov, which is still blocked; the public AWS bucket nasa-psi has no combustion data
+  (only DSI, OASIS, PK-4).
+Verified by running: pdfcheck 126/126; pdfcheck_mutation ALL CAUGHT; crosscheck 126/126 + mutation ALL CAUGHT; smoke 34/34;
+  previewer 14/14; screenshots of Overview and B14 reviewed; P1 compared by eye with the PDF page image.
+Decisions + why: rows stay "machine-checked" (automated), never "verified"; that stays a person's signature.
+Next step I recommend: allow science.nasa.gov for PSI data; pull Saffire reports from NTRS; build Compare.

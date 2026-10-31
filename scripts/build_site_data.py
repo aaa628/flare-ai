@@ -9,6 +9,8 @@ Every row gets one of three trust levels:
             The check is re-run here at build time, so an edited row silently drops to "none".
   none    : neither. Shown only in preview mode (index.html?preview=draft) under a loud warning banner.
 The site shows human + machine rows by default, each labelled with its level.
+Separately, r["pdf"] is True when the row matched NASA's PDF (scripts/pdfcheck_bass2.py). If the PDF and
+pdftotext are available the comparison is re-run here; otherwise the stored pdf_check column is used.
 
 Usage: python scripts/build_site_data.py
 """
@@ -54,6 +56,19 @@ def main():
             stale.append(r["id"])
         r["machine"] = still_ok and not r["verified"]
         r["level"] = "human" if r["verified"] else "machine" if r["machine"] else "none"
+    pdf_live = None
+    try:
+        pc_spec = importlib.util.spec_from_file_location("pdfcheck_bass2", ROOT / "scripts" / "pdfcheck_bass2.py")
+        pc = importlib.util.module_from_spec(pc_spec)
+        pc_spec.loader.exec_module(pc)
+        if pc.PDF.exists():
+            pdf_live = pc.compare(records)
+    except Exception as err:  # e.g. no pdftotext installed: fall back to the stored column
+        print("note: PDF comparison not re-run here:", err)
+    for r in records:
+        if pdf_live is not None:
+            r["pdf_check"] = pdf_live[r["id"]]
+        r["pdf"] = r.get("pdf_check", "").startswith("match")
     sources = read("sources.csv")
     n_ver = sum(1 for r in records if r["level"] == "human")
     n_mach = sum(1 for r in records if r["level"] == "machine")
@@ -62,7 +77,7 @@ def main():
         "sources": sources,
         "counts": {"records": len(records), "verified": n_ver, "machine": n_mach,
                    "unchecked": len(records) - n_ver - n_mach, "shown": n_ver + n_mach,
-                   "sources": len(sources)},
+                   "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"])},
     }
     if stale:
         print("WARNING: edited after the automated check, downgraded to unchecked:", ", ".join(stale))

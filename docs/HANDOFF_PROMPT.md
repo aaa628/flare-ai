@@ -117,7 +117,7 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 - **No flow-velocity (cm/s) column.** The report uses fan/potentiometer settings and sometimes velocities in parentheses, in formats that differ by investigator. `setup_raw` keeps the original. **Never treat fan settings as velocities.**
 - **No pressure** per test. **No `outcome`** (spread/extinguished/...); coding it is interpretation (see 7.5).
 - `observation` = NASA test-log note; the site labels it **Measured** ("recorded in the log").
-- "Calibrated" vs "raw" O2: shown as labelled in NASA's table; **meaning not yet confirmed** from report Section 1.3 / Appendix B. Confirm before making claims.
+- "Calibrated" vs "raw" O2: PDF column headings confirm the order (calibrated initial/final, then sensor initial/final). What the calibration does is described in report Section 1.3 / Appendix B; read it before making claims.
 - `material_raw` once held igniter/flow junk for 62 rows; fixed in `extract_bass2.py` (regex splits material | igniter | restrictor+mode). **Re-running `extract_bass2.py` overwrites verifier edits; only re-run before verification starts.**
 - NTRS 20160000593 is a 2014 conference summary with **no per-test table**. Its abstract (paraphrased): flames are very sensitive to airflow between 0 and 5 cm/s; below ~1 cm/s they can persist as dim steady blue flames but can flare up if airflow rises; >100 tests incl. BASS-I.
 - Not yet pulled: NASA PSI (psi.nasa.gov, CC0: BASS, BASS-II, Saffire, FLEX), Saffire (unmanned spacecraft-scale fires; strong cabin-fire relevance).

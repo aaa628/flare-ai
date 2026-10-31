@@ -128,15 +128,14 @@
 
     var stats = h("div", { class: "grid stats" },
       stat(String(nVer), "Human-verified test records", true),
-      stat(String(nMach), "Machine-checked, awaiting a person"),
+      stat(String(nMach), "Machine-checked" + (D.counts.pdf_match ? " (" + D.counts.pdf_match + " match NASA\u2019s PDF)" : "")),
       stat(String(nUnch), "Not yet checked (hidden)"),
       stat(String(D.counts.sources || 0), "NASA source documents"));
 
     var body = [];
-    if (nMach && !nVer) body.push(h("div", { class: "callout info", style: "margin-top:14px" },
-      h("b", null, "Please read: "), "no record has been compared with NASA's PDF by a person yet. " +
-      "\u201cMachine-checked\u201d means an automated cross-check against the report text passed. It does not mean a human verified it. " +
-      "Every record shows its level."));
+    if (nMach && !nVer) body.push(h("p", { class: "note", style: "margin-top:12px" },
+      (D.counts.pdf_match ? D.counts.pdf_match + " of " + nAll + " records match NASA\u2019s original PDF, value for value, in an automated comparison. " : "") +
+      "Team sign-off (\u201cverified\u201d) is in progress; every record shows its level."));
     if (!shown) {
       body.push(h("div", { class: "empty", style: "margin-top:24px" },
         h("h3", null, "No checked records yet"),
@@ -187,7 +186,7 @@
       h("h2", null, "How each record was checked"),
       h("div", { class: "legend" },
         legend("ok", "Verified", "A team member compared the row with NASA's PDF and signed it."),
-        legend("mach", "Machine-checked", "An automated cross-check passed: right table and page, values line up with the printed row, plausible ranges. A person has not yet compared it with the PDF."),
+        legend("mach", "Machine-checked", "Automated checks passed: every reading, the material and the log note match NASA\u2019s PDF, on the right table and page. A team member has not yet signed it off."),
         legend("unver", "Unchecked", "Not shown by default. Visible only in preview mode, with the reason it needs a human.")));
   }
   function stat(n, l, accent) {
@@ -298,8 +297,8 @@
 
     if (r.level === "machine") callouts.unshift(h("div", { class: "callout info" },
       h("b", null, "Machine-checked, not yet verified by a person. "),
-      "An automated cross-check against the report text passed on " + r.auto_checked_date + " (" + r.auto_check_notes + "). " +
-      "A person has not yet compared this row with NASA's PDF."));
+      (r.pdf ? "Every reading, the material and the full log note match NASA\u2019s PDF (automated comparison, report page " + r.source_page + "). " : "") +
+      "Cross-check notes: " + r.auto_check_notes.replace(/\.$/, "") + ". A team member has not yet signed this row off."));
     if (r.level === "none") callouts.unshift(h("div", { class: "callout" },
       h("b", null, "Unchecked. "), r.auto_check_notes || "No check has been run on this row.", " It is shown only in preview mode."));
 
@@ -344,7 +343,7 @@
         h("p", { class: "mono", style: "margin-bottom:6px" }, "Appendix A, Table " + tbl + ", report page " + (r.source_page || "?")),
         SOURCE ? h("p", { style: "margin-bottom:6px" }, h("a", { href: SOURCE.url, target: "_blank", rel: "noopener" }, "Open the report on NASA's server")) : null,
         r.level === "human" ? h("p", { class: "note", style: "margin:0" }, "Checked against the PDF by " + r.verified_by + " on " + r.verified_date + ".") :
-          r.level === "machine" ? h("p", { class: "note", style: "margin:0" }, "Not yet compared with the PDF by a person. Automated cross-check passed on " + r.auto_checked_date + ".") :
+          r.level === "machine" ? h("p", { class: "note", style: "margin:0" }, (r.pdf ? "Matches NASA\u2019s PDF (automated comparison). " : "") + "Not yet signed off by a team member.") :
             h("p", { class: "note", style: "margin:0" }, "Not yet checked against the PDF."),
         h("details", null, h("summary", null, "Setup exactly as printed, and raw extracted text"),
           h("pre", { class: "raw" }, "Setup: " + (r.setup_raw || "—") + "\n\nRow text: " + (r.raw_text || "—")))));
@@ -359,7 +358,7 @@
       h("div", { class: "card" }, h("ul", { style: "margin:0;padding-left:20px" },
         ["No invented numbers. Every figure on this site is computed from the data records.",
           "Every fact carries a label: Measured, Published conclusion, or Our interpretation.",
-          "Every record shows how it was checked. Verified means a team member compared it with NASA\u2019s PDF. Machine-checked means an automated cross-check passed and a person has not yet looked. Records with no check are hidden.",
+          "Every record shows how it was checked. Verified means a team member compared it with NASA\u2019s PDF. Machine-checked means automated checks passed, including a value-for-value comparison with NASA\u2019s PDF, and a team member has not yet signed it off. Records with no check are hidden.",
           "We never compare measurements that are not comparable, and we say so when we refuse.",
           "Where NASA did not test a condition, we say the data is insufficient instead of guessing.",
           "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
@@ -369,7 +368,7 @@
           h("p", { style: "margin:0" }, h("a", { href: SOURCE.url, target: "_blank", rel: "noopener" }, SOURCE.url))] : "No sources yet."),
       h("h2", null, "Known limits"),
       h("div", { class: "card" }, h("ul", { style: "margin:0;padding-left:20px" },
-        ["Tests P7, P11 and T8 are missing from the text we extracted from the report.",
+        ["Tests P7, P11 and T8 do not appear in the report\u2019s tables (checked in NASA\u2019s PDF).",
           "Flow velocity is not shown: the report uses fan settings and mixed formats.",
           "Pressure is not given per test in the report tables.",
           "Some oxygen readings in NASA's own table look like sensor glitches; they are flagged, not corrected.",

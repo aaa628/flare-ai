@@ -46,8 +46,8 @@ async def main():
         t = await pg.inner_text("main")
         stats = await pg.inner_text(".stats")
         check("default: stats show the real counts", str(C["machine"]) in stats and str(C["unchecked"]) in stats, stats.replace("\n", " | "))
-        check("default: honest notice that no person has verified yet" if C["verified"] == 0 else "default: verified rows exist",
-              (C["verified"] != 0) or "no record has been compared with NASA" in t)
+        check("default: honest note that team sign-off is pending" if C["verified"] == 0 else "default: verified rows exist",
+              (C["verified"] != 0) or "sign-off" in t)
         check("default: three check levels explained", all(x in t.lower() for x in ("machine-checked", "verified", "unchecked")))
         check("default: charts drawn from shown rows", C["shown"] == 0 or "Tests by principal investigator" in t)
         check("default: banner hidden", await pg.is_hidden("#preview-banner"))
