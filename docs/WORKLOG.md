@@ -276,3 +276,20 @@ Did:
 - Fixed: svg() helper now accepts numbers; class "top" clashed with the header (renamed "podium").
 Verified by running: build_catalog (24); smoke 79/79 (incl. all 24 investigation pages); previewer 14/14; tamper tests ALL CAUGHT;
   all record pages: no errors; investigations pages at 1280/390 px: no errors, no overflow.
+
+## 2026-11-01 11:30 IST - Claude
+Did:
+- Intelligence Lab (user chose Claude, asked for strong key security): Netlify Function netlify/functions/ask (core.mjs logic,
+  ask.mjs entry). Key only in Netlify env var ANTHROPIC_API_KEY (Functions scope, secret). POST-only, origin check, 300-char cap,
+  per-IP 8/h 25/day + global 400/day via Netlify Blobs, 24 h answer cache, fails closed if the store is down. BM25 retrieval over a
+  generated corpus (691 docs) server-side; claude-opus-5-5, effort low, structured JSON output, fallbacks "default"; citations
+  validated against retrieved ids (invalid points dropped); evidence grade by a fixed rule; abstains; refusal -> abstained.
+- Lab page #/lab: examples incl. one that must abstain, basis labels, citation chips to records/investigations, grade rule, gaps,
+  retrieved documents, keyword-search fallback offline / on errors / at limits.
+- Investigations: need tabs (prevention/detection/suppression, labelled Flare AI classification) + inline habitat switch; coverage
+  levels and known gaps (no partial gravity, no prediction claim); audit table of every study the brief names; score inputs
+  inline with source tags (NASA data / Flare AI label / brief) and "relevance, not safety"; evidence type badges; plain-language
+  summaries (ours) + NASA's stated impact on detail pages; compare adds summary, coverage, geometry, airflow column, measurements.
+Verified by running: lab_function_test 18/18 (fake client); SDK request shape checked with a stub fetch (header + body);
+  lab_ui_test 11/11 (simulated server); smoke 85/85; previewer 14/14; tamper tests ALL CAUGHT; all record pages OK; CSP OK.
+Not verified: a real Claude call (no key in this session) and the deployed function on Netlify.

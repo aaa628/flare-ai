@@ -214,6 +214,7 @@
         h("h2", { class: "mini-h" }, "What this site can answer"),
         h("ul", { class: "answers" },
           h("li", null, h("b", null, "Which NASA investigations matter for a spacecraft or a Moon base?"), h("span", null, "All " + INV.length + " PSI combustion investigations, ranked with a visible rule. ", h("a", { href: "#/investigations" }, "Investigations"))),
+          h("li", null, h("b", null, "Can I just ask a question?"), h("span", null, "The Intelligence Lab answers in plain English from cited NASA records, and abstains when they don\u2019t support an answer. ", h("a", { href: "#/lab" }, "Intelligence Lab"))),
           h("li", null, h("b", null, "What happened in a specific NASA fire test?"), h("span", null, "Readings, the crew’s log note and the exact source page or file row.")),
           h("li", null, h("b", null, "How do tests compare, like for like?"), h("span", null, "Side by side within one experiment, with refusals when a comparison would mislead. ", h("a", { href: "#/compare" }, "Compare"))),
           h("li", null, h("b", null, "Which conditions did NASA actually test?"), h("span", null, "Charts below show where the evidence is, and where it is missing.")),
@@ -1084,14 +1085,14 @@
   /* Our ranking rule. Every point names its evidence; the same rule is printed on the page. */
   function relevance(v, lens) {
     var c = v.curated || {}, pts = [];
-    function add(n, label, ev) { pts.push({ n: n, label: label, ev: ev }); }
-    if (c.brief_mention === "named") add(3, "Named in the challenge brief as fire-safety research", c.basis);
-    else if (c.brief_mention === "related") add(2, "Mentioned in the brief as related to fire safety", c.basis);
-    else if (c.brief_mention === "named-hardware") add(1, "Named in the brief only as sharing hardware", c.basis);
+    function add(n, label, ev, kind) { pts.push({ n: n, label: label, ev: ev, kind: kind || "direct" }); }
+    if (c.brief_mention === "named") add(3, "Named in the challenge brief as fire-safety research", c.basis, "brief");
+    else if (c.brief_mention === "related") add(2, "Mentioned in the brief as related to fire safety", c.basis, "brief");
+    else if (c.brief_mention === "named-hardware") add(1, "Named in the brief only as sharing hardware", c.basis, "brief");
     if (/fire/i.test(v.subResearchArea || "")) add(2, "NASA PSI files it under “" + v.subResearchArea + "”", "PSI field subResearchArea");
-    if (/^solid$/.test(c.fuel_class || "")) add(2, "Burns cabin-type solid materials (fabrics, plastics)", c.fuel_examples);
-    else if (/smoke/.test(c.fuel_class || "")) add(1, "Measures smoke from heated cabin materials", c.fuel_examples);
-    (c.pillar || "").split(";").filter(Boolean).forEach(function (p) { add(1, "Addresses fire " + p, c.basis); });
+    if (/^solid$/.test(c.fuel_class || "")) add(2, "Burns cabin-type solid materials (fabrics, plastics)", c.fuel_examples, "label");
+    else if (/smoke/.test(c.fuel_class || "")) add(1, "Measures smoke from heated cabin materials", c.fuel_examples, "label");
+    (c.pillar || "").split(";").filter(Boolean).forEach(function (p) { add(1, "Addresses fire " + p + " (Flare AI classification)", c.basis, "label"); });
     if (/spacecraft/.test(c.scale || "")) add(1, "Spacecraft-scale fire", c.scale);
     if (/Microgravity/.test(v.projectType || "") && v.n_tests > 0) add(1, "Flight tests with a per-test NASA table (" + v.n_tests + " rows)", "PSI experiment table");
     if (lens === "moon") {
@@ -1208,18 +1209,20 @@
           h("div", { class: "inv-main" },
             h("div", { class: "inv-top" },
               h("h3", null, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("span", { class: "inv-acc" }, v.accession)),
-              h("span", { class: "fuel-tag", style: "--c:" + COLORS_FUEL(fuelKey(v)) }, h("i", null), fuelLabel(fuelKey(v)))),
-            h("p", { class: "inv-title" }, v.title),
+              h("span", { class: "inv-tags" }, etypeChip(v), h("span", { class: "cov cov-" + coverage(v), title: COVER[coverage(v)].text }, COVER[coverage(v)].label),
+                h("span", { class: "fuel-tag", style: "--c:" + COLORS_FUEL(fuelKey(v)) }, h("i", null), fuelLabel(fuelKey(v))))),
+            h("p", { class: "inv-title" }, (c.summary_ours || v.title), h("span", { class: "ours-tag" }, " our summary")),
             h("div", { class: "inv-facts" },
               fact("Platform", v.projectType === "Ground Investigation" ? "ground study" : (v.flightProgram || "—")),
               fact("Hardware", (v.experimentHardware || "—").split(",")[0]),
               fact("Tests in NASA table", v.n_tests ? String(v.n_tests) : "none"),
               fact("O2 tested", v.o2_max_pct != null ? "up to " + v.o2_max_pct + "%" : "not in table"),
               fact("In Flare AI records", ours ? ours + " tests" : "—")),
-            h("details", { class: "why" }, h("summary", null, "Why it ranks here: " + x.r.pts.length + " reasons"),
-              h("ul", { class: "pts" }, x.r.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label, p.ev ? h("span", { class: "ev" }, " — " + p.ev) : null); })))),
+            h("ul", { class: "pts inline" }, x.r.pts.slice(0, 3).map(ptLi)),
+            x.r.pts.length > 3 ? h("details", { class: "why" }, h("summary", null, "All " + x.r.pts.length + " score inputs and their sources"), h("ul", { class: "pts" }, x.r.pts.map(ptLi))) : null),
           h("div", { class: "inv-score" },
             h("div", { class: "score-n" }, h("b", null, String(x.r.score)), h("span", null, "/" + MAXPTS[lens])),
+            h("span", { class: "score-l" }, "relevance, not safety"),
             h("div", { class: "score-bar", role: "img", "aria-label": "Relevance score " + x.r.score + " of " + MAXPTS[lens] }, h("i", { style: "width:" + Math.round(100 * x.r.score / MAXPTS[lens]) + "%" })),
             h("label", { class: "pick-l", for: "pick-" + v.accession }, cb, " compare"))));
       });
@@ -1229,6 +1232,17 @@
         h("option", { value: "" }, "All"), opts.map(function (o) { return h("option", { value: o[0] }, o[1]); })));
     }
     var moonZone = INV.filter(function (v) { return v.joint_tests > 0; });
+    var tabs = h("div", { class: "need-tabs", role: "group", "aria-label": "Fire-safety need (Flare AI classification)" },
+      [["", "All needs"], ["prevention", "Prevention"], ["detection", "Detection"], ["suppression", "Suppression"]].map(function (p) {
+        var n = p[0] ? INV.filter(function (v) { return ((v.curated || {}).pillar || "").indexOf(p[0]) >= 0; }).length : INV.length;
+        return h("button", { type: "button", class: "need" + (p[0] === state.pillar ? " on" : ""), "aria-pressed": p[0] === state.pillar ? "true" : "false", onclick: function (e) {
+          state.pillar = p[0]; Array.prototype.forEach.call(tabs.querySelectorAll(".need"), function (b) { b.classList.remove("on"); b.setAttribute("aria-pressed", "false"); });
+          e.currentTarget.classList.add("on"); e.currentTarget.setAttribute("aria-pressed", "true"); draw(); } }, h("b", null, p[1]), h("span", null, n + " investigations"));
+      }));
+    var covCounts = { records: 0, table: 0, description: 0 };
+    INV.forEach(function (v) { covCounts[coverage(v)]++; });
+    var briefRows = INV.filter(function (v) { return /named|related/.test((v.curated || {}).brief_mention || ""); })
+      .sort(function (a, b) { var o = { named: 0, related: 1, "named-hardware": 2 }; return o[a.curated.brief_mention] - o[b.curated.brief_mention] || invName(a).localeCompare(invName(b)); });
     draw();
     return h("div", null,
       h("div", { class: "page-head" },
@@ -1257,13 +1271,42 @@
           "each box spans the oxygen and pressure range of one NASA table (dashed = inverse flame, O2 from the burner). The shaded corner is the brief’s Moon-base zone. A box touching the zone does not mean every combination was tested; the tooltip gives the count of tests actually inside it.",
           atmosphereChart(INV), chartNote("tables with both an oxygen and a pressure column (pressure converted to psi from mmHg, atm or bar).",
             "BASS-II, SAFFIRE and ACME BRE (no pressure column), FLEX-2 (planned conditions only), and every investigation without oxygen data."))),
-      h("h2", null, "Ranking"),
+      h("h2", null, "What the evidence covers, and what it doesn\u2019t"),
+      h("div", { class: "grid cover-grid" },
+        h("section", { class: "card" }, h("h3", null, "Coverage in Flare AI"),
+          h("p", { class: "howto" }, "How deeply each of the " + INV.length + " PSI investigations is incorporated. Nothing in PSI\u2019s combustion area is left out; depth differs."),
+          h("ul", { class: "cov-list" }, ["records", "table", "description"].map(function (k) {
+            return h("li", null, h("span", { class: "cov cov-" + k }, COVER[k].label), h("b", null, String(covCounts[k])), h("span", { class: "muted" }, COVER[k].text),
+              h("span", { class: "cov-names" }, INV.filter(function (v) { return coverage(v) === k; }).map(invName).join(", ")));
+          }))),
+        h("section", { class: "card gaps" }, h("h3", null, "Known gaps"),
+          h("ul", { class: "rules" },
+            h("li", { class: "warn" }, h("b", null, "No partial-gravity data. "), "The brief notes PSI has no Moon- or Mars-gravity combustion data yet (LUCI and FM2 are expected later). E-FIELD Flames only mimics partial gravity. Microgravity and Earth results may bound it."),
+            h("li", { class: "warn" }, h("b", null, "Cabin materials in a Moon-base atmosphere. "), "No solid-material investigation recorded above 23% O2 (see the answer above)."),
+            h("li", { class: "warn" }, h("b", null, "Not a prediction. "), "These are small, controlled experiments. Flare AI does not claim they predict real mission fires, and gives no fire probabilities."),
+            h("li", { class: "warn" }, h("b", null, "Machine-checked, not verified. "), "Test records are checked automatically against NASA\u2019s files; no person has signed them yet.")))),
+      h("section", { class: "card", style: "margin-top:14px" }, h("h3", null, "The studies the challenge brief names"),
+        h("p", { class: "howto" }, "Every study the brief mentions, what role it gives it, and what evidence Flare AI holds for it."),
+        h("div", { class: "tablewrap flat" }, h("table", { class: "side brief-audit" },
+          h("thead", null, h("tr", null, ["Study", "How the brief mentions it", "Fire-safety need (our classification)", "Evidence in Flare AI"].map(function (t) { return h("th", { scope: "col" }, t); }))),
+          h("tbody", null, briefRows.map(function (v) {
+            var c = v.curated || {};
+            return h("tr", null, h("th", { scope: "row" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("div", { style: "margin-top:4px" }, etypeChip(v))),
+              h("td", null, { named: "Named as fire-safety research", related: "Mentioned as related", "named-hardware": "Named for shared hardware" }[c.brief_mention]),
+              h("td", null, (c.pillar || "context only").replace(";", ", ")),
+              h("td", null, h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label), h("div", { class: "muted small", style: "margin-top:4px" }, v.n_tests ? v.n_tests + " rows in NASA\u2019s table" : "no NASA table")));
+          }))))),
+      h("h2", null, "Browse by fire-safety need, then rank for a habitat"),
+      tabs,
+      h("div", { class: "lens-inline" }, h("span", { class: "muted" }, "Rank for:"),
+        ["station", "moon"].map(function (k) { return h("a", { class: "lens-b mini" + (k === lens ? " on" : ""), href: k === "moon" ? "#/investigations/moon" : "#/investigations" }, h("b", null, LENSES[k].label)); })),
+      h("p", { class: "note" }, "Prevention / detection / suppression labels are Flare AI\u2019s classification, following the brief\u2019s three areas; each card shows the basis. Investigations with no label are background science."),
       h("div", { class: "filter-panel" },
         h("div", { class: "filters" },
           sel("ifuel", "Fuel type", [["solid", "Solid materials"], ["liquid", "Liquid droplets"], ["gas", "Gas flames"], ["smoke", "Smoke / aerosol"]], "fuel"),
-          sel("ipillar", "Fire-safety area", [["prevention", "Prevention (flammability)"], ["detection", "Detection"], ["suppression", "Suppression"]], "pillar"),
           sel("idata", "Data", [["flight", "Flight tests with a NASA table"], ["ours", "Has test records in Flare AI"]], "data")),
         h("div", { class: "filter-status" }, count, cmpBtn)),
+      h("p", { class: "note score-note" }, "! Scores rank how directly an investigation\u2019s published data speaks to the chosen habitat. They are not safety or risk scores. Each input is tagged: NASA data (from the investigation itself), Flare AI label (our classification), or brief (how the challenge describes it)."),
       h("details", { class: "card rule" }, h("summary", null, h("b", null, "The ranking rule"), h("span", { class: "muted" }, " — our interpretation; open to see every point")),
         h("ul", { class: "pts" },
           h("li", null, h("b", null, "+3"), " named in the challenge brief as fire-safety research (+2 mentioned as related, +1 named only for shared hardware)"),
@@ -1277,6 +1320,19 @@
       listBox);
   }
   function fact(k, v) { return h("div", { class: "fact" }, h("span", null, k), h("b", null, v)); }
+  var COVER = {
+    records: { label: "Test records in Flare AI", text: "Individual tests are extracted, checked against NASA\u2019s file, and browsable in Flame Explorer." },
+    table: { label: "NASA table summarised", text: "NASA\u2019s experiment table is summarised here (conditions, columns); its tests are not yet individual Flare AI records." },
+    description: { label: "NASA description only", text: "PSI holds no experiment table for this investigation (ground or modelling study); only NASA\u2019s description is shown." }
+  };
+  function coverage(v) {
+    if (ALL.some(function (r) { return r.source_id === v.accession || (v.accession === "PSI-25" && fromReport(r)); })) return "records";
+    return v.n_tests > 0 ? "table" : "description";
+  }
+  var ETYPE = { direct: ["Direct", "Studies spacecraft fire safety directly (named for it in the brief)."], related: ["Related", "Related research the brief or PSI connects to fire safety."], context: ["Background", "Combustion science that gives context but does not address a fire-safety need directly."] };
+  function etypeChip(v) { var e = ETYPE[(v.curated || {}).evidence_type] || ETYPE.context; return h("span", { class: "etype et-" + ((v.curated || {}).evidence_type || "context"), title: e[1] }, e[0]); }
+  var PSRC = { brief: "brief", label: "Flare AI label", direct: "NASA data" };
+  function ptLi(p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label + " ", h("span", { class: "psrc ps-" + p.kind }, PSRC[p.kind] || p.kind), p.ev ? h("span", { class: "ev" }, " \u2014 " + p.ev) : null); }
 
   function viewInvestigation(acc) {
     var v = invById(acc);
@@ -1309,7 +1365,18 @@
               h("a", { class: "btn", href: v.landing_page, target: "_blank", rel: "noopener" }, "Open NASA’s PSI page ↗"),
               h("a", { class: "textlink", href: "https://doi.org/" + v.doi, target: "_blank", rel: "noopener" }, "DOI"),
               ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null)))),
-      h("section", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, "What NASA’s experiment table records"), chip("measured", "Measured")),
+      h("section", { class: "card meaning", style: "margin-top:14px" },
+        h("div", { class: "prov-head" }, h("h3", null, "What this means"), h("span", null, etypeChip(v), " ", h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label))),
+        h("div", { class: "cols2" },
+          h("div", null, h("p", { class: "mini-h" }, chip("interp", "Ours"), " Plain-language summary"), h("p", null, c.summary_ours || "\u2014"),
+            h("p", { class: "note" }, "Written by Flare AI from NASA\u2019s objective text below. ", h("a", { href: v.landing_page, target: "_blank", rel: "noopener" }, "Check it on NASA\u2019s PSI page"))),
+          h("div", null, h("p", { class: "mini-h" }, chip("published", "NASA"), " NASA\u2019s stated impact"),
+            h("p", null, (function (t) { t = (t || "").replace(/\s+/g, " ").trim(); return t ? (t.length > 420 ? t.slice(0, 417) + "\u2026" : t) : "NASA\u2019s PSI record gives no research-impact statement."; })(v.researchImpacts)),
+            h("p", { class: "note" }, "Quoted from NASA PSI (\u201cResearch impacts\u201d), full text below."))),
+        h("p", { class: "note" }, h("b", null, "Variables and measurements: "), (v.table_summaries || []).length ? "NASA\u2019s table records " +
+          v.table_summaries.map(function (t) { return (t.columns || []).length + " columns"; }).join(" + ") + " (listed below)." : "no experiment table in PSI.",
+          " ", h("b", null, "Evidence in Flare AI: "), COVER[coverage(v)].text)),
+      h("section", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, "What NASA\u2019s experiment table records"), chip("measured", "Measured")),
         h("p", { class: "howto" }, h("b", null, "How to read: "), "the columns are NASA’s own (variables and measurements). Ranges are read only from the columns named; unit conversions are arithmetic; anything not a plain number is listed, not guessed."),
         (v.table_summaries || []).length ? v.table_summaries.map(function (t) {
           return h("div", { class: "tbl-sum" },
@@ -1341,14 +1408,18 @@
     function o2(v) { var t = (v.table_summaries || []).filter(function (t) { return t.o2_range_pct; }); return t.length ? t.map(function (t) { return t.o2_range_pct.join("–") + "% (" + t.o2_meaning + ")"; }).join("; ") : "not in table"; }
     function pr(v) { var t = (v.table_summaries || []).filter(function (t) { return t.p_range_psi; }); return t.length ? t.map(function (t) { return t.p_range_orig.join("–") + " " + t.p_unit + " (" + t.p_range_psi.join("–") + " psi)"; }).join("; ") : "not in table"; }
     var rows = [
-      ["Fuel (our label)", function (v) { return (v.curated.fuel_class || "") + ": " + (v.curated.fuel_examples || ""); }],
+      ["Plain summary (ours)", function (v) { return v.curated.summary_ours || "\u2014"; }],
+      ["Evidence type / coverage", function (v) { return [etypeChip(v), " ", h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label)]; }],
+      ["Fuel and geometry (our label)", function (v) { return (v.curated.fuel_class || "") + ": " + (v.curated.fuel_examples || "") + " \u00b7 " + (v.curated.scale || ""); }],
       ["Fire-safety area (our label)", function (v) { return (v.curated.pillar || "none").replace(";", ", "); }],
       ["Type / platform", function (v) { return (v.projectType || "") + " · " + (v.flightProgram || ""); }],
       ["Hardware", function (v) { return v.experimentHardware || "—"; }],
       ["Tests in NASA table", function (v) { return v.n_tests ? String(v.n_tests) : "none"; }],
       ["Oxygen tested", o2], ["Pressure tested", pr],
       ["Moon-base zone tests", function (v) { return v.joint_tests + (v.p_min_psi_at_o2ge30 ? " (lowest psi at ≥30% O2: " + v.p_min_psi_at_o2ge30 + ")" : ""); }],
-      ["What the table records", function (v) { return (v.table_summaries || []).map(function (t) { return (t.columns || []).length + " columns"; }).join(" + ") || "no table"; }],
+      ["Airflow column (NASA term)", function (v) { var a = (v.table_summaries || []).map(function (t) { return t.air_col; }).filter(Boolean); return a.length ? a.map(function (x) { return "\u201c" + x + "\u201d"; }).join(", ") + " (as recorded)" : "none in table"; }],
+      ["Measurements recorded (NASA column names)", function (v) { var cols = []; (v.table_summaries || []).forEach(function (t) { cols = cols.concat(t.columns || []); });
+        return cols.length ? h("div", { class: "cols-chips" }, cols.slice(0, 18).map(function (x) { return h("span", { class: "colchip" }, x); }), cols.length > 18 ? h("span", { class: "muted" }, " +" + (cols.length - 18) + " more") : null) : "no table"; }],
       ["Same / different", function (v) { return ""; }],
       ["Score (our rule)", function (v) { return relevance(v, "station").score + "/" + MAXPTS.station + " ISS · " + relevance(v, "moon").score + "/" + MAXPTS.moon + " Moon"; }]];
     var hw = list.map(function (v) { return (v.experimentHardware || "").split(",")[0].trim(); });
@@ -1367,6 +1438,113 @@
       h("div", { class: "tablewrap", style: "margin-top:14px" }, h("table", { class: "side" },
         h("thead", null, h("tr", null, h("th", { scope: "col" }, h("span", { class: "sr" }, "Property")), list.map(function (v) { return h("th", { scope: "col" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("span", { class: "pc-mat" }, v.accession)); }))),
         h("tbody", null, rows.map(function (r) { return h("tr", null, h("th", { scope: "row" }, r[0]), list.map(function (v) { return h("td", null, r[1](v)); })); })))));
+  }
+
+  /* ---------- Intelligence Lab: Claude answers only from cited Flare AI documents (server function) ---------- */
+  var LAB_EXAMPLES = [
+    "Which investigations tested oxygen at 30% or more at reduced pressure?",
+    "How did FLEX methanol droplet tests in normal air end?",
+    "What materials were burned in SAFFIRE-II, and how big were the samples?",
+    "What did BASS-II set out to learn about solid materials in low airflow?",
+    "Is there partial-gravity combustion data in PSI?",
+    "What is the probability of a fire on a Mars rover?"
+  ];
+  var GRADE = {
+    strong: { label: "Strong", glyph: "●●●", text: "3 or more cited NASA test records, or a test record plus an investigation summary." },
+    moderate: { label: "Moderate", glyph: "●●○", text: "2 or more cited documents, but not enough test records for “strong”." },
+    thin: { label: "Thin", glyph: "●○○", text: "Only one cited document supports the answer." },
+    none: { label: "None — abstained", glyph: "○○○", text: "No cited document supports an answer, so the Lab does not answer." }
+  };
+  var BASIS = { nasa_record: ["measured", "NASA record"], nasa_text: ["published", "NASA text"], brief: ["published", "Challenge brief"], interpretation: ["interp", "AI interpretation"] };
+  /* Local keyword search (no AI): used offline, when the server is unavailable, and to show what evidence exists. */
+  function localSearch(q, k) {
+    var toks = (q.toLowerCase().match(/[a-z0-9%.\-]{3,}/g) || []).filter(function (t) { return ["what", "which", "with", "were", "does", "that", "this", "from", "have", "about", "there", "tests", "test"].indexOf(t) < 0; });
+    var docs = ROWS.map(function (r) { return { id: r.id, title: r.experiment + " " + shortId(r) + ": " + r.material_raw, route: "#/experiment/" + r.id, kind: "record",
+      text: (r.experiment + " " + r.material_raw + " " + (r.observation || "") + " " + (r.outcome_raw || "") + " " + (r.fields || []).map(function (f) { return f[0] + " " + f[1]; }).join(" ")).toLowerCase() }; })
+      .concat(INV.map(function (v) { return { id: v.accession, title: invName(v) + " (" + v.accession + ")", route: "#/investigation/" + v.accession, kind: "investigation",
+        text: (invName(v) + " " + v.title + " " + (v.objective || "") + " " + (v.researchImpacts || "") + " " + JSON.stringify(v.curated || {})).toLowerCase() }; }));
+    return docs.map(function (d) { var s = 0; toks.forEach(function (t) { var i = d.text.indexOf(t); if (i >= 0) s += 1 + (d.title.toLowerCase().indexOf(t) >= 0 ? 1 : 0); }); return { d: d, s: s }; })
+      .filter(function (x) { return x.s > 0; }).sort(function (a, b) { return b.s - a.s; }).slice(0, k || 8).map(function (x) { return x.d; });
+  }
+  function labEndpoint() { return /^https?:$/.test(location.protocol) ? "/api/ask" : null; }
+
+  function viewLab() {
+    setTitle("Intelligence Lab");
+    var out = h("div", { class: "lab-out", "aria-live": "polite" });
+    var ta = h("textarea", { id: "labq", maxlength: 300, rows: 3, placeholder: "Ask about NASA’s microgravity fire experiments…" });
+    var counter = h("span", { class: "muted lab-count" }, "0 / 300");
+    ta.addEventListener("input", function () { counter.textContent = ta.value.length + " / 300"; });
+    var btn = h("button", { type: "submit", class: "pill-btn" }, "Ask the Lab");
+    function cite(id) {
+      var c = (cur && cur.citations || []).filter(function (x) { return x.id === id; })[0];
+      return h("a", { class: "cite", href: c ? c.route : "#/", title: c ? c.source : id }, id);
+    }
+    var cur = null;
+    function renderLocal(q, why) {
+      var hits = localSearch(q, 8);
+      return h("section", { class: "card lab-local" },
+        h("div", { class: "prov-head" }, h("h3", null, "Matching records (keyword search, no AI)"), chip("unver lv-none", "no AI answer")),
+        h("p", { class: "note" }, why),
+        hits.length ? h("ul", { class: "fn" }, hits.map(function (d) { return h("li", null, h("a", { href: d.route }, d.title), " ", h("span", { class: "muted" }, d.kind === "record" ? "test record" : "investigation")); }))
+          : h("p", { class: "note" }, "No record matches these words. The data may not cover this question."));
+    }
+    function renderAnswer(a, q) {
+      cur = a;
+      var g = GRADE[a.grade] || GRADE.none, abst = a.status !== "answered";
+      return h("div", null,
+        h("section", { class: "card lab-answer " + (abst ? "abst" : "ok") },
+          h("div", { class: "lab-head" },
+            chip(abst ? "unver lv-none" : "mach lv-mach", abst ? "Abstained" : "Answered from cited records"),
+            h("span", { class: "grade g-" + a.grade, title: g.text }, h("span", { "aria-hidden": "true" }, g.glyph + " "), "Evidence grade: " + g.label),
+            a.cached ? h("span", { class: "muted small" }, "repeat question — served from cache") : null),
+          h("p", { class: "lab-sum" }, a.summary || (abst ? "The evidence does not support an answer." : "")),
+          (a.key_points || []).length ? h("ul", { class: "kp" }, a.key_points.map(function (p) {
+            var b = BASIS[p.basis] || BASIS.interpretation;
+            return h("li", null, chip(b[0], b[1]), " ", p.text, " ", h("span", { class: "cites" }, p.citations.map(cite)));
+          })) : null,
+          (a.gaps || []).length ? h("div", { class: "lab-gaps" }, h("b", null, "What the data does not cover: "), h("ul", null, a.gaps.map(function (t) { return h("li", null, t); }))) : null,
+          h("p", { class: "note grade-rule" }, h("b", null, "Grade rule: "), g.text + " The grade is computed by Flare AI from the citations that survived checking, not chosen by the AI." +
+            (a.dropped_points ? " " + a.dropped_points + " point(s) were removed because their citations did not match any retrieved document." : "")),
+          h("p", { class: "note" }, "Answer written by " + (a.model || "Claude") + " from the documents below only. It is not a safety assessment and gives no fire probabilities.")),
+        (a.citations || []).length ? h("section", { class: "card" }, h("h3", null, "Cited documents"),
+          h("ul", { class: "fn" }, a.citations.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.source + ")")); }))) : null,
+        (a.evidence || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "All " + a.evidence.length + " documents retrieved for this question")),
+          h("ul", { class: "fn", style: "margin-top:8px" }, a.evidence.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.kind + ", " + c.source + ")")); }))) : null);
+    }
+    function ask(q) {
+      q = (q || "").trim();
+      if (q.length < 8) { out.textContent = ""; out.appendChild(h("p", { class: "fwarn" }, "Please ask a full question.")); return; }
+      ta.value = q; counter.textContent = q.length + " / 300";
+      out.textContent = "";
+      var ep = labEndpoint();
+      if (!ep) { out.appendChild(renderLocal(q, "The AI answers need the online site (they run on a secure server). Offline, Flare AI shows the records that match your words instead.")); return; }
+      btn.disabled = true; btn.textContent = "Checking the records…";
+      out.appendChild(h("p", { class: "muted" }, "Retrieving NASA records and asking Claude to answer only from them…"));
+      fetch(ep, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ question: q }) })
+        .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, status: r.status, b: b }; }, function () { return { ok: false, status: r.status, b: {} }; }); })
+        .then(function (res) {
+          out.textContent = "";
+          if (res.ok) out.appendChild(renderAnswer(res.b, q));
+          else out.appendChild(renderLocal(q, (res.b && res.b.error ? res.b.error + " " : "The AI service did not answer (" + res.status + "). ") + "Showing keyword matches instead."));
+        }, function () { out.textContent = ""; out.appendChild(renderLocal(q, "Could not reach the AI service. Showing keyword matches instead.")); })
+        .then(function () { btn.disabled = false; btn.textContent = "Ask the Lab"; });
+    }
+    var form = h("form", { class: "lab-form", onsubmit: function (e) { e.preventDefault(); ask(ta.value); } },
+      h("label", { for: "labq", class: "sr" }, "Your question"), ta, h("div", { class: "lab-row" }, counter, btn));
+    return h("div", null,
+      h("div", { class: "page-head" },
+        h("div", null, h("h1", null, "Intelligence Lab"),
+          h("p", { class: "lead" }, "Ask a question in plain English. Claude answers only from Flare AI’s NASA records and PSI descriptions, cites every point, and abstains when the records don’t support an answer.")),
+        h("ol", { class: "lab-how", "aria-label": "How the Lab works" },
+          h("li", null, h("b", null, "Retrieve"), " the most relevant test records, investigation texts and brief facts."),
+          h("li", null, h("b", null, "Answer"), " with Claude, from those documents only, with an id on every point."),
+          h("li", null, h("b", null, "Check"), " every citation; drop unsupported points; grade the evidence by a fixed rule."))),
+      h("section", { class: "card lab-ask" }, form,
+        h("div", { class: "lab-ex" }, h("span", { class: "muted" }, "Try:"), LAB_EXAMPLES.map(function (q, i) {
+          return h("button", { type: "button", class: "chip-btn" + (i === LAB_EXAMPLES.length - 1 ? " abst-ex" : ""), onclick: function () { ask(q); } }, q + (i === LAB_EXAMPLES.length - 1 ? " (should abstain)" : ""));
+        }))),
+      out,
+      h("p", { class: "note", style: "margin-top:14px" }, "Limits keep the service fair: a few questions per visitor per hour and a daily total. Repeat questions are answered from a cache. The Lab never estimates fire probabilities or certifies safety."));
   }
 
   function viewAbout() {
@@ -1421,6 +1599,7 @@
     else if (route === "investigations" && seg[1] === "compare") view = viewInvCompare(seg[2] || "");
     else if (route === "investigations") view = viewInvestigations(seg[1] || "");
     else if (route === "investigation") view = viewInvestigation(decodeURIComponent(seg[1] || ""));
+    else if (route === "lab") view = viewLab();
     else { route = "overview"; view = viewOverview(); }
     main.textContent = "";
     main.appendChild(view);

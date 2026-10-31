@@ -51,12 +51,12 @@ so they are **never pooled into one chart or comparison**. Details: [`data/READM
 | Screen | Status | What it does |
 |---|---|---|
 | Overview | built | What the site can answer, one primary action; dataset status that separates **human sign-off (0 of 263)** from each automated check with exact counts; the three experiment families and how each was measured; two question-led charts with "how to read" and "included / left out" notes |
-| Investigations | built | All 24 NASA PSI combustion investigations: ranked for "Spacecraft / ISS" or "Moon base / rover" with a printed rule (every point names its evidence); O2-range and O2-vs-pressure charts with the brief's Moon-base zone; a page per investigation (NASA's objective/approach/hypothesis/impacts, hardware, what its table records, O2 and pressure ranges with source columns, publications, DOI); side-by-side comparison of 2-3 investigations |
+| Investigations | built | Browse by fire-safety need (prevention / detection / suppression, Flare AI's classification) then rank for a habitat; coverage levels (test records / NASA table summarised / description only) and known gaps (no partial-gravity data, no prediction claim); audit of every study the brief names; score inputs shown beside each score, tagged NASA data / Flare AI label / brief ("relevance, not safety"); plain-language summaries (ours) beside NASA's stated impact. All 24 NASA PSI combustion investigations: ranked for "Spacecraft / ISS" or "Moon base / rover" with a printed rule (every point names its evidence); O2-range and O2-vs-pressure charts with the brief's Moon-base zone; a page per investigation (NASA's objective/approach/hypothesis/impacts, hardware, what its table records, O2 and pressure ranges with source columns, publications, DOI); side-by-side comparison of 2-3 investigations |
 | Flame Explorer | built | Search and filters with active-filter chips and one-click reset, record count next to the filters, sticky headings, rows open with click or Enter, stacked cards on phones; O2 start tagged with its method |
 | Test pages | built | One header with identity, check status, sign-off state, source reference and actions (open NASA's PDF at the page, or NASA's dataset page + the exact NASA file served by this site + DOI); flags; a provenance table (value, NASA's field name, unit as recorded, conversion); technical setup and raw text lower down |
 | Compare | built | Worked, limited and refusal examples for first-time users; "before charting" panel (source, method, units, missing/suspect fields); start/end bars, change chart, flow-direction donut; each chart lists what it left out, tagged by reason; refusals list which conditions failed (experiment, oxygen method, units) |
 | About | built | Rules, all sources, known limits, AI disclosure |
-| Intelligence Lab | planned | Question answering over the records with an evidence grade |
+| Intelligence Lab | built | Plain-English questions answered by Claude **only from retrieved Flare AI documents** (test records, NASA PSI texts, brief facts); every point cited and labelled NASA record / NASA text / brief / AI interpretation; invalid citations dropped; evidence grade computed by a fixed rule; abstains when unsupported; no probabilities. Runs in a Netlify Function so the API key never reaches the browser (see docs/DEPLOY.md); offline it falls back to keyword search |
 | Scenario Check + PDF brief | planned | Explainable nearest-test screening that abstains |
 
 ## How the data flows
@@ -81,7 +81,9 @@ data/            working CSVs, sources.csv, source/ (report text + NASA PSI file
 scripts/         fetch_psi_catalog.py (refresh PSI metadata + tables), build_catalog.py (investigation catalogue), extract_bass2.py, crosscheck_bass2.py, pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py, build_site_data.py
 tests/           site_smoke_test.py, previewer_nav_test.py, crosscheck_mutation_test.py, pdfcheck_mutation_test.py, psi_import_test.py
 docs/            DEPLOY.md, HANDOFF_PROMPT.md (full brief for any AI), WORKLOG.md (append-only log)
-netlify.toml     static hosting config (publish site/, security headers)
+netlify.toml     static hosting config (publish site/, security headers, functions directory)
+netlify/functions/ask/   Intelligence Lab server function (core.mjs logic, ask.mjs entry, corpus.mjs generated)
+package.json     dependencies of the function only (@anthropic-ai/sdk, @netlify/blobs); the site needs no build
 ```
 
 ## Tests
@@ -89,8 +91,10 @@ netlify.toml     static hosting config (publish site/, security headers)
 ```bash
 pip install playwright openpyxl
 python scripts/build_site_data.py
-python tests/site_smoke_test.py            # 79 browser checks (incl. all 24 investigation pages): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
+python tests/site_smoke_test.py            # 85 browser checks (incl. all 24 investigation pages): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
 python tests/previewer_nav_test.py         # in-app links survive an injected <base> tag
+python tests/lab_ui_test.py                # Intelligence Lab page with a simulated server reply
+npm install && node tests/lab_function_test.mjs   # Lab function logic with a fake Claude client (no key needed)
 python tests/crosscheck_mutation_test.py   # the cross-check catches corrupted rows
 python tests/pdfcheck_mutation_test.py     # the PDF comparison catches corrupted rows
 python tests/psi_import_test.py            # edited PSI records drop to unchecked

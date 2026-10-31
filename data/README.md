@@ -98,7 +98,10 @@ itself would pass. Only a person with the PDF can verify.
   licence, sub-area, platform, hardware, dates, objective, approach, hypothesis, research impacts, publications), verbatim,
   with the retrieval date. `source/psi/tables/`: each investigation's NASA experiment table as served (also copied to the site).
 - `investigations_curated.csv`: OUR labels per investigation (fuel class, fire-safety area, how the challenge brief mentions it,
-  scale) with a `basis` column. Shown on the site as interpretation.
+  scale, evidence type direct/related/context, one-line plain-language summary written from NASA's objective text) with a
+  `basis` column. Shown on the site as interpretation.
+- `build_site_data.py` also writes `netlify/functions/ask/corpus.mjs` (the Intelligence Lab's search corpus: checked records,
+  investigation summaries, NASA PSI text chunks, a few brief facts). Generated; never hand-edit.
 - `build_catalog.py` reads O2 and pressure only from the columns listed in its `COND` map (e.g. FLEX "O initial ambient
   composition; mole fraction" and "Ambient pressure; mmHg"; CFI-G "XO2 before test" and "approx p (bar)"). Conversions are
   arithmetic (fraction x100; mmHg/atm/bar to psi). Non-numeric cells are listed, not guessed (e.g. ACME BRE "2100%").
