@@ -37,6 +37,10 @@ MANUAL = {
     "BASSII-O16": ["14.5", "14.5", "13.4", "13.4", "0.27", "0.32", "2", "33"],
     "BASSII-T3": ["17.2", "16.8", "16.3", "15.9", "0.42", "0.7", "45", "113"],
 }
+# material | igniter | flow restrictor + flow mode ... (igniter is "Integral" or a number like -22, 39, 0020-23)
+SPLIT = re.compile(
+    r"^(?P<mat>.+?)\s+(?P<ign>(?:Integral|Integrated)|[\u2013-]?\d[\d\u2013-]*(?:,?\s*(?:broke,?\s*)?[\u2013-]\d+)*)"
+    r"\s+(?P<rest>\d\s+(?:Opposed|Concurrent|Stagnation|\?).*)$")
 MODE = re.compile(r"\b(Opposed|Concurrent|Stagnation)\b")
 
 
@@ -111,10 +115,19 @@ def main():
             rec["parse_ok"] = "manual"
         mm = MODE.search(before)
         rec["flow_mode"] = mm.group(1) if mm else ""
-        ig = re.search(r"\b(Integral|Integrated)\b", before)
-        rec["material_raw"] = before[:ig.start()].strip() if ig else before[:60]
-        rec["setup_raw"] = before[ig.start():].strip() if ig else ""
+        sp = SPLIT.match(before)
+        if sp:
+            rec["material_raw"] = sp.group("mat").strip()
+            rec["setup_raw"] = (sp.group("ign") + " " + sp.group("rest")).strip()
+            mat_ok = True
+        else:
+            ig = re.search(r"\b(Integral|Integrated)\b", before)
+            mat_ok = bool(ig)
+            rec["material_raw"] = before[:ig.start()].strip() if ig else before.strip()
+            rec["setup_raw"] = before[ig.start():].strip() if ig else ""
         flags = []
+        if not mat_ok:
+            flags.append("material_check")
         if not rec["flow_mode"]:
             flags.append("flow_mode_not_stated")
         try:

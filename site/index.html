@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flare AI: evidence-graded fire safety from NASA microgravity data</title>
+  <meta name="description" content="Flare AI organises NASA microgravity combustion test records, labels how strong the evidence is, and says so when the data runs out.">
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="preview-banner" class="preview-banner" hidden role="alert"></div>
+
+  <header class="top">
+    <div class="top-inner">
+      <div class="brandline">
+        <span class="org">628 AEROSPACE</span>
+        <span class="online"><i></i> SYSTEM ONLINE</span>
+      </div>
+      <div class="bar">
+        <a class="brand" href="#/" aria-label="Flare AI home">
+          <svg viewBox="0 0 24 32" width="20" height="26" aria-hidden="true">
+            <path d="M12 1c1 6 8 9 8 18a8 8 0 0 1-16 0c0-4 2-6 3-8 .5 2 1.5 3 3 3C9 9 11 5 12 1z" fill="currentColor"/>
+          </svg>
+          <span>Flare <b>AI</b></span>
+        </a>
+        <nav id="nav" aria-label="Main">
+          <a href="#/" data-route="overview">Overview</a>
+          <a href="#/explorer" data-route="explorer">Flame Explorer</a>
+          <a href="#/about" data-route="about">About</a>
+          <span class="soon" title="Planned for the next build">Compare</span>
+          <span class="soon" title="Planned for the next build">Intelligence Lab</span>
+          <span class="soon" title="Planned for the next build">Scenario Check</span>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1"></main>
+
+  <footer class="foot">
+    <p>Flare AI is a research-navigation tool. It does not calculate fire probabilities or certify safety.
+       Data: NASA Technical Reports Server. NASA does not endorse this project.</p>
+  </footer>
+
+  <noscript><p class="noscript">Flare AI needs JavaScript to show NASA test records.</p></noscript>
+  <script src="data/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -11,7 +11,9 @@ Where this file and the repo disagree, **the repo is the truth**; fix this file 
   Lead's timezone: IST (UTC+05:30). They can recruit one outside specialist (e.g. UI designer) if you name the skill.
 - They are **not experts**. Explain things plainly. They must be able to **explain every number, model and
   claim to judges without you**. Never build something they cannot defend.
-- Stack comfort: **Python**. Everything is Python + Streamlit. Do not introduce React/FastAPI/Postgres.
+- Stack: Python data scripts + a **static website** (plain HTML/CSS/JS, no build step, no framework, no backend, opens by
+  double-clicking `site/index.html`). Streamlit was tried first and REMOVED (hard for the team to run/ship). Do not
+  reintroduce Streamlit, and do not add React, FastAPI or Postgres.
 - The lead's goal: **win** the NASA Space Apps Challenge 2026, challenge **"Flame in Freefall: AI-Powered
   Fire Safety Insights from Microgravity Combustion Data"**.
 - Brand: product name **Flare AI**, shown under the **628 AEROSPACE** header (studio name "Studio 628").
@@ -58,8 +60,8 @@ KEEP, 5 screens + About:
 | Overview | Intro + real counts computed from verified records, featured experiment, 3 key findings, quick links |
 | Flame Explorer | Search/filter (fuel/material, gravity env, program), experiment detail page with conditions, observations, source link. Each field tagged measured / published_conclusion / our_interpretation |
 | Compare | Pick 2-3 experiments, side-by-side table + one chart, missing-data flags; refuse incompatible comparisons |
-| Intelligence Lab | Q&A answering ONLY from verified records + cited NASA papers. Each answer: evidence grade (strong / thin / none), documents used, "insufficient data" when appropriate. Retrieval first; an LLM may only phrase retrieved evidence. **Must work with no API key** (fallback: show retrieved evidence directly) |
-| Scenario Check + Brief | User picks environment + material; an explainable model (decision tree or nearest-neighbour) predicts spread vs extinction **or abstains** when outside tested range; one button exports a PDF brief with citations. Never claims probabilities or safety |
+| Intelligence Lab | Q&A answering ONLY from verified records + cited NASA papers. Each answer: evidence grade (strong / thin / none), documents used, "insufficient data" when appropriate. Retrieval (keyword/TF-IDF in JavaScript) over verified records. A static site has no backend, so **no LLM calls from the browser** (an API key would leak); an optional serverless function could be added later. Must work with no API key |
+| Scenario Check + Brief | User picks environment + material; an explainable model (nearest-neighbour in JavaScript, or a small tree trained offline in Python and exported as JSON) predicts spread vs extinction **or abstains** when outside tested range; one button exports a PDF brief with citations. Never claims probabilities or safety |
 | About | Sources, credits, limitations, AI-use disclosure |
 
 CUT (do not rebuild unless the user insists): React/TypeScript/FastAPI/PostgreSQL; a Settings page; bookmarks;
@@ -67,42 +69,39 @@ research-activity feed; a separate Research Library page (merged into per-experi
 Safety Insights as its own page (merged into Scenario Check); many chart types.
 
 Visual identity: dark "mission control" look (reference screenshots were dark dashboards: navy/black, orange/coral
-accent, teal secondary). Theme tokens live in `.streamlit/config.toml`: primary `#ff6a2b`, bg `#0a0e17`,
-secondary bg `#121826`, text `#e6ebf5`. Header strip: "628 AEROSPACE · SYSTEM ONLINE". Keep it mostly CSS +
-consistent Plotly colors. A designer polishes in the last week.
+accent, teal secondary). Theme tokens are CSS variables at the top of `site/css/style.css`: accent `#ff6a2b`, bg `#0a0e17`,
+panel `#121826`, text `#e6ebf5`; label colours measured teal, published blue, interpretation amber. Header strip: "628 AEROSPACE · SYSTEM ONLINE". Charts are plain
+inline SVG (no chart library). A designer polishes in the last week.
 
 ## 5. Repo: `https://github.com/aaa628/flare-ai` (branch `main`, private for now)
 
 ```
 flare-ai/
-├── README.md                    principles, screens, run instructions, AI-use disclosure
-├── requirements.txt             streamlit>=1.40, pandas>=2.2, plotly>=5.24, scikit-learn>=1.5, reportlab>=4.2
-├── .gitignore                   ignores data/raw/, .env, secrets.toml, __pycache__ ...
-├── .streamlit/config.toml       dark theme tokens
-├── app/
-│   ├── Home.py                  Overview (metrics from overview_stats(); honest empty state)
-│   ├── data.py                  loaders: ONLY verified rows reach the app; overview_stats()
-│   └── pages/
-│       ├── 1_Flame_Explorer.py  search + filters + table (detail pages NOT built yet)
-│       └── 5_About.py           sources, limits, AI disclosure
+├── README.md                    principles, how to open the site, data flow, tests
+├── site/                        THE WEBSITE (static; double-click index.html)
+│   ├── index.html               shell: header (628 AEROSPACE · SYSTEM ONLINE), nav, footer
+│   ├── css/style.css            dark theme, all design tokens as CSS variables
+│   ├── js/app.js                hash router + views: Overview, Flame Explorer, test detail, About
+│   └── data/data.js             GENERATED by scripts/build_site_data.py (window.FLARE_DATA). Never hand-edit
 ├── data/
-│   ├── README.md                schema, verification workflow, known limits  <- READ IT
-│   ├── experiments.csv          THE single source of truth for the app. Currently EMPTY (header only)
-│   ├── sources.csv              source documents. Currently EMPTY (header only)
-│   ├── bass2_draft.csv          126 UNVERIFIED extracted BASS-II test rows (see section 6)
+│   ├── README.md                pipeline, verifier checklist, columns, known limits  <- READ IT
+│   ├── bass2_draft.csv          126 BASS-II test rows; THE working sheet; all UNVERIFIED so far
+│   ├── sources.csv              1 row (BASS-II report)
 │   └── source/TM-20210011385.txt  plain-text export of the NASA report (extraction input)
 ├── scripts/
-│   ├── extract_bass2.py         parses Appendix A tables -> bass2_draft.csv (deterministic; re-runnable)
-│   └── promote_verified.py      copies ONLY rows with verified_by+verified_date into experiments.csv
-└── docs/HANDOFF_PROMPT.md       this file
+│   ├── extract_bass2.py         parses Appendix A -> bass2_draft.csv (OVERWRITES it; deterministic)
+│   └── build_site_data.py       bass2_draft.csv + sources.csv -> site/data/data.js
+├── tests/site_smoke_test.py     Playwright headless-browser checks (29 pass at last run)
+└── docs/  HANDOFF_PROMPT.md (this file), WORKLOG.md (append-only log)
 ```
 
-Verified-only rule is enforced in `app/data.py::load_verified_experiments()` (row counts only if both
-`verified_by` and `verified_date` are non-empty). Do not weaken it.
+**Verified-only rule:** `scripts/build_site_data.py` sets `verified = true` only when `verified_by` AND `verified_date`
+are non-empty; `site/js/app.js` shows only verified rows unless the URL has `?preview=draft`, which shows everything under
+a loud red "UNVERIFIED" banner on every page. Do not weaken this. Pairs (`P3a`/`P3b`) are sorted naturally.
 
-`experiments.csv` columns: `id, program, title, fuel_material, material_form, gravity_env, oxygen_pct,
-pressure_kpa, flow_cm_s, duration_s, outcome, flame_observation, observation_label, source_id, source_page,
-source_url, verified_by, verified_date`. Blank = the source doesn't state it. **Never estimate.**
+Blank/"—" in the UI = the source doesn't state it. **Never estimate.** The detail page shows three labelled sections
+(Measured readings and log note; Published conclusion; Our interpretation) plus a Source card (report, Appendix A table,
+page, verification status).
 
 ## 6. The data (be precise)
 
@@ -117,6 +116,9 @@ B=Bhattacharjee 22 rows, F=Ferkul 4, P=Fernandez-Pello 27, M=Miller 20, O=Olson 
 IDs like `BASSII-B1`; pairs appear as `a`/`b` (`P3a`, `P3b`). Columns: id, pi, as_run_no, sample_no,
 material_raw, flow_mode, o2_cal_initial/final, o2_raw_initial/final, co2_initial/final, co_initial_ppm/final_ppm,
 observation, setup_raw, source_page, qc_flag, parse_ok, verified_by, verified_date, verifier_notes, raw_text.
+qc_flag values: hand_keyed, o2_final_reading_suspect, flow_mode_not_stated, o2_final_not_numeric, material_check.
+`material_raw` was once polluted with igniter/flow text for 62 rows; fixed (regex splits material | igniter | flow-restrictor+mode).
+Re-running extract_bass2.py overwrites verifier edits, so only re-run it before verification starts.
 
 **Everything in it is an unverified draft.** Known facts and traps:
 
@@ -129,8 +131,8 @@ observation, setup_raw, source_page, qc_flag, parse_ok, verified_by, verified_da
   parentheses; formats differ by investigator. Raw text is in `setup_raw`. **Do not treat fan settings as velocities.**
 - **No pressure** per test in these tables. **No `outcome`** (spread / extinguished / marginal) yet: coding it is
   *interpretation*, must be labelled `our_interpretation`, and must quote the supporting observation.
-- Observation text is NASA's test-log notes. Promotion script labels it `measured` ("as recorded in the log").
-- O2 columns: "calibrated" = calibrated against the station's gas analyzer; promotion uses `o2_cal_initial` as `oxygen_pct`.
+- Observation text is NASA's test-log notes. The site labels it **Measured** ("as recorded in the log").
+- O2 columns: "calibrated" = calibrated against the station's gas analyzer; the site shows both calibrated and raw columns and the Overview chart uses `o2_cal_initial`.
   Confirm the meaning of calibrated vs raw in the report text (Section 1.3 / Appendix B) before making claims.
 - Other sources (NOT yet pulled): NASA PSI psi.nasa.gov (CC0; BASS, BASS-II, Saffire, FLEX investigations),
   NTRS 20160000593 (2014 conference summary; **has no per-test table**, only experiment-level summaries and the
@@ -139,27 +141,28 @@ observation, setup_raw, source_page, qc_flag, parse_ok, verified_by, verified_da
 
 ## 7. Current status
 
-DONE:
-- Private-by-intent GitHub repo created by the user; scaffold + BASS-II draft pushed (commits `617d440`, `54e06ae`).
-- App skeleton syntax-checks. **It has NEVER been run** (the previous AI's sandbox could not install packages).
-  First task for the user's machine: `pip install -r requirements.txt && streamlit run app/Home.py`.
+DONE (repo `aaa628/flare-ai`, branch `main`):
+- Static site built and browser-tested (Overview with computed counts + SVG charts, Flame Explorer with search/filters,
+  per-test detail pages with evidence labels and source card, About; mobile-safe; zero console errors; 29/29 smoke checks).
+  Tested via file:// in headless Chromium. Not yet seen by the team on their own machines.
+- 126 BASS-II rows extracted with page citations and QC flags; none verified.
+- Streamlit prototype deleted.
 
-NOT DONE (in priority order):
-1. **Verification** of `bass2_draft.csv` by a human (the user's "data verifier" friend). This gates everything.
-   Workflow is in `data/README.md`. You can help by building a friendly helper (e.g. a Streamlit verification page
-   or a printable checklist), but **an AI must not stamp `verified_by`**. A real person checks the PDF.
-2. Run/fix the app locally; confirm Overview + Explorer render with real (verified) rows.
-3. `sources.csv` populated (at least the BASS-II report; one row per cited doc).
-4. Explorer: experiment **detail page** with the three-way label (measured / published_conclusion / our_interpretation).
-5. **Compare** page with the refusal logic for incompatible measurements and missing-data flags.
-6. **Outcome coding** (team-reviewed) so Scenario Check has labels; keep a `coding_rationale` quote.
-7. **Scenario Check**: simple explainable model + abstention. Be honest: ~126 rows, no clean velocity, no pressure
-   means the model is a *screening* tool over (O2 level, flow mode, material class). Show nearest real tests, state
-   the tested range, abstain outside it. Do NOT claim predictive accuracy you cannot cross-validate.
-8. **Intelligence Lab**: TF-IDF/keyword retrieval over verified records + paper text (works offline); optional LLM
-   phrasing behind an API key; evidence grade rule must be written down and visible. Pre-test the ~10 pitch questions.
-9. **PDF brief export** (reportlab) with citations and the limitations paragraph.
-10. Visual polish, deploy (Streamlit Community Cloud), 2-minute demo video, pitch script, slides, submission.
+NOT DONE (priority order):
+1. **Human verification** of `data/bass2_draft.csv` (the user's data-verifier friend). Gates everything. An AI must NOT stamp `verified_by`.
+   Helpful AI work: a verification helper UI/printable checklist.
+2. Team opens `site/index.html` (and `?preview=draft`) on their own machines and reports problems.
+3. Add `sources.csv` rows as sources are used (e.g. NTRS 20160000593 conference summary, Saffire reports, PSI investigations).
+4. **Compare** page: pick 2-3 tests, side-by-side table + one chart, missing-data flags, REFUSE incompatible comparisons
+   (e.g. different quantity/unit/method; fan settings vs true velocities). Add to nav (currently a "soon" placeholder).
+5. **Outcome coding** (team-reviewed) so Scenario Check has labels; store a `coding_rationale` quote; label `our_interpretation`.
+6. **Scenario Check**: explainable nearest-neighbour screening over (O2 level, flow mode, material class), with abstention and
+   the tested range stated. ~126 rows, no clean velocity, no pressure: do not claim predictive accuracy you cannot cross-validate.
+7. **Intelligence Lab**: in-browser keyword/TF-IDF retrieval over verified records + paper text; visible evidence-grade rule
+   (strong/thin/none); "insufficient data" answers; pre-test the ~10 pitch questions. No browser-side LLM calls.
+8. **PDF brief**: simplest robust route is a print stylesheet + `window.print()`, or jsPDF vendored locally.
+9. Polish, deploy (static host: Netlify/Vercel/Cloudflare Pages deploy a private repo free; GitHub Pages needs a public repo),
+   2-minute demo video, pitch script, slides, submission.
 
 ## 8. Planned timeline (from Oct 31)
 
@@ -195,7 +198,7 @@ Be factual. Do not delete old entries. This is how work stays continuous across 
 
 ## 10. Environment notes from the previous AI (may not apply to you)
 
-- Its sandbox blocked PyPI and could not run the app; `gh repo create` (GraphQL) was blocked; pushing needed the
+- Its sandbox blocked PyPI (so Streamlit could never be run there, one reason for the move to a static site); `gh repo create` (GraphQL) was blocked; pushing needed the
   Claude GitHub App installed on the user's repo. NASA PDF hosts were blocked from the sandbox, so the PDF was
   supplied by the user as a compressed text export (kept in `data/source/`).
 - If you have the same limits, ask the user to attach files or run commands locally and paste results.
