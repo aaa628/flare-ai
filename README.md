@@ -48,10 +48,10 @@ so they are **never pooled into one chart or comparison**. Details: [`data/READM
 
 | Screen | Status | What it does |
 |---|---|---|
-| Overview | built | What the site can answer, one primary action, dataset status with the evidence legend, the three experiment families and how each was measured, two question-led charts with "how to read" lines |
+| Overview | built | What the site can answer, one primary action; dataset status that separates **human sign-off (0 of 263)** from each automated check with exact counts; the three experiment families and how each was measured; two question-led charts with "how to read" and "included / left out" notes |
 | Flame Explorer | built | Search and filters with active-filter chips and one-click reset, record count next to the filters, sticky headings, rows open with click or Enter, stacked cards on phones; O2 start tagged with its method |
-| Test pages | built | Evidence card (how it was checked + source evidence side by side), flags, readings, log note, labels |
-| Compare | built | 2-4 tests from one experiment: "before charting" panel (source, method, units, missing/suspect fields), start/end bars, change chart, flow-direction donut; each chart lists what it left out; refuses across experiments |
+| Test pages | built | One header with identity, check status, sign-off state, source reference and actions (open NASA's PDF at the page, or NASA's dataset page + the exact NASA file served by this site + DOI); flags; a provenance table (value, NASA's field name, unit as recorded, conversion); technical setup and raw text lower down |
+| Compare | built | Worked, limited and refusal examples for first-time users; "before charting" panel (source, method, units, missing/suspect fields); start/end bars, change chart, flow-direction donut; each chart lists what it left out, tagged by reason; refusals list which conditions failed (experiment, oxygen method, units) |
 | About | built | Rules, all sources, known limits, AI disclosure |
 | Intelligence Lab | planned | Question answering over the records with an evidence grade |
 | Scenario Check + PDF brief | planned | Explainable nearest-test screening that abstains |
@@ -64,6 +64,7 @@ NASA PSI files (data/source/psi/) --import_psi.py--> data/bass1_psi.csv, saffire
                                                          build_site_data.py (re-runs the checks) --> site/data/data.js --> site/
 ```
 
+Run the smoke and previewer tests after any UI or routing change, and check the hosted site on desktop and phone.
 After any data change run `python scripts/build_site_data.py` (needs `pip install openpyxl`; the PDF comparison also
 needs `pdftotext` from poppler-utils) and commit `site/data/data.js`. A person verifies a record by comparing it with
 NASA's source and filling `verified_by` and `verified_date`; the checklist is in [`data/README.md`](data/README.md).
@@ -71,7 +72,8 @@ NASA's source and filling `verified_by` and `verified_date`; the checklist is in
 ## Repo layout
 
 ```
-site/            the website: index.html, css/style.css, js/app.js, data/data.js (generated)
+site/            the website: index.html, css/style.css, js/app.js, data/data.js (generated),
+                 sources/psi/ (byte-identical copies of NASA's PSI files, copied by build_site_data.py)
 data/            working CSVs, sources.csv, source/ (report text + NASA PSI files), README.md
 scripts/         extract_bass2.py, crosscheck_bass2.py, pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py, build_site_data.py
 tests/           site_smoke_test.py, previewer_nav_test.py, crosscheck_mutation_test.py, pdfcheck_mutation_test.py, psi_import_test.py
@@ -84,7 +86,7 @@ netlify.toml     static hosting config (publish site/, security headers)
 ```bash
 pip install playwright openpyxl
 python scripts/build_site_data.py
-python tests/site_smoke_test.py            # 59 browser checks: evidence labels, filters, Compare refusals, text alternatives, 390px layout
+python tests/site_smoke_test.py            # 69 browser checks: sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
 python tests/previewer_nav_test.py         # in-app links survive an injected <base> tag
 python tests/crosscheck_mutation_test.py   # the cross-check catches corrupted rows
 python tests/pdfcheck_mutation_test.py     # the PDF comparison catches corrupted rows

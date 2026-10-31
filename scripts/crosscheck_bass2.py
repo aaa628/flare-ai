@@ -54,7 +54,7 @@ def num(s):
 def table_pages():
     """{table number: (first page, last page)}: pages on which that table's own headings
     ("TABLE A.k.-..." and "TABLE A.k.-Concluded") appear in Appendix A of the source text."""
-    lines = SRC.read_text(errors="replace").splitlines()
+    lines = SRC.read_text(encoding="utf-8", errors="replace").splitlines()
     start = next(i for i, l in enumerate(lines) if l.startswith("Appendix A.\u2014Test Matrices") and i > 3000)
     end = next(i for i, l in enumerate(lines) if i > start and l.startswith("Appendix B.\u2014"))
     page = None

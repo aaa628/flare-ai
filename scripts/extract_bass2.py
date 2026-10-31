@@ -50,7 +50,12 @@ def clean(v):
 
 
 def main():
-    lines = SRC.read_text(errors="replace").splitlines()
+    import sys
+    if OUT.exists() and "--force" not in sys.argv:
+        sys.exit(f"{OUT} already exists and holds checked data (PDF/PSI check columns, fixes, any verifier edits).\n"
+                 "Re-extracting would overwrite it. Run with --force only if you really want to start again.")
+    # byte 0x02 stands in for a hyphen in the text export (found by comparing with the PDF on 2026-10-31)
+    lines = SRC.read_text(encoding="utf-8", errors="replace").replace("\x02", "-").splitlines()
     start = next(i for i, l in enumerate(lines)
                  if l.startswith("Appendix A.—Test Matrices") and i > 3000)
     end = next(i for i, l in enumerate(lines)
@@ -146,7 +151,7 @@ def main():
             "observation", "setup_raw", "source_page", "qc_flag", "parse_ok",
             "verified_by", "verified_date", "verifier_notes",
             "auto_checked_by", "auto_checked_date", "auto_check_notes", "raw_text"]
-    with OUT.open("w", newline="") as f:
+    with OUT.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)

@@ -162,6 +162,34 @@
     });
     return s;
   }
+  /* What a chart includes and leaves out, next to the chart (also read by screen readers). */
+  function chartNote(included, leftOut) {
+    return h("div", { class: "limits " + (leftOut ? "has" : "none"), role: "note" },
+      h("p", { class: "ln" }, h("b", null, "\u2713 Included: "), included),
+      leftOut ? h("p", { class: "ln" }, h("b", null, "! Left out: "), leftOut) : h("p", { class: "ln" }, h("b", null, "Left out: "), "nothing."));
+  }
+  function checkBreakdown() {
+    var rep = ALL.filter(fromReport), files = ALL.filter(function (r) { return !fromReport(r); });
+    var reviewed = rep.filter(function (r) { return /row-by-row review/.test(r.auto_check_notes || ""); }).length;
+    var differ = rep.filter(function (r) { return (r.psi_check || "").indexOf("DIFFERS") === 0; }).map(shortId);
+    var human = countLevel("human");
+    return h("div", { class: "checks-box" },
+      h("div", { class: "signoff-box " + (human ? "some" : "none") },
+        h("p", { class: "so-n" }, h("b", null, String(human)), " of " + ALL.length),
+        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source and signed by a team member."
+          : "No person has signed any record yet. Everything below is automated evidence, not a sign-off.")),
+      h("h3", { class: "mini-h" }, "Automated checks (evidence, not a sign-off)"),
+      h("ul", { class: "checks" },
+        h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
+          h("span", null, h("b", null, D.counts.pdf_match + " of " + rep.length), " BASS-II report records match NASA\u2019s PDF value for value: all 8 gas readings, the material and the full log note.")),
+        h("li", { class: "ck " + (differ.length ? "warn" : "ok") }, h("span", { class: "ck-i", "aria-hidden": "true" }, differ.length ? "!" : "\u2713"),
+          h("span", null, h("b", null, D.counts.psi_agree + " of " + rep.length), " also agree with NASA\u2019s own BASS-II spreadsheet (PSI-25)." +
+            (differ.length ? " " + differ.length + " disagree (" + differ.join(", ") + "); both values are shown on those records." : ""))),
+        h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
+          h("span", null, h("b", null, String(reviewed)), " flagged report rows passed only after a written row-by-row review; their flags stay visible.")),
+        h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
+          h("span", null, h("b", null, String(files.length)), " BASS-I, SAFFIRE and extra BASS-II records were copied from NASA\u2019s data files and are re-read from them on every build."))));
+  }
   function chartCard(question, unit, howTo, chart, extra) {
     return h("figure", { class: "card qcard" },
       h("figcaption", null, h("h3", null, question), h("span", { class: "unit-pill" }, unit)),
@@ -190,9 +218,9 @@
           h("a", { class: "textlink", href: "#/about" }, "How we handle evidence"))),
       h("aside", { class: "hero-side", "aria-label": "Dataset status" },
         h("h2", { class: "mini-h" }, "Dataset status"),
-        evidenceLegend(false),
-        h("p", { class: "note" }, (D.counts.pdf_match || 0) + " BASS-II records match NASA’s PDF value for value; " + (D.counts.psi_agree || 0) +
-          " also agree with NASA’s own spreadsheet, and the " + (D.counts.psi_differ || 0) + " places where NASA’s two sources disagree are flagged on those records.")));
+        checkBreakdown(),
+        h("h3", { class: "mini-h" }, "Check level of every record"),
+        evidenceLegend(true)));
 
     var srcRows = [["BASS-II", exps["BASS-II"] || 0], ["BASS-I", exps["BASS-I"] || 0],
       ["SAFFIRE", (exps["SAFFIRE-I"] || 0) + (exps["SAFFIRE-II"] || 0) + (exps["SAFFIRE-III"] || 0)]];
@@ -213,11 +241,11 @@
       var items = EXP_ORDER.filter(function (k) { return byExp[k]; }).map(function (k) { return { label: k, value: byExp[k] }; });
       var bands = [["13-15", 13, 15], ["15-17", 15, 17], ["17-19", 17, 19], ["19-21", 19, 21], ["21-23", 21, 23]];
       var hist = bands.map(function (b) { return { label: b[0] + " vol%", value: 0, lo: b[1], hi: b[2] }; });
-      var usable = 0;
+      var usable = 0, unconfirmed = 0;
       ROWS.forEach(function (r) {
         if (!fromReport(r)) return;
         var v = num(r.o2_cal_initial);
-        if (isNaN(v) || isNaN(num(r.o2_raw_initial))) return;
+        if (isNaN(v) || isNaN(num(r.o2_raw_initial))) { unconfirmed++; return; }
         usable++;
         hist.forEach(function (b) { if (v >= b.lo && v < b.hi) b.value++; });
       });
@@ -228,12 +256,15 @@
           chartCard("Which experiments does the evidence come from?", "records",
             "each bar is one experiment family; longer bar = more NASA test records available to explore.",
             barChart(items, { label: "Test records per experiment", unit: "records" }),
-            h("p", { class: "note" }, "SAFFIRE has few records but they are large, spacecraft-scale fires.")),
+            chartNote("all " + ROWS.length + " records shown on this site (human-verified + machine-checked), counted by experiment. SAFFIRE has few records, but they are large, spacecraft-scale fires.",
+              countLevel("none") ? countLevel("none") + " unchecked records (hidden)." : "")),
           chartCard("At what oxygen levels were BASS-II tests run?", "vol% O2",
             "each bar counts BASS-II tests that started in that oxygen band (normal air is about 21 vol%). Short bars mark thin evidence.",
             barChart(hist, { label: "BASS-II tests by starting oxygen band", unit: "tests", alt: true }),
-            h("p", { class: "note" }, "Calibrated starting O2 for " + usable + " BASS-II report records with a confirmed reading. Only " + low +
-              " tests started below 15 vol%, so conclusions about very low oxygen rest on little data. BASS-I and SAFFIRE measured O2 differently and are not mixed in."))));
+            chartNote(usable + " BASS-II report records, using the calibrated starting O2 (vol%) where a raw-sensor reading confirms it. Only " + low +
+              " started below 15 vol%, so conclusions about very low oxygen rest on little data.",
+              unconfirmed + " report records whose starting O2 is not confirmed; " + ((exps["BASS-II"] || 0) - ROWS.filter(fromReport).length) +
+              " PSI-only BASS-II tests (no raw column); all BASS-I and SAFFIRE records, because they recorded oxygen differently."))));
     } else {
       charts = h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No checked records yet"),
         h("p", { class: "muted" }, "Records appear here once they pass a check."),
@@ -316,7 +347,8 @@
           h("td", { class: "c-exp", "data-label": "Experiment" }, r.experiment + (r.pi ? " · " + r.pi : "")),
           h("td", { class: "c-mat", "data-label": "Material" }, r.material_raw),
           h("td", { class: "c-flow", "data-label": "Flow" }, r.flow_mode || "—"),
-          h("td", { class: "num c-o2", "data-label": "O2 start" }, o2 ? [o2, h("span", { class: "mtag" }, methodOf(r.experiment).tag)] : "—"),
+          h("td", { class: "num c-o2", "data-label": "O2 start" }, o2 ? [o2, h("span", { class: "mtag", title: methodOf(r.experiment).o2 }, methodOf(r.experiment).tag,
+            h("span", { class: "sr" }, ": " + methodOf(r.experiment).o2))] : "—"),
           h("td", { class: "num c-o2e", "data-label": "O2 end" }, (fromReport(r) && r.o2_cal_final) || "—"),
           h("td", { class: "obs", "data-label": "Note" }, obs, fl.length ? h("div", { class: "flags" }, fl) : null),
           h("td", { class: "go", "aria-hidden": "true" }, "›")));
@@ -354,45 +386,112 @@
         h("span", { class: "u" }, unit)));
   }
 
-  /* One card that puts the check type and the source evidence side by side. */
-  function evidenceCard(r) {
+  /* ---------- provenance: what NASA called each value, its unit, and anything we did to it ---------- */
+  function header(r, re) { var f = (r.fields || []).filter(function (x) { return re.test(x[0]); })[0]; return f ? f[0] : ""; }
+  function hval(r, re) { var f = (r.fields || []).filter(function (x) { return re.test(x[0]); })[0]; return f ? f[1] : ""; }
+  function pair(a, b) { return (a || "—") + " → " + (b || "—"); }
+  function provenance(r) {
+    if (fromReport(r)) return [
+      ["Oxygen, calibrated", pair(r.o2_cal_initial, r.o2_cal_final), "“Calibrated initial O2, vol%” / “Calibrated final O2, vol%” (Table " + (TABLE[parts(r.id).pi] || "A") + ")", "vol%", "As printed. No conversion."],
+      ["Oxygen, raw sensor", pair(r.o2_raw_initial, r.o2_raw_final), "“Initial O2, vol%” / “Final O2, vol%”", "vol%", "As printed. Never mixed with the calibrated column."],
+      ["Carbon dioxide", pair(r.co2_initial, r.co2_final), "“Initial CO2, vol%” / “Final CO2, vol%”", "vol%", "As printed."],
+      ["Carbon monoxide", pair(r.co_initial_ppm, r.co_final_ppm), "“Initial CO, ppm” / “Final CO, ppm”", "ppm", "As printed (“+OR” = over range)."],
+      ["Airflow", "not shown as a speed", "“Fan display”, “Air display” (setup columns)", "fan/potentiometer settings, formats vary by investigator", "Not converted to cm/s. Raw setup text is under Technical details."]];
+    if (r.experiment === "BASS-II") return [
+      ["Oxygen, calibrated", pair(hval(r, /^Calibrated initial O2/), hval(r, /^Calibrated final O2/)), "“" + header(r, /^Calibrated initial O2/) + "” / “" + header(r, /^Calibrated final O2/) + "”", "% by vol", "As written in NASA’s PSI table. No raw-sensor column in this table."],
+      ["Carbon dioxide", pair(hval(r, /^Initial CO2/), hval(r, /^Final CO2/)), "“" + header(r, /^Initial CO2/) + "” / “" + header(r, /^Final CO2/) + "”", "% by vol", "As written."],
+      ["Carbon monoxide", pair(hval(r, /^Initial CO \(/), hval(r, /^Final CO \(/)), "“" + header(r, /^Initial CO \(/) + "” / “" + header(r, /^Final CO \(/) + "”", "ppm", "As written."],
+      ["Airflow", r.airflow_raw || "—", "“Air display”", "not stated in the header", "As logged. Not converted."]];
+    if (r.experiment === "BASS-I") return [
+      ["Oxygen", (r.o2_vol_pct || "—") + " vol%", "“O2 % by volume” (group “ISS environment”) = " + (r.o2_raw || "blank"),
+        "a fraction (e.g. 0.221), although the header says “%”", "Multiplied by 100 for display. Long spreadsheet decimals rounded to 4 places and marked “(rounded)”."],
+      ["Airflow", r.airflow_raw || "—", "“Air display”", "not stated in the header", "As logged. Not converted. Fan settings (“Fan display”) are a separate column."],
+      ["Pressure", hval(r, /^pressure, atm/i) || "—", "“pressure, atm”", "atm", "As logged."],
+      ["Carbon dioxide", hval(r, /^CO2, mm Hg/i) || "—", "“CO2, mm Hg”", "mm Hg (partial pressure)", "As logged. Not comparable with BASS-II CO2 in vol%."]];
+    var o2h = header(r, /^Percent O2/), airh = header(r, /^Air Flow/);
+    return [
+      ["Oxygen", r.o2_raw || "no value", o2h ? "“" + o2h + "”" : "no O2 column in this table", o2h ? "%" : "—",
+        /Note 1/.test(o2h) ? "As printed. NASA’s Note 1: derived from measured CO2 production, referenced to the initial O2 reported by ISS." : o2h ? "As printed (a range or approximate value)." : "Nothing to show."],
+      ["Air flow", r.airflow_raw || "—", airh ? "“" + airh + "”" : "—", /cm\/s/.test(airh + r.airflow_raw) ? "cm/s" : "—", "As printed. A real velocity in this table, unlike BASS fan settings."],
+      ["Flow direction", r.flow_mode || "—", "“" + (header(r, /^(Flow )?Direction/i) || "Flow Direction") + "”", "—", "As printed."]];
+  }
+  function provenanceCard(r) {
+    return h("section", { class: "card prov", "aria-labelledby": "prov-h" },
+      h("div", { class: "prov-head" }, h("h3", { id: "prov-h" }, "Values and where they come from"), chip("measured", "Measured")),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), "each row shows the value as displayed, the column name NASA used, the unit as recorded, and anything Flare AI did to it. Most values are shown exactly as recorded."),
+      h("div", { class: "tablewrap flat" }, h("table", { class: "prov-t" },
+        h("thead", null, h("tr", null, ["Shown here", "Value", "NASA’s field name", "Unit as recorded", "Method / conversion"].map(function (t) { return h("th", { scope: "col" }, t); }))),
+        h("tbody", null, provenance(r).map(function (x) {
+          return h("tr", null, h("th", { scope: "row" }, x[0]), h("td", { class: "mono v" }, x[1]), h("td", null, x[2]), h("td", null, x[3]),
+            h("td", { class: /ultipl|derived|Not comparable/.test(x[4]) ? "conv" : "" }, x[4]));
+        })))));
+  }
+  function sourceLinks(r) {
+    var src = sourceOf(r), out = [];
+    if (fromReport(r)) {
+      if (r.source_href) out.push(h("a", { class: "btn", href: r.source_href, target: "_blank", rel: "noopener" }, "Open NASA’s PDF at page " + r.source_page + " ↗"));
+      if (src) out.push(h("a", { class: "textlink", href: src.url, target: "_blank", rel: "noopener" }, "Report record on NASA NTRS"));
+    } else {
+      var acc = r.source_id;
+      out.push(h("a", { class: "btn", href: "https://psi.nasa.gov/physci/repo/data/investigations/" + acc, target: "_blank", rel: "noopener" }, "Open NASA’s dataset page (" + acc + ") ↗"));
+      if (r.source_href) out.push(h("a", { class: "textlink", href: r.source_href, download: "" }, "Download the exact NASA file (row " + r.source_row + ")"));
+      if (src) out.push(h("a", { class: "textlink", href: src.url, target: "_blank", rel: "noopener" }, "DOI"));
+    }
+    return out;
+  }
+  /* Record header: identity, evidence status and source reference together, with the main actions. */
+  function recordHeader(r, meta, title) {
     var src = sourceOf(r), L = LEVEL[r.level] || LEVEL.none, checks = [];
     function c(state, text) { checks.push(h("li", { class: "ck " + state }, h("span", { class: "ck-i", "aria-hidden": "true" }, state === "ok" ? "✓" : state === "warn" ? "!" : "–"),
-      h("span", { class: "sr" }, state === "ok" ? "Passed: " : state === "warn" ? "Attention: " : "Pending: "), text)); }
-    var where, link, raw = null;
+      h("span", { class: "sr" }, state === "ok" ? "Passed: " : state === "warn" ? "Attention: " : "Not done: "), text)); }
+    var where;
     if (fromReport(r)) {
-      c(r.pdf ? "ok" : "warn", r.pdf ? "Automated comparison with NASA’s PDF: every reading, the material and the full log note match (report page " + r.source_page + ")."
+      c(r.pdf ? "ok" : "warn", r.pdf ? "Automated: every reading, the material and the full log note match NASA’s PDF (report page " + r.source_page + ")."
         : "Automated comparison with NASA’s PDF did not match: " + (r.pdf_check || "not run") + ".");
       var psi = r.psi_check || "";
-      if (psi.indexOf("agrees") === 0) c("ok", "Second NASA source: NASA’s own BASS-II spreadsheet (PSI-25) has the same sample no., calibrated O2, CO2 and CO.");
-      else if (psi) c("warn", "Second NASA source disagrees: " + psi.replace(/^DIFFERS: /, "") + ".");
+      if (psi.indexOf("agrees") === 0) c("ok", "Automated: NASA’s own BASS-II spreadsheet (PSI-25) has the same sample no., calibrated O2, CO2 and CO.");
+      else if (psi) c("warn", "Automated: NASA’s two sources disagree — " + psi.replace(/^DIFFERS: /, "") + ".");
       c(r.level === "none" ? "warn" : "ok", "Automated text cross-check: " + (r.auto_check_notes || "not run").replace(/\.$/, "") + ".");
-      where = "Appendix A, Table " + (TABLE[parts(r.id).pi] || "A") + ", report page " + (r.source_page || "?");
-      link = src ? h("a", { href: src.url, target: "_blank", rel: "noopener" }, "Open the report on NASA’s server") : null;
-      raw = h("details", null, h("summary", null, "Setup exactly as printed, and raw extracted text"),
-        h("pre", { class: "raw" }, "Setup: " + (r.setup_raw || "—") + "\n\nRow text: " + (r.raw_text || "—")));
+      where = "Appendix A, Table " + (TABLE[parts(r.id).pi] || "A") + ", report page " + (r.source_page || "?") + " (PDF page " + ((+r.source_page || 0) + 8) + ")";
     } else {
       c(r.level === "none" ? "warn" : "ok", r.level === "none" ? (r.auto_check_notes || "Could not be re-read from NASA’s file.") :
-        "Copied from NASA’s data file and re-read from it on every build: every value equals " + r.source_file + ", row " + r.source_row + ".");
-      if (r.experiment === "BASS-II") c("pending", "Not in the NASA report’s Appendix A, so there is no PDF row to compare with.");
-      where = r.source_file + ", row " + r.source_row;
-      link = src ? h("a", { href: src.url, target: "_blank", rel: "noopener" }, "Open the dataset (DOI)") : null;
+        "Automated: copied from NASA’s data file and re-read from it on every build; every value equals the file.");
+      if (r.experiment === "BASS-II") c("pending", "Not in the report’s Appendix A, so there is no PDF row to compare with.");
+      where = r.source_file.replace(", sheet", " · sheet") + " · " + (/xlsx/.test(r.source_file) ? "spreadsheet row " : "row ") + r.source_row;
     }
-    if (r.level === "human") c("ok", "Human-verified: " + r.verified_by + " compared it with NASA’s source on " + r.verified_date + ".");
-    else c("pending", "No team member has signed this record yet, so it is not “verified”.");
-    return h("section", { class: "card evidence lv-" + r.level, "aria-labelledby": "ev-h" },
-      h("div", { class: "ev-head" },
-        h("h2", { id: "ev-h", class: "mini-h" }, "Evidence"),
-        chip(L.cls, L.label),
-        h("p", { class: "ev-sum" }, r.level === "machine" ? "Machine-checked, not yet verified by a person." :
-          r.level === "human" ? "Verified by a person against NASA’s source." : "Unchecked. It is shown only in preview mode.")),
-      h("div", { class: "ev-body" },
-        h("div", null, h("h3", null, "How it was checked"), h("ul", { class: "checks" }, checks)),
-        h("div", null, h("h3", null, "Source evidence"),
+    var signed = r.level === "human";
+    return h("section", { class: "record-head lv-" + r.level, "aria-labelledby": "rec-h" },
+      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "← Flame Explorer")),
+      h("div", { class: "rh-top" },
+        h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, meta), h("h1", { id: "rec-h" }, title)),
+        h("div", { class: "rh-status" }, chip(L.cls + " big", L.label),
+          h("p", { class: "signoff " + (signed ? "yes" : "no") }, signed ? "✓ Signed by " + r.verified_by + " on " + r.verified_date
+            : "No person has signed this record. Automated checks below are evidence, not a sign-off."))),
+      h("div", { class: "rh-body" },
+        h("div", null, h("h2", { class: "mini-h" }, "How it was checked"), h("ul", { class: "checks" }, checks,
+          signed ? null : h("li", { class: "ck pending" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "–"), h("span", { class: "sr" }, "Not done: "),
+            "Human sign-off: not yet. A team member must compare this record with NASA’s source and sign it."))),
+        h("div", { class: "rh-src" }, h("h2", { class: "mini-h" }, "Source reference"),
           src ? h("p", { class: "src-t" }, src.title) : null,
           src ? h("p", { class: "note" }, src.type) : null,
           h("p", { class: "mono src-w" }, where),
-          link ? h("p", null, link) : null, raw)));
+          h("div", { class: "rh-actions" }, sourceLinks(r)))),
+      h("div", { class: "rh-foot" }, h("a", { class: "btn ghost", href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests →")));
+  }
+  function techCard(rows, raw) {
+    return h("details", { class: "card tech" }, h("summary", null, h("b", null, "Technical details"), h("span", { class: "muted" }, " — setup columns and the raw extracted text")),
+      rows ? h("dl", { class: "kv", style: "margin-top:12px" }, rows) : null, raw);
+  }
+  function labelCards(pubText, ourText) {
+    return h("div", { class: "cols" },
+      h("div", { class: "card" }, h("div", { class: "prov-head" }, h("h3", null, "Published conclusion"), chip("published", "Published")), h("p", { class: "note" }, pubText)),
+      h("div", { class: "card" }, h("div", { class: "prov-head" }, h("h3", null, "Our interpretation"), chip("interp", "Ours")), h("p", { class: "note" }, ourText)));
+  }
+  function obsCard(text) {
+    return h("div", { class: "card", style: "margin-top:14px" },
+      h("div", { class: "prov-head" }, h("h3", null, "What the team observed"), chip("measured", "Measured")),
+      h("blockquote", null, text || "No note recorded."),
+      h("p", { class: "note", style: "margin-top:8px" }, "Test-log note recorded by the NASA team, kept in their words."));
   }
 
   function viewDetail(id) {
@@ -403,98 +502,57 @@
         h("h1", null, "Record not found"),
         h("p", { class: "lead" }, "That test is not in the " + (PREVIEW ? "data." : "checked data. It may still need a check.")));
     }
-    if (!fromReport(r)) return viewDetailPsi(r);
-    var short = r.id.replace("BASSII-", "");
-    setTitle("Test " + short);
     var flags = flagsOf(r), callouts = [];
     if (flags.indexOf("o2_final_reading_suspect") >= 0) callouts.push(h("div", { class: "callout" },
-      h("b", null, "O2 reading suspect. "), "The final oxygen reading differs from the start by more than 3 vol%. " +
+      h("b", null, "! O2 reading suspect. "), "The final oxygen reading differs from the start by more than 3 vol%. " +
       "NASA's table shows this value, but it may be a sensor glitch. It is shown exactly as printed and should not be used for numeric analysis."));
     if (flags.indexOf("o2_cal_final_formula_artifact") >= 0) callouts.push(h("div", { class: "callout" },
-      h("b", null, "Final calibrated O2 is not a reading. "), "In NASA's table this number equals the starting calibrated O2 " +
+      h("b", null, "! Final calibrated O2 is not a reading. "), "In NASA's table this number equals the starting calibrated O2 " +
       "plus or minus the raw sensor value, a spreadsheet formula leftover (this is half of a paired a/b test). " +
       "It is shown exactly as printed and is never used in any calculation."));
     if (flags.indexOf("hand_keyed") >= 0) callouts.push(h("div", { class: "callout info" },
-      h("b", null, "Hand-keyed row. "), "This row's layout in the PDF was irregular, so its values were typed in by hand. Check it extra carefully."));
+      h("b", null, "! Hand-keyed row. "), "This row's layout in the PDF was irregular, so its values were typed in by hand. Check it extra carefully."));
     if (flags.indexOf("flow_mode_not_stated") >= 0) callouts.push(h("div", { class: "callout info" },
       h("b", null, "Flow mode not stated "), "in the extracted table row."));
-
     if ((r.psi_check || "").indexOf("DIFFERS") === 0) callouts.push(h("div", { class: "callout" },
-      h("b", null, "NASA\u2019s two sources disagree here. "), r.psi_check.replace(/^DIFFERS: /, "") +
-      ". Flare AI shows the report\u2019s value (it matches the PDF) and does not pick a winner. Treat this value with care."));
+      h("b", null, "! NASA’s two sources disagree here. "), r.psi_check.replace(/^DIFFERS: /, "") +
+      ". Flare AI shows the report’s value (it matches the PDF) and does not pick a winner. Treat this value with care."));
 
-    var tbl = TABLE[parts(r.id).pi] || "A";
+    if (!fromReport(r)) return viewDetailPsi(r, callouts);
+    var short = r.id.replace("BASSII-", "");
+    setTitle("Test " + short);
     return h("div", null,
-      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "← Flame Explorer"), " \u00b7 ", h("a", { href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests")),
-      h("div", { class: "detail-head" },
-        h("div", null,
-          h("p", { class: "mono muted", style: "margin:0 0 4px" }, "NASA BASS-II · " + r.pi + " · test " + short),
-          h("h1", { style: "margin:0" }, r.material_raw)),
-        levelChip(r)),
-      evidenceCard(r),
+      recordHeader(r, "NASA BASS-II · " + r.pi + " · test " + short, r.material_raw),
       callouts,
       h("div", { class: "cols" },
         h("div", { class: "card" },
-          h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Readings"), chip("measured", "Measured")),
+          h("div", { class: "prov-head" }, h("h3", null, "Readings"), chip("measured", "Measured")),
           h("p", { class: "note" }, "Gas readings before and after the test, as printed in NASA's table."),
           reading("Oxygen (calibrated)", r.o2_cal_initial, r.o2_cal_final, "vol%"),
           reading("Oxygen (raw sensor)", r.o2_raw_initial, r.o2_raw_final, "vol%"),
           reading("Carbon dioxide", r.co2_initial, r.co2_final, "vol%"),
           reading("Carbon monoxide", r.co_initial_ppm, r.co_final_ppm, "ppm")),
-        h("div", { class: "card" },
-          h("h3", null, "Test setup"),
-          h("dl", { class: "kv" },
-            h("dt", null, "Flow mode"), h("dd", null, r.flow_mode || "not stated"),
-            h("dt", null, "Sample no."), h("dd", null, r.sample_no),
-            h("dt", null, "As-run test no."), h("dd", null, r.as_run_no || "—"),
-            h("dt", null, "Investigator"), h("dd", null, r.pi)),
-          h("p", { class: "note", style: "margin-top:12px" },
-            "The report lists fan settings and, for some tests, velocity values in different formats. Flare AI does not convert them, so no flow speed is shown here."))),
-      h("div", { class: "card", style: "margin-top:14px" },
-        h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "What the team observed"), chip("measured", "Measured")),
-        h("blockquote", null, r.observation || "No note recorded."),
-        h("p", { class: "note", style: "margin-top:8px" }, "Test-log note recorded by the NASA team, kept in their words.")),
-      h("div", { class: "cols" },
-        h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Published conclusion"), chip("published", "Published")),
-          h("p", { class: "note", style: "margin-top:8px" }, "None attached to this single test. The report's conclusions are drawn across many tests; see Section 1.6 of the report.")),
-        h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Our interpretation"), chip("interp", "Ours")),
-          h("p", { class: "note", style: "margin-top:8px" }, "None yet. Whether the flame spread or went out will be coded by the team, labelled here, and shown with the supporting quote."))));
+        obsCard(r.observation)),
+      provenanceCard(r),
+      labelCards("None attached to this single test. The report's conclusions are drawn across many tests; see Section 1.6 of the report.",
+        "None yet. Whether the flame spread or went out will be coded by the team, labelled here, and shown with the supporting quote."),
+      techCard([h("dt", null, "Flow mode"), h("dd", null, r.flow_mode || "not stated"), h("dt", null, "Sample no."), h("dd", null, r.sample_no),
+        h("dt", null, "As-run test no."), h("dd", null, r.as_run_no || "—"), h("dt", null, "Investigator"), h("dd", null, r.pi),
+        h("dt", null, "Flow speed"), h("dd", null, "Not shown: the report lists fan settings and some velocities in mixed formats; Flare AI does not convert them.")],
+        h("pre", { class: "raw" }, "Setup: " + (r.setup_raw || "—") + "\n\nRow text: " + (r.raw_text || "—"))));
   }
 
-  function viewDetailPsi(r) {
-    var src = sourceOf(r);
+  function viewDetailPsi(r, callouts) {
     setTitle(r.experiment + " " + shortId(r));
-    var callouts = [];
     var kv = [];
     (r.fields || []).forEach(function (f) { kv.push(h("dt", null, f[0]), h("dd", null, f[1])); });
     return h("div", null,
-      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "\u2190 Flame Explorer"), " \u00b7 ", h("a", { href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests")),
-      h("div", { class: "detail-head" },
-        h("div", null,
-          h("p", { class: "mono muted", style: "margin:0 0 4px" }, "NASA " + r.experiment + " \u00b7 test " + shortId(r)),
-          h("h1", { style: "margin:0" }, r.material_raw || "Material not stated")),
-        levelChip(r)),
-      evidenceCard(r),
+      recordHeader(r, "NASA " + r.experiment + " · test " + shortId(r), r.material_raw || "Material not stated"),
       callouts,
-      h("div", { class: "cols" },
-        h("div", { class: "card" },
-          h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Key values"), chip("measured", "Measured")),
-          h("p", { class: "note" }, "As written in NASA\u2019s file. Nothing converted except where stated."),
-          reading("Oxygen", r.o2_raw, null, r.o2_vol_pct && r.o2_vol_pct !== r.o2_raw ? "(= " + r.o2_vol_pct + " vol%)" : ""),
-          reading("Airflow, as logged", r.airflow_raw, null, ""),
-          reading("Flow direction", r.flow_mode, null, ""),
-          h("p", { class: "note", style: "margin-top:8px" }, r.o2_note)),
-        h("div", { class: "card" }, h("h3", null, "Everything NASA recorded for this test"),
-          kv.length ? h("dl", { class: "kv" }, kv) : h("p", { class: "note" }, "No further values."))),
-      r.observation ? h("div", { class: "card", style: "margin-top:14px" },
-        h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "What the team observed"), chip("measured", "Measured")),
-        h("blockquote", null, r.observation),
-        h("p", { class: "note", style: "margin-top:8px" }, "Test-log note recorded by the NASA team, kept in their words.")) : null,
-      h("div", { class: "cols" },
-        h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Published conclusion"), chip("published", "Published")),
-          h("p", { class: "note", style: "margin-top:8px" }, "None attached to this single test.")),
-        h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Our interpretation"), chip("interp", "Ours")),
-          h("p", { class: "note", style: "margin-top:8px" }, "None yet."))));
+      provenanceCard(r),
+      r.observation ? obsCard(r.observation) : null,
+      labelCards("None attached to this single test.", "None yet."),
+      techCard(kv.length ? kv : null, h("p", { class: "note" }, "Every column NASA recorded for this test, as written in " + r.source_file + ", row " + r.source_row + ".")));
   }
 
   /* ---------- Compare ----------
@@ -746,6 +804,21 @@
         })))));
   }
 
+  /* The conditions a comparison must meet, each shown as passed or failed in plain language. */
+  function conditionList(picked) {
+    var exps = picked.map(function (r) { return r.experiment; }).filter(function (e, i, a) { return a.indexOf(e) === i; });
+    var o2 = picked.map(function (r) { return methodOf(r.experiment).o2; }), other = picked.map(function (r) { return methodOf(r.experiment).other; });
+    function same(a) { return a.every(function (x) { return x === a[0]; }); }
+    var conds = [
+      [exps.length === 1, "Same experiment", exps.length === 1 ? "all " + exps[0] : "mixes " + exps.join(" and ")],
+      [same(o2), "Same oxygen method", same(o2) ? o2[0] : "e.g. " + methodOf(exps[0]).tag + " vs " + methodOf(exps[1] || exps[0]).tag + " (see the panel below)"],
+      [same(other), "Same units for the other readings", same(other) ? "yes" : "e.g. CO2 in vol% vs mm Hg"]];
+    return h("ul", { class: "conds", "aria-label": "Comparison conditions" }, conds.map(function (c) {
+      return h("li", { class: c[0] ? "pass" : "fail" }, h("span", { class: "ci", "aria-hidden": "true" }, c[0] ? "\u2713" : "\u2715"),
+        h("span", { class: "sr" }, c[0] ? "Passed: " : "Failed: "), h("b", null, c[1] + ": "), c[2]);
+    }));
+  }
+
   function viewCompare(arg) {
     setTitle("Compare");
     ensureTip();
@@ -770,9 +843,29 @@
       var r = ROWS.filter(function (x) { return x.id === testSel.value; })[0];
       if (r) go2(picked.concat([r]));
     } }, full ? "4 tests max" : "+ Add test");
-    function preset(text, list) {
+    function rowsOf(list) {
       var rows = list.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean);
-      return rows.length === list.length ? h("button", { type: "button", class: "chip-btn", onclick: function () { go2(rows); } }, text) : null;
+      return rows.length === list.length ? rows : null;
+    }
+    var EXAMPLES = [
+      { kind: "worked", tag: "Worked example", title: "Same rod, two airflow settings", ids: ["BASSII-P13a", "BASSII-P13b"],
+        text: "Two BASS-II runs on the same 12.7-mm black rod in opposed flow. Same experiment and method, so every chart is drawn. Look at how much oxygen fell and CO rose in each run." },
+      { kind: "worked", tag: "Worked example", title: "Three opposed-flow rods", ids: ["BASSII-P1", "BASSII-P10", "BASSII-P12"],
+        text: "Comparable readings, but one rod is thicker, so Flare AI adds a \u201cread with care\u201d note about the material." },
+      { kind: "limited", tag: "Limited example", title: "Suspect and missing readings", ids: ["BASSII-P22a", "BASSII-P22b", "BASSII-O12"],
+        text: "Some values are flagged, missing or over range. Charts are drawn, and each one lists what it left out and why." },
+      { kind: "refused", tag: "Refusal example", title: "Two different experiments", ids: ["BASSII-B1", "BASSI-1-1"],
+        text: "BASS-II and BASS-I recorded oxygen and CO2 differently. Flare AI refuses to chart them together and shows which conditions failed." }];
+    function exampleCards(compact) {
+      return h("div", { class: "examples" + (compact ? " compact" : "") }, EXAMPLES.map(function (ex) {
+        var rows = rowsOf(ex.ids);
+        if (!rows) return null;
+        return h("button", { type: "button", class: "ex ex-" + ex.kind, onclick: function () { go2(rows); },
+          "aria-label": ex.tag + ": " + ex.title + ". " + ex.text },
+          h("span", { class: "ex-tag" }, (ex.kind === "refused" ? "\u2715 " : ex.kind === "limited" ? "! " : "\u2713 ") + ex.tag),
+          h("b", null, ex.title), compact ? null : h("span", { class: "ex-t" }, ex.text),
+          h("span", { class: "ex-ids" }, rows.map(function (r) { return r.experiment + " " + shortId(r); }).join(" vs ")));
+      }));
     }
     var toolbar = h("div", { class: "toolbar" },
       h("div", { class: "tb-l" }, h("h1", null, "Compare"),
@@ -785,15 +878,13 @@
         return h("span", { class: "pick" + (i === 0 ? " lead" : "") }, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r)),
           h("button", { type: "button", class: "x", "aria-label": "Remove " + shortId(r), onclick: function () { go2(picked.filter(function (x) { return x !== r; })); } }, "×"));
       }),
-      h("span", { class: "presets" }, h("span", { class: "muted" }, "Try"),
-        preset("Opposed-flow rods", ["BASSII-P1", "BASSII-P10", "BASSII-P12"]),
-        preset("Same rod, two flows", ["BASSII-P13a", "BASSII-P13b"]),
-        preset("SAFFIRE-II samples", ["SAFFIREII-2-5", "SAFFIREII-2-6", "SAFFIREII-2-8"]),
-        preset("A comparison we refuse", ["BASSII-B1", "BASSI-1-1"])));
+      picked.length >= 2 ? h("details", { class: "ex-drawer" }, h("summary", null, "Examples: worked, limited and refused comparisons"), exampleCards(true)) : null);
 
-    if (picked.length < 2) return h("div", { class: "cmp" }, toolbar, chipsRow, h("div", { class: "empty glass", style: "margin-top:18px" },
-      badge("swap", "lg"), h("h3", null, picked.length ? "Add at least one more test" : "Pick two or more tests"),
-      h("p", { class: "muted" }, "Choose an experiment and add tests, or start from one of the examples above.")));
+    if (picked.length < 2) return h("div", { class: "cmp" }, toolbar, chipsRow,
+      h("section", { class: "card vcard", style: "margin-top:18px", "aria-labelledby": "ex-h" },
+        cardHead("swap", picked.length ? "Add at least one more test, or start from an example" : "New here? Start from an example", null),
+        h("p", { class: "howto", id: "ex-h" }, "Each example opens a ready-made comparison. The refusal example shows what Flare AI does when tests should not be compared."),
+        exampleCards(false)));
 
     var groups = picked.map(shortId);
     var expsPicked = picked.map(function (r) { return r.experiment; }).filter(function (e, i, a) { return a.indexOf(e) === i; });
@@ -806,10 +897,11 @@
       return h("div", { class: "cmp" }, toolbar, chipsRow,
         h("div", { class: "refuse-card" }, badge("alert", "warn lg"),
           h("div", null, h("h3", null, "Flare AI won’t compare these numbers"),
-            h("p", null, "These tests come from different experiments (" + expsPicked.join(" and ") + "), and each measured things differently. " +
-              "BASS-II used a calibrated oxygen sensor in the test chamber; BASS-I logged the oxygen of the surrounding station air as a fraction; " +
-              "SAFFIRE gives approximate values or none. One chart would look precise and mean nothing."),
-            h("p", { class: "muted", style: "margin:0" }, "You can still read them side by side, or compare tests within one experiment."))),
+            h("p", null, "These tests come from different experiments (" + expsPicked.join(" and ") + "), and each recorded oxygen differently: " +
+              expsPicked.map(function (e) { return e + ": " + methodOf(e).o2.charAt(0).toLowerCase() + methodOf(e).o2.slice(1); }).join("; ") +
+              ". One chart would look precise and mean nothing."),
+            conditionList(picked),
+            h("p", { class: "muted", style: "margin:8px 0 0" }, "You can still read them side by side, or compare tests within one experiment."))),
         h("div", { class: "viz-grid" }, precheckCard(picked, [], true), tableCard));
     }
 
@@ -827,7 +919,9 @@
         if (!isNaN(v.n)) return;
         var wh = which ? which(i) : "";
         issues[i % picked.length].push(m.label + (wh ? " " + wh : "") + ": " + v.why);
-        out.push(groups[i % groups.length] + (wh ? " " + wh : "") + " \u2014 " + v.why);
+        var kind = /suspect|leftover/.test(v.why) ? "suspect reading" : /not confirmed/.test(v.why) ? "unconfirmed" : /approximate/.test(v.why) ? "approximate" :
+          /not a plain number/.test(v.why) ? "not a number" : "missing value";
+        out.push(h("span", null, h("span", { class: "why-tag" }, kind), " " + groups[i % groups.length] + (wh ? " " + wh : "") + " \u2014 " + v.why));
       });
       return h("div", { class: "limits " + (out.length ? "has" : "none"), role: "note" },
         out.length ? [h("b", null, "! Limited: "), out.length + " value" + (out.length === 1 ? "" : "s") + " left out of this chart. ", h("ul", null, out.map(function (t) { return h("li", null, t); }))]
@@ -941,6 +1035,10 @@
           "We never compare measurements that are not comparable, and we say so when we refuse.",
           "Where NASA did not test a condition, we say the data is insufficient instead of guessing.",
           "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
+      h("h2", null, "How records are checked"),
+      h("div", { class: "card" }, checkBreakdown(),
+        h("p", { class: "note", style: "margin:12px 0 0" }, "Automated checks compare our records with NASA\u2019s own documents and files; they catch copying errors but cannot judge the science. " +
+          "\u201cVerified\u201d is reserved for a team member who compares a record with NASA\u2019s source and signs it.")),
       h("h2", null, "Data sources"),
       (D.sources || []).map(function (x) {
         var n = ALL.filter(function (r) { return r.source_id === x.source_id; }).length;
@@ -963,7 +1061,6 @@
   }
 
   /* ---------- router ---------- */
-  function go(hash) { history.replaceState(null, "", location.pathname + location.search + hash); }
   function render() {
     var hash = location.hash || "#/";
     var seg = hash.replace(/^#\/?/, "").split("/");

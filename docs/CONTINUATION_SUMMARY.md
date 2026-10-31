@@ -1,3 +1,5 @@
+> **Historical snapshot (2026-10-31, commit c62b93d).** Superseded: the project has moved on (263 records from 6 sources, Compare built, relative asset links, Netlify). For the current state read `README.md`, `docs/HANDOFF_PROMPT.md` section 6 and the end of `docs/WORKLOG.md`.
+
 # FLARE AI: CONTINUATION SUMMARY (paste this whole file into the new Claude)
 
 Written 2026-10-31 (IST) by the previous Claude session, at the user's request, because the user is moving to a different account.
