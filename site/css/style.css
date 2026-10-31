@@ -107,3 +107,25 @@ pre.raw { white-space:pre-wrap; word-break:break-word; background:#101113; borde
  .filters .field.wide { grid-column:auto; } h1 { font-size:34px; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+/* About page: make the evidence rules easy to scan without changing its content. */
+main > div > h2 { margin-top:32px; padding-bottom:10px; border-bottom:1px solid #292a2d; }
+main > div > h2:first-of-type { margin-top:26px; }
+main > div > h2 + .card { border-radius:18px; background:linear-gradient(145deg,#1b1c1f,#151618); }
+main > div > h2 + .card ul { list-style:none; padding:0 !important; margin:0; }
+main > div > h2 + .card li {
+  position:relative; margin:0 !important; padding:13px 12px 13px 34px;
+  color:#d6d7db; border-bottom:1px solid #2b2c30; line-height:1.55;
+}
+main > div > h2 + .card li:last-child { border-bottom:0; }
+main > div > h2 + .card li::before {
+  content:""; position:absolute; left:12px; top:21px; width:8px; height:8px;
+  border-radius:50%; background:var(--measured); box-shadow:0 0 10px rgba(54,203,187,.28);
+}
+main > div > h2 + .card li:nth-child(3n + 2)::before { background:var(--published); box-shadow:0 0 10px rgba(114,167,255,.26); }
+main > div > h2 + .card li:nth-child(3n)::before { background:var(--interp); box-shadow:0 0 10px rgba(255,197,92,.24); }
+main > div > h2 + .card a { overflow-wrap:anywhere; }
+@media (max-width:480px) {
+  main > div > h2 + .card li { padding:12px 8px 12px 29px; }
+  main > div > h2 + .card li::before { left:9px; }
+}
