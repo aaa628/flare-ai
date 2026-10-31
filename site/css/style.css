@@ -514,3 +514,16 @@ ul.cov-list li b { font:700 18px var(--mono); } .cov-names { grid-column:1 / -1;
 .meaning .cols2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; } .meaning .cols2 p { margin:4px 0 8px; }
 @media (max-width:700px) { .need-tabs { grid-template-columns:1fr 1fr; } .meaning .cols2 { grid-template-columns:1fr; } }
 .lens-inline { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:4px 0 6px; } .lens-b.mini { padding:6px 12px; }
+
+/* ---------- Scenario Check ---------- */
+.need-tabs.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.liq { display:contents; } .liq.hide { display:none; }
+.scen-safe { align-self:end; font-size:13.5px; border-left:4px solid var(--interp); }
+.scen-out { display:grid; gap:12px; margin-top:14px; }
+.verdict { border-left:5px solid var(--line); } .verdict .v-h { font-size:17px; font-weight:700; margin:0 0 6px; }
+.verdict.v-ok { border-left-color:var(--ok); } .verdict.v-ok .v-h { color:var(--ok); }
+.verdict.v-thin { border-left-color:var(--interp); } .verdict.v-thin .v-h { color:var(--interp); }
+.verdict.v-none { border-left-color:var(--warn); } .verdict.v-none .v-h { color:var(--warn); }
+.scen-t td, .scen-t th { font-size:13px; }
+@media (max-width:700px) { .need-tabs.three { grid-template-columns:1fr; } }
+.scen-out > *, .scen-out .grid > *, .lab-out > * { min-width:0; }

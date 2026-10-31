@@ -293,3 +293,14 @@ Did:
 Verified by running: lab_function_test 18/18 (fake client); SDK request shape checked with a stub fetch (header + body);
   lab_ui_test 11/11 (simulated server); smoke 85/85; previewer 14/14; tamper tests ALL CAUGHT; all record pages OK; CSP OK.
 Not verified: a real Claude call (no key in this session) and the deployed function on Netlify.
+
+## 2026-11-01 13:00 IST - Claude
+Did:
+- MIT LICENSE (code and docs; NASA data keeps NASA's terms, stated in the file and README).
+- Scenario Check (#/scenario, nav link): fuel family (solid / liquid / gas), O2 %, pressure psi, FLEX fuel and diluent, presets
+  (ISS air, brief Moon base, brief spacesuit, FLEX high-O2). condOf() maps records to O2 % and psi (atm and mmHg converted; BASS-II
+  has no per-test pressure -> partial matches only). Verdicts: covered (>=3 in window), thin, partly covered, insufficient data.
+  Scatter chart with the match window, nearest-tests table with method tags, NASA test-end counts for FLEX, leave-one-out check
+  (k=5, same fuel: 74% agreement vs 68% always-Extinction), table-level investigations spanning the conditions, rules card.
+Verified by running: smoke 90/90 (5 new scenario checks); previewer 14/14; lab_ui 11/11; lab_function 18/18; tamper tests ALL
+  CAUGHT; all record pages OK; CSP OK; 1280/390 px screenshots, no overflow.

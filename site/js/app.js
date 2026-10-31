@@ -214,6 +214,7 @@
         h("h2", { class: "mini-h" }, "What this site can answer"),
         h("ul", { class: "answers" },
           h("li", null, h("b", null, "Which NASA investigations matter for a spacecraft or a Moon base?"), h("span", null, "All " + INV.length + " PSI combustion investigations, ranked with a visible rule. ", h("a", { href: "#/investigations" }, "Investigations"))),
+          h("li", null, h("b", null, "Has NASA tested conditions like mine?"), h("span", null, "Enter oxygen, pressure and fuel type to see the closest real tests, or an honest \u201cinsufficient data\u201d. ", h("a", { href: "#/scenario" }, "Scenario Check"))),
           h("li", null, h("b", null, "Can I just ask a question?"), h("span", null, "The Intelligence Lab answers in plain English from cited NASA records, and abstains when they don\u2019t support an answer. ", h("a", { href: "#/lab" }, "Intelligence Lab"))),
           h("li", null, h("b", null, "What happened in a specific NASA fire test?"), h("span", null, "Readings, the crew’s log note and the exact source page or file row.")),
           h("li", null, h("b", null, "How do tests compare, like for like?"), h("span", null, "Side by side within one experiment, with refusals when a comparison would mislead. ", h("a", { href: "#/compare" }, "Compare"))),
@@ -1547,6 +1548,200 @@
       h("p", { class: "note", style: "margin-top:14px" }, "Limits keep the service fair: a few questions per visitor per hour and a daily total. Repeat questions are answered from a cache. The Lab never estimates fire probabilities or certifies safety."));
   }
 
+  /* ---------- Scenario Check: closest real NASA tests to a set of conditions; abstains outside the tested range ---------- */
+  function testLabel(r) { var s = shortId(r); return s.indexOf(r.experiment) === 0 ? s : r.experiment + " " + s; }
+  function f1(n) { return (Math.round(n * 10) / 10).toString(); }
+  var MATCH = { o2: 1.5, psi: 1.5 }; /* match window: +-1.5 O2 percentage points and +-1.5 psi (proposal; shown on the page) */
+  var PSI = { atm: 14.6959, mmHg: 0.0193368 };
+  function condOf(r) {
+    var c = { r: r, o2: NaN, o2How: "", psi: NaN, pHow: "pressure not recorded", family: "", fuel: "", diluent: "", outcome: r.outcome_raw || "" };
+    if (r.experiment === "BASS-II") {
+      c.family = "solid";
+      if (fromReport(r)) { if (!isNaN(num(r.o2_raw_initial))) { c.o2 = num(r.o2_cal_initial); c.o2How = "calibrated chamber O2, vol%"; } }
+      else { c.o2 = num(fieldVal(r, /^Calibrated initial O2/)); c.o2How = "calibrated O2, % by vol (PSI table)"; }
+    } else if (r.experiment === "BASS-I") {
+      c.family = "solid"; c.o2 = num(r.o2_vol_pct); c.o2How = "logged O2 fraction ×100";
+      var pa = num((fieldVal(r, /^pressure, atm/i) || "").replace(" (rounded)", ""));
+      if (!isNaN(pa)) { c.psi = pa * PSI.atm; c.pHow = pa + " atm → psi"; }
+    } else if (r.experiment === "FLEX") {
+      c.family = "liquid"; c.fuel = /Methanol/.test(r.material_raw) ? "Methanol" : "Heptane";
+      c.o2 = num(r.o2_raw) * 100; c.o2How = "ambient O2 mole fraction ×100";
+      var mm = num(fieldVal(r, /^Ambient pressure/));
+      if (!isNaN(mm) && mm > 0) { c.psi = mm * PSI.mmHg; c.pHow = mm + " mmHg → psi"; }
+      var dil = { N2: num(fieldVal(r, /^N initial/)), CO2: num(fieldVal(r, /^CO initial/)), He: num(fieldVal(r, /^He initial/)) };
+      c.diluent = Object.keys(dil).sort(function (a, b) { return (dil[b] || 0) - (dil[a] || 0); })[0];
+    } else { c.family = "solid"; c.o2How = "approximate or none (SAFFIRE)"; }
+    return c;
+  }
+  var CONDS = null;
+  function conds() { if (!CONDS) CONDS = ROWS.map(condOf); return CONDS; }
+  function dist(a, o2, psi) {
+    var d2 = Math.pow((a.o2 - o2) / MATCH.o2, 2);
+    if (!isNaN(a.psi) && !isNaN(psi)) d2 += Math.pow((a.psi - psi) / MATCH.psi, 2);
+    return Math.sqrt(d2);
+  }
+  /* Leave-one-out check for FLEX: does the majority outcome of the 5 nearest other tests (same fuel) match NASA's label? */
+  var LOO = null;
+  function looFlex() {
+    if (LOO) return LOO;
+    var pool = conds().filter(function (c) { return c.family === "liquid" && !isNaN(c.o2) && !isNaN(c.psi) && c.outcome; });
+    var hit = 0, counts = {};
+    pool.forEach(function (c) { counts[c.outcome] = (counts[c.outcome] || 0) + 1; });
+    var base = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })[0];
+    pool.forEach(function (c) {
+      var nb = pool.filter(function (x) { return x !== c && x.fuel === c.fuel; }).map(function (x) { return { x: x, d: dist(x, c.o2, c.psi) }; })
+        .sort(function (a, b) { return a.d - b.d; }).slice(0, 5);
+      var v = {}; nb.forEach(function (n) { v[n.x.outcome] = (v[n.x.outcome] || 0) + 1; });
+      var pred = Object.keys(v).sort(function (a, b) { return v[b] - v[a]; })[0];
+      if (pred === c.outcome) hit++;
+    });
+    LOO = { n: pool.length, agree: Math.round(100 * hit / pool.length), base: base, baseRate: Math.round(100 * counts[base] / pool.length) };
+    return LOO;
+  }
+  function scenarioChart(pool, o2, psi, matches) {
+    var W = 640, H = 300, L = 52, R = 16, T = 14, B = 42;
+    var pts = pool.filter(function (c) { return !isNaN(c.o2) && !isNaN(c.psi); });
+    var xs = pts.map(function (c) { return c.o2; }).concat([o2]), ys = pts.map(function (c) { return c.psi; }).concat([psi]);
+    var x0 = Math.max(0, Math.floor(Math.min.apply(null, xs) - 3)), x1 = Math.ceil(Math.max.apply(null, xs) + 3);
+    var y0 = Math.max(0, Math.floor(Math.min.apply(null, ys) - 3)), y1 = Math.ceil(Math.max.apply(null, ys) + 3);
+    var x = function (v) { return L + (W - L - R) * (v - x0) / ((x1 - x0) || 1); }, y = function (v) { return T + (H - T - B) * (1 - (v - y0) / ((y1 - y0) || 1)); };
+    var inIds = {}; matches.forEach(function (m) { inIds[m.c.r.id] = 1; });
+    var summary = "Tested conditions: " + pts.length + " tests with oxygen and pressure recorded, oxygen " + x0 + " to " + x1 + "%, pressure " + y0 + " to " + y1 +
+      " psi. Your scenario: " + o2 + "% oxygen at " + psi + " psi. " + matches.length + " tests inside the match window.";
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
+    niceTicks(x0, x1, 6).forEach(function (t) { if (t < x0 || t > x1) return; s.appendChild(svg("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, class: "grid" })); s.appendChild(svg("text", { x: x(t), y: H - B + 16, "text-anchor": "middle", class: "tick" }, t + "%")); });
+    niceTicks(y0, y1, 5).forEach(function (t) { if (t < y0 || t > y1) return; s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(t), y2: y(t), class: "grid" })); s.appendChild(svg("text", { x: L - 8, y: y(t) + 4, "text-anchor": "end", class: "tick" }, t)); });
+    s.appendChild(svg("text", { x: (L + W) / 2, y: H - 6, "text-anchor": "middle", class: "xlab" }, "oxygen (%), each experiment’s own method"));
+    s.appendChild(svg("text", { x: 12, y: H / 2, transform: "rotate(-90 12 " + (H / 2) + ")", "text-anchor": "middle", class: "xlab" }, "pressure (psi, converted)"));
+    s.appendChild(svg("rect", { x: x(o2 - MATCH.o2), y: y(psi + MATCH.psi), width: x(o2 + MATCH.o2) - x(o2 - MATCH.o2), height: y(psi - MATCH.psi) - y(psi + MATCH.psi), class: "zone" }));
+    pts.forEach(function (c) {
+      var col = c.r.experiment === "FLEX" ? COLORS.s2 : COLORS.s1, hit = inIds[c.r.id];
+      s.appendChild(svg(hit ? "rect" : "circle", hit ? { x: x(c.o2) - 4, y: y(c.psi) - 4, width: 8, height: 8, rx: 1.5, fill: col, class: "mark", style: "--c:" + col, tabindex: 0,
+          "data-tip": testLabel(c.r) + ": " + f1(c.o2) + "% O2, " + f1(c.psi) + " psi" + (c.outcome ? ", NASA test end: " + c.outcome : "") + " (inside the window)" }
+        : { cx: x(c.o2), cy: y(c.psi), r: 3, fill: col, "fill-opacity": 0.45, class: "mark", style: "--c:" + col, tabindex: 0,
+          "data-tip": testLabel(c.r) + ": " + f1(c.o2) + "% O2, " + f1(c.psi) + " psi" + (c.outcome ? ", NASA test end: " + c.outcome : "") }));
+    });
+    s.appendChild(svg("line", { x1: x(o2), x2: x(o2), y1: T, y2: H - B, class: "target" }));
+    s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(psi), y2: y(psi), class: "target" }));
+    var nearRight = x(o2) > W - 140;
+    s.appendChild(svg("text", { x: nearRight ? x(o2) - 6 : x(o2) + 6, y: y(psi) - 6, "text-anchor": nearRight ? "end" : "start", class: "tlabel" }, "your scenario"));
+    return s;
+  }
+
+  function viewScenario(arg) {
+    setTitle("Scenario Check");
+    ensureTip();
+    var st = { family: "solid", o2: 21, psi: 14.7, fuel: "", diluent: "" };
+    (arg || "").split("&").forEach(function (kv) { var p = kv.split("="); if (p[0] in st) st[p[0]] = p[0] === "o2" || p[0] === "psi" ? parseFloat(p[1]) : decodeURIComponent(p[1] || ""); });
+    var out = h("div", { class: "scen-out", "aria-live": "polite" });
+    var o2In = h("input", { type: "number", id: "so2", min: 0, max: 100, step: 0.5, value: st.o2 });
+    var pIn = h("input", { type: "number", id: "spsi", min: 0, max: 60, step: 0.1, value: st.psi });
+    var fuelSel = h("select", { id: "sfuel" }, h("option", { value: "" }, "Any"), h("option", { value: "Methanol" }, "Methanol"), h("option", { value: "Heptane" }, "Heptane"));
+    var dilSel = h("select", { id: "sdil" }, h("option", { value: "" }, "Any"), h("option", { value: "N2" }, "Nitrogen (air-like)"), h("option", { value: "CO2" }, "Carbon dioxide"), h("option", { value: "He" }, "Helium"));
+    fuelSel.value = st.fuel; dilSel.value = st.diluent;
+    var liquidBox = h("div", { class: "liq" + (st.family === "liquid" ? "" : " hide") },
+      h("div", { class: "field" }, h("label", { for: "sfuel" }, "Droplet fuel"), fuelSel),
+      h("div", { class: "field" }, h("label", { for: "sdil" }, "Main diluent gas"), dilSel));
+    var fam = h("div", { class: "need-tabs three", role: "group", "aria-label": "Fuel type" },
+      [["solid", "Solid materials", "fabrics, plastics (BASS, BASS-II, SAFFIRE)"], ["liquid", "Liquid droplets", "methanol, heptane (FLEX)"], ["gas", "Gas flames", "ACME, SPICE, SLICE (table level only)"]].map(function (f) {
+        return h("button", { type: "button", class: "need" + (st.family === f[0] ? " on" : ""), "aria-pressed": st.family === f[0] ? "true" : "false", onclick: function () {
+          st.family = f[0]; Array.prototype.forEach.call(fam.querySelectorAll(".need"), function (b) { b.classList.toggle("on", b === this); b.setAttribute("aria-pressed", b === this ? "true" : "false"); }, this);
+          liquidBox.classList.toggle("hide", st.family !== "liquid"); run(); } }, h("b", null, f[1]), h("span", null, f[2]));
+      }));
+    function preset(label, o2, psi, note) {
+      return h("button", { type: "button", class: "chip-btn", title: note, onclick: function () { o2In.value = o2; pIn.value = psi; run(); } }, label);
+    }
+    function run() {
+      st.o2 = parseFloat(o2In.value); st.psi = parseFloat(pIn.value); st.fuel = fuelSel.value; st.diluent = dilSel.value;
+      try { history.replaceState(null, "", "#/scenario/family=" + st.family + "&o2=" + st.o2 + "&psi=" + st.psi + (st.family === "liquid" ? "&fuel=" + st.fuel + "&diluent=" + st.diluent : "")); } catch (e) { /* sandboxed previewers */ }
+      out.textContent = "";
+      if (isNaN(st.o2) || isNaN(st.psi) || st.o2 < 0 || st.o2 > 100 || st.psi <= 0) { out.appendChild(h("p", { class: "fwarn" }, "Enter oxygen between 0 and 100% and a pressure above 0 psi.")); return; }
+      out.appendChild(result());
+    }
+    function tableLevel() {
+      return INV.filter(function (v) { return (v.table_summaries || []).some(function (t) {
+        return t.o2_range_pct && t.p_range_psi && !/PLANNED/.test(t.o2_meaning || "") && st.o2 >= t.o2_range_pct[0] && st.o2 <= t.o2_range_pct[1] && st.psi >= t.p_range_psi[0] && st.psi <= t.p_range_psi[1]; }); });
+    }
+    function result() {
+      var tl = tableLevel();
+      var tlCard = h("section", { class: "card" }, h("h3", null, "Investigations whose NASA tables span these conditions"),
+        h("p", { class: "howto" }, "Table level, not individual tests: the oxygen and pressure ranges of these tables include your scenario, but that does not mean this exact combination was tested."),
+        tl.length ? h("ul", { class: "fn" }, tl.map(function (v) { return h("li", null, h("a", { href: "#/investigation/" + v.accession }, invName(v)), " — " + fuelLabel(fuelKey(v)) + (v.joint_tests ? "; " + v.joint_tests + " tests in the brief’s Moon-base zone" : "")); }))
+          : h("p", { class: "note" }, "None of the 24 PSI investigations’ tables span this oxygen and pressure."));
+      if (st.family === "gas") return h("div", null,
+        h("section", { class: "card verdict v-none" }, h("p", { class: "v-h" }, "! Gas flames: no individual test records in Flare AI yet"),
+          h("p", null, "Gas-flame investigations (ACME, SPICE, SLICE) are summarised at table level only. See which tables span your conditions below.")), tlCard);
+      var pool = conds().filter(function (c) { return c.family === st.family && (st.family !== "liquid" || ((!st.fuel || c.fuel === st.fuel) && (!st.diluent || c.diluent === st.diluent))); });
+      var usable = pool.filter(function (c) { return !isNaN(c.o2); });
+      var scored = usable.map(function (c) { return { c: c, d: dist(c, st.o2, st.psi), o2ok: Math.abs(c.o2 - st.o2) <= MATCH.o2, pok: !isNaN(c.psi) && Math.abs(c.psi - st.psi) <= MATCH.psi }; })
+        .sort(function (a, b) { return a.d - b.d; });
+      var full = scored.filter(function (m) { return m.o2ok && m.pok; }), partial = scored.filter(function (m) { return m.o2ok && isNaN(m.c.psi); });
+      var o2s = usable.map(function (c) { return c.o2; }), ps = usable.filter(function (c) { return !isNaN(c.psi); }).map(function (c) { return c.psi; });
+      var env = o2s.length ? "Tested range in Flare AI records: O2 " + f1(Math.min.apply(null, o2s)) + "\u2013" + f1(Math.max.apply(null, o2s)) + "%" +
+        (ps.length ? ", pressure " + f1(Math.min.apply(null, ps)) + "\u2013" + f1(Math.max.apply(null, ps)) + " psi" : ", pressure not recorded for these tests") + "." : "";
+      var cls, head, body;
+      if (full.length >= 3) { cls = "v-ok"; head = "✓ Covered: " + full.length + " NASA tests ran within ±" + MATCH.o2 + " points O2 and ±" + MATCH.psi + " psi of your scenario"; body = "Their recorded results are listed below."; }
+      else if (full.length) { cls = "v-thin"; head = "! Thin: only " + full.length + " NASA test" + (full.length > 1 ? "s" : "") + " within the match window"; body = "Too few to say much; read them individually."; }
+      else if (partial.length) { cls = "v-thin"; head = "! Partly covered: " + partial.length + " tests match the oxygen, but their pressure was not recorded"; body = "BASS-II tests ran on the ISS, but NASA’s table gives no per-test pressure, so the pressure part of your scenario cannot be checked."; }
+      else { cls = "v-none"; head = "✕ Insufficient data: no NASA test in Flare AI near these conditions"; body = "The available data does not cover this scenario, so Flare AI will not describe what would happen. The nearest tests are shown for orientation only."; }
+      var show = (full.length ? full : partial.length ? partial : scored).slice(0, 10);
+      var flexOut = null;
+      if (st.family === "liquid" && full.length) {
+        var oc = {}; full.forEach(function (m) { oc[m.c.outcome] = (oc[m.c.outcome] || 0) + 1; });
+        var loo = looFlex();
+        flexOut = h("section", { class: "card" }, h("div", { class: "prov-head" }, h("h3", null, "How these FLEX tests ended (NASA’s labels)"), chip("measured", "Measured")),
+          h("p", null, Object.keys(oc).map(function (k) { return oc[k] + " " + k; }).join(", ") + " — out of " + full.length + " tests in the window. Counts, not a probability."),
+          h("p", { class: "note" }, h("b", null, "How consistent are neighbouring tests? "), "For each of " + loo.n + " FLEX tests we hid its label and took the majority label of its 5 nearest other tests (same fuel): they agreed " +
+            loo.agree + "% of the time. Always guessing “" + loo.base + "” would score " + loo.baseRate + "%. " +
+            (loo.agree > loo.baseRate + 5 ? "So nearby tests carry some information, but this is a description of NASA’s data, not a prediction for real missions." : "So nearby tests add little beyond the most common label; treat neighbours as context only.")));
+      }
+      return h("div", null,
+        h("section", { class: "card verdict " + cls }, h("p", { class: "v-h" }, head), h("p", null, body), h("p", { class: "note" }, env)),
+        h("div", { class: "grid qgrid" },
+          chartCard("Where NASA tested, compared with your scenario", "% O2 vs psi",
+            "each dot is one test with both oxygen and pressure recorded (blue = BASS-I, orange = FLEX; the tooltip names it). Squares are inside the shaded match window around your scenario (the crosshair).",
+            scenarioChart(pool, st.o2, st.psi, full),
+            chartNote(pool.filter(function (c) { return !isNaN(c.o2) && !isNaN(c.psi); }).length + " tests with both oxygen and pressure (pressure converted to psi from atm or mmHg).",
+              pool.filter(function (c) { return isNaN(c.o2) || isNaN(c.psi); }).length + " tests without both values (BASS-II has no per-test pressure; SAFFIRE oxygen is approximate)."))),
+        h("section", { class: "card" }, h("h3", null, full.length ? "Tests inside the window" : partial.length ? "Tests matching oxygen (pressure not recorded)" : "Nearest tests (outside the window, for orientation)"),
+          h("div", { class: "tablewrap flat" }, h("table", { class: "side scen-t" },
+            h("thead", null, h("tr", null, ["Test", "Material", "O2 (method)", "Pressure", "Distance", "What NASA recorded", "Check"].map(function (t) { return h("th", { scope: "col" }, t); }))),
+            h("tbody", null, show.map(function (m) {
+              var r = m.c.r, note = m.c.outcome ? "Test end: " + m.c.outcome : (r.observation || "").slice(0, 110) + ((r.observation || "").length > 110 ? "…" : "");
+              return h("tr", null, h("th", { scope: "row" }, h("a", { href: "#/experiment/" + r.id }, testLabel(r))), h("td", null, r.material_raw),
+                h("td", null, f1(m.c.o2) + "% ", h("span", { class: "mtag" }, m.c.o2How)), h("td", null, isNaN(m.c.psi) ? "not recorded" : f1(m.c.psi) + " psi", h("span", { class: "mtag" }, m.c.pHow)),
+                h("td", { class: "num" }, m.d.toFixed(2)), h("td", null, note || "—"), h("td", null, levelChip(r)));
+            }))))),
+        flexOut, tlCard,
+        h("section", { class: "card" }, h("h3", null, "How Scenario Check decides"),
+          h("ul", { class: "rules" },
+            h("li", { class: "ok" }, h("b", null, "Match window: "), "±" + MATCH.o2 + " percentage points of oxygen and ±" + MATCH.psi + " psi (a proposal the team can tune). Distance = how many windows away a test is."),
+            h("li", { class: "ok" }, h("b", null, "Same fuel family only. "), "Solids are never matched with droplets; oxygen keeps each experiment’s own method (shown per test)."),
+            h("li", { class: "ok" }, h("b", null, "Conversions: "), "atm × 14.6959 and mmHg × 0.0193368 to psi; fractions × 100 to %. Nothing else is converted."),
+            h("li", { class: "warn" }, h("b", null, "Abstains "), "when no test lies inside the window, and never gives probabilities, risk scores or safety advice."))));
+    }
+    [o2In, pIn, fuelSel, dilSel].forEach(function (el) { el.addEventListener("change", run); });
+    var view = h("div", null,
+      h("div", { class: "page-head" },
+        h("div", null, h("h1", null, "Scenario Check"),
+          h("p", { class: "lead" }, "Describe the conditions you care about. Flare AI shows the closest real NASA tests, what NASA recorded in them, and says plainly when the data doesn’t reach that far.")),
+        h("div", { class: "card scen-safe" }, h("b", null, "A screening tool, not a safety tool. "), "It finds tests; it does not predict fires or certify materials.")),
+      h("section", { class: "card", style: "margin-top:16px" },
+        h("h2", { class: "mini-h" }, "1. Fuel type"), fam,
+        h("h2", { class: "mini-h" }, "2. Atmosphere"),
+        h("div", { class: "filters" },
+          h("div", { class: "field" }, h("label", { for: "so2" }, "Oxygen (%)"), o2In),
+          h("div", { class: "field" }, h("label", { for: "spsi" }, "Pressure (psi)"), pIn), liquidBox),
+        h("div", { class: "lab-ex" }, h("span", { class: "muted" }, "Presets:"),
+          preset("ISS / Earth air: 21%, 14.7 psi", 21, 14.7, "Sea-level air"),
+          preset("Moon base / rover (brief): 30%, 10.2 psi", 30, 10.2, "Challenge brief: 30% O2 or more at 10.2 psi or less"),
+          preset("Spacesuit (brief): 100%, 4.3 psi", 100, 4.3, "Challenge brief: spacesuits use 100% O2 at 4.3 psi"),
+          preset("FLEX high-O2 tests: 34%, 10.4 psi", 34, 10.4, "Close to the brief's Moon-base zone"))),
+      out);
+    setTimeout(run, 0);
+    return view;
+  }
+
   function viewAbout() {
     setTitle("About");
     return h("div", null,
@@ -1600,6 +1795,7 @@
     else if (route === "investigations") view = viewInvestigations(seg[1] || "");
     else if (route === "investigation") view = viewInvestigation(decodeURIComponent(seg[1] || ""));
     else if (route === "lab") view = viewLab();
+    else if (route === "scenario") view = viewScenario(seg.slice(1).join("/"));
     else { route = "overview"; view = viewOverview(); }
     main.textContent = "";
     main.appendChild(view);
