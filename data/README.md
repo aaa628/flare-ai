@@ -128,4 +128,4 @@ that value. The site's oxygen chart counts only rows that have both a calibrated
 ## Comparison rule
 
 Two measurements are only comparable if they share the same quantity, unit, and measurement method.
-The (planned) Compare screen refuses otherwise.
+The Compare screen refuses otherwise: it never charts tests from different experiments, and it leaves out flagged, non-numeric or approximate values, saying why next to each chart.

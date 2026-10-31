@@ -2,7 +2,7 @@
 
 Paste this whole file into the AI that is taking over. It is self-contained.
 **The repo is the source of truth.** If this file and the repo disagree, trust the repo, then fix this file and tell the user.
-Repo: https://github.com/aaa628/flare-ai (branch `main`, private). Last commit when this was written: `29f7112`.
+Repo: https://github.com/aaa628/flare-ai (branch `main`, private). Check `git log` for the latest commit.
 
 ---
 
@@ -89,7 +89,10 @@ flare-ai/
 ├── scripts/extract_bass2.py       parses Appendix A tables; OVERWRITES bass2_draft.csv (and the auto_* columns)
 ├── scripts/crosscheck_bass2.py    automated consistency check; fills auto_* columns only; never touches verified_*
 ├── scripts/build_site_data.py     CSV -> site/data/data.js; computes `verified`
-├── tests/site_smoke_test.py       Playwright headless checks (29 pass at last run; serves raw.githubusercontent asset URLs from local files)
+├── tests/site_smoke_test.py       Playwright headless checks (59 pass at last run, 2026-11-01)
+├── tests/pdfcheck_mutation_test.py, tests/psi_import_test.py   tamper tests for the PDF comparison and the PSI import
+├── scripts/pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py  PDF comparison, PSI spreadsheet comparison, PSI import
+├── netlify.toml, docs/DEPLOY.md   static hosting (publish site/) and how to run/deploy
 ├── tests/previewer_nav_test.py    simulates a <base>-tag previewer; 14 checks guard in-app navigation
 ├── tests/crosscheck_mutation_test.py  corrupts rows 8 ways; the cross-check must reject every one
 └── docs/HANDOFF_PROMPT.md, docs/WORKLOG.md
@@ -136,7 +139,7 @@ PSI API used: https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-NN (metad
 
 DONE
 - Static site (Overview with computed counts + 2 SVG charts + label legend; Explorer with search / investigator / flow mode / starting-O2 filters and natural sort; detail page with Measured readings, log note, Published conclusion, Our interpretation, Source card, QC callouts, raw-text drawer; About). Empty state when 0 verified; `?preview=draft` banner mode.
-- Tested in headless Chromium from `file://`: 29/29 checks, zero console errors, desktop + 390px screenshots reviewed. **Not yet seen on the team's machines / Safari / Firefox.**
+- Tested in headless Chromium from `file://`: 59/59 smoke checks (2026-11-01), every one of the 263 record pages opened without errors, desktop + 390px screenshots reviewed. **Not yet seen on the team's machines / Safari / Firefox.**
 - 126 rows extracted + QC-flagged; automated cross-check cleared 104 strictly + 22 via row-by-row review = 126 (labelled "machine-checked" on the site); **0 human-verified**.
 
 BLOCKED ON HUMANS
@@ -174,7 +177,7 @@ The rule itself must be visible in the UI.
 Proposal: categories `sustained_spread`, `extinguished`, `no_sustained_ignition`, `unclear`. Every code stores `coding_rationale` (a quote from `observation`), coder + reviewer initials, and is labelled **our_interpretation** on screen. Two people agree before it counts. `material_class` (e.g. PMMA film / rod / slab, Nomex, SIBAL fabric, wax) is also interpretation; label it.
 
 ### 7.6 Scenario Check
-Explainable **nearest-neighbour screening** in JavaScript (or a tiny tree trained offline in Python and exported as JSON). Inputs: starting O2 (vol%), flow mode, material class. Output: the nearest verified tests with their outcomes, the evidence grade, and the **tested range**; **abstain** when nothing verified lies within range (suggested: same class + O2 within +-1.5 vol%; tune and document). Report honest leave-one-out agreement with caveats. **Never** show probabilities, risk scores or safety claims. ~126 rows, no velocity, no pressure: this is a screening tool, say so on screen.
+Explainable **nearest-neighbour screening** in JavaScript (or a tiny tree trained offline in Python and exported as JSON). Inputs: starting O2 (vol%), flow mode, material class. Output: the nearest verified tests with their outcomes, the evidence grade, and the **tested range**; **abstain** when nothing verified lies within range (suggested: same class + O2 within +-1.5 vol%; tune and document). Report honest leave-one-out agreement with caveats. **Never** show probabilities, risk scores or safety claims. ~263 records in three experiment families that must not be pooled (BASS-II has no velocity column and no per-test pressure; BASS-I has logged pressure and airflow): this is a screening tool, say so on screen.
 
 ### 7.7 Intelligence Lab
 Static site has no backend, so **no LLM calls from the browser** (a key would leak). Build in-browser keyword/TF-IDF retrieval over verified records (+ short cited passages from the NASA report text). Each answer shows: evidence grade, the records/passages used with links, and a clear split of "what NASA recorded" vs "our interpretation". Refuse to answer beyond the data. Pre-test the ~10 questions planned for the pitch. An optional serverless LLM wrapper can come later only if the user wants it.
@@ -226,7 +229,7 @@ Next step I recommend: <1-3 bullets>
 2. Problem: decades of NASA results are scattered and hard to compare for mission planners.
 3. Solution: Flare AI organizes verified NASA test records, grades the evidence, refuses to guess beyond it.
 4. 2-minute demo: Overview (real counts) -> Explorer record with source + labels -> Compare (include a refusal) -> Intelligence Lab answer with grade + an "insufficient data" case -> Scenario Check + PDF brief.
-5. Honesty slide: what was verified, by whom, how; and exactly what the data cannot tell you (no velocity, no pressure, one report so far).
+5. Honesty slide: what was verified, by whom, how; and exactly what the data cannot tell you (BASS-II has no velocity column and no per-test pressure; 6 NASA sources so far; 0 records human-verified unless the team signs them).
 
 ## 12. First 5 minutes when you start
 1. Read `README.md`, `data/README.md`, this file, `docs/WORKLOG.md`; run `git log --oneline | head` and `git ls-files`.

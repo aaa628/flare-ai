@@ -423,7 +423,6 @@
       h("b", null, "NASA\u2019s two sources disagree here. "), r.psi_check.replace(/^DIFFERS: /, "") +
       ". Flare AI shows the report\u2019s value (it matches the PDF) and does not pick a winner. Treat this value with care."));
 
-    var tbl = TABLE[parts(r.id).pi] || "A";
     return h("div", null,
       h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "← Flame Explorer"), " \u00b7 ", h("a", { href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests")),
       h("div", { class: "detail-head" },
@@ -462,7 +461,6 @@
   }
 
   function viewDetailPsi(r) {
-    var src = sourceOf(r);
     setTitle(r.experiment + " " + shortId(r));
     var callouts = [];
     var kv = [];
@@ -963,7 +961,6 @@
   }
 
   /* ---------- router ---------- */
-  function go(hash) { history.replaceState(null, "", location.pathname + location.search + hash); }
   function render() {
     var hash = location.hash || "#/";
     var seg = hash.replace(/^#\/?/, "").split("/");

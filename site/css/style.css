@@ -377,3 +377,9 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .limits.none b { color:var(--ok); }
 .limits ul { margin:4px 0 0; padding-left:18px; } .limits li { margin:2px 0; }
 .vcard .howto { margin:0 0 8px; }
+/* Phones: wrap the nav instead of hiding links off-screen; drop the "soon" placeholders. */
+@media (max-width:700px) {
+  nav { flex-wrap:wrap; overflow:visible; margin-left:0; gap:4px; }
+  nav a { padding:8px 11px; font-size:13.5px; }
+  nav .soon { display:none; }
+}

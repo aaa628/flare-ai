@@ -218,3 +218,17 @@ Verified by running: smoke 59/59 (new checks for legend counts, primary action, 
   opens a row, evidence card, before-charting panel, per-chart limits, text alternatives); previewer 14/14; crosscheck, pdfcheck,
   psi_import tests ALL CAUGHT; CSP from netlify.toml served locally: no errors; screenshots at 1280px and 390px reviewed, no overflow.
 Not done: actual Netlify deployment (needs the user's Netlify account).
+
+## 2026-11-01 04:00 IST - Claude
+Did (whole-repo review after PR #6 merged):
+- Fixed: crosscheck_bass2.py and extract_bass2.py read the NASA text without encoding="utf-8" (on Windows the em dash in
+  "Appendix A.—Test Matrices" would not match and the build would crash); extract_bass2.py also wrote the CSV without utf-8.
+- extract_bass2.py now refuses to overwrite data/bass2_draft.csv without --force, and maps byte 0x02 to "-" itself. Verified: a
+  fresh --force extraction reproduces the committed data fields exactly (sheet restored afterwards).
+- Phone nav wraps instead of hiding links off-screen; "soon" placeholders hidden under 700px.
+- Removed dead code (unused go(), tbl, src). Stale doc lines fixed (data/README Compare line, HANDOFF test counts/tree/limits);
+  CONTINUATION_SUMMARY marked as a historical snapshot.
+Verified by running: all 263 record pages + 10 Compare combinations + 4 main pages opened: no JS errors, no undefined/NaN in text;
+  full pipeline re-run reproduces committed data; smoke 59/59; previewer 14/14; 3 tamper tests ALL CAUGHT.
+Not checked: the live Netlify site (netlify.app is not in this session's allowed network domains; URL not known yet).
+Open: no LICENSE file (team decision).
