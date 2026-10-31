@@ -51,6 +51,7 @@ so they are **never pooled into one chart or comparison**. Details: [`data/READM
 | Screen | Status | What it does |
 |---|---|---|
 | Overview | built | What the site can answer, one primary action; dataset status that separates **human sign-off (0 of 263)** from each automated check with exact counts; the three experiment families and how each was measured; two question-led charts with "how to read" and "included / left out" notes |
+| Investigations | built | All 24 NASA PSI combustion investigations: ranked for "Spacecraft / ISS" or "Moon base / rover" with a printed rule (every point names its evidence); O2-range and O2-vs-pressure charts with the brief's Moon-base zone; a page per investigation (NASA's objective/approach/hypothesis/impacts, hardware, what its table records, O2 and pressure ranges with source columns, publications, DOI); side-by-side comparison of 2-3 investigations |
 | Flame Explorer | built | Search and filters with active-filter chips and one-click reset, record count next to the filters, sticky headings, rows open with click or Enter, stacked cards on phones; O2 start tagged with its method |
 | Test pages | built | One header with identity, check status, sign-off state, source reference and actions (open NASA's PDF at the page, or NASA's dataset page + the exact NASA file served by this site + DOI); flags; a provenance table (value, NASA's field name, unit as recorded, conversion); technical setup and raw text lower down |
 | Compare | built | Worked, limited and refusal examples for first-time users; "before charting" panel (source, method, units, missing/suspect fields); start/end bars, change chart, flow-direction donut; each chart lists what it left out, tagged by reason; refusals list which conditions failed (experiment, oxygen method, units) |
@@ -77,7 +78,7 @@ NASA's source and filling `verified_by` and `verified_date`; the checklist is in
 site/            the website: index.html, css/style.css, js/app.js, data/data.js (generated),
                  sources/psi/ (byte-identical copies of NASA's PSI files, copied by build_site_data.py)
 data/            working CSVs, sources.csv, source/ (report text + NASA PSI files), README.md
-scripts/         extract_bass2.py, crosscheck_bass2.py, pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py, build_site_data.py
+scripts/         fetch_psi_catalog.py (refresh PSI metadata + tables), build_catalog.py (investigation catalogue), extract_bass2.py, crosscheck_bass2.py, pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py, build_site_data.py
 tests/           site_smoke_test.py, previewer_nav_test.py, crosscheck_mutation_test.py, pdfcheck_mutation_test.py, psi_import_test.py
 docs/            DEPLOY.md, HANDOFF_PROMPT.md (full brief for any AI), WORKLOG.md (append-only log)
 netlify.toml     static hosting config (publish site/, security headers)
@@ -88,7 +89,7 @@ netlify.toml     static hosting config (publish site/, security headers)
 ```bash
 pip install playwright openpyxl
 python scripts/build_site_data.py
-python tests/site_smoke_test.py            # 69 browser checks: sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
+python tests/site_smoke_test.py            # 79 browser checks (incl. all 24 investigation pages): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
 python tests/previewer_nav_test.py         # in-app links survive an injected <base> tag
 python tests/crosscheck_mutation_test.py   # the cross-check catches corrupted rows
 python tests/pdfcheck_mutation_test.py     # the PDF comparison catches corrupted rows

@@ -127,6 +127,11 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 
 ## 6. Current status (update at the end of every session)
 
+**2026-11-01 update (investigations):** challenge brief (Details tab) pasted by the user: it names BASS, BASS-II, Saffire-I/II/III,
+SAME, SAME-R, FLEX (+FLEX-2, CFI, ACME x6, SPICE, SLICE, DAFT as related) and asks to summarise, rank and interpret PSI investigations
+for crew habitats incl. a Moon base at >=30% O2 and <=10.2 psi. Built the Investigations view (24 PSI investigations, ranking rule,
+O2/pressure charts, detail + compare pages). Resources tab opens Nov 13. Intelligence Lab ("SI-powered") still undecided.
+
 **2026-11-01 update (data):** FLEX added from NASA PSI-69: 274 ISS droplet tests with NASA's recorded test end; total 537 records
 from 7 sources (FLEX-2 PSI-68 listed, planned matrix only). See data/README.md "FLEX notes" (cp1252 file, lost subscripts = our interpretation).
 

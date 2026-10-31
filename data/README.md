@@ -92,6 +92,22 @@ readings are numeric and in plausible ranges; no QC flag. `tests/crosscheck_muta
 It does **not** compare anything with the PDF. The text it reads is a text export of the PDF, so an error introduced by that export
 itself would pass. Only a person with the PDF can verify.
 
+## Investigation catalogue (`scripts/fetch_psi_catalog.py`, `scripts/build_catalog.py`)
+
+- `source/psi/catalog/PSI-NN.json`: the PSI fields we use for each of the 24 Combustion Science investigations (title, DOI,
+  licence, sub-area, platform, hardware, dates, objective, approach, hypothesis, research impacts, publications), verbatim,
+  with the retrieval date. `source/psi/tables/`: each investigation's NASA experiment table as served (also copied to the site).
+- `investigations_curated.csv`: OUR labels per investigation (fuel class, fire-safety area, how the challenge brief mentions it,
+  scale) with a `basis` column. Shown on the site as interpretation.
+- `build_catalog.py` reads O2 and pressure only from the columns listed in its `COND` map (e.g. FLEX "O initial ambient
+  composition; mole fraction" and "Ambient pressure; mmHg"; CFI-G "XO2 before test" and "approx p (bar)"). Conversions are
+  arithmetic (fraction x100; mmHg/atm/bar to psi). Non-numeric cells are listed, not guessed (e.g. ACME BRE "2100%").
+  Inverse flames (Flame Design, CFI-G) record O2 in the burner flow, not the room; the site says so.
+- Moon-base zone from the brief: O2 >= 30 % and <= 10.2 psi in the same test. Result at the last build: ACME CFI-G 48 tests,
+  ACME Flame Design 18; FLEX's >=30 % O2 tests went down to 10.33 psi (near miss); solid-material investigations reached at
+  most 22.7 % O2 (a data gap for cabin materials in a Moon-base atmosphere).
+- The ranking rule lives in `site/js/app.js` (`relevance()`) and is printed on the Investigations page.
+
 ## Data from NASA PSI (`scripts/import_psi.py`)
 
 `build_site_data.py` also copies these files, unchanged, to `site/sources/psi/`, so every PSI record on the site can open

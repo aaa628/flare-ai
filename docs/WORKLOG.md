@@ -261,3 +261,18 @@ Did:
 Verified by running: import 274 rows; build 537/537 machine-checked; smoke 72/72; previewer 14/14; tamper tests ALL CAUGHT; all 537
   record pages + Compare + main pages: no errors; CSP served locally: no errors; 1280/390 px screenshots, no overflow.
 Not verified: the official challenge resource list itself (spaceappschallenge.org not reachable from this session).
+
+## 2026-11-01 09:00 IST - Claude
+Did:
+- Found that PR #7 had been merged before the FLEX commit was pushed; opened PR #8 for FLEX (I had wrongly said #7 included it).
+- Challenge Details text (pasted by the user) drives the next build. Resources tab: "available Friday, November 13".
+- scripts/fetch_psi_catalog.py: PSI metadata (verbatim fields) + experiment tables for all 24 Combustion Science investigations
+  -> data/source/psi/catalog/, data/source/psi/tables/. data/investigations_curated.csv: our labels with basis.
+- scripts/build_catalog.py: per-table O2 / pressure ranges from named columns, psi conversion, Moon-base-zone test counts,
+  lowest pressure among >=30% O2 tests, unparsed cells listed. build_site_data.py adds D.investigations and serves the tables.
+- Site: Investigations page (lens Spacecraft/ISS vs Moon base/rover, ranking with printed rule + per-point evidence, filters,
+  O2-range and O2-vs-pressure charts with the brief's zone, computed insight), investigation detail pages, investigation compare.
+  Test pages link to their investigation; Overview lists the new question.
+- Fixed: svg() helper now accepts numbers; class "top" clashed with the header (renamed "podium").
+Verified by running: build_catalog (24); smoke 79/79 (incl. all 24 investigation pages); previewer 14/14; tamper tests ALL CAUGHT;
+  all record pages: no errors; investigations pages at 1280/390 px: no errors, no overflow.
