@@ -70,7 +70,7 @@ NASA report text --scripts/extract_bass2.py--> data/bass2_draft.csv --(HUMAN ver
 - `data.js` is a `.js` file on purpose: browsers block `fetch()` of local JSON from `file://`.
 - Routing is hash-based (`#/`, `#/explorer`, `#/experiment/BASSII-P22a`, `#/about`). Query `?preview=draft` shows unverified rows under a red banner; it is also a **runtime switch** (`setPreview()` in `app.js`), so no reload or hand-built URL is needed.
 - **Navigation rule (learned the hard way):** hosted HTML previewers inject a `<base href>`; a bare `href="#/explorer"` then resolves to the raw GitHub file and opens unstyled text. `app.js` therefore handles every in-app link (`#/...`, `#main`) with ONE delegated click handler that sets `location.hash`. **Never build internal URLs from `location.pathname` / `location.href` strings or rely on the browser resolving `#...` links.** `tests/previewer_nav_test.py` simulates a previewer and guards this.
-- **Asset URLs:** the user (commit `dbadd1b`) pointed `index.html` at absolute `https://raw.githubusercontent.com/aaa628/flare-ai/main/site/...` so a hosted previewer loads them. Those only work inside such a previewer (raw hosts serve `text/plain` + `nosniff`, and a private repo's raw URLs 404). **Before real deployment (Netlify/Vercel/Cloudflare Pages/GitHub Pages) or double-click use, switch them back to relative paths (`css/style.css`, `data/data.js`, `js/app.js`).** The user also restyled `site/css/style.css`; keep their look.
+- **Asset URLs (resolved 2026-11-01):** `index.html` uses relative links again (`css/style.css`, `data/data.js`, `js/app.js`), so it works offline and on any static host. Demo host: Netlify (`netlify.toml`, publish `site`, no build). See `docs/DEPLOY.md`. Do not point assets at raw.githubusercontent.com (plain text + nosniff; 404 for private repos). The user restyled `site/css/style.css`; keep their look.
 
 ### Repo tree (verify with `git ls-files`)
 ```
@@ -123,6 +123,10 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 - Not yet pulled: NASA PSI (psi.nasa.gov, CC0: BASS, BASS-II, Saffire, FLEX), Saffire (unmanned spacecraft-scale fires; strong cabin-fire relevance).
 
 ## 6. Current status (update at the end of every session)
+
+**2026-11-01 update:** relative asset links + Netlify config; evidence legend (✓/◇/!) on Overview and Explorer; evidence card on
+test pages; Overview rebuilt around "what this site can answer"; Explorer filter chips, reset, sticky headings, phone cards;
+Compare "before charting" panel and per-chart "left out" notes; chart text alternatives and how-to-read lines. Smoke test 59 checks.
 
 **2026-10-31 update:** 263 records from 6 sources (BASS-II report 126 + PSI-only O20-O22, BASS-I 121, SAFFIRE-I/II/III 13).
 All machine-checked (PDF comparison for report rows, file re-read for PSI rows), 0 human-verified. See data/README.md.

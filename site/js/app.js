@@ -71,9 +71,7 @@
     return x.pi < y.pi ? -1 : x.pi > y.pi ? 1 : x.n - y.n || (x.s < y.s ? -1 : x.s > y.s ? 1 : 0);
   }
   function shortId(r) { return r.id.replace("BASSII-", "").replace(/^BASSI-/, "").replace(/^SAFFIRE(I+)-/, ""); }
-  function levelChip(r) {
-    return r.level === "human" ? chip("ok", "verified") : r.level === "machine" ? chip("mach", "machine-checked") : chip("unver", "unchecked");
-  }
+  function levelChip(r) { var L = LEVEL[r.level] || LEVEL.none; return chip(L.cls, L.short); }
   function chip(kind, text) { return h("span", { class: "chip " + kind }, text); }
   function flagsOf(r) {
     return (r.qc_flag || "").split(";").filter(Boolean);
@@ -118,125 +116,175 @@
   }
   drawBanner();
 
+  /* ---------- evidence + method vocabulary (shared by every view) ---------- */
+  var LEVEL = {
+    human: { cls: "ok lv-human", label: "Human-verified", short: "verified",
+      text: "A team member compared it with NASA’s source and signed it." },
+    machine: { cls: "mach lv-mach", label: "Machine-checked", short: "machine-checked",
+      text: "Automated checks against NASA’s PDF or data file passed. No person has signed it yet, so it is not “verified”." },
+    none: { cls: "unver lv-none", label: "Unchecked", short: "unchecked",
+      text: "No check passed. Hidden unless the team preview is on." }
+  };
+  /* How each experiment family was measured. Kept separate everywhere: never pooled into one chart or comparison. */
+  var METHOD = {
+    "BASS-II": { src: "NASA/TM-20210011385 report, Appendix A (3 tests only in NASA PSI-25)", o2: "Calibrated O2 sensor in the test chamber, vol% (a raw-sensor column is also printed)", tag: "cal.",
+      other: "CO2 (vol%) and CO (ppm) at start and end of each test", check: "Value-for-value comparison with NASA’s PDF, plus NASA’s own PSI spreadsheet" },
+    "BASS-I": { src: "NASA PSI-26 “As Run Test Matrix” spreadsheet", o2: "O2 logged under “ISS environment”, as a fraction; shown ×100 as vol%", tag: "logged",
+      other: "Pressure (atm) and CO2 (mm Hg), one value per test", check: "Copied from NASA’s file and re-read from it on every build" },
+    "SAFFIRE": { src: "NASA PSI-98/99/100 experiment tables (SAFFIRE-I, II, III)", o2: "Approximate values as printed (SAFFIRE-II derived from CO2; SAFFIRE-III none)", tag: "approx.",
+      other: "Air flow (cm/s), ignition power (W), ignition and burn time (s)", check: "Copied from NASA’s file and re-read from it on every build" }
+  };
+  function methodOf(exp) { return METHOD[/^SAFFIRE/.test(exp) ? "SAFFIRE" : exp] || METHOD["BASS-II"]; }
+  function countLevel(lv) { return ALL.filter(function (r) { return r.level === lv; }).length; }
+  function evidenceLegend(compact) {
+    return h("div", { class: "ev-legend" + (compact ? " compact" : ""), role: "list", "aria-label": "How each record was checked" },
+      ["human", "machine", "none"].map(function (lv) {
+        var L = LEVEL[lv];
+        return h("div", { class: "ev-item", role: "listitem" },
+          h("div", { class: "ev-top" }, chip(L.cls, L.label), h("b", { class: "ev-n" }, String(countLevel(lv)))),
+          compact ? null : h("p", null, L.text));
+      }),
+      compact ? h("p", { class: "ev-note" }, "✓ verified = a person checked NASA’s source · ◇ machine-checked = automated checks only · ! unchecked = hidden") : null);
+  }
+
   /* ---------- charts (plain SVG) ---------- */
   function barChart(items, opts) {
     var W = 560, rowH = 30, pad = 130, H = items.length * rowH + 10;
     var max = Math.max.apply(null, items.map(function (i) { return i.value; })) || 1;
-    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart", role: "img", "aria-label": opts.label });
+    var summary = opts.label + ": " + items.map(function (i) { return i.label + " " + i.value + " " + opts.unit; }).join(", ") + ".";
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart", role: "img", "aria-label": summary, tabindex: 0 },
+      svg("title", null, summary));
     items.forEach(function (it, i) {
-      var y = i * rowH + 4, w = Math.max(2, (W - pad - 50) * it.value / max);
+      var y = i * rowH + 4, w = Math.max(2, (W - pad - 100) * it.value / max);
       s.appendChild(svg("text", { x: pad - 10, y: y + 17, "text-anchor": "end" }, it.label));
       s.appendChild(svg("rect", { x: pad, y: y + 3, width: w, height: 18, rx: 3, class: "bar" + (opts.alt ? " alt" : "") }));
-      s.appendChild(svg("text", { x: pad + w + 8, y: y + 17, class: "val" }, String(it.value)));
+      s.appendChild(svg("text", { x: pad + w + 8, y: y + 17, class: "val" }, it.value + " " + opts.unit));
     });
     return s;
+  }
+  function chartCard(question, unit, howTo, chart, extra) {
+    return h("figure", { class: "card qcard" },
+      h("figcaption", null, h("h3", null, question), h("span", { class: "unit-pill" }, unit)),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), howTo),
+      chart, extra || null);
   }
 
   /* ---------- views ---------- */
   function viewOverview() {
     setTitle("Overview");
-    var nVer = D.counts.verified || 0, nMach = D.counts.machine || 0, nUnch = D.counts.unchecked || 0, nAll = D.counts.records || 0;
-    var shown = ROWS.length;
+    var nAll = D.counts.records || 0, exps = D.counts.experiments || {};
+    var hero = h("section", { class: "hero", "aria-labelledby": "hero-h" },
+      h("div", { class: "hero-main" },
+        h("p", { class: "eyebrow" }, "NASA microgravity fire experiments · " + nAll + " test records · " + (D.counts.sources || 0) + " NASA sources"),
+        h("h1", { id: "hero-h" }, "What NASA’s fire experiments prove, ", h("span", { class: "hl" }, "and where the data stops.")),
+        h("p", { class: "lead" }, "Without gravity, hot gas does not rise, so flames behave differently than on Earth. " +
+          "Flare AI gathers NASA’s scattered test records, shows how each number was checked, and says so when the data runs out."),
+        h("h2", { class: "mini-h" }, "What this site can answer"),
+        h("ul", { class: "answers" },
+          h("li", null, h("b", null, "What happened in a specific NASA fire test?"), h("span", null, "Readings, the crew’s log note and the exact source page or file row.")),
+          h("li", null, h("b", null, "How do tests compare, like for like?"), h("span", null, "Side by side within one experiment, with refusals when a comparison would mislead. ", h("a", { href: "#/compare" }, "Compare"))),
+          h("li", null, h("b", null, "Which conditions did NASA actually test?"), h("span", null, "Charts below show where the evidence is, and where it is missing.")),
+          h("li", null, h("b", null, "How far can each number be trusted?"), h("span", null, "Every record carries its check level, shown on the right."))),
+        h("div", { class: "hero-cta" },
+          h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer →"),
+          h("a", { class: "textlink", href: "#/about" }, "How we handle evidence"))),
+      h("aside", { class: "hero-side", "aria-label": "Dataset status" },
+        h("h2", { class: "mini-h" }, "Dataset status"),
+        evidenceLegend(false),
+        h("p", { class: "note" }, (D.counts.pdf_match || 0) + " BASS-II records match NASA’s PDF value for value; " + (D.counts.psi_agree || 0) +
+          " also agree with NASA’s own spreadsheet, and the " + (D.counts.psi_differ || 0) + " places where NASA’s two sources disagree are flagged on those records.")));
 
-    var stats = h("div", { class: "grid stats" },
-      stat(String(nVer), "Human-verified test records", true),
-      stat(String(nMach), "Machine-checked" + (D.counts.pdf_match ? " (" + D.counts.pdf_match + " match NASA\u2019s PDF)" : "")),
-      stat(String(nUnch), "Not yet checked (hidden)"),
-      stat(String(D.counts.sources || 0), "NASA sources (1 report + 5 PSI datasets)"));
+    var srcRows = [["BASS-II", exps["BASS-II"] || 0], ["BASS-I", exps["BASS-I"] || 0],
+      ["SAFFIRE", (exps["SAFFIRE-I"] || 0) + (exps["SAFFIRE-II"] || 0) + (exps["SAFFIRE-III"] || 0)]];
+    var sources = h("section", { "aria-labelledby": "src-h" },
+      h("h2", { id: "src-h" }, "Three experiment families, kept separate"),
+      h("p", { class: "muted section-lead" }, "Each family measured things differently, so Flare AI never pools them into one chart or comparison."),
+      h("div", { class: "tablewrap" }, h("table", { class: "methods" },
+        h("thead", null, h("tr", null, ["Experiment", "Records", "Source", "Oxygen recorded as", "Other values", "How it was checked"].map(function (t) { return h("th", { scope: "col" }, t); }))),
+        h("tbody", null, srcRows.map(function (x) {
+          var m = methodOf(x[0]);
+          return h("tr", null, h("th", { scope: "row" }, x[0]), h("td", { class: "num" }, String(x[1])), h("td", null, m.src), h("td", null, m.o2), h("td", null, m.other), h("td", null, m.check));
+        })))));
 
-    var body = [];
-    if (nMach && !nVer) body.push(h("p", { class: "note", style: "margin-top:12px" },
-      (D.counts.pdf_match ? D.counts.pdf_match + " BASS-II records match NASA\u2019s original PDF, value for value; " +
-        D.counts.psi_agree + " of them also agree with NASA\u2019s own spreadsheet in PSI (" + D.counts.psi_differ + " places where NASA\u2019s two sources disagree are shown, not hidden). " +
-        "Records from PSI data files are re-read from NASA\u2019s files on every build. " : "") +
-      "Team sign-off (\u201cverified\u201d) is in progress; every record shows its level."));
-    if (!shown) {
-      body.push(h("div", { class: "empty", style: "margin-top:24px" },
-        h("h3", null, "No checked records yet"),
-        h("p", { class: "muted" }, nAll + " test records have been extracted from NASA's BASS-II report. " +
-          "Each one must pass a check before it appears here, and a person must compare it with the original PDF before it counts as verified. " +
-          "Flare AI never shows unchecked rows as findings."),
-        h("p", { class: "note" }, "Team members can look at the unchecked draft with the preview switch below. " +
-          "It carries a warning banner on every page."),
-        h("a", { class: "btn ghost", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(true); } }, "Open preview with unchecked rows")));
-    } else {
+    var charts = null;
+    if (ROWS.length) {
       var byExp = {};
       ROWS.forEach(function (r) { byExp[r.experiment] = (byExp[r.experiment] || 0) + 1; });
       var items = EXP_ORDER.filter(function (k) { return byExp[k]; }).map(function (k) { return { label: k, value: byExp[k] }; });
-
       var bands = [["13-15", 13, 15], ["15-17", 15, 17], ["17-19", 17, 19], ["19-21", 19, 21], ["21-23", 21, 23]];
       var hist = bands.map(function (b) { return { label: b[0] + " vol%", value: 0, lo: b[1], hi: b[2] }; });
       var usable = 0;
       ROWS.forEach(function (r) {
-        if (!fromReport(r)) return; /* one measurement method per chart: BASS-II calibrated O2 only */
+        if (!fromReport(r)) return;
         var v = num(r.o2_cal_initial);
-        if (isNaN(v) || isNaN(num(r.o2_raw_initial))) return; /* no raw reading = starting value not confirmed */
+        if (isNaN(v) || isNaN(num(r.o2_raw_initial))) return;
         usable++;
         hist.forEach(function (b) { if (v >= b.lo && v < b.hi) b.value++; });
       });
-      body.push(h("div", { class: "grid", style: "grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:14px" },
-        h("div", { class: "card" }, h("h3", null, "Test records by experiment"),
-          h("p", { class: "note" }, "Count of " + shown + " records from " + (D.counts.sources || 0) + " NASA sources."),
-          barChart(items, { label: "Number of test records per experiment" })),
-        h("div", { class: "card" }, h("h3", null, "Starting oxygen level (BASS-II)"),
-          h("p", { class: "note" }, "Calibrated initial O2 for " + usable + " BASS-II records from the report with both a calibrated and a raw starting reading. Other experiments measured O2 differently, so they are not mixed in."),
-          barChart(hist, { label: "Number of tests by starting oxygen band", alt: true }))));
+      var low = hist[0].value;
+      charts = h("section", { "aria-labelledby": "ch-h" },
+        h("h2", { id: "ch-h" }, "Where the evidence is"),
+        h("div", { class: "grid qgrid" },
+          chartCard("Which experiments does the evidence come from?", "records",
+            "each bar is one experiment family; longer bar = more NASA test records available to explore.",
+            barChart(items, { label: "Test records per experiment", unit: "records" }),
+            h("p", { class: "note" }, "SAFFIRE has few records but they are large, spacecraft-scale fires.")),
+          chartCard("At what oxygen levels were BASS-II tests run?", "vol% O2",
+            "each bar counts BASS-II tests that started in that oxygen band (normal air is about 21 vol%). Short bars mark thin evidence.",
+            barChart(hist, { label: "BASS-II tests by starting oxygen band", unit: "tests", alt: true }),
+            h("p", { class: "note" }, "Calibrated starting O2 for " + usable + " BASS-II report records with a confirmed reading. Only " + low +
+              " tests started below 15 vol%, so conclusions about very low oxygen rest on little data. BASS-I and SAFFIRE measured O2 differently and are not mixed in."))));
+    } else {
+      charts = h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No checked records yet"),
+        h("p", { class: "muted" }, "Records appear here once they pass a check."),
+        h("a", { class: "btn ghost", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(true); } }, "Open team preview"));
     }
 
-    return h("div", null,
-      h("h1", null, "What NASA's fire experiments prove, ", h("span", { style: "color:var(--accent)" }, "and where the data stops.")),
-      h("p", { class: "lead" },
-        "Without gravity, hot gas does not rise, so flames behave differently from fires on Earth. " +
-        "NASA has run decades of experiments on this, but the results are scattered and hard to compare. " +
-        "Flare AI organises the test records, labels how strong the evidence is, and says so when the data runs out."),
-      h("div", { style: "display:flex;gap:10px;flex-wrap:wrap;margin-top:18px" },
-        h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
-        h("a", { class: "btn ghost", href: "#/about" }, "How we handle evidence")),
-      stats, body,
+    return h("div", null, hero, sources, charts,
       h("h2", null, "How every fact is labelled"),
       h("div", { class: "legend" },
         legend("measured", "Measured", "A value or note recorded during a NASA test."),
         legend("published", "Published conclusion", "A conclusion the NASA authors state in a report."),
-        legend("interp", "Our interpretation", "Our own reading of the evidence. Always labelled, with the supporting quote.")),
-      h("h2", null, "How each record was checked"),
-      h("div", { class: "legend" },
-        legend("ok", "Verified", "A team member compared the row with NASA's PDF and signed it."),
-        legend("mach", "Machine-checked", "Automated checks passed. BASS-II report rows: every reading, the material and the log note match NASA\u2019s PDF. Rows from NASA data files (PSI): every value equals the file, re-read on each build. A team member has not yet signed it off."),
-        legend("unver", "Unchecked", "Not shown by default. Visible only in preview mode, with the reason it needs a human.")));
-  }
-  function stat(n, l, accent) {
-    return h("div", { class: "card stat" + (accent ? " accent" : "") }, h("div", { class: "n" }, n), h("div", { class: "l" }, l));
+        legend("interp", "Our interpretation", "Our own reading of the evidence. Always labelled, with the supporting quote.")));
   }
   function legend(kind, title, text) {
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));
   }
 
-  function viewExplorer(query) {
+  function viewExplorer() {
     setTitle("Flame Explorer");
     var state = { q: "", exp: "", pi: "", flow: "", o2: "" };
     var exps = EXP_ORDER.filter(function (e) { return ROWS.some(function (r) { return r.experiment === e; }); });
     var pis = uniq(ROWS.map(function (r) { return r.pi; }).filter(Boolean));
     var flows = uniq(ROWS.map(function (r) { return r.flow_mode; }).filter(Boolean));
-    var tbody = h("tbody"), count = h("p", { class: "count", "aria-live": "polite" });
+    var tbody = h("tbody"), count = h("p", { class: "count", "aria-live": "polite" }), active = h("div", { class: "active-filters" });
+    var o2opts = [["lt16", "Below 16 vol%"], ["16-18", "16 to 18 vol%"], ["18-20", "18 to 20 vol%"], ["ge20", "20 vol% or more"]];
+    var LABELS = { q: "Search", exp: "Experiment", pi: "Investigator", flow: "Flow", o2: "Starting O2" };
+    var controls = {};
 
     function uniq(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }).sort(); }
     function sel(id, label, opts, key) {
       var s = h("select", { id: id, onchange: function (e) { state[key] = e.target.value; draw(); } },
-        h("option", { value: "" }, "All"),
-        opts.map(function (o) { return h("option", { value: o[0] }, o[1]); }));
+        h("option", { value: "" }, "All"), opts.map(function (o) { return h("option", { value: o[0] }, o[1]); }));
+      controls[key] = s;
       return h("div", { class: "field" }, h("label", { for: id }, label), s);
     }
-    var o2opts = [["lt16", "Below 16 vol%"], ["16-18", "16 to 18 vol%"], ["18-20", "18 to 20 vol%"], ["ge20", "20 vol% or more"]];
     var search = h("input", { type: "search", id: "q", placeholder: "Material, note text, test ID...",
       oninput: function (e) { state.q = e.target.value.toLowerCase(); draw(); } });
-
+    controls.q = search;
     function o2match(r) {
       if (!state.o2) return true;
       var v = num(o2Start(r));
       if (isNaN(v)) return false;
-      return state.o2 === "lt16" ? v < 16 : state.o2 === "16-18" ? v >= 16 && v < 18 :
-        state.o2 === "18-20" ? v >= 18 && v < 20 : v >= 20;
+      return state.o2 === "lt16" ? v < 16 : state.o2 === "16-18" ? v >= 16 && v < 18 : state.o2 === "18-20" ? v >= 18 && v < 20 : v >= 20;
     }
+    function clear(key) { state[key] = ""; controls[key].value = ""; draw(); }
+    function resetAll() { Object.keys(state).forEach(function (k) { state[k] = ""; controls[k].value = ""; }); draw(); search.focus(); }
+    function valueLabel(key) {
+      if (key === "o2") return o2opts.filter(function (o) { return o[0] === state.o2; })[0][1];
+      return key === "q" ? "“" + state.q + "”" : state[key];
+    }
+    function open(r) { location.hash = "#/experiment/" + r.id; }
     function draw() {
       var list = ROWS.filter(function (r) {
         if (state.exp && r.experiment !== state.exp) return false;
@@ -248,42 +296,55 @@
         return true;
       });
       count.textContent = "Showing " + list.length + " of " + ROWS.length + " test records" + (PREVIEW ? " (preview includes unchecked rows)" : "");
+      active.textContent = "";
+      var on = Object.keys(state).filter(function (k) { return state[k]; });
+      on.forEach(function (k) {
+        active.appendChild(h("span", { class: "fchip" }, h("span", { class: "fk" }, LABELS[k] + ": "), valueLabel(k),
+          h("button", { type: "button", class: "x", "aria-label": "Remove filter " + LABELS[k], onclick: function () { clear(k); } }, "×")));
+      });
+      if (on.length) active.appendChild(h("button", { type: "button", class: "ghost small", onclick: resetAll }, "Reset all"));
+      if (state.o2 && !state.exp) active.appendChild(h("p", { class: "fwarn" }, "! Starting O2 was recorded differently in each experiment (cal. / logged / approx.). Pick one experiment to filter like with like."));
       tbody.textContent = "";
       list.forEach(function (r) {
         var note = r.observation || (r.fields || []).map(function (f) { return f[0] + ": " + f[1]; }).slice(0, 3).join("; ");
-        var obs = note.length > 150 ? note.slice(0, 147) + "..." : note;
+        var obs = note.length > 140 ? note.slice(0, 137) + "..." : note;
         var fl = flagsOf(r).map(function (f) { return chip("warn", FLAG_TEXT[f] || f); });
-        fl.unshift(levelChip(r));
-        tbody.appendChild(h("tr", { class: "row", onclick: function () { location.hash = "#/experiment/" + r.id; } },
-          h("td", { class: "id" }, h("a", { href: "#/experiment/" + r.id }, shortId(r))),
-          h("td", null, r.experiment + (r.pi ? " · " + r.pi : "")),
-          h("td", null, r.material_raw),
-          h("td", null, r.flow_mode || "—"),
-          h("td", { class: "num" }, o2Start(r) || "—"),
-          h("td", { class: "num" }, (fromReport(r) && r.o2_cal_final) || "—"),
-          h("td", { class: "obs" }, obs, fl.length ? h("div", { class: "flags" }, fl) : null)));
+        var o2 = o2Start(r);
+        tbody.appendChild(h("tr", { class: "row", tabindex: 0, "aria-label": "Open test " + shortId(r) + ", " + r.material_raw,
+          onclick: function () { open(r); }, onkeydown: function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(r); } } },
+          h("td", { class: "id", "data-label": "Test" }, h("a", { href: "#/experiment/" + r.id, tabindex: -1 }, shortId(r)), levelChip(r)),
+          h("td", { class: "c-exp", "data-label": "Experiment" }, r.experiment + (r.pi ? " · " + r.pi : "")),
+          h("td", { class: "c-mat", "data-label": "Material" }, r.material_raw),
+          h("td", { class: "c-flow", "data-label": "Flow" }, r.flow_mode || "—"),
+          h("td", { class: "num c-o2", "data-label": "O2 start" }, o2 ? [o2, h("span", { class: "mtag" }, methodOf(r.experiment).tag)] : "—"),
+          h("td", { class: "num c-o2e", "data-label": "O2 end" }, (fromReport(r) && r.o2_cal_final) || "—"),
+          h("td", { class: "obs", "data-label": "Note" }, obs, fl.length ? h("div", { class: "flags" }, fl) : null),
+          h("td", { class: "go", "aria-hidden": "true" }, "›")));
       });
-      if (!list.length) tbody.appendChild(h("tr", null, h("td", { colspan: 7, class: "muted" },
-        ROWS.length ? "No records match these filters." : "No checked records yet.")));
+      if (!list.length) tbody.appendChild(h("tr", null, h("td", { colspan: 8, class: "muted" },
+        ROWS.length ? h("span", null, "No records match these filters. ", h("button", { type: "button", class: "ghost small", onclick: resetAll }, "Reset all")) : "No checked records yet.")));
     }
 
     var filters = h("div", { class: "filters" },
       h("div", { class: "field wide" }, h("label", { for: "q" }, "Search"), search),
       sel("fexp", "Experiment", exps.map(function (p) { return [p, p]; }), "exp"),
       sel("fpi", "BASS-II investigator", pis.map(function (p) { return [p, p]; }), "pi"),
-      sel("fflow", "Flow mode", flows.map(function (p) { return [p, p]; }), "flow"),
-      sel("fo2", "Starting O2", o2opts, "o2"),
-      h("button", { class: "ghost", type: "button", onclick: function () { go("#/explorer"); render(); } }, "Clear"));
-
+      sel("fflow", "Flow direction", flows.map(function (p) { return [p, p]; }), "flow"),
+      sel("fo2", "Starting O2", o2opts, "o2"));
     draw();
     return h("div", null,
-      h("h1", null, "Flame Explorer"),
-      h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS and BASS-II on the International Space Station, SAFFIRE inside uncrewed cargo spacecraft. Open a test to see its values, what the team observed, and exactly where it came from."),
-      h("div", { style: "margin-top:20px" }, filters), count,
-      h("div", { class: "tablewrap" }, h("table", null,
-        h("thead", null, h("tr", null, ["Test", "Experiment", "Material", "Flow", "O2 start", "O2 end", "Note / values"].map(function (t) { return h("th", null, t); }))),
+      h("div", { class: "page-head" },
+        h("div", null, h("h1", null, "Flame Explorer"),
+          h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS and BASS-II on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
+        evidenceLegend(true)),
+      h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
+      h("p", { class: "hint" }, "→ Click any row, or focus it and press Enter, to open the full record with its readings, log note and source."),
+      h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
+        h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment’s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), approx. = approximate (SAFFIRE)."),
+        h("thead", null, h("tr", null, ["Test", "Experiment", "Material", "Flow", "O2 start (vol%)", "O2 end", "Note / values", ""].map(function (t, i) {
+          return h("th", { scope: "col", class: ["", "c-exp", "c-mat", "c-flow", "c-o2", "c-o2e", "", "go"][i] }, t); }))),
         tbody)),
-      h("p", { class: "note", style: "margin-top:10px" }, "O2 start, as each source states it: BASS-II = calibrated chamber O2 (vol%); BASS-I = O2 logged in the as-run matrix, fraction \u00d7 100; SAFFIRE = as printed (often approximate). These were measured differently, so Flare AI never compares them with each other."));
+      h("p", { class: "note", style: "margin-top:10px" }, "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction × 100 (BASS-I); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other."));
   }
 
   function reading(label, a, b, unit) {
@@ -291,6 +352,47 @@
       h("span", null, h("b", null, a || "—"),
         b != null ? [h("span", { class: "arrow" }, "→"), h("b", null, b || "—")] : null,
         h("span", { class: "u" }, unit)));
+  }
+
+  /* One card that puts the check type and the source evidence side by side. */
+  function evidenceCard(r) {
+    var src = sourceOf(r), L = LEVEL[r.level] || LEVEL.none, checks = [];
+    function c(state, text) { checks.push(h("li", { class: "ck " + state }, h("span", { class: "ck-i", "aria-hidden": "true" }, state === "ok" ? "✓" : state === "warn" ? "!" : "–"),
+      h("span", { class: "sr" }, state === "ok" ? "Passed: " : state === "warn" ? "Attention: " : "Pending: "), text)); }
+    var where, link, raw = null;
+    if (fromReport(r)) {
+      c(r.pdf ? "ok" : "warn", r.pdf ? "Automated comparison with NASA’s PDF: every reading, the material and the full log note match (report page " + r.source_page + ")."
+        : "Automated comparison with NASA’s PDF did not match: " + (r.pdf_check || "not run") + ".");
+      var psi = r.psi_check || "";
+      if (psi.indexOf("agrees") === 0) c("ok", "Second NASA source: NASA’s own BASS-II spreadsheet (PSI-25) has the same sample no., calibrated O2, CO2 and CO.");
+      else if (psi) c("warn", "Second NASA source disagrees: " + psi.replace(/^DIFFERS: /, "") + ".");
+      c(r.level === "none" ? "warn" : "ok", "Automated text cross-check: " + (r.auto_check_notes || "not run").replace(/\.$/, "") + ".");
+      where = "Appendix A, Table " + (TABLE[parts(r.id).pi] || "A") + ", report page " + (r.source_page || "?");
+      link = src ? h("a", { href: src.url, target: "_blank", rel: "noopener" }, "Open the report on NASA’s server") : null;
+      raw = h("details", null, h("summary", null, "Setup exactly as printed, and raw extracted text"),
+        h("pre", { class: "raw" }, "Setup: " + (r.setup_raw || "—") + "\n\nRow text: " + (r.raw_text || "—")));
+    } else {
+      c(r.level === "none" ? "warn" : "ok", r.level === "none" ? (r.auto_check_notes || "Could not be re-read from NASA’s file.") :
+        "Copied from NASA’s data file and re-read from it on every build: every value equals " + r.source_file + ", row " + r.source_row + ".");
+      if (r.experiment === "BASS-II") c("pending", "Not in the NASA report’s Appendix A, so there is no PDF row to compare with.");
+      where = r.source_file + ", row " + r.source_row;
+      link = src ? h("a", { href: src.url, target: "_blank", rel: "noopener" }, "Open the dataset (DOI)") : null;
+    }
+    if (r.level === "human") c("ok", "Human-verified: " + r.verified_by + " compared it with NASA’s source on " + r.verified_date + ".");
+    else c("pending", "No team member has signed this record yet, so it is not “verified”.");
+    return h("section", { class: "card evidence lv-" + r.level, "aria-labelledby": "ev-h" },
+      h("div", { class: "ev-head" },
+        h("h2", { id: "ev-h", class: "mini-h" }, "Evidence"),
+        chip(L.cls, L.label),
+        h("p", { class: "ev-sum" }, r.level === "machine" ? "Machine-checked, not yet verified by a person." :
+          r.level === "human" ? "Verified by a person against NASA’s source." : "Unchecked. It is shown only in preview mode.")),
+      h("div", { class: "ev-body" },
+        h("div", null, h("h3", null, "How it was checked"), h("ul", { class: "checks" }, checks)),
+        h("div", null, h("h3", null, "Source evidence"),
+          src ? h("p", { class: "src-t" }, src.title) : null,
+          src ? h("p", { class: "note" }, src.type) : null,
+          h("p", { class: "mono src-w" }, where),
+          link ? h("p", null, link) : null, raw)));
   }
 
   function viewDetail(id) {
@@ -320,12 +422,6 @@
     if ((r.psi_check || "").indexOf("DIFFERS") === 0) callouts.push(h("div", { class: "callout" },
       h("b", null, "NASA\u2019s two sources disagree here. "), r.psi_check.replace(/^DIFFERS: /, "") +
       ". Flare AI shows the report\u2019s value (it matches the PDF) and does not pick a winner. Treat this value with care."));
-    if (r.level === "machine") callouts.unshift(h("div", { class: "callout info" },
-      h("b", null, "Machine-checked, not yet verified by a person. "),
-      (r.pdf ? "Every reading, the material and the full log note match NASA\u2019s PDF (automated comparison, report page " + r.source_page + "). " : "") +
-      "Cross-check notes: " + r.auto_check_notes.replace(/\.$/, "") + ". A team member has not yet signed this row off."));
-    if (r.level === "none") callouts.unshift(h("div", { class: "callout" },
-      h("b", null, "Unchecked. "), r.auto_check_notes || "No check has been run on this row.", " It is shown only in preview mode."));
 
     var tbl = TABLE[parts(r.id).pi] || "A";
     return h("div", null,
@@ -335,6 +431,7 @@
           h("p", { class: "mono muted", style: "margin:0 0 4px" }, "NASA BASS-II · " + r.pi + " · test " + short),
           h("h1", { style: "margin:0" }, r.material_raw)),
         levelChip(r)),
+      evidenceCard(r),
       callouts,
       h("div", { class: "cols" },
         h("div", { class: "card" },
@@ -361,32 +458,13 @@
         h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Published conclusion"), chip("published", "Published")),
           h("p", { class: "note", style: "margin-top:8px" }, "None attached to this single test. The report's conclusions are drawn across many tests; see Section 1.6 of the report.")),
         h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Our interpretation"), chip("interp", "Ours")),
-          h("p", { class: "note", style: "margin-top:8px" }, "None yet. Whether the flame spread or went out will be coded by the team, labelled here, and shown with the supporting quote."))),
-      h("div", { class: "card", style: "margin-top:14px" },
-        h("h3", null, "Source"),
-        SOURCE ? h("p", { style: "margin-bottom:6px" }, SOURCE.title + " (" + SOURCE.type.split(" (")[0] + ", " + SOURCE.date.slice(0, 4) + ")") : null,
-        h("p", { class: "mono", style: "margin-bottom:6px" }, "Appendix A, Table " + tbl + ", report page " + (r.source_page || "?")),
-        SOURCE ? h("p", { style: "margin-bottom:6px" }, h("a", { href: SOURCE.url, target: "_blank", rel: "noopener" }, "Open the report on NASA's server")) : null,
-        r.psi_check && r.psi_check.indexOf("agrees") === 0 ? h("p", { class: "note", style: "margin:0 0 6px" },
-          "Also agrees with NASA\u2019s own BASS-II spreadsheet in PSI (dataset PSI-25): sample number, calibrated O2, CO2 and CO.") : null,
-        r.level === "human" ? h("p", { class: "note", style: "margin:0" }, "Checked against the PDF by " + r.verified_by + " on " + r.verified_date + ".") :
-          r.level === "machine" ? h("p", { class: "note", style: "margin:0" }, (r.pdf ? "Matches NASA\u2019s PDF (automated comparison). " : "") + "Not yet signed off by a team member.") :
-            h("p", { class: "note", style: "margin:0" }, "Not yet checked against the PDF."),
-        h("details", null, h("summary", null, "Setup exactly as printed, and raw extracted text"),
-          h("pre", { class: "raw" }, "Setup: " + (r.setup_raw || "—") + "\n\nRow text: " + (r.raw_text || "—")))));
+          h("p", { class: "note", style: "margin-top:8px" }, "None yet. Whether the flame spread or went out will be coded by the team, labelled here, and shown with the supporting quote."))));
   }
 
   function viewDetailPsi(r) {
     var src = sourceOf(r);
     setTitle(r.experiment + " " + shortId(r));
     var callouts = [];
-    if (r.level === "machine") callouts.push(h("div", { class: "callout info" },
-      h("b", null, "Machine-checked, not yet verified by a person. "),
-      "Every value below was copied from NASA\u2019s data file and is re-read from that file each time the site is built (" +
-      r.source_file + ", row " + r.source_row + "). A team member has not yet signed this record off."));
-    if (r.level === "none") callouts.push(h("div", { class: "callout" }, h("b", null, "Unchecked. "), r.auto_check_notes || ""));
-    if (r.experiment === "BASS-II") callouts.push(h("div", { class: "callout info" },
-      h("b", null, "Not in the NASA report. "), "This BASS-II test appears in NASA\u2019s PSI spreadsheet but not in the report\u2019s Appendix A tables, so there is no PDF row to compare it with."));
     var kv = [];
     (r.fields || []).forEach(function (f) { kv.push(h("dt", null, f[0]), h("dd", null, f[1])); });
     return h("div", null,
@@ -396,6 +474,7 @@
           h("p", { class: "mono muted", style: "margin:0 0 4px" }, "NASA " + r.experiment + " \u00b7 test " + shortId(r)),
           h("h1", { style: "margin:0" }, r.material_raw || "Material not stated")),
         levelChip(r)),
+      evidenceCard(r),
       callouts,
       h("div", { class: "cols" },
         h("div", { class: "card" },
@@ -415,15 +494,7 @@
         h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Published conclusion"), chip("published", "Published")),
           h("p", { class: "note", style: "margin-top:8px" }, "None attached to this single test.")),
         h("div", { class: "card" }, h("div", { style: "display:flex;justify-content:space-between;align-items:center;gap:8px" }, h("h3", { style: "margin:0" }, "Our interpretation"), chip("interp", "Ours")),
-          h("p", { class: "note", style: "margin-top:8px" }, "None yet."))),
-      h("div", { class: "card", style: "margin-top:14px" },
-        h("h3", null, "Source"),
-        src ? h("p", { style: "margin-bottom:6px" }, src.title) : null,
-        src ? h("p", { class: "note", style: "margin-bottom:6px" }, src.type) : null,
-        h("p", { class: "mono", style: "margin-bottom:6px" }, r.source_file + ", row " + r.source_row),
-        src ? h("p", { style: "margin-bottom:6px" }, h("a", { href: src.url, target: "_blank", rel: "noopener" }, "Open the dataset (DOI)")) : null,
-        r.level === "human" ? h("p", { class: "note", style: "margin:0" }, "Checked against NASA\u2019s file by " + r.verified_by + " on " + r.verified_date + ".") :
-          h("p", { class: "note", style: "margin:0" }, "Not yet signed off by a team member.")));
+          h("p", { class: "note", style: "margin-top:8px" }, "None yet."))));
   }
 
   /* ---------- Compare ----------
@@ -553,7 +624,10 @@
     var ticks = niceTicks(Math.min(0, Math.min.apply(null, all)), Math.max(0, Math.max.apply(null, all)) || 1, 4);
     var lo = ticks[0], hi = ticks[ticks.length - 1];
     var y = function (v) { return top + (H - top - bot) * (hi - v) / ((hi - lo) || 1); };
-    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": label });
+    var summary = label + " (" + unit + "). " + groups.map(function (g, gi) {
+      return g + ": " + series.map(function (sr) { var v = sr.vals[gi]; return sr.name + " " + (isNaN(v.n) ? "left out" : v.text); }).join(", ");
+    }).join("; ") + ".";
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
     var ids = series.map(function (sr) { var id = ++uid; defs(s, sr.color, id); return id; });
     ticks.forEach(function (t) {
       s.appendChild(svg("line", { x1: left, x2: W - right, y1: y(t), y2: y(t), class: t === 0 ? "axis" : "grid" }));
@@ -585,7 +659,10 @@
   function changeBars(groups, deltas, unit, label) {
     var W = 420, rowH = 30, H = groups.length * rowH + 4, lab = 54, x0 = lab + 10, x1 = W - 54, mid = (x0 + x1) / 2, half = (x1 - x0) / 2;
     var max = Math.max.apply(null, deltas.filter(function (d) { return !isNaN(d.n); }).map(function (d) { return Math.abs(d.n); }).concat([0])) || 1;
-    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": label });
+    var summary = label + " (" + unit + ", end minus start). " + groups.map(function (g, i) {
+      var d = deltas[i]; return g + ": " + (isNaN(d.n) ? "not computed" : (d.n >= 0 ? "rose " : "fell ") + fmt(Math.abs(d.n)));
+    }).join("; ") + ".";
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
     groups.forEach(function (g, i) {
       var d = deltas[i], yy = i * rowH + 4;
       s.appendChild(svg("text", { x: lab, y: yy + 15, "text-anchor": "end", class: "xlab" }, g));
@@ -604,7 +681,8 @@
   }
   function donut(parts, label) {
     var total = parts.reduce(function (a, p) { return a + p.value; }, 0), R = 80, r = 54, cx = 100, cy = 100, a0 = -Math.PI / 2;
-    var s = svg("svg", { viewBox: "0 0 200 200", class: "chart viz donut", role: "img", "aria-label": label });
+    var summary = label + ": " + parts.map(function (p) { return p.label + " " + p.value + " (" + Math.round(100 * p.value / total) + "%)"; }).join(", ") + ".";
+    var s = svg("svg", { viewBox: "0 0 200 200", class: "chart viz donut", role: "img", "aria-label": summary }, svg("title", null, summary));
     s.appendChild(svg("circle", { cx: cx, cy: cy, r: (R + r) / 2, fill: "none", stroke: "rgba(255,255,255,.04)", "stroke-width": R - r + 14 }));
     parts.forEach(function (p) {
       var a1 = a0 + 2 * Math.PI * p.value / total, large = a1 - a0 > Math.PI ? 1 : 0;
@@ -636,6 +714,37 @@
   }
   var FLOW_COLOR = { "Opposed": COLORS.s1, "Concurrent": COLORS.s2, "Stagnation": COLORS.s3 };
   var MEASURE_ICON = { o2c: "o2", o2r: "o2", o2: "o2", co2: "cloud", co: "cloud", p: "gauge", air: "wind", ipw: "bolt", ign: "timer", burn: "flame" };
+
+  /* "Before charting": what each selected test is, where it comes from, how it was measured, and what is missing. */
+  function srcShort(r) {
+    var src = sourceOf(r);
+    return fromReport(r) ? "NASA/TM-20210011385 report, Appendix A, Table " + (TABLE[parts(r.id).pi] || "A") + ", p. " + r.source_page
+      : (src ? src.type.split(",")[0] : "NASA PSI") + ": " + r.source_file.split(",")[0] + ", row " + r.source_row;
+  }
+  function precheckCard(picked, issues, refused) {
+    var methods = picked.map(function (r) { return methodOf(r.experiment).o2; });
+    var mixed = methods.some(function (m) { return m !== methods[0]; });
+    function cell(text, warn) { return h("span", { class: warn ? "pc-warn" : "" }, warn ? h("span", { "aria-hidden": "true" }, "! ") : null, warn ? h("span", { class: "sr" }, "Differs: ") : null, text); }
+    var rows = [
+      ["Source", function (r) { return h("a", { href: "#/experiment/" + r.id }, srcShort(r)); }],
+      ["How oxygen was recorded", function (r) { return cell(methodOf(r.experiment).o2, mixed); }],
+      ["Other values and units", function (r) { return cell(methodOf(r.experiment).other, mixed); }],
+      ["Check level", function (r) { return levelChip(r); }]];
+    if (!refused) rows.push(["Missing or suspect here", function (r, i) {
+      var list = issues[i] || [];
+      return list.length ? h("ul", { class: "pc-issues" }, list.map(function (t) { return h("li", null, t); })) : h("span", { class: "pc-ok" }, "\u2713 nothing missing or flagged");
+    }]);
+    return h("div", { class: "card vcard span2 precheck" },
+      cardHead("table", "Before charting: what you are comparing", h("span", { class: "unit-pill" }, refused ? "comparison refused" : "checked")),
+      h("p", { class: "howto" }, refused ? "The rows marked ! differ between the selected tests. That is why no chart is drawn."
+        : "Each column is one selected test. Values listed under \u201cMissing or suspect\u201d are left out of the charts below, with the reason."),
+      h("div", { class: "tablewrap flat" }, h("table", { class: "side" },
+        h("thead", null, h("tr", null, h("th", { scope: "col" }, h("span", { class: "sr" }, "Property")), picked.map(function (r) {
+          return h("th", { scope: "col" }, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r)), h("span", { class: "pc-mat" }, r.material_raw)); }))),
+        h("tbody", null, rows.map(function (row) {
+          return h("tr", null, h("th", { scope: "row" }, row[0]), picked.map(function (r, i) { return h("td", null, row[1](r, i)); }));
+        })))));
+  }
 
   function viewCompare(arg) {
     setTitle("Compare");
@@ -701,7 +810,7 @@
               "BASS-II used a calibrated oxygen sensor in the test chamber; BASS-I logged the oxygen of the surrounding station air as a fraction; " +
               "SAFFIRE gives approximate values or none. One chart would look precise and mean nothing."),
             h("p", { class: "muted", style: "margin:0" }, "You can still read them side by side, or compare tests within one experiment."))),
-        h("div", { class: "viz-grid" }, tableCard));
+        h("div", { class: "viz-grid" }, precheckCard(picked, [], true), tableCard));
     }
 
     var exp = expsPicked[0], cautions = [];
@@ -711,32 +820,49 @@
     if (mats.length > 1) cautions.push("Materials differ. A thicker or different fuel burns differently, so differences may come from the sample itself.");
 
     var measures = measuresFor(exp), cards = [], footnotes = [], nUsed = 0, nOut = 0;
+    var issues = picked.map(function (r) { return flagsOf(r).map(function (f) { return "Flag: " + (FLAG_TEXT[f] || f); }); });
+    function limits(m, vals, which) {
+      var out = [];
+      vals.forEach(function (v, i) {
+        if (!isNaN(v.n)) return;
+        var wh = which ? which(i) : "";
+        issues[i % picked.length].push(m.label + (wh ? " " + wh : "") + ": " + v.why);
+        out.push(groups[i % groups.length] + (wh ? " " + wh : "") + " \u2014 " + v.why);
+      });
+      return h("div", { class: "limits " + (out.length ? "has" : "none"), role: "note" },
+        out.length ? [h("b", null, "! Limited: "), out.length + " value" + (out.length === 1 ? "" : "s") + " left out of this chart. ", h("ul", null, out.map(function (t) { return h("li", null, t); }))]
+          : [h("b", null, "\u2713 Complete: "), "every selected test has a plain " + m.unit + " value here."]);
+    }
     measures.forEach(function (m) {
       var tag = h("span", { class: "unit-pill" }, m.unit);
       if (m.pair) {
         var st = picked.map(function (r) { return value(m.pair[0](r), m.unit, r, m, false); });
         var en = picked.map(function (r) { return value(m.pair[1](r), m.unit, r, m, true); });
         st.concat(en).forEach(function (v) { if (isNaN(v.n)) nOut++; else nUsed++; });
-        if (!st.concat(en).some(function (v) { return !isNaN(v.n); })) return footnotes.push(m.label + ": no comparable values for these tests.");
+        if (!st.concat(en).some(function (v) { return !isNaN(v.n); })) { picked.forEach(function (r, i) { issues[i].push(m.label + ": no comparable value"); }); return footnotes.push(m.label + ": no comparable values for these tests, so no chart."); }
         var deltas = st.map(function (a, i) {
           var b = en[i];
           return isNaN(a.n) || isNaN(b.n) ? { n: NaN, why: (isNaN(a.n) ? "start: " + a.why : "end: " + b.why) } : { n: b.n - a.n };
         });
         cards.push(h("div", { class: "card vcard" },
           cardHead(MEASURE_ICON[m.key], m.label, [tag, chip("measured", "Measured")]),
-          legendRow([{ color: COLORS.s1, label: "Start of test" }, { color: COLORS.s2, label: "End of test", hatch: true }]),
+          h("p", { class: "howto" }, h("b", null, "How to read: "), "solid blue = start of the test, hatched orange = end; bar height is the value in " + m.unit +
+            " from NASA\u2019s table. A dashed n/a box means the value was left out."),
+          legendRow([{ color: COLORS.s1, label: "Start of test" }, { color: COLORS.s2, label: "End of test (hatched)", hatch: true }]),
           groupedBars(groups, [{ name: "start", color: COLORS.s1, vals: st }, { name: "end", color: COLORS.s2, vals: en, hatch: true }], m.unit, m.label + " at start and end of each test"),
-          h("div", { class: "subhead" }, h("span", null, "Change during the test"), legendRow([{ color: COLORS.fell, label: "fell" }, { color: COLORS.rose, label: "rose" }])),
+          limits(m, st.concat(en), function (i) { return i < groups.length ? "start" : "end"; }),
+          h("div", { class: "subhead" }, h("span", null, "Change during the test (" + m.unit + ", end minus start; bars left = fell, right = rose, sign shown)"),
+            legendRow([{ color: COLORS.fell, label: "\u2212 fell" }, { color: COLORS.rose, label: "+ rose" }])),
           changeBars(groups, deltas, m.unit, "Change in " + m.label + " during each test")));
-        st.concat(en).forEach(function (v, i) { if (isNaN(v.n) && v.why !== "no value recorded") footnotes.push(groups[i % groups.length] + " · " + m.label + " " + (i < groups.length ? "start" : "end") + ": " + v.why + "."); });
       } else {
         var vs = picked.map(function (r) { return value(m.single(r), m.unit, r, m, false); });
         vs.forEach(function (v) { if (isNaN(v.n)) nOut++; else nUsed++; });
-        if (!vs.some(function (v) { return !isNaN(v.n); })) return footnotes.push(m.label + ": no comparable values for these tests.");
+        if (!vs.some(function (v) { return !isNaN(v.n); })) { picked.forEach(function (r, i) { issues[i].push(m.label + ": no comparable value"); }); return footnotes.push(m.label + ": no comparable values for these tests, so no chart."); }
         cards.push(h("div", { class: "card vcard" },
           cardHead(MEASURE_ICON[m.key], m.label, [tag, chip("measured", "Measured")]),
-          groupedBars(groups, [{ name: m.label, color: COLORS.s1, vals: vs }], m.unit, m.label + " for each test")));
-        vs.forEach(function (v, i) { if (isNaN(v.n) && v.why !== "no value recorded") footnotes.push(groups[i] + " · " + m.label + ": " + v.why + "."); });
+          h("p", { class: "howto" }, h("b", null, "How to read: "), "one bar per test; bar height is the value in " + m.unit + " as written in NASA\u2019s file. A dashed n/a box means the value was left out."),
+          groupedBars(groups, [{ name: m.label, color: COLORS.s1, vals: vs }], m.unit, m.label + " for each test"),
+          limits(m, vs, null)));
       }
     });
 
@@ -767,6 +893,7 @@
       .concat(counts["not stated"] ? ["not stated"] : []);
     var parts = order.map(function (k) { return { label: k, value: counts[k], color: FLOW_COLOR[k] || (k === "not stated" ? COLORS.neutral : COLORS.s4) }; });
     var mixCard = h("div", { class: "card vcard" }, cardHead("pie", "Flow direction, all " + exp + " tests", null),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), "each slice is the share of all " + exp + " tests run with that flow direction (unit: tests); the list shows how many of your selected tests fall in each slice. Context only, not a comparison."),
       parts.length > 1 ? h("div", { class: "donut-wrap" }, donut(parts, "Flow direction mix of " + pool.length + " " + exp + " tests"),
         h("ul", { class: "donut-legend" }, parts.map(function (p) {
           var mine = picked.filter(function (r) { return (r.flow_mode || "not stated") === p.label; }).length;
@@ -782,14 +909,15 @@
 
     return h("div", { class: "cmp" }, toolbar, chipsRow, summary,
       cautions.length ? h("div", { class: "caution" }, badge("alert", "amber"), h("p", null, h("b", null, "Read with care. "), cautions.join(" "))) : null,
+      h("div", { class: "viz-grid" }, precheckCard(picked, issues, false)),
       tiles,
       h("div", { class: "viz-grid" }, cards, mixCard,
-        h("div", { class: "card vcard" }, cardHead("alert", footnotes.length ? "Left out, and why" : "How this comparison works", null),
+        h("div", { class: "card vcard" }, cardHead("alert", "How this comparison works", null),
           footnotes.length ? h("ul", { class: "fn" }, footnotes.map(function (t) { return h("li", null, t); })) : null,
           h("ul", { class: "rules" },
             h("li", { class: "ok" }, h("b", null, "Same experiment. "), "All " + picked.length + " tests are " + exp + ", measured the same way."),
             h("li", { class: "ok" }, h("b", null, "Same measurement. "), "Each chart shows one column from NASA\u2019s table; calibrated and raw oxygen are never mixed."),
-            h("li", { class: nOut ? "warn" : "ok" }, h("b", null, nOut + " value" + (nOut === 1 ? "" : "s") + " left out. "), nOut ? "Flagged, missing or not plain numbers; each shows as n/a with the reason on hover." : "Every value could be charted."),
+            h("li", { class: nOut ? "warn" : "ok" }, h("b", null, nOut + " value" + (nOut === 1 ? "" : "s") + " left out. "), nOut ? "Flagged, missing or not plain numbers; each chart lists its own left-out values right under it." : "Every value could be charted."),
             h("li", { class: "ok" }, h("b", null, "No averages. "), "Two to four tests are too few for averages or trends."))),
         tableCard),
       h("p", { class: "note", style: "margin-top:14px" }, "Every number is copied from NASA’s record; hover a bar to see it. No averages or trend lines: with 2 to 4 tests they would claim more than the data shows."));

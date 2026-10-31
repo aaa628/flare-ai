@@ -1,10 +1,18 @@
 # Flare AI data
 
-`bass2_draft.csv` is the working sheet. The website reads it (through `scripts/build_site_data.py`).
-Every row has a **check level**:
-- **verified**: `verified_by` and `verified_date` filled in by a person who compared the row with NASA's PDF.
-- **machine-checked**: passed `scripts/crosscheck_bass2.py` (automated; no person has looked). Shown on the site with that label.
-- **unchecked**: neither. Hidden by default; `auto_check_notes` says why it needs a human.
+Status at the last build (`site/data/data.js`): **263 records from 6 NASA sources; 0 human-verified, 263 machine-checked, 0 unchecked.**
+
+| File | Rows | Source | Machine check |
+|---|---|---|---|
+| `bass2_draft.csv` | 126 BASS-II | NASA/TM-20210011385, Appendix A | text cross-check (104 strict + 22 via `ai_review_bass2.csv`), PDF comparison 126/126, PSI spreadsheet 123 agree / 3 differ |
+| `bass2_psi_extra.csv` | 3 BASS-II (O20-O22) | PSI-25 experimental table | equals NASA's file, re-read every build |
+| `bass1_psi.csv` | 121 BASS-I | PSI-26 As Run Test Matrix | equals NASA's file, re-read every build |
+| `saffire_psi.csv` | 13 SAFFIRE-I/II/III | PSI-98/99/100 tables | equals NASA's file, re-read every build |
+
+Every row has a **check level** (computed by `scripts/build_site_data.py`, shown on the site with a glyph and a label):
+- **✓ verified** (`human`): `verified_by` and `verified_date` filled in by a person who compared the row with NASA's source (the PDF page, or the NASA file and row).
+- **◇ machine-checked** (`machine`): the automated checks for that file passed (above). No person has signed it. Never presented as "verified".
+- **! unchecked** (`none`): neither. Hidden by default; the reason is in `auto_check_notes`.
 
 ## Pipeline
 
@@ -20,7 +28,7 @@ Every row has a **check level**:
 
 ## For the verifier
 
-Currently 126 rows: **0 human-verified, 126 machine-checked (104 strictly + 22 via the row-by-row review in
+BASS-II report rows: **0 human-verified, 126 machine-checked (104 strictly + 22 via the row-by-row review in
 `ai_review_bass2.csv`), 0 unchecked.** Do the 22 reviewed rows FIRST (their `auto_check_notes` contain "row-by-row review"):
 they carry flags, hand-keyed values, NASA dashes or `+OR`/`Over`/`failed` entries.
 Then work through the machine-checked rows; the machine check does not replace your comparison with the PDF.

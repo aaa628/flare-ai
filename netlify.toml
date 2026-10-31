@@ -1,0 +1,17 @@
+# Netlify: deploy the static site in /site. No build step: site/data/data.js is generated locally and committed.
+# Connect the GitHub repo in Netlify (works with private repos), or drag the site/ folder onto https://app.netlify.com/drop
+[build]
+  publish = "site"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'self'"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
