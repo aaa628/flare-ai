@@ -45,7 +45,7 @@ Non-negotiables for how you work:
 4. Abstain outside tested conditions; show nearest real tests instead.
 5. No fire probabilities. No safety certification. It is a research-navigation tool.
 6. Every record cites its source (NTRS id, table, page).
-7. Unverified rows are never shown as findings.
+7. Unchecked rows are never shown as findings, and **"machine-checked" is never presented as "verified"** (verified = a person compared the row with NASA's PDF).
 
 ### Scope: KEEP vs CUT
 | Screen | State |
@@ -86,10 +86,12 @@ flare-ai/
 │   ├── bass2_draft.csv            126 BASS-II rows, THE working sheet, 0 verified so far
 │   ├── sources.csv                1 row: NTRS 20210011385
 │   └── source/TM-20210011385.txt  text export of the NASA report (extraction input)
-├── scripts/extract_bass2.py       parses Appendix A tables; OVERWRITES bass2_draft.csv
+├── scripts/extract_bass2.py       parses Appendix A tables; OVERWRITES bass2_draft.csv (and the auto_* columns)
+├── scripts/crosscheck_bass2.py    automated consistency check; fills auto_* columns only; never touches verified_*
 ├── scripts/build_site_data.py     CSV -> site/data/data.js; computes `verified`
 ├── tests/site_smoke_test.py       Playwright headless checks (29 pass at last run; serves raw.githubusercontent asset URLs from local files)
 ├── tests/previewer_nav_test.py    simulates a <base>-tag previewer; 14 checks guard in-app navigation
+├── tests/crosscheck_mutation_test.py  corrupts rows 8 ways; the cross-check must reject every one
 └── docs/HANDOFF_PROMPT.md, docs/WORKLOG.md
 ```
 
@@ -101,13 +103,16 @@ Dark mission-control look. Tokens in `site/css/style.css :root`: bg `#0a0e17`, p
 **Source:** NASA/TM-20210011385, *Burning and Suppression of Solids-II (BASS-II) Summary Report* (Olson, Ferkul, Bhattacharjee, Miller, Fernandez-Pello, Link, T'ien, Wichman; Oct 2021). https://ntrs.nasa.gov/citations/20210011385. ISS Microgravity Science Glovebox small flow duct; samples burned under varied O2, ventilation, fuel type/thickness/geometry. Report abstract (paraphrased): heat release mostly < 100 W; global equivalence ratio about 1.3 (fuel-rich).
 
 **`data/bass2_draft.csv`: 126 rows** from Appendix A (Tables A.1-A.6, one per investigator): B Bhattacharjee 22 (A.1), F Ferkul 4 (A.2), P Fernandez-Pello 27 (A.3), M Miller 20 (A.4), O Olson 24 (A.5), T T'ien 29 (A.6). IDs `BASSII-<letter><n>[a|b]` (e.g. `BASSII-P3a`).
-Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial, o2_cal_final, o2_raw_initial, o2_raw_final, co2_initial, co2_final, co_initial_ppm, co_final_ppm, observation, setup_raw, source_page, qc_flag, parse_ok, verified_by, verified_date, verifier_notes, raw_text`. Units: O2/CO2 vol%, CO ppm. Values are strings exactly as printed.
+Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial, o2_cal_final, o2_raw_initial, o2_raw_final, co2_initial, co2_final, co_initial_ppm, co_final_ppm, observation, setup_raw, source_page, qc_flag, parse_ok, verified_by, verified_date, verifier_notes, auto_checked_by, auto_checked_date, auto_check_notes, raw_text`. Units: O2/CO2 vol%, CO ppm. Values are strings exactly as printed.
+
+**Three check levels** (computed in `scripts/build_site_data.py`, shown everywhere on the site): `human` = `verified_by` + `verified_date` filled by a person who compared the row with the PDF; `machine` = passed `scripts/crosscheck_bass2.py` (automated, re-run at build time so an edited row drops back); `none` = hidden except in preview. Default site view = human + machine. **Current counts: 0 human, 104 machine, 22 none.** The 22 `none` rows (B14, B2, F2, F3, P22a, P22b, P3a, P3b, M5, O1, O12, O13b, O16, O2, O4, T1, T15, T2, T28a, T28b, T3, T4) carry the reason in `auto_check_notes` ("NEEDS HUMAN CHECK: ..."). `tests/crosscheck_mutation_test.py` proves the check rejects corrupted rows.
 
 **Facts and traps (do not rediscover these):**
 - `parse_ok`: 123 `yes`, 3 `manual` (M5, O16, T3 were hand-keyed from irregular layouts; flagged `hand_keyed`).
 - `qc_flag` values: `hand_keyed`, `o2_final_reading_suspect` (final O2 differs >3 vol% from initial: B2, F3, P22a, P22b, M5, T28a, T28b; NASA's own table has glitch values like 20.8 -> 0.6), `flow_mode_not_stated` (O1, O2, T1, T2, T4, T15), `o2_final_not_numeric` (B14), `material_check` (none currently).
 - **Keep suspect values as printed; never "fix" them.** Exclude them from numeric analysis or flag them.
 - NASA entries like `+OR`, `>500`, `failed`, `Over`, and en-dash minus (`–1`) are real strings. Parse with care (`num()` in `app.js` handles en dash and returns NaN for non-numeric).
+- **The automated check is not a PDF comparison.** It reads the same text export the extractor used, so an error introduced by the text export itself would pass. Only a human with the PDF can verify. Never fill `verified_by` from it.
 - **Missing from the text export:** P7, P11, T8. They may exist in the PDF. Do not invent them.
 - **No flow-velocity (cm/s) column.** The report uses fan/potentiometer settings and sometimes velocities in parentheses, in formats that differ by investigator. `setup_raw` keeps the original. **Never treat fan settings as velocities.**
 - **No pressure** per test. **No `outcome`** (spread/extinguished/...); coding it is interpretation (see 7.5).
@@ -122,10 +127,10 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 DONE
 - Static site (Overview with computed counts + 2 SVG charts + label legend; Explorer with search / investigator / flow mode / starting-O2 filters and natural sort; detail page with Measured readings, log note, Published conclusion, Our interpretation, Source card, QC callouts, raw-text drawer; About). Empty state when 0 verified; `?preview=draft` banner mode.
 - Tested in headless Chromium from `file://`: 29/29 checks, zero console errors, desktop + 390px screenshots reviewed. **Not yet seen on the team's machines / Safari / Firefox.**
-- 126 rows extracted + QC-flagged; **0 verified**.
+- 126 rows extracted + QC-flagged; automated cross-check cleared 104 (labelled "machine-checked" on the site); **0 human-verified**.
 
 BLOCKED ON HUMANS
-- Verification of `bass2_draft.csv` (gates all findings). Checklist is in `data/README.md`.
+- **Human verification** of `bass2_draft.csv`: do the 22 "NEEDS HUMAN CHECK" rows first, then the 104 machine-checked rows. Checklist in `data/README.md`. Until then the site honestly says 0 human-verified.
 - Team must open `site/index.html` and `site/index.html?preview=draft` and report problems.
 
 ## 7. Build backlog with specs (priority order)
