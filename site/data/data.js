@@ -24,8 +24,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "7 B1 147 100-µm PMMA film, 2 cm wide Integral 2 Opposed 62 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 57 22.2 22.2 20.6 20.6 0.44 0.44 0 6 Ignited very quickly, turned flow off after spread halfway; flame extinguished very quickly; and sooty with blue leading edge",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B10",
@@ -50,8 +55,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 62 B10 173m 1-cm, 0.2- mm PMMA film Integral 2 Opposed 1.7 (52), 1.25, 0.9, 0.6, 0.4, 0.35 5, 4, 3, 2, 1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 16 123 21.0 20.8 20.1 19.9 0.33 0.44 0 23 Multiple velocities for steady spread, extinguished at pot 0.35",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B11",
@@ -76,8 +86,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 61 B11 158m 2-cm, 0.2- mm PMMA film Integral 2 Opposed 2.5 (59), 1.3, 0.7, 0.5, 0.35 5, 3, 1, <1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 5 131 21.0 20.7 20.1 19.8 0.33 0.47 0 46 Multiple velocities for steady spread, extinguished at pot 0.35",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B12",
@@ -102,8 +117,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.7 vol%",
    "raw_text": "13 B12 160 300-µm film, 2 cm wide Integral 2 Opposed 46.5 2 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 4 160 22.2 22.1 20.5 20.4 0.51 0.56 17 33 Mostly blue, soot only on bottom",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B13",
@@ -128,8 +148,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 63 B13 162m 2-cm, 0.4- mm thick film Integral 2 Opposed 3.5 (68), 1.7, 1.25, 0.9, 0.6, 0.4, 0.35 10, 5, 4, 3, 2, 1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 16 311 21.0 20.5 20.1 19.6 0.33 0.65 0 61 Multiple velocities for steady spread, extinguished at pot 0.35",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B14",
@@ -154,8 +179,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_not_numeric; non-numeric/blank: o2_cal_final,o2_raw_final,co2_final,co_final_ppm",
    "raw_text": "--------- 47 B14 174m 1-cm-wide, 200-µm\u0002thick PMMA Integral 2 Opposed ---------------- 5, 3, 2, extinction 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 5 ---- 15.0 ----- 14.1 ----- 0.00 ----- 0.2 ---- HCl O, only brief ignition, flame extinguished",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-B15",
@@ -180,8 +210,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 59 B15 149m 2-cm, 0.1- mm PMMA film Integral 0 Opposed 1.4 (50) increase to 10.0 pot 10, max 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 12 122 21.0 20.8 20.1 19.9 0.33 0.43 0 22 Spread at 10 cm/s, did not blowoff",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B16",
@@ -206,8 +241,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.8 vol%",
    "raw_text": "--------- 51 B16 150m 2-cm 100- µm-thick PMMA Integral 2 Opposed ---------------- 3, 5 pot, 0.4 pot 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 7 94 17.3 17.2 16.5 16.4 0.47 0.51 103 119 HCl 1.1 > 1.3; flame quenched after prolonged burn at 0.4 pot, one-sided flame; spread to top side and quenched immediately; did igniter wire affect top flame?",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B17",
@@ -232,8 +272,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 48 B17 175m 1-cm-wide, 200-µm\u0002thick PMMA Integral 2 Opposed ---------------- 5, 3, pot 0.4 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 17 190 17.5 17.4 16.6 16.5 0.2 0.34 0 47 Burned steadily at higher flows, extinguished just as we reached a pot of 0.4; vapor jetting more on bottom, possibly because of sample tilted slightly to flow?",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B18",
@@ -258,8 +303,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 49 B18 176m 1-cm-wide, 200-µm\u0002thick PMMA Integral 0 Opposed ---------------- 10, blowoff 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 11 152 17.4 17.4 16.5 16.5 0.34 0.42 47 78 HCl 0.6 > 0.9, flame blew out at a fan pot of 7.0",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B19",
@@ -284,8 +334,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 52 B19 151m 2-cm, 100- µm-thick PMMA Integral 0 Opposed ---------------- 10, blowoff 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 2 95 17.3 17.2 16.4 16.3 0.51 0.57 119 131 HCl 1.3 > 1.4; flame blew out at a pot of 6.0",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B2",
@@ -310,8 +365,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
    "raw_text": "8 B2 155 200-µm PMMA film, 2 cm wide Integral 2 Opposed 62 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 none 22.2 1.6 20.6 ----- 0.44 ----- 6 ---- No stills taken, cable came loose; not quite a straight on edge view",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-B20",
@@ -336,8 +396,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 50 B20 152m 2-cm, 100- µm-thick PMMA Integral 2 Opposed ---------------- 5, 3, pot 0.5 250 --- NA NA N CL A –4 NA --- F2 1,000 Cont 9 111 17.4 17.4 16.5 16.5 0.42 0.47 78 103 HCl 0.9 > 1.1; flame burned entire sample",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B21",
@@ -362,8 +427,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "12:48:30 121 B21 174m 1-cm-wide, 200-µm\u0002thick PMMA 46 1 Opposed 53 and down 5 down to extinction 250 --- NA NA N CL A –3 NA --- F2 1,000 Cont 5 88 20.8 20.6 19.8 19.6 0.36 0.44 –1 18 Ignition at 5 cm/s then fan pot turned down slowly after flame; spreads halfway; flame goes out at 0.355 pot setting",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B22",
@@ -388,8 +458,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "17:56:02 126 B22 176m 1-cm-wide, 200-µm\u0002thick PMMA 39 1 Opposed 53, 42, 41, 40.5 5, 2, 0 250 --- NA NA N CL A –3 NA --- F2 1,000 Cont 8 77 20.7 20.5 19.8 19.6 0.41 0.47 –1 10 Ignition at 5 cm/s then decreased flow in step, fan pot 1.7, 0.5, 0.4, 0.36 (flame out)",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B3",
@@ -414,8 +489,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
    "raw_text": "11 B3 148 100-µm film, 2 cm wide Integral 2 Opposed 47 2 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 253 22.2 21.8 20.9 20.5 0.43 0.49 12 19 Probably 20.6 O2 to start; lower flow flames much more blue overall; still some soot though",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B4",
@@ -440,8 +520,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "9 B4 159 300-µm PMMA film, 2 cm wide Integral 2 Opposed 61 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 137 22.2 22.2 20.6 20.6 0.44 0.51 –1 10 Bubble layer thickness increases with sample thickness",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B5",
@@ -466,8 +551,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
    "raw_text": "10 B5 156 200 µm 2 cm wide Integral 2 Opposed 59 5 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 7 206 22.2 21.9 20.9 20.6 0.43 0.43 0 12 Repeat of B2 test conditions, to get top view images; question the 20.9 reading; all others were 20.6 this day",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B6",
@@ -492,8 +582,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 57 B6 153m 2-cm, 0.1-mm PMMA film Integral 2 Opposed 0.9, 1.3, 2.75 3, 5, approaching 10 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 8 80 21.0 20.9 20.1 20.0 0.33 0.41 0 0.3 Steady burning at 3 and 5 cm/s, did not reach 10 cm/s before end of sample, complete burnout, HCl –>0.3",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B7",
@@ -518,8 +613,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "12 B7 161 400-µm film, 2 cm wide Integral 2 Opposed 47 2 50 --- 8 NA N CL A –4 off --- F2 1,000 Cont 4 84 22.2 22.1 20.6 20.5 0.45 0.51 1 17 Very long bubble layer",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B8",
@@ -544,8 +644,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 60 B8 157m 2-cm, 0.2-mm PMMA film Integral 0 Opposed 1.4, increase to 10.0 10, maximum 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 12 226 21.0 20.5 20.1 19.6 0.33 0.58 0 131 Spread at 10 cm/s, did not blowoff",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-B9",
@@ -570,8 +675,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 58 B9 154m 2-cm, 0.1-mm PMMA film Integral 2 Opposed 0.6, 0.35 2, <1 10 --- NA NA N CL A –3 NA --- F2 1,000 Cont 12 45 21.0 20.9 20.1 20.0 0.33 0.35 0 10 Steady burning at 2 cm/s, extinguished at 0.35",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-F1",
@@ -596,8 +706,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "14 F1 227 Nomex® (DuPontTM) natural (Nomex III) Integral 2 Concurrent 82 9.5 250 8 NA N CL M NA off 1/10 F2 1,000 Cont 4 208 22.2 22.2 20.6 20.6 0.46 0.45 0 2 Ignited briefly but did not spread at all and extinguished while the igniter was still on",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-F2",
@@ -622,8 +737,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: cal-raw starting O2 offset 0.0 outside 0.2-2.5",
    "raw_text": "-------- 103 F2 228m Nomex® natural (Nomex III) Integral 2 Concurrent 92 15 250 NA NA N CL M NA NA 1/10 F2 1,000 Cont 8 72 21 21.0 21 21.0 0.37 0.39 105 82 Tried to ignite, flame would not sustain",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-F3",
@@ -648,8 +768,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
    "raw_text": "8:58:25 115 F3 229m Nomex® natural (Nomex III) Integral 1 Concurrent 61 8 50 NA NA N CL A –3 NA ------ F2 1,000 Cont 13 46 21.7 0.9 20.8 ------ 0.36 ------ 2 --- Brief ignition flash, no sustained flame; no postburn sensor readings taken",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-F4",
@@ -674,8 +799,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
    "raw_text": "6/24/2018 -------- 36 F4 39M Japan Wax candle Integral 2 Stagnation See notes 3 ignition 250 NA NA N CH A –5 9F 1.0 ------ F2 1,600 7 s 3 270 17.4 17.4 16.2 16.2 0.38 0.48 22 56 Long ignition, but blue flame established at 3 cm/s, reduced flow in increments: potentiometers 0.6, 0.4, 0.35, 0.32, 0.31, 0.305 flame extinguished a Greenwich Mean Time.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P1",
@@ -700,8 +830,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "---------- 25 P1 185m 6.35-mm black rod –22 2 Opposed ------------ 5, 2, slow decrease to extinction 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 6 307 17.7 17.5 16.6 16.4 0.27 0.44 1 14 Broke –20, –21 igniters, –22 worked; nice flame, got down to extinction at pot 0.315 (finite low flow), very slow increments",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P10",
@@ -726,8 +861,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 55 P10 187m 6.35-mm black rod –35 2 Opposed 48, 41 5, pots 0.4, 0.36, 0.32, 0.31, 0.30 extinguished 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 15 221 17 16.4 16.1 15.5 0.29 0.72 2 44 HCl 0.3 > 0.9, steady burn at multiple velocities, finite quench at pot 0.3",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P12",
@@ -752,8 +892,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "---------- 104 P12 199m 9.525-mm black rod –36 2 Opposed 60, 52, 48, 44.5, 42, 41.5, 41 (2.6, 1.6, 1.2, 0.75, 0.5, 0.4, 0.36, 0.34) 5, 3, 2, 1, 0.5, lower 250 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 3 273 17.5 16.8 16.4 15.7 0.29 0.95 2 57 Loss of signal before extinguished, oscillating at 0.36, out immediately at 0.34, multiple steady spread flows",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P13a",
@@ -778,8 +923,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "14:30:00 85 P13a 203m 12.7-mm black rod –37 2 Opposed Fan pot 1.1 (5cm/s), 0.4, 0.36, 0.32, 0.3, 0.28, 0.26, 0 ext 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 14 255 20.7 19.1 19.8 18.2 0.36 1.63 38 450 Fan pot 1.1 (5 cm/s), 0.4, 0.36, 0.32, 0.3, 0.28, 0.26; flame out when pot turned to 0; HCL 0.5 > 4.1; flame reached front of sample and began to wrap around",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P13b",
@@ -804,8 +954,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "16:04:00 86 P13b 203m 12.7-mm black rod –37 2 Opposed Fan pot 1.3 (5cm/s), 0.4, 0.36, 0.32 ext 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 10 94 20.6 20.2 19.7 19.3 0.41 0.62 5 72 Fan pot 1.3 (5 cm/s), 0.4, 0.36, 0.32; flame out when pot turned to 0.32",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P14",
@@ -830,8 +985,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
    "raw_text": "6/23/2014 ---------- 29 P14 189M 6.35-mm black rod –22 2 Opposed 46, 41 5, low (0.85, 0.4, 0.32) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 4 162 18.4 18.0 17.1 16.7 0.34 0.62 3 90 All blue, extinguished at 0.31",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P15",
@@ -856,8 +1016,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
    "raw_text": "6/23/2014 ---------- 30 P15 190M 6.35-mm black rod –22 2 Opposed 46, 41 5, (0.36) 250, 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 7 170 18.0 17.5 16.7 16.2 0.62 1.11 90 108 Nice stable burn with sooty tail but blue leading edge",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P16",
@@ -882,8 +1047,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "---------- 93 P16 191m 6.35-mm black rod –36 2 Concurrent 49, 62, 44, 41.5, 41 (pots 1.3, 2.8, 0.7, 0.4, 0.36, 0.32) 5, 8, 2, low 250, 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 17 129 18.2 17.4 17.2 16.4 0.30 0.92 0 56 Extinguished at pot 0.32, one high flow setting",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P17",
@@ -908,8 +1078,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "---------- 105 P17 192m 6.35-mm rod –36 2 Opposed 60, 52, 48, 233, 48, 41 (2.6, 1.6, 1.2, 10, 1.2, 0.36, 0.34) 5, 3, 2, 22, 2, low 250 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 186 16.8 16.5 15.7 15.4 0.95 1.34 57 68 A few finite flows, then tried blowoff without success, turned back down to 2 cm/s, then 0.36, 0.34 pots, oscillated and out at 0.34; leading edge receded slightly but did not blowoff",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P18",
@@ -934,8 +1109,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
    "raw_text": "10:46:00 107 P18 193m 6.35-mm black rod 36 2 Opposed 55, 47, etc. (pot 1,2,1,2, etc.) 2, 0, 2, 0, etc. 250 Saturated NA NA N CL A –3 NA ---- F2 1,000 Cont 7 280 20.0 19.0 18.8 17.8 0.34 1.20 1 26 Alternated fan pot between 1 and 2 at 1-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.32",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P19",
@@ -960,8 +1140,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "---------- 94 P19 194m 6.35-mm black rod –36 2 Concurrent 49, 62, 44, 41.5, 122, 41 (pots 1.3, 2.8, 0.7, 0.4, 0.36, 10., 0.32) 5, 8, 2, maximum, 0 250, 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 2 279 17.5 16.7 16.5 15.7 0.90 1.61 54 94 Tried blowoff, did not blowoff at pot 10 2 restrictors, flame out at 0.32, sample mostly gone",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P2",
@@ -986,8 +1171,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "6/16/2014 ---------- 26 P2 188M 6.35-mm black rod –22 2 Opposed ------------ 5, 2.5, 2 (pot 0.9, 0.5, 0.35, 0.33) 250 Nearly saturated NA NA N CL A –4 NA ---- F2 1,000 Cont 7 303 17.4 17.2 16.4 16.2 0.44 0.66 14 26 Nice stable burn at low velocity, mostly blue with some inner soot at higher flow, stable flame at pot 0.33, did not get extinction on stills, but was just fan off, not slow ramp",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P20",
@@ -1012,8 +1202,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "15:22:22 109 P20 195m 6.35-mm black rod 36 2 Opposed 55, 47, etc. (pot 1, 2, 1, 2, etc.) 2, 0, 2, 0, etc. 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 2 311 19.0 18.2 17.9 17.1 0.34 1.05 2 78 Alternated fan pot between 1 and 2 at 1-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.335",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P21a",
@@ -1038,8 +1233,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
    "raw_text": "---------- 31 P21a 196M 6.35-mm black rod –22 2 Opposed 46 5 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 9 57 16.3 16.3 15 15.0 0.96 1.00 86 94 Flame self-extinguished at 5 cm/s after sample end became flat, dim flame",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P21b",
@@ -1064,8 +1264,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.3 vol%",
    "raw_text": "6/23/2014 ---------- 32 P21b 196M 6.35-mm black rod –22 2 Opposed 46 5 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 9 14 16.3 16.3 15 15.0 1.00 1.03 94 98 Igniter broke after third attempt to ignite flattened end of sample a Greenwich Mean Time.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P22a",
@@ -1090,8 +1295,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
    "raw_text": "---------- 68 P22a 200m 9.525-mm black rod –35 2 Opposed 5, 0.36, 0.32 extinction after some time 5 down to extinction 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 83 20.8 0.6 20.2 ---- 0.32 ---- 4 ---- Extinguished at higher flow, possibly rod not preheated enough by a bit, CO readings elevated, slow response",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-P22b",
@@ -1116,8 +1326,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_initial,co2_initial,co_initial_ppm",
    "raw_text": "---------- 69 P22b 200m 9.525-mm black rod –35 2 Opposed 5, 0.36, 0.34, 0.33, 0.32, 0.31, extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 155 20.0 39.1 ---- 19.1 ---- 1.09 ---- 236 Extinguished at lower flow than P22a by a bit, longer slower decrease in flow, CO elevated, slow response",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-P23",
@@ -1142,8 +1357,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "16:18:33 110 P23 201m 9.525-mm black rod 36 2 Opposed 55, 47, etc. (pot 1, 2, 1, 2, etc.) 2, 0, 2, 0, etc. 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 10 242 18.2 17.0 17.1 15.9 1.05 2.08 78 159 Alternated fan pot between 1 and 2 at 1-min then 2-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.38",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P24",
@@ -1168,8 +1388,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
    "raw_text": "11:13:35 108 P24 819L 9.525-mm black rod 36 2 Opposed 55, 47, etc. (pot 1,2,1,2, etc.) 2, 0, 2, 0, etc. 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 4 308 19.0 17.5 17.8 16.3 1.20 2.24 26 260 Alternated fan pot between 1 and 2 at 1-min intervals to try to get time constant resolution; finally turned pot down slowly, extinction at fan pot 0.30",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P25",
@@ -1194,8 +1419,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "---------- 70 P25 217m 9.525-mm clear rod –36 2 Opposed 5, 0.36, 0.34, 0.33, 0.32, 0.31, extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 17 246 20.9 20.2 19.9 19.2 0.38 1.00 43 205 Reburn of 217m in opposed geometry, repeat of P22b, extinguished at same 0.31 pot, more sparklers from flame, and less leading edge vapor jetting, or more central jetting; rod warped downward in video view at end of test, asymmetrical instabilities noted briefly at pot change to 0.32, CO elevated, slow response",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P3a",
@@ -1220,8 +1450,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_final_ppm",
    "raw_text": "6/16/2014 ---------- 27 P3a 215M 6.35-mm clear rod –22 2 Opposed ------------ 5, 2.5 (1.15, 0.5, 0.35, 0.33. 0.32, 0.315, 0.31, 0.3) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 8 304 17.7 17.4 16.6 16.3 0.27 0.51 33 ---- Repeat of last test with clear rod; extinguished at 0.3 pot very small flame, but steady spread",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-P3b",
@@ -1246,8 +1481,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co2_final",
    "raw_text": "6/16/2014 ---------- 28 P3b 215M 6.35-mm clear rod –22 2 Opposed ------------ 5, very low (0.85, 0.32, 0.31, 0.305, 0.30, 0.295) 250 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 9 303 17.4 16.8 16.3 15.7 0.51 failed 33 79 Very low velocity test to get limiting spread rate, pot 0.32 spread, 0.31 spread, etc.; power failed to camera?; fan still running; camera power cable needed repair and taping to camera body to make it work",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-P4",
@@ -1272,8 +1512,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 54 P4 197m 9.525-mm black rod –35 2 Opposed 48, 41 5, pots 0.4, 0.36, 0.32, 0.308, .3, off 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 4 297 18.5 17.1 17.6 16.2 0.62 1.8 64 493 HCl 0.9 > 1.8, long slow burn, steady at multiple pots until turned off flow",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P5",
@@ -1298,8 +1543,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "13:18:00 83 P5 202m 12.7-mm black rod –37 2 Opposed Fan pot 1.5 (5cm/s), 0.9, 0.4, 0.36, 0.32, 0.308, 0.3, 0.29, 0.28, 0, extinction 5 down to extinction 250 > 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 8 313 19.3 17.6 18.4 16.7 0.32 1.67 0 525 Fan pot 1.5 (5 cm/s), 0.9, 0.4, 0.36, 0.32, 0.308, 0.3, 0.29, 0.28 (flame persisted for all) finally turned down flow to 0 to extinguish; HCL 0 > 4.7; lots of fuel left behind, conical shape",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P6",
@@ -1324,8 +1574,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 53 P6 186m 6.35-mm black rod –35 2 Opposed 48, 41 5, pots 0.4, 0.36, 0.32, 0.31, off 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 10 162 18.9 18.5 18 17.6 0.3 0.62 0 64 HCl 0 > 0.9, steady burning until turned flow off, multiple pot settings",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P8",
@@ -1350,8 +1605,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 56 P8 197m 9.525-mm black rod –35 2 Opposed 48, 62, 75 5, would not stay lit, 10, 15 ibid 50 ---- NA NA N CL A –4 NA ---- F2 1,000 Cont 14 66 16.4 16.3 15.5 15.4 0.72 0.81 44 69 HCl 0.9 > 0.9, would not stay lit, tip of sample was flat",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-P9",
@@ -1376,8 +1636,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "13:57:00 84 P9 202m 12.7-mm black rod –37 2 Opposed Fan pot 1.5 (5cm/s), 0.9, 0.4, 0.36, 0.32, 0.3, 0.28 extinction 5 down to extinction 50 ---- NA NA N CL A –3 NA ---- F2 1,000 Cont 15 148 17.6 17.1 16.7 16.2 1.67 2.10 525 535 Fan pot 1.5 (5 cm/s), 0.9, 0.4, 0.36, 0.32, 0.3, 0.28 flame out at 0.28; HCL 4.7 > 4.5; flame did not leave conical portion behind, rather fuel was consumed but final sample shape was very irregular a Greenwich Mean Time.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M1",
@@ -1402,8 +1667,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "--------- 15 M1 222 1-mm-thick PMMA, one-sided, 2 cm Integral 2 Opposed 58, 54 10, 8 50 ----------- 8 NA N CL A –4 Off ---- F2 1,000 Cont 6 304 22.2 21.9 20.6 20.3 0.45 0.61 0 60 Prolonged ignition, flame initially on both sides, after igniter off and flame moved away from end, bottom flame died and top flame became all blue and small; very slow propagation; changed flow from 10 to 8 cm/s and flame shrank to a circle; spread just over 1/3 of sample when we ran out of camera card, and put flame out by turning off flow",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M10",
@@ -1428,8 +1698,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "17:38 97 M10 180m 4-mm-thick, 1-cm-wide PMMA slab Integral 2 Opposed 75, 105, 94/91, 72/69, 63/61 (4.4, 8.0, 6.6/6.3, 4.0/3.7, 3/0/2.7) 10, 17, 14, 10, 8 250, 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 16 209 20.1 18.6 19 17.5 0.36 1.59 –1 536 Long burn, quick ignition, flame in seconds, kept it on 40 s + 2nd on for another 10 to 15 s when it was shrinking; multiple flows for steady spreading; flame big at 17, so only left it there 3 min; other flows longer; flame self-extinguished at 8 cm/s after almost 10 min; Alex saw it going out and locked shutter for the last few seconds; pictures start after ignition, about every 8 s",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M11",
@@ -1454,8 +1729,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 80 M11 181m 1-cm-wide PMMA 5 mm thick Integral 2 Opposed 3.9, 6.5, 4.6, 3.3, 2.9, 2.8; 62.5, 93, 77, 66, 63, 62 10, 20, 15, 12 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 7 247 20.0 18.5 19.1 17.6 0.58 1.68 46 577 29-min burn; extinguished at 12 cm/s., HCl 0.5 > 5.0",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M12",
@@ -1480,8 +1760,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "14:35:20 114 M12 165m 2-mm-thick PMMA, 2 cm wide Integral 1 Opposed 41, 42, 41 <1 250 > 50 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 12 271 21.7 20.4 20.7 19.4 0.42 1.42 15 443 Vigorous ignition led to trying to get flame under control; finally had about plateaus at pot = 0.35, 0.4, and again 0.35",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M13",
@@ -1506,8 +1791,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "12:18:54 112 M13 169m 4-mm-thick PMMA, 2 cm wide Integral 1 Opposed 52, 47, 43 6, 5, 4 250 > 50 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 11 258 20.8 19.0 19.8 18.0 0.36 1.75 0 487 Mild ignition at 10 cm/s; decreased flow down holding constant for 6 min at pot settings of 1.7, 1.0, and 0.55; finally extinguished by turning pot down to 0.3",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M14",
@@ -1532,8 +1822,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "--------- 16 M14 223 2-mm-thick PMMA, one\u0002sided, 2 cm wide Integral 2 Opposed Pot 2.4, 1.87 (54) 10, ~8 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 8 259 22.2 21.6 20.6 20.0 0.45 0.98 0 198 Prolonged ignition, followed by flow reduction after flame moved away from igniter region and spread steadily; flame self-extinguished at an air reading of 9 cm/s.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M15",
@@ -1558,8 +1853,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 64 M15 225m 2-cm, 4-mm, one-sided PMMA slab Integral 2 Opposed Ignited 10, adjusted down then up to 20, down in increments to 15 10, 8, 7, 8, 10, 20, 18, 16, 15 10, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 7 153 21.0 20.0 20.1 19.1 0.37 1.10 1 220 Ignited and turned flow down to control flame size during end burning, then turned flow up to 20 cm/s and got steady spreading there, turned down flow to 15 and got spreading and slow extinction there.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M16",
@@ -1584,8 +1884,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "00:25 99 M16 164m 1-mm-thick PMMA, 2 cm wide Integral 2 Opposed 73, 57, 59, 48, 45, 43, 75 (4.2, 2.2, 2.4, 1.2, 0.8, 0.5, 4.4) 10, 6, 3, 2, 1, 10 250, 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 7 299 19.2 18.7 18.1 17.6 0.95 1.75 118 421 Burned at decreasing flow down to 1 cm/s or so, still fine, at end of sample, turned up flow to 10 cm/s and flame got really long; turned it down but Alex reported some soot on the door and some on the heat sink; dry wipe would not wipe off; try Monday with some other—water?",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M17",
@@ -1610,8 +1915,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "15:12:00 88 M17 166m 2-cm-wide PMMA, 2 mm thick Integral 2 Opposed Fan pot 3.7, 1.7, 1.5, 1.3, 0.8, 0.6, 0.5, 0.3 extinction 10, 5, 3, 0, extinction 250 > 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 11 309 18.8 17.1 17.8 16.1 0.35 1.70 4 485 30-min burn targeted constant flows of 10, 5, and 3; finally turned fan pot to 0 to extinguish. HCl 0.3 > 3.7",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M18",
@@ -1636,8 +1946,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "12:40:00 87 M18 168m 2-cm-wide PMMA, 3 mm thick Integral 2 Opposed Fan pot 3.5, 5 (brief), 3,5, 2.2 10, 15 (brief), 10, 8 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 6 178 17.9 16.8 16.9 15.8 0.32 1.31 0 335 26-min burn; flow briefly at 15 cm/s but flame was too strong so turned down; HCl 0 > 3.1, extinguished 8 cm/s",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M19",
@@ -1662,8 +1977,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "23:37 98 M19 170m 4-mm-thick, 2-cm, two\u0002sided PMMA slab Integral 2 Opposed 75, 105, 94, 75, 77, 79, 59, 61, 57, 55, 53 (4.4, 8.0, 6.6, 4.4, 4.6, 4.8, 2.5, 2.7, 2.2, 2.0, 1.8) 10, 17, 14, 10, 7, 5 250, 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 8 201 19.0 17.4 17.9 16.3 0.35 1.60 3 357 Burned with decreasing flows until it went out on its own at 5 cm/s",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M2",
@@ -1688,8 +2008,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "--------- 17 M2 224 3-mm-thick PMMA one\u0002sided, 2 cm wide Integral 0 Opposed 20, 15, 13 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 9 262 22.2 21.2 20.6 19.6 0.46 1.33 12 325 Ignite at 20 cm/s, turn down to 15 cm/s after spread away from igniter; seemed steady, so turned down to 13 cm/s; flame got very dim, so increased flow to 14 cm/s, but it self\u0002extinguished",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M20",
@@ -1714,8 +2039,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "11:10:50 116 M20 172m 5-mm-thick PMMA, 2 cm wide Integral 1 Opposed 67, 58 10, 8 50 0.4 > 1.2 > 0.8 NA NA N CL A –3 NA ---- F2 1,000 Cont 9 168 18.0 17.4 17.1 16.5 0.30 0.75 0 157 Flame took some time to establish, initially only on bottom of fuel; ignition at 10 cm/s (left 8 min) then flow down to 8 cm/s (flame out after 3 more minutes)",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M3",
@@ -1740,8 +2070,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 82 M3 226m 2-cm-wide, 5-mm-thick, one-sided PMMA Integral 2 Opposed 3.0, 3.1, 3.2, 6.4, 5.5, 5.4 10, 20, 18 250 > 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 16 ----- 20.8 19.7 19.9 18.8 0.33 1.18 11 300 Extinguished at 18 cm/s; HCl 0.6 > 2.6",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M4",
@@ -1766,8 +2101,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "13:59:12 113 M4 171m 5-mm-thick PMMA, 2 cm wide Integral 1 Opposed 52, 47, 43 5, 4, 3 250 > 50 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 16 262 21.8 19.8 20.7 18.7 0.42 2.15 2 561 Mild ignition at 10 cm/s; decreased flow down holding constant for 6 min at pot settings of 1.7, 1.0, and 0.55; finally extinguished by turning pot down to 0.3",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M5",
@@ -1792,8 +2132,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect;hand_keyed; parse_ok=manual; non-numeric/blank: co_final_ppm",
    "raw_text": "--------- 18 M5 167 3-mm-thick PMMA, two-sided, 2 cm thick Integral 0 Opposed 20, 13, 10, 8, 5 50 ----------- ? NA N S A –4 Off ---- F2 1,000 Man 10, 14 300+ +102 22.2 19.0 20.6 17.4 0.44 3.22 9 >500 Rick ignited while we were loss of signal and out of contact with ISS, unfortunately; ignition was ~3 min per his verbal call down when we came back; flame already burning ~1/3 of sample, both sides, long and sooty; more vapor jetting on bottom due to molten ball attached there, visible when lights on to change camera card; turned down to 10 cm/s, then further down in increments to 5 cm/s; extinguished at 5 cm/s after prolonged flashing; during soot cleaning, Rick noticed damage to front door corner by the switches; He sent pictures down for us to evaluate for damage; CO reading posttest was off-scale; came back during purge reading 500",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-M6",
@@ -1818,8 +2163,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "11:12:57 111 M6 163m 1-mm-thick PMMA, 2 cm wide Integral 1 Opposed 68, 52, 47, 43, 42, 41 10, 5, 3, 0 250 Saturated at start NA NA N CL A –3 NA ---- F2 1,000 Cont 17 269 21.8 20.7 20.8 19.7 0.38 1.27 1 345 Aggressive ignition led to large flame initially; once flame settled down, we kept flow low and had two flow plateaus (pot 0.4 and 0.36); when flame reached end of sample it started backing up and spreading along the edges.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M7",
@@ -1844,8 +2194,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 81 M7 177m 1-cm-wide PMMA, 1 mm thick Integral 2 Opposed 2.6, 1.3, 0.8, 0.7, 0.6, 0.5; 60, 49, 45, 44, 43, 42 10, 6, 5, 4.5, 4, 3 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 12 ----- 18.9 18.4 18 17.5 1.42 1.84 398 612 18 min burn; burned entire sample; HCl 2.2 > 3.9",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M8",
@@ -1870,8 +2225,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 79 M8 178m 1-cm-wide PMMA, 2 mm thick Integral 2 Opposed 3.3, 1.6, 1.0, decrease 10, 5 > 7, 5 decrease 50 > 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 5 292 19.1 18.2 18.2 17.3 0.44 1.28 52 467 25-min burn; turned down flow to extinguish, went out at pot 0.4; HCl 0.4 > 4.6",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-M9",
@@ -1896,8 +2256,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "--------- 78 M9 179m 1-cm-wide PMMA, 3 mm thick Integral 2 Opposed 3.3, 4.8; 66, 79 10, 14 50, 250 ----------- NA NA N CL A –3 NA ---- F2 1,000 Cont 2 156 18.0 17.6 17.1 16.7 0.26 0.54 0 191 Ignited at 10 cm/s, photographs every 5 s or so, turned up flow when flame looked weak; died after 15 min at 14 cm/s; 17-min burn; HCl 0 > 1.7 a Greenwich Mean Time. b Polymethylmethacrylate (PMMA). c Potentiometer (pot).",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O1",
@@ -1922,8 +2287,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
    "raw_text": "16:20- 5 O1 207 6.35-mm clear rod 0020-23 2 ? 89, 62, 50, 41 20, 10, 5, 2, 1 50 ---- 8 NA N CH A –5 9F 1.0 --- F4 1,600 7s 3 62 22.2 21.7 20.6 20.1 0.44 0.85 -1 51 Bracket test with decreasing flows; very sooty long flame at high flows; rod very thinned out and was wobbling due to vapor jetting later in test; Rick broke it off holder during readjustments",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-O10",
@@ -1948,8 +2318,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "13:26 95 O10 210m 6.35-mm clear rod –31 2 Concurrent 49, 44, 41, 122 (1.3, 0.7, 0.4, 0.36, 0.32, 10) 5, 2, 0, maximum 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 6 172 16.7 16.1 15.7 15.1 1.61 2.10 94 287 Leading edge (LE) blew out at fan 81, 25 s for rest of flame to blowoff at maximum flow",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O11",
@@ -1974,8 +2349,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "-------- 65 O11 184m 6.35-mm black rod –32 2 Stagnation Ignition, 5, 0.36, 0.32, 0.31, 0.305, blowoff 6.0 5, down then blowoff 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 11 271 15.4 14.8 14.5 13.9 0.27 0.72 2 290 Repeat of clear rod O8b test, to compare black versus clear for stagnation flame, blowoff at pot of 6.0, fan slightly higher than O8b, HCl 2.8",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O12",
@@ -2000,8 +2380,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_initial_ppm,co_final_ppm",
    "raw_text": "-------- 67 O12 217m 9.525-mm clear rod –32 2 Stagnation pots 1.4, 3, 0.9, 0.7 No ignition at any flow 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 6 52 13.6 13.5 12.7 12.6 1.72 1.71 +OR +OR No sustained flame at any flow, flame with igniter but died immediately upon igniter removal, HCL 12.3",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-O13a",
@@ -2026,8 +2411,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "17:22 91 O13a 221m 12.7-mm clear PMMA rod –29 2 Concurrent 1.3, 0.7, 0.45, 0.36, 0.32, 0.31 49, 44, 42, 41, 41, 40.5 (5, 2, 0) 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 4 199 15.9 14.6 14.9 13.6 0.91 1.85 389 950 Ignited and burned at 5 pot settings, flame self-extinguished after 3+ min at pot 0.31",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O13b",
@@ -2052,8 +2442,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_final_ppm",
    "raw_text": "17:57 92 O13b 221m 12.7-mm clear PMMA rod –29 2 Concurrent 1.3, 0.9 7, 4? (49, ?) 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 17 6 14.6 14.4 13.6 13.4 1.85 2.09 950 Over Only stayed lit at 0.9 for less than a minute",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-O14",
@@ -2078,8 +2473,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "16:18:00 117 O14 183m 6.35-mm black rod 39 1 Concurrent 52 and down 5 down to extinction 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 8 279 16.3 15.3 15.3 14.3 0.29 0.86 4 352 Ignition at 5 cm/s then slow pot decreases to quenching pot 0.28",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O15a",
@@ -2104,8 +2504,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "11:36 msg 100 O15a 218m 9.525-mm clear rod –31 2 Stagnation 57.5, 47, 42, 41 (2.3, 1.0, 0.5, 0.35, 0.32) 5,0 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 15 124 17.1 16.7 16 15.6 0.27 0.62 0 176 Decrease flow to extinction at 0.32 pot, from 0.35 pot. 1.5 min at 5 cm/s; 2.5 min pot 1.0; 3.5 min at 0.5; 3.5 min 0.35; slow turn down to 0.32, flame out fairly quickly",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O15b",
@@ -2130,8 +2535,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "101 O15b 218m 9.525-mm clear rod –31 2 Stagnation 57.5, 42, 41, 40 (2.3, 0.5, 0.35, 0.34, 0.33, 0.32, 0.31, 0.30, 0.29, 0.28, 0.27) 5, 0 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 9 316 16.7 15.6 15.6 14.5 0.62 1.63 176 751 Reburn of same rod as previous; decreased flow to extinction at 0.27 pot, much lower than previous; rod heatup effect? 1 min 5 cm/s; 3.5 min pot 0.5; 5 min 0.35; 4 min 0.34; 4 min 0.33; 3 min 0.32; 1 min 0.31; 1 min 0.3; 1 min 0.29; 1.5 min 0.28; 0.27 out",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O16",
@@ -2156,8 +2566,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: hand_keyed; parse_ok=manual",
    "raw_text": "-------- 106 O16 219m 9.525-mm clear rod –31 2 Stagnation 60 (2.6) 5 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 7 10 postburn only 14.5 14.5 13.4 13.4 0.27 0.32 2 33 Brief flame at end of first ignition, but no joy on sustained flame",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-O17",
@@ -2182,8 +2597,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "-------- 96 O17 211m 6.35-mm clear rod –31 2 Concurrent 49, 46.5, 44, 42,41,72, decrease (1.3, 1.0, 0.7, 0.5, 0.4, 4.0, decrease) 3, 0, 11 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 12 174 15.1 14.3 14.1 13.3 0.31 0.90 2 377 Stable burns at slightly higher flows, LE blowoff at fan 72 and turned down flow but flame did not recover and extinguished even after flow was down to 43-44",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O18",
@@ -2208,8 +2628,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "11:05 102 O18 212m 6.35-mm clear rod –31 2 Stagnation 57, 51, 47, 72, 51, 72, 51, 47 (2.3, 1.5, 1.0, 4.0, 1.5, 4.0, 1.5, 1.0) 5, 2, 0, 11, 2, 11, 2, 0 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 5 176 15.2 14.5 14.1 13.4 1.45 1.94 523 816 Got rod hot, blue flame, turned flow up to pot 4.0, stag region blew out, Alex turned down quickly to 1.5 and got it to restabilize; we repeated it but it would not restabilize second time and flame extinguished after multiple oscillations at pot 1.0, after 1.5 would not restabilize",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O19",
@@ -2234,8 +2659,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "16:49:00 118 O19 213m 6.35-mm clear rod 39 1 Concurrent 52 and down 5 down to extinction 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 15 266 15.3 14.6 14.3 13.6 0.86 1.51 352 686 Ignition at 5 cm/s then slow pot decreases to quenching pot 0.288",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O2",
@@ -2260,8 +2690,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
    "raw_text": "-------- 6 O2 204 6.35-mm clear rod 0020-23 2 ? 0.54 pot and 0.45 pot 0 50 ---- 8 NA N CL A –4 Off --- F4 1,600 Cont 3 287 22.2 21.9 20.6 20.3 0.44 0.59 –1 23 Ignited at 2 cm/s, and got dim flame that got sooty with lots of vapor jetting, reduced flow to 1.5 pot and got less vapor jetting test; still sooty at these low flows ",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-O3a",
@@ -2286,8 +2721,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
    "raw_text": "-------- 23 O3a 205M 6.35-mm clear rod –23 2 Concurrent ------------ 5, 3 1,000 ---- 8 NA N CL A –4 NA --- F2 1,000 Cont 9 85 18.0 18.0 15.9 15.9 0.25 0.28 16 22 Flame extinguished as soon as he turned flow down, probably overshot, flame sooty at 5 cm/s",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O3b",
@@ -2312,8 +2752,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
    "raw_text": "-------- 24 O3b 205M 6.35-mm clear rod –23 2 Concurrent ------------ 5, 3, 2, 1, low 1,000 and 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 9 306 18.0 17.7 15.9 15.6 0.28 0.53 22 116 Flame sooty even at lower flows, didn't get blue until air reading was zero",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O4",
@@ -2338,8 +2783,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: non-numeric/blank: co_final_ppm",
    "raw_text": "-------- 66 O4 216m 9.525-mm clear rod –32 2 Stagnation 5, 0.7, 0.5, 0.4, 0.36 extinction 5 down to extinction 250 ---- NA NA N CH A –3 NA --- F2 1,000 Cont 13 249 14.8 13.6 13.9 12.7 0.72 1.72 290 +OR Larger rod, decreased flow, extinguished at 0.36, HCl 9.7",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-O5a",
@@ -2364,8 +2814,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "15:59 89 O5a 220m 12.7-mm clear pmma rod –41, –42, – 30 2 Concurrent 1.3, 2.7, 1.3, 0.7, 0.45, 4.0 5, 10, 5, 2, 0 (49, 62, 49, 44, 42) 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 13 164 15.1 14.2 14.1 13.2 0.25 1.05 -2 496 Hard to ignite, broke two igniters, burned for 9 min then blew out with pot of 4.0, tried to stay lit but blew off after multiple oscillations.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O5b",
@@ -2390,8 +2845,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "17:02 90 O5b 220m 12.7-mm clear pmma rod –30 2 Concurrent 1.3 49, 5 cm/s 250 ---- NA NA N CL A –3 NA --- F2 1,000 Cont 4 2 14.2 14.1 13.2 13.1 1.05 1.14 496 590 Would not sustain a flame without igniter on, broke igniter again",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O6",
@@ -2416,8 +2876,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "6/26/2014 -------- 37 O6 206M 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.31, 0.305, out 0.275 See fan 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 2 241 16.7 16.0 15.8 15.1 0.32 0.74 1 232 -----------------------------------------",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O7",
@@ -2442,8 +2907,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "6/26/2014 -------- 38 O7 214m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.305, blowoff fan max 10 ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 14 254 16.0 15.5 15.1 14.6 0.74 1.27 232 512 Blowoff fan 97, HCl post 4.9",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O8a",
@@ -2468,8 +2938,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "6/26/2014 -------- 39 O8a 208m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.31, extinguished ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 15 133 15.7 15.3 14.8 14.4 1.23 1.44 436 536 Quench at pot 0.31, HCL 4.8 to 5.9",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O8b",
@@ -2494,8 +2969,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.1 vol%",
    "raw_text": "6/26/2014 -------- 40 O8b 208m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32, 0.31 blowoff fan pot 6.0 ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 17 152 15.5 15.2 14.4 14.1 1.44 1.74 536 660 Blowoff fan 78, HCl prepost 5.9 to 7.9",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-O9",
@@ -2520,8 +3000,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "6/26/2014 -------- 41 O9 209m 6.35-mm clear rod –24 2 Stagnation 5, 0.36, 0.32 blowoff pot 4.0 ------------ 250 ---- NA NA N CL A –4 NA --- F2 1,000 Cont 13 154 15.0 14.8 14.1 13.9 1.74 1.96 660 794 Blowoff fan 68, HCl 7.5 to 9.3",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T1",
@@ -2546,8 +3031,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
    "raw_text": "1 T1 128 SIBAL 2 cm Integrated 2 1 80 10 50 0.97 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 2 85 18.5 18.5 17.3 17.3 0.35 0.41 0 40 Compound Specific Analyzer-Combustion Products (CSA\u0002CP) unit 1024; Carbon Dioxide Monitor (CDM) unit 1018; Prefill O2 reading = 20.9 percent; GN2 fill was from video display time 10:53 to 12:31 at maximum GN2 flow rate (pot = 10); Video display time is currently 1 day plus 6 min 10 s ahead of actual GMT; flow velocity held constant",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-T10",
@@ -2572,8 +3062,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
    "raw_text": "6/24/2018 ---------- 34 T10 134M 2 cm SIBAL Integral 2 Concurrent Pot 1.1 5 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 6 43 16.4 16.5 15.2 15.3 0.31 0.33 9 14 Brief ignition but flame extinguished before spreading beyond igniter",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T11",
@@ -2598,8 +3093,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "6/27/2014 ---------- 42 T11 135m 2 cm SIBAL Integral 2 Concurrent 48 5 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 12 109 17.1 17.0 16.2 16.1 0.35 0.39 1 45 Burned completely, steady, HCl 0.3 to 0.9",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T12",
@@ -2624,8 +3124,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 44 T12 136m 2 cm SIBAL Integral 2 Concurrent Pot 1.1 5 250 --------- NA NA N CL M NA NA ---- F2 1000 Cont 16 39 16.8 16.9 15.9 16.0 0.7 0.7 113 117 Extinguished quickly",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T13",
@@ -2650,8 +3155,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "---------- 21 T13 137 2 cm SIBAL Integral 2 Concurrent 5,1 50 --------- 8 NA n CL M NA NA 1/8 F2 1,000 Cont 14 55 17.5 17.6 15.9 16.0 0.19 0.20 2 12 HCL 0.2 end, 0.1 start, no HCN, flame extinguished quickly after flow change.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T14",
@@ -2676,8 +3186,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 45 T14 140m 2 cm SIBAL Integral 2 Concurrent 5, 3 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 16 119 16.9 16.9 16 16.0 0.7 0.72 117 152 Extinguished as we reduced flow below 3 cm/s",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T15",
@@ -2702,8 +3217,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
    "raw_text": "4 T15 138 SIBAL 2 cm Integrated 0 1 80, 122 9, 29 50 1.68 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 5 46 18.7 18.7 17.5 17.5 0.45 0.51 72 102 Initial air reading is 15, but Rick did not wait long enough for the anemometer to stabilize; actual airspeed is about 9 cm/s; no flow restrictors installed, but flow only maxed out to 29 cm/s; no blowoff attained",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-T16",
@@ -2728,8 +3248,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.6 vol%",
    "raw_text": "---------- 22 T16 139 2 cm SIBAL Integral 2 Concurrent 5, 3 50 --------- 8 NA N CL M NA NA 1/8 F2 1,000 Cont 14 100 17.6 17.5 16.0 15.9 0.21 0.21 17 41 Initial HCl 0.2 final 0.5, no HCN, flame spread whole sample at 3 cm/s",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T17",
@@ -2754,8 +3279,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 46 T17 142m 2 cm SIBAL Integral 0 Concurrent 6, 53 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 6 83 16.9 16.9 16 16.0 0.72 0.75 152 190 Tried to blowoff, but did not",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T18",
@@ -2780,8 +3310,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
    "raw_text": "6/24/2018 ---------- 35 T18 141M 2 cm SIBAL Integral 2 Concurrent 5, 2 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 5 49 17.4 17.4 16.2 16.2 0.36 0.38 2 22 Brief ignition but flame extinguished as it spread away from igniter, further than previous runs today",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T19",
@@ -2806,8 +3341,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 71 T19 143m 1 cm SIBAL Integral 2 Concurrent 68.5, pot 3.6 11 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 73 17.2 17.2 16.3 16.3 0.29 0.31 1 20 Steady burn, HCL 0.3 > 0.6",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T2",
@@ -2832,8 +3372,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
    "raw_text": "2 T2 129 SIBAL 2 cm Integrated 2 1 80, 59, 55 9, 5, 4 50 0.64 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 2 100 18.5 18.5 17.3 17.3 0.41 0.45 40 78 Flow velocity changed to 9 to 5 fairly early then very late in the burn changed to 4",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-T20",
@@ -2858,8 +3403,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 72 T20 144m 1 cm SIBAL Integral 2 Concurrent 3.6, 0.9 11, 3 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 117 17.2 17.2 16.3 16.3 0.31 0.31 20 34 Quick extinction when we turned air down to 3 cm/s, HCl 0.8 end",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T21",
@@ -2884,8 +3434,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 73 T21 145m 1 cm SIBAL Integral 0 Concurrent 1.6 pot, 52 11, maximum (47) 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 151 17.2 17.2 16.3 16.3 0.31 0.32 34 45 Successful blowoff! HCl still 0.8 end",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T22",
@@ -2910,8 +3465,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 76 T22 146m 1 cm SIBAL Integral 2 Concurrent 3.4, 1.7 10, 5 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 4 38 17.1 17.0 16.2 16.1 0.59 0.62 140 162 Ignited at 11, turned down to 5 and extinguished, HCl 2.0",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T23",
@@ -2936,8 +3496,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 74 T23 133m 2 cm SI, moved igniter Integral 2 Concurrent 3.3, 66 10 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 9 203 17.2 17.3 16.3 16.4 0.32 0.32 45 49 Did not ignite with moved igniter, HCl 0.8",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T24",
@@ -2962,8 +3527,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.5 vol%",
    "raw_text": "---------- 77 T24 133m 1 cm SIBAL, top side ign –29 2 Concurrent 3.3, 66 10 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 4 130 18.2 18.2 17.7 17.7 0.51 0.53 85 107 Ignited top of sample with retractable igniter and got steady spread of a one-sided flame a Greenwich Mean Time. b SIBAL is Solid Inflammability Boundary at Low Speeds.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T25",
@@ -2988,8 +3558,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "12:13:20 119 T25 138m SIBAL 2 cm 39 1 Concurrent 53, 45 5, 2.5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 14 75 20.8 20.7 19.8 19.7 0.36 0.39 –1 17 Ignition at 5 cm/s then decrease to 2.5 cm/s and hold constant",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T26",
@@ -3014,8 +3589,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.0 vol%",
    "raw_text": "12:28:44 120 T26 137m SIBAL 2 cm 39 1 Concurrent 53, 45 5, 2.5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 14 87 20.8 20.7 19.8 19.7 0.36 0.43 –1 24 Ignition at 5 cm/s then decrease to 2.5 cm/s and hold constant",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T27",
@@ -3040,8 +3620,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "17:08:10 122 T27 146m 1 cm SIBAL 39 1 Concurrent 53, 45 5, 2 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 58 20.7 20.6 19.8 19.7 0.41 0.42 –1 9 Ignition at 5 cm/s, then quickly to 2 cm/s (fan pot 0.7); fuel is burned out",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T28a",
@@ -3066,8 +3651,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_final,co2_final,co_final_ppm",
    "raw_text": "17:21:03 123 T28a 144m 1 cm SIBAL 39 1 Concurrent 53 5 250 --------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 19 20.7 0.9 19.8 ------ 0.41 ------ –1 ---- Tried to get one-sided ignition, but flame only briefly flashed then went out",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-T28b",
@@ -3092,8 +3682,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: o2_final_reading_suspect; non-numeric/blank: o2_raw_initial,co2_initial,co_initial_ppm",
    "raw_text": "17:29:49 124 T28b 144m 1 cm SIBAL 39 1 Concurrent 53 5 250 -------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 27 20.7 40.4 ------ 19.7 ------ 0.42 ---- 2 Tried to get one-sided ignition, but again flame only briefly flashed then went out",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-T29",
@@ -3118,8 +3713,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "17:39:30 125 T29 145m 1 cm SIBAL 39 1 Concurrent 53, 43 5, 2(?) 250 -------- NA NA N CL M NA NA 1/8 F2 1,000 Cont 5 60 20.7 20.5 19.8 19.6 0.41 0.44 –1 10 Alex commented that he thought the angle of the igniter should be reversed to get one-sided ignition, so he tried that; one-sided flame initially but quickly became two-sided; after ignition, fan pot changed to 0.6 and flame went out after a few seconds",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T3",
@@ -3144,8 +3744,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: hand_keyed; parse_ok=manual",
    "raw_text": "---------- 43 T3 182m 4 cm spherical section -24 broke, -25 2 Stagnation 63 10 250 -------- NA NA N CL A –4 NA 1/4 F4 1,000 Cont 3, 8 166 17.2 16.8 16.3 15.9 0.42 0.7 45 113 Multiple ignition attempts on card 3, brief flames go out",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-T4",
@@ -3170,8 +3775,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "",
+   "auto_checked_date": "",
+   "auto_check_notes": "NEEDS HUMAN CHECK: has qc_flag: flow_mode_not_stated",
    "raw_text": "3 T4 130 SIBAL 2 cm Integrated 2 1 80, 46 9,1 50 0.19 maximum 10 0 N CL M NA NA 1/8 F2 1,000 100 s 5 97 18.7 18.7 17.5 17.5 0.44 0.45 59 72 O2 reading creeped up slightly after a long pause in operations; flow velocity changed immediately after ignition down to 1 (fan pot 0.9); extinguished after turning into flamelet",
-   "verified": false
+   "verified": false,
+   "machine": false,
+   "level": "none"
   },
   {
    "id": "BASSII-T5",
@@ -3196,8 +3806,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
    "raw_text": "19 T5 131 2 cm SIBAL Integral 2 Concurrent 2.72, 0.50, 0.42 10, 2, 1 50 -------- 8 NA N CL M NA NA 1/8 F2 1,000 Cont 11 100 18.8 18.9 16.7 16.8 0.20 0.25 2 41 HCN 0 HCL 0.6; ignited at 10, turned down to 2, then 1, sample very small and dim, but seemed to burn full sample length as a flamelet",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T6",
@@ -3222,8 +3837,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 2.1 vol%",
    "raw_text": "20 T6 132 2 cm SIBAL Integral 2 Concurrent 5, 2, 1, <1 50 ---------- 8 NA N CL M NA NA 1/8 F2 1,000 Cont 11 117 18.8 18.8 16.7 16.7 0.24 0.28 39 77 HCL 0.9 at the end, still did not extinguish",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T7",
@@ -3248,8 +3868,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 0.9 vol%",
    "raw_text": "---------- 75 T7 182m 4 cm spherical section -33, -34 2 Stagnation 3.4, 67 10, 5, 3, 1, decrease 250 --------- NA NA N CL A –3 NA ---- F2 1,000 Cont 3 299 17.3 17.1 16.4 16.2 0.32 0.59 49 140 Broke one igniter quickly, took a while to ignite, turned pot down in series ignition at 3.4, 1.6, 1.0, 0.4, 0.36, 0.34, 0.32, 0.31, 0.30, 0.29, 0.285, 0.28 extinction finally, HCl 1.8",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   },
   {
    "id": "BASSII-T9",
@@ -3274,8 +3899,13 @@ window.FLARE_DATA = {
    "verified_by": "",
    "verified_date": "",
    "verifier_notes": "",
+   "auto_checked_by": "Claude (automated cross-check; no human PDF comparison)",
+   "auto_checked_date": "2026-10-31",
+   "auto_check_notes": "table/page ok; row tail tokens match source; calibrated-raw starting O2 offset 1.2 vol%",
    "raw_text": "6/24/2018 ---------- 33 T9 133M 2 cm SIBAL Integral 2 Concurrent Pot 2.5 10 250 --------- NA NA N CL M NA NA ---- F2 1,000 Cont 6 48 16.4 16.4 15.2 15.2 0.30 0.31 0 9 Brief ignition but flame extinguished before spreading beyond igniter a Greenwich Mean Time. b SIBAL is Solid Inflammability Boundary at Low Speeds.",
-   "verified": false
+   "verified": false,
+   "machine": true,
+   "level": "machine"
   }
  ],
  "sources": [
@@ -3291,7 +3921,9 @@ window.FLARE_DATA = {
  "counts": {
   "records": 126,
   "verified": 0,
-  "unverified": 126,
+  "machine": 104,
+  "unchecked": 22,
+  "shown": 104,
   "sources": 1
  }
 };

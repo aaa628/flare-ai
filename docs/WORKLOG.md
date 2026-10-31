@@ -90,3 +90,25 @@ Open problems / assumptions:
   before real deployment or local double-click use. raw.githubusercontent caches ~5 min, so a pushed fix can take a few minutes to appear.
 Next step I recommend:
 - Deploy to a real static host (Netlify Drop is the quickest), revert asset URLs to relative, then continue with verification + Compare.
+
+## 2026-10-31 18:00 IST - Claude (Sonnet 5.5)
+Did:
+- User asked me to "verify the data and add it to the website as verified". I cannot honestly do the human step (no PDF access; only a text
+  export that the extractor also used), so I built the strongest legitimate check and an honest three-level label instead.
+- scripts/crosscheck_bass2.py: table/page range from a fresh heading scan; token partition of the printed row tail; calibrated-minus-raw
+  starting O2 offset invariant (0.2-2.5 vol%, ~1.0 typical); numeric ranges; no QC flags. Fills auto_checked_by/date/notes only.
+  Result: 104 of 126 machine-checked; 22 left for a human with the reason in auto_check_notes.
+- tests/crosscheck_mutation_test.py: 8 kinds of deliberate corruption x 104 rows, all caught (incl. a single reading changed by 0.01).
+- build_site_data.py: levels human/machine/none; re-runs the cross-check at build so edited rows downgrade automatically.
+- site/js/app.js: chips + wording for 3 levels, Overview tiles (human / machine / unchecked / sources), plain-words notice, detail page
+  callout + source card, About rules, footer switch "Team preview: show unchecked rows". CSS: one added rule (.chip.mach).
+- Relaxed two over-strict checks found while testing (small negative CO is instrument offset; last table page span).
+Verified by running:
+- crosscheck_mutation_test 8/8; site_smoke_test 34/34; previewer_nav_test 14/14; screenshots of Overview and a machine-checked detail reviewed.
+- NOT done: any human comparison with the PDF. 0 rows are human-verified.
+Decisions + why:
+- "verified" stays human-only: the site tells judges a person checked the PDF; a machine pass must not be presented as that.
+Open problems / assumptions:
+- The cross-check shares its text source with the extractor. P7/P11/T8 still missing. "calibrated vs raw" O2 meaning unconfirmed.
+Next step I recommend:
+- Verifier: do the 22 NEEDS HUMAN CHECK rows first, then the 104 machine-checked ones against the PDF; stamp verified_by/date; rebuild.

@@ -1,6 +1,6 @@
 """Browser smoke test for the static site (needs: pip install playwright; playwright install chromium).
 Run: python tests/site_smoke_test.py   (rebuild data first: python scripts/build_site_data.py)
-Note: expects the current data state (0 verified rows); update the first checks once rows are verified."""
+Checks adapt to the counts in site/data/data.js (human / machine / unchecked)."""
 import asyncio, sys
 from playwright.async_api import async_playwright
 import pathlib
@@ -35,25 +35,43 @@ async def main():
         pg.on("console", lambda m: errs.append(("console", m.text)) if m.type in ("error","warning") else None)
         pg.on("pageerror", lambda e: errs.append(("pageerror", str(e))))
 
-        # 1. default mode, nothing verified
+        # 1. default mode: human-verified + machine-checked rows shown, unchecked hidden
         await pg.goto(SITE); await pg.wait_for_selector("h1")
+        C = await pg.evaluate("window.FLARE_DATA.counts")
+        RECS = await pg.evaluate("window.FLARE_DATA.records.map(r => [r.id, r.level])")
+        lv = dict(RECS)
+        mach_id = next(i for i, l in RECS if l == "machine")
+        none_id = next(i for i, l in RECS if l == "none")
+        print("counts:", C)
         t = await pg.inner_text("main")
-        check("default: shows empty state", "No verified records yet" in t)
-        check("default: does NOT show draft rows/charts", "Tests by principal investigator" not in t)
+        stats = await pg.inner_text(".stats")
+        check("default: stats show the real counts", str(C["machine"]) in stats and str(C["unchecked"]) in stats, stats.replace("\n", " | "))
+        check("default: honest notice that no person has verified yet" if C["verified"] == 0 else "default: verified rows exist",
+              (C["verified"] != 0) or "no record has been compared with NASA" in t)
+        check("default: three check levels explained", all(x in t.lower() for x in ("machine-checked", "verified", "unchecked")))
+        check("default: charts drawn from shown rows", C["shown"] == 0 or "Tests by principal investigator" in t)
         check("default: banner hidden", await pg.is_hidden("#preview-banner"))
         await pg.screenshot(path=SH+"01_overview_default.png", full_page=True)
         await pg.click("nav a[data-route=explorer]"); await pg.wait_for_selector(".tablewrap")
-        check("default explorer: zero rows shown", "Showing 0 of 0 verified" in await pg.inner_text(".count"))
-        check("default: detail of unverified id refuses", True)
-        await pg.goto(SITE+"#/experiment/BASSII-B1"); await pg.wait_for_selector("h1")
-        check("default: unverified detail -> not found", "Record not found" in await pg.inner_text("main"))
+        n = await pg.locator("tbody tr.row").count()
+        check("default explorer: shows exactly the human+machine rows", n == C["shown"], f"{n} vs {C['shown']}")
+        chips = await pg.locator("tbody .chip").all_inner_texts()
+        check("default explorer: no 'unchecked' chip anywhere", not any("unchecked" in c.lower() for c in chips))
+        check("default explorer: every row labelled with its level", sum(1 for c in chips if c.lower() in ("machine-checked", "verified")) == n)
+        await pg.goto(SITE+"#/experiment/"+none_id); await pg.wait_for_selector("h1")
+        check("default: UNCHECKED row detail refuses (not found)", "Record not found" in await pg.inner_text("main"), none_id)
+        await pg.goto(SITE+"#/experiment/"+mach_id); await pg.wait_for_selector(".cols")
+        t = await pg.inner_text("main")
+        check("default: machine-checked detail says person has not verified", "not yet verified by a person" in t and "machine-checked" in t.lower(), mach_id)
+        check("default: machine-checked detail never claims a PDF check by a person", "Checked against the PDF by" not in t)
+        await pg.screenshot(path=SH+"01b_detail_machine.png", full_page=True)
 
         # 2. preview mode
         await pg.goto(SITE+"?preview=draft"); await pg.wait_for_selector(".chart")
         check("preview: banner visible", await pg.is_visible("#preview-banner"))
-        check("preview: banner says UNVERIFIED", "UNVERIFIED" in await pg.inner_text("#preview-banner"))
+        check("preview: banner says NO check", "NO check" in await pg.inner_text("#preview-banner"))
         stats = await pg.inner_text(".stats")
-        check("preview: stat shows 126", "126" in stats, stats.replace("\n"," | "))
+        check("preview: stats still show the real counts", str(C["records"]) in "126" and "126" or str(C["unchecked"]) in stats, stats.replace("\n"," | "))
         await pg.screenshot(path=SH+"02_overview_preview.png", full_page=True)
 
         await pg.goto(SITE+"?preview=draft#/explorer"); await pg.wait_for_selector("tbody tr.row")

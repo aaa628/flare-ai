@@ -99,7 +99,7 @@ async def main():
 
         # preview mode toggle (JS-built URLs must not resolve against <base>)
         await start()
-        await pg.click("text=Open unverified preview")
+        await pg.click("text=Team preview: show unchecked rows")
         await pg.wait_for_selector(".chart")
         check("preview toggle stays on previewer origin", pg.url.startswith("http://previewer.test/"), pg.url)
         check("preview banner visible after toggle", await pg.is_visible("#preview-banner"))

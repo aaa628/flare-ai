@@ -144,7 +144,8 @@ def main():
             "o2_cal_initial", "o2_cal_final", "o2_raw_initial", "o2_raw_final",
             "co2_initial", "co2_final", "co_initial_ppm", "co_final_ppm",
             "observation", "setup_raw", "source_page", "qc_flag", "parse_ok",
-            "verified_by", "verified_date", "verifier_notes", "raw_text"]
+            "verified_by", "verified_date", "verifier_notes",
+            "auto_checked_by", "auto_checked_date", "auto_check_notes", "raw_text"]
     with OUT.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()

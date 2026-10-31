@@ -11,8 +11,8 @@ Built for the **NASA Space Apps Challenge 2026: Flame in Freefall**.
 
 Double-click **`site/index.html`**. It is a static website (plain HTML, CSS, JavaScript) and works straight from disk.
 
-- Default view shows **verified** test records only. Right now none are verified, so it shows an honest empty state.
-- Team preview of the unchecked draft: open `site/index.html?preview=draft` (a red warning banner appears on every page).
+- Default view shows **human-verified** and **machine-checked** rows, each labelled with how it was checked. Right now none is human-verified.
+- Rows with no check are hidden. The team can reveal them with the footer link "Team preview: show unchecked rows" (or `?preview=draft`); a red banner appears on every page.
 
 ## Principles (non-negotiable)
 
@@ -22,7 +22,7 @@ Double-click **`site/index.html`**. It is a static website (plain HTML, CSS, Jav
 4. **Abstain outside tested conditions.** Show the closest real experiments instead of guessing.
 5. **No fire probabilities, no safety certification.** This is a research-navigation tool.
 6. **Every record cites its source** (NTRS id, table and page).
-7. **Unverified rows are never shown as findings.**
+7. **Unchecked rows are never shown as findings, and "machine-checked" is never presented as "verified".** Verified = a person compared the row with NASA's PDF. Machine-checked = an automated cross-check passed; no person has looked yet.
 
 ## Screens
 
@@ -38,8 +38,8 @@ Double-click **`site/index.html`**. It is a static website (plain HTML, CSS, Jav
 ## How the data flows
 
 ```
-NASA report text ──scripts/extract_bass2.py──▶ data/bass2_draft.csv ──(human verifies)──▶
-        scripts/build_site_data.py ──▶ site/data/data.js ──▶ site/index.html
+NASA report text ──extract_bass2.py──▶ data/bass2_draft.csv ──crosscheck_bass2.py (machine level)──▶
+   (a person verifies against the PDF) ──▶ build_site_data.py ──▶ site/data/data.js ──▶ site/index.html
 ```
 
 After verifying rows in the CSV, run `python scripts/build_site_data.py` and reload the site.
@@ -50,8 +50,8 @@ Details and the verifier's checklist: [`data/README.md`](data/README.md).
 ```
 site/            the website (index.html, css/style.css, js/app.js, data/data.js [generated])
 data/            bass2_draft.csv (working sheet), sources.csv, source/ (report text), README.md
-scripts/         extract_bass2.py, build_site_data.py
-tests/           site_smoke_test.py (headless-browser checks)
+scripts/         extract_bass2.py, crosscheck_bass2.py, build_site_data.py
+tests/           site_smoke_test.py, previewer_nav_test.py, crosscheck_mutation_test.py
 docs/            HANDOFF_PROMPT.md (full project brief for any AI), WORKLOG.md (append-only log)
 ```
 
@@ -61,6 +61,8 @@ docs/            HANDOFF_PROMPT.md (full project brief for any AI), WORKLOG.md (
 pip install playwright && playwright install chromium
 python scripts/build_site_data.py
 python tests/site_smoke_test.py
+python tests/previewer_nav_test.py
+python tests/crosscheck_mutation_test.py   # proves the cross-check catches corrupted rows
 ```
 
 ## Data

@@ -142,3 +142,6 @@ main > div > div[style*="display:flex"] > .btn.ghost[href="#/about"]:hover {
 @media (prefers-reduced-motion:reduce) {
   main > div > div[style*="display:flex"] > .btn.ghost[href="#/about"] { transition:none; }
 }
+
+/* check-level chip (machine-checked): added alongside the label chips */
+.chip.mach { color: #b69cff; }
