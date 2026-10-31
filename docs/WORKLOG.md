@@ -54,3 +54,18 @@ Open problems / assumptions:
 - The smoke test hard-codes the 0-verified state; update its first checks once rows are verified.
 Next step I recommend:
 - Verifier starts on data/bass2_draft.csv; team opens the site and reports problems; then build Compare + outcome coding.
+
+## 2026-10-31 15:00 IST - Claude (Sonnet 5.5)
+Did:
+- Rewrote docs/HANDOFF_PROMPT.md from scratch as v2: operating contract, architecture, design tokens, exact data facts and traps,
+  status, and concrete specs for the remaining features (Compare refusal rules, evidence-grade rule, outcome coding, Scenario Check
+  abstention, retrieval-only Intelligence Lab, PDF brief), plus commands, do-not list, pitch story and a first-5-minutes checklist.
+Verified by running:
+- Cross-checked every concrete claim in the prompt against the repo (row counts per investigator, parse_ok counts, QC-flagged IDs,
+  file tree via git ls-files, last commit hash). All matched. No site/data changes this entry.
+Decisions + why:
+- Evidence-grade thresholds, outcome categories and the +-1.5 vol% abstention range are written as PROPOSALS for the team to confirm.
+Open problems / assumptions:
+- Same as the previous entry (P7/P11/T8, calibrated vs raw O2, judging criteria unknown until Nov 13).
+Next step I recommend:
+- Hand this file to the next AI; verifier starts on data/bass2_draft.csv.
