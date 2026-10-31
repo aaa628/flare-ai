@@ -31,7 +31,7 @@ Double-click **`site/index.html`**. It is a static website (plain HTML, CSS, Jav
 | Overview (real counts, charts, evidence labels) | built |
 | Flame Explorer (search, filters, test detail pages) | built |
 | About (rules, source, limits, AI disclosure) | built |
-| Compare | planned |
+| Compare (2-4 tests side by side: start/end bar charts, change-during-test chart, flow-direction donut, refusals) | built |
 | Intelligence Lab (retrieval over verified records, evidence grade) | planned |
 | Scenario Check + PDF brief (explainable model that abstains) | planned |
 

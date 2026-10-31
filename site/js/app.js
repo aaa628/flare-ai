@@ -329,7 +329,7 @@
 
     var tbl = TABLE[parts(r.id).pi] || "A";
     return h("div", null,
-      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "← Flame Explorer")),
+      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "← Flame Explorer"), " \u00b7 ", h("a", { href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests")),
       h("div", { class: "detail-head" },
         h("div", null,
           h("p", { class: "mono muted", style: "margin:0 0 4px" }, "NASA BASS-II · " + r.pi + " · test " + short),
@@ -390,7 +390,7 @@
     var kv = [];
     (r.fields || []).forEach(function (f) { kv.push(h("dt", null, f[0]), h("dd", null, f[1])); });
     return h("div", null,
-      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "\u2190 Flame Explorer")),
+      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "\u2190 Flame Explorer"), " \u00b7 ", h("a", { href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests")),
       h("div", { class: "detail-head" },
         h("div", null,
           h("p", { class: "mono muted", style: "margin:0 0 4px" }, "NASA " + r.experiment + " \u00b7 test " + shortId(r)),
@@ -424,6 +424,290 @@
         src ? h("p", { style: "margin-bottom:6px" }, h("a", { href: src.url, target: "_blank", rel: "noopener" }, "Open the dataset (DOI)")) : null,
         r.level === "human" ? h("p", { class: "note", style: "margin:0" }, "Checked against NASA\u2019s file by " + r.verified_by + " on " + r.verified_date + ".") :
           h("p", { class: "note", style: "margin:0" }, "Not yet signed off by a team member.")));
+  }
+
+  /* ---------- Compare ----------
+   * Rules (see README): same experiment only; same column only (calibrated O2 never against raw O2);
+   * non-numeric NASA entries, approximate values and flagged O2 readings are excluded with the reason;
+   * a caution when flow direction or material differ; no averages or trends from 2-4 tests. */
+  var COLORS = { s1: "#3987e5", s2: "#d95926", s3: "#199e70", s4: "#c98500", neutral: "#4a4b50", rose: "#e66767", fell: "#9085e9" }; /* change chart: validated pair, distinct from start/end */
+  var MAX_PICK = 4;
+  function fieldVal(r, re) {
+    var f = (r.fields || []).filter(function (x) { return re.test(x[0]); })[0];
+    return f ? f[1] : "";
+  }
+  /* Measures per experiment. pair: [start getter, end getter]; single: getter. Each getter returns NASA's text. */
+  function measuresFor(exp) {
+    if (exp === "BASS-II") return [
+      { key: "o2c", label: "Oxygen, calibrated sensor", unit: "vol%", pair: [
+        function (r) { return fromReport(r) ? r.o2_cal_initial : fieldVal(r, /^Calibrated initial O2/); },
+        function (r) { return fromReport(r) ? r.o2_cal_final : fieldVal(r, /^Calibrated final O2/); }] },
+      { key: "o2r", label: "Oxygen, raw sensor", unit: "vol%", pair: [
+        function (r) { return fromReport(r) ? r.o2_raw_initial : ""; },
+        function (r) { return fromReport(r) ? r.o2_raw_final : ""; }] },
+      { key: "co2", label: "Carbon dioxide", unit: "vol%", pair: [
+        function (r) { return fromReport(r) ? r.co2_initial : fieldVal(r, /^Initial CO2/); },
+        function (r) { return fromReport(r) ? r.co2_final : fieldVal(r, /^Final CO2/); }] },
+      { key: "co", label: "Carbon monoxide", unit: "ppm", pair: [
+        function (r) { return fromReport(r) ? r.co_initial_ppm : fieldVal(r, /^Initial CO \(ppm\)/); },
+        function (r) { return fromReport(r) ? r.co_final_ppm : fieldVal(r, /^Final CO \(ppm\)/); }] }];
+    if (exp === "BASS-I") return [
+      { key: "o2", label: "Oxygen, as logged (fraction × 100)", unit: "vol%", single: function (r) { return r.o2_vol_pct; } },
+      { key: "p", label: "Pressure", unit: "atm", single: function (r) { return fieldVal(r, /^pressure, atm/i); } },
+      { key: "co2", label: "Carbon dioxide", unit: "mm Hg", single: function (r) { return fieldVal(r, /^CO2, mm Hg/i); } }];
+    return [
+      { key: "air", label: "Air flow", unit: "cm/s", single: function (r) { return fieldVal(r, /^Air Flow/i); } },
+      { key: "ipw", label: "Ignition power", unit: "W", single: function (r) { return fieldVal(r, /^Ignition Power/i); } },
+      { key: "ign", label: "Ignition time", unit: "s", single: function (r) { return fieldVal(r, /^Ignition Time/i); } },
+      { key: "burn", label: "Burn time", unit: "s", single: function (r) { return fieldVal(r, /^Burn Time/i); } }];
+  }
+  /* NASA text -> number, or a plain-language reason why it is not comparable. */
+  function value(text, unit, r, m, end) {
+    var t = (text || "").replace(/\s+/g, " ").trim();
+    var flags = flagsOf(r);
+    if (end && (m.key === "o2c" || m.key === "o2r") && flags.indexOf("o2_final_reading_suspect") >= 0)
+      return { text: t || "—", n: NaN, why: "final O2 flagged as suspect (likely sensor glitch or formula leftover)" };
+    if (!end && m.key === "o2c" && flags.indexOf("o2_cal_final_formula_artifact") >= 0 && !(r.o2_raw_initial || "").trim())
+      return { text: t || "—", n: NaN, why: "starting O2 not confirmed: no raw sensor reading behind it (half of a paired a/b test)" };
+    if (!t || /^-+$|^none$/i.test(t)) return { text: "—", n: NaN, why: "no value recorded" };
+    if (/^~/.test(t)) return { text: t, n: NaN, why: "approximate value (‘" + t + "’), not charted" };
+    var u = unit.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&");
+    var mm = new RegExp("^(-?\\d+(?:\\.\\d+)?)(?: ?" + u + ")?$").exec(t.replace(/[–−]/g, "-").replace(/ \(rounded\)$/, ""));
+    if (!mm) return { text: t, n: NaN, why: "not a plain number in NASA’s record (‘" + t + "’)" };
+    return { text: t, n: parseFloat(mm[1]) };
+  }
+  function fmt(n) { return Math.abs(n) >= 100 ? n.toFixed(0) : String(+n.toFixed(3)); }
+
+  /* Shared hover tooltip for every chart mark carrying data-tip. */
+  var tip = null;
+  function ensureTip() {
+    if (tip) return tip;
+    tip = h("div", { class: "viz-tip", role: "status", hidden: true });
+    document.body.appendChild(tip);
+    function show(e) {
+      var t = e.target.closest && e.target.closest("[data-tip]");
+      if (!t) { tip.hidden = true; return; }
+      tip.textContent = t.getAttribute("data-tip"); tip.hidden = false;
+      var b = t.getBoundingClientRect(), x = e.clientX || (b.left + b.width / 2), y = e.clientY || b.top;
+      tip.style.left = Math.min(window.innerWidth - tip.offsetWidth - 8, Math.max(8, x + 12)) + "px";
+      tip.style.top = Math.max(8, y - tip.offsetHeight - 10) + "px";
+    }
+    document.addEventListener("mousemove", show);
+    document.addEventListener("focusin", show);
+    document.addEventListener("mouseleave", function () { tip.hidden = true; });
+    return tip;
+  }
+  /* Vertical bar with only its data end rounded (r=4), anchored at the zero line. */
+  function barPath(x, y0, y1, w) {
+    var r = Math.min(4, w / 2, Math.abs(y1 - y0)), up = y1 < y0;
+    if (up) return "M" + x + "," + y0 + "V" + (y1 + r) + "Q" + x + "," + y1 + " " + (x + r) + "," + y1 + "H" + (x + w - r) +
+      "Q" + (x + w) + "," + y1 + " " + (x + w) + "," + (y1 + r) + "V" + y0 + "Z";
+    return "M" + x + "," + y0 + "V" + (y1 - r) + "Q" + x + "," + y1 + " " + (x + r) + "," + y1 + "H" + (x + w - r) +
+      "Q" + (x + w) + "," + y1 + " " + (x + w) + "," + (y1 - r) + "V" + y0 + "Z";
+  }
+  /* Grouped vertical bars: groups = tests, series = e.g. start / end. One axis, zero baseline. */
+  function groupedBars(groups, series, unit, label) {
+    var W = 380, H = 200, top = 22, bot = 40, left = 6, right = 6;
+    var all = []; series.forEach(function (s) { s.vals.forEach(function (v) { if (!isNaN(v.n)) all.push(v.n); }); });
+    var lo = Math.min(0, Math.min.apply(null, all.concat([0]))), hi = Math.max.apply(null, all.concat([0])) || 1;
+    var y = function (v) { return top + (H - top - bot) * (hi - v) / ((hi - lo) || 1); };
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": label });
+    s.appendChild(svg("line", { x1: left, x2: W - right, y1: y(0), y2: y(0), class: "axis" }));
+    var gw = (W - left - right) / groups.length, bw = Math.min(30, (gw * 0.62 - 2 * (series.length - 1)) / series.length);
+    groups.forEach(function (g, gi) {
+      var gx = left + gi * gw + (gw - (bw * series.length + 2 * (series.length - 1))) / 2;
+      series.forEach(function (sr, si) {
+        var v = sr.vals[gi], x = gx + si * (bw + 2);
+        if (isNaN(v.n)) {
+          s.appendChild(svg("text", { x: x + bw / 2, y: y(0) - 6, "text-anchor": "middle", class: "na", tabindex: 0,
+            "data-tip": g + " · " + sr.name + ": not comparable — " + v.why }, "n/a"));
+          return;
+        }
+        s.appendChild(svg("path", { d: barPath(x, y(0), y(v.n), bw), fill: sr.color, class: "mark", tabindex: 0,
+          "data-tip": g + " · " + sr.name + ": " + v.text + " " + unit, "aria-label": g + " " + sr.name + " " + v.text + " " + unit }));
+        s.appendChild(svg("text", { x: x + bw / 2, y: v.n >= 0 ? y(v.n) - 5 : y(v.n) + 13, "text-anchor": "middle", class: "val small" }, fmt(v.n)));
+      });
+      s.appendChild(svg("text", { x: left + gi * gw + gw / 2, y: H - bot + 18, "text-anchor": "middle" }, g));
+    });
+    return s;
+  }
+  /* Horizontal diverging bars for the change during each test (end minus start). */
+  function changeBars(groups, deltas, unit, label) {
+    var W = 380, rowH = 26, H = groups.length * rowH + 8, mid = 230, half = 110, lab = 70;
+    var max = Math.max.apply(null, deltas.filter(function (d) { return !isNaN(d.n); }).map(function (d) { return Math.abs(d.n); }).concat([0])) || 1;
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": label });
+    s.appendChild(svg("line", { x1: mid, x2: mid, y1: 0, y2: H, class: "axis" }));
+    groups.forEach(function (g, i) {
+      var d = deltas[i], yy = i * rowH + 6;
+      s.appendChild(svg("text", { x: lab, y: yy + 13, "text-anchor": "end" }, g));
+      if (isNaN(d.n)) {
+        s.appendChild(svg("text", { x: mid + 8, y: yy + 13, class: "na", tabindex: 0, "data-tip": g + ": change not computed — " + d.why }, "not computed"));
+        return;
+      }
+      var w = Math.max(2, half * Math.abs(d.n) / max), x = d.n >= 0 ? mid + 1 : mid - 1 - w;
+      s.appendChild(svg("rect", { x: x, y: yy + 2, width: w, height: 14, rx: 3, fill: d.n >= 0 ? COLORS.rose : COLORS.fell, class: "mark", tabindex: 0,
+        "data-tip": g + ": " + (d.n >= 0 ? "rose by " : "fell by ") + fmt(Math.abs(d.n)) + " " + unit + " (end minus start, both from NASA’s table)" }));
+      s.appendChild(svg("text", { x: d.n >= 0 ? x + w + 6 : x - 6, y: yy + 13, "text-anchor": d.n >= 0 ? "start" : "end", class: "val small" },
+        (d.n > 0 ? "+" : "") + fmt(d.n)));
+    });
+    return s;
+  }
+  /* Donut for one whole split into a few parts (flow direction mix). 2px surface gap between slices. */
+  function donut(parts, label) {
+    var total = parts.reduce(function (a, p) { return a + p.value; }, 0), R = 70, r = 44, cx = 90, cy = 90, a0 = -Math.PI / 2;
+    var s = svg("svg", { viewBox: "0 0 180 180", class: "chart viz donut", role: "img", "aria-label": label });
+    parts.forEach(function (p) {
+      var a1 = a0 + 2 * Math.PI * p.value / total, large = a1 - a0 > Math.PI ? 1 : 0;
+      var pt = function (rad, a) { return (cx + rad * Math.cos(a)).toFixed(2) + "," + (cy + rad * Math.sin(a)).toFixed(2); };
+      var d = p.value === total ? "M" + (cx + R) + "," + cy + "A" + R + "," + R + " 0 1 1 " + (cx - R) + "," + cy + "A" + R + "," + R + " 0 1 1 " + (cx + R) + "," + cy +
+        "M" + (cx + r) + "," + cy + "A" + r + "," + r + " 0 1 0 " + (cx - r) + "," + cy + "A" + r + "," + r + " 0 1 0 " + (cx + r) + "," + cy + "Z" :
+        "M" + pt(R, a0) + "A" + R + "," + R + " 0 " + large + " 1 " + pt(R, a1) + "L" + pt(r, a1) + "A" + r + "," + r + " 0 " + large + " 0 " + pt(r, a0) + "Z";
+      s.appendChild(svg("path", { d: d, fill: p.color, class: "mark slice", tabindex: 0, "fill-rule": "evenodd",
+        "data-tip": p.label + ": " + p.value + " of " + total + " tests (" + Math.round(100 * p.value / total) + "%)" }));
+      a0 = a1;
+    });
+    s.appendChild(svg("text", { x: cx, y: cy - 2, "text-anchor": "middle", class: "val big" }, String(total)));
+    s.appendChild(svg("text", { x: cx, y: cy + 15, "text-anchor": "middle" }, "tests"));
+    return s;
+  }
+  function legendRow(items) {
+    return h("div", { class: "viz-legend" }, items.map(function (it) {
+      return h("span", null, h("i", { style: "background:" + it.color }), it.label);
+    }));
+  }
+  var FLOW_COLOR = { "Opposed": COLORS.s1, "Concurrent": COLORS.s2, "Stagnation": COLORS.s3 };
+
+  function viewCompare(arg) {
+    setTitle("Compare");
+    ensureTip();
+    var ids = (arg || "").split(",").map(decodeURIComponent).filter(Boolean);
+    var picked = ids.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean).slice(0, MAX_PICK);
+    function go2(list) { location.hash = "#/compare/" + list.map(function (r) { return encodeURIComponent(r.id); }).join(","); }
+
+    /* picker */
+    var exps = EXP_ORDER.filter(function (e) { return ROWS.some(function (r) { return r.experiment === e; }); });
+    var curExp = picked.length ? picked[0].experiment : "BASS-II";
+    var expSel = h("select", { id: "cexp" }, exps.map(function (e) { return h("option", { value: e, selected: e === curExp }, e); }));
+    var testSel = h("select", { id: "ctest" });
+    function fillTests() {
+      testSel.textContent = "";
+      ROWS.filter(function (r) { return r.experiment === expSel.value && picked.indexOf(r) < 0; }).forEach(function (r) {
+        testSel.appendChild(h("option", { value: r.id }, shortId(r) + " · " + r.material_raw + (r.flow_mode ? " · " + r.flow_mode : "")));
+      });
+    }
+    expSel.addEventListener("change", fillTests);
+    fillTests();
+    var addBtn = h("button", { type: "button", disabled: picked.length >= MAX_PICK, onclick: function () {
+      var r = ROWS.filter(function (x) { return x.id === testSel.value; })[0];
+      if (r) go2(picked.concat([r]));
+    } }, picked.length >= MAX_PICK ? "Up to 4 tests" : "Add test");
+    var chips = h("div", { class: "pick-chips" }, picked.map(function (r) {
+      return h("span", { class: "pick" }, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r)),
+        h("button", { type: "button", class: "x", "aria-label": "Remove " + shortId(r), onclick: function () {
+          go2(picked.filter(function (x) { return x !== r; })); } }, "×"));
+    }));
+    var presets = h("div", { class: "presets" },
+      h("span", { class: "muted" }, "Try: "),
+      preset("Three opposed-flow rods (BASS-II)", ["BASSII-P1", "BASSII-P10", "BASSII-P12"]),
+      preset("Same rod, 5 cm/s vs pot 1.3 (BASS-II)", ["BASSII-P13a", "BASSII-P13b"]),
+      preset("SAFFIRE-II samples", ["SAFFIREII-2-5", "SAFFIREII-2-6", "SAFFIREII-2-8"]),
+      preset("A comparison Flare AI refuses", ["BASSII-B1", "BASSI-1-1"]));
+    function preset(text, list) {
+      var rows = list.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean);
+      return rows.length === list.length ? h("button", { type: "button", class: "ghost small", onclick: function () { go2(rows); } }, text) : null;
+    }
+
+    var head = [h("h1", null, "Compare"),
+      h("p", { class: "lead" }, "Put 2 to 4 NASA tests side by side. Flare AI only compares like with like: same experiment, same measurement. When a comparison would mislead, it refuses and says why."),
+      h("div", { class: "filters", style: "margin-top:18px" },
+        h("div", { class: "field" }, h("label", { for: "cexp" }, "Experiment"), expSel),
+        h("div", { class: "field wide" }, h("label", { for: "ctest" }, "Test"), testSel),
+        addBtn),
+      chips, presets];
+
+    if (picked.length < 2) return h("div", null, head, h("div", { class: "empty", style: "margin-top:20px" },
+      h("h3", null, picked.length ? "Add at least one more test" : "Pick two or more tests"),
+      h("p", { class: "muted" }, "Choose an experiment and add tests, or start from one of the examples above.")));
+
+    var groups = picked.map(shortId);
+    var expsPicked = picked.map(function (r) { return r.experiment; }).filter(function (e, i, a) { return a.indexOf(e) === i; });
+    var idTable = sideTable(picked, [["Experiment", function (r) { return r.experiment; }], ["Material", function (r) { return r.material_raw; }],
+      ["Flow direction", function (r) { return r.flow_mode || "not stated"; }], ["Airflow, as logged", function (r) { return r.airflow_raw || (fromReport(r) ? "fan settings only (see test page)" : "—"); }],
+      ["Check level", function (r) { return r.level === "human" ? "verified" : r.level === "machine" ? "machine-checked" : "unchecked"; }]]);
+
+    if (expsPicked.length > 1) {
+      return h("div", null, head,
+        h("div", { class: "callout refuse", style: "margin-top:18px" },
+          h("b", null, "Flare AI won’t compare these numbers. "),
+          "These tests come from different experiments (" + expsPicked.join(" and ") + "), and each one measured things differently. " +
+          "BASS-II used a calibrated oxygen sensor in the test chamber; BASS-I logged the oxygen of the surrounding station air as a fraction; " +
+          "SAFFIRE gives approximate values or none. Putting them on one chart would look precise and mean nothing. " +
+          "You can still read them side by side below, or compare tests within one experiment."),
+        h("div", { class: "tablewrap", style: "margin-top:14px" }, idTable));
+    }
+
+    var exp = expsPicked[0], cautions = [];
+    var flows = picked.map(function (r) { return r.flow_mode || "not stated"; }).filter(function (e, i, a) { return a.indexOf(e) === i; });
+    if (flows.length > 1) cautions.push("Flow direction differs (" + flows.join(", ") + "). Differences below may come from how air met the flame, not from oxygen or material.");
+    var mats = picked.map(function (r) { return r.material_raw.toLowerCase(); }).filter(function (e, i, a) { return a.indexOf(e) === i; });
+    if (mats.length > 1) cautions.push("Materials differ. A thicker or different fuel burns differently, so differences may come from the sample itself.");
+
+    var cards = [], footnotes = [];
+    measuresFor(exp).forEach(function (m) {
+      if (m.pair) {
+        var st = picked.map(function (r) { return value(m.pair[0](r), m.unit, r, m, false); });
+        var en = picked.map(function (r) { return value(m.pair[1](r), m.unit, r, m, true); });
+        if (!st.concat(en).some(function (v) { return !isNaN(v.n); })) return footnotes.push(m.label + ": no comparable values for these tests.");
+        var deltas = st.map(function (a, i) {
+          var b = en[i];
+          return isNaN(a.n) || isNaN(b.n) ? { n: NaN, why: (isNaN(a.n) ? "start: " + a.why : "end: " + b.why) } : { n: b.n - a.n };
+        });
+        cards.push(h("div", { class: "card viz-card" },
+          h("h3", null, m.label, h("span", { class: "unit" }, " " + m.unit)), chip("measured", "Measured"),
+          legendRow([{ color: COLORS.s1, label: "Start of test" }, { color: COLORS.s2, label: "End of test" }]),
+          groupedBars(groups, [{ name: "start", color: COLORS.s1, vals: st }, { name: "end", color: COLORS.s2, vals: en }], m.unit, m.label + " at start and end of each test"),
+          h("p", { class: "viz-sub" }, "Change during the test (end minus start)"),
+          legendRow([{ color: COLORS.fell, label: "fell" }, { color: COLORS.rose, label: "rose" }]),
+          changeBars(groups, deltas, m.unit, "Change in " + m.label + " during each test")));
+        st.concat(en).forEach(function (v, i) { if (isNaN(v.n) && v.why !== "no value recorded") footnotes.push(groups[i % groups.length] + " · " + m.label + " " + (i < groups.length ? "start" : "end") + ": " + v.why + "."); });
+      } else {
+        var vs = picked.map(function (r) { return value(m.single(r), m.unit, r, m, false); });
+        if (!vs.some(function (v) { return !isNaN(v.n); })) return footnotes.push(m.label + ": no comparable values for these tests.");
+        cards.push(h("div", { class: "card viz-card" },
+          h("h3", null, m.label, h("span", { class: "unit" }, " " + m.unit)), chip("measured", "Measured"),
+          groupedBars(groups, [{ name: m.label, color: COLORS.s1, vals: vs }], m.unit, m.label + " for each test")));
+        vs.forEach(function (v, i) { if (isNaN(v.n) && v.why !== "no value recorded") footnotes.push(groups[i] + " · " + m.label + ": " + v.why + "."); });
+      }
+    });
+
+    /* Part-to-whole context: flow direction mix across the whole experiment. */
+    var pool = ROWS.filter(function (r) { return r.experiment === exp; }), counts = {};
+    pool.forEach(function (r) { var k = r.flow_mode || "not stated"; counts[k] = (counts[k] || 0) + 1; });
+    var order = ["Opposed", "Concurrent", "Stagnation"].filter(function (k) { return counts[k]; })
+      .concat(Object.keys(counts).filter(function (k) { return ["Opposed", "Concurrent", "Stagnation", "not stated"].indexOf(k) < 0; }))
+      .concat(counts["not stated"] ? ["not stated"] : []);
+    var parts = order.map(function (k) { return { label: k, value: counts[k], color: FLOW_COLOR[k] || (k === "not stated" ? COLORS.neutral : COLORS.s4) }; });
+    var mixCard = h("div", { class: "card viz-card" }, h("h3", null, "Where these tests sit: flow direction in all " + exp + " tests"),
+      parts.length > 1 ? h("div", { class: "donut-wrap" }, donut(parts, "Flow direction mix of " + pool.length + " " + exp + " tests"),
+        h("ul", { class: "donut-legend" }, parts.map(function (p) {
+          var mine = picked.filter(function (r) { return (r.flow_mode || "not stated") === p.label; }).length;
+          return h("li", null, h("i", { style: "background:" + p.color }), h("b", null, p.label), " " + p.value + " (" + Math.round(100 * p.value / pool.length) + "%)" +
+            (mine ? " · " + mine + " selected" : ""));
+        }))) :
+        h("p", { class: "note" }, "All " + pool.length + " " + exp + " tests: flow direction " + (parts[0] ? parts[0].label : "not stated") + " in NASA’s file, so there is no mix to show."));
+
+    return h("div", null, head,
+      cautions.length ? h("div", { class: "callout info", style: "margin-top:18px" }, h("b", null, "Read with care. "), cautions.join(" ")) : null,
+      h("div", { class: "tablewrap", style: "margin-top:14px" }, idTable),
+      h("div", { class: "viz-grid" }, cards, mixCard),
+      footnotes.length ? h("div", { class: "card", style: "margin-top:14px" }, h("h3", null, "Left out, and why"),
+        h("ul", { class: "fn" }, footnotes.map(function (t) { return h("li", null, t); }))) : null,
+      h("p", { class: "note", style: "margin-top:12px" }, "Every number is copied from NASA’s record; hover a bar to see it. No averages or trend lines: with 2 to 4 tests they would claim more than the data shows."));
+  }
+  function sideTable(rows, spec) {
+    return h("table", { class: "side" },
+      h("thead", null, h("tr", null, h("th", null, ""), rows.map(function (r) { return h("th", null, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r))); }))),
+      h("tbody", null, spec.map(function (s) { return h("tr", null, h("th", { scope: "row" }, s[0]), rows.map(function (r) { return h("td", null, s[1](r)); })); })));
   }
 
   function viewAbout() {
@@ -469,6 +753,7 @@
     if (route === "explorer") view = viewExplorer();
     else if (route === "experiment") view = viewDetail(decodeURIComponent(seg[1] || ""));
     else if (route === "about") view = viewAbout();
+    else if (route === "compare") view = viewCompare(seg.slice(1).join("/"));
     else { route = "overview"; view = viewOverview(); }
     main.textContent = "";
     main.appendChild(view);
