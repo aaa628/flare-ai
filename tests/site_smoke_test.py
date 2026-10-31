@@ -105,6 +105,13 @@ async def main():
         t = await pg.inner_text(".scen-out")
         check("scenario: FLEX near-Moon-base conditions -> covered, with NASA's test-end counts as counts not probability", "Covered" in t and "Counts, not a probability" in t)
         check("scenario: leave-one-out consistency reported against the always-majority baseline", "Always guessing" in t and "not a prediction" in t)
+        check("scenario chart: tests merged into counted bubbles that do not overlap", await pg.evaluate("""(() => { const c=[...document.querySelectorAll('.scen-chart .bub circle')].map(e=>[+e.getAttribute('cx'),+e.getAttribute('cy'),+e.getAttribute('r')]);
+          let bad=0; for (let i=0;i<c.length;i++) for (let j=i+1;j<c.length;j++) if (Math.hypot(c[i][0]-c[j][0],c[i][1]-c[j][1]) < 0.6*Math.min(c[i][2],c[j][2])) bad++; return c.length>0 && bad===0; })()"""))
+        check("scenario chart: window label states how many tests are inside", "9 tests inside" in await pg.text_content(".scen-chart"))
+        await pg.locator(".scen-chart .bub.in").first.dispatch_event("click"); await pg.wait_for_timeout(200)
+        check("scenario chart: clicking a bubble lists exactly its tests", "selected bubble: 9" in await pg.inner_text("#scen-tests") and await pg.locator("#scen-tests tbody tr").count() == 9)
+        await pg.click(".seg button:has-text('All tested')"); await pg.wait_for_timeout(150)
+        check("scenario chart: 'All tested conditions' view shows every bubble (no hidden-tests note)", (await pg.inner_text(".scen-hidden")).strip() == "")
         await pg.goto(SITE+"#/scenario/family=solid&o2=30&psi=10.2"); await pg.wait_for_selector(".verdict")
         t = await pg.inner_text(".scen-out")
         check("scenario: solids at the brief's Moon-base atmosphere -> abstains (insufficient data)", "Insufficient data" in t and "will not describe what would happen" in t)

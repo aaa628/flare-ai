@@ -1598,34 +1598,91 @@
     LOO = { n: pool.length, agree: Math.round(100 * hit / pool.length), base: base, baseRate: Math.round(100 * counts[base] / pool.length) };
     return LOO;
   }
-  function scenarioChart(pool, o2, psi, matches) {
-    var W = 640, H = 300, L = 52, R = 16, T = 14, B = 42;
+  /* Scenario chart: tests at (nearly) the same conditions are merged into one bubble whose area grows with the count.
+   * Filled = inside the match window, hollow = outside. Colour = experiment (named in the legend and tooltip).
+   * The scenario is a white target with thin guide lines. Clicking a bubble lists its tests below the chart. */
+  var EXP_COL = { "BASS-I": "#3987e5", "FLEX": "#199e70" };
+  function scenarioChart(pool, o2, psi, insideIds, zoom, onPick) {
+    var narrow = window.innerWidth < 640;
+    var W = narrow ? 360 : 680, H = narrow ? 330 : 380, L = narrow ? 44 : 60, R = narrow ? 10 : 18, T = 26, B = narrow ? 42 : 46;
     var pts = pool.filter(function (c) { return !isNaN(c.o2) && !isNaN(c.psi); });
-    var xs = pts.map(function (c) { return c.o2; }).concat([o2]), ys = pts.map(function (c) { return c.psi; }).concat([psi]);
-    var x0 = Math.max(0, Math.floor(Math.min.apply(null, xs) - 3)), x1 = Math.ceil(Math.max.apply(null, xs) + 3);
-    var y0 = Math.max(0, Math.floor(Math.min.apply(null, ys) - 3)), y1 = Math.ceil(Math.max.apply(null, ys) + 3);
+    var x0, x1, y0, y1;
+    if (zoom) { x0 = Math.max(0, o2 - 4); x1 = o2 + 4; y0 = Math.max(0, psi - 2.5); y1 = psi + 2.5; }
+    else {
+      var xs = pts.map(function (c) { return c.o2; }).concat([o2]), ys = pts.map(function (c) { return c.psi; }).concat([psi]);
+      x0 = Math.max(0, Math.min.apply(null, xs) - 2); x1 = Math.max.apply(null, xs) + 2; y0 = Math.max(0, Math.min.apply(null, ys) - 2); y1 = Math.max.apply(null, ys) + 2;
+    }
+    var xt = niceTicks(x0, x1, narrow ? 4 : 6), yt = niceTicks(y0, y1, 5);
+    x0 = xt[0]; x1 = xt[xt.length - 1]; y0 = yt[0]; y1 = yt[yt.length - 1];
     var x = function (v) { return L + (W - L - R) * (v - x0) / ((x1 - x0) || 1); }, y = function (v) { return T + (H - T - B) * (1 - (v - y0) / ((y1 - y0) || 1)); };
-    var inIds = {}; matches.forEach(function (m) { inIds[m.c.r.id] = 1; });
-    var summary = "Tested conditions: " + pts.length + " tests with oxygen and pressure recorded, oxygen " + x0 + " to " + x1 + "%, pressure " + y0 + " to " + y1 +
-      " psi. Your scenario: " + o2 + "% oxygen at " + psi + " psi. " + matches.length + " tests inside the match window.";
-    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
-    niceTicks(x0, x1, 6).forEach(function (t) { if (t < x0 || t > x1) return; s.appendChild(svg("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, class: "grid" })); s.appendChild(svg("text", { x: x(t), y: H - B + 16, "text-anchor": "middle", class: "tick" }, t + "%")); });
-    niceTicks(y0, y1, 5).forEach(function (t) { if (t < y0 || t > y1) return; s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(t), y2: y(t), class: "grid" })); s.appendChild(svg("text", { x: L - 8, y: y(t) + 4, "text-anchor": "end", class: "tick" }, t)); });
-    s.appendChild(svg("text", { x: (L + W) / 2, y: H - 6, "text-anchor": "middle", class: "xlab" }, "oxygen (%), each experiment’s own method"));
-    s.appendChild(svg("text", { x: 12, y: H / 2, transform: "rotate(-90 12 " + (H / 2) + ")", "text-anchor": "middle", class: "xlab" }, "pressure (psi, converted)"));
-    s.appendChild(svg("rect", { x: x(o2 - MATCH.o2), y: y(psi + MATCH.psi), width: x(o2 + MATCH.o2) - x(o2 - MATCH.o2), height: y(psi - MATCH.psi) - y(psi + MATCH.psi), class: "zone" }));
-    pts.forEach(function (c) {
-      var col = c.r.experiment === "FLEX" ? COLORS.s2 : COLORS.s1, hit = inIds[c.r.id];
-      s.appendChild(svg(hit ? "rect" : "circle", hit ? { x: x(c.o2) - 4, y: y(c.psi) - 4, width: 8, height: 8, rx: 1.5, fill: col, class: "mark", style: "--c:" + col, tabindex: 0,
-          "data-tip": testLabel(c.r) + ": " + f1(c.o2) + "% O2, " + f1(c.psi) + " psi" + (c.outcome ? ", NASA test end: " + c.outcome : "") + " (inside the window)" }
-        : { cx: x(c.o2), cy: y(c.psi), r: 3, fill: col, "fill-opacity": 0.45, class: "mark", style: "--c:" + col, tabindex: 0,
-          "data-tip": testLabel(c.r) + ": " + f1(c.o2) + "% O2, " + f1(c.psi) + " psi" + (c.outcome ? ", NASA test end: " + c.outcome : "") }));
+    /* Greedy clustering in screen space: a test joins a bubble of the same experiment and window status if it is within
+     * MERGE px of the bubble's centre, so bubbles never pile on top of each other. Positions stay true to the data
+     * (each bubble sits at the mean of its tests); the tooltip gives the exact ranges. */
+    var MERGE = narrow ? 16 : 20, list = [];
+    pts.filter(function (c) { return c.o2 >= x0 && c.o2 <= x1 && c.psi >= y0 && c.psi <= y1; })
+      .sort(function (a, b) { return a.o2 - b.o2 || a.psi - b.psi; })
+      .forEach(function (c) {
+        var inside = !!insideIds[c.r.id], px = x(c.o2), py = y(c.psi), best = null, bd = MERGE;
+        list.forEach(function (b) { if (b.exp !== c.r.experiment || b.inside !== inside) return; var d = Math.hypot(b.px - px, b.py - py); if (d < bd) { bd = d; best = b; } });
+        if (!best) { best = { exp: c.r.experiment, inside: inside, m: [], px: px, py: py }; list.push(best); }
+        best.m.push(c);
+        best.px = best.m.reduce(function (a, t) { return a + x(t.o2); }, 0) / best.m.length; best.py = best.m.reduce(function (a, t) { return a + y(t.psi); }, 0) / best.m.length;
+      });
+    list.forEach(function (b) {
+      b.o2 = b.m.reduce(function (a, c) { return a + c.o2; }, 0) / b.m.length; b.psi = b.m.reduce(function (a, c) { return a + c.psi; }, 0) / b.m.length;
+      b.o2r = [Math.min.apply(null, b.m.map(function (c) { return c.o2; })), Math.max.apply(null, b.m.map(function (c) { return c.o2; }))];
+      b.pr = [Math.min.apply(null, b.m.map(function (c) { return c.psi; })), Math.max.apply(null, b.m.map(function (c) { return c.psi; }))];
     });
-    s.appendChild(svg("line", { x1: x(o2), x2: x(o2), y1: T, y2: H - B, class: "target" }));
-    s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(psi), y2: y(psi), class: "target" }));
-    var nearRight = x(o2) > W - 140;
-    s.appendChild(svg("text", { x: nearRight ? x(o2) - 6 : x(o2) + 6, y: y(psi) - 6, "text-anchor": nearRight ? "end" : "start", class: "tlabel" }, "your scenario"));
-    return s;
+    list.sort(function (a, b) { return b.m.length - a.m.length; });
+    var hidden = pts.length - list.reduce(function (a, b) { return a + b.m.length; }, 0);
+    var nIn = list.filter(function (b) { return b.inside; }).reduce(function (a, b) { return a + b.m.length; }, 0);
+    var summary = "Scatter of tested conditions: " + pts.length + " tests with oxygen and pressure, merged into " + list.length + " bubbles. Your scenario: " + o2 + "% oxygen at " + psi +
+      " psi; " + nIn + " tests inside the match window of plus or minus " + MATCH.o2 + " points oxygen and " + MATCH.psi + " psi." + (hidden ? " " + hidden + " tests lie outside this zoomed view." : "");
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz scen-chart", role: "img", "aria-label": summary }, svg("title", null, summary));
+    xt.forEach(function (t) { s.appendChild(svg("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, class: "grid" })); s.appendChild(svg("text", { x: x(t), y: H - B + 18, "text-anchor": "middle", class: "tick" }, f1(t) + "%")); });
+    yt.forEach(function (t) { s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(t), y2: y(t), class: "grid" })); s.appendChild(svg("text", { x: L - 10, y: y(t) + 4, "text-anchor": "end", class: "tick" }, f1(t))); });
+    s.appendChild(svg("line", { x1: L, x2: W - R, y1: H - B, y2: H - B, class: "axis" }));
+    s.appendChild(svg("line", { x1: L, x2: L, y1: T, y2: H - B, class: "axis" }));
+    s.appendChild(svg("text", { x: (L + W - R) / 2, y: H - 8, "text-anchor": "middle", class: "xlab" }, narrow ? "Oxygen (%)" : "Oxygen (%) \u2014 each experiment\u2019s own method"));
+    s.appendChild(svg("text", { x: 14, y: (T + H - B) / 2, transform: "rotate(-90 14 " + ((T + H - B) / 2) + ")", "text-anchor": "middle", class: "xlab" }, narrow ? "Pressure (psi)" : "Pressure (psi, converted)"));
+    /* match window */
+    var wx0 = Math.max(L, x(o2 - MATCH.o2)), wx1 = Math.min(W - R, x(o2 + MATCH.o2)), wy0 = Math.max(T, y(psi + MATCH.psi)), wy1 = Math.min(H - B, y(psi - MATCH.psi));
+    if (wx1 > wx0 && wy1 > wy0) {
+      s.appendChild(svg("rect", { x: wx0, y: wy0, width: wx1 - wx0, height: wy1 - wy0, rx: 6, class: "mwin" }));
+      s.appendChild(svg("text", { x: wx0 + 6, y: wy0 - 6, class: "mwin-l" }, "match window \u00b7 " + nIn + " test" + (nIn === 1 ? "" : "s") + " inside"));
+    }
+    /* thin guides through the scenario */
+    s.appendChild(svg("line", { x1: x(o2), x2: x(o2), y1: T, y2: H - B, class: "guide" }));
+    s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(psi), y2: y(psi), class: "guide" }));
+    /* bubbles: largest first so small ones stay on top */
+    var rad = function (n) { return Math.min(12, 4.5 + 2.2 * Math.sqrt(n - 1)); };
+    list.forEach(function (b) {
+      var col = EXP_COL[b.exp] || "#c98500", r = rad(b.m.length), n = b.m.length;
+      var oc = {}; b.m.forEach(function (c) { if (c.outcome) oc[c.outcome] = (oc[c.outcome] || 0) + 1; });
+      var rng = function (r, u) { return f1(r[0]) === f1(r[1]) ? f1(r[0]) + u : f1(r[0]) + "\u2013" + f1(r[1]) + u; };
+      var tip = n + " " + b.exp + " test" + (n > 1 ? "s" : "") + " \u00b7 O2 " + rng(b.o2r, "%") + " \u00b7 " + rng(b.pr, " psi") + " \u00b7 " + (b.inside ? "inside" : "outside") + " the match window" +
+        (Object.keys(oc).length ? " · NASA test end: " + Object.keys(oc).map(function (k) { return oc[k] + " " + k; }).join(", ") : "") + " · click to list " + (n > 1 ? "them" : "it");
+      var g = svg("g", { class: "bub" + (b.inside ? " in" : ""), tabindex: 0, role: "button", "aria-label": tip, "data-tip": tip });
+      g.appendChild(svg("circle", { cx: b.px, cy: b.py, r: r, fill: b.inside ? col : "rgba(0,0,0,0)", "fill-opacity": b.inside ? 0.9 : 0, stroke: col, "stroke-width": b.inside ? 1.5 : 1.6, "stroke-opacity": b.inside ? 1 : 0.75 }));
+      if (n > 1) g.appendChild(svg("text", { x: b.px, y: b.py + 3.5, "text-anchor": "middle", class: "bub-n" + (b.inside ? " in" : "") }, String(n)));
+      var pick = function () { onPick(b); };
+      g.addEventListener("click", pick);
+      g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
+      s.appendChild(g);
+    });
+    /* the scenario target, drawn last */
+    s.appendChild(svg("circle", { cx: x(o2), cy: y(psi), r: 7, class: "target-ring" }));
+    s.appendChild(svg("circle", { cx: x(o2), cy: y(psi), r: 2.2, class: "target-dot" }));
+    return { svg: s, hidden: hidden };
+  }
+  function scenarioLegend(pool) {
+    var exps = Object.keys(EXP_COL).filter(function (e) { return pool.some(function (c) { return c.r.experiment === e && !isNaN(c.psi); }); });
+    return h("div", { class: "scen-legend" },
+      exps.map(function (e) { return h("span", null, h("i", { class: "lg-dot", style: "--c:" + EXP_COL[e] }), e); }),
+      h("span", null, h("i", { class: "lg-dot", style: "--c:#97999f" }), "filled = inside window"),
+      h("span", null, h("i", { class: "lg-dot hollow", style: "--c:#97999f" }), "hollow = outside"),
+      h("span", null, h("i", { class: "lg-size s1" }), h("i", { class: "lg-size s2" }), h("i", { class: "lg-size s3" }), "bigger = more tests (number shown)"),
+      h("span", null, h("i", { class: "lg-target" }), "your scenario"));
   }
 
   function viewScenario(arg) {
@@ -1684,7 +1741,8 @@
       else if (full.length) { cls = "v-thin"; head = "! Thin: only " + full.length + " NASA test" + (full.length > 1 ? "s" : "") + " within the match window"; body = "Too few to say much; read them individually."; }
       else if (partial.length) { cls = "v-thin"; head = "! Partly covered: " + partial.length + " tests match the oxygen, but their pressure was not recorded"; body = "BASS-II tests ran on the ISS, but NASA’s table gives no per-test pressure, so the pressure part of your scenario cannot be checked."; }
       else { cls = "v-none"; head = "✕ Insufficient data: no NASA test in Flare AI near these conditions"; body = "The available data does not cover this scenario, so Flare AI will not describe what would happen. The nearest tests are shown for orientation only."; }
-      var show = (full.length ? full : partial.length ? partial : scored).slice(0, 10);
+      var show = (full.length ? full : partial.length ? partial : scored).slice(0, full.length ? 40 : 10);
+      function nInside() { return full.length; }
       var flexOut = null;
       if (st.family === "liquid" && full.length) {
         var oc = {}; full.forEach(function (m) { oc[m.c.outcome] = (oc[m.c.outcome] || 0) + 1; });
@@ -1695,23 +1753,49 @@
             loo.agree + "% of the time. Always guessing “" + loo.base + "” would score " + loo.baseRate + "%. " +
             (loo.agree > loo.baseRate + 5 ? "So nearby tests carry some information, but this is a description of NASA’s data, not a prediction for real missions." : "So nearby tests add little beyond the most common label; treat neighbours as context only.")));
       }
+      var insideIds = {}; full.forEach(function (m) { insideIds[m.c.r.id] = 1; });
+      var withBoth = pool.filter(function (c) { return !isNaN(c.o2) && !isNaN(c.psi); });
+      var tableBox = h("section", { class: "card", id: "scen-tests" });
+      var defaultTitle = full.length ? "Tests inside the window (" + full.length + ")" : partial.length ? "Tests matching oxygen, pressure not recorded (" + partial.length + ")" : "Nearest tests (outside the window, for orientation)";
+      function showTable(rows, title, picked) {
+        tableBox.textContent = "";
+        tableBox.appendChild(h("div", { class: "prov-head" }, h("h3", null, title),
+          picked ? h("button", { type: "button", class: "ghost small", onclick: function () { showTable(show, defaultTitle, false); } }, "Back to the default list") : null));
+        tableBox.appendChild(h("div", { class: "tablewrap flat" }, h("table", { class: "side scen-t" },
+          h("thead", null, h("tr", null, ["Test", "Material", "O2 (method)", "Pressure", "Distance", "What NASA recorded", "Check"].map(function (t) { return h("th", { scope: "col" }, t); }))),
+          h("tbody", null, rows.map(function (m) {
+            var r = m.c.r, note = m.c.outcome ? "Test end: " + m.c.outcome : (r.observation || "").slice(0, 110) + ((r.observation || "").length > 110 ? "\u2026" : "");
+            return h("tr", null, h("th", { scope: "row" }, h("a", { href: "#/experiment/" + r.id }, testLabel(r))), h("td", null, r.material_raw),
+              h("td", null, f1(m.c.o2) + "% ", h("span", { class: "mtag" }, m.c.o2How)), h("td", null, isNaN(m.c.psi) ? "not recorded" : f1(m.c.psi) + " psi", h("span", { class: "mtag" }, m.c.pHow)),
+              h("td", { class: "num" }, m.d.toFixed(2)), h("td", null, note || "\u2014"), h("td", null, levelChip(r)));
+          })))));
+      }
+      showTable(show, defaultTitle, false);
+      var zoom = full.length > 0, chartBox = h("div", { class: "scen-chartbox" }), hiddenNote = h("p", { class: "note scen-hidden" });
+      var zBtns = h("div", { class: "seg", role: "group", "aria-label": "Chart view" });
+      function drawChart() {
+        var res = scenarioChart(pool, st.o2, st.psi, insideIds, zoom, function (b) {
+          var rows = b.m.map(function (c) { return { c: c, d: dist(c, st.o2, st.psi) }; }).sort(function (a, c) { return a.d - c.d; });
+          showTable(rows, "Tests in the selected bubble: " + rows.length + " " + b.exp + " test" + (rows.length > 1 ? "s" : "") + ", O2 " + (f1(b.o2r[0]) === f1(b.o2r[1]) ? f1(b.o2r[0]) : f1(b.o2r[0]) + "\u2013" + f1(b.o2r[1])) + "%, " + (f1(b.pr[0]) === f1(b.pr[1]) ? f1(b.pr[0]) : f1(b.pr[0]) + "\u2013" + f1(b.pr[1])) + " psi", true);
+          tableBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        chartBox.textContent = ""; chartBox.appendChild(res.svg);
+        hiddenNote.textContent = res.hidden ? res.hidden + " tests lie outside this zoomed view. Switch to \u201cAll tested conditions\u201d to see them." : "";
+        zBtns.textContent = "";
+        [[false, "All tested conditions"], [true, "Zoom to my scenario"]].forEach(function (zb) {
+          zBtns.appendChild(h("button", { type: "button", class: zoom === zb[0] ? "on" : "", "aria-pressed": zoom === zb[0] ? "true" : "false", onclick: function () { zoom = zb[0]; drawChart(); } }, zb[1]));
+        });
+      }
+      drawChart();
       return h("div", null,
         h("section", { class: "card verdict " + cls }, h("p", { class: "v-h" }, head), h("p", null, body), h("p", { class: "note" }, env)),
-        h("div", { class: "grid qgrid" },
-          chartCard("Where NASA tested, compared with your scenario", "% O2 vs psi",
-            "each dot is one test with both oxygen and pressure recorded (blue = BASS-I, orange = FLEX; the tooltip names it). Squares are inside the shaded match window around your scenario (the crosshair).",
-            scenarioChart(pool, st.o2, st.psi, full),
-            chartNote(pool.filter(function (c) { return !isNaN(c.o2) && !isNaN(c.psi); }).length + " tests with both oxygen and pressure (pressure converted to psi from atm or mmHg).",
-              pool.filter(function (c) { return isNaN(c.o2) || isNaN(c.psi); }).length + " tests without both values (BASS-II has no per-test pressure; SAFFIRE oxygen is approximate)."))),
-        h("section", { class: "card" }, h("h3", null, full.length ? "Tests inside the window" : partial.length ? "Tests matching oxygen (pressure not recorded)" : "Nearest tests (outside the window, for orientation)"),
-          h("div", { class: "tablewrap flat" }, h("table", { class: "side scen-t" },
-            h("thead", null, h("tr", null, ["Test", "Material", "O2 (method)", "Pressure", "Distance", "What NASA recorded", "Check"].map(function (t) { return h("th", { scope: "col" }, t); }))),
-            h("tbody", null, show.map(function (m) {
-              var r = m.c.r, note = m.c.outcome ? "Test end: " + m.c.outcome : (r.observation || "").slice(0, 110) + ((r.observation || "").length > 110 ? "…" : "");
-              return h("tr", null, h("th", { scope: "row" }, h("a", { href: "#/experiment/" + r.id }, testLabel(r))), h("td", null, r.material_raw),
-                h("td", null, f1(m.c.o2) + "% ", h("span", { class: "mtag" }, m.c.o2How)), h("td", null, isNaN(m.c.psi) ? "not recorded" : f1(m.c.psi) + " psi", h("span", { class: "mtag" }, m.c.pHow)),
-                h("td", { class: "num" }, m.d.toFixed(2)), h("td", null, note || "—"), h("td", null, levelChip(r)));
-            }))))),
+        h("figure", { class: "card qcard scen-fig" },
+          h("figcaption", null, h("h3", null, "Did NASA test near your scenario?"), zBtns),
+          h("p", { class: "howto" }, h("b", null, "How to read: "), "each bubble is one or more tests at about the same oxygen and pressure; the number inside is how many. Filled bubbles are inside the dashed match window around your scenario (white target). Hover for details; click a bubble to list its tests below."),
+          scenarioLegend(pool), chartBox, hiddenNote,
+          chartNote(withBoth.length + " tests with both oxygen and pressure recorded (pressure converted to psi from atm or mmHg), " + nInside() + " of them inside the window.",
+            (pool.length - withBoth.length) + " tests without both values (BASS-II has no per-test pressure; SAFFIRE oxygen is approximate); they appear in the table only.")),
+        tableBox,
         flexOut, tlCard,
         h("section", { class: "card" }, h("h3", null, "How Scenario Check decides"),
           h("ul", { class: "rules" },

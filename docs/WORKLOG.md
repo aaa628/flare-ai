@@ -304,3 +304,14 @@ Did:
   (k=5, same fuel: 74% agreement vs 68% always-Extinction), table-level investigations spanning the conditions, rules card.
 Verified by running: smoke 90/90 (5 new scenario checks); previewer 14/14; lab_ui 11/11; lab_function 18/18; tamper tests ALL
   CAUGHT; all record pages OK; CSP OK; 1280/390 px screenshots, no overflow.
+
+## 2026-11-01 14:00 IST - Claude
+Did:
+- Scenario Check chart rebuilt after user feedback ("a complete mess"): tests are clustered in screen space into bubbles (same
+  experiment and window status, within 20 px), area grows with count and the count is printed; filled = inside window, hollow =
+  outside; colour per experiment (BASS-I blue, FLEX aqua) with an HTML legend; scenario shown as a white target with thin guides;
+  match window label states how many tests are inside; "All tested conditions" / "Zoom to my scenario" toggle (default zoom when
+  tests are inside); clicking (or Enter on) a bubble lists exactly its tests in the table, with a back button; tooltip gives exact
+  O2 and psi ranges and NASA test-end counts; a phone-sized chart below 640 px.
+Verified by running: smoke 94/94 (4 new chart checks: no overlapping bubbles, window count, click-to-list, all-view);
+  previewer 14/14; lab_ui 11/11; lab_function 18/18; all record pages OK; 390 px no overflow; screenshots reviewed.
