@@ -100,6 +100,18 @@ async def main():
         check("investigation detail: table columns, O2 and pressure ranges with source columns", "Ambient pressure; mmHg" in t and "psi" in t and "10.33" in t)
         await pg.goto(SITE+"#/investigations/compare/PSI-25,PSI-69,PSI-159"); await pg.wait_for_selector("table.side")
         check("investigations compare: same/different summary and side-by-side table", "Different:" in await pg.inner_text("main") and await pg.locator("table.side thead th").count() == 4)
+        # Scenario Check
+        await pg.goto(SITE+"#/scenario/family=liquid&o2=34&psi=10.4&fuel=&diluent="); await pg.wait_for_selector(".verdict")
+        t = await pg.inner_text(".scen-out")
+        check("scenario: FLEX near-Moon-base conditions -> covered, with NASA's test-end counts as counts not probability", "Covered" in t and "Counts, not a probability" in t)
+        check("scenario: leave-one-out consistency reported against the always-majority baseline", "Always guessing" in t and "not a prediction" in t)
+        await pg.goto(SITE+"#/scenario/family=solid&o2=30&psi=10.2"); await pg.wait_for_selector(".verdict")
+        t = await pg.inner_text(".scen-out")
+        check("scenario: solids at the brief's Moon-base atmosphere -> abstains (insufficient data)", "Insufficient data" in t and "will not describe what would happen" in t)
+        check("scenario: table-level investigations listed (CFI-G spans Moon-base conditions)", "ACME CFI-G" in t)
+        await pg.goto(SITE+"#/scenario/family=solid&o2=21&psi=14.7"); await pg.wait_for_selector(".verdict")
+        t = await pg.inner_text(".scen-out")
+        check("scenario: ISS air for solids -> covered, chart has a text alternative, rules shown", "Covered" in t and await pg.locator(".scen-out svg[aria-label]").count() >= 1 and "Match window" in t)
         # Compare screen
         await pg.goto(SITE+"#/compare/BASSII-P1,BASSII-P10,BASSII-P12"); await pg.wait_for_selector(".viz-grid")
         t = await pg.inner_text("main")

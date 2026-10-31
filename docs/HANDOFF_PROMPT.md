@@ -127,6 +127,11 @@ Columns: `id, pi, as_run_no, sample_no, material_raw, flow_mode, o2_cal_initial,
 
 ## 6. Current status (update at the end of every session)
 
+**2026-11-01 update (scenario + licence):** Scenario Check built (#/scenario; condOf() maps each record to O2 % and psi with its method;
++-1.5 window; abstains; FLEX leave-one-out 74% vs 68% baseline). MIT LICENSE added (code only; NASA data keeps NASA terms).
+Intelligence Lab built (Netlify Function, key in Netlify env only) but Netlify is not set up yet. Remaining: printable brief,
+more PSI tables as records (SAME-R, CFI-G), verifier checklist page, pitch materials, Nov 13 Resources check.
+
 **2026-11-01 update (investigations):** challenge brief (Details tab) pasted by the user: it names BASS, BASS-II, Saffire-I/II/III,
 SAME, SAME-R, FLEX (+FLEX-2, CFI, ACME x6, SPICE, SLICE, DAFT as related) and asks to summarise, rank and interpret PSI investigations
 for crew habitats incl. a Moon base at >=30% O2 and <=10.2 psi. Built the Investigations view (24 PSI investigations, ranking rule,
