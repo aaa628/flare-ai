@@ -1,0 +1,13 @@
+{
+  "name": "flare-ai",
+  "private": true,
+  "type": "module",
+  "description": "Flare AI static site + one Netlify Function (Intelligence Lab). The site itself needs no build.",
+  "scripts": {
+    "test:lab": "node tests/lab_function_test.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@netlify/blobs": "^11.1.7"
+  }
+}

@@ -4,6 +4,13 @@
   publish = "site"
   command = ""
 
+# One serverless function: the Intelligence Lab (POST /api/ask). Netlify installs package.json dependencies automatically.
+# The Anthropic API key is set ONLY in Netlify: Site configuration -> Environment variables -> ANTHROPIC_API_KEY
+# (scope: Functions, mark "Contains secret values"). Never commit it. See docs/DEPLOY.md.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[headers]]
   for = "/*"
   [headers.values]

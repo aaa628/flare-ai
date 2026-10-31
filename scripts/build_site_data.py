@@ -78,6 +78,71 @@ def psi_records():
     return out
 
 
+BRIEF_FACTS = [
+    ("brief-moon", "Challenge brief: Moon base and rover atmosphere",
+     "The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less. "
+     "Spacesuits are filled with 100% oxygen to 4.3 psi; Earth's sea-level pressure is 14.7 psi."),
+    ("brief-partial-g", "Challenge brief: partial gravity",
+     "There is currently no partial-gravity combustion data available in PSI. Partial gravity was mimicked in ACME E-FIELD Flames through an electric field. "
+     "Microgravity and normal-gravity results could bound what occurs at intermediate gravity levels."),
+    ("brief-pillars", "Challenge brief: prevention, detection, suppression",
+     "NASA's spacecraft fire safety work is focused on prevention, detection, and suppression. Flammability studies of solid materials: BASS, BASS-II, "
+     "Saffire-I, -II, -III. Detection: SAME and SAME-R. Suppression: FLEX, by diluting the chamber atmosphere with carbon dioxide and helium."),
+    ("brief-scope", "Challenge brief: scope",
+     "Fire safety involving rockets and propellants is generally beyond the scope of the research available in the PSI database."),
+]
+
+
+def write_corpus(records, investigations):
+    """Search corpus for the Intelligence Lab server function (netlify/functions/ask/corpus.mjs). Generated; never hand-edit.
+    Each document carries the site route and source label it is cited with. Only shown (checked) records are included."""
+    docs = []
+    for r in records:
+        if r["level"] == "none":
+            continue
+        fields = r.get("fields") or []
+        vals = "; ".join(f"{k}: {v}" for k, v in fields[:18]) if fields else (
+            f"calibrated O2 {r.get('o2_cal_initial','')} -> {r.get('o2_cal_final','')} vol%; raw O2 {r.get('o2_raw_initial','')} -> {r.get('o2_raw_final','')}; "
+            f"CO2 {r.get('co2_initial','')} -> {r.get('co2_final','')} vol%; CO {r.get('co_initial_ppm','')} -> {r.get('co_final_ppm','')} ppm")
+        text = (f"{r['experiment']} test {r['id']}. Material: {r.get('material_raw','')}. Flow direction: {r.get('flow_mode') or 'not stated'}. "
+                f"Values as recorded: {vals}. " + (f"NASA test end: {r['outcome_raw']}. " if r.get("outcome_raw") else "") +
+                (f"Test-log note: {r['observation']} " if r.get("observation") else "") +
+                (f"Flags: {r['qc_flag']}. " if r.get("qc_flag") else "") + f"Check level: {r['level']} (no person has signed it)." * (r["level"] == "machine"))
+        src = (f"NASA/TM-20210011385, Appendix A, report page {r.get('source_page')}" if r.get("raw_text")
+               else f"NASA PSI {r.get('source_id')}: {r.get('source_file','').split(',')[0]}, row {r.get('source_row')}")
+        docs.append({"id": r["id"], "kind": "record", "title": f"{r['experiment']} {r['id']}: {r.get('material_raw','')}",
+                     "route": "#/experiment/" + r["id"], "source": src, "text": text[:1600]})
+    for v in investigations:
+        name = v.get("investigationAcronym") or v["title"]
+        c = v.get("curated", {})
+        conds = []
+        for t in v.get("table_summaries", []):
+            if t.get("o2_range_pct"):
+                conds.append(f"O2 {t['o2_range_pct'][0]}-{t['o2_range_pct'][1]}% ({t.get('o2_meaning')})")
+            if t.get("p_range_psi"):
+                conds.append(f"pressure {t['p_range_orig'][0]}-{t['p_range_orig'][1]} {t['p_unit']} = {t['p_range_psi'][0]}-{t['p_range_psi'][1]} psi")
+            if t.get("joint"):
+                conds.append(f"{t['joint']} tests with O2 >= 30% at <= 10.2 psi")
+        summary = (f"{name} ({v['accession']}): {v['title']}. NASA PSI sub-area: {v.get('subResearchArea')}. Type: {v.get('projectType')}; platform: "
+                   f"{v.get('flightProgram')}; hardware: {v.get('experimentHardware')}. Tests in NASA table: {v.get('n_tests')}. "
+                   f"Conditions read from NASA's table: {'; '.join(conds) or 'none recorded'}. Flare AI labels (interpretation): fuel {c.get('fuel_class')} "
+                   f"({c.get('fuel_examples')}); fire-safety area {c.get('pillar') or 'none'}; brief mention {c.get('brief_mention')}.")
+        docs.append({"id": v["accession"], "kind": "investigation", "title": f"{name} ({v['accession']}) overview", "route": "#/investigation/" + v["accession"],
+                     "source": f"NASA PSI {v['accession']} (DOI {v.get('doi')}) + Flare AI table summary", "text": summary[:1800]})
+        for key, label in (("objective", "objective"), ("approach", "approach"), ("hypothesis", "hypothesis"), ("researchImpacts", "research impacts")):
+            t = " ".join((v.get(key) or "").split())
+            for i in range(0, min(len(t), 3000), 1000):
+                docs.append({"id": f"{v['accession']}#{key}{i // 1000 or ''}", "kind": "nasa_text", "title": f"{name}: NASA's stated {label}",
+                             "route": "#/investigation/" + v["accession"], "source": f"NASA PSI {v['accession']} description ({label})", "text": t[i:i + 1100]})
+    for i, title, text in BRIEF_FACTS:
+        docs.append({"id": i, "kind": "brief", "title": title, "route": "#/investigations", "source": "NASA Space Apps 2026 challenge brief (Details tab)", "text": text})
+    out = ROOT / "netlify" / "functions" / "ask" / "corpus.mjs"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text("// GENERATED by scripts/build_site_data.py. Do not edit by hand.\nexport default " +
+                   json.dumps(docs, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+    print(f"wrote {out.relative_to(ROOT)}: {len(docs)} documents")
+
+
 def main():
     cc = load_crosscheck()
     spans = cc.table_pages()
@@ -147,6 +212,7 @@ def main():
     }
     if stale:
         print("WARNING: edited after the automated check, downgraded to unchecked:", ", ".join(stale))
+    write_corpus(records, investigations)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
         "// GENERATED by scripts/build_site_data.py. Do not edit by hand.\n"

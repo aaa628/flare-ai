@@ -36663,7 +36663,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "named-hardware",
     "scale": "burner (CIR)",
-    "basis": "Brief: one of the six ACME experiments, same modular hardware in the CIR"
+    "basis": "Brief: one of the six ACME experiments, same modular hardware in the CIR",
+    "evidence_type": "context",
+    "summary_ours": "Spherical gas flames in the ISS combustion rack, used to find when flames start making soot as flow, dilution and pressure change; includes inverse flames burning in enriched oxygen."
    },
    "table_summaries": [
     {
@@ -36899,7 +36901,9 @@ window.FLARE_DATA = {
     "pillar": "prevention",
     "brief_mention": "related",
     "scale": "burner (CIR)",
-    "basis": "Brief: BRE was a study of materials flammability in still atmospheres, though it burned gaseous fuels"
+    "basis": "Brief: BRE was a study of materials flammability in still atmospheres, though it burned gaseous fuels",
+    "evidence_type": "related",
+    "summary_ours": "Gas burners that imitate burning solid materials, to learn which material properties let a fire keep burning in still microgravity air."
    },
    "table_summaries": [
     {
@@ -37089,7 +37093,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "named-hardware",
     "scale": "burner (CIR)",
-    "basis": "Brief: one of the six ACME experiments"
+    "basis": "Brief: one of the six ACME experiments",
+    "evidence_type": "context",
+    "summary_ours": "Weak coflow gas flames near their dilution limit, measured to test computer models of flames."
    },
    "table_summaries": [
     {
@@ -37315,7 +37321,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "related",
     "scale": "burner (CIR)",
-    "basis": "Brief: E-FIELD Flames mimicked partial gravity with an electric field"
+    "basis": "Brief: E-FIELD Flames mimicked partial gravity with an electric field",
+    "evidence_type": "context",
+    "summary_ours": "Gas flames under an electric field, which can mimic some effects of gravity; used to study flame response and soot."
    },
    "table_summaries": [
     {
@@ -37657,7 +37665,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "named-hardware",
     "scale": "burner (CIR)",
-    "basis": "Brief: one of the six ACME experiments"
+    "basis": "Brief: one of the six ACME experiments",
+    "evidence_type": "context",
+    "summary_ours": "Spherical gas flames compared with detailed simulations of flame structure and chemistry, in soot-free and sooty conditions."
    },
    "table_summaries": [
     {
@@ -37839,7 +37849,9 @@ window.FLARE_DATA = {
     "pillar": "prevention;suppression",
     "brief_mention": "named",
     "scale": "small sample (flow duct)",
-    "basis": "Brief names BASS-II for flammability of solid materials (fabrics, plastics); PSI objective: ignition, flame spread and extinction limits of solids"
+    "basis": "Brief names BASS-II for flammability of solid materials (fabrics, plastics); PSI objective: ignition, flame spread and extinction limits of solids",
+    "evidence_type": "direct",
+    "summary_ours": "Burned thin and thick solid materials (acrylic, fabrics) on the ISS in slow airflow and lowered oxygen to find when flames spread or go out, and how this compares with NASA's Earth flammability test."
    },
    "table_summaries": [
     {
@@ -37987,7 +37999,9 @@ window.FLARE_DATA = {
     "pillar": "prevention;suppression",
     "brief_mention": "named",
     "scale": "small sample (flow duct)",
-    "basis": "Brief names BASS for flammability of solid materials; PSI-26 as-run matrix lists the samples"
+    "basis": "Brief names BASS for flammability of solid materials; PSI-26 as-run matrix lists the samples",
+    "evidence_type": "direct",
+    "summary_ours": "The first BASS series: burned acrylic, fabric and other solid samples on the ISS for longer than drop towers allow, to link Earth flammability tests with real microgravity burning."
    },
    "table_summaries": [
     {
@@ -38135,7 +38149,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "named-hardware",
     "scale": "droplet (MDCA)",
-    "basis": "Brief lists CFI among the droplet investigations (MDCA hardware)"
+    "basis": "Brief lists CFI among the droplet investigations (MDCA hardware)",
+    "evidence_type": "context",
+    "summary_ours": "Burning fuel droplets (dodecane) at 0.25 to 5 atm to study cool flames and the effect of helium."
    },
    "table_summaries": [
     {
@@ -38234,7 +38250,9 @@ window.FLARE_DATA = {
     "pillar": "detection",
     "brief_mention": "related",
     "scale": "aerosol sampling",
-    "basis": "Brief: an instrument from SAME/SAME-R was used to detect dust in DAFT and DAFT-2"
+    "basis": "Brief: an instrument from SAME/SAME-R was used to detect dust in DAFT and DAFT-2",
+    "evidence_type": "related",
+    "summary_ours": "Tested whether the smoke-particle counter used in SAME works in microgravity, using dust instead of smoke."
    },
    "table_summaries": [
     {
@@ -38311,7 +38329,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "none",
     "scale": "ground analysis",
-    "basis": "PSI ground investigation using SPICE data; no experiment table"
+    "basis": "PSI ground investigation using SPICE data; no experiment table",
+    "evidence_type": "context",
+    "summary_ours": "Ground study using SPICE data to understand why flames make soot differently in microgravity."
    },
    "table_summaries": [],
    "o2_max_pct": null,
@@ -38378,7 +38398,9 @@ window.FLARE_DATA = {
     "pillar": "prevention",
     "brief_mention": "none",
     "scale": "ground modeling",
-    "basis": "PSI sub-area Spacecraft Fire Safety; ground (modeling) investigation, no experiment table"
+    "basis": "PSI sub-area Spacecraft Fire Safety; ground (modeling) investigation, no experiment table",
+    "evidence_type": "related",
+    "summary_ours": "Ground modelling of flame spread along a surface in the same direction as the airflow, in microgravity."
    },
    "table_summaries": [],
    "o2_max_pct": null,
@@ -38711,7 +38733,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "named-hardware",
     "scale": "droplet (MDCA)",
-    "basis": "Brief lists FLEX-2 among the droplet investigations (MDCA hardware); PSI holds only the planned test matrix"
+    "basis": "Brief lists FLEX-2 among the droplet investigations (MDCA hardware); PSI holds only the planned test matrix",
+    "evidence_type": "context",
+    "summary_ours": "Follow-on to FLEX with more realistic fuels and two-fuel droplets; PSI holds only the planned test conditions."
    },
    "table_summaries": [
     {
@@ -39101,7 +39125,9 @@ window.FLARE_DATA = {
     "pillar": "suppression",
     "brief_mention": "named",
     "scale": "droplet (MDCA)",
-    "basis": "Brief: suppression studied in FLEX by diluting the chamber with CO2 and helium"
+    "basis": "Brief: suppression studied in FLEX by diluting the chamber with CO2 and helium",
+    "evidence_type": "direct",
+    "summary_ours": "Burned methanol and heptane droplets on the ISS while varying oxygen, pressure and suppressant gases (CO2, helium) to map when fires go out."
    },
    "table_summaries": [
     {
@@ -39231,7 +39257,9 @@ window.FLARE_DATA = {
     "pillar": "prevention",
     "brief_mention": "named",
     "scale": "spacecraft scale (Cygnus)",
-    "basis": "Brief names Saffire-I for solid-material flammability; PSI table: sample size and flow"
+    "basis": "Brief names Saffire-I for solid-material flammability; PSI table: sample size and flow",
+    "evidence_type": "direct",
+    "summary_ours": "Set a large fabric sample on fire inside an uncrewed Cygnus spacecraft to see how fast a big fire grows in low gravity."
    },
    "table_summaries": [
     {
@@ -39357,7 +39385,9 @@ window.FLARE_DATA = {
     "pillar": "prevention",
     "brief_mention": "named",
     "scale": "spacecraft scale (Cygnus)",
-    "basis": "Brief names Saffire-II; PSI table lists the nine samples"
+    "basis": "Brief names Saffire-II; PSI table lists the nine samples",
+    "evidence_type": "direct",
+    "summary_ours": "Burned nine smaller material samples inside Cygnus to compare low-gravity flammability with NASA's Earth screening test."
    },
    "table_summaries": [
     {
@@ -39465,7 +39495,9 @@ window.FLARE_DATA = {
     "pillar": "prevention",
     "brief_mention": "named",
     "scale": "spacecraft scale (Cygnus)",
-    "basis": "Brief names Saffire-III; PSI table: sample size and flow"
+    "basis": "Brief names Saffire-III; PSI table: sample size and flow",
+    "evidence_type": "direct",
+    "summary_ours": "A second large fabric fire inside Cygnus, with opposed and concurrent airflow, to measure large-scale fire growth."
    },
    "table_summaries": [
     {
@@ -39578,7 +39610,9 @@ window.FLARE_DATA = {
     "pillar": "detection",
     "brief_mention": "named",
     "scale": "smoke sampling",
-    "basis": "Brief: fire detection was tested through SAME-R"
+    "basis": "Brief: fire detection was tested through SAME-R",
+    "evidence_type": "direct",
+    "summary_ours": "Heated common spacecraft materials (Kapton, Teflon, silicone, lampwick) to measure smoke particle sizes in low gravity, for better smoke detectors."
    },
    "table_summaries": [
     {
@@ -39752,7 +39786,9 @@ window.FLARE_DATA = {
     "pillar": "detection",
     "brief_mention": "named",
     "scale": "smoke sampling",
-    "basis": "Brief: fire detection was tested in microgravity through SAME"
+    "basis": "Brief: fire detection was tested in microgravity through SAME",
+    "evidence_type": "direct",
+    "summary_ours": "The first smoke study: measured the size of smoke particles from heated spacecraft materials in low gravity."
    },
    "table_summaries": [
     {
@@ -39855,7 +39891,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "named-hardware",
     "scale": "burner (MSG flow duct)",
-    "basis": "Brief: SLICE used the same MSG flow duct"
+    "basis": "Brief: SLICE used the same MSG flow duct",
+    "evidence_type": "context",
+    "summary_ours": "Gas jet flames in the glovebox flow duct, studied to understand how flames anchor and stay stable."
    },
    "table_summaries": [
     {
@@ -39979,7 +40017,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "named-hardware",
     "scale": "burner (MSG flow duct)",
-    "basis": "Brief: SPICE built the fan-driven flow duct used by BASS and BASS-II"
+    "basis": "Brief: SPICE built the fan-driven flow duct used by BASS and BASS-II",
+    "evidence_type": "context",
+    "summary_ours": "Gas jet flames used to find the smoke point (when a flame starts releasing soot) in microgravity."
    },
    "table_summaries": [
     {
@@ -40053,7 +40093,9 @@ window.FLARE_DATA = {
     "pillar": "detection",
     "brief_mention": "none",
     "scale": "ground modeling",
-    "basis": "PSI ground investigation using SAME data; no experiment table"
+    "basis": "PSI ground investigation using SAME data; no experiment table",
+    "evidence_type": "related",
+    "summary_ours": "Ground simulations, using SAME data, of how gravity changes the growth of smoke particles."
    },
    "table_summaries": [],
    "o2_max_pct": null,
@@ -40156,7 +40198,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "none",
     "scale": "ground modeling",
-    "basis": "PSI ground investigation using FLEX data; no experiment table"
+    "basis": "PSI ground investigation using FLEX data; no experiment table",
+    "evidence_type": "context",
+    "summary_ours": "Ground computer modelling, using FLEX data, of how heat and airflow disturb droplet cool flames."
    },
    "table_summaries": [],
    "o2_max_pct": null,
@@ -40273,7 +40317,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "none",
     "scale": "ground study",
-    "basis": "PSI ground investigation (sub-area Spacecraft Fire Safety); summary table points to publications"
+    "basis": "PSI ground investigation (sub-area Spacecraft Fire Safety); summary table points to publications",
+    "evidence_type": "context",
+    "summary_ours": "Ground experiments and simulations, using FLEX data, on how cool flames turn into hot flames."
    },
    "table_summaries": [
     {
@@ -40358,7 +40404,9 @@ window.FLARE_DATA = {
     "pillar": "",
     "brief_mention": "related",
     "scale": "burner (CIR)",
-    "basis": "Brief: the highest-oxygen microgravity tests were in CFI-G (oxygen-nitrogen up to 85% O2 from the burner)"
+    "basis": "Brief: the highest-oxygen microgravity tests were in CFI-G (oxygen-nitrogen up to 85% O2 from the burner)",
+    "evidence_type": "related",
+    "summary_ours": "Gas flames on a spherical burner, including inverse flames with up to 85% oxygen from the burner: the highest-oxygen microgravity tests in PSI."
    },
    "table_summaries": [
     {
