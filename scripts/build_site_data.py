@@ -122,17 +122,26 @@ def main():
         elif r.get("source_page", "").isdigit():  # report page -> PDF page (report page 103 is PDF page 111)
             r["source_href"] = ("https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf#page="
                                 + str(int(r["source_page"]) + 8))
+    # Investigation catalogue: all NASA PSI combustion investigations (metadata + table summaries), tables served too.
+    tab_dir = ROOT / "site" / "sources" / "psi" / "tables"
+    tab_dir.mkdir(parents=True, exist_ok=True)
+    for f in (DATA / "source" / "psi" / "tables").iterdir():
+        if f.is_file():
+            shutil.copyfile(f, tab_dir / f.name)
+    investigations = load("build_catalog").catalog()
     sources = read("sources.csv")
     n_ver = sum(1 for r in records if r["level"] == "human")
     n_mach = sum(1 for r in records if r["level"] == "machine")
     payload = {
         "records": records,
         "sources": sources,
+        "investigations": investigations,
         "counts": {"records": len(records), "verified": n_ver, "machine": n_mach,
                    "unchecked": len(records) - n_ver - n_mach, "shown": n_ver + n_mach,
                    "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"]),
                    "psi_agree": sum(1 for r in records if r.get("psi_check", "").startswith("agrees")),
                    "psi_differ": sum(1 for r in records if r.get("psi_check", "").startswith("DIFFERS")),
+                   "investigations": len(investigations),
                    "experiments": {e: sum(1 for r in records if r["experiment"] == e)
                                    for e in sorted({r["experiment"] for r in records})}},
     }

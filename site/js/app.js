@@ -7,7 +7,7 @@
 
   var D = window.FLARE_DATA || { records: [], sources: [], counts: {} };
   var PREVIEW = new URLSearchParams(location.search).get("preview") === "draft";
-  var EXP_ORDER = ["BASS-II", "BASS-I", "SAFFIRE-I", "SAFFIRE-II", "SAFFIRE-III"];
+  var EXP_ORDER = ["BASS-II", "BASS-I", "FLEX", "SAFFIRE-I", "SAFFIRE-II", "SAFFIRE-III"];
   var ALL = D.records.slice().sort(naturalOrder);
   function rowsFor(preview) { return preview ? ALL : ALL.filter(function (r) { return r.level !== "none"; }); }
   var ROWS = rowsFor(PREVIEW);
@@ -24,7 +24,9 @@
     hand_keyed: "hand-keyed",
     flow_mode_not_stated: "flow mode not stated",
     o2_final_not_numeric: "O2 end not numeric",
-    o2_cal_final_formula_artifact: "O2 end is a formula leftover"
+    o2_cal_final_formula_artifact: "O2 end is a formula leftover",
+    pressure_printed_zero: "pressure printed as 0",
+    duplicate_identifier: "NASA identifier used twice"
   };
   var main = document.getElementById("main");
 
@@ -50,7 +52,7 @@
     var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
     Object.keys(attrs || {}).forEach(function (k) { el.setAttribute(k, attrs[k]); });
     for (var i = 2; i < arguments.length; i++) if (arguments[i] != null) el.appendChild(
-      typeof arguments[i] === "string" ? document.createTextNode(arguments[i]) : arguments[i]);
+      typeof arguments[i] === "string" || typeof arguments[i] === "number" ? document.createTextNode(String(arguments[i])) : arguments[i]);
     return el;
   }
   function num(s) {
@@ -131,6 +133,8 @@
       other: "CO2 (vol%) and CO (ppm) at start and end of each test", check: "Value-for-value comparison with NASA’s PDF, plus NASA’s own PSI spreadsheet" },
     "BASS-I": { src: "NASA PSI-26 “As Run Test Matrix” spreadsheet", o2: "O2 logged under “ISS environment”, as a fraction; shown ×100 as vol%", tag: "logged",
       other: "Pressure (atm) and CO2 (mm Hg), one value per test", check: "Copied from NASA’s file and re-read from it on every build" },
+    "FLEX": { src: "NASA PSI-69 FLEX experiment table (Flame Extinguishment Experiment, ISS)", o2: "O2 mole fraction of the ambient gas, as printed; shown \u00d7100 as mole %", tag: "mol%",
+      other: "Pressure (mmHg), N2/CO2/He mole fractions, droplet and extinction diameter (mm), burning rate, burn time (s), how the test ended", check: "Copied from NASA\u2019s file and re-read from it on every build" },
     "SAFFIRE": { src: "NASA PSI-98/99/100 experiment tables (SAFFIRE-I, II, III)", o2: "Approximate values as printed (SAFFIRE-II derived from CO2; SAFFIRE-III none)", tag: "approx.",
       other: "Air flow (cm/s), ignition power (W), ignition and burn time (s)", check: "Copied from NASA’s file and re-read from it on every build" }
   };
@@ -188,7 +192,7 @@
         h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
           h("span", null, h("b", null, String(reviewed)), " flagged report rows passed only after a written row-by-row review; their flags stay visible.")),
         h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
-          h("span", null, h("b", null, String(files.length)), " BASS-I, SAFFIRE and extra BASS-II records were copied from NASA\u2019s data files and are re-read from them on every build."))));
+          h("span", null, h("b", null, String(files.length)), " BASS-I, FLEX, SAFFIRE and extra BASS-II records were copied from NASA\u2019s data files and are re-read from them on every build."))));
   }
   function chartCard(question, unit, howTo, chart, extra) {
     return h("figure", { class: "card qcard" },
@@ -209,6 +213,7 @@
           "Flare AI gathers NASA’s scattered test records, shows how each number was checked, and says so when the data runs out."),
         h("h2", { class: "mini-h" }, "What this site can answer"),
         h("ul", { class: "answers" },
+          h("li", null, h("b", null, "Which NASA investigations matter for a spacecraft or a Moon base?"), h("span", null, "All " + INV.length + " PSI combustion investigations, ranked with a visible rule. ", h("a", { href: "#/investigations" }, "Investigations"))),
           h("li", null, h("b", null, "What happened in a specific NASA fire test?"), h("span", null, "Readings, the crew’s log note and the exact source page or file row.")),
           h("li", null, h("b", null, "How do tests compare, like for like?"), h("span", null, "Side by side within one experiment, with refusals when a comparison would mislead. ", h("a", { href: "#/compare" }, "Compare"))),
           h("li", null, h("b", null, "Which conditions did NASA actually test?"), h("span", null, "Charts below show where the evidence is, and where it is missing.")),
@@ -222,10 +227,10 @@
         h("h3", { class: "mini-h" }, "Check level of every record"),
         evidenceLegend(true)));
 
-    var srcRows = [["BASS-II", exps["BASS-II"] || 0], ["BASS-I", exps["BASS-I"] || 0],
+    var srcRows = [["BASS-II", exps["BASS-II"] || 0], ["BASS-I", exps["BASS-I"] || 0], ["FLEX", exps["FLEX"] || 0],
       ["SAFFIRE", (exps["SAFFIRE-I"] || 0) + (exps["SAFFIRE-II"] || 0) + (exps["SAFFIRE-III"] || 0)]];
     var sources = h("section", { "aria-labelledby": "src-h" },
-      h("h2", { id: "src-h" }, "Three experiment families, kept separate"),
+      h("h2", { id: "src-h" }, "Four experiment families, kept separate"),
       h("p", { class: "muted section-lead" }, "Each family measured things differently, so Flare AI never pools them into one chart or comparison."),
       h("div", { class: "tablewrap" }, h("table", { class: "methods" },
         h("thead", null, h("tr", null, ["Experiment", "Records", "Source", "Oxygen recorded as", "Other values", "How it was checked"].map(function (t) { return h("th", { scope: "col" }, t); }))),
@@ -250,6 +255,10 @@
         hist.forEach(function (b) { if (v >= b.lo && v < b.hi) b.value++; });
       });
       var low = hist[0].value;
+      var flex = ROWS.filter(function (r) { return r.experiment === "FLEX"; }), endC = {};
+      flex.forEach(function (r) { var k = r.outcome_raw || "not recorded"; endC[k] = (endC[k] || 0) + 1; });
+      var endItems = ["Extinction", "Disruption", "Completion"].filter(function (k) { return endC[k]; }).map(function (k) { return { label: k, value: endC[k] }; })
+        .concat(Object.keys(endC).filter(function (k) { return ["Extinction", "Disruption", "Completion"].indexOf(k) < 0; }).map(function (k) { return { label: k, value: endC[k] }; }));
       charts = h("section", { "aria-labelledby": "ch-h" },
         h("h2", { id: "ch-h" }, "Where the evidence is"),
         h("div", { class: "grid qgrid" },
@@ -264,7 +273,13 @@
             chartNote(usable + " BASS-II report records, using the calibrated starting O2 (vol%) where a raw-sensor reading confirms it. Only " + low +
               " started below 15 vol%, so conclusions about very low oxygen rest on little data.",
               unconfirmed + " report records whose starting O2 is not confirmed; " + ((exps["BASS-II"] || 0) - ROWS.filter(fromReport).length) +
-              " PSI-only BASS-II tests (no raw column); all BASS-I and SAFFIRE records, because they recorded oxygen differently."))));
+              " PSI-only BASS-II tests (no raw column); all BASS-I, FLEX and SAFFIRE records, because they recorded oxygen differently.")),
+          flex.length ? chartCard("How did FLEX droplet fires end?", "tests",
+            "each bar counts FLEX tests by the end-of-test label NASA recorded (\u201cTest end\u201d). These are NASA\u2019s words, not our interpretation.",
+            barChart(endItems, { label: "FLEX tests by NASA\u2019s recorded test end", unit: "tests" }),
+            chartNote("all " + flex.length + " FLEX tests (" + flex.filter(function (r) { return /Methanol/.test(r.material_raw); }).length + " methanol, " +
+              flex.filter(function (r) { return /Heptane/.test(r.material_raw); }).length + " heptane droplets), labels exactly as recorded.",
+              "nothing; but tests ran at different pressures and gas mixes, so these counts are not a rate for any one condition.")) : null));
     } else {
       charts = h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No checked records yet"),
         h("p", { class: "muted" }, "Records appear here once they pass a check."),
@@ -367,16 +382,16 @@
     return h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Flame Explorer"),
-          h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS and BASS-II on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
+          h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS, BASS-II and FLEX on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
         evidenceLegend(true)),
       h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
       h("p", { class: "hint" }, "→ Click any row, or focus it and press Enter, to open the full record with its readings, log note and source."),
       h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
-        h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment’s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), approx. = approximate (SAFFIRE)."),
+        h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
         h("thead", null, h("tr", null, ["Test", "Experiment", "Material", "Flow", "O2 start (vol%)", "O2 end", "Note / values", ""].map(function (t, i) {
           return h("th", { scope: "col", class: ["", "c-exp", "c-mat", "c-flow", "c-o2", "c-o2e", "", "go"][i] }, t); }))),
         tbody)),
-      h("p", { class: "note", style: "margin-top:10px" }, "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction × 100 (BASS-I); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other."));
+      h("p", { class: "note", style: "margin-top:10px" }, "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction \u00d7 100 (BASS-I); mol% = ambient O2 mole fraction \u00d7 100 (FLEX); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other."));
   }
 
   function reading(label, a, b, unit) {
@@ -408,6 +423,20 @@
       ["Airflow", r.airflow_raw || "—", "“Air display”", "not stated in the header", "As logged. Not converted. Fan settings (“Fan display”) are a separate column."],
       ["Pressure", hval(r, /^pressure, atm/i) || "—", "“pressure, atm”", "atm", "As logged."],
       ["Carbon dioxide", hval(r, /^CO2, mm Hg/i) || "—", "“CO2, mm Hg”", "mm Hg (partial pressure)", "As logged. Not comparable with BASS-II CO2 in vol%."]];
+    if (r.experiment === "FLEX") {
+      var dil = function (re) { return hval(r, re) || "\u2014"; };
+      return [
+        ["How the test ended", r.outcome_raw || "\u2014", "\u201cTest end\u201d", "NASA\u2019s label", "As recorded by NASA (Extinction, Disruption or Completion). Not interpreted."],
+        ["Oxygen", (r.o2_raw || "\u2014") + (r.o2_vol_pct ? " (= " + r.o2_vol_pct + " mole %)" : ""), "\u201cO initial ambient composition; mole fraction\u201d", "mole fraction",
+          "\u00d7100 for display as mole %. Our reading: \u201cO\u201d is O2 (the subscript is missing in NASA\u2019s file; the four gas fractions add up to 1)."],
+        ["Diluent gases", "N2 " + dil(/^N initial/) + " \u00b7 CO2 " + dil(/^CO initial/) + " \u00b7 He " + dil(/^He initial/),
+          "\u201cN \u2026\u201d, \u201cCO \u2026\u201d, \u201cHe initial ambient composition; mole fraction\u201d", "mole fraction",
+          "As printed. Our interpretation: the header \u201cCO\u201d means CO2 (subscript lost; fractions sum to 1, and FLEX tested CO2 as a suppressant)."],
+        ["Ambient pressure", dil(/^Ambient pressure/), "\u201cAmbient pressure; mmHg\u201d", "mmHg", "As printed. Not comparable with BASS-I pressure in atm without conversion; not converted."],
+        ["Droplet / extinction diameter", dil(/^Droplet initial/) + " / " + dil(/^Visible flame extinction/), "\u201cDroplet initial diameter; mm\u201d / \u201cVisible flame extinction diameter; mm\u201d", "mm", "As printed. A dash (\u2013) in NASA\u2019s file means no value."],
+        ["Burning rate", dil(/^Burning rate/), "\u201cBurning rate; mm\u201d", "header says \u201cmm\u201d", "As printed. The unit is exactly as in NASA\u2019s header; not converted."],
+        ["Burn time", dil(/^Burn time/), "\u201cBurn time; s\u201d", "s", "As printed."]];
+    }
     var o2h = header(r, /^Percent O2/), airh = header(r, /^Air Flow/);
     return [
       ["Oxygen", r.o2_raw || "no value", o2h ? "“" + o2h + "”" : "no O2 column in this table", o2h ? "%" : "—",
@@ -423,7 +452,7 @@
         h("thead", null, h("tr", null, ["Shown here", "Value", "NASA’s field name", "Unit as recorded", "Method / conversion"].map(function (t) { return h("th", { scope: "col" }, t); }))),
         h("tbody", null, provenance(r).map(function (x) {
           return h("tr", null, h("th", { scope: "row" }, x[0]), h("td", { class: "mono v" }, x[1]), h("td", null, x[2]), h("td", null, x[3]),
-            h("td", { class: /ultipl|derived|Not comparable/.test(x[4]) ? "conv" : "" }, x[4]));
+            h("td", { class: /ultipl|derived|Not comparable|\u00d7100|interpretation|Our reading/.test(x[4]) ? "conv" : "" }, x[4]));
         })))));
   }
   function sourceLinks(r) {
@@ -476,7 +505,10 @@
           src ? h("p", { class: "note" }, src.type) : null,
           h("p", { class: "mono src-w" }, where),
           h("div", { class: "rh-actions" }, sourceLinks(r)))),
-      h("div", { class: "rh-foot" }, h("a", { class: "btn ghost", href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests →")));
+      h("div", { class: "rh-foot" },
+        (function () { var acc = fromReport(r) ? "PSI-25" : r.source_id; var v = invById(acc);
+          return v ? h("a", { class: "textlink", href: "#/investigation/" + acc, style: "margin-right:auto" }, "About the " + invName(v) + " investigation (" + acc + ") \u2192") : null; })(),
+        h("a", { class: "btn ghost", href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests \u2192")));
   }
   function techCard(rows, raw) {
     return h("details", { class: "card tech" }, h("summary", null, h("b", null, "Technical details"), h("span", { class: "muted" }, " — setup columns and the raw extracted text")),
@@ -512,6 +544,12 @@
       "It is shown exactly as printed and is never used in any calculation."));
     if (flags.indexOf("hand_keyed") >= 0) callouts.push(h("div", { class: "callout info" },
       h("b", null, "! Hand-keyed row. "), "This row's layout in the PDF was irregular, so its values were typed in by hand. Check it extra carefully."));
+    if (flags.indexOf("pressure_printed_zero") >= 0) callouts.push(h("div", { class: "callout" },
+      h("b", null, "! Pressure printed as 0. "), "NASA\u2019s table shows 0 mmHg for this test, which is almost certainly a missing value. " +
+      "It is shown exactly as printed and left out of every comparison."));
+    if (flags.indexOf("duplicate_identifier") >= 0) callouts.push(h("div", { class: "callout info" },
+      h("b", null, "! NASA identifier used twice. "), "Another row in NASA\u2019s FLEX table carries the same identifier (" + (hval(r, /^FLEX Identifier/) || "?") +
+      "). The FLEX test numbers differ, so both rows are kept as separate tests, exactly as NASA listed them."));
     if (flags.indexOf("flow_mode_not_stated") >= 0) callouts.push(h("div", { class: "callout info" },
       h("b", null, "Flow mode not stated "), "in the extracted table row."));
     if ((r.psi_check || "").indexOf("DIFFERS") === 0) callouts.push(h("div", { class: "callout" },
@@ -580,6 +618,12 @@
       { key: "co", label: "Carbon monoxide", unit: "ppm", pair: [
         function (r) { return fromReport(r) ? r.co_initial_ppm : fieldVal(r, /^Initial CO \(ppm\)/); },
         function (r) { return fromReport(r) ? r.co_final_ppm : fieldVal(r, /^Final CO \(ppm\)/); }] }];
+    if (exp === "FLEX") return [
+      { key: "fo2", label: "Initial O2 (mole fraction)", unit: "mole fraction", single: function (r) { return r.o2_raw; } },
+      { key: "fp", label: "Ambient pressure", unit: "mmHg", single: function (r) { return fieldVal(r, /^Ambient pressure/); } },
+      { key: "fd0", label: "Droplet initial diameter", unit: "mm", single: function (r) { return fieldVal(r, /^Droplet initial diameter/); } },
+      { key: "fde", label: "Visible flame extinction diameter", unit: "mm", single: function (r) { return fieldVal(r, /^Visible flame extinction/); } },
+      { key: "fbt", label: "Burn time", unit: "s", single: function (r) { return fieldVal(r, /^Burn time/); } }];
     if (exp === "BASS-I") return [
       { key: "o2", label: "Oxygen, as logged (fraction × 100)", unit: "vol%", single: function (r) { return r.o2_vol_pct; } },
       { key: "p", label: "Pressure", unit: "atm", single: function (r) { return fieldVal(r, /^pressure, atm/i); } },
@@ -598,7 +642,8 @@
       return { text: t || "—", n: NaN, why: "final O2 flagged as suspect (likely sensor glitch or formula leftover)" };
     if (!end && m.key === "o2c" && flags.indexOf("o2_cal_final_formula_artifact") >= 0 && !(r.o2_raw_initial || "").trim())
       return { text: t || "—", n: NaN, why: "starting O2 not confirmed: no raw sensor reading behind it (half of a paired a/b test)" };
-    if (!t || /^-+$|^none$/i.test(t)) return { text: "—", n: NaN, why: "no value recorded" };
+    if (m.key === "fp" && flags.indexOf("pressure_printed_zero") >= 0) return { text: t, n: NaN, why: "pressure printed as 0 in NASA\u2019s table (likely a missing value)" };
+    if (!t || /^[-\u2013\u2014]+$|^none$/i.test(t)) return { text: "\u2014", n: NaN, why: t ? "printed as a dash (no value)" : "no value recorded" };
     if (/^~/.test(t)) return { text: t, n: NaN, why: "approximate value (‘" + t + "’), not charted" };
     var u = unit.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&");
     var mm = new RegExp("^(-?\\d+(?:\\.\\d+)?)(?: ?" + u + ")?$").exec(t.replace(/[–−]/g, "-").replace(/ \(rounded\)$/, ""));
@@ -771,7 +816,8 @@
     return s;
   }
   var FLOW_COLOR = { "Opposed": COLORS.s1, "Concurrent": COLORS.s2, "Stagnation": COLORS.s3 };
-  var MEASURE_ICON = { o2c: "o2", o2r: "o2", o2: "o2", co2: "cloud", co: "cloud", p: "gauge", air: "wind", ipw: "bolt", ign: "timer", burn: "flame" };
+  var MEASURE_ICON = { o2c: "o2", o2r: "o2", o2: "o2", co2: "cloud", co: "cloud", p: "gauge", air: "wind", ipw: "bolt", ign: "timer", burn: "flame",
+    fo2: "o2", fp: "gauge", fd0: "o2", fde: "flame", fbt: "timer" };
 
   /* "Before charting": what each selected test is, where it comes from, how it was measured, and what is missing. */
   function srcShort(r) {
@@ -852,6 +898,8 @@
         text: "Two BASS-II runs on the same 12.7-mm black rod in opposed flow. Same experiment and method, so every chart is drawn. Look at how much oxygen fell and CO rose in each run." },
       { kind: "worked", tag: "Worked example", title: "Three opposed-flow rods", ids: ["BASSII-P1", "BASSII-P10", "BASSII-P12"],
         text: "Comparable readings, but one rod is thicker, so Flare AI adds a \u201cread with care\u201d note about the material." },
+      { kind: "worked", tag: "Worked example", title: "FLEX: methanol droplets in normal air", ids: ["FLEX-2", "FLEX-3", "FLEX-5"],
+        text: "Three FLEX runs with methanol at about 1 atm in air. Compare droplet size, extinction diameter and burn time; the donut shows how all FLEX tests ended." },
       { kind: "limited", tag: "Limited example", title: "Suspect and missing readings", ids: ["BASSII-P22a", "BASSII-P22b", "BASSII-O12"],
         text: "Some values are flagged, missing or over range. Charts are drawn, and each one lists what it left out and why." },
       { kind: "refused", tag: "Refusal example", title: "Two different experiments", ids: ["BASSII-B1", "BASSI-1-1"],
@@ -981,20 +1029,23 @@
     }));
 
     var pool = ROWS.filter(function (r) { return r.experiment === exp; }), counts = {};
-    pool.forEach(function (r) { var k = r.flow_mode || "not stated"; counts[k] = (counts[k] || 0) + 1; });
-    var order = ["Opposed", "Concurrent", "Stagnation"].filter(function (k) { return counts[k]; })
-      .concat(Object.keys(counts).filter(function (k) { return ["Opposed", "Concurrent", "Stagnation", "not stated"].indexOf(k) < 0; }))
+    var mixKey = exp === "FLEX" ? function (r) { return r.outcome_raw || "not stated"; } : function (r) { return r.flow_mode || "not stated"; };
+    pool.forEach(function (r) { var k = mixKey(r); counts[k] = (counts[k] || 0) + 1; });
+    var KNOWN = exp === "FLEX" ? ["Extinction", "Disruption", "Completion"] : ["Opposed", "Concurrent", "Stagnation"];
+    var order = KNOWN.filter(function (k) { return counts[k]; })
+      .concat(Object.keys(counts).filter(function (k) { return KNOWN.concat(["not stated"]).indexOf(k) < 0; }))
       .concat(counts["not stated"] ? ["not stated"] : []);
-    var parts = order.map(function (k) { return { label: k, value: counts[k], color: FLOW_COLOR[k] || (k === "not stated" ? COLORS.neutral : COLORS.s4) }; });
-    var mixCard = h("div", { class: "card vcard" }, cardHead("pie", "Flow direction, all " + exp + " tests", null),
-      h("p", { class: "howto" }, h("b", null, "How to read: "), "each slice is the share of all " + exp + " tests run with that flow direction (unit: tests); the list shows how many of your selected tests fall in each slice. Context only, not a comparison."),
+    var MIXC = exp === "FLEX" ? { "Extinction": COLORS.s1, "Disruption": COLORS.s2, "Completion": COLORS.s3 } : FLOW_COLOR;
+    var parts = order.map(function (k) { return { label: k, value: counts[k], color: MIXC[k] || (k === "not stated" ? COLORS.neutral : COLORS.s4) }; });
+    var mixCard = h("div", { class: "card vcard" }, cardHead("pie", (exp === "FLEX" ? "How tests ended (NASA\u2019s label), all " : "Flow direction, all ") + exp + " tests", null),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), "each slice is the share of all " + exp + " tests " + (exp === "FLEX" ? "with that end-of-test label as NASA recorded it" : "run with that flow direction") + " (unit: tests); the list shows how many of your selected tests fall in each slice. Context only, not a comparison."),
       parts.length > 1 ? h("div", { class: "donut-wrap" }, donut(parts, "Flow direction mix of " + pool.length + " " + exp + " tests"),
         h("ul", { class: "donut-legend" }, parts.map(function (p) {
-          var mine = picked.filter(function (r) { return (r.flow_mode || "not stated") === p.label; }).length;
+          var mine = picked.filter(function (r) { return mixKey(r) === p.label; }).length;
           return h("li", null, h("i", { style: "--c:" + p.color }), h("span", { class: "dl" }, p.label, mine ? h("em", null, mine + " selected") : null),
             h("b", null, Math.round(100 * p.value / pool.length) + "%"), h("span", { class: "dn" }, String(p.value)));
         }))) :
-        h("div", { class: "empty-mini" }, badge("pie"), h("p", { class: "note" }, "All " + pool.length + " " + exp + " tests: flow direction " + (parts[0] ? parts[0].label : "not stated") + " in NASA’s file, so there is no mix to show.")));
+        h("div", { class: "empty-mini" }, badge("pie"), h("p", { class: "note" }, "All " + pool.length + " " + exp + " tests: " + (exp === "FLEX" ? "test end " : "flow direction ") + (parts[0] ? parts[0].label : "not stated") + " in NASA’s file, so there is no mix to show.")));
 
     var summary = h("div", { class: "summary" },
       h("span", null, h("b", null, exp)), h("span", null, h("b", null, String(picked.length)), " tests"),
@@ -1020,6 +1071,302 @@
     return h("table", { class: "side" },
       h("thead", null, h("tr", null, h("th", null, ""), rows.map(function (r) { return h("th", null, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r))); }))),
       h("tbody", null, spec.map(function (s) { return h("tr", null, h("th", { scope: "row" }, s[0]), rows.map(function (r) { return h("td", null, s[1](r)); })); })));
+  }
+
+  /* ---------- Investigations: every NASA PSI combustion investigation, ranked with a visible rule ---------- */
+  var INV = (D.investigations || []);
+  var LENSES = {
+    station: { label: "Spacecraft & space station", short: "Spacecraft / ISS", atm: "about 21% O2 at 14.7 psi (cabin air)" },
+    moon: { label: "Moon base & pressurized rover", short: "Moon base / rover", atm: "30% O2 or more at 10.2 psi or less (challenge brief)" }
+  };
+  function invName(v) { return v.investigationAcronym || (v.curated && v.curated.short_name) || v.title; }
+  function invById(acc) { return INV.filter(function (v) { return v.accession === acc; })[0]; }
+  /* Our ranking rule. Every point names its evidence; the same rule is printed on the page. */
+  function relevance(v, lens) {
+    var c = v.curated || {}, pts = [];
+    function add(n, label, ev) { pts.push({ n: n, label: label, ev: ev }); }
+    if (c.brief_mention === "named") add(3, "Named in the challenge brief as fire-safety research", c.basis);
+    else if (c.brief_mention === "related") add(2, "Mentioned in the brief as related to fire safety", c.basis);
+    else if (c.brief_mention === "named-hardware") add(1, "Named in the brief only as sharing hardware", c.basis);
+    if (/fire/i.test(v.subResearchArea || "")) add(2, "NASA PSI files it under “" + v.subResearchArea + "”", "PSI field subResearchArea");
+    if (/^solid$/.test(c.fuel_class || "")) add(2, "Burns cabin-type solid materials (fabrics, plastics)", c.fuel_examples);
+    else if (/smoke/.test(c.fuel_class || "")) add(1, "Measures smoke from heated cabin materials", c.fuel_examples);
+    (c.pillar || "").split(";").filter(Boolean).forEach(function (p) { add(1, "Addresses fire " + p, c.basis); });
+    if (/spacecraft/.test(c.scale || "")) add(1, "Spacecraft-scale fire", c.scale);
+    if (/Microgravity/.test(v.projectType || "") && v.n_tests > 0) add(1, "Flight tests with a per-test NASA table (" + v.n_tests + " rows)", "PSI experiment table");
+    if (lens === "moon") {
+      if (v.high_o2_tests > 0) add(2, "Tested 30% O2 or more (" + v.high_o2_tests + " values)", "O2 column of NASA’s table");
+      if (v.joint_tests > 0) add(3, "Tested ≥30% O2 at ≤10.2 psi in the same test (" + v.joint_tests + " tests)", "O2 and pressure columns, same row");
+      else if (v.p_min_psi_at_o2ge30 && v.p_min_psi_at_o2ge30 <= 11) add(1, "Near miss: ≥30% O2 tested down to " + v.p_min_psi_at_o2ge30 + " psi (just above 10.2)", "O2 and pressure columns, same row");
+    } else {
+      var near = (v.table_summaries || []).some(function (t) { return t.o2_range_pct && t.o2_range_pct[0] <= 23 && t.o2_range_pct[1] >= 19 && !/PLANNED/.test(t.o2_meaning || ""); });
+      if (near) add(1, "Tested near cabin-air oxygen (19–23%)", "O2 column of NASA’s table");
+    }
+    return { score: pts.reduce(function (a, p) { return a + p.n; }, 0), pts: pts };
+  }
+  var MAXPTS = { station: 13, moon: 19 };
+  var FUEL_COLOR = { solid: COLORS_FUEL("solid"), liquid: COLORS_FUEL("liquid"), gas: COLORS_FUEL("gas"), smoke: COLORS_FUEL("smoke") };
+  function COLORS_FUEL(k) { return { solid: "#3987e5", liquid: "#d95926", gas: "#199e70", smoke: "#c98500" }[k]; }
+  function fuelKey(v) { var f = (v.curated && v.curated.fuel_class) || ""; return /^solid/.test(f) ? "solid" : /^liquid/.test(f) ? "liquid" : /^gas/.test(f) ? "gas" : "smoke"; }
+  function fuelLabel(k) { return { solid: "solid materials", liquid: "liquid droplets", gas: "gas flames", smoke: "smoke / aerosol" }[k]; }
+
+  /* O2 range per investigation, with the 21% and 30% lines. */
+  function o2RangeChart(list) {
+    var rows = list.filter(function (v) { return v.o2_max_pct != null; }).sort(function (a, b) { return b.o2_max_pct - a.o2_max_pct; });
+    var W = 640, rowH = 26, left = 150, right = 20, H = rows.length * rowH + 34, max = 90;
+    var x = function (p) { return left + (W - left - right) * p / max; };
+    var summary = "Oxygen tested by each investigation, percent: " + rows.map(function (v) {
+      var r = (v.table_summaries || []).filter(function (t) { return t.o2_range_pct && !/PLANNED/.test(t.o2_meaning || ""); });
+      var lo = Math.min.apply(null, r.map(function (t) { return t.o2_range_pct[0]; }));
+      return invName(v) + " " + lo + " to " + v.o2_max_pct; }).join("; ") + ".";
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
+    [0, 21, 30, 50, 85].forEach(function (p) {
+      s.appendChild(svg("line", { x1: x(p), x2: x(p), y1: 4, y2: H - 22, class: p === 30 ? "target" : p === 21 ? "axis" : "grid" }));
+      s.appendChild(svg("text", { x: x(p), y: H - 6, "text-anchor": "middle", class: "tick" }, p + "%"));
+    });
+    s.appendChild(svg("text", { x: x(30) + 4, y: 12, class: "tlabel" }, "30%: Moon-base O2 (brief)"));
+    s.appendChild(svg("text", { x: x(21) - 4, y: 12, "text-anchor": "end", class: "tick" }, "air 21%"));
+    rows.forEach(function (v, i) {
+      var r = (v.table_summaries || []).filter(function (t) { return t.o2_range_pct && !/PLANNED/.test(t.o2_meaning || ""); });
+      var lo = Math.min.apply(null, r.map(function (t) { return t.o2_range_pct[0]; })), hi = v.o2_max_pct, y = 18 + i * rowH;
+      var col = COLORS_FUEL(fuelKey(v));
+      s.appendChild(svg("text", { x: left - 8, y: y + 12, "text-anchor": "end", class: "xlab" }, invName(v)));
+      s.appendChild(svg("rect", { x: x(lo), y: y + 2, width: Math.max(4, x(hi) - x(lo)), height: 13, rx: 6.5, fill: col, class: "mark glow", style: "--c:" + col, tabindex: 0,
+        "data-tip": invName(v) + ": O2 " + lo + "–" + hi + "% (" + fuelLabel(fuelKey(v)) + "; from NASA’s table, " + r.map(function (t) { return t.o2_meaning; }).join(" / ") + ")" }));
+      s.appendChild(svg("text", { x: x(hi) + 6, y: y + 12, class: "val small" }, hi + "%"));
+    });
+    return s;
+  }
+  /* O2 vs pressure boxes (min-max of each table), with the brief's Moon-base zone. */
+  function atmosphereChart(list) {
+    var boxes = [];
+    list.forEach(function (v) {
+      (v.table_summaries || []).forEach(function (t) {
+        if (t.o2_range_pct && t.p_range_psi && !/PLANNED/.test(t.o2_meaning || "")) boxes.push({ v: v, t: t });
+      });
+    });
+    var W = 640, H = 340, L = 56, R = 16, T = 16, B = 44, xmax = 90, ymax = 50;
+    var x = function (p) { return L + (W - L - R) * p / xmax; }, y = function (psi) { return T + (H - T - B) * (1 - psi / ymax); };
+    var summary = "Oxygen versus pressure ranges tested: " + boxes.map(function (b) { return invName(b.v) + " (" + b.t.o2_meaning + ") O2 " + b.t.o2_range_pct.join("–") + "%, " +
+      b.t.p_range_psi.join("–") + " psi, " + b.t.joint + " tests in the Moon-base zone"; }).join("; ") + ".";
+    var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
+    s.appendChild(svg("rect", { x: x(30), y: y(10.2), width: x(xmax) - x(30), height: y(0) - y(10.2), class: "zone" }));
+    s.appendChild(svg("text", { x: x(30) + 6, y: y(10.2) + 16, class: "tlabel" }, "Moon base / rover zone (brief): ≥30% O2, ≤10.2 psi"));
+    [0, 10, 20, 30, 40, 50].forEach(function (p) { s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(p), y2: y(p), class: p ? "grid" : "axis" }));
+      s.appendChild(svg("text", { x: L - 8, y: y(p) + 4, "text-anchor": "end", class: "tick" }, p)); });
+    [0, 21, 30, 50, 70, 90].forEach(function (p) { s.appendChild(svg("text", { x: x(p), y: H - B + 16, "text-anchor": "middle", class: "tick" }, p + "%")); });
+    s.appendChild(svg("text", { x: (L + W) / 2, y: H - 6, "text-anchor": "middle", class: "xlab" }, "oxygen (%), as recorded in each table"));
+    s.appendChild(svg("text", { x: 12, y: H / 2, transform: "rotate(-90 12 " + (H / 2) + ")", "text-anchor": "middle", class: "xlab" }, "pressure (psi, converted)"));
+    s.appendChild(svg("circle", { cx: x(21), cy: y(14.7), r: 5, class: "earth" }));
+    s.appendChild(svg("text", { x: x(21) - 8, y: y(14.7) + 4, "text-anchor": "end", class: "tick" }, "Earth/ISS air"));
+    s.appendChild(svg("circle", { cx: x(100) , cy: y(4.3), r: 0 }));
+    var labels = [];
+    boxes.forEach(function (b, i) {
+      var col = COLORS_FUEL(fuelKey(b.v)), o = b.t.o2_range_pct, p = b.t.p_range_psi;
+      var bx = x(o[0]), bw = Math.max(5, x(o[1]) - x(o[0])), by = y(p[1]), bh = Math.max(5, y(p[0]) - y(p[1]));
+      s.appendChild(svg("rect", { x: bx, y: by, width: bw, height: bh, rx: 4, fill: col, "fill-opacity": 0.18, stroke: col, "stroke-width": 1.6,
+        "stroke-dasharray": /burner/.test(b.t.o2_meaning) ? "5 3" : null, class: "mark", style: "--c:" + col, tabindex: 0,
+        "data-tip": invName(b.v) + " — " + b.t.o2_meaning + ": O2 " + o.join("–") + "%, " + b.t.p_range_orig.join("–") + " " + b.t.p_unit + " (" + p.join("–") + " psi). " +
+          b.t.joint + " tests inside the zone." }));
+      labels.push({ x: bx + 4, y: by + 12, text: invName(b.v).replace("ACME/", "").replace("ACME ", "") + (/burner/.test(b.t.o2_meaning) ? " (inverse)" : "") });
+    });
+    /* place labels so they do not overlap: push each down until it clears earlier ones */
+    labels.sort(function (a, b) { return a.y - b.y; }).forEach(function (l, i, arr) {
+      for (var j = 0; j < i; j++) if (Math.abs(arr[j].y - l.y) < 12 && Math.abs(arr[j].x - l.x) < 120) l.y = arr[j].y + 12;
+      s.appendChild(svg("rect", { x: l.x - 2, y: l.y - 9, width: l.text.length * 6.2 + 4, height: 12, rx: 3, class: "lbg" }));
+      s.appendChild(svg("text", { x: l.x, y: l.y, class: "blabel" }, l.text));
+    });
+    return s;
+  }
+
+  function viewInvestigations(arg) {
+    setTitle("Investigations");
+    ensureTip();
+    var lens = /moon/.test(arg || "") ? "moon" : "station";
+    var state = { fuel: "", pillar: "", data: "" };
+    var listBox = h("div", { class: "inv-list" }), count = h("p", { class: "count", "aria-live": "polite" });
+    var picked = [];
+    var cmpBtn = h("button", { type: "button", class: "pill-btn", disabled: true, onclick: function () { location.hash = "#/investigations/compare/" + picked.join(","); } }, "Compare selected (0)");
+    function draw() {
+      var list = INV.map(function (v) { return { v: v, r: relevance(v, lens) }; }).filter(function (x) {
+        var c = x.v.curated || {};
+        if (state.fuel && fuelKey(x.v) !== state.fuel) return false;
+        if (state.pillar && (c.pillar || "").indexOf(state.pillar) < 0) return false;
+        if (state.data === "flight" && !(x.v.n_tests > 0 && /Microgravity/.test(x.v.projectType))) return false;
+        if (state.data === "ours" && !ALL.some(function (r) { return r.source_id === x.v.accession; })) return false;
+        return true;
+      }).sort(function (a, b) { return b.r.score - a.r.score || invName(a.v).localeCompare(invName(b.v)); });
+      count.textContent = "Showing " + list.length + " of " + INV.length + " NASA PSI combustion investigations, ranked for: " + LENSES[lens].label;
+      listBox.textContent = "";
+      list.forEach(function (x, i) {
+        var v = x.v, c = v.curated || {}, ours = ALL.filter(function (r) { return r.source_id === v.accession; }).length;
+        var cb = h("input", { type: "checkbox", id: "pick-" + v.accession, checked: picked.indexOf(v.accession) >= 0, onchange: function (e) {
+          if (e.target.checked) { if (picked.length >= 3) { e.target.checked = false; return; } picked.push(v.accession); } else picked = picked.filter(function (a) { return a !== v.accession; });
+          cmpBtn.textContent = "Compare selected (" + picked.length + ")"; cmpBtn.disabled = picked.length < 2; } });
+        listBox.appendChild(h("article", { class: "inv-card" + (i < 3 ? " podium" : "") },
+          h("div", { class: "inv-rank", "aria-hidden": "true" }, String(i + 1)),
+          h("div", { class: "inv-main" },
+            h("div", { class: "inv-top" },
+              h("h3", null, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("span", { class: "inv-acc" }, v.accession)),
+              h("span", { class: "fuel-tag", style: "--c:" + COLORS_FUEL(fuelKey(v)) }, h("i", null), fuelLabel(fuelKey(v)))),
+            h("p", { class: "inv-title" }, v.title),
+            h("div", { class: "inv-facts" },
+              fact("Platform", v.projectType === "Ground Investigation" ? "ground study" : (v.flightProgram || "—")),
+              fact("Hardware", (v.experimentHardware || "—").split(",")[0]),
+              fact("Tests in NASA table", v.n_tests ? String(v.n_tests) : "none"),
+              fact("O2 tested", v.o2_max_pct != null ? "up to " + v.o2_max_pct + "%" : "not in table"),
+              fact("In Flare AI records", ours ? ours + " tests" : "—")),
+            h("details", { class: "why" }, h("summary", null, "Why it ranks here: " + x.r.pts.length + " reasons"),
+              h("ul", { class: "pts" }, x.r.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label, p.ev ? h("span", { class: "ev" }, " — " + p.ev) : null); })))),
+          h("div", { class: "inv-score" },
+            h("div", { class: "score-n" }, h("b", null, String(x.r.score)), h("span", null, "/" + MAXPTS[lens])),
+            h("div", { class: "score-bar", role: "img", "aria-label": "Relevance score " + x.r.score + " of " + MAXPTS[lens] }, h("i", { style: "width:" + Math.round(100 * x.r.score / MAXPTS[lens]) + "%" })),
+            h("label", { class: "pick-l", for: "pick-" + v.accession }, cb, " compare"))));
+      });
+    }
+    function sel(id, label, opts, key) {
+      return h("div", { class: "field" }, h("label", { for: id }, label), h("select", { id: id, onchange: function (e) { state[key] = e.target.value; draw(); } },
+        h("option", { value: "" }, "All"), opts.map(function (o) { return h("option", { value: o[0] }, o[1]); })));
+    }
+    var moonZone = INV.filter(function (v) { return v.joint_tests > 0; });
+    draw();
+    return h("div", null,
+      h("div", { class: "page-head" },
+        h("div", null, h("h1", null, "Investigations"),
+          h("p", { class: "lead" }, "All " + INV.length + " combustion investigations in NASA’s Physical Sciences Informatics (PSI) database, ranked for the crew environment you choose. The ranking rule is ours and is printed below; every fact comes from NASA PSI.")),
+        h("div", { class: "lens", role: "group", "aria-label": "Crew environment" },
+          ["station", "moon"].map(function (k) {
+            return h("a", { class: "lens-b" + (k === lens ? " on" : ""), href: k === "moon" ? "#/investigations/moon" : "#/investigations", "aria-current": k === lens ? "true" : null },
+              h("b", null, LENSES[k].short), h("span", null, LENSES[k].atm));
+          }))),
+      h("section", { class: "card insight" },
+        h("h2", { class: "mini-h" }, "Answer for a Moon base or pressurized rover"),
+        h("p", null, h("b", null, moonZone.length + " investigations"), " ran tests inside the brief’s Moon-base atmosphere (≥30% O2 at ≤10.2 psi in the same test): " +
+          moonZone.map(function (v) { return invName(v) + " (" + v.joint_tests + " tests, " + fuelLabel(fuelKey(v)) + ")"; }).join(", ") + ". " +
+          (function () { var f = invById("PSI-69"); return f && f.p_min_psi_at_o2ge30 ? "FLEX tested up to " + f.o2_max_pct + "% O2 but only down to " + f.p_min_psi_at_o2ge30 + " psi, just above the zone. " : ""; })() +
+          (function () { var s = INV.filter(function (v) { return fuelKey(v) === "solid" && v.o2_max_pct != null; }); var mx = Math.max.apply(null, s.map(function (v) { return v.o2_max_pct; }));
+            return s.length ? "Solid-material investigations recorded at most " + mx + "% O2 (" + s.map(invName).join(", ") + "), so how cabin materials burn in a Moon-base atmosphere is a gap in PSI\u2019s data." : ""; })()),
+        h("p", { class: "note", style: "margin:0" }, "Our interpretation of NASA’s tables, using the brief’s thresholds. Counts come from the O2 and pressure columns listed on each investigation’s page.")),
+      h("div", { class: "grid qgrid" },
+        chartCard("Which investigations tested oxygen above 30%?", "% O2",
+          "each bar spans the lowest to highest oxygen in that investigation’s NASA table; colour shows the fuel type (also named in the tooltip). The orange line marks the brief’s 30% Moon-base oxygen.",
+          o2RangeChart(INV), h("div", null, legendRow(["solid", "liquid", "gas", "smoke"].map(function (k) { return { color: COLORS_FUEL(k), label: fuelLabel(k) }; })),
+            chartNote(INV.filter(function (v) { return v.o2_max_pct != null; }).length + " investigations whose NASA table has an oxygen column (planned-only values from FLEX-2 excluded). Inverse flames: O2 is in the burner flow, not the room.",
+              INV.filter(function (v) { return v.o2_max_pct == null; }).length + " investigations with no oxygen column (detection studies, ground studies, and tables without O2)."))),
+        chartCard("Which tested a Moon-base-like atmosphere?", "% O2 vs psi",
+          "each box spans the oxygen and pressure range of one NASA table (dashed = inverse flame, O2 from the burner). The shaded corner is the brief’s Moon-base zone. A box touching the zone does not mean every combination was tested; the tooltip gives the count of tests actually inside it.",
+          atmosphereChart(INV), chartNote("tables with both an oxygen and a pressure column (pressure converted to psi from mmHg, atm or bar).",
+            "BASS-II, SAFFIRE and ACME BRE (no pressure column), FLEX-2 (planned conditions only), and every investigation without oxygen data."))),
+      h("h2", null, "Ranking"),
+      h("div", { class: "filter-panel" },
+        h("div", { class: "filters" },
+          sel("ifuel", "Fuel type", [["solid", "Solid materials"], ["liquid", "Liquid droplets"], ["gas", "Gas flames"], ["smoke", "Smoke / aerosol"]], "fuel"),
+          sel("ipillar", "Fire-safety area", [["prevention", "Prevention (flammability)"], ["detection", "Detection"], ["suppression", "Suppression"]], "pillar"),
+          sel("idata", "Data", [["flight", "Flight tests with a NASA table"], ["ours", "Has test records in Flare AI"]], "data")),
+        h("div", { class: "filter-status" }, count, cmpBtn)),
+      h("details", { class: "card rule" }, h("summary", null, h("b", null, "The ranking rule"), h("span", { class: "muted" }, " — our interpretation; open to see every point")),
+        h("ul", { class: "pts" },
+          h("li", null, h("b", null, "+3"), " named in the challenge brief as fire-safety research (+2 mentioned as related, +1 named only for shared hardware)"),
+          h("li", null, h("b", null, "+2"), " NASA PSI files it under a fire-safety sub-area"),
+          h("li", null, h("b", null, "+2"), " burns cabin-type solid materials (+1 measures smoke from heated materials)"),
+          h("li", null, h("b", null, "+1"), " per fire-safety area addressed: prevention, detection, suppression (from the brief)"),
+          h("li", null, h("b", null, "+1"), " spacecraft-scale fire; ", h("b", null, "+1"), " flight tests with a per-test NASA table"),
+          h("li", null, h("b", null, "Moon base / rover only: +2"), " tested ≥30% O2; ", h("b", null, "+3"), " tested ≥30% O2 at ≤10.2 psi in the same test (+1 near miss ≤11 psi)"),
+          h("li", null, h("b", null, "Spacecraft / ISS only: +1"), " tested near cabin-air oxygen (19–23%)")),
+        h("p", { class: "note" }, "Points never claim safety. They rank how directly each investigation’s published data speaks to the chosen environment. Curated labels (fuel type, area, brief mention) are in data/investigations_curated.csv with their basis.")),
+      listBox);
+  }
+  function fact(k, v) { return h("div", { class: "fact" }, h("span", null, k), h("b", null, v)); }
+
+  function viewInvestigation(acc) {
+    var v = invById(acc);
+    if (!v) { setTitle("Not found"); return h("div", null, h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")), h("h1", null, "Investigation not found")); }
+    setTitle(invName(v));
+    var c = v.curated || {}, ours = ALL.filter(function (r) { return r.source_id === v.accession; });
+    var rs = relevance(v, "station"), rm = relevance(v, "moon");
+    function text(label, t) { return t ? h("div", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, label), chip("published", "NASA PSI text")),
+      h("p", { class: "pub-text" }, t)) : null; }
+    return h("div", null,
+      h("section", { class: "record-head lv-machine", "aria-labelledby": "inv-h" },
+        h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")),
+        h("div", { class: "rh-top" },
+          h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, "NASA PSI · " + v.accession + " · " + (v.subResearchArea || v.researchArea)),
+            h("h1", { id: "inv-h" }, invName(v)), h("p", { class: "inv-title" }, v.title)),
+          h("div", { class: "rh-status" }, h("span", { class: "fuel-tag big", style: "--c:" + COLORS_FUEL(fuelKey(v)) }, h("i", null), fuelLabel(fuelKey(v))),
+            h("p", { class: "signoff no" }, "Scores: " + rs.score + "/" + MAXPTS.station + " spacecraft/ISS · " + rm.score + "/" + MAXPTS.moon + " Moon base/rover (our rule)"))),
+        h("div", { class: "rh-body" },
+          h("div", null, h("h2", { class: "mini-h" }, "Key facts (NASA PSI)"),
+            h("div", { class: "inv-facts wide" },
+              fact("Type", v.projectType || "—"), fact("Platform", v.flightProgram || "—"), fact("Hardware", v.experimentHardware || "—"),
+              fact("Dates", (v.investigationStartDate || "?") + " → " + (v.investigationEndDate || "?")), fact("Publications listed", String((v.publications || []).length)),
+              fact("Tests in NASA table", v.n_tests ? String(v.n_tests) : "none")),
+            h("h2", { class: "mini-h", style: "margin-top:16px" }, "Our labels (interpretation)"),
+            h("p", { class: "note" }, h("b", null, "Fuel: "), (c.fuel_class || "—") + " — " + (c.fuel_examples || "") + ". ", h("b", null, "Area: "), (c.pillar || "none").replace(";", ", ") +
+              ". ", h("b", null, "Brief: "), (c.brief_mention || "none") + ". ", h("span", { class: "muted" }, "Basis: " + (c.basis || "—")))),
+          h("div", { class: "rh-src" }, h("h2", { class: "mini-h" }, "Source reference"),
+            h("p", { class: "src-t" }, v.title), h("p", { class: "note" }, "NASA PSI " + v.accession + ", DOI " + v.doi + ", " + v.licenseIdentifier + " · retrieved " + v.retrieved),
+            h("div", { class: "rh-actions" },
+              h("a", { class: "btn", href: v.landing_page, target: "_blank", rel: "noopener" }, "Open NASA’s PSI page ↗"),
+              h("a", { class: "textlink", href: "https://doi.org/" + v.doi, target: "_blank", rel: "noopener" }, "DOI"),
+              ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null)))),
+      h("section", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, "What NASA’s experiment table records"), chip("measured", "Measured")),
+        h("p", { class: "howto" }, h("b", null, "How to read: "), "the columns are NASA’s own (variables and measurements). Ranges are read only from the columns named; unit conversions are arithmetic; anything not a plain number is listed, not guessed."),
+        (v.table_summaries || []).length ? v.table_summaries.map(function (t) {
+          return h("div", { class: "tbl-sum" },
+            h("p", { class: "mono src-w" }, t.table + " · " + t.rows + " rows · " + t.encoding + " ",
+              /xlsx/.test(t.table) ? h("a", { href: "sources/psi/PSI-26_as_run_test_matrix_BASS.xlsx", download: "" }, "download") : h("a", { href: "sources/psi/tables/" + t.table, download: "" }, "download")),
+            h("div", { class: "cols-chips" }, (t.columns || []).map(function (col) { return h("span", { class: "colchip" }, col); })),
+            h("dl", { class: "kv" },
+              h("dt", null, "Oxygen"), h("dd", null, t.o2_range_pct ? t.o2_range_pct.join("–") + "% from “" + t.o2_col + "” (" + t.o2_meaning + ", " + t.o2_n + " values)" : "no oxygen column used"),
+              h("dt", null, "Pressure"), h("dd", null, t.p_range_orig ? t.p_range_orig.join("–") + " " + t.p_unit + " = " + t.p_range_psi.join("–") + " psi, from “" + t.p_col + "”" : "no pressure column used"),
+              h("dt", null, "Airflow column"), h("dd", null, t.air_col ? "“" + t.air_col + "” (as recorded)" : "none used"),
+              h("dt", null, "Moon-base zone"), h("dd", null, t.o2_range_pct && t.p_range_psi ? t.joint + " tests with ≥30% O2 at ≤10.2 psi" + (t.p_min_psi_at_o2ge30 ? "; lowest pressure among ≥30% O2 tests: " + t.p_min_psi_at_o2ge30 + " psi" : "") : "not determinable from this table"),
+              t.unparsed_n ? [h("dt", null, "Not parsed"), h("dd", null, t.unparsed_n + " cells, e.g. " + t.unparsed.join("; "))] : null));
+        }) : h("p", { class: "note" }, "NASA PSI has no experiment table for this investigation (ground or modelling study).")),
+      text("Objective", v.objective), text("Approach", v.approach), text("Hypothesis", v.hypothesis), text("Research impacts", v.researchImpacts),
+      (v.publications || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "Publications listed by NASA PSI (" + v.publications.length + ")")),
+        h("ul", { class: "fn", style: "margin-top:10px" }, v.publications.slice(0, 40).map(function (p) {
+          return h("li", null, p.title + (p.authors ? " — " + p.authors.split(",").slice(0, 3).join(",") + (p.authors.split(",").length > 3 ? " et al." : "") : "") + " ",
+            p.doi ? h("a", { href: "https://doi.org/" + p.doi, target: "_blank", rel: "noopener" }, "DOI") : null); }))) : null,
+      h("details", { class: "card tech" }, h("summary", null, h("b", null, "Why it scores " + rs.score + " / " + rm.score)),
+        h("p", { class: "mini-h" }, "Spacecraft & station"), h("ul", { class: "pts" }, rs.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label); })),
+        h("p", { class: "mini-h" }, "Moon base & rover"), h("ul", { class: "pts" }, rm.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label); }))));
+  }
+
+  function viewInvCompare(arg) {
+    setTitle("Compare investigations");
+    var list = (arg || "").split(",").map(invById).filter(Boolean).slice(0, 3);
+    if (list.length < 2) return h("div", null, h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")), h("h1", null, "Compare investigations"),
+      h("p", { class: "lead" }, "Tick two or three investigations in the ranking, then press “Compare selected”."));
+    function o2(v) { var t = (v.table_summaries || []).filter(function (t) { return t.o2_range_pct; }); return t.length ? t.map(function (t) { return t.o2_range_pct.join("–") + "% (" + t.o2_meaning + ")"; }).join("; ") : "not in table"; }
+    function pr(v) { var t = (v.table_summaries || []).filter(function (t) { return t.p_range_psi; }); return t.length ? t.map(function (t) { return t.p_range_orig.join("–") + " " + t.p_unit + " (" + t.p_range_psi.join("–") + " psi)"; }).join("; ") : "not in table"; }
+    var rows = [
+      ["Fuel (our label)", function (v) { return (v.curated.fuel_class || "") + ": " + (v.curated.fuel_examples || ""); }],
+      ["Fire-safety area (our label)", function (v) { return (v.curated.pillar || "none").replace(";", ", "); }],
+      ["Type / platform", function (v) { return (v.projectType || "") + " · " + (v.flightProgram || ""); }],
+      ["Hardware", function (v) { return v.experimentHardware || "—"; }],
+      ["Tests in NASA table", function (v) { return v.n_tests ? String(v.n_tests) : "none"; }],
+      ["Oxygen tested", o2], ["Pressure tested", pr],
+      ["Moon-base zone tests", function (v) { return v.joint_tests + (v.p_min_psi_at_o2ge30 ? " (lowest psi at ≥30% O2: " + v.p_min_psi_at_o2ge30 + ")" : ""); }],
+      ["What the table records", function (v) { return (v.table_summaries || []).map(function (t) { return (t.columns || []).length + " columns"; }).join(" + ") || "no table"; }],
+      ["Same / different", function (v) { return ""; }],
+      ["Score (our rule)", function (v) { return relevance(v, "station").score + "/" + MAXPTS.station + " ISS · " + relevance(v, "moon").score + "/" + MAXPTS.moon + " Moon"; }]];
+    var hw = list.map(function (v) { return (v.experimentHardware || "").split(",")[0].trim(); });
+    var fu = list.map(fuelKey);
+    var same = [], diff = [];
+    (hw.every(function (x) { return x === hw[0]; }) ? same : diff).push("hardware");
+    (fu.every(function (x) { return x === fu[0]; }) ? same : diff).push("fuel type");
+    var o2col = list.map(function (v) { return (v.table_summaries || []).map(function (t) { return t.o2_meaning || "none"; }).join("/"); });
+    (o2col.every(function (x) { return x === o2col[0]; }) ? same : diff).push("how oxygen was recorded");
+    rows = rows.filter(function (r) { return r[0] !== "Same / different"; });
+    return h("div", null,
+      h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")),
+      h("h1", null, "Compare investigations"),
+      h("div", { class: "card insight" }, h("p", { style: "margin:0" }, h("b", null, "Same: "), same.join(", ") || "nothing on these three counts", " · ", h("b", null, "Different: "), diff.join(", ") || "nothing on these three counts",
+        ". Values below come from NASA PSI; labels marked “our label” are interpretation. Test values from different investigations are described side by side, never charted together.")),
+      h("div", { class: "tablewrap", style: "margin-top:14px" }, h("table", { class: "side" },
+        h("thead", null, h("tr", null, h("th", { scope: "col" }, h("span", { class: "sr" }, "Property")), list.map(function (v) { return h("th", { scope: "col" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("span", { class: "pc-mat" }, v.accession)); }))),
+        h("tbody", null, rows.map(function (r) { return h("tr", null, h("th", { scope: "row" }, r[0]), list.map(function (v) { return h("td", null, r[1](v)); })); })))));
   }
 
   function viewAbout() {
@@ -1055,7 +1402,9 @@
           "The automated check cannot catch every error. Rows with flags, hand-keyed values or missing readings are always left for a person.",
           "BASS-I and SAFFIRE records come from NASA\u2019s PSI data files. They were not in a report we could compare against, so their check is: copied from the file, re-read on every build.",
           "Oxygen was measured differently in each experiment (calibrated chamber sensor, logged station O2, or estimates), so values from different experiments are never compared with each other.",
-          "In 3 BASS-II tests NASA\u2019s report and NASA\u2019s PSI spreadsheet disagree (F3, P22b, P3a). Both values are shown."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
+          "In 3 BASS-II tests NASA\u2019s report and NASA\u2019s PSI spreadsheet disagree (F3, P22b, P3a). Both values are shown.",
+          "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
+          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
       h("h2", null, "AI use"),
       h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with AI assistance (Claude). The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }
@@ -1069,10 +1418,13 @@
     else if (route === "experiment") view = viewDetail(decodeURIComponent(seg[1] || ""));
     else if (route === "about") view = viewAbout();
     else if (route === "compare") view = viewCompare(seg.slice(1).join("/"));
+    else if (route === "investigations" && seg[1] === "compare") view = viewInvCompare(seg[2] || "");
+    else if (route === "investigations") view = viewInvestigations(seg[1] || "");
+    else if (route === "investigation") view = viewInvestigation(decodeURIComponent(seg[1] || ""));
     else { route = "overview"; view = viewOverview(); }
     main.textContent = "";
     main.appendChild(view);
-    var nav = route === "experiment" ? "explorer" : route;
+    var nav = route === "experiment" ? "explorer" : route === "investigation" ? "investigations" : route;
     Array.prototype.forEach.call(document.querySelectorAll("#nav a"), function (a) {
       if (a.getAttribute("data-route") === nav) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");

@@ -249,3 +249,30 @@ Did:
 Verified by running: smoke 69/69; previewer 14/14; all 263 record pages + Compare combos + main pages: no errors; tamper tests ALL
   CAUGHT; netlify.toml CSP served locally: no errors; 1280px and 390px screenshots, no overflow.
 Not checked: the hosted Netlify site (URL unknown; netlify.app not in this session's allowed domains).
+
+## 2026-11-01 07:00 IST - Claude
+Did:
+- Challenge page and its mirrors are blocked here; public repos of other teams consistently cite NASA PSI with BASS-II (PSI-25) and
+  FLEX (PSI-69) as the challenge datasets. Added FLEX from PSI-69 (274 tests; Windows-1252 CSV) via import_psi.flex_rows(); added
+  PSI-68 FLEX-2 as a listed source (planned matrix only, no records). sources.csv now 8 rows; 537 records.
+- Site: FLEX in Explorer (mol% tag), Overview families table + "How did FLEX droplet fires end?" chart (NASA's labels), Compare
+  measures (O2 mole fraction, pressure, droplet/extinction diameter, burn time), donut shows NASA's test end for FLEX, worked example,
+  provenance rows (lost-subscript reading labelled as our interpretation), flag callouts (pressure printed as 0, duplicate identifier).
+Verified by running: import 274 rows; build 537/537 machine-checked; smoke 72/72; previewer 14/14; tamper tests ALL CAUGHT; all 537
+  record pages + Compare + main pages: no errors; CSP served locally: no errors; 1280/390 px screenshots, no overflow.
+Not verified: the official challenge resource list itself (spaceappschallenge.org not reachable from this session).
+
+## 2026-11-01 09:00 IST - Claude
+Did:
+- Found that PR #7 had been merged before the FLEX commit was pushed; opened PR #8 for FLEX (I had wrongly said #7 included it).
+- Challenge Details text (pasted by the user) drives the next build. Resources tab: "available Friday, November 13".
+- scripts/fetch_psi_catalog.py: PSI metadata (verbatim fields) + experiment tables for all 24 Combustion Science investigations
+  -> data/source/psi/catalog/, data/source/psi/tables/. data/investigations_curated.csv: our labels with basis.
+- scripts/build_catalog.py: per-table O2 / pressure ranges from named columns, psi conversion, Moon-base-zone test counts,
+  lowest pressure among >=30% O2 tests, unparsed cells listed. build_site_data.py adds D.investigations and serves the tables.
+- Site: Investigations page (lens Spacecraft/ISS vs Moon base/rover, ranking with printed rule + per-point evidence, filters,
+  O2-range and O2-vs-pressure charts with the brief's zone, computed insight), investigation detail pages, investigation compare.
+  Test pages link to their investigation; Overview lists the new question.
+- Fixed: svg() helper now accepts numbers; class "top" clashed with the header (renamed "podium").
+Verified by running: build_catalog (24); smoke 79/79 (incl. all 24 investigation pages); previewer 14/14; tamper tests ALL CAUGHT;
+  all record pages: no errors; investigations pages at 1280/390 px: no errors, no overflow.

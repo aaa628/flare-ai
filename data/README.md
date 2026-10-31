@@ -1,6 +1,6 @@
 # Flare AI data
 
-Status at the last build (`site/data/data.js`): **263 records from 6 NASA sources; 0 human-verified, 263 machine-checked, 0 unchecked.**
+Status at the last build (`site/data/data.js`): **537 records from 7 NASA sources (8 listed); 0 human-verified, 537 machine-checked, 0 unchecked.**
 
 | File | Rows | Source | Machine check |
 |---|---|---|---|
@@ -8,6 +8,16 @@ Status at the last build (`site/data/data.js`): **263 records from 6 NASA source
 | `bass2_psi_extra.csv` | 3 BASS-II (O20-O22) | PSI-25 experimental table | equals NASA's file, re-read every build |
 | `bass1_psi.csv` | 121 BASS-I | PSI-26 As Run Test Matrix | equals NASA's file, re-read every build |
 | `saffire_psi.csv` | 13 SAFFIRE-I/II/III | PSI-98/99/100 tables | equals NASA's file, re-read every build |
+| `flex_psi.csv` | 274 FLEX | PSI-69 experimental table | equals NASA's file, re-read every build |
+
+### FLEX (PSI-69) notes
+- NASA's CSV is Windows-1252 encoded; its en dash (`–`) means "no value" and is kept as printed. Read with `encoding="cp1252"`.
+- Headers lost their subscripts: "O / N / CO / He initial ambient composition; mole fraction". We read them as O2, N2, CO2, He
+  (the four fractions sum to 1, within 0.02 rounding); the site labels this reading as **our interpretation**.
+- `outcome_raw` = NASA's "Test end" (Extinction 186, Disruption 61, Completion 27): recorded by NASA, not interpreted.
+- Flags: `pressure_printed_zero` (FLEX-114, left out of comparisons), `duplicate_identifier` (FLEX-70 and FLEX-73 share "193F001").
+- "Burning rate; mm" is kept with the unit exactly as NASA's header gives it.
+- FLEX-2 (PSI-68) holds only a planned test matrix (ranges of conditions), so it adds no records; the file is kept for reference.
 
 Every row has a **check level** (computed by `scripts/build_site_data.py`, shown on the site with a glyph and a label):
 - **✓ verified** (`human`): `verified_by` and `verified_date` filled in by a person who compared the row with NASA's source (the PDF page, or the NASA file and row).
@@ -81,6 +91,22 @@ readings are numeric and in plausible ranges; no QC flag. `tests/crosscheck_muta
 
 It does **not** compare anything with the PDF. The text it reads is a text export of the PDF, so an error introduced by that export
 itself would pass. Only a person with the PDF can verify.
+
+## Investigation catalogue (`scripts/fetch_psi_catalog.py`, `scripts/build_catalog.py`)
+
+- `source/psi/catalog/PSI-NN.json`: the PSI fields we use for each of the 24 Combustion Science investigations (title, DOI,
+  licence, sub-area, platform, hardware, dates, objective, approach, hypothesis, research impacts, publications), verbatim,
+  with the retrieval date. `source/psi/tables/`: each investigation's NASA experiment table as served (also copied to the site).
+- `investigations_curated.csv`: OUR labels per investigation (fuel class, fire-safety area, how the challenge brief mentions it,
+  scale) with a `basis` column. Shown on the site as interpretation.
+- `build_catalog.py` reads O2 and pressure only from the columns listed in its `COND` map (e.g. FLEX "O initial ambient
+  composition; mole fraction" and "Ambient pressure; mmHg"; CFI-G "XO2 before test" and "approx p (bar)"). Conversions are
+  arithmetic (fraction x100; mmHg/atm/bar to psi). Non-numeric cells are listed, not guessed (e.g. ACME BRE "2100%").
+  Inverse flames (Flame Design, CFI-G) record O2 in the burner flow, not the room; the site says so.
+- Moon-base zone from the brief: O2 >= 30 % and <= 10.2 psi in the same test. Result at the last build: ACME CFI-G 48 tests,
+  ACME Flame Design 18; FLEX's >=30 % O2 tests went down to 10.33 psi (near miss); solid-material investigations reached at
+  most 22.7 % O2 (a data gap for cabin materials in a Moon-base atmosphere).
+- The ranking rule lives in `site/js/app.js` (`relevance()`) and is printed on the Investigations page.
 
 ## Data from NASA PSI (`scripts/import_psi.py`)
 

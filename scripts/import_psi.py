@@ -8,6 +8,7 @@ Writes:
   data/bass1_psi.csv        BASS (BASS-I), PSI-26 "As Run Test Matrix" spreadsheet, sheet "as run matrix"
   data/saffire_psi.csv      SAFFIRE-I/II/III, PSI-98/99/100 "Experimental table" CSVs
   data/bass2_psi_extra.csv  BASS-II tests that are in PSI-25's table but not in the NASA report's Appendix A (O20-O22)
+  data/flex_psi.csv         FLEX (Flame Extinguishment Experiment), PSI-69 "Experimental table" CSV (Windows-1252 encoded)
 
 The same functions are used by build_site_data.py to re-read the source files and confirm each CSV row still
 equals its source cells (rows edited by hand drop to "unchecked").
@@ -22,9 +23,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "source" / "psi"
 OUT = {"bass1": ROOT / "data" / "bass1_psi.csv",
        "saffire": ROOT / "data" / "saffire_psi.csv",
-       "bass2x": ROOT / "data" / "bass2_psi_extra.csv"}
+       "bass2x": ROOT / "data" / "bass2_psi_extra.csv",
+       "flex": ROOT / "data" / "flex_psi.csv"}
 COLS = ["id", "experiment", "pi", "source_id", "source_file", "source_row", "material_raw", "flow_mode",
-        "airflow_raw", "o2_raw", "o2_note", "o2_vol_pct", "observation", "fields_json",
+        "airflow_raw", "o2_raw", "o2_note", "o2_vol_pct", "outcome_raw", "qc_flag", "observation", "fields_json",
         "verified_by", "verified_date", "verifier_notes"]
 DATA_COLS = [c for c in COLS if not c.startswith("verified")]  # compared with the source on every build
 
@@ -73,9 +75,42 @@ def bass1_rows():
     return out
 
 
-def read_csv(name):
-    with (SRC / name).open(newline="", encoding="utf-8-sig", errors="replace") as f:
+def read_csv(name, encoding="utf-8-sig"):
+    with (SRC / name).open(newline="", encoding=encoding, errors="replace") as f:
         return list(csv.reader(f))
+
+
+def flex_rows():
+    """FLEX (PSI-69): one row per droplet-combustion test on the ISS. NASA's file is Windows-1252 encoded; its
+    en dash (\u2013) marks "no value" and is kept as printed. Headers are kept exactly as NASA wrote them."""
+    name = "PSI-69_experimental_table_FLEX.csv"
+    rows = read_csv(name, encoding="cp1252")
+    hdr = [" ".join(h.split()) for h in rows[0]]
+    ids = [r[1].strip() for r in rows[1:] if len(r) > 1]
+    out = []
+    for n, r in enumerate(rows[1:], start=2):
+        r = [" ".join(c.split()) for c in r] + [""] * 20
+        if not r[0]:
+            continue
+        col = dict(zip(hdr, r))
+        flags = []
+        if col["Ambient pressure; mmHg"] in ("0", "0.0"):
+            flags.append("pressure_printed_zero")
+        if ids.count(r[1]) > 1:
+            flags.append("duplicate_identifier")
+        o2 = col["O initial ambient composition; mole fraction"]
+        try:
+            o2pct = f"{float(o2) * 100:.2f}".rstrip("0").rstrip(".")
+        except ValueError:
+            o2pct = ""
+        fields = [[h, v] for h, v in col.items() if v and h not in ("FLEX Test #", "Fuel", "Test end")]
+        out.append({
+            "id": "FLEX-" + r[0], "experiment": "FLEX", "pi": "", "source_id": "PSI-69", "source_file": name,
+            "source_row": str(n), "material_raw": col["Fuel"] + " droplet", "flow_mode": "", "airflow_raw": "",
+            "o2_raw": o2, "o2_note": "O2 mole fraction of the ambient gas (NASA header: \u201cO initial ambient composition; mole fraction\u201d); \u00d7100 shown as mole %",
+            "o2_vol_pct": o2pct, "outcome_raw": col["Test end"], "qc_flag": ";".join(flags), "observation": "",
+            "fields_json": json.dumps(fields, ensure_ascii=False)})
+    return out
 
 
 def saffire_rows():
@@ -135,7 +170,7 @@ def bass2_known_ids():
 
 
 def expected():
-    return {"bass1": bass1_rows(), "saffire": saffire_rows(), "bass2x": bass2_extra_rows(bass2_known_ids())}
+    return {"bass1": bass1_rows(), "saffire": saffire_rows(), "bass2x": bass2_extra_rows(bass2_known_ids()), "flex": flex_rows()}
 
 
 def write(key, rows):
