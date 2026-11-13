@@ -11,6 +11,18 @@
   var ALL = D.records.slice().sort(naturalOrder);
   function rowsFor(preview) { return preview ? ALL : ALL.filter(function (r) { return r.level !== "none"; }); }
   var ROWS = rowsFor(PREVIEW);
+  /* Empty template: no data loaded yet. Every chart is still drawn, with neutral placeholder labels and 0 values,
+   * so the layout stays the same until new data is added (scripts/build_site_data.py fills data/data.js). */
+  var EMPTY = !ALL.length;
+  var PH = {
+    exp: ["Experiment 1", "Experiment 2", "Experiment 3", "Experiment 4"],
+    band: ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"],
+    outcome: ["Outcome 1", "Outcome 2", "Outcome 3"],
+    test: ["Test 1", "Test 2", "Test 3"],
+    inv: ["Investigation 1", "Investigation 2", "Investigation 3", "Investigation 4"]
+  };
+  var PH_NOTE = "0 records. The bars fill in when new data is added.";
+  function zeros(labels) { return labels.map(function (l) { return { label: l, value: 0 }; }); }
   var SOURCES = {};
   (D.sources || []).forEach(function (x) { SOURCES[x.source_id] = x; });
   var SOURCE = SOURCES["20210011385"] || (D.sources || [])[0] || null;
@@ -138,7 +150,8 @@
     "SAFFIRE": { src: "NASA PSI-98/99/100 experiment tables (SAFFIRE-I, II, III)", o2: "Approximate values as printed (SAFFIRE-II derived from CO2; SAFFIRE-III none)", tag: "approx.",
       other: "Air flow (cm/s), ignition power (W), ignition and burn time (s)", check: "Copied from NASA’s file and re-read from it on every build" }
   };
-  function methodOf(exp) { return METHOD[/^SAFFIRE/.test(exp) ? "SAFFIRE" : exp] || METHOD["BASS-II"]; }
+  var BLANK_METHOD = { src: "\u2014", o2: "\u2014", tag: "", other: "\u2014", check: "\u2014" };
+  function methodOf(exp) { if (EMPTY) return BLANK_METHOD; return METHOD[/^SAFFIRE/.test(exp) ? "SAFFIRE" : exp] || METHOD["BASS-II"]; }
   function countLevel(lv) { return ALL.filter(function (r) { return r.level === lv; }).length; }
   function evidenceLegend(compact) {
     return h("div", { class: "ev-legend" + (compact ? " compact" : ""), role: "list", "aria-label": "How each record was checked" },
@@ -173,6 +186,15 @@
       leftOut ? h("p", { class: "ln" }, h("b", null, "! Left out: "), leftOut) : h("p", { class: "ln" }, h("b", null, "Left out: "), "nothing."));
   }
   function checkBreakdown() {
+    if (EMPTY) return h("div", { class: "checks-box" },
+      h("div", { class: "signoff-box none" },
+        h("p", { class: "so-n" }, h("b", null, "0"), " of 0"),
+        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), "No records are loaded yet, so nothing has been signed.")),
+      h("h3", { class: "mini-h" }, "Automated checks (evidence, not a sign-off)"),
+      h("ul", { class: "checks" }, ["records match their source document value for value.", "records agree with a second source file.",
+        "flagged rows passed a written row-by-row review.", "records were copied from data files and are re-read on every build."].map(function (t) {
+        return h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"), h("span", null, h("b", null, "0 of 0"), " " + t));
+      })));
     var rep = ALL.filter(fromReport), files = ALL.filter(function (r) { return !fromReport(r); });
     var reviewed = rep.filter(function (r) { return /row-by-row review/.test(r.auto_check_notes || ""); }).length;
     var differ = rep.filter(function (r) { return (r.psi_check || "").indexOf("DIFFERS") === 0; }).map(shortId);
@@ -208,8 +230,8 @@
     var hero = h("section", { class: "hero", "aria-labelledby": "hero-h" },
       h("div", { class: "hero-main" },
         h("h1", { id: "hero-h" }, "What NASA’s fire experiments prove, and where the data stops."),
-        h("p", { class: "lead" }, "Flare AI gathers " + nAll + " fire tests NASA ran in orbit, from " + (D.counts.sources || 0) +
-          " NASA sources. Each number shows how it was checked, and the site says so when the data runs out."),
+        h("p", { class: "lead" }, "Flare AI gathers " + nAll + " fire tests run in orbit, from " + (D.counts.sources || 0) +
+          " sources. Each number shows how it was checked, and the site says so when the data runs out."),
         h("div", { class: "hero-cta" },
           h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
           h("a", { class: "textlink", href: "#/scenario" }, "Check a condition against NASA tests"))),
@@ -229,7 +251,7 @@
           answer("Has NASA tested conditions like mine?", "Enter oxygen, pressure and fuel type to see the closest real tests, or an honest “insufficient data”.", "#/scenario", "Scenario Check"),
           answer("What happened in a specific NASA fire test?", "Readings, the crew’s log note and the exact source page or file row.", "#/explorer", "Flame Explorer"),
           answer("How do tests compare, like for like?", "Side by side within one experiment, with refusals when a comparison would mislead.", "#/compare", "Compare"),
-          answer("Which NASA investigations matter for a spacecraft or a Moon base?", "All " + INV.length + " PSI combustion investigations, ranked with a visible rule.", "#/investigations", "Investigations"),
+          answer("Which NASA investigations matter for a spacecraft or a Moon base?", "All " + INV.length + " combustion investigations, ranked with a visible rule.", "#/investigations", "Investigations"),
           answer("Can I just ask a question?", "Plain-English answers from cited NASA records. It abstains when they don’t support an answer.", "#/lab", "Intelligence Lab"),
           answer("How far can each number be trusted?", "Every record carries its check level. The current totals are on the right.", "#/about", "How we handle evidence"))),
       h("aside", { class: "hero-side", "aria-label": "Dataset status" },
@@ -238,7 +260,7 @@
         h("h3", { class: "mini-h" }, "Check level of every record"),
         evidenceLegend(true)));
 
-    var srcRows = [["BASS-II", exps["BASS-II"] || 0], ["BASS-I", exps["BASS-I"] || 0], ["FLEX", exps["FLEX"] || 0],
+    var srcRows = EMPTY ? PH.exp.map(function (l) { return [l, 0]; }) : [["BASS-II", exps["BASS-II"] || 0], ["BASS-I", exps["BASS-I"] || 0], ["FLEX", exps["FLEX"] || 0],
       ["SAFFIRE", (exps["SAFFIRE-I"] || 0) + (exps["SAFFIRE-II"] || 0) + (exps["SAFFIRE-III"] || 0)]];
     var sources = h("section", { "aria-labelledby": "src-h" },
       h("h2", { id: "src-h" }, "Four experiment families, kept separate"),
@@ -251,7 +273,20 @@
         })))));
 
     var charts = null;
-    if (ROWS.length) {
+    if (EMPTY) {
+      charts = h("section", { "aria-labelledby": "ch-h" },
+        h("h2", { id: "ch-h" }, "Where the evidence is"),
+        h("div", { class: "grid qgrid" },
+          chartCard("Which experiments does the evidence come from?", "records",
+            "each bar is one experiment family; longer bar = more test records available to explore.",
+            barChart(zeros(PH.exp), { label: "Test records per experiment", unit: "records" }), chartNote(PH_NOTE, "")),
+          chartCard("At what oxygen levels were the tests run?", "vol% O2",
+            "each bar counts tests that started in that oxygen band (normal air is about 21 vol%). Short bars mark thin evidence.",
+            barChart(zeros(PH.band), { label: "Tests by starting oxygen band", unit: "tests", alt: true }), chartNote(PH_NOTE, "")),
+          chartCard("How did the tests end?", "tests",
+            "each bar counts tests by the end-of-test label recorded in the data.",
+            barChart(zeros(PH.outcome), { label: "Tests by recorded test end", unit: "tests" }), chartNote(PH_NOTE, ""))));
+    } else if (ROWS.length) {
       var byExp = {};
       ROWS.forEach(function (r) { byExp[r.experiment] = (byExp[r.experiment] || 0) + 1; });
       var items = EXP_ORDER.filter(function (k) { return byExp[k]; }).map(function (k) { return { label: k, value: byExp[k] }; });
@@ -434,23 +469,24 @@
     var filters = h("div", { class: "filters" },
       h("div", { class: "field wide" }, h("label", { for: "q" }, "Search"), search),
       sel("fexp", "Experiment", exps.map(function (p) { return [p, p]; }), "exp"),
-      sel("fpi", "BASS-II investigator", pis.map(function (p) { return [p, p]; }), "pi"),
+      sel("fpi", EMPTY ? "Investigator" : "BASS-II investigator", pis.map(function (p) { return [p, p]; }), "pi"),
       sel("fflow", "Flow direction", flows.map(function (p) { return [p, p]; }), "flow"),
       sel("fo2", "Starting O2", o2opts, "o2"));
     draw();
     return h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Flame Explorer"),
-          h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS, BASS-II and FLEX on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
+          h("p", { class: "lead" }, EMPTY ? "Every row is one fire test. Rows appear here once new data is added." :
+            "Every row is one NASA fire test in orbit: BASS, BASS-II and FLEX on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
         evidenceLegend(true)),
       h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
       h("p", { class: "hint" }, "Select a row (or focus it and press Enter) to open the full record: readings, log note and source."),
       h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
-        h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
+        h("caption", { class: "sr" }, EMPTY ? "Fire test records (none loaded yet)." : "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
         h("thead", null, h("tr", null, ["Test", "Experiment", "Material", "Flow", "O2 start (vol%)", "O2 end", "Note / values", ""].map(function (t, i) {
           return h("th", { scope: "col", class: ["", "c-exp", "c-mat", "c-flow", "c-o2", "c-o2e", "", "go"][i] }, t); }))),
         tbody)),
-      h("p", { class: "note", style: "margin-top:10px" }, "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction \u00d7 100 (BASS-I); mol% = ambient O2 mole fraction \u00d7 100 (FLEX); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other."));
+      h("p", { class: "note", style: "margin-top:10px" }, EMPTY ? "O2 start tags show how each experiment recorded oxygen. They appear with the data, because methods differ between experiments and are never mixed." : "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction \u00d7 100 (BASS-I); mol% = ambient O2 mole fraction \u00d7 100 (FLEX); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other."));
   }
 
   function reading(label, a, b, unit) {
@@ -843,6 +879,14 @@
   }
   function donut(parts, label) {
     var total = parts.reduce(function (a, p) { return a + p.value; }, 0), R = 80, r = 54, cx = 100, cy = 100, a0 = -Math.PI / 2;
+    if (!total) {  /* nothing counted yet: draw the empty ring with 0 in the middle */
+      var s0 = svg("svg", { viewBox: "0 0 200 200", class: "chart viz donut", role: "img", "aria-label": label + ": 0 tests." }, svg("title", null, label + ": 0 tests."));
+      s0.appendChild(svg("circle", { cx: cx, cy: cy, r: (R + r) / 2, fill: "none", stroke: "rgba(255,255,255,.08)", "stroke-width": R - r }));
+      s0.appendChild(svg("circle", { cx: cx, cy: cy, r: r - 8, class: "hub" }));
+      s0.appendChild(svg("text", { x: cx, y: cy + 2, "text-anchor": "middle", class: "val big" }, "0"));
+      s0.appendChild(svg("text", { x: cx, y: cy + 20, "text-anchor": "middle", class: "xlab" }, "tests"));
+      return s0;
+    }
     var summary = label + ": " + parts.map(function (p) { return p.label + " " + p.value + " (" + Math.round(100 * p.value / total) + "%)"; }).join(", ") + ".";
     var s = svg("svg", { viewBox: "0 0 200 200", class: "chart viz donut", role: "img", "aria-label": summary }, svg("title", null, summary));
     s.appendChild(svg("circle", { cx: cx, cy: cy, r: (R + r) / 2, fill: "none", stroke: "rgba(255,255,255,.04)", "stroke-width": R - r + 14 }));
@@ -933,21 +977,22 @@
 
     var exps = EXP_ORDER.filter(function (e) { return ROWS.some(function (r) { return r.experiment === e; }); });
     var curExp = picked.length ? picked[0].experiment : "BASS-II";
-    var expSel = h("select", { id: "cexp", class: "pill-select" }, exps.map(function (e) { return h("option", { value: e, selected: e === curExp }, e); }));
+    var expSel = h("select", { id: "cexp", class: "pill-select" }, (EMPTY ? [PH.exp[0]] : exps).map(function (e) { return h("option", { value: e, selected: e === curExp }, e); }));
     var testSel = h("select", { id: "ctest", class: "pill-select wide" });
     function fillTests() {
       testSel.textContent = "";
+      if (EMPTY) testSel.appendChild(h("option", { value: "" }, PH.test[0] + " \u00b7 no data yet"));
       ROWS.filter(function (r) { return r.experiment === expSel.value && picked.indexOf(r) < 0; }).forEach(function (r) {
         testSel.appendChild(h("option", { value: r.id }, shortId(r) + " · " + r.material_raw + (r.flow_mode ? " · " + r.flow_mode : "")));
       });
     }
     expSel.addEventListener("change", fillTests);
     fillTests();
-    var full = picked.length >= MAX_PICK;
+    var full = picked.length >= MAX_PICK || EMPTY;
     var addBtn = h("button", { type: "button", class: "pill-btn", disabled: full, onclick: function () {
       var r = ROWS.filter(function (x) { return x.id === testSel.value; })[0];
       if (r) go2(picked.concat([r]));
-    } }, full ? "4 tests max" : "+ Add test");
+    } }, EMPTY ? "+ Add test" : full ? "4 tests max" : "+ Add test");
     function rowsOf(list) {
       var rows = list.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean);
       return rows.length === list.length ? rows : null;
@@ -980,6 +1025,7 @@
       h("div", { class: "tb-r" },
         h("label", { class: "sr", for: "cexp" }, "Experiment"), expSel,
         h("label", { class: "sr", for: "ctest" }, "Test"), testSel, addBtn));
+    if (EMPTY) return compareTemplate(toolbar);
     var chipsRow = h("div", { class: "pick-chips" },
       picked.map(function (r, i) {
         return h("span", { class: "pick" + (i === 0 ? " lead" : "") }, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r)),
@@ -1126,6 +1172,68 @@
         tableCard),
       h("p", { class: "note", style: "margin-top:14px" }, "Every number is copied from NASA’s record; hover a bar to see it. No averages or trend lines: with 2 to 4 tests they would claim more than the data shows."));
   }
+  /* Empty template for Compare: the same cards, tiles and charts as a real comparison, with Test 1-3 at 0. */
+  function compareTemplate(toolbar) {
+    var groups = PH.test, n = groups.length;
+    var z = groups.map(function () { return { n: 0, text: "0" }; }), dz = groups.map(function () { return { n: 0 }; });
+    var dash = function () { return "\u2014"; };
+    function table(rows) {
+      return h("div", { class: "tablewrap flat" }, h("table", { class: "side" },
+        h("thead", null, h("tr", null, h("th", { scope: "col" }, h("span", { class: "sr" }, "Property")), groups.map(function (g) { return h("th", { scope: "col" }, g); }))),
+        h("tbody", null, rows.map(function (r) { return h("tr", null, h("th", { scope: "row" }, r), groups.map(function () { return h("td", null, dash()); })); }))));
+    }
+    function pairCard(ico, label, unit) {
+      return h("div", { class: "card vcard" },
+        cardHead(ico, label, [h("span", { class: "unit-pill" }, unit), chip("measured", "Measured")]),
+        h("p", { class: "howto" }, h("b", null, "How to read: "), "solid blue = start of the test, hatched orange = end; bar height is the value in " + unit + ". A dashed n/a box means the value was left out."),
+        legendRow([{ color: COLORS.s1, label: "Start of test" }, { color: COLORS.s2, label: "End of test (hatched)", hatch: true }]),
+        groupedBars(groups, [{ name: "start", color: COLORS.s1, vals: z }, { name: "end", color: COLORS.s2, vals: z, hatch: true }], unit, label + " at start and end of each test"),
+        h("div", { class: "limits none", role: "note" }, h("b", null, "\u2713 Complete: "), "0 values yet; the bars fill in when new data is added."),
+        h("div", { class: "subhead" }, h("span", null, "Change during the test (" + unit + ", end minus start; bars left = fell, right = rose, sign shown)"),
+          legendRow([{ color: COLORS.fell, label: "\u2212 fell" }, { color: COLORS.rose, label: "+ rose" }])),
+        changeBars(groups, dz, unit, "Change in " + label + " during each test"));
+    }
+    function singleCard(ico, label, unit) {
+      return h("div", { class: "card vcard" },
+        cardHead(ico, label, [h("span", { class: "unit-pill" }, unit), chip("measured", "Measured")]),
+        h("p", { class: "howto" }, h("b", null, "How to read: "), "one bar per test; bar height is the value in " + unit + ". A dashed n/a box means the value was left out."),
+        groupedBars(groups, [{ name: label, color: COLORS.s1, vals: z }], unit, label + " for each test"),
+        h("div", { class: "limits none", role: "note" }, h("b", null, "\u2713 Complete: "), "0 values yet; the bars fill in when new data is added."));
+    }
+    var tiles = h("div", { class: "tiles" }, groups.map(function (g, i) {
+      return h("div", { class: "tile" + (i === 0 ? " hot" : "") },
+        h("div", { class: "tile-top" }, badge("flame", i === 0 ? "dark" : ""), h("div", null, h("b", null, g), h("span", null, "\u2014"))),
+        h("div", { class: "tile-bot" }, h("div", null, h("div", { class: "big" }, h("span", null, "0"), h("span", { class: "arr" }, "\u2192"), h("span", null, "0")),
+          h("div", { class: "small" }, "Measure 1, start \u2192 end")), miniBars([0, 0], i === 0 ? "#ffffff" : COLORS.s1)));
+    }));
+    var mixCols = [COLORS.s1, COLORS.s2, COLORS.s3];
+    var parts = PH.outcome.map(function (l, i) { return { label: l, value: 0, color: mixCols[i] }; });
+    var mixCard = h("div", { class: "card vcard" }, cardHead("pie", "How tests ended, all Experiment 1 tests", null),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), "each slice is the share of all tests with that end-of-test label (unit: tests); the list shows how many."),
+      h("div", { class: "donut-wrap" }, donut(parts, "Test end mix of 0 tests"),
+        h("ul", { class: "donut-legend" }, parts.map(function (p) {
+          return h("li", null, h("i", { style: "--c:" + p.color }), h("span", { class: "dl" }, p.label), h("b", null, "0%"), h("span", { class: "dn" }, "0"));
+        }))));
+    return h("div", { class: "cmp" }, toolbar,
+      h("div", { class: "summary" },
+        h("span", null, h("b", null, "Experiment 1")), h("span", null, h("b", null, String(n)), " tests"),
+        h("span", null, h("b", null, "0"), " values charted"), h("span", null, h("b", null, "0"), " left out")),
+      h("div", { class: "viz-grid" }, h("div", { class: "card vcard span2 precheck" },
+        cardHead("table", "Before charting: what you are comparing", h("span", { class: "unit-pill" }, "checked")),
+        h("p", { class: "howto" }, "Each column is one selected test. Values listed under \u201cMissing or suspect\u201d are left out of the charts below, with the reason."),
+        table(["Source", "How oxygen was recorded", "Other values and units", "Check level", "Missing or suspect here"]))),
+      tiles,
+      h("div", { class: "viz-grid" }, pairCard("o2", "Measure 1", "vol%"), pairCard("cloud", "Measure 2", "ppm"), singleCard("timer", "Measure 3", "s"), mixCard,
+        h("div", { class: "card vcard" }, cardHead("alert", "How this comparison works", null),
+          h("ul", { class: "rules" },
+            h("li", { class: "ok" }, h("b", null, "Same experiment. "), "All tests compared are from one experiment, measured the same way."),
+            h("li", { class: "ok" }, h("b", null, "Same measurement. "), "Each chart shows one column from the data; different measuring methods are never mixed."),
+            h("li", { class: "ok" }, h("b", null, "0 values left out. "), "Flagged, missing or non-numeric values are listed under each chart."),
+            h("li", { class: "ok" }, h("b", null, "No averages. "), "Two to four tests are too few for averages or trends."))),
+        h("div", { class: "card vcard span2" }, cardHead("table", "Side by side", null),
+          table(["Experiment", "Material", "Flow direction", "Airflow, as logged", "Check level"]))),
+      h("p", { class: "note", style: "margin-top:14px" }, "Layout preview: no data is loaded yet, so every value is 0. Pick real tests here once new data is added."));
+  }
   function sideTable(rows, spec) {
     return h("table", { class: "side" },
       h("thead", null, h("tr", null, h("th", null, ""), rows.map(function (r) { return h("th", null, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r))); }))),
@@ -1172,13 +1280,21 @@
   /* O2 range per investigation, with the 21% and 30% lines. */
   function o2RangeChart(list) {
     var rows = list.filter(function (v) { return v.o2_max_pct != null; }).sort(function (a, b) { return b.o2_max_pct - a.o2_max_pct; });
-    var W = 640, rowH = 26, left = 150, right = 20, H = rows.length * rowH + 34, max = 90;
+    var ph = EMPTY && !rows.length;  /* empty template: placeholder rows at 0 */
+    var W = 640, rowH = 26, left = 150, right = 20, H = (ph ? PH.inv.length : rows.length) * rowH + 34, max = 90;
     var x = function (p) { return left + (W - left - right) * p / max; };
     var summary = "Oxygen tested by each investigation, percent: " + rows.map(function (v) {
       var r = (v.table_summaries || []).filter(function (t) { return t.o2_range_pct && !/PLANNED/.test(t.o2_meaning || ""); });
       var lo = Math.min.apply(null, r.map(function (t) { return t.o2_range_pct[0]; }));
       return invName(v) + " " + lo + " to " + v.o2_max_pct; }).join("; ") + ".";
+    if (ph) summary = "Oxygen tested by each investigation, percent: " + PH.inv.map(function (l) { return l + " 0"; }).join("; ") + ".";
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
+    if (ph) PH.inv.forEach(function (l, i) {
+      var py = 18 + i * rowH;
+      s.appendChild(svg("text", { x: left - 8, y: py + 12, "text-anchor": "end", class: "xlab" }, l));
+      s.appendChild(svg("rect", { x: x(0), y: py + 2, width: 4, height: 13, rx: 2, fill: "#757575" }));
+      s.appendChild(svg("text", { x: x(0) + 10, y: py + 12, class: "val small" }, "0%"));
+    });
     [0, 21, 30, 50, 85].forEach(function (p) {
       s.appendChild(svg("line", { x1: x(p), x2: x(p), y1: 4, y2: H - 22, class: p === 30 ? "target" : p === 21 ? "axis" : "grid" }));
       s.appendChild(svg("text", { x: x(p), y: H - 6, "text-anchor": "middle", class: "tick" }, p + "%"));
@@ -1305,7 +1421,8 @@
     return h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Investigations"),
-          h("p", { class: "lead" }, "All " + INV.length + " combustion investigations in NASA’s Physical Sciences Informatics (PSI) database, ranked for the crew environment you choose. The ranking rule is ours and is printed below; every fact comes from NASA PSI.")),
+          h("p", { class: "lead" }, EMPTY ? "Investigations appear here once new data is added, ranked for the crew environment you choose. The ranking rule is ours and is printed below." :
+            "All " + INV.length + " combustion investigations in NASA’s Physical Sciences Informatics (PSI) database, ranked for the crew environment you choose. The ranking rule is ours and is printed below; every fact comes from NASA PSI.")),
         h("div", { class: "lens", role: "group", "aria-label": "Crew environment" },
           ["station", "moon"].map(function (k) {
             return h("a", { class: "lens-b" + (k === lens ? " on" : ""), href: k === "moon" ? "#/investigations/moon" : "#/investigations", "aria-current": k === lens ? "true" : null },
@@ -1313,6 +1430,7 @@
           }))),
       h("section", { class: "card insight" },
         h("h2", { class: "mini-h" }, "Answer for a Moon base or pressurized rover"),
+        EMPTY ? h("p", null, h("b", null, "0 investigations"), " ran tests inside the brief’s Moon-base atmosphere (≥30% O2 at ≤10.2 psi in the same test). This answer fills in when new data is added.") :
         h("p", null, h("b", null, moonZone.length + " investigations"), " ran tests inside the brief’s Moon-base atmosphere (≥30% O2 at ≤10.2 psi in the same test): " +
           moonZone.map(function (v) { return invName(v) + " (" + v.joint_tests + " tests, " + fuelLabel(fuelKey(v)) + ")"; }).join(", ") + ". " +
           (function () { var f = invById("PSI-69"); return f && f.p_min_psi_at_o2ge30 ? "FLEX tested up to " + f.o2_max_pct + "% O2 but only down to " + f.p_min_psi_at_o2ge30 + " psi, just above the zone. " : ""; })() +
@@ -1323,21 +1441,26 @@
         chartCard("Which investigations tested oxygen above 30%?", "% O2",
           "each bar spans the lowest to highest oxygen in that investigation’s NASA table; colour shows the fuel type (also named in the tooltip). The dashed blue line marks the brief’s 30% Moon-base oxygen.",
           o2RangeChart(INV), h("div", null, legendRow(["solid", "liquid", "gas", "smoke"].map(function (k) { return { color: COLORS_FUEL(k), label: fuelLabel(k) }; })),
+            EMPTY ? chartNote("0 investigations. The bars fill in when new data is added.", "") :
             chartNote(INV.filter(function (v) { return v.o2_max_pct != null; }).length + " investigations whose NASA table has an oxygen column (planned-only values from FLEX-2 excluded). Inverse flames: O2 is in the burner flow, not the room.",
               INV.filter(function (v) { return v.o2_max_pct == null; }).length + " investigations with no oxygen column (detection studies, ground studies, and tables without O2)."))),
         chartCard("Which tested a Moon-base-like atmosphere?", "% O2 vs psi",
           "each box spans the oxygen and pressure range of one NASA table (dashed = inverse flame, O2 from the burner). The shaded corner is the brief’s Moon-base zone. A box touching the zone does not mean every combination was tested; the tooltip gives the count of tests actually inside it.",
-          atmosphereChart(INV), chartNote("tables with both an oxygen and a pressure column (pressure converted to psi from mmHg, atm or bar).",
+          atmosphereChart(INV), EMPTY ? chartNote("0 tables. Boxes appear when new data with oxygen and pressure columns is added.", "") :
+          chartNote("tables with both an oxygen and a pressure column (pressure converted to psi from mmHg, atm or bar).",
             "BASS-II, SAFFIRE and ACME BRE (no pressure column), FLEX-2 (planned conditions only), and every investigation without oxygen data."))),
       h("h2", null, "What the evidence covers, and what it doesn\u2019t"),
       h("div", { class: "grid cover-grid" },
         h("section", { class: "card" }, h("h3", null, "Coverage in Flare AI"),
-          h("p", { class: "howto" }, "How deeply each of the " + INV.length + " PSI investigations is incorporated. Nothing in PSI\u2019s combustion area is left out; depth differs."),
+          h("p", { class: "howto" }, EMPTY ? "How deeply each investigation is incorporated: 0 loaded yet." : "How deeply each of the " + INV.length + " PSI investigations is incorporated. Nothing in PSI\u2019s combustion area is left out; depth differs."),
           h("ul", { class: "cov-list" }, ["records", "table", "description"].map(function (k) {
             return h("li", null, h("span", { class: "cov cov-" + k }, COVER[k].label), h("b", null, String(covCounts[k])), h("span", { class: "muted" }, COVER[k].text),
               h("span", { class: "cov-names" }, INV.filter(function (v) { return coverage(v) === k; }).map(invName).join(", ")));
           }))),
         h("section", { class: "card gaps" }, h("h3", null, "Known gaps"),
+          EMPTY ? h("ul", { class: "rules" },
+            h("li", { class: "warn" }, h("b", null, "No data loaded yet. "), "Known gaps are listed here once new data is added."),
+            h("li", { class: "warn" }, h("b", null, "Not a prediction. "), "These are small, controlled experiments. Flare AI does not claim they predict real mission fires, and gives no fire probabilities.")) :
           h("ul", { class: "rules" },
             h("li", { class: "warn" }, h("b", null, "No partial-gravity data. "), "The brief notes PSI has no Moon- or Mars-gravity combustion data yet (LUCI and FM2 are expected later). E-FIELD Flames only mimics partial gravity. Microgravity and Earth results may bound it."),
             h("li", { class: "warn" }, h("b", null, "Cabin materials in a Moon-base atmosphere. "), "No solid-material investigation recorded above 23% O2 (see the answer above)."),
@@ -1347,7 +1470,7 @@
         h("p", { class: "howto" }, "Every study the brief mentions, what role it gives it, and what evidence Flare AI holds for it."),
         h("div", { class: "tablewrap flat" }, h("table", { class: "side brief-audit" },
           h("thead", null, h("tr", null, ["Study", "How the brief mentions it", "Fire-safety need (our classification)", "Evidence in Flare AI"].map(function (t) { return h("th", { scope: "col" }, t); }))),
-          h("tbody", null, briefRows.map(function (v) {
+          h("tbody", null, !briefRows.length ? h("tr", null, h("td", { colspan: 4, class: "muted" }, "No studies loaded yet.")) : briefRows.map(function (v) {
             var c = v.curated || {};
             return h("tr", null, h("th", { scope: "row" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("div", { style: "margin-top:4px" }, etypeChip(v))),
               h("td", null, { named: "Named as fire-safety research", related: "Mentioned as related", "named-hardware": "Named for shared hardware" }[c.brief_mention]),
@@ -1499,7 +1622,13 @@
   }
 
   /* ---------- Intelligence Lab: Claude answers only from cited Flare AI documents (server function) ---------- */
-  var LAB_EXAMPLES = [
+  var LAB_EXAMPLES = EMPTY ? [
+    "Which investigations tested oxygen at 30% or more at reduced pressure?",
+    "How did droplet tests in normal air end?",
+    "What materials were burned, and how big were the samples?",
+    "Is there partial-gravity combustion data?",
+    "What is the probability of a fire on a Mars rover?"
+  ] : [
     "Which investigations tested oxygen at 30% or more at reduced pressure?",
     "How did FLEX methanol droplet tests in normal air end?",
     "What materials were burned in SAFFIRE-II, and how big were the samples?",
@@ -1828,14 +1957,16 @@
     var out = h("div", { class: "scen-out", "aria-live": "polite" });
     var o2In = h("input", { type: "number", id: "so2", min: 0, max: 100, step: 0.5, value: st.o2 });
     var pIn = h("input", { type: "number", id: "spsi", min: 0, max: 60, step: 0.1, value: st.psi });
-    var fuelSel = h("select", { id: "sfuel" }, h("option", { value: "" }, "Any"), h("option", { value: "Methanol" }, "Methanol"), h("option", { value: "Heptane" }, "Heptane"));
+    var fuelSel = h("select", { id: "sfuel" }, h("option", { value: "" }, "Any"), EMPTY ? [h("option", { value: "Fuel 1" }, "Fuel 1"), h("option", { value: "Fuel 2" }, "Fuel 2")] :
+      [h("option", { value: "Methanol" }, "Methanol"), h("option", { value: "Heptane" }, "Heptane")]);
     var dilSel = h("select", { id: "sdil" }, h("option", { value: "" }, "Any"), h("option", { value: "N2" }, "Nitrogen (air-like)"), h("option", { value: "CO2" }, "Carbon dioxide"), h("option", { value: "He" }, "Helium"));
     fuelSel.value = st.fuel; dilSel.value = st.diluent;
     var liquidBox = h("div", { class: "liq" + (st.family === "liquid" ? "" : " hide") },
       h("div", { class: "field" }, h("label", { for: "sfuel" }, "Droplet fuel"), fuelSel),
       h("div", { class: "field" }, h("label", { for: "sdil" }, "Main diluent gas"), dilSel));
     var fam = h("div", { class: "need-tabs three", role: "group", "aria-label": "Fuel type" },
-      [["solid", "Solid materials", "fabrics, plastics (BASS, BASS-II, SAFFIRE)"], ["liquid", "Liquid droplets", "methanol, heptane (FLEX)"], ["gas", "Gas flames", "ACME, SPICE, SLICE (table level only)"]].map(function (f) {
+      (EMPTY ? [["solid", "Solid materials", "fabrics, plastics (Family 1)"], ["liquid", "Liquid droplets", "fuel droplets (Family 2)"], ["gas", "Gas flames", "gas burners (Family 3, table level only)"]] :
+      [["solid", "Solid materials", "fabrics, plastics (BASS, BASS-II, SAFFIRE)"], ["liquid", "Liquid droplets", "methanol, heptane (FLEX)"], ["gas", "Gas flames", "ACME, SPICE, SLICE (table level only)"]]).map(function (f) {
         return h("button", { type: "button", class: "need" + (st.family === f[0] ? " on" : ""), "aria-pressed": st.family === f[0] ? "true" : "false", onclick: function () {
           st.family = f[0]; Array.prototype.forEach.call(fam.querySelectorAll(".need"), function (b) { b.classList.toggle("on", b === this); b.setAttribute("aria-pressed", b === this ? "true" : "false"); }, this);
           liquidBox.classList.toggle("hide", st.family !== "liquid"); run(); } }, h("b", null, f[1]), h("span", null, f[2]));
@@ -1859,10 +1990,10 @@
       var tlCard = h("section", { class: "card" }, h("h3", null, "Investigations whose NASA tables span these conditions"),
         h("p", { class: "howto" }, "Table level, not individual tests: the oxygen and pressure ranges of these tables include your scenario, but that does not mean this exact combination was tested."),
         tl.length ? h("ul", { class: "fn" }, tl.map(function (v) { return h("li", null, h("a", { href: "#/investigation/" + v.accession }, invName(v)), " — " + fuelLabel(fuelKey(v)) + (v.joint_tests ? "; " + v.joint_tests + " tests in the brief’s Moon-base zone" : "")); }))
-          : h("p", { class: "note" }, "None of the 24 PSI investigations’ tables span this oxygen and pressure."));
+          : h("p", { class: "note" }, "None of the " + INV.length + " investigations’ tables span this oxygen and pressure."));
       if (st.family === "gas") return h("div", null,
         h("section", { class: "card verdict v-none" }, h("p", { class: "v-h" }, "! Gas flames: no individual test records in Flare AI yet"),
-          h("p", null, "Gas-flame investigations (ACME, SPICE, SLICE) are summarised at table level only. See which tables span your conditions below.")), tlCard);
+          h("p", null, (EMPTY ? "Gas-flame investigations" : "Gas-flame investigations (ACME, SPICE, SLICE)") + " are summarised at table level only. See which tables span your conditions below.")), tlCard);
       var pool = conds().filter(function (c) { return c.family === st.family && (st.family !== "liquid" || ((!st.fuel || c.fuel === st.fuel) && (!st.diluent || c.diluent === st.diluent))); });
       /* One categorisation, used by the verdict, the panels and the results list alike. */
       var all = pool.map(function (c) {
@@ -1927,9 +2058,9 @@
         tableBox.appendChild(bar);
         if (note) tableBox.appendChild(h("p", { class: "note" }, note, " ", h("button", { type: "button", class: "ghost small", onclick: function () { showTable(TABS.filter(function (x) { return x[0] === tab; })[0][2], TABS.filter(function (x) { return x[0] === tab; })[0][1], null); } }, "Back to the list")));
         if (tab === "outside" && !note && rows.length > 25) tableBox.appendChild(h("p", { class: "note" }, "Showing the 25 nearest of " + rows.length + "."));
-        tableBox.appendChild(shownRows.length ? h("div", { class: "tablewrap flat scen-wrap" }, h("table", { class: "side scen-t" },
-          h("thead", null, h("tr", null, ["Test", "Material", "O2 (method)", "Pressure", "Distance (windows)", "What NASA recorded", "Check"].map(function (t) { return h("th", { scope: "col" }, t); }))),
-          h("tbody", null, shownRows.map(rowFor)))) : h("p", { class: "note" }, "No tests in this category."));
+        tableBox.appendChild(shownRows.length || EMPTY ? h("div", { class: "tablewrap flat scen-wrap" }, h("table", { class: "side scen-t" },
+          h("thead", null, h("tr", null, ["Test", "Material", "O2 (method)", "Pressure", "Distance (windows)", EMPTY ? "What was recorded" : "What NASA recorded", "Check"].map(function (t) { return h("th", { scope: "col" }, t); }))),
+          h("tbody", null, shownRows.length ? shownRows.map(rowFor) : h("tr", null, h("td", { colspan: 7, class: "muted" }, "No tests in this category."))))) : h("p", { class: "note" }, "No tests in this category."));
       }
       var cur = TABS.filter(function (x) { return x[0] === tab; })[0];
       showTable(cur[2], cur[1], null);
@@ -1938,6 +2069,7 @@
       var zBtns = h("div", { class: "seg", role: "group", "aria-label": "Chart view" });
       var exps2d = Object.keys(EXP_COL).filter(function (e) { return both.some(function (t) { return t.c.r.experiment === e; }); });
       var exps1d = Object.keys(EXP_COL).filter(function (e) { return o2only.some(function (t) { return t.c.r.experiment === e; }); });
+      if (EMPTY) { exps2d = PH.exp.slice(0, 2); exps1d = PH.exp.slice(2, 3); }  /* empty template: draw the panels with no tests */
       function onPick(members, exp) {
         var rows = members.slice().sort(function (a, b) { return a.d - b.d; });
         showTable(rows, "Selected on the chart: " + rows.length + " " + exp + " test" + (rows.length > 1 ? "s" : ""), "These are the tests in the bubble or dot you clicked.");
@@ -1947,15 +2079,15 @@
         panelsBox.textContent = "";
         exps2d.forEach(function (e) {
           var tests = both.filter(function (t) { return t.c.r.experiment === e; });
-          var res = scenarioPanel(e, tests, st.o2, st.psi, zoom, onPick), m0 = tests[0].c;
+          var res = scenarioPanel(e, tests, st.o2, st.psi, zoom, onPick), m0 = tests.length ? tests[0].c : { o2How: "\u2014" };
           panelsBox.appendChild(h("div", { class: "panel" },
-            h("p", { class: "panel-h" }, h("i", { class: "lg-dot", style: "--c:" + EXP_COL[e] }), h("b", null, e), " · oxygen: " + m0.o2How + " · pressure: " + (e === "FLEX" ? "“Ambient pressure; mmHg”" : "“pressure, atm”") + ", converted to psi"),
+            h("p", { class: "panel-h" }, h("i", { class: "lg-dot", style: "--c:" + (EXP_COL[e] || "#c98500") }), h("b", null, e), " · oxygen: " + m0.o2How + " · pressure: " + (EMPTY ? "\u2014" : e === "FLEX" ? "“Ambient pressure; mmHg”" : "“pressure, atm”") + ", converted to psi"),
             res.svg, res.hidden ? h("p", { class: "note scen-hidden" }, res.hidden + " " + e + (res.hidden === 1 ? " test lies" : " tests lie") + " outside this zoomed view. Switch to “All tested conditions” to see them.") : null));
         });
         exps1d.forEach(function (e) {
           var tests = o2only.filter(function (t) { return t.c.r.experiment === e; });
           panelsBox.appendChild(h("div", { class: "panel" },
-            h("p", { class: "panel-h" }, h("i", { class: "lg-dot", style: "--c:" + EXP_COL[e] }), h("b", null, e), " · oxygen: " + tests[0].c.o2How + " · no per-test pressure, so oxygen only (one dot per test, stacked in 0.25-point columns; hover a dot for its exact value)"),
+            h("p", { class: "panel-h" }, h("i", { class: "lg-dot", style: "--c:" + (EXP_COL[e] || "#c98500") }), h("b", null, e), " · oxygen: " + (tests.length ? tests[0].c.o2How : "\u2014") + " · no per-test pressure, so oxygen only (one dot per test, stacked in 0.25-point columns; hover a dot for its exact value)"),
             o2Strip(e, tests, st.o2)));
         });
         zBtns.textContent = "";
@@ -1973,7 +2105,7 @@
             h("p", null, h("b", null, "On the charts: "), both.length + " tests with both oxygen and pressure recorded (2-D panel" + (exps2d.length > 1 ? "s" : "") + "), " + inside.length + " of them inside the window; " +
               o2only.length + " tests with oxygen only (strip panel" + (exps1d.length > 1 ? "s" : "") + "), " + partial.length + " of them oxygen-only matches."),
             h("p", null, h("b", null, "Not on the charts: "), omitted.length + " tests with no usable oxygen value" + (omitted.length ? " (" + Object.keys(omittedWhy).map(function (k) { return omittedWhy[k] + ": " + k; }).join("; ") + ")" : "") +
-              ". BASS-II has no per-test pressure; SAFFIRE oxygen is approximate or not given.")),
+              (EMPTY ? "." : ". BASS-II has no per-test pressure; SAFFIRE oxygen is approximate or not given."))),
           h("p", { class: "howto" }, h("b", null, "How to read: "), "each panel is one experiment. Oxygen was recorded differently in each (method in the panel title), so panels never share an axis and a match means “NASA recorded about this number in this experiment”, not that the atmospheres were measured the same way. Hover for details; click to list tests below."),
           scenarioLegend(), panelsBox),
         tableBox, flexOut, tlCard,
@@ -1990,7 +2122,7 @@
     var view = h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Scenario Check"),
-          h("p", { class: "lead" }, "Describe the conditions you care about. Flare AI shows the closest real NASA tests, what NASA recorded in them, and says plainly when the data doesn’t reach that far.")),
+          h("p", { class: "lead" }, "Describe the conditions you care about. Flare AI shows the closest real tests, what was recorded in them, and says plainly when the data doesn’t reach that far.")),
         h("div", { class: "card scen-safe" }, h("b", null, "A screening tool, not a safety tool. "), "It finds tests; it does not predict fires or certify materials.")),
       h("section", { class: "card", style: "margin-top:16px" },
         h("h2", { class: "mini-h" }, "1. Fuel type"), fam,
@@ -2002,7 +2134,7 @@
           preset("ISS / Earth air: 21%, 14.7 psi", 21, 14.7, "Sea-level air"),
           preset("Moon base / rover (brief): 30%, 10.2 psi", 30, 10.2, "Challenge brief: 30% O2 or more at 10.2 psi or less"),
           preset("Spacesuit (brief): 100%, 4.3 psi", 100, 4.3, "Challenge brief: spacesuits use 100% O2 at 4.3 psi"),
-          preset("FLEX high-O2 tests: 34%, 10.4 psi", 34, 10.4, "Close to the brief's Moon-base zone"))),
+          EMPTY ? null : preset("FLEX high-O2 tests: 34%, 10.4 psi", 34, 10.4, "Close to the brief's Moon-base zone"))),
       out);
     setTimeout(run, 0);
     return view;
@@ -2029,14 +2161,14 @@
         h("p", { class: "note", style: "margin:12px 0 0" }, "Automated checks compare our records with NASA\u2019s own documents and files; they catch copying errors but cannot judge the science. " +
           "\u201cVerified\u201d is reserved for a team member who compares a record with NASA\u2019s source and signs it.")),
       h("h2", null, "Data sources"),
-      h("div", { class: "src-list" }, (D.sources || []).map(function (x) {
+      h("div", { class: "src-list" }, !(D.sources || []).length ? h("div", { class: "src-item" }, h("p", { class: "muted" }, "No sources yet. They are listed here once new data is added.")) : (D.sources || []).map(function (x) {
         var n = ALL.filter(function (r) { return r.source_id === x.source_id; }).length;
         return h("div", { class: "src-item" }, h("p", null, h("b", null, x.title), " (" + n + " records)"),
           h("p", { class: "note" }, x.authors + ", " + x.type),
           h("p", null, h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.url)));
       })),
       h("h2", null, "Known limits"),
-      h("div", { class: "card" }, h("ul", { class: "about-list" },
+      h("div", { class: "card" }, h("ul", { class: "about-list" }, (EMPTY ? ["No data is loaded yet. Known limits of the data are listed here once new data is added."] :
         ["Tests P7, P11 and T8 do not appear in the report\u2019s tables (checked in NASA\u2019s PDF).",
           "Flow velocity is not shown: the report uses fan settings and mixed formats.",
           "Pressure is not given per test in the report tables.",
@@ -2046,7 +2178,7 @@
           "Oxygen was measured differently in each experiment (calibrated chamber sensor, logged station O2, or estimates), so values from different experiments are never compared with each other.",
           "In 3 BASS-II tests NASA\u2019s report and NASA\u2019s PSI spreadsheet disagree (F3, P22b, P3a). Both values are shown.",
           "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
-          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", null, t); }))),
+          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."]).map(function (t) { return h("li", null, t); }))),
       h("h2", null, "AI use"),
       h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with AI assistance (Claude). The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }

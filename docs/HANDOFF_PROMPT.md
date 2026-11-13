@@ -1,3 +1,5 @@
+> **Data removed (2026-11-13).** All NASA data was taken out so new data can be added; the site is now an empty template (0 records, charts at 0 with placeholder labels). Counts and record ids below describe the earlier data, which is in git history. See `README.md` and `data/README.md` for the current state.
+
 # FLARE AI: MASTER HANDOFF PROMPT (v2)
 
 Paste this whole file into the AI that is taking over. It is self-contained.

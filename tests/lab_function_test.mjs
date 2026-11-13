@@ -1,6 +1,18 @@
 // Tests the Intelligence Lab function logic with a FAKE Claude client and in-memory store (no API key, no cost).
 // Run: node tests/lab_function_test.mjs
-import { handle, retrieve, validate, LIMITS } from "../netlify/functions/ask/core.mjs";
+import { handle, retrieve, validate, LIMITS, makeIndex } from "../netlify/functions/ask/core.mjs";
+
+// The real corpus is empty while no data is loaded (NASA data removed 2026-11-13), so the retrieval and answer
+// logic is tested against this small FAKE fixture. None of it is real data; it is never shown on the site.
+const FIXTURE = [
+  ...[901, 902, 903].map((n) => ({ id: "FLEX-" + n, kind: "record", title: "FLEX FLEX-" + n + ": fixture methanol droplet", route: "#/experiment/FLEX-" + n,
+    source: "test fixture", text: "Fixture test FLEX-" + n + ". Material: methanol droplet. Test end: extinction. Oxygen and pressure values are placeholders." })),
+  { id: "PSI-900", kind: "investigation", title: "Fixture investigation (PSI-900) overview", route: "#/investigation/PSI-900", source: "test fixture",
+    text: "Fixture investigation that tested oxygen above 30% at low pressure for a Moon base habitat." },
+  { id: "brief-moon", kind: "brief", title: "Fixture brief: Moon base atmosphere", route: "#/investigations", source: "test fixture",
+    text: "Fixture brief text: Moon base oxygen 30% or more at low pressure." },
+];
+const FIX = makeIndex(FIXTURE);
 
 let pass = 0, fail = 0;
 const check = (name, ok, extra = "") => { ok ? pass++ : fail++; console.log((ok ? "PASS " : "FAIL ") + name + (ok ? "" : " " + extra)); };
@@ -14,15 +26,16 @@ function fakeClient(reply, calls) {
 const answerWith = (obj) => () => ({ stop_reason: "end_turn", model: "claude-opus-5-5", content: [{ type: "text", text: JSON.stringify(obj) }] });
 
 // retrieval
-const r1 = retrieve("Which investigations tested oxygen above 30% at low pressure for a Moon base?");
+const r1 = retrieve("Which investigations tested oxygen above 30% at low pressure for a Moon base?", 12, FIX);
 check("retrieval: Moon-base question finds investigation summaries / brief", r1.some((d) => d.kind === "investigation") && r1.some((d) => d.kind === "brief"), JSON.stringify(r1.map((d) => d.id)));
-const r2 = retrieve("What happened in test FLEX-114?");
-check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-114", r2[0] && r2[0].id);
+const r2 = retrieve("What happened in test FLEX-902?", 12, FIX);
+check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-902", r2[0] && r2[0].id);
+check("retrieval: empty real corpus returns nothing", retrieve("How did methanol droplet tests end?").length === 0);
 
 // method / origin / size guards (no model call)
 {
   const calls = [];
-  const deps = { client: fakeClient(answerWith({}), calls), store: memStore(), ip: "1.2.3.4", allowedOrigins: [ORIGIN] };
+  const deps = { client: fakeClient(answerWith({}), calls), store: memStore(), ip: "1.2.3.4", allowedOrigins: [ORIGIN], index: FIX };
   check("rejects GET", (await handle(req("x", { method: "GET" }), deps)).status === 405);
   check("rejects other origins", (await handle(req("Which tests used methanol droplets?", { origin: "https://evil.example" }), deps)).status === 403);
   check("rejects over-long questions", (await handle(req("a".repeat(LIMITS.maxQuestionChars + 1)), deps)).status === 400);
@@ -33,11 +46,11 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
 {
   const calls = [];
   const q = "How did FLEX methanol droplet tests end?";
-  const ids = retrieve(q).filter((d) => d.kind === "record").map((d) => d.id);
+  const ids = retrieve(q, 12, FIX).filter((d) => d.kind === "record").map((d) => d.id);
   const deps = { client: fakeClient(answerWith({ status: "answered", summary: "Most ended in extinction.",
     key_points: [{ text: "Test ended in extinction.", basis: "nasa_record", citations: ids.slice(0, 3) },
                  { text: "Invented claim.", basis: "interpretation", citations: ["NOT-A-REAL-ID"] }], gaps: ["Not a rate."] }), calls),
-    store: memStore(), ip: "1.2.3.4", allowedOrigins: [ORIGIN] };
+    store: memStore(), ip: "1.2.3.4", allowedOrigins: [ORIGIN], index: FIX };
   const res = await handle(req(q), deps); const body = await res.json();
   check("answer: 200 and answered", res.status === 200 && body.status === "answered", JSON.stringify(body).slice(0, 200));
   check("answer: invented citation removed, point dropped", body.dropped_points === 1 && body.key_points.length === 1);
@@ -53,10 +66,10 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
 // abstain cases
 {
   const calls = [];
-  const deps = { client: fakeClient(answerWith({ status: "answered", summary: "x", key_points: [{ text: "y", basis: "interpretation", citations: ["NOPE"] }], gaps: [] }), calls), store: memStore(), ip: "5.6.7.8", allowedOrigins: [ORIGIN] };
+  const deps = { client: fakeClient(answerWith({ status: "answered", summary: "x", key_points: [{ text: "y", basis: "interpretation", citations: ["NOPE"] }], gaps: [] }), calls), store: memStore(), ip: "5.6.7.8", allowedOrigins: [ORIGIN], index: FIX };
   const b = await (await handle(req("What is the fire probability on a Mars rover?"), deps)).json();
   check("abstains when no citation survives validation", b.status === "abstained" && b.grade === "none" && b.key_points.length === 0);
-  const deps2 = { client: fakeClient(() => ({ stop_reason: "refusal", model: "claude-opus-5-5", content: [] }), []), store: memStore(), ip: "9.9.9.9", allowedOrigins: [ORIGIN] };
+  const deps2 = { client: fakeClient(() => ({ stop_reason: "refusal", model: "claude-opus-5-5", content: [] }), []), store: memStore(), ip: "9.9.9.9", allowedOrigins: [ORIGIN], index: FIX };
   const b2 = await (await handle(req("Which tests used Nomex fabric samples?"), deps2)).json();
   check("refusal stop reason -> abstained, not an error", b2.status === "abstained");
 }
@@ -64,11 +77,19 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
 // rate limits
 {
   const calls = [];
-  const deps = { client: fakeClient(answerWith({ status: "abstained", summary: "n", key_points: [], gaps: [] }), calls), store: memStore(), ip: "7.7.7.7", allowedOrigins: [ORIGIN], now: Date.UTC(2026, 10, 14, 10) };
+  const deps = { client: fakeClient(answerWith({ status: "abstained", summary: "n", key_points: [], gaps: [] }), calls), store: memStore(), ip: "7.7.7.7", allowedOrigins: [ORIGIN], now: Date.UTC(2026, 10, 14, 10), index: FIX };
   let last;
-  for (let i = 0; i < LIMITS.perIpPerHour + 1; i++) last = await handle(req("Question number " + i + " about BASS samples?"), deps);
+  for (let i = 0; i < LIMITS.perIpPerHour + 1; i++) last = await handle(req("Question number " + i + " about methanol droplets?"), deps);
   check("per-IP hourly limit returns 429", last.status === 429);
   check("no model call beyond the limit", calls.length === LIMITS.perIpPerHour);
+}
+
+// empty template: with no corpus the Lab abstains without calling the model
+{
+  const calls = [];
+  const deps = { client: fakeClient(answerWith({}), calls), store: memStore(), ip: "3.3.3.3", allowedOrigins: [ORIGIN] };
+  const b = await (await handle(req("How did methanol droplet tests end?"), deps)).json();
+  check("empty corpus: abstains, no model call", b.status === "abstained" && calls.length === 0);
 }
 
 // validate(): grade rule edge cases
