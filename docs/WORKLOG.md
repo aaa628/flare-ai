@@ -382,3 +382,10 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served p
 - Buttons/brand use exact burgundy with white text; links use a brighter crimson (#e2375a) for contrast on black; burgundy band
   under the header. Highlighted Compare tile mini-bars made white so they show on burgundy.
 - Saved as its own commit so it can be restored; superseded by the next palette before its test run finished.
+
+## 2026-11-13: palette tried: purple night with violet ink and blue-violet strokes (user reference artwork)
+- Background purple-black #0f0618 (panels #1a0f29); accent violet #a15cff with dark ink on buttons, lighter violet #bf94ff for
+  text links; "stroke" blue-violet #5b5bff. A blue-violet haze comes in from the right edge (like the reference's brush strokes)
+  and a violet -> blue -> lavender band sits under the header.
+- Status colours: measured cyan, published periwinkle, our interpretation pink, caution amber, problem red, OK mint.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
