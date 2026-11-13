@@ -578,3 +578,15 @@ Verified by running: smoke 134/134 (4 new); previewer 14/14; lab_ui passed; lab_
 - Follow-up (user): no hidden SI notes. Removed the si-disclosure meta tag, the SI notes in code-file headers and generated
   files, and the README SI sections. Kept: About "Super Intelligence (SI) use" paragraph, the drawing's visible SI mark,
   and the SI wording in labels. Verified by running: smoke 132/132; previewer 14/14; lab_ui passed; lab_function 18/18; CSP clean.
+
+## 2026-11-13: Mars-base view and the brief's water-mist sentence
+- Investigations: new "Mars base" lens (#/investigations/mars) next to Spacecraft/ISS and Moon base. It invents no Mars
+  numbers: the brief names Martian bases but gives no Mars cabin atmosphere, and PSI has no partial-gravity tests. The
+  answer card says so; the only Mars point is +2 for ACME E-FIELD Flames, which the brief says mimicked partial gravity.
+  Shows the brief's habitats sentence (Mars card) and the partial-gravity card, both checked word for word on every build.
+  Investigation pages and Compare show the Mars score; the printed ranking rule has the Mars line.
+- Lessons, "Fire safety on Earth": added the brief's sentence on fine-water-mist extinguishers, quoted word for word
+  (checked against data/source/challenge_brief_2026-11-13.txt), labelled "NASA challenge brief", not a Resources-tab page.
+  Our note says Flare AI's suppression data (FLEX) used inert gases, not water mist.
+Verified by running: smoke 135/135 (Lessons counts updated to 10 cards / 26 quotes, 3 new checks); previewer 14/14;
+  lab_ui passed; lab_function 18/18; mutation tests passed; all 537 record pages open; CSP clean.

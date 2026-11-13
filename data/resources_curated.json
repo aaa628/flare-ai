@@ -180,5 +180,26 @@
   "ours": "Fire-resistant spacesuit materials, the kind adopted after Apollo 1, went on to protect firefighters.",
   "link": null,
   "year": "1982"
+ },
+ {
+  "id": "res-water-mist",
+  "group": "spinoffs",
+  "title": "Fine-water-mist extinguishers",
+  "publisher": "NASA Space Apps 2026 challenge brief (Flame in Freefall)",
+  "published": "",
+  "year": "",
+  "from_brief": true,
+  "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+  "text_file": "challenge_brief_2026-11-13.txt",
+  "event": "ISS fire-suppression technology with uses on Earth",
+  "quotes": [
+   "Fine-water-mist extinguishers developed for use on the ISS have practical applications here on Earth, and NASA technology has similarly led to improvements in terrestrial smoke detection and firefighter gear, including protective clothing and air tanks."
+  ],
+  "quote_source": "the challenge brief (Details tab, saved 2026-11-13)",
+  "ours": "The brief names water mist as an Earth application of ISS fire-safety work, but none of the Resources-tab pages covers it. The suppression data in Flare AI is FLEX, which used inert gases (carbon dioxide and helium), not water mist.",
+  "link": [
+   "#/investigation/PSI-69",
+   "See FLEX, the suppression study"
+  ]
  }
 ]

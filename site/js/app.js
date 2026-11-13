@@ -1169,7 +1169,8 @@
   var INV = (D.investigations || []);
   var LENSES = {
     station: { label: "Spacecraft & space station", short: "Spacecraft / ISS", atm: "about 21% O2 at 14.7 psi (cabin air)" },
-    moon: { label: "Moon base & pressurized rover", short: "Moon base / rover", atm: "30% O2 or more at 10.2 psi or less (challenge brief)" }
+    moon: { label: "Moon base & pressurized rover", short: "Moon base / rover", atm: "30% O2 or more at 10.2 psi or less (challenge brief)" },
+    mars: { label: "Mars base", short: "Mars base", atm: "atmosphere not given in the brief; no partial-gravity data in PSI" }
   };
   function invName(v) { return v.investigationAcronym || (v.curated && v.curated.short_name) || v.title; }
   function invById(acc) { return INV.filter(function (v) { return v.accession === acc; })[0]; }
@@ -1190,13 +1191,17 @@
       if (v.high_o2_tests > 0) add(2, "Tested 30% O2 or more (" + v.high_o2_tests + " values)", "O2 column of NASA’s table");
       if (v.joint_tests > 0) add(3, "Tested ≥30% O2 at ≤10.2 psi in the same test (" + v.joint_tests + " tests)", "O2 and pressure columns, same row");
       else if (v.p_min_psi_at_o2ge30 && v.p_min_psi_at_o2ge30 <= 11) add(1, "Near miss: ≥30% O2 tested down to " + v.p_min_psi_at_o2ge30 + " psi (just above 10.2)", "O2 and pressure columns, same row");
+    } else if (lens === "mars") {
+      /* No Mars cabin atmosphere is given in the brief and PSI holds no partial-gravity data, so no oxygen/pressure points.
+       * The one Mars-specific point: the brief says E-FIELD mimicked partial gravity. */
+      if (v.accession === "PSI-22") add(2, "Mimicked partial gravity with an electric field (challenge brief)", "Brief: partial gravity was mimicked in ACME\u2019s E-FIELD Flames", "brief");
     } else {
       var near = (v.table_summaries || []).some(function (t) { return t.o2_range_pct && t.o2_range_pct[0] <= 23 && t.o2_range_pct[1] >= 19 && !/PLANNED/.test(t.o2_meaning || ""); });
       if (near) add(1, "Tested near cabin-air oxygen (19–23%)", "O2 column of NASA’s table");
     }
     return { score: pts.reduce(function (a, p) { return a + p.n; }, 0), pts: pts };
   }
-  var MAXPTS = { station: 13, moon: 19 };
+  var MAXPTS = { station: 13, moon: 19, mars: 14 };
   var FUEL_COLOR = { solid: COLORS_FUEL("solid"), liquid: COLORS_FUEL("liquid"), gas: COLORS_FUEL("gas"), smoke: COLORS_FUEL("smoke") };
   function COLORS_FUEL(k) { return { solid: "#3987e5", liquid: "#d95926", gas: "#199e70", smoke: "#c98500" }[k]; }
   function fuelKey(v) { var f = (v.curated && v.curated.fuel_class) || ""; return /^solid/.test(f) ? "solid" : /^liquid/.test(f) ? "liquid" : /^gas/.test(f) ? "gas" : "smoke"; }
@@ -1274,7 +1279,7 @@
   function viewInvestigations(arg) {
     setTitle("Investigations");
     ensureTip();
-    var lens = /moon/.test(arg || "") ? "moon" : "station";
+    var lens = /moon/.test(arg || "") ? "moon" : /mars/.test(arg || "") ? "mars" : "station";
     var state = { fuel: "", pillar: "", data: "" };
     var listBox = h("div", { class: "inv-list" }), count = h("p", { class: "count", "aria-live": "polite" });
     var picked = [];
@@ -1340,10 +1345,19 @@
         h("div", null, h("h1", null, "Investigations"),
           h("p", { class: "lead" }, "All " + INV.length + " combustion investigations in NASA’s Physical Sciences Informatics (PSI) database, ranked for the crew environment you choose. The ranking rule is ours and is printed below; every fact comes from NASA PSI.")),
         h("div", { class: "lens", role: "group", "aria-label": "Crew environment" },
-          ["station", "moon"].map(function (k) {
-            return h("a", { class: "lens-b" + (k === lens ? " on" : ""), href: k === "moon" ? "#/investigations/moon" : "#/investigations", "aria-current": k === lens ? "true" : null },
+          ["station", "moon", "mars"].map(function (k) {
+            return h("a", { class: "lens-b" + (k === lens ? " on" : ""), href: k === "station" ? "#/investigations" : "#/investigations/" + k, "aria-current": k === lens ? "true" : null },
               h("b", null, LENSES[k].short), h("span", null, LENSES[k].atm));
           }))),
+      lens === "mars" ? h("section", { class: "card insight" },
+        h("h2", { class: "mini-h" }, "Answer for a Mars base"),
+        h("p", null, h("b", null, "PSI cannot yet say which tests match a Mars base. "), "The challenge brief gives no Mars cabin atmosphere, and NASA PSI holds no partial-gravity combustion data. " +
+          (function () {
+            var n = INV.filter(function (v) { return (v.table_summaries || []).some(function (t) { return t.profile && t.profile.tests_profiled && (t.profile.varied.length || t.profile.same.length); }); });
+            var g = n.filter(function (v) { return !/Microgravity/.test(v.projectType || ""); }).length;
+            return "All " + n.length + " investigations whose NASA tables list tests are " + (g ? (n.length - g) + " microgravity and " + g + " other studies" : "microgravity investigations") + "; none tested Mars gravity. "; })() +
+          "The ranking below therefore uses the general rule only, plus one point the brief supports: E-FIELD mimicked partial gravity with an electric field."),
+        h("p", { class: "note", style: "margin:0" }, "Our interpretation, counted from NASA PSI\u2019s project types and tables. No Mars values are assumed.")) :
       h("section", { class: "card insight" },
         h("h2", { class: "mini-h" }, "Answer for a Moon base or pressurized rover"),
         h("p", null, h("b", null, moonZone.length + " investigations"), " ran tests inside the brief’s Moon-base atmosphere (≥30% O2 at ≤10.2 psi in the same test): " +
@@ -1352,7 +1366,8 @@
           (function () { var s = INV.filter(function (v) { return fuelKey(v) === "solid" && v.o2_max_pct != null; }); var mx = Math.max.apply(null, s.map(function (v) { return v.o2_max_pct; }));
             return s.length ? "Solid-material investigations recorded at most " + mx + "% O2 (" + s.map(invName).join(", ") + "), so how cabin materials burn in a Moon-base atmosphere is a gap in PSI\u2019s data." : ""; })()),
         h("p", { class: "note", style: "margin:0" }, "Our interpretation of NASA’s tables, using the brief’s thresholds. Counts come from the O2 and pressure columns listed on each investigation’s page.")),
-      lens === "moon" && (D.brief_cards || []).length ? h("div", { class: "grid brief-cards" }, (D.brief_cards || []).map(function (c) {
+      lens !== "station" && (D.brief_cards || []).length ? h("div", { class: "grid brief-cards" }, (D.brief_cards || []).filter(function (c) {
+        return c.id === "partial-gravity" || c.id === (lens === "moon" ? "moon-atmosphere" : "mars"); }).map(function (c) {
         var ef = invById("PSI-22"), cg = invById("PSI-159");
         return h("section", { class: "card brief-card", id: "brief-" + c.id },
           h("h3", null, c.title), chip("published", "NASA challenge brief"),
@@ -1418,7 +1433,8 @@
           h("li", null, h("b", null, "+1"), " per fire-safety area addressed: prevention, detection, suppression (from the brief)"),
           h("li", null, h("b", null, "+1"), " spacecraft-scale fire; ", h("b", null, "+1"), " flight tests with a per-test NASA table"),
           h("li", null, h("b", null, "Moon base / rover only: +2"), " tested ≥30% O2; ", h("b", null, "+3"), " tested ≥30% O2 at ≤10.2 psi in the same test (+1 near miss ≤11 psi)"),
-          h("li", null, h("b", null, "Spacecraft / ISS only: +1"), " tested near cabin-air oxygen (19–23%)")),
+          h("li", null, h("b", null, "Spacecraft / ISS only: +1"), " tested near cabin-air oxygen (19–23%)"),
+          h("li", null, h("b", null, "Mars base only: +2"), " mimicked partial gravity (E-FIELD, per the brief). No oxygen or pressure points: the brief gives no Mars atmosphere.")),
         h("p", { class: "note" }, "Points never claim safety. They rank how directly each investigation’s published data speaks to the chosen environment. Curated labels (fuel type, area, brief mention) are in data/investigations_curated.csv with their basis.")),
       listBox);
   }
@@ -1478,7 +1494,7 @@
     if (!v) { setTitle("Not found"); return h("div", null, h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")), h("h1", null, "Investigation not found")); }
     setTitle(invName(v));
     var c = v.curated || {}, ours = ALL.filter(function (r) { return r.source_id === v.accession; });
-    var rs = relevance(v, "station"), rm = relevance(v, "moon");
+    var rs = relevance(v, "station"), rm = relevance(v, "moon"), rM = relevance(v, "mars");
     function text(label, t) { return t ? h("div", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, label), chip("published", "NASA PSI text")),
       h("p", { class: "pub-text" }, t)) : null; }
     return h("div", null,
@@ -1488,7 +1504,7 @@
           h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, "NASA PSI " + v.accession + ", " + (v.subResearchArea || v.researchArea)),
             h("h1", { id: "inv-h" }, invName(v)), h("p", { class: "inv-title" }, v.title)),
           h("div", { class: "rh-status" }, h("span", { class: "fuel-tag big", style: "--c:" + COLORS_FUEL(fuelKey(v)) }, h("i", null), fuelLabel(fuelKey(v))),
-            h("p", { class: "signoff no" }, "Scores: " + rs.score + "/" + MAXPTS.station + " spacecraft/ISS · " + rm.score + "/" + MAXPTS.moon + " Moon base/rover (our rule)"))),
+            h("p", { class: "signoff no" }, "Scores: " + rs.score + "/" + MAXPTS.station + " spacecraft/ISS · " + rm.score + "/" + MAXPTS.moon + " Moon base/rover · " + rM.score + "/" + MAXPTS.mars + " Mars base (our rule)"))),
         h("div", { class: "rh-body" },
           h("div", null, h("h2", { class: "mini-h" }, "Key facts (NASA PSI)"),
             h("div", { class: "inv-facts wide" },
@@ -1548,9 +1564,10 @@
         h("ul", { class: "fn", style: "margin-top:10px" }, v.publications.slice(0, 40).map(function (p) {
           return h("li", null, p.title + (p.authors ? " — " + p.authors.split(",").slice(0, 3).join(",") + (p.authors.split(",").length > 3 ? " et al." : "") : "") + " ",
             p.doi ? h("a", { href: "https://doi.org/" + p.doi, target: "_blank", rel: "noopener" }, "DOI") : null); }))) : null,
-      h("details", { class: "card tech" }, h("summary", null, h("b", null, "Why it scores " + rs.score + " / " + rm.score)),
+      h("details", { class: "card tech" }, h("summary", null, h("b", null, "Why it scores " + rs.score + " / " + rm.score + " / " + rM.score)),
         h("p", { class: "mini-h" }, "Spacecraft & station"), h("ul", { class: "pts" }, rs.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label); })),
-        h("p", { class: "mini-h" }, "Moon base & rover"), h("ul", { class: "pts" }, rm.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label); }))));
+        h("p", { class: "mini-h" }, "Moon base & rover"), h("ul", { class: "pts" }, rm.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label); })),
+        h("p", { class: "mini-h" }, "Mars base"), h("ul", { class: "pts" }, rM.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label); }))));
   }
 
   function viewInvCompare(arg) {
@@ -1575,7 +1592,7 @@
       ["Measurements recorded (NASA column names)", function (v) { var cols = []; (v.table_summaries || []).forEach(function (t) { cols = cols.concat(t.columns || []); });
         return cols.length ? h("div", { class: "cols-chips" }, cols.slice(0, 18).map(function (x) { return h("span", { class: "colchip" }, x); }), cols.length > 18 ? h("span", { class: "muted" }, " +" + (cols.length - 18) + " more") : null) : "no table"; }],
       ["Same / different", function (v) { return ""; }],
-      ["Score (our rule)", function (v) { return relevance(v, "station").score + "/" + MAXPTS.station + " ISS · " + relevance(v, "moon").score + "/" + MAXPTS.moon + " Moon"; }]];
+      ["Score (our rule)", function (v) { return relevance(v, "station").score + "/" + MAXPTS.station + " ISS · " + relevance(v, "moon").score + "/" + MAXPTS.moon + " Moon · " + relevance(v, "mars").score + "/" + MAXPTS.mars + " Mars"; }]];
     /* Hardware is compared by family (from the challenge brief / NASA PSI), not by NASA's free-text hardware field, which
      * spells the same rig differently across investigations. Ground studies never count as "same hardware". */
     var hw = list.map(function (v) { return (v.curated || {}).hw_family || ""; });
@@ -2126,7 +2143,7 @@
         h("div", { class: "lesson-main" },
           h("h3", null, r.title),
           h("p", { class: "lesson-event" }, r.event),
-          h("div", { class: "lesson-quotes" }, chip("published", "Published by NASA"),
+          h("div", { class: "lesson-quotes" }, chip("published", r.from_brief ? "NASA challenge brief" : "Published by NASA"),
             h("blockquote", { class: "lesson-key" }, h("q", null, r.quotes[0])),
             rest.length ? h("details", { class: "lesson-more" }, h("summary", null, "Show all " + r.quotes.length + " NASA quotes"),
               h("ul", null, rest.map(function (q) { return h("li", null, h("q", null, q)); }))) : null,
@@ -2134,7 +2151,7 @@
               : "! A quote could not be matched to the saved page; treat it with care."))),
         h("div", { class: "lesson-ours" }, chip("interp", "Our interpretation"), h("p", null, r.ours),
           h("div", { class: "lesson-links" },
-            h("a", { class: "btn ghost small", href: r.url, target: "_blank", rel: "noopener" }, "Open NASA\u2019s page"),
+            h("a", { class: "btn ghost small", href: r.url, target: "_blank", rel: "noopener" }, r.from_brief ? "Open the challenge page" : "Open NASA\u2019s page"),
             r.link ? h("a", { class: "textlink", href: r.link[0] }, r.link[1]) : null)));
     }
     function draw() {
@@ -2167,7 +2184,7 @@
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Lessons from real fires"),
           h("p", { class: "lead" }, "The challenge\u2019s Resources tab lists one dataset, NASA\u2019s PSI combustion repository (that is the data in Flare AI), and " +
-            R.length + " background pages. These are those pages: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words. The \u201cOur interpretation\u201d lines were drafted with SI (Claude); the quotes are NASA\u2019s."))),
+            R.filter(function (r) { return !r.from_brief; }).length + " background pages. These are those pages, plus one Earth application named in the challenge brief: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words. The \u201cOur interpretation\u201d lines were drafted with SI (Claude); the quotes are NASA\u2019s."))),
       R.length ? h("div", { class: "lesson-tools" }, tabs, h("div", { class: "lesson-search" }, search), count) : null,
       R.length ? body : h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No resources loaded"), h("p", { class: "muted" }, "Add them to data/resources_curated.json and rebuild.")));
   }
