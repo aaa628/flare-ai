@@ -56,7 +56,7 @@ Then work through the machine-checked rows; the machine check does not replace y
      some glitch readings (for example 20.8 to 0.6). Keep them as printed; do not "fix".
    - `flow_mode_not_stated`: the table has no clear flow mode for that row. Leave blank.
    - `material_check`: the material name could not be split cleanly from the setup columns. Fix by hand.
-5. Run `python scripts/build_site_data.py`, reload `site/index.html`, and confirm your rows appear.
+5. Run `python scripts/build_site_data.py`, reload `site/app.html`, and confirm your rows appear.
 
 Tip: keep the file as CSV (UTF-8). Spreadsheet programs may rewrite characters such as the en dash (`–1`) and
 the micro sign (`µm`); check those survive a save.

@@ -6,3 +6,4 @@ __pycache__/
 data/raw/
 tests/_shots/
 node_modules/
+.taste-skill/

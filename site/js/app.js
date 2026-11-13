@@ -227,8 +227,8 @@
     var hero = h("section", { class: "hero", "aria-labelledby": "hero-h" },
       h("div", { class: "hero-main" },
         h("p", { class: "eyebrow" }, nAll + " NASA microgravity fire test records · " + (D.counts.sources || 0) + " NASA sources"),
-        h("h1", { id: "hero-h" }, "What NASA\u2019s fire experiments prove, ", h("span", { class: "hl" }, "and where the data stops.")),
-        h("p", { class: "lead" }, "Flames behave differently without gravity. Flare AI gathers NASA\u2019s test records, shows how each number was checked, and says so when the data runs out."),
+        h("h1", { id: "hero-h" }, "NASA\u2019s fire test data, ", h("span", { class: "hl" }, "and how each record was checked.")),
+        h("p", { class: "lead" }, "Every record on this site comes from a NASA report or data file. This page shows what is in the dataset and how far each number has been checked."),
         h("div", { class: "hero-cta" },
           h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer \u2192"),
           h("a", { class: "textlink", href: "#/about" }, "How we handle evidence")),
@@ -2099,6 +2099,14 @@
     var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
     if (!a) return;
     var href = a.getAttribute("href");
+    /* "Home" goes to the landing page (index.html) beside this file. The address is built from this document's own
+     * URL, so it also works where a previewer injects a <base> tag. */
+    if (a.hasAttribute("data-home")) {
+      e.preventDefault();
+      var here = location.href.split("#")[0];
+      location.href = /app\.html(?=[^\/]*$)/.test(here) ? here.replace(/app\.html(?=[^\/]*$)/, "index.html") : new URL("index.html", here).toString();
+      return;
+    }
     if (href === "#main") { e.preventDefault(); main.focus(); main.scrollIntoView(); return; }
     if (href.indexOf("#/") !== 0) return;
     e.preventDefault();
