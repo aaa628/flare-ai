@@ -447,24 +447,3 @@ Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without er
 - Built from main (includes #23); PR #24 (hero photo) left open and untouched as the user asked.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; Explorer opens 19-110 ms after a click; CSP-served pages
   without errors; no running animations with reduced motion; screenshots of Overview, Explorer, About (1366 px) and Scenario (390 px).
-
-## 2026-11-13: stars made clearly visible (user: "no changes to the background are there")
-- PR #25 was live on main, but the stars were too small and faint to notice on most screens (0.3-1.1 px, 35-95% opacity, layer at 85%).
-  Regenerated the tiles bigger and brighter (0.55-1.8 px, more stars, 9 bright stars with a soft halo) and the layer at 100%.
-  21 KB in total. Twinkle range 20% -> 100%.
-Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors.
-
-## 2026-11-13: stars built into the stylesheet (user still saw no stars)
-- Likely cause: the star SVGs were separate files; a host that serves images with the wrong type (plus nosniff), or a cached
-  old stylesheet, shows no stars. The three star images are now embedded in style.css as data: URIs (allowed by the CSP's
-  img-src data:), and the stars-*.svg files are removed. Same stars as #27.
-- Tested on a local server that labels every image as text/plain with nosniff: stars still show (the 628 emblem image,
-  a separate file, does not on such a host).
-- From now on the user opens and merges PRs; Claude only pushes branches.
-Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors.
-
-## 2026-11-13: star sky replaced by a few drifting particles (user: stars were all over and clashed with the video)
-- Removed the star tiles. Added 14 soft particles (5-10 px, burgundy-tinted glow) in index.html that rise slowly across the
-  screen (22-40 s each, random seed 628 for positions), behind all content.
-- The home page hero now has a solid black backdrop, so no particle passes behind the NASA video. Hidden for reduced motion.
-Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors.
