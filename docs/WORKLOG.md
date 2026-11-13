@@ -513,3 +513,13 @@ Verified by running: smoke 108/108 (5 new Lessons checks); previewer 14/14; lab_
   labels that subject line as a Flare AI summary. Quotes unchanged and still checked word for word on every build.
 Verified by running: smoke 111/111 (new: timeline order, type filter, search); previewer 14/14; lab_ui passed; lab_function
   18/18; filters and search exercised in a browser; all pages open without NaN or JS errors; CSP-served pages without errors.
+
+## 2026-11-13: hardware families (from the challenge brief) and two Compare fixes
+- investigations_curated.csv: new hw_family, hw_label, hw_basis for all 24 investigations. ACME (6), MDCA (FLEX, FLEX-2, CFI)
+  and MSG duct (BASS, BASS-II, SPICE, SLICE) quote the brief word for word; Saffire, SAME, DAFT (P-Trak, with the brief's
+  SAME/DAFT instrument sentence) and ground studies use NASA PSI's hardware field.
+- Fix: investigation Compare compared the first phrase of NASA's free-text hardware field, so FLEX vs CFI showed "different
+  hardware" although both used the MDCA. It now compares families; ground studies never count as the same set-up.
+- Fix: two tables with no oxygen column were called "Same: how oxygen was recorded"; now "No oxygen column in these NASA tables".
+- Investigation pages show the family, which investigations share it (links) and the source.
+Verified by running: smoke 116/116 (5 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.

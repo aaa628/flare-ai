@@ -1412,9 +1412,15 @@
         h("div", { class: "rh-body" },
           h("div", null, h("h2", { class: "mini-h" }, "Key facts (NASA PSI)"),
             h("div", { class: "inv-facts wide" },
-              fact("Type", v.projectType || "—"), fact("Platform", v.flightProgram || "—"), fact("Hardware", v.experimentHardware || "—"),
+              fact("Type", v.projectType || "—"), fact("Platform", v.flightProgram || "—"), fact("Hardware family", (v.curated || {}).hw_label || "—"), fact("Hardware (NASA PSI)", v.experimentHardware || "not stated"),
               fact("Dates", (v.investigationStartDate || "?") + " → " + (v.investigationEndDate || "?")), fact("Publications listed", String((v.publications || []).length)),
               fact("Tests in NASA table", v.n_tests ? String(v.n_tests) : "none")),
+            (function () {
+              var fam = c.hw_family, mates = fam && fam !== "Ground" ? INV.filter(function (x) { return x !== v && (x.curated || {}).hw_family === fam; }) : [];
+              return c.hw_label ? h("p", { class: "note hw-note" }, h("b", null, "Hardware family: "), c.hw_label + ". ",
+                mates.length ? ["Shared with ", mates.map(function (x, i) { return [i ? ", " : "", h("a", { href: "#/investigation/" + x.accession }, invName(x))]; }), ". "] : null,
+                h("span", { class: "muted" }, "Source: " + c.hw_basis)) : null;
+            })(),
             h("h2", { class: "mini-h", style: "margin-top:16px" }, "Our labels (interpretation)"),
             h("p", { class: "note" }, h("b", null, "Fuel: "), (c.fuel_class || "—") + " — " + (c.fuel_examples || "") + ". ", h("b", null, "Area: "), (c.pillar || "none").replace(";", ", ") +
               ". ", h("b", null, "Brief: "), (c.brief_mention || "none") + ". ", h("span", { class: "muted" }, "Basis: " + (c.basis || "—")))),
@@ -1472,7 +1478,8 @@
       ["Fuel and geometry (our label)", function (v) { return (v.curated.fuel_class || "") + ": " + (v.curated.fuel_examples || "") + " \u00b7 " + (v.curated.scale || ""); }],
       ["Fire-safety area (our label)", function (v) { return (v.curated.pillar || "none").replace(";", ", "); }],
       ["Type / platform", function (v) { return (v.projectType || "") + " · " + (v.flightProgram || ""); }],
-      ["Hardware", function (v) { return v.experimentHardware || "—"; }],
+      ["Hardware family", function (v) { var c = v.curated || {}; return c.hw_label ? [h("b", null, c.hw_label), h("span", { class: "pc-mat" }, c.hw_basis)] : "\u2014"; }],
+      ["Hardware (NASA PSI, as printed)", function (v) { return v.experimentHardware || "not stated"; }],
       ["Tests in NASA table", function (v) { return v.n_tests ? String(v.n_tests) : "none"; }],
       ["Oxygen tested", o2], ["Pressure tested", pr],
       ["Moon-base zone tests", function (v) { return v.joint_tests + (v.p_min_psi_at_o2ge30 ? " (lowest psi at ≥30% O2: " + v.p_min_psi_at_o2ge30 + ")" : ""); }],
@@ -1481,19 +1488,22 @@
         return cols.length ? h("div", { class: "cols-chips" }, cols.slice(0, 18).map(function (x) { return h("span", { class: "colchip" }, x); }), cols.length > 18 ? h("span", { class: "muted" }, " +" + (cols.length - 18) + " more") : null) : "no table"; }],
       ["Same / different", function (v) { return ""; }],
       ["Score (our rule)", function (v) { return relevance(v, "station").score + "/" + MAXPTS.station + " ISS · " + relevance(v, "moon").score + "/" + MAXPTS.moon + " Moon"; }]];
-    var hw = list.map(function (v) { return (v.experimentHardware || "").split(",")[0].trim(); });
+    /* Hardware is compared by family (from the challenge brief / NASA PSI), not by NASA's free-text hardware field, which
+     * spells the same rig differently across investigations. Ground studies never count as "same hardware". */
+    var hw = list.map(function (v) { return (v.curated || {}).hw_family || ""; });
     var fu = list.map(fuelKey);
     var same = [], diff = [];
-    (hw.every(function (x) { return x === hw[0]; }) ? same : diff).push("hardware");
+    (hw[0] && hw[0] !== "Ground" && hw.every(function (x) { return x === hw[0]; }) ? same : diff).push("hardware (" + (hw.every(function (x) { return x === hw[0]; }) && hw[0] !== "Ground" ? hw[0] : "different set-ups") + ")");
     (fu.every(function (x) { return x === fu[0]; }) ? same : diff).push("fuel type");
     var o2col = list.map(function (v) { return (v.table_summaries || []).map(function (t) { return t.o2_meaning || "none"; }).join("/"); });
-    (o2col.every(function (x) { return x === o2col[0]; }) ? same : diff).push("how oxygen was recorded");
+    var noO2 = o2col.every(function (x) { return !x || /^(none\/?)+$/.test(x); });
+    if (!noO2) (o2col.every(function (x) { return x === o2col[0]; }) ? same : diff).push("how oxygen was recorded");
     rows = rows.filter(function (r) { return r[0] !== "Same / different"; });
     return h("div", null,
       h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")),
       h("h1", null, "Compare investigations"),
       h("div", { class: "card insight" }, h("p", { style: "margin:0" }, h("b", null, "Same: "), same.join(", ") || "nothing on these three counts", " · ", h("b", null, "Different: "), diff.join(", ") || "nothing on these three counts",
-        ". Values below come from NASA PSI; labels marked “our label” are interpretation. Test values from different investigations are described side by side, never charted together.")),
+        noO2 ? ". No oxygen column in these NASA tables" : "", ". Values below come from NASA PSI; labels marked “our label” are interpretation. Test values from different investigations are described side by side, never charted together.")),
       h("div", { class: "tablewrap", style: "margin-top:14px" }, h("table", { class: "side" },
         h("thead", null, h("tr", null, h("th", { scope: "col" }, h("span", { class: "sr" }, "Property")), list.map(function (v) { return h("th", { scope: "col" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("span", { class: "pc-mat" }, v.accession)); }))),
         h("tbody", null, rows.map(function (r) { return h("tr", null, h("th", { scope: "row" }, r[0]), list.map(function (v) { return h("td", null, r[1](v)); })); })))));
