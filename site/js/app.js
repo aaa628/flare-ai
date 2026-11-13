@@ -310,20 +310,20 @@
     [["0", "#fff8e0"], [".35", "#ffd36b"], [".7", "#ff8a3d"], ["1", "#ff5a1f", "0"]].forEach(function (x) {
       g1.appendChild(svg("stop", { offset: x[0], "stop-color": x[1], "stop-opacity": x[2] || "1" })); });
     var g2 = svg("radialGradient", { id: "fo", cx: "50%", cy: "50%", r: "50%" });
-    [["0", "#0c0a07", "1"], [".4", "#120f12", "1"], [".52", "#dff0ff", "1"], [".62", "#8cc2ff", ".95"], [".8", "#3d63d8", ".45"], ["1", "#3d63d8", "0"]].forEach(function (x) {
+    [["0", "#050805", "1"], [".4", "#0a1210", "1"], [".52", "#dff0ff", "1"], [".62", "#8cc2ff", ".95"], [".8", "#3d63d8", ".45"], ["1", "#3d63d8", "0"]].forEach(function (x) {
       g2.appendChild(svg("stop", { offset: x[0], "stop-color": x[1], "stop-opacity": x[2] })); });
     d.appendChild(g1); d.appendChild(g2); s.appendChild(d);
     s.appendChild(svg("line", { x1: 220, y1: 20, x2: 220, y2: 230, class: "fl-axis" }));
     /* Earth: teardrop + wick + gravity arrow */
     s.appendChild(svg("path", { d: "M110 40 C 128 92, 150 128, 150 168 A 40 40 0 0 1 70 168 C 70 128, 92 92, 110 40 Z", fill: "url(#fe)" }));
-    s.appendChild(svg("rect", { x: 108, y: 186, width: 4, height: 30, rx: 1, fill: "#b3a796" }));
+    s.appendChild(svg("rect", { x: 108, y: 186, width: 4, height: 30, rx: 1, fill: "#9db8a2" }));
     s.appendChild(svg("path", { d: "M186 60 V 120 M180 112 L186 122 L192 112", class: "fl-arrow" }));
     s.appendChild(svg("text", { x: 186, y: 50, "text-anchor": "middle", class: "fl-g" }, "1 g"));
     /* Orbit: sphere around the fuel */
     var orb = svg("g", { class: "orbit-glow" });
     orb.appendChild(svg("circle", { cx: 330, cy: 140, r: 100, fill: "url(#fo)" }));
     s.appendChild(orb);
-    s.appendChild(svg("rect", { x: 328, y: 130, width: 4, height: 86, rx: 1, fill: "#b3a796" }));
+    s.appendChild(svg("rect", { x: 328, y: 130, width: 4, height: 86, rx: 1, fill: "#9db8a2" }));
     s.appendChild(svg("text", { x: 420, y: 50, "text-anchor": "end", class: "fl-g" }, "≈ 0 g"));
     s.appendChild(svg("text", { x: 110, y: 258, "text-anchor": "middle", class: "fl-l" }, "On Earth"));
     s.appendChild(svg("text", { x: 110, y: 280, "text-anchor": "middle", class: "fl-s" }, "hot gas rises, flame stretches"));
@@ -1722,7 +1722,7 @@
       if (g.length === 1) {
         var m = members[0], tip = exp + " " + shortId(m.c.r) + ": one test at its real recorded position · " + tipBase() + " · click to list it";
         el.setAttribute("data-tip", tip); el.setAttribute("aria-label", tip);
-        el.appendChild(svg("circle", { cx: g[0].p[0], cy: g[0].p[1], r: DOT_R, fill: inside ? col : "#17140f", stroke: col, "stroke-width": 1.6 }));
+        el.appendChild(svg("circle", { cx: g[0].p[0], cy: g[0].p[1], r: DOT_R, fill: inside ? col : "#0b130c", stroke: col, "stroke-width": 1.6 }));
       } else {
         var cx = g.reduce(function (a, q) { return a + q.p[0]; }, 0) / g.length, cy = g.reduce(function (a, q) { return a + q.p[1]; }, 0) / g.length, r = groupRadius(g.length);
         var tip2 = "Group of " + g.length + " overlapping " + exp + " tests. The bubble sits at the group’s average position, which is not itself a NASA test condition; small dots show each test’s real position · " +
@@ -1786,7 +1786,7 @@
     var col = EXP_COL[exp] || "#c98500";
     tests.forEach(function (t) {
       var tip = exp + " " + shortId(t.c.r) + ": " + f1(t.c.o2) + "% O2 (" + t.c.o2How + "), no per-test pressure · " + (t.partial ? "oxygen within the window (partial match)" : "oxygen outside the window");
-      s.appendChild(svg("circle", { cx: x(Math.round(t.c.o2 / binw) * binw), cy: base - (t._k - 0.5) * step, r: 2.9, fill: t.partial ? col : "#17140f", stroke: col, "stroke-width": 1.3, class: "mark", tabindex: 0, "data-tip": tip, "aria-label": tip }));
+      s.appendChild(svg("circle", { cx: x(Math.round(t.c.o2 / binw) * binw), cy: base - (t._k - 0.5) * step, r: 2.9, fill: t.partial ? col : "#0b130c", stroke: col, "stroke-width": 1.3, class: "mark", tabindex: 0, "data-tip": tip, "aria-label": tip }));
     });
     s.appendChild(svg("line", { x1: x(o2), x2: x(o2), y1: T - 6, y2: base + 4, class: "target-line" }));
     return s;

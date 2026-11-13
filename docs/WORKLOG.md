@@ -361,3 +361,11 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function
 - Kept blue on purpose: the orbit flame in the hero illustration (flames in orbit really are blue) and the validated chart
   series colours that tell experiments apart.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: palette changed to "radiation / ectoplasm" green (user request, replaces amber)
+- Accent is glowing lime #9dff3c on green-black #050805 (panels #0b130c), with one soft green haze behind the top of each page
+  and a light glow only on primary buttons, the active tab, the logo and the H1.
+- Status colours moved so none is lime: measured sky #62d4ff, published lilac #b9a3ff, our interpretation pink #ff7ad9,
+  caution amber #ffc247, problem red #ff5d6c, OK/covered mint #3fe0c0. Each still has a glyph or word, not colour alone.
+- Unchanged on purpose: the hero flame illustration (Earth orange, orbit blue) and the chart series colours.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
