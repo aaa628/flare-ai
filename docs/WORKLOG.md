@@ -438,3 +438,12 @@ Verified by running: smoke 103/103; previewer 14/14; video plays under the netli
 - Phones unchanged (video behind the text, full width).
 Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors; no horizontal scroll at 390 px;
   screenshots at 1366, 1920 and 390 px.
+
+## 2026-11-13: starry black background on every page (user request)
+- Three small SVG star tiles generated with fixed seeds (stars-far 480 px, stars-near 900 px, stars-twinkle 1300 px; 13 KB
+  in total), layered as a fixed background behind all pages. Mostly white with a few faint blue and warm stars.
+- Cards, tables and panels keep their solid dark fill, so text never sits directly on stars. Header is slightly see-through.
+- One sparse layer of brighter stars twinkles slowly (7 s); still for reduced motion.
+- Built from main (includes #23); PR #24 (hero photo) left open and untouched as the user asked.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; Explorer opens 19-110 ms after a click; CSP-served pages
+  without errors; no running animations with reduced motion; screenshots of Overview, Explorer, About (1366 px) and Scenario (390 px).
