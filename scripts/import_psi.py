@@ -28,7 +28,7 @@ OUT = {"bass1": ROOT / "data" / "bass1_psi.csv",
 COLS = ["id", "experiment", "pi", "source_id", "source_file", "source_row", "material_raw", "flow_mode",
         "airflow_raw", "o2_raw", "o2_note", "o2_vol_pct", "outcome_raw", "qc_flag", "observation", "fields_json",
         "verified_by", "verified_date", "verifier_notes"]
-DATA_COLS = [c for c in COLS if not c.startswith("verified")]  # compared with the source on every build
+DATA_COLS = [c for c in COLS if not c.startswith(("verified", "verifier"))]  # compared with the source on every build (sign-off columns excluded)
 
 
 def show(v):

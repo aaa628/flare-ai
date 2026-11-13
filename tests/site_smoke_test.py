@@ -43,13 +43,15 @@ async def main():
         C = await pg.evaluate("window.FLARE_DATA.counts")
         RECS = await pg.evaluate("window.FLARE_DATA.records.map(r => [r.id, r.level])")
         lv = dict(RECS)
-        mach_id = next(i for i, l in RECS if l == "machine")
+        mach_id = next((i for i, l in RECS if l == "machine"), None)  # machine-checked but not signed (none once all are signed)
+        signed_id = next((i for i, l in RECS if l == "human"), None)
         none_id = next((i for i, l in RECS if l == "none"), None)
         print("counts:", C)
         t = await pg.inner_text("main")
         stats = await pg.inner_text(".hero-side")
         check("default: evidence legend shows the real counts", all(str(C[k]) in stats for k in ("verified", "machine", "unchecked")), stats.replace("\n", " | "))
-        check("overview: human sign-off shown separately and prominently (0 of N, not a sign-off)", "of " + str(C["records"]) in stats and "not a sign-off" in stats.lower() and await pg.locator(".signoff-box").count() == 1)
+        check("overview: human sign-off shown separately and prominently (N of total)", "of " + str(C["records"]) in stats and await pg.locator(".signoff-box").count() == 1 and
+              (("not a sign-off" in stats.lower()) if C["verified"] == 0 else ("signed by a team member" in stats and str(C["machine"]) + " of " + str(C["records"]) in stats)))
         check("overview: automated checks listed with exact counts", str(C["pdf_match"]) + " of 126" in stats and str(C["psi_agree"]) + " of 126" in stats)
         check("overview: each chart says what it includes and leaves out", await pg.locator(".qcard .limits").count() == 3 and "Left out" in t)
         check("overview: says what the site can answer + one primary action", "what this site can answer" in t.lower() and await pg.locator(".hero .btn").count() == 1 and "Investigations" in t)
@@ -64,7 +66,10 @@ async def main():
         check("default explorer: shows exactly the human+machine rows", n == C["shown"], f"{n} vs {C['shown']}")
         chips = await pg.locator("tbody .chip").all_inner_texts()
         check("default explorer: no 'unchecked' chip anywhere", not any("unchecked" in c.lower() for c in chips))
-        check("default explorer: every row labelled with its level", sum(1 for c in chips if c.lower() in ("machine-checked", "verified")) == n)
+        labelled = await pg.evaluate("[...document.querySelectorAll('tbody tr.row')].filter(tr => [...tr.querySelectorAll('.chip')].some(c => /^(machine-checked|verified)$/i.test(c.textContent.trim()))).length")
+        check("default explorer: every row labelled with its level", labelled == n, f"{labelled} of {n}")
+        both = await pg.evaluate("[...document.querySelectorAll('tbody tr.row')].filter(tr => { const t=[...tr.querySelectorAll('.chip')].map(c=>c.textContent.trim().toLowerCase()); return t.includes('verified') && t.includes('machine-checked'); }).length")
+        check("default explorer: signed rows that passed the automated checks show both labels", both == min(C["verified"], C["machine"]), f"{both}")
         if none_id:
             await pg.goto(SITE+"#/experiment/"+none_id); await pg.wait_for_selector("h1")
             check("default: UNCHECKED row detail refuses (not found)", "Record not found" in await pg.inner_text("main"), none_id)
@@ -174,11 +179,18 @@ async def main():
         check("SAFFIRE-II detail: provenance shows NASA field name and unit", "Air Flow (cm/s)" in t and "cm/s" in t, t[:200])
         check("SAFFIRE-II detail: every NASA column kept under technical details", "2.1 mm/s" in await pg.text_content(".tech"))
         check("SAFFIRE-II detail: opens NASA dataset page and the exact file", await pg.locator('a[href*="psi.nasa.gov/physci/repo/data/investigations/PSI-99"]').count() == 1 and await pg.locator('a[href="sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"]').count() == 1)
-        await pg.goto(SITE+"#/experiment/"+mach_id); await pg.wait_for_selector(".cols")
-        t = await pg.inner_text("main")
-        check("default: machine-checked detail says no person has signed it", "No person has signed this record" in t and "machine-checked" in t.lower(), mach_id)
-        check("default: machine-checked detail never claims a PDF check by a person", "Checked against the PDF by" not in t)
-        await pg.screenshot(path=SH+"01b_detail_machine.png", full_page=True)
+        if mach_id:
+            await pg.goto(SITE+"#/experiment/"+mach_id); await pg.wait_for_selector(".cols")
+            t = await pg.inner_text("main")
+            check("default: machine-checked detail says no person has signed it", "No person has signed this record" in t and "machine-checked" in t.lower(), mach_id)
+            check("default: machine-checked detail never claims a PDF check by a person", "Checked against the PDF by" not in t)
+            await pg.screenshot(path=SH+"01b_detail_machine.png", full_page=True)
+        if signed_id:
+            await pg.goto(SITE+"#/experiment/"+signed_id); await pg.wait_for_selector(".cols")
+            t = await pg.inner_text("main")
+            rec = await pg.evaluate("(id) => window.FLARE_DATA.records.find(r => r.id === id)", signed_id)
+            check("signed detail: shows who signed and when, plus both labels", ("Signed by " + rec["verified_by"] + " on " + rec["verified_date"]) in t and
+                  "Human-verified" in t and "Machine-checked" in t and "Human sign-off: not yet" not in t, signed_id)
 
         # 2. preview mode
         await pg.goto(SITE+"?preview=draft"); await pg.wait_for_selector(".chart")
@@ -278,7 +290,8 @@ async def main():
         d = await dl.value
         rows = list(_csv.DictReader(_io.StringIO(open(await d.path(), encoding="utf-8-sig").read())))
         check("explorer CSV: downloads exactly the filtered rows (FLEX 274) with method, check level and source",
-              len(rows) == 274 and all(r["experiment"] == "FLEX" and r["o2_method"].startswith("mol%") and r["check_level"] == "Machine-checked" and "PSI-69" in r["source"] for r in rows))
+              len(rows) == 274 and all(r["experiment"] == "FLEX" and r["o2_method"].startswith("mol%") and r["check_level"] in ("Machine-checked", "Human-verified; Machine-checked") and
+                  (r["check_level"] == "Machine-checked" or (r["verified_by"] in ("Saad", "Muqeet") and r["verified_date"] in ("2026-11-13", "2026-11-14"))) and "PSI-69" in r["source"] for r in rows))
         check("explorer CSV: FLEX-1 values equal NASA's table (21 mol% O2, Disruption)", any(r["id"] == "FLEX-1" and r["o2_start"] == "21" and r["nasa_test_end"] == "Disruption" for r in rows))
         await pg.goto(SITE + "#/investigation/PSI-69"); await pg.wait_for_selector(".cite")
         check("investigation: citation names PSI, version, release date and DOI", "version 5, released 31-Jul-2016" in await pg.inner_text(".cite-text") and "https://doi.org/10.60555/mbq8-0451" in await pg.inner_text(".cite-text"))

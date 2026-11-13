@@ -73,7 +73,12 @@
     return x.pi < y.pi ? -1 : x.pi > y.pi ? 1 : x.n - y.n || (x.s < y.s ? -1 : x.s > y.s ? 1 : 0);
   }
   function shortId(r) { return r.id.replace("BASSII-", "").replace(/^BASSI-/, "").replace(/^SAFFIRE(I+)-/, ""); }
-  function levelChip(r) { var L = LEVEL[r.level] || LEVEL.none; return chip(L.cls, L.short); }
+  function isMachine(r) { return r.machine === true; }
+  /* A human-verified record that also passed the automated checks shows both labels. */
+  function levelChip(r) {
+    var L = LEVEL[r.level] || LEVEL.none;
+    return r.level === "human" && isMachine(r) ? [chip(L.cls, L.short), " ", chip(LEVEL.machine.cls, LEVEL.machine.short)] : chip(L.cls, L.short);
+  }
   function chip(kind, text) { return h("span", { class: "chip " + kind }, text); }
   function flagsOf(r) {
     return (r.qc_flag || "").split(";").filter(Boolean);
@@ -121,7 +126,7 @@
   /* ---------- evidence + method vocabulary (shared by every view) ---------- */
   var LEVEL = {
     human: { cls: "ok lv-human", label: "Human-verified", short: "verified",
-      text: "A team member compared it with NASA’s source and signed it." },
+      text: "A team member compared it with NASA’s source and signed it (name and date on every record)." },
     machine: { cls: "mach lv-mach", label: "Machine-checked", short: "machine-checked",
       text: "Automated checks against NASA’s PDF or data file passed. No person has signed it yet, so it is not “verified”." },
     none: { cls: "unver lv-none", label: "Unchecked", short: "unchecked",
@@ -140,15 +145,17 @@
   };
   function methodOf(exp) { return METHOD[/^SAFFIRE/.test(exp) ? "SAFFIRE" : exp] || METHOD["BASS-II"]; }
   function countLevel(lv) { return ALL.filter(function (r) { return r.level === lv; }).length; }
+  /* Machine-checked counts every record that passed the automated checks, whether or not it is also signed. */
+  function countMachine() { return ALL.filter(isMachine).length; }
   function evidenceLegend(compact) {
     return h("div", { class: "ev-legend" + (compact ? " compact" : ""), role: "list", "aria-label": "How each record was checked" },
       ["human", "machine", "none"].map(function (lv) {
         var L = LEVEL[lv];
         return h("div", { class: "ev-item", role: "listitem" },
-          h("div", { class: "ev-top" }, chip(L.cls, L.label), h("b", { class: "ev-n" }, String(countLevel(lv)))),
-          compact ? null : h("p", null, L.text));
+          h("div", { class: "ev-top" }, chip(L.cls, L.label), h("b", { class: "ev-n" }, String(lv === "machine" ? countMachine() : countLevel(lv)))),
+          compact ? null : h("p", null, lv === "machine" ? "Automated checks against NASA\u2019s PDF or data file passed (counted whether or not the record is also signed)." : L.text));
       }),
-      compact ? h("p", { class: "ev-note" }, "✓ verified: a person checked NASA’s source. ◇ machine-checked: automated checks only. ! unchecked: hidden.") : null);
+      compact ? h("p", { class: "ev-note" }, "✓ human-verified: a team member checked NASA’s source and signed it. ◇ machine-checked: automated checks passed. ! unchecked: hidden.") : null);
   }
 
   /* ---------- charts (plain SVG) ---------- */
@@ -176,14 +183,18 @@
     var rep = ALL.filter(fromReport), files = ALL.filter(function (r) { return !fromReport(r); });
     var reviewed = rep.filter(function (r) { return /row-by-row review/.test(r.auto_check_notes || ""); }).length;
     var differ = rep.filter(function (r) { return (r.psi_check || "").indexOf("DIFFERS") === 0; }).map(shortId);
-    var human = countLevel("human");
+    var human = countLevel("human"), mach = countMachine();
+    var names = ALL.filter(function (r) { return r.level === "human"; }).map(function (r) { return r.verified_by; }).filter(function (x, i, a) { return a.indexOf(x) === i; });
+    var dates = ALL.filter(function (r) { return r.level === "human"; }).map(function (r) { return r.verified_date; }).filter(function (x, i, a) { return a.indexOf(x) === i; }).sort();
     return h("div", { class: "checks-box" },
       h("div", { class: "signoff-box " + (human ? "some" : "none") },
         h("p", { class: "so-n" }, h("b", null, String(human)), " of " + ALL.length),
-        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source and signed by a team member."
+        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source and signed by a team member (" + names.join(" and ") + ", " + dates.join(" and ") + ")."
           : "No person has signed any record yet. Everything below is automated evidence, not a sign-off.")),
-      h("h3", { class: "mini-h" }, "Automated checks (evidence, not a sign-off)"),
+      h("h3", { class: "mini-h" }, "Automated checks (run on every build, separate from the sign-off)"),
       h("ul", { class: "checks" },
+        h("li", { class: "ck " + (mach === ALL.length ? "ok" : "warn") }, h("span", { class: "ck-i", "aria-hidden": "true" }, mach === ALL.length ? "\u2713" : "!"),
+          h("span", null, h("b", null, mach + " of " + ALL.length), " records are machine-checked: every automated check below passed.")),
         h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
           h("span", null, h("b", null, D.counts.pdf_match + " of " + rep.length), " BASS-II report records match NASA\u2019s PDF value for value: all 8 gas readings, the material and the full log note.")),
         h("li", { class: "ck " + (differ.length ? "warn" : "ok") }, h("span", { class: "ck-i", "aria-hidden": "true" }, differ.length ? "!" : "\u2713"),
@@ -387,13 +398,14 @@
     var shownNow = [];
     var csvBtn = h("button", { type: "button", class: "ghost small csv-btn", onclick: function () {
       var cols = ["id", "experiment", "investigator", "material", "flow_direction", "o2_start", "o2_method", "o2_end_calibrated", "nasa_test_end",
-        "flags", "check_level", "source", "source_link", "note"];
+        "flags", "check_level", "verified_by", "verified_date", "source", "source_link", "note"];
       var lines = [cols.join(",")].concat(shownNow.map(function (r) {
         var m = methodOf(r.experiment), L = LEVEL[r.level] || LEVEL.none;
         var src = fromReport(r) ? "NASA/TM-20210011385, Appendix A, report page " + r.source_page : "NASA PSI " + (r.source_id || "") + ": " + (r.source_file || "").split(",")[0] + ", row " + (r.source_row || "");
         var href = r.source_href ? (/^https?:/.test(r.source_href) ? r.source_href : "https://psi.nasa.gov/physci/repo/data/investigations/" + (r.source_id || "")) : "";
         return [r.id, r.experiment, r.pi || "", r.material_raw || "", r.flow_mode || "", o2Start(r), m.tag + " = " + m.o2, fromReport(r) ? (r.o2_cal_final || "") : "",
-          r.outcome_raw || "", flagsOf(r).join(";"), L.label, src, href, r.observation || ""].map(csvCell).join(",");
+          r.outcome_raw || "", flagsOf(r).join(";"), r.level === "human" && isMachine(r) ? L.label + "; " + LEVEL.machine.label : L.label,
+          r.level === "human" ? r.verified_by : "", r.level === "human" ? r.verified_date : "", src, href, r.observation || ""].map(csvCell).join(",");
       }));
       saveFile("flare-ai-records-" + shownNow.length + ".csv", lines.join("\r\n") + "\r\n", "text/csv;charset=utf-8");
     } }, "Download CSV");
@@ -585,7 +597,7 @@
       h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "← Flame Explorer")),
       h("div", { class: "rh-top" },
         h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, meta), h("h1", { id: "rec-h" }, title)),
-        h("div", { class: "rh-status" }, chip(L.cls + " big", L.label),
+        h("div", { class: "rh-status" }, chip(L.cls + " big", L.label), r.level === "human" && isMachine(r) ? [" ", chip(LEVEL.machine.cls + " big", LEVEL.machine.label)] : null,
           h("p", { class: "signoff " + (signed ? "yes" : "no") }, signed ? "✓ Signed by " + r.verified_by + " on " + r.verified_date
             : "No person has signed this record. Automated checks below are evidence, not a sign-off."))),
       h("div", { class: "rh-body" },
@@ -1402,7 +1414,8 @@
             h("li", { class: "warn" }, h("b", null, "No partial-gravity data. "), "The brief notes PSI has no Moon- or Mars-gravity combustion data yet (LUCI and FM2 are expected later). E-FIELD Flames only mimics partial gravity. Microgravity and Earth results may bound it."),
             h("li", { class: "warn" }, h("b", null, "Cabin materials in a Moon-base atmosphere. "), "No solid-material investigation recorded above 23% O2 (see the answer above)."),
             h("li", { class: "warn" }, h("b", null, "Not a prediction. "), "These are small, controlled experiments. Flare AI does not claim they predict real mission fires, and gives no fire probabilities."),
-            h("li", { class: "warn" }, h("b", null, "Machine-checked, not verified. "), "Test records are checked automatically against NASA\u2019s files; no person has signed them yet.")))),
+            countLevel("human") ? h("li", { class: "ok" }, h("b", null, "Human-verified and machine-checked. "), "Every test record passed the automated checks against NASA\u2019s files and was signed off by a team member.")
+              : h("li", { class: "warn" }, h("b", null, "Machine-checked, not verified. "), "Test records are checked automatically against NASA\u2019s files; no person has signed them yet.")))),
       h("section", { class: "card", style: "margin-top:14px" }, h("h3", null, "The studies the challenge brief names"),
         h("p", { class: "howto" }, "Every study the brief mentions, what role it gives it, and what evidence Flare AI holds for it."),
         h("div", { class: "tablewrap flat" }, h("table", { class: "side brief-audit" },
@@ -2201,7 +2214,7 @@
       h("div", { class: "card" }, h("ul", { class: "about-list" },
         ["No invented numbers. Every figure on this site is computed from the data records.",
           "Every fact carries a label: Measured, Published conclusion, or Our interpretation.",
-          "Every record shows how it was checked. Verified means a team member compared it with NASA\u2019s PDF. Machine-checked means automated checks passed, including a value-for-value comparison with NASA\u2019s PDF, and a team member has not yet signed it off. Records with no check are hidden.",
+          "Every record shows how it was checked. Human-verified means a team member compared it with NASA\u2019s source and signed it (name and date on the record). Machine-checked means automated checks passed, including a value-for-value comparison with NASA\u2019s PDF or data file. A record can be both, and then shows both labels. Records with no check are hidden.",
           "We never compare measurements that are not comparable, and we say so when we refuse.",
           "Where NASA did not test a condition, we say the data is insufficient instead of guessing.",
           "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", null, t); }))),
