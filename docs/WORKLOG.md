@@ -454,3 +454,7 @@ Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without er
 - Found the matching NASA video for the photo (BASS-II test O19, PSI-25 raw video, camera clock 16:49 -> photo 16:54:12) but it
   is 720x480 and nearly black at that moment, so the photo stays.
 Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors; no running animations with reduced motion.
+- Fix (same day): the focus pull first used a CSS blur on the 4K photo; that blocked the page long enough that a menu click
+  right after load did not switch pages in time (smoke test 102/103, reproduced 3/3). Blur removed; the entrance is now a
+  zoom-and-fade. Re-checked: smoke 103/103 twice; previewer 14/14; lab_ui passed; Explorer opens 120-220 ms after a click
+  made 0.3 s, 1.2 s or 5 s after load; CSP-served pages without errors.
