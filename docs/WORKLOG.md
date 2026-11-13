@@ -389,3 +389,8 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served p
   and a violet -> blue -> lavender band sits under the header.
 - Status colours: measured cyan, published periwinkle, our interpretation pink, caution amber, problem red, OK mint.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: final palette chosen: black, burgundy and white (user choice)
+- Site files restored to the burgundy commit (51b614a); the purple trial stays in history.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function 18/18; CSP-served pages without errors,
+  both fonts load, no horizontal scroll at 390 px.
