@@ -467,3 +467,29 @@ User asked to remove all the data added so far while keeping every layout, chart
   - the Lab function test uses a small fake fixture corpus;
   - the pipeline tests skip when there is no data.
 Verified by running: smoke 95/95; previewer 14/14; lab_ui passed; lab_function 20/20; before/after screenshots of every page compared.
+
+## 2026-11-13: New data loaded from the challenge's resource list (NASA PSI + background)
+- Sources checked live (challenge page read with full certificate verification; its server omits an intermediate, added from the CT log).
+  All 10 resource links confirmed; the brief re-read and the 4 brief facts confirmed.
+- Downloaded fresh from NASA PSI:
+  - 24 catalog entries and 22 experimental tables;
+  - 7 record files, including the PSI-26 As Run Test Matrix (`scripts/fetch_psi_records.py` + MANIFEST.csv).
+  - Every file is byte-identical to the copies used before.
+- 537 records: BASS-II 129 (now all from PSI-25; the report is not used), BASS-I 121, FLEX 274, SAFFIRE 13.
+  - BASS-II flags come from NASA's own values (8).
+  - Team sign-off on every record, as the user stated ("628 Aerospace team", 2026-11-13).
+  - Machine-checked is counted on its own, so verified = machine = 537.
+- Fixed a latent bug: the re-read compared the `verifier_notes` column, so any sign-off note made a record fail.
+- Site changes:
+  - BASS-II oxygen chart from PSI calibrated O2;
+  - check panel and legend;
+  - PSI-25 method row; Explorer O2 end;
+  - Compare drops raw-O2 for PSI rows, and its examples are reworded to PSI facts;
+  - "none" reasons use NASA's word;
+  - PI on record pages;
+  - About sources (PSI + background) and limits;
+  - footer;
+  - new "Why this matters" card (3 real fires + 3 spinoffs, each written only from the linked NASA page).
+- New `tests/data_audit.py`: independent recount from NASA's raw files.
+  - It compares every chart, legend, table and Scenario verdict (8 preset/family combinations) with the rendered page.
+  - It checks all 537 record pages against NASA's cells.

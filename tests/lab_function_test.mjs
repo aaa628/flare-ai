@@ -2,8 +2,8 @@
 // Run: node tests/lab_function_test.mjs
 import { handle, retrieve, validate, LIMITS, makeIndex } from "../netlify/functions/ask/core.mjs";
 
-// The real corpus is empty while no data is loaded (NASA data removed 2026-11-13), so the retrieval and answer
-// logic is tested against this small FAKE fixture. None of it is real data; it is never shown on the site.
+// The retrieval and answer logic is tested against this small FAKE fixture, so the checks do not depend on
+// which data is loaded. None of it is real data; it is never shown on the site. Real-corpus checks follow.
 const FIXTURE = [
   ...[901, 902, 903].map((n) => ({ id: "FLEX-" + n, kind: "record", title: "FLEX FLEX-" + n + ": fixture methanol droplet", route: "#/experiment/FLEX-" + n,
     source: "test fixture", text: "Fixture test FLEX-" + n + ". Material: methanol droplet. Test end: extinction. Oxygen and pressure values are placeholders." })),
@@ -30,7 +30,12 @@ const r1 = retrieve("Which investigations tested oxygen above 30% at low pressur
 check("retrieval: Moon-base question finds investigation summaries / brief", r1.some((d) => d.kind === "investigation") && r1.some((d) => d.kind === "brief"), JSON.stringify(r1.map((d) => d.id)));
 const r2 = retrieve("What happened in test FLEX-902?", 12, FIX);
 check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-902", r2[0] && r2[0].id);
-check("retrieval: empty real corpus returns nothing", retrieve("How did methanol droplet tests end?").length === 0);
+// the real generated corpus (from NASA PSI records, investigations and the challenge brief)
+const real1 = retrieve("What happened in test FLEX-114?");
+check("real corpus: exact test id FLEX-114 ranked first", real1[0] && real1[0].id === "FLEX-114", real1[0] && real1[0].id);
+const real2 = retrieve("Which investigations tested oxygen above 30% at low pressure for a Moon base?");
+check("real corpus: Moon-base question finds investigations and the brief", real2.some((d) => d.kind === "investigation") && real2.some((d) => d.kind === "brief"));
+check("retrieval: an empty index returns nothing", retrieve("How did methanol droplet tests end?", 12, makeIndex([])).length === 0);
 
 // method / origin / size guards (no model call)
 {
@@ -87,7 +92,7 @@ check("retrieval: empty real corpus returns nothing", retrieve("How did methanol
 // empty template: with no corpus the Lab abstains without calling the model
 {
   const calls = [];
-  const deps = { client: fakeClient(answerWith({}), calls), store: memStore(), ip: "3.3.3.3", allowedOrigins: [ORIGIN] };
+  const deps = { client: fakeClient(answerWith({}), calls), store: memStore(), ip: "3.3.3.3", allowedOrigins: [ORIGIN], index: makeIndex([]) };
   const b = await (await handle(req("How did methanol droplet tests end?"), deps)).json();
   check("empty corpus: abstains, no model call", b.status === "abstained" && calls.length === 0);
 }

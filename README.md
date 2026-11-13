@@ -17,14 +17,31 @@ Built for the **NASA Space Apps Challenge 2026: Flame in Freefall**.
 
 ## Current data status (generated `site/data/data.js`)
 
-**No data is loaded (0 records, 0 sources, 0 investigations).** The NASA data used earlier was removed on 2026-11-13 so new
-data can be added. The site is an empty template: every page, table and chart is still drawn, with neutral placeholder
-labels (Experiment 1-4, Band 1-5, Outcome 1-3, Test 1-3, Investigation 1-4) and every value at 0.
+All data comes from the challenge's resource list. Test records and investigations come only from **NASA Physical
+Sciences Informatics (PSI)**, downloaded fresh on 2026-11-13 (`scripts/fetch_psi_catalog.py`, `scripts/fetch_psi_records.py`;
+hashes in `data/source/psi/MANIFEST.csv`). The NASA BASS-II report used earlier is not used.
 
-To add data: fill the CSV templates in `data/` (each keeps its header row, so the column format is unchanged), then run
-`python scripts/build_site_data.py` and commit `site/data/data.js` and `netlify/functions/ask/corpus.mjs`. Charts switch
-from placeholders to the real labels automatically. The previous data and source files are in git history
-(before the commit "Remove NASA data; keep every chart and layout at zero").
+| | Count |
+|---|---|
+| Test records | **537** from **6** NASA PSI data sets (7 listed; FLEX-2 has planned conditions only) |
+| Machine-checked (re-read from NASA's file on every build; every value equals the file) | **537** |
+| Human-verified (team sign-off: "628 Aerospace team", 2026-11-13, on every record) | **537** |
+| Unchecked | **0** |
+| Combustion investigations (PSI catalog) | **24** |
+
+| Experiment family | Records | NASA source |
+|---|---|---|
+| BASS-II | 129 | PSI-25 experimental table (DOI 10.60555/4qc4-de67); 8 final-O2 readings flagged (6 more than 3 vol% from the start, 2 not plain numbers) |
+| BASS-I | 121 | PSI-26 As Run Test Matrix spreadsheet (DOI 10.60555/58h4-dy80) |
+| FLEX | 274 | PSI-69 experimental table (DOI 10.60555/mbq8-0451); NASA's test end: Extinction 186, Disruption 61, Completion 27 |
+| SAFFIRE-I / II / III | 2 / 9 / 2 | PSI-98/99/100 experimental tables |
+| FLEX-2 | 0 | PSI-68 planned test matrix (no per-test results in PSI) |
+
+Background (not test data) from the same resource list is on the Overview ("Why this matters") and the About page:
+Apollo 1, Apollo 13, the 1997 Mir fire, three NASA firefighting spinoffs, NASA Combustion Science, the ScienceCasts video
+and the Researcher's Guide. `tests/data_audit.py` recounts every number on the site straight from NASA's raw files.
+
+The families recorded oxygen differently, so they are **never pooled into one chart or comparison**. Details: [`data/README.md`](data/README.md).
 
 ## Principles (non-negotiable)
 
@@ -67,10 +84,10 @@ NASA's source and filling `verified_by` and `verified_date`; the checklist is in
 
 ```
 site/            the website: index.html, css/style.css, js/app.js, data/data.js (generated),
-                 sources/psi/ (copies of the PSI source files, made by build_site_data.py; empty while no data is loaded)
+                 sources/psi/ (byte-identical copies of NASA's PSI files, copied by build_site_data.py)
                  fonts/ (Archivo + Atkinson Hyperlegible, SIL Open Font License, bundled so the strict CSP and file:// work)
                  media/ (home page background loop: NASA FLEX droplet-flame footage, credits in media/CREDITS.txt; stars-*.svg: the starry page background)
-data/            CSV templates (header rows only while no data is loaded), sources.csv, README.md
+data/            record CSVs, sources.csv, source/psi/ (NASA PSI files + MANIFEST.csv with hashes), README.md
 scripts/         fetch_psi_catalog.py (refresh PSI metadata + tables), build_catalog.py (investigation catalogue), extract_bass2.py, crosscheck_bass2.py, pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py, build_site_data.py
 tests/           site_smoke_test.py, previewer_nav_test.py, crosscheck_mutation_test.py, pdfcheck_mutation_test.py, psi_import_test.py
 docs/            DEPLOY.md, HANDOFF_PROMPT.md (full brief for any AI), WORKLOG.md (append-only log)
@@ -84,7 +101,8 @@ package.json     dependencies of the function only (@anthropic-ai/sdk, @netlify/
 ```bash
 pip install playwright openpyxl
 python scripts/build_site_data.py
-python tests/site_smoke_test.py            # every page at 1280px and 390px: charts still drawn at 0, no NaN, no old NASA names, no horizontal scroll
+python tests/site_smoke_test.py            # every page at 1280px and 390px (no NaN, no horizontal scroll) + Compare, refusal, flags, record pages
+python tests/data_audit.py                 # independent recount from NASA's raw files vs every rendered number (AUDIT_ALL=1: all 537 record pages)
 python tests/previewer_nav_test.py         # in-app links survive an injected <base> tag
 python tests/lab_ui_test.py                # Intelligence Lab page with a simulated server reply
 npm install && node tests/lab_function_test.mjs   # Lab function logic with a fake Claude client (no key needed)

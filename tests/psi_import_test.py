@@ -8,10 +8,13 @@ b = importlib.util.module_from_spec(spec); spec.loader.exec_module(b)
 ok = True
 recs = b.psi_records()
 if not recs:
-    print("SKIP: no PSI rows in data/*_psi*.csv (NASA data removed; template only). Nothing to check.")
+    print("SKIP: no PSI rows in data/*_psi*.csv (no data loaded). Nothing to check.")
     sys.exit(0)
-n = sum(r["level"] == "machine" for r in recs)
-print(("PASS " if n == len(recs) else "FAIL ") + f"unmodified: {n}/{len(recs)} machine-checked"); ok &= n == len(recs)
+n = sum(r["machine"] for r in recs)
+print(("PASS " if n == len(recs) else "FAIL ") + f"unmodified: {n}/{len(recs)} machine-checked (re-read equals NASA's file)"); ok &= n == len(recs)
+signed = sum(1 for r in recs if r.get("verified_by"))
+lv = sum(r["level"] == ("human" if r.get("verified_by") else "machine") for r in recs)
+print(("PASS " if lv == len(recs) else "FAIL ") + f"unmodified: {lv}/{len(recs)} at the right level ({signed} signed -> verified, the rest machine-checked)"); ok &= lv == len(recs)
 real_read = b.read
 for col in ["material_raw", "o2_raw", "airflow_raw", "observation", "source_row"]:
     def bad_read(name, col=col):
@@ -21,8 +24,8 @@ for col in ["material_raw", "o2_raw", "airflow_raw", "observation", "source_row"
         return rows
     b.read = bad_read
     recs = b.psi_records()
-    caught = sum(r["level"] == "none" for r in recs)
-    print(("PASS " if caught == len(recs) else "FAIL ") + f"{col} changed: caught {caught}/{len(recs)}"); ok &= caught == len(recs)
+    caught = sum(r["level"] == "none" and not r["verified"] for r in recs)  # a changed value also voids the sign-off
+    print(("PASS " if caught == len(recs) else "FAIL ") + f"{col} changed: caught {caught}/{len(recs)} (dropped to unchecked, sign-off voided)"); ok &= caught == len(recs)
 b.read = real_read
 print("\nALL CORRUPTIONS CAUGHT" if ok else "\nSOME CORRUPTIONS MISSED")
 sys.exit(0 if ok else 1)

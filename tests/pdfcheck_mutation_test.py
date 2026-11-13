@@ -7,7 +7,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location("pc", ROOT / "scripts" / "pdfcheck_bass2.py")
 pc = importlib.util.module_from_spec(spec); spec.loader.exec_module(pc)
 if not list(csv.DictReader(open(ROOT / "data" / "bass2_draft.csv", encoding="utf-8"))):
-    print("SKIP: data/bass2_draft.csv has no rows (NASA data removed; template only). Nothing to check.")
+    print("SKIP: data/bass2_draft.csv has no rows (the BASS-II report is not used; BASS-II records come from NASA PSI-25). Nothing to check.")
     sys.exit(0)
 pc.ensure_pdf()
 rows = list(csv.DictReader(open(ROOT / "data" / "bass2_draft.csv", encoding="utf-8")))

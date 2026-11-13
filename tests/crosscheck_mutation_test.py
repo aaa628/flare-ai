@@ -7,7 +7,7 @@ spec = importlib.util.spec_from_file_location("cc", ROOT / "scripts" / "crossche
 cc = importlib.util.module_from_spec(spec); spec.loader.exec_module(cc)
 
 if not list(csv.DictReader(open(ROOT / "data" / "bass2_draft.csv", encoding="utf-8"))):
-    print("SKIP: data/bass2_draft.csv has no rows (NASA data removed; template only). Nothing to check.")
+    print("SKIP: data/bass2_draft.csv has no rows (the BASS-II report is not used; BASS-II records come from NASA PSI-25). Nothing to check.")
     sys.exit(0)
 spans = cc.table_pages()
 rows = list(csv.DictReader(open(ROOT / "data" / "bass2_draft.csv", encoding="utf-8")))
