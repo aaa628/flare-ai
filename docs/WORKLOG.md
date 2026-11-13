@@ -336,3 +336,20 @@ Verified by running: smoke 103/103 (new: group tooltip wording, no overlapping c
   counts 84/43/121/15 equal the tabs, summary above charts, one panel per experiment, strip label inside its chart, 390 px cards
   and no overflow); previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation tests passed; all 537 record pages + 12 compare
   + 4 main pages OK; CSP-served Scenario pages without errors; solid/liquid/gas modes at 1280 and 390 px with changed inputs.
+
+## 2026-11-13: visual redesign (frontend-design skill), same pages and class names
+- Idea: in orbit a flame is a dim blue sphere, not a yellow teardrop. Palette is night navy (#0a1424) lit by that blue
+  (#7cb8ff); amber is kept for "our interpretation" and cautions only. Machine-checked uses neutral steel, not a status colour.
+- Type: Archivo (wide, for headings and numbers, tabular figures) + Atkinson Hyperlegible (reading text). Bundled in site/fonts/
+  with their OFL licences; no external requests, works under the netlify.toml CSP and from file://.
+- Removed: gradient frame around the app, "628 AEROSPACE / SYSTEM ONLINE" strip, all-caps monospace labels, middle-dot
+  meta strings, arrows on buttons and links, glow shadows. Header scrolls away (not sticky).
+- Overview: new hero with an Earth flame vs orbit flame illustration (labelled as an illustration, not data); "what this site
+  can answer" became a list with one link each; dataset status sits beside it. Nav reordered by task: Overview, Scenario Check,
+  Flame Explorer, Compare, Investigations, Intelligence Lab, About.
+- Long tables (Explorer, Scenario results) scroll inside their own box, also on phones: Scenario page 11,701 -> 3,668 px,
+  Explorer on a phone 76,760 -> 2,133 px. Screen-reader text in tables is pinned (.tablewrap position:relative, .sr top/left).
+- No data, counts or wording rules changed. Copy fix: Investigations chart now says "dashed blue line" (the line changed colour).
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function 18/18; crosscheck and psi_import mutation
+  tests passed (pdfcheck mutation test could not download NASA's PDF here: network 403). CSP-served pages: no console errors,
+  both fonts load, no horizontal scroll at 390 px. Screenshots of all pages at 1366 and 390 px reviewed.

@@ -78,7 +78,7 @@
   function flagsOf(r) {
     return (r.qc_flag || "").split(";").filter(Boolean);
   }
-  function setTitle(t) { document.title = (t ? t + " · " : "") + "Flare AI"; }
+  function setTitle(t) { document.title = (t ? t + " | " : "") + "Flare AI"; }
 
   /* ---------- preview banner ---------- */
   function drawBanner() {
@@ -94,12 +94,12 @@
   }
   /* Footer switch so the team can reach preview mode without editing the URL. */
   function drawFooterToggle() {
-    var foot = document.querySelector(".foot");
+    var foot = document.querySelector(".foot-inner") || document.querySelector(".foot");
     if (!foot) return;
     var t = document.getElementById("preview-toggle");
     if (!t) {
       t = h("a", { id: "preview-toggle", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(!PREVIEW); } });
-      foot.appendChild(h("p", { style: "margin-top:8px" }, t));
+      foot.appendChild(h("p", null, t));
     }
     t.textContent = PREVIEW ? "Hide unchecked rows" : "Team preview: show unchecked rows";
   }
@@ -148,7 +148,7 @@
           h("div", { class: "ev-top" }, chip(L.cls, L.label), h("b", { class: "ev-n" }, String(countLevel(lv)))),
           compact ? null : h("p", null, L.text));
       }),
-      compact ? h("p", { class: "ev-note" }, "✓ verified = a person checked NASA’s source · ◇ machine-checked = automated checks only · ! unchecked = hidden") : null);
+      compact ? h("p", { class: "ev-note" }, "✓ verified: a person checked NASA’s source. ◇ machine-checked: automated checks only. ! unchecked: hidden.") : null);
   }
 
   /* ---------- charts (plain SVG) ---------- */
@@ -207,24 +207,26 @@
     var nAll = D.counts.records || 0, exps = D.counts.experiments || {};
     var hero = h("section", { class: "hero", "aria-labelledby": "hero-h" },
       h("div", { class: "hero-main" },
-        h("p", { class: "eyebrow" }, "NASA microgravity fire experiments · " + nAll + " test records · " + (D.counts.sources || 0) + " NASA sources"),
-        h("h1", { id: "hero-h" }, "What NASA’s fire experiments prove, ", h("span", { class: "hl" }, "and where the data stops.")),
-        h("p", { class: "lead" }, "Without gravity, hot gas does not rise, so flames behave differently than on Earth. " +
-          "Flare AI gathers NASA’s scattered test records, shows how each number was checked, and says so when the data runs out."),
-        h("h2", { class: "mini-h" }, "What this site can answer"),
-        h("ul", { class: "answers" },
-          h("li", null, h("b", null, "Which NASA investigations matter for a spacecraft or a Moon base?"), h("span", null, "All " + INV.length + " PSI combustion investigations, ranked with a visible rule. ", h("a", { href: "#/investigations" }, "Investigations"))),
-          h("li", null, h("b", null, "Has NASA tested conditions like mine?"), h("span", null, "Enter oxygen, pressure and fuel type to see the closest real tests, or an honest \u201cinsufficient data\u201d. ", h("a", { href: "#/scenario" }, "Scenario Check"))),
-          h("li", null, h("b", null, "Can I just ask a question?"), h("span", null, "The Intelligence Lab answers in plain English from cited NASA records, and abstains when they don\u2019t support an answer. ", h("a", { href: "#/lab" }, "Intelligence Lab"))),
-          h("li", null, h("b", null, "What happened in a specific NASA fire test?"), h("span", null, "Readings, the crew’s log note and the exact source page or file row.")),
-          h("li", null, h("b", null, "How do tests compare, like for like?"), h("span", null, "Side by side within one experiment, with refusals when a comparison would mislead. ", h("a", { href: "#/compare" }, "Compare"))),
-          h("li", null, h("b", null, "Which conditions did NASA actually test?"), h("span", null, "Charts below show where the evidence is, and where it is missing.")),
-          h("li", null, h("b", null, "How far can each number be trusted?"), h("span", null, "Every record carries its check level, shown on the right."))),
+        h("h1", { id: "hero-h" }, "What NASA’s fire experiments prove, and where the data stops."),
+        h("p", { class: "lead" }, "Flare AI gathers " + nAll + " fire tests NASA ran in orbit, from " + (D.counts.sources || 0) +
+          " NASA sources. Each number shows how it was checked, and the site says so when the data runs out."),
         h("div", { class: "hero-cta" },
-          h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer →"),
-          h("a", { class: "textlink", href: "#/about" }, "How we handle evidence"))),
+          h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
+          h("a", { class: "textlink", href: "#/scenario" }, "Check a condition against NASA tests"))),
+      flameFigure());
+
+    var start = h("section", { class: "start" },
+      h("div", null,
+        h("h2", null, "What this site can answer"),
+        h("ul", { class: "answers" },
+          answer("Has NASA tested conditions like mine?", "Enter oxygen, pressure and fuel type to see the closest real tests, or an honest “insufficient data”.", "#/scenario", "Scenario Check"),
+          answer("What happened in a specific NASA fire test?", "Readings, the crew’s log note and the exact source page or file row.", "#/explorer", "Flame Explorer"),
+          answer("How do tests compare, like for like?", "Side by side within one experiment, with refusals when a comparison would mislead.", "#/compare", "Compare"),
+          answer("Which NASA investigations matter for a spacecraft or a Moon base?", "All " + INV.length + " PSI combustion investigations, ranked with a visible rule.", "#/investigations", "Investigations"),
+          answer("Can I just ask a question?", "Plain-English answers from cited NASA records. It abstains when they don’t support an answer.", "#/lab", "Intelligence Lab"),
+          answer("How far can each number be trusted?", "Every record carries its check level. The current totals are on the right.", "#/about", "How we handle evidence"))),
       h("aside", { class: "hero-side", "aria-label": "Dataset status" },
-        h("h2", { class: "mini-h" }, "Dataset status"),
+        h("h2", null, "Dataset status"),
         checkBreakdown(),
         h("h3", { class: "mini-h" }, "Check level of every record"),
         evidenceLegend(true)));
@@ -288,12 +290,47 @@
         h("a", { class: "btn ghost", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(true); } }, "Open team preview"));
     }
 
-    return h("div", null, hero, sources, charts,
+    return h("div", null, hero, start, sources, charts,
       h("h2", null, "How every fact is labelled"),
       h("div", { class: "legend" },
         legend("measured", "Measured", "A value or note recorded during a NASA test."),
         legend("published", "Published conclusion", "A conclusion the NASA authors state in a report."),
         legend("interp", "Our interpretation", "Our own reading of the evidence. Always labelled, with the supporting quote.")));
+  }
+  function answer(q, text, href, label) {
+    return h("li", null, h("b", null, q), h("span", null, text), h("a", { class: "go", href: href }, label));
+  }
+  /* The site's core idea in one picture: with gravity hot gas rises and the flame stretches into a
+   * yellow teardrop; in orbit it does not, and the flame becomes a dim, rounder, bluer ball.
+   * Illustration only: not drawn from any record. */
+  function flameFigure() {
+    var s = svg("svg", { viewBox: "0 0 440 300", role: "img", "aria-label": "Illustration: on Earth a candle flame is a tall yellow teardrop; in orbit it is a dim blue sphere." });
+    var d = svg("defs");
+    var g1 = svg("radialGradient", { id: "fe", cx: "50%", cy: "72%", r: "62%" });
+    [["0", "#fff8e0"], [".35", "#ffd36b"], [".7", "#ff8a3d"], ["1", "#ff5a1f", "0"]].forEach(function (x) {
+      g1.appendChild(svg("stop", { offset: x[0], "stop-color": x[1], "stop-opacity": x[2] || "1" })); });
+    var g2 = svg("radialGradient", { id: "fo", cx: "50%", cy: "50%", r: "50%" });
+    [["0", "#0a1424", "1"], [".4", "#0d1d3a", "1"], [".52", "#dff0ff", "1"], [".62", "#8cc2ff", ".95"], [".8", "#3d63d8", ".45"], ["1", "#3d63d8", "0"]].forEach(function (x) {
+      g2.appendChild(svg("stop", { offset: x[0], "stop-color": x[1], "stop-opacity": x[2] })); });
+    d.appendChild(g1); d.appendChild(g2); s.appendChild(d);
+    s.appendChild(svg("line", { x1: 220, y1: 20, x2: 220, y2: 230, class: "fl-axis" }));
+    /* Earth: teardrop + wick + gravity arrow */
+    s.appendChild(svg("path", { d: "M110 40 C 128 92, 150 128, 150 168 A 40 40 0 0 1 70 168 C 70 128, 92 92, 110 40 Z", fill: "url(#fe)" }));
+    s.appendChild(svg("rect", { x: 108, y: 186, width: 4, height: 30, rx: 1, fill: "#9aabc4" }));
+    s.appendChild(svg("path", { d: "M186 60 V 120 M180 112 L186 122 L192 112", class: "fl-arrow" }));
+    s.appendChild(svg("text", { x: 186, y: 50, "text-anchor": "middle", class: "fl-g" }, "1 g"));
+    /* Orbit: sphere around the fuel */
+    var orb = svg("g", { class: "orbit-glow" });
+    orb.appendChild(svg("circle", { cx: 330, cy: 140, r: 100, fill: "url(#fo)" }));
+    s.appendChild(orb);
+    s.appendChild(svg("rect", { x: 328, y: 130, width: 4, height: 86, rx: 1, fill: "#9aabc4" }));
+    s.appendChild(svg("text", { x: 420, y: 50, "text-anchor": "end", class: "fl-g" }, "≈ 0 g"));
+    s.appendChild(svg("text", { x: 110, y: 258, "text-anchor": "middle", class: "fl-l" }, "On Earth"));
+    s.appendChild(svg("text", { x: 110, y: 280, "text-anchor": "middle", class: "fl-s" }, "hot gas rises, flame stretches"));
+    s.appendChild(svg("text", { x: 330, y: 258, "text-anchor": "middle", class: "fl-l" }, "In orbit"));
+    s.appendChild(svg("text", { x: 330, y: 280, "text-anchor": "middle", class: "fl-s" }, "nothing rises, flame turns round"));
+    return h("figure", { class: "flames" }, s,
+      h("figcaption", null, "Without gravity, flames behave differently, so Earth fire-safety rules don’t carry over. NASA’s orbit tests are the evidence."));
   }
   function legend(kind, title, text) {
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));
@@ -361,7 +398,7 @@
         tbody.appendChild(h("tr", { class: "row", tabindex: 0, "aria-label": "Open test " + shortId(r) + ", " + r.material_raw,
           onclick: function () { open(r); }, onkeydown: function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(r); } } },
           h("td", { class: "id", "data-label": "Test" }, h("a", { href: "#/experiment/" + r.id, tabindex: -1 }, shortId(r)), levelChip(r)),
-          h("td", { class: "c-exp", "data-label": "Experiment" }, r.experiment + (r.pi ? " · " + r.pi : "")),
+          h("td", { class: "c-exp", "data-label": "Experiment" }, r.experiment + (r.pi ? ", " + r.pi : "")),
           h("td", { class: "c-mat", "data-label": "Material" }, r.material_raw),
           h("td", { class: "c-flow", "data-label": "Flow" }, r.flow_mode || "—"),
           h("td", { class: "num c-o2", "data-label": "O2 start" }, o2 ? [o2, h("span", { class: "mtag", title: methodOf(r.experiment).o2 }, methodOf(r.experiment).tag,
@@ -387,7 +424,7 @@
           h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS, BASS-II and FLEX on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
         evidenceLegend(true)),
       h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
-      h("p", { class: "hint" }, "→ Click any row, or focus it and press Enter, to open the full record with its readings, log note and source."),
+      h("p", { class: "hint" }, "Select a row (or focus it and press Enter) to open the full record: readings, log note and source."),
       h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
         h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
         h("thead", null, h("tr", null, ["Test", "Experiment", "Material", "Flow", "O2 start (vol%)", "O2 end", "Note / values", ""].map(function (t, i) {
@@ -509,8 +546,8 @@
           h("div", { class: "rh-actions" }, sourceLinks(r)))),
       h("div", { class: "rh-foot" },
         (function () { var acc = fromReport(r) ? "PSI-25" : r.source_id; var v = invById(acc);
-          return v ? h("a", { class: "textlink", href: "#/investigation/" + acc, style: "margin-right:auto" }, "About the " + invName(v) + " investigation (" + acc + ") \u2192") : null; })(),
-        h("a", { class: "btn ghost", href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests \u2192")));
+          return v ? h("a", { class: "textlink", href: "#/investigation/" + acc, style: "margin-right:auto" }, "About the " + invName(v) + " investigation (" + acc + ")") : null; })(),
+        h("a", { class: "btn ghost", href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests")));
   }
   function techCard(rows, raw) {
     return h("details", { class: "card tech" }, h("summary", null, h("b", null, "Technical details"), h("span", { class: "muted" }, " — setup columns and the raw extracted text")),
@@ -562,7 +599,7 @@
     var short = r.id.replace("BASSII-", "");
     setTitle("Test " + short);
     return h("div", null,
-      recordHeader(r, "NASA BASS-II · " + r.pi + " · test " + short, r.material_raw),
+      recordHeader(r, "NASA BASS-II, " + r.pi + ", test " + short, r.material_raw),
       callouts,
       h("div", { class: "cols" },
         h("div", { class: "card" },
@@ -587,7 +624,7 @@
     var kv = [];
     (r.fields || []).forEach(function (f) { kv.push(h("dt", null, f[0]), h("dd", null, f[1])); });
     return h("div", null,
-      recordHeader(r, "NASA " + r.experiment + " · test " + shortId(r), r.material_raw || "Material not stated"),
+      recordHeader(r, "NASA " + r.experiment + ", test " + shortId(r), r.material_raw || "Material not stated"),
       callouts,
       provenanceCard(r),
       r.observation ? obsCard(r.observation) : null,
@@ -1264,7 +1301,7 @@
         h("p", { class: "note", style: "margin:0" }, "Our interpretation of NASA’s tables, using the brief’s thresholds. Counts come from the O2 and pressure columns listed on each investigation’s page.")),
       h("div", { class: "grid qgrid" },
         chartCard("Which investigations tested oxygen above 30%?", "% O2",
-          "each bar spans the lowest to highest oxygen in that investigation’s NASA table; colour shows the fuel type (also named in the tooltip). The orange line marks the brief’s 30% Moon-base oxygen.",
+          "each bar spans the lowest to highest oxygen in that investigation’s NASA table; colour shows the fuel type (also named in the tooltip). The dashed blue line marks the brief’s 30% Moon-base oxygen.",
           o2RangeChart(INV), h("div", null, legendRow(["solid", "liquid", "gas", "smoke"].map(function (k) { return { color: COLORS_FUEL(k), label: fuelLabel(k) }; })),
             chartNote(INV.filter(function (v) { return v.o2_max_pct != null; }).length + " investigations whose NASA table has an oxygen column (planned-only values from FLEX-2 excluded). Inverse flames: O2 is in the burner flow, not the room.",
               INV.filter(function (v) { return v.o2_max_pct == null; }).length + " investigations with no oxygen column (detection studies, ground studies, and tables without O2)."))),
@@ -1347,7 +1384,7 @@
       h("section", { class: "record-head lv-machine", "aria-labelledby": "inv-h" },
         h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")),
         h("div", { class: "rh-top" },
-          h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, "NASA PSI · " + v.accession + " · " + (v.subResearchArea || v.researchArea)),
+          h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, "NASA PSI " + v.accession + ", " + (v.subResearchArea || v.researchArea)),
             h("h1", { id: "inv-h" }, invName(v)), h("p", { class: "inv-title" }, v.title)),
           h("div", { class: "rh-status" }, h("span", { class: "fuel-tag big", style: "--c:" + COLORS_FUEL(fuelKey(v)) }, h("i", null), fuelLabel(fuelKey(v))),
             h("p", { class: "signoff no" }, "Scores: " + rs.score + "/" + MAXPTS.station + " spacecraft/ISS · " + rm.score + "/" + MAXPTS.moon + " Moon base/rover (our rule)"))),
@@ -1685,7 +1722,7 @@
       if (g.length === 1) {
         var m = members[0], tip = exp + " " + shortId(m.c.r) + ": one test at its real recorded position · " + tipBase() + " · click to list it";
         el.setAttribute("data-tip", tip); el.setAttribute("aria-label", tip);
-        el.appendChild(svg("circle", { cx: g[0].p[0], cy: g[0].p[1], r: DOT_R, fill: inside ? col : "#16171a", stroke: col, "stroke-width": 1.6 }));
+        el.appendChild(svg("circle", { cx: g[0].p[0], cy: g[0].p[1], r: DOT_R, fill: inside ? col : "#112038", stroke: col, "stroke-width": 1.6 }));
       } else {
         var cx = g.reduce(function (a, q) { return a + q.p[0]; }, 0) / g.length, cy = g.reduce(function (a, q) { return a + q.p[1]; }, 0) / g.length, r = groupRadius(g.length);
         var tip2 = "Group of " + g.length + " overlapping " + exp + " tests. The bubble sits at the group’s average position, which is not itself a NASA test condition; small dots show each test’s real position · " +
@@ -1749,7 +1786,7 @@
     var col = EXP_COL[exp] || "#c98500";
     tests.forEach(function (t) {
       var tip = exp + " " + shortId(t.c.r) + ": " + f1(t.c.o2) + "% O2 (" + t.c.o2How + "), no per-test pressure · " + (t.partial ? "oxygen within the window (partial match)" : "oxygen outside the window");
-      s.appendChild(svg("circle", { cx: x(Math.round(t.c.o2 / binw) * binw), cy: base - (t._k - 0.5) * step, r: 2.9, fill: t.partial ? col : "#16171a", stroke: col, "stroke-width": 1.3, class: "mark", tabindex: 0, "data-tip": tip, "aria-label": tip }));
+      s.appendChild(svg("circle", { cx: x(Math.round(t.c.o2 / binw) * binw), cy: base - (t._k - 0.5) * step, r: 2.9, fill: t.partial ? col : "#112038", stroke: col, "stroke-width": 1.3, class: "mark", tabindex: 0, "data-tip": tip, "aria-label": tip }));
     });
     s.appendChild(svg("line", { x1: x(o2), x2: x(o2), y1: T - 6, y2: base + 4, class: "target-line" }));
     return s;
@@ -1957,26 +1994,26 @@
       h("h1", null, "About Flare AI"),
       h("p", { class: "lead" }, "Built for the NASA Space Apps Challenge 2026, “Flame in Freefall”, by Studio 628 / 628 Aerospace."),
       h("h2", null, "The rules we hold ourselves to"),
-      h("div", { class: "card" }, h("ul", { style: "margin:0;padding-left:20px" },
+      h("div", { class: "card" }, h("ul", { class: "about-list" },
         ["No invented numbers. Every figure on this site is computed from the data records.",
           "Every fact carries a label: Measured, Published conclusion, or Our interpretation.",
           "Every record shows how it was checked. Verified means a team member compared it with NASA\u2019s PDF. Machine-checked means automated checks passed, including a value-for-value comparison with NASA\u2019s PDF, and a team member has not yet signed it off. Records with no check are hidden.",
           "We never compare measurements that are not comparable, and we say so when we refuse.",
           "Where NASA did not test a condition, we say the data is insufficient instead of guessing.",
-          "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
+          "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", null, t); }))),
       h("h2", null, "How records are checked"),
       h("div", { class: "card" }, checkBreakdown(),
         h("p", { class: "note", style: "margin:12px 0 0" }, "Automated checks compare our records with NASA\u2019s own documents and files; they catch copying errors but cannot judge the science. " +
           "\u201cVerified\u201d is reserved for a team member who compares a record with NASA\u2019s source and signs it.")),
       h("h2", null, "Data sources"),
-      (D.sources || []).map(function (x) {
+      h("div", { class: "src-list" }, (D.sources || []).map(function (x) {
         var n = ALL.filter(function (r) { return r.source_id === x.source_id; }).length;
-        return h("div", { class: "card", style: "margin-bottom:10px" }, h("p", null, x.title + " (" + n + " records)"),
-          h("p", { class: "note" }, x.authors + " \u00b7 " + x.type),
-          h("p", { style: "margin:0" }, h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.url)));
-      }),
+        return h("div", { class: "src-item" }, h("p", null, h("b", null, x.title), " (" + n + " records)"),
+          h("p", { class: "note" }, x.authors + ", " + x.type),
+          h("p", null, h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.url)));
+      })),
       h("h2", null, "Known limits"),
-      h("div", { class: "card" }, h("ul", { style: "margin:0;padding-left:20px" },
+      h("div", { class: "card" }, h("ul", { class: "about-list" },
         ["Tests P7, P11 and T8 do not appear in the report\u2019s tables (checked in NASA\u2019s PDF).",
           "Flow velocity is not shown: the report uses fan settings and mixed formats.",
           "Pressure is not given per test in the report tables.",
@@ -1986,7 +2023,7 @@
           "Oxygen was measured differently in each experiment (calibrated chamber sensor, logged station O2, or estimates), so values from different experiments are never compared with each other.",
           "In 3 BASS-II tests NASA\u2019s report and NASA\u2019s PSI spreadsheet disagree (F3, P22b, P3a). Both values are shown.",
           "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
-          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
+          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", null, t); }))),
       h("h2", null, "AI use"),
       h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with AI assistance (Claude). The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }
