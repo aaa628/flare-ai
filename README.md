@@ -9,11 +9,11 @@ Built for the **NASA Space Apps Challenge 2026: Flame in Freefall**.
 
 ## Open it
 
-- **Offline:** double-click `site/index.html` (the home page) or `site/app.html` (the tools). Plain HTML, CSS and JavaScript with relative links; works from disk with no internet. Opened from disk, the home page is shown without its animations, because browsers block module scripts on `file://`; a local server or the hosted site shows them.
+- **Offline:** double-click `site/index.html`. Plain HTML, CSS and JavaScript with relative links; works from disk with no internet.
 - **Local server:** `python3 -m http.server 8000 --directory site`, then open http://localhost:8000.
 - **Demo host:** Netlify (publish directory `site`, no build; config in `netlify.toml`). Steps in [`docs/DEPLOY.md`](docs/DEPLOY.md).
 
-`raw.githubusercontent.com` is not a website host (it serves files as plain text), so the pages no longer point at it.
+`raw.githubusercontent.com` is not a website host (it serves files as plain text), so `index.html` no longer points at it.
 
 ## Current data status (generated `site/data/data.js`)
 
@@ -48,8 +48,6 @@ so they are **never pooled into one chart or comparison**. Details: [`data/READM
 
 ## Screens
 
-The site has two pages. `index.html` is the **home page**: what Flare AI is, a live window of Scenario Check, the method in three steps and links to every tool. Its numbers are written in the HTML and a test compares each one with the data file. `app.html` holds the **tools** below. Old links of the form `index.html#/...` are sent on to `app.html#/...`.
-
 Navigation: **Explore** (Records and Compare tabs), **Scenario Check**, **Investigations**, **Ask the Lab** (the Intelligence Lab), and **About**. Each page shows its tool first; how-to-read notes, methods and rules sit in labelled sections that open on request. Evidence labels, refusals and "insufficient data" verdicts always stay visible.
 
 | Screen | Status | What it does |
@@ -80,8 +78,7 @@ NASA's source and filling `verified_by` and `verified_date`; the checklist is in
 ## Repo layout
 
 ```
-site/            the website: index.html (home page, built with the taste-skill kit in assets/), app.html + js/app.js (the tools),
-                 css/style.css (tools), css/landing.css (home page), js/boot.js, img/ (screenshots of the tools), data/data.js (generated),
+site/            the website: index.html, css/style.css, js/app.js, data/data.js (generated),
                  sources/psi/ (byte-identical copies of NASA's PSI files, copied by build_site_data.py)
 data/            working CSVs, sources.csv, source/ (report text + NASA PSI files), README.md
 scripts/         fetch_psi_catalog.py (refresh PSI metadata + tables), build_catalog.py (investigation catalogue), extract_bass2.py, crosscheck_bass2.py, pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py, build_site_data.py
@@ -97,7 +94,7 @@ package.json     dependencies of the function only (@anthropic-ai/sdk, @netlify/
 ```bash
 pip install playwright openpyxl
 python scripts/build_site_data.py
-python tests/site_smoke_test.py            # 116 browser checks (incl. all 24 investigation pages, Scenario Check charts and the home page numbers): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
+python tests/site_smoke_test.py            # 103 browser checks (incl. all 24 investigation pages and Scenario Check charts): sign-off vs automated checks, provenance, source links, filters, Compare examples and refusals, text alternatives, 390px
 python tests/previewer_nav_test.py         # in-app links survive an injected <base> tag
 python tests/lab_ui_test.py                # Intelligence Lab page with a simulated server reply
 npm install && node tests/lab_function_test.mjs   # Lab function logic with a fake Claude client (no key needed)

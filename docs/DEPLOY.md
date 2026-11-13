@@ -1,12 +1,12 @@
 # Running and deploying Flare AI
 
 The website is plain files in `site/` (HTML, CSS, JavaScript, and the generated `site/data/data.js`).
-`site/index.html` (home page) and `site/app.html` (the tools) load everything with **relative links** (`css/style.css`, `data/data.js`, `js/app.js`, `assets/`),
+`site/index.html` loads everything with **relative links** (`css/style.css`, `data/data.js`, `js/app.js`),
 so the same folder works offline and on any static host. There is no build step on the host.
 
 ## 1. Offline (no internet, no install)
 
-Double-click `site/app.html` for the tools, or `site/index.html` for the home page. The tools open from `file://` and work fully offline (the home page is shown without its animations there, because browsers block module scripts on `file://`):
+Double-click `site/index.html`. The page opens from `file://` and works fully offline:
 the data is a `.js` file (not JSON), because browsers block `fetch()` on `file://` pages.
 
 ## 2. Local web server (closest to the real host)
