@@ -68,8 +68,10 @@ def psi_records():
         for r in rows:
             src = want.get(r["id"])
             same = bool(src) and all(r.get(c, "") == src.get(c, "") for c in ip.DATA_COLS)
-            r["verified"] = is_verified(r)
-            r["machine"] = same and not r["verified"]
+            # machine = passed the automated re-read, counted whether or not the record is also signed. A sign-off only
+            # counts while the re-read passes: if a value changes, the record drops to unchecked and the sign-off is void.
+            r["machine"] = same
+            r["verified"] = is_verified(r) and same
             r["level"] = "human" if r["verified"] else "machine" if r["machine"] else "none"
             r["auto_check_notes"] = (f"copied from NASA's PSI file {r['source_file']}, row {r['source_row']}; "
                                      "re-read at build time: every value equals the file") if same else \
@@ -166,7 +168,8 @@ def write_corpus(records, investigations, res=()):
         text = (f"{r['experiment']} test {r['id']}. Material: {r.get('material_raw','')}. Flow direction: {r.get('flow_mode') or 'not stated'}. "
                 f"Values as recorded: {vals}. " + (f"NASA test end: {r['outcome_raw']}. " if r.get("outcome_raw") else "") +
                 (f"Test-log note: {r['observation']} " if r.get("observation") else "") +
-                (f"Flags: {r['qc_flag']}. " if r.get("qc_flag") else "") + f"Check level: {r['level']} (no person has signed it)." * (r["level"] == "machine"))
+                (f"Flags: {r['qc_flag']}. " if r.get("qc_flag") else "") + (f"Check level: {r['level']} (no person has signed it)." if r["level"] == "machine" else
+                 f"Check level: human-verified by {r.get('verified_by')} on {r.get('verified_date')}, and machine-checked." if r["level"] == "human" else ""))
         src = (f"NASA/TM-20210011385, Appendix A, report page {r.get('source_page')}" if r.get("raw_text")
                else f"NASA PSI {r.get('source_id')}: {r.get('source_file','').split(',')[0]}, row {r.get('source_row')}")
         docs.append({"id": r["id"], "kind": "record", "title": f"{r['experiment']} {r['id']}: {r.get('material_raw','')}",
@@ -221,7 +224,8 @@ def main():
         still_ok = claimed and not cc.check(r, spans)[0]
         if claimed and not still_ok and not r["verified"]:
             stale.append(r["id"])
-        r["machine"] = still_ok and not r["verified"]
+        r["machine"] = still_ok
+        r["verified"] = r["verified"] and still_ok
         r["level"] = "human" if r["verified"] else "machine" if r["machine"] else "none"
     pdf_live = None
     try:
@@ -265,8 +269,9 @@ def main():
     investigations = load("build_catalog").catalog()
     sources = read("sources.csv")
     res = resources()
-    n_ver = sum(1 for r in records if r["level"] == "human")
-    n_mach = sum(1 for r in records if r["level"] == "machine")
+    n_ver = sum(1 for r in records if r["verified"])
+    n_mach = sum(1 for r in records if r["machine"])
+    n_none = sum(1 for r in records if r["level"] == "none")
     payload = {
         "records": records,
         "sources": sources,
@@ -274,7 +279,7 @@ def main():
         "resources": res,
         "brief_cards": brief_cards(),
         "counts": {"records": len(records), "verified": n_ver, "machine": n_mach,
-                   "unchecked": len(records) - n_ver - n_mach, "shown": n_ver + n_mach,
+                   "unchecked": n_none, "shown": len(records) - n_none,
                    "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"]),
                    "psi_agree": sum(1 for r in records if r.get("psi_check", "").startswith("agrees")),
                    "psi_differ": sum(1 for r in records if r.get("psi_check", "").startswith("DIFFERS")),
