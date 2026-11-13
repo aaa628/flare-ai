@@ -523,3 +523,13 @@ Verified by running: smoke 111/111 (new: timeline order, type filter, search); p
 - Fix: two tables with no oxygen column were called "Same: how oxygen was recorded"; now "No oxygen column in these NASA tables".
 - Investigation pages show the family, which investigations share it (links) and the source.
 Verified by running: smoke 116/116 (5 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.
+
+## 2026-11-13: Moon-base context and partial-gravity gap on the Investigations Moon view
+- Two cards in the challenge brief's exact sentences (11 in total; build_site_data.py checks each against
+  data/source/challenge_brief_2026-11-13.txt): spacesuit 100% O2 at 4.3 psi, pre-breathing, Moon base >=30% O2 at <=10.2 psi
+  (>40% more oxygen), CFI-G up to 85% O2 inside-out flames; and no partial-gravity data in PSI (LUCI, FM2 expected), E-FIELD
+  mimicking it, microgravity and 1 g bounding it.
+- Each card adds one data line: CFI-G's two NASA tables (normal 18-40% room O2, inverse 12-85% burner O2; 48 tests in the
+  zone, recomputed from the raw tables: 20 + 28), and a labelled note that every Flare AI record is from microgravity.
+- Shown on the Moon-base view only. Stacked on the hardware-families branch (merge #35 first).
+Verified by running: smoke 120/120 (4 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.

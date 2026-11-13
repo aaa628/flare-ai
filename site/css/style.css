@@ -730,3 +730,12 @@ body::after {
   .timeline .lesson + .lesson::before { left:28px; }
 }
 @media (max-width:640px) { .lesson-tabs { border-radius:14px; } .lesson-search { max-width:none; flex-basis:100%; } }
+
+/* ---------- Moon-base view: brief context cards ---------- */
+.brief-cards { grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); margin-top:16px; }
+.brief-card h3 { margin:0 0 8px; font-size:18px; }
+.brief-card ul { list-style:none; margin:12px 0 8px; padding:0; }
+.brief-card li { padding:6px 0 6px 14px; border-left:2px solid var(--published); margin-bottom:6px; font-size:15px; color:#e6e6e6; }
+.brief-card q { quotes:"\201C" "\201D"; }
+.brief-link { margin:10px 0 0; font-size:14.5px; }
+@media (max-width:640px) { .brief-cards { grid-template-columns:1fr; } }

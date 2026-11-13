@@ -246,6 +246,15 @@ async def main():
         check("investigations: every investigation has a hardware family", len(fams) == 24 and all(fams))
         await pg.goto(SITE + "#/investigation/PSI-39"); await pg.wait_for_selector(".hw-note")
         check("investigation detail: shows its hardware family, who shares it and the source", "Shared with" in await pg.inner_text(".hw-note") and "Brief:" in await pg.inner_text(".hw-note"))
+        await pg.goto(SITE + "#/investigations/moon"); await pg.wait_for_selector(".brief-card")
+        t = await pg.inner_text(".brief-cards")
+        check("moon view: spacesuit/Moon-base and partial-gravity cards, 11 brief sentences, all checked",
+              await pg.locator(".brief-card").count() == 2 and await pg.locator(".brief-card q").count() == 11 and t.count("checked word for word") == 2)
+        check("moon view: key brief facts present (4.3 psi, pre-breathe, 30%/10.2 psi, 85% CFI-G, LUCI/FM2, E-FIELD)",
+              all(k in t for k in ("4.3 psi", "pre-breathe", "30% or greater", "10.2 psi", "85% oxygen", "LUCI", "FM2", "E-FIELD")))
+        check("moon view: CFI-G zone count comes from the data (48)", "48 tests fall inside the Moon-base zone" in t)
+        await pg.goto(SITE + "#/investigations"); await pg.wait_for_selector(".inv-card")
+        check("station view: Moon-base context cards not shown", await pg.locator(".brief-card").count() == 0)
         await pg.goto(SITE + "#/lessons"); await pg.wait_for_selector(".lesson")
         t = await pg.inner_text("main")
         check("lessons: all 9 challenge background resources shown", await pg.locator(".lesson").count() == 9)

@@ -40791,6 +40791,33 @@ window.FLARE_DATA = {
    "quote_source": "the NASA page linked here"
   }
  ],
+ "brief_cards": [
+  {
+   "id": "moon-atmosphere",
+   "title": "Why a Moon base raises the fire question",
+   "quotes": [
+    "To enable flexibility, spacesuits are filled with 100% oxygen to only 4.3 psi (pounds per square inch), where the Earth’s pressure at sea level is 14.7 psi.",
+    "To avoid the bends (decompression sickness), the astronauts pre-breathe 100% oxygen to expel absorbed nitrogen.",
+    "To reduce the pre-breathing duration and thus facilitate lunar excursions, it is expected that the Moon Base and pressurized rover(s) will be at a pressure and oxygen concentration between those in a spacesuit and the Earth’s atmosphere.",
+    "The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less.",
+    "Compared to Earth’s atmosphere, that’s more than a 40% increase in the oxygen concentration making materials much more flammable.",
+    "Microgravity tests with the highest oxygen concentrations were conducted as part of the ACME’s Cool Flames Investigation with Gases (CFI-G).",
+    "In those tests, the combustion chamber was filled with a mixture of nitrogen and a flammable gas (e.g., propane), while an oxygen-nitrogen mixture of up to 85% oxygen flowed from the spherical burner creating an inside-out flame."
+   ],
+   "quotes_checked": true
+  },
+  {
+   "id": "partial-gravity",
+   "title": "Data gap: partial gravity",
+   "quotes": [
+    "Although NASA is heavily focused on the return of astronauts to the Moon’s surface and the establishment of a Moon Base in preparation for the future human exploration of Mars, there is currently no partial-gravity combustion data available in PSI.",
+    "We expect such data will be added in the future, for example from the Lunar-g Combustion Investigation (LUCI) and the Flammability of Materials on the Moon (FM2) experiment.",
+    "Partial gravity was mimicked in ACME’s Electric-Field Effects on Laminar Diffusion Flames (E-FIELD Flames) experiment through the effect of the electric field on the ions that naturally occur in flames.",
+    "Microgravity and normal-gravity results could bound what occurs at intermediate gravity levels."
+   ],
+   "quotes_checked": true
+  }
+ ],
  "counts": {
   "records": 537,
   "verified": 0,

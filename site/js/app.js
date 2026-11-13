@@ -1320,6 +1320,18 @@
           (function () { var s = INV.filter(function (v) { return fuelKey(v) === "solid" && v.o2_max_pct != null; }); var mx = Math.max.apply(null, s.map(function (v) { return v.o2_max_pct; }));
             return s.length ? "Solid-material investigations recorded at most " + mx + "% O2 (" + s.map(invName).join(", ") + "), so how cabin materials burn in a Moon-base atmosphere is a gap in PSI\u2019s data." : ""; })()),
         h("p", { class: "note", style: "margin:0" }, "Our interpretation of NASA’s tables, using the brief’s thresholds. Counts come from the O2 and pressure columns listed on each investigation’s page.")),
+      lens === "moon" && (D.brief_cards || []).length ? h("div", { class: "grid brief-cards" }, (D.brief_cards || []).map(function (c) {
+        var ef = invById("PSI-22"), cg = invById("PSI-159");
+        return h("section", { class: "card brief-card", id: "brief-" + c.id },
+          h("h3", null, c.title), chip("published", "NASA challenge brief"),
+          h("ul", null, c.quotes.map(function (q) { return h("li", null, h("q", null, q)); })),
+          h("p", { class: "note small" }, c.quotes_checked ? "\u2713 Sentences checked word for word against the challenge brief (saved 2026-11-13)." : "! A sentence could not be matched to the saved brief."),
+          c.id === "moon-atmosphere" && cg ? h("p", { class: "brief-link" }, chip("measured", "In NASA\u2019s tables"), " ",
+            h("a", { href: "#/investigation/PSI-159" }, invName(cg)), ": " + (cg.table_summaries || []).filter(function (t) { return t.o2_range_pct; }).map(function (t) {
+              return t.o2_range_pct.join("\u2013") + "% O2 (" + t.o2_meaning + ")"; }).join("; ") + ". " + cg.joint_tests + " tests fall inside the Moon-base zone.") : null,
+          c.id === "partial-gravity" && ef ? h("p", { class: "brief-link" }, chip("interp", "Our note"), " Every test record in Flare AI is from microgravity (ISS or Cygnus). See ",
+            h("a", { href: "#/investigation/PSI-22" }, invName(ef)), " for the electric-field experiment.") : null);
+      })) : null,
       h("div", { class: "grid qgrid" },
         chartCard("Which investigations tested oxygen above 30%?", "% O2",
           "each bar spans the lowest to highest oxygen in that investigation’s NASA table; colour shows the fuel type (also named in the tooltip). The dashed blue line marks the brief’s 30% Moon-base oxygen.",
