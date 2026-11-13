@@ -164,7 +164,8 @@ def write_corpus(records, investigations, res=()):
             continue
         docs.append({"id": r["id"], "kind": "nasa_text", "title": f"Challenge resource: {r['title']}", "route": "#/lessons",
                      "source": f"{r['publisher']} ({r['url']})",
-                     "text": ((r.get("event") + ". ") if r.get("event") else "") + "NASA's words: " + " ".join(r["quotes"])})
+                     "text": ((f"Subject (Flare AI summary, {r['year']}): " if r.get("year") else "Subject (Flare AI summary): ") + r["event"] + ". " if r.get("event") else "")
+                     + "NASA's words: " + " ".join(r["quotes"])})
     for i, title, text in BRIEF_FACTS:
         docs.append({"id": i, "kind": "brief", "title": title, "route": "#/investigations", "source": "NASA Space Apps 2026 challenge brief (Details tab)", "text": text})
     out = ROOT / "netlify" / "functions" / "ask" / "corpus.mjs"

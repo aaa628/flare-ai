@@ -2010,38 +2010,68 @@
   }
 
   /* Background resources from the challenge's Resources tab. Not datasets: NASA's own words (quotes checked word for word
-   * against the saved page on every build), plus one line of our interpretation each. */
+   * against the saved page on every build), plus one line of our interpretation each. Filter by group or search; the
+   * fires run as a dated timeline; extra quotes fold away behind "Show all". */
   function viewLessons() {
     setTitle("Lessons");
     var R = D.resources || [];
-    var GROUPS = [["fires", "Real fires and failures", "What happened, why, and what NASA changed afterwards."],
-      ["science", "The science behind it", "NASA\u2019s own overviews of the combustion research whose results are in Flare AI."],
+    var GROUPS = [["fires", "Real fires", "What happened, why, and what NASA changed afterwards."],
+      ["science", "The science", "NASA\u2019s own overviews of the combustion research whose results are in Flare AI."],
       ["spinoffs", "Fire safety on Earth", "Space technology that went on to protect firefighters."]];
+    var state = { g: "", q: "" }, body = h("div"), count = h("p", { class: "count", "aria-live": "polite" });
+    function hay(r) { return (r.title + " " + r.event + " " + r.year + " " + r.publisher + " " + r.quotes.join(" ") + " " + r.ours).toLowerCase(); }
     function card(r) {
-      var meta = r.publisher + (r.published ? ", " + r.published : "");
+      var rest = r.quotes.slice(1);
       return h("article", { class: "card lesson", id: r.id },
-        h("div", { class: "lesson-head" },
-          h("h3", null, h("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title)),
-          r.event ? h("p", { class: "lesson-event" }, r.event) : null,
-          h("p", { class: "note" }, meta)),
-        h("div", { class: "lesson-quotes" }, chip("published", "Published by NASA"),
-          h("ul", null, r.quotes.map(function (q) { return h("li", null, h("q", null, q)); })),
-          h("p", { class: "note small" }, r.quotes_checked ? "\u2713 Quotes checked word for word against " + r.quote_source + "."
-            : "! A quote could not be matched to the saved page; treat it with care.")),
+        h("div", { class: "lesson-when" }, r.year ? h("b", null, r.year) : h("b", { class: "nodate" }, "\u2014"),
+          h("span", null, { fires: "Incident", science: "Background", spinoffs: "Spinoff" }[r.group])),
+        h("div", { class: "lesson-main" },
+          h("h3", null, r.title),
+          h("p", { class: "lesson-event" }, r.event),
+          h("div", { class: "lesson-quotes" }, chip("published", "Published by NASA"),
+            h("blockquote", { class: "lesson-key" }, h("q", null, r.quotes[0])),
+            rest.length ? h("details", { class: "lesson-more" }, h("summary", null, "Show all " + r.quotes.length + " NASA quotes"),
+              h("ul", null, rest.map(function (q) { return h("li", null, h("q", null, q)); }))) : null,
+            h("p", { class: "note small" }, r.quotes_checked ? "\u2713 Quotes checked word for word against " + r.quote_source + "."
+              : "! A quote could not be matched to the saved page; treat it with care."))),
         h("div", { class: "lesson-ours" }, chip("interp", "Our interpretation"), h("p", null, r.ours),
-          r.link ? h("a", { class: "textlink", href: r.link[0] }, r.link[1]) : null));
+          h("div", { class: "lesson-links" },
+            h("a", { class: "btn ghost small", href: r.url, target: "_blank", rel: "noopener" }, "Open NASA\u2019s page"),
+            r.link ? h("a", { class: "textlink", href: r.link[0] }, r.link[1]) : null)));
     }
+    function draw() {
+      body.textContent = "";
+      var shown = 0;
+      GROUPS.forEach(function (g) {
+        if (state.g && state.g !== g[0]) return;
+        var items = R.filter(function (r) { return r.group === g[0] && (!state.q || hay(r).indexOf(state.q) >= 0); })
+          .sort(function (a, b) { return (a.year || "9999").localeCompare(b.year || "9999"); });
+        if (!items.length) return;
+        shown += items.length;
+        body.appendChild(h("section", { class: "lesson-group" + (g[0] === "fires" ? " timeline" : ""), "aria-labelledby": "lg-" + g[0] },
+          h("h2", { id: "lg-" + g[0] }, g[1], h("span", { class: "lg-n" }, String(items.length))), h("p", { class: "muted section-lead" }, g[2]),
+          h("div", { class: "lesson-list" }, items.map(card))));
+      });
+      count.textContent = "Showing " + shown + " of " + R.length + " resources";
+      if (!shown) body.appendChild(h("div", { class: "empty" }, h("h3", null, "Nothing matches \u201c" + state.q + "\u201d"),
+        h("button", { type: "button", class: "ghost small", onclick: function () { state.q = ""; search.value = ""; state.g = ""; setTabs(); draw(); } }, "Show all resources")));
+    }
+    var tabs = h("div", { class: "seg lesson-tabs", role: "group", "aria-label": "Show resources by type" });
+    function setTabs() { Array.prototype.forEach.call(tabs.children, function (b) { var on = b.getAttribute("data-g") === state.g; b.className = on ? "on" : ""; b.setAttribute("aria-pressed", on ? "true" : "false"); }); }
+    [["", "All"]].concat(GROUPS.map(function (g) { return [g[0], g[1]]; })).forEach(function (t) {
+      var n = t[0] ? R.filter(function (r) { return r.group === t[0]; }).length : R.length;
+      tabs.appendChild(h("button", { type: "button", "data-g": t[0], onclick: function () { state.g = t[0]; setTabs(); draw(); } }, t[1] + " (" + n + ")"));
+    });
+    var search = h("input", { type: "search", id: "lq", placeholder: "Search: oxygen, Apollo, smoke, 1997\u2026", "aria-label": "Search the resources",
+      oninput: function (e) { state.q = e.target.value.trim().toLowerCase(); draw(); } });
+    setTabs(); draw();
     return h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Lessons from real fires"),
           h("p", { class: "lead" }, "The challenge\u2019s Resources tab lists one dataset, NASA\u2019s PSI combustion repository (that is the data in Flare AI), and " +
             R.length + " background pages. These are those pages: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words."))),
-      R.length ? GROUPS.map(function (g) {
-        var items = R.filter(function (r) { return r.group === g[0]; });
-        return items.length ? h("section", { "aria-labelledby": "lg-" + g[0] },
-          h("h2", { id: "lg-" + g[0] }, g[1]), h("p", { class: "muted section-lead" }, g[2]),
-          h("div", { class: "lesson-list" }, items.map(card))) : null;
-      }) : h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No resources loaded"), h("p", { class: "muted" }, "Add them to data/resources_curated.json and rebuild.")));
+      R.length ? h("div", { class: "lesson-tools" }, tabs, h("div", { class: "lesson-search" }, search), count) : null,
+      R.length ? body : h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No resources loaded"), h("p", { class: "muted" }, "Add them to data/resources_curated.json and rebuild.")));
   }
 
   function viewAbout() {

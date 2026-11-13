@@ -237,10 +237,16 @@ async def main():
         await pg.goto(SITE + "#/lessons"); await pg.wait_for_selector(".lesson")
         t = await pg.inner_text("main")
         check("lessons: all 9 challenge background resources shown", await pg.locator(".lesson").count() == 9)
-        check("lessons: 25 NASA quotes, each labelled published and checked", await pg.locator(".lesson-quotes li q").count() == 25
+        check("lessons: 25 NASA quotes, each labelled published and checked", await pg.locator(".lesson q").count() == 25
               and await pg.locator(".lesson .chip.published").count() == 9 and t.count("Quotes checked word for word") == 9)
         check("lessons: every interpretation is labelled as ours", await pg.locator(".lesson .chip.interp").count() == 9)
-        check("lessons: each card links to NASA's original page", await pg.locator(".lesson-head h3 a[href^='https://']").count() == 9)
+        check("lessons: each card links to NASA's original page", await pg.locator(".lesson .lesson-links a[href^='https://']").count() == 9)
+        check("lessons: fires run as a dated timeline (1967, 1970, 1997)", await pg.locator(".timeline .lesson-when b").all_inner_texts() == ["1967", "1970", "1997"])
+        await pg.click(".lesson-tabs button:has-text('Fire safety on Earth')")
+        check("lessons: type filter narrows to the 3 spinoffs", await pg.locator(".lesson").count() == 3)
+        await pg.click(".lesson-tabs button:has-text('All')"); await pg.fill("#lq", "smoke")
+        check("lessons: search finds the Mir fire and the fire detector", await pg.locator(".lesson h3").all_inner_texts() == ["25 Years Ago: Fire Aboard Space Station Mir", "Fire Detector"])
+        await pg.fill("#lq", "")
         check("lessons: says the resources are not datasets", "one dataset" in t and "hold no test records" in t)
         await pg.goto(SITE+"#/about"); await pg.wait_for_selector("h1")
         check("about renders", "The rules we hold ourselves to" in await pg.text_content("main"))

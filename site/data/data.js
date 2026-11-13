@@ -40539,6 +40539,7 @@ window.FLARE_DATA = {
     "#/investigations/moon",
     "See the Moon-base data gap"
    ],
+   "year": "1967",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   },
@@ -40561,6 +40562,7 @@ window.FLARE_DATA = {
     "#/about",
     "What Flare AI covers"
    ],
+   "year": "1970",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   },
@@ -40584,6 +40586,7 @@ window.FLARE_DATA = {
     "#/investigations",
     "See the detection and suppression studies"
    ],
+   "year": "1997",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   },
@@ -40595,7 +40598,7 @@ window.FLARE_DATA = {
    "published": "",
    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
    "text_file": "resources/nasa-combustion-science.txt",
-   "event": "",
+   "event": "Why flames behave differently without gravity, and which experiments NASA runs",
    "quotes": [
     "The Space Station environment also provides an important test-bed for studying spacecraft fire risk.",
     "Typical flame temperatures are on the order of 2,300 degrees Kelvin, whereas ambient temperatures are approximately 300 degrees Kelvin.",
@@ -40607,6 +40610,7 @@ window.FLARE_DATA = {
     "#/investigations",
     "Open the 24 investigations"
    ],
+   "year": "",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   },
@@ -40618,7 +40622,7 @@ window.FLARE_DATA = {
    "published": "2016-07-06",
    "url": "https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/",
    "text_file": "resources/researchers-guide.txt",
-   "event": "",
+   "event": "NASA's overview of ISS combustion research and lessons learned",
    "quotes": [
     "For future exploration missions, fire safety is an important operational element to minimize the likelihood and impact of accidental fires in spacecraft and human habitats.",
     "An improved knowledge of combustion in reduced gravity is essential to adapting fire safety concepts and systems to the conditions of the space environment.",
@@ -40629,6 +40633,7 @@ window.FLARE_DATA = {
     "#/investigations",
     "Open the investigations"
    ],
+   "year": "2015",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   },
@@ -40640,7 +40645,7 @@ window.FLARE_DATA = {
    "published": "2018",
    "url": "https://www.youtube.com/watch?v=W1oXykoz9zg",
    "text_file": "challenge_resources_2026-11-13.txt",
-   "event": "",
+   "event": "A short video introduction to NASA's combustion research on the ISS",
    "quotes": [
     "Introduction to NASA’s combustion research on the International Space Station through a 3.6-minute video clip from 2018."
    ],
@@ -40650,6 +40655,7 @@ window.FLARE_DATA = {
     "#/investigations",
     "Open the investigations"
    ],
+   "year": "2018",
    "quotes_checked": true
   },
   {
@@ -40660,13 +40666,14 @@ window.FLARE_DATA = {
    "published": "1976",
    "url": "https://spinoff.nasa.gov/node/9582",
    "text_file": "resources/spinoff-air-tanks.txt",
-   "event": "",
+   "event": "Lighter breathing-air tanks for firefighters",
    "quotes": [
     "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks.",
     "Made of aluminum liner wrapped by resin-impregnated glass fibers, eliminating corrosion as well as lightening the load."
    ],
    "ours": "Space hardware already improves fire safety on Earth: here, lighter breathing gear for firefighters.",
    "link": null,
+   "year": "1976",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   },
@@ -40678,7 +40685,7 @@ window.FLARE_DATA = {
    "published": "1978",
    "url": "https://spinoff.nasa.gov/node/9407",
    "text_file": "resources/spinoff-fire-detector.txt",
-   "event": "",
+   "event": "A shuttle fire detector that tells smoke from dust",
    "quotes": [
     "Sensor operates by sampling air to determine the presence of combustion particles, but unlike earlier equipment the Brunswick Incipient Fire Detector, originally used in space shuttle orbiters, can discriminate between combustion particles and extraneous matters such as dust.",
     "Fire detector represents an advancement over commercially available smoke detectors in that it senses and signals the presence of a fire condition before appearance of flame and smoke."
@@ -40688,6 +40695,7 @@ window.FLARE_DATA = {
     "#/investigations",
     "See SAME and SAME-R"
    ],
+   "year": "1978",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   },
@@ -40699,13 +40707,14 @@ window.FLARE_DATA = {
    "published": "1982",
    "url": "https://spinoff.nasa.gov/node/9918",
    "text_file": "resources/spinoff-fire-attire.txt",
-   "event": "",
+   "event": "Spacesuit materials in firefighter clothing",
    "quotes": [
     "This is the goal of Project FIRES, a program jointly sponsored by NASA and the Federal Emergency Management Agency's U.S. Fire Administration with technical management provided by Marshall Space Flight Center.",
     "A major focus of the effort involves application to the FIRES ensemble of lightweight, fire-resistant, heat-protective materials originally developed for use in astronauts' space suits or in spacecraft components which require thermal protection."
    ],
    "ours": "Fire-resistant spacesuit materials, the kind adopted after Apollo 1, went on to protect firefighters.",
    "link": null,
+   "year": "1982",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
   }
