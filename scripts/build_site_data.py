@@ -110,6 +110,8 @@ BRIEF_CARDS = [
         "Compared to Earth\u2019s atmosphere, that\u2019s more than a 40% increase in the oxygen concentration making materials much more flammable.",
         "Microgravity tests with the highest oxygen concentrations were conducted as part of the ACME\u2019s Cool Flames Investigation with Gases (CFI-G).",
         "In those tests, the combustion chamber was filled with a mixture of nitrogen and a flammable gas (e.g., propane), while an oxygen-nitrogen mixture of up to 85% oxygen flowed from the spherical burner creating an inside-out flame."]),
+    ("mars", "Mars base: what PSI can and can\u2019t tell you", [
+        "Identify investigations most relevant to the fire safety needs of habitable crew environments, including spacecraft, space stations, bases on the lunar and Martian surfaces, and pressurized rovers."]),
     ("partial-gravity", "Data gap: partial gravity", [
         "Although NASA is heavily focused on the return of astronauts to the Moon\u2019s surface and the establishment of a Moon Base in preparation for the future human exploration of Mars, there is currently no partial-gravity combustion data available in PSI.",
         "We expect such data will be added in the future, for example from the Lunar-g Combustion Investigation (LUCI) and the Flammability of Materials on the Moon (FM2) experiment.",

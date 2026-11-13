@@ -43065,6 +43065,28 @@ window.FLARE_DATA = {
    "year": "1982",
    "quotes_checked": true,
    "quote_source": "the NASA page linked here"
+  },
+  {
+   "id": "res-water-mist",
+   "group": "spinoffs",
+   "title": "Fine-water-mist extinguishers",
+   "publisher": "NASA Space Apps 2026 challenge brief (Flame in Freefall)",
+   "published": "",
+   "year": "",
+   "from_brief": true,
+   "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+   "text_file": "challenge_brief_2026-11-13.txt",
+   "event": "ISS fire-suppression technology with uses on Earth",
+   "quotes": [
+    "Fine-water-mist extinguishers developed for use on the ISS have practical applications here on Earth, and NASA technology has similarly led to improvements in terrestrial smoke detection and firefighter gear, including protective clothing and air tanks."
+   ],
+   "quote_source": "the challenge brief (Details tab, saved 2026-11-13)",
+   "ours": "The brief names water mist as an Earth application of ISS fire-safety work, but none of the Resources-tab pages covers it. The suppression data in Flare AI is FLEX, which used inert gases (carbon dioxide and helium), not water mist.",
+   "link": [
+    "#/investigation/PSI-69",
+    "See FLEX, the suppression study"
+   ],
+   "quotes_checked": true
   }
  ],
  "brief_cards": [
@@ -43079,6 +43101,14 @@ window.FLARE_DATA = {
     "Compared to Earth’s atmosphere, that’s more than a 40% increase in the oxygen concentration making materials much more flammable.",
     "Microgravity tests with the highest oxygen concentrations were conducted as part of the ACME’s Cool Flames Investigation with Gases (CFI-G).",
     "In those tests, the combustion chamber was filled with a mixture of nitrogen and a flammable gas (e.g., propane), while an oxygen-nitrogen mixture of up to 85% oxygen flowed from the spherical burner creating an inside-out flame."
+   ],
+   "quotes_checked": true
+  },
+  {
+   "id": "mars",
+   "title": "Mars base: what PSI can and can’t tell you",
+   "quotes": [
+    "Identify investigations most relevant to the fire safety needs of habitable crew environments, including spacecraft, space stations, bases on the lunar and Martian surfaces, and pressurized rovers."
    ],
    "quotes_checked": true
   },
@@ -43105,8 +43135,8 @@ window.FLARE_DATA = {
   "psi_agree": 123,
   "psi_differ": 3,
   "investigations": 24,
-  "resources": 9,
-  "resources_checked": 9,
+  "resources": 10,
+  "resources_checked": 10,
   "experiments": {
    "BASS-I": 121,
    "BASS-II": 129,
