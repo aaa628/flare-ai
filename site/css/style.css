@@ -677,3 +677,23 @@ body::after {
 @keyframes stars-twinkle { 0%, 100% { opacity:.25; } 50% { opacity:1; } }
 .top { background:rgba(0,0,0,.55); }
 .foot { background:rgba(8,8,8,.85); }
+
+/* ---------- 628 Aerospace emblem: header mark, footer sign-off, About card ---------- */
+.brand .mark { width:34px; height:34px; border-radius:50%; }
+.foot-inner { display:flex; align-items:center; gap:20px 32px; flex-wrap:wrap; }
+.foot-text { display:grid; gap:6px; flex:1 1 420px; min-width:0; }
+.foot-brand { display:flex; align-items:center; gap:12px; flex:0 0 auto; padding-right:32px; border-right:1px solid var(--line); }
+.foot-brand img { width:56px; height:56px; display:block; }
+.foot-brand p { display:grid; gap:2px; margin:0; }
+.foot-brand b { font:700 16px/1.1 var(--display); font-stretch:112%; color:var(--text); }
+.foot-brand span { font-size:13px; color:var(--dim); }
+.made-by { display:flex; align-items:center; gap:24px; margin:24px 0 8px; }
+.made-by .badge { flex:0 0 auto; width:140px; height:140px; display:grid; place-items:center; background:var(--accent); border:0; border-radius:var(--r-2); padding:0; }
+.made-by .badge img { width:112px; height:112px; display:block; }
+.made-by h2 { margin:0 0 4px; }
+.made-by p { margin:0; }
+@media (max-width:640px) {
+  .foot-brand { border-right:0; padding-right:0; }
+  .made-by { gap:16px; }
+  .made-by .badge { width:96px; height:96px; } .made-by .badge img { width:76px; height:76px; }
+}
