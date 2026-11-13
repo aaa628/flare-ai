@@ -353,3 +353,11 @@ Verified by running: smoke 103/103 (new: group tooltip wording, no overlapping c
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function 18/18; crosscheck and psi_import mutation
   tests passed (pdfcheck mutation test could not download NASA's PDF here: network 403). CSP-served pages: no console errors,
   both fonts load, no horizontal scroll at 390 px. Screenshots of all pages at 1366 and 390 px reviewed.
+
+## 2026-11-13: palette changed to amber on warm black (user request)
+- User liked the redesign but not the blue. Accent is now amber #ffb020 on warm black #0c0a07 (panels #17140f).
+- Because amber is now the action colour, cautions moved to orange (--caution #ff8f4d) and "Our interpretation" chips to lilac
+  (#c3a6ff); "Published conclusion" is light blue (#8fbfff). Every status still has a glyph or word, not colour alone.
+- Kept blue on purpose: the orbit flame in the hero illustration (flames in orbit really are blue) and the validated chart
+  series colours that tell experiments apart.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
