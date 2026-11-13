@@ -394,3 +394,11 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served p
 - Site files restored to the burgundy commit (51b614a); the purple trial stays in history.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function 18/18; CSP-served pages without errors,
   both fonts load, no horizontal scroll at 390 px.
+
+## 2026-11-13: softer structure (user: "too blunt")
+- Corner radii raised (controls 10px, panels 16px, large panels 20px); small tags and link buttons are pills.
+- Card edges are a faint white edge (6%) instead of solid grey lines; row separators 5%; panels slightly lighter (#101010).
+- Removed full-width rules under the hero, page headers and the Compare toolbar; header band 4px -> 2px.
+- Callouts (included/left out, cautions, verdicts, quotes, Lab answers) are rounded tinted panels with a soft coloured edge.
+- Record header keeps its check-level colour as an inset top line inside the rounded box. Slightly more padding in cards.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
