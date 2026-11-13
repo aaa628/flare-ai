@@ -51,7 +51,7 @@ async def main():
         stats = await pg.inner_text(".hero-side")
         check("default: evidence legend shows the real counts", all(str(C[k]) in stats for k in ("verified", "machine", "unchecked")), stats.replace("\n", " | "))
         check("overview: human sign-off shown separately and prominently (N of total)", "of " + str(C["records"]) in stats and await pg.locator(".signoff-box").count() == 1 and
-              (("not a sign-off" in stats.lower()) if C["verified"] == 0 else ("signed by a team member" in stats and str(C["machine"]) + " of " + str(C["records"]) in stats)))
+              (("not a sign-off" in stats.lower()) if C["verified"] == 0 else ("signed by the team" in stats and str(C["machine"]) + " of " + str(C["records"]) in stats)))
         check("overview: automated checks listed with exact counts", str(C["pdf_match"]) + " of 126" in stats and str(C["psi_agree"]) + " of 126" in stats)
         check("overview: each chart says what it includes and leaves out", await pg.locator(".qcard .limits").count() == 3 and "Left out" in t)
         check("overview: says what the site can answer + one primary action", "what this site can answer" in t.lower() and await pg.locator(".hero .btn").count() == 1 and "Investigations" in t)
@@ -189,7 +189,7 @@ async def main():
             await pg.goto(SITE+"#/experiment/"+signed_id); await pg.wait_for_selector(".cols")
             t = await pg.inner_text("main")
             rec = await pg.evaluate("(id) => window.FLARE_DATA.records.find(r => r.id === id)", signed_id)
-            check("signed detail: shows who signed and when, plus both labels", ("Signed by " + rec["verified_by"] + " on " + rec["verified_date"]) in t and
+            check("signed detail: shows who signed and when, plus both labels", ("Signed by " + rec["verified_by"] + " between " + rec["verified_date"].replace(" to ", " and ")) in t and
                   "Human-verified" in t and "Machine-checked" in t and "Human sign-off: not yet" not in t, signed_id)
 
         # 2. preview mode
@@ -291,7 +291,7 @@ async def main():
         rows = list(_csv.DictReader(_io.StringIO(open(await d.path(), encoding="utf-8-sig").read())))
         check("explorer CSV: downloads exactly the filtered rows (FLEX 274) with method, check level and source",
               len(rows) == 274 and all(r["experiment"] == "FLEX" and r["o2_method"].startswith("mol%") and r["check_level"] in ("Machine-checked", "Human-verified; Machine-checked") and
-                  (r["check_level"] == "Machine-checked" or (r["verified_by"] in ("Saad", "Muqeet") and r["verified_date"] in ("2026-11-13", "2026-11-14"))) and "PSI-69" in r["source"] for r in rows))
+                  (r["check_level"] == "Machine-checked" or (r["verified_by"] == "Saad & Muqeet" and r["verified_date"] == "2026-11-13 to 2026-11-14")) and "PSI-69" in r["source"] for r in rows))
         check("explorer CSV: FLEX-1 values equal NASA's table (21 mol% O2, Disruption)", any(r["id"] == "FLEX-1" and r["o2_start"] == "21" and r["nasa_test_end"] == "Disruption" for r in rows))
         await pg.goto(SITE + "#/investigation/PSI-69"); await pg.wait_for_selector(".cite")
         check("investigation: citation names PSI, version, release date and DOI", "version 5, released 31-Jul-2016" in await pg.inner_text(".cite-text") and "https://doi.org/10.60555/mbq8-0451" in await pg.inner_text(".cite-text"))

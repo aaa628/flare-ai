@@ -155,7 +155,7 @@
           h("div", { class: "ev-top" }, chip(L.cls, L.label), h("b", { class: "ev-n" }, String(lv === "machine" ? countMachine() : countLevel(lv)))),
           compact ? null : h("p", null, lv === "machine" ? "Automated checks against NASA\u2019s PDF or data file passed (counted whether or not the record is also signed)." : L.text));
       }),
-      compact ? h("p", { class: "ev-note" }, "✓ human-verified: a team member checked NASA’s source and signed it. ◇ machine-checked: automated checks passed. ! unchecked: hidden.") : null);
+      compact ? h("p", { class: "ev-note" }, "✓ human-verified: the team checked NASA’s source and signed it. ◇ machine-checked: automated checks passed. ! unchecked: hidden.") : null);
   }
 
   /* ---------- charts (plain SVG) ---------- */
@@ -189,7 +189,7 @@
     return h("div", { class: "checks-box" },
       h("div", { class: "signoff-box " + (human ? "some" : "none") },
         h("p", { class: "so-n" }, h("b", null, String(human)), " of " + ALL.length),
-        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source and signed by a team member (" + names.join(" and ") + ", " + dates.join(" and ") + ")."
+        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source and signed by the team (" + names.join(" and ") + ", " + dates.join(" and ") + ")."
           : "No person has signed any record yet. Everything below is automated evidence, not a sign-off.")),
       h("h3", { class: "mini-h" }, "Automated checks (run on every build, separate from the sign-off)"),
       h("ul", { class: "checks" },
@@ -598,7 +598,7 @@
       h("div", { class: "rh-top" },
         h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, meta), h("h1", { id: "rec-h" }, title)),
         h("div", { class: "rh-status" }, chip(L.cls + " big", L.label), r.level === "human" && isMachine(r) ? [" ", chip(LEVEL.machine.cls + " big", LEVEL.machine.label)] : null,
-          h("p", { class: "signoff " + (signed ? "yes" : "no") }, signed ? "✓ Signed by " + r.verified_by + " on " + r.verified_date
+          h("p", { class: "signoff " + (signed ? "yes" : "no") }, signed ? "✓ Signed by " + r.verified_by + (/ to /.test(r.verified_date) ? " between " + r.verified_date.replace(" to ", " and ") : " on " + r.verified_date)
             : "No person has signed this record. Automated checks below are evidence, not a sign-off."))),
       h("div", { class: "rh-body" },
         h("div", null, h("h2", { class: "mini-h" }, "How it was checked"), h("ul", { class: "checks" }, checks,
@@ -1414,7 +1414,7 @@
             h("li", { class: "warn" }, h("b", null, "No partial-gravity data. "), "The brief notes PSI has no Moon- or Mars-gravity combustion data yet (LUCI and FM2 are expected later). E-FIELD Flames only mimics partial gravity. Microgravity and Earth results may bound it."),
             h("li", { class: "warn" }, h("b", null, "Cabin materials in a Moon-base atmosphere. "), "No solid-material investigation recorded above 23% O2 (see the answer above)."),
             h("li", { class: "warn" }, h("b", null, "Not a prediction. "), "These are small, controlled experiments. Flare AI does not claim they predict real mission fires, and gives no fire probabilities."),
-            countLevel("human") ? h("li", { class: "ok" }, h("b", null, "Human-verified and machine-checked. "), "Every test record passed the automated checks against NASA\u2019s files and was signed off by a team member.")
+            countLevel("human") ? h("li", { class: "ok" }, h("b", null, "Human-verified and machine-checked. "), "Every test record passed the automated checks against NASA\u2019s files and was signed off by the team.")
               : h("li", { class: "warn" }, h("b", null, "Machine-checked, not verified. "), "Test records are checked automatically against NASA\u2019s files; no person has signed them yet.")))),
       h("section", { class: "card", style: "margin-top:14px" }, h("h3", null, "The studies the challenge brief names"),
         h("p", { class: "howto" }, "Every study the brief mentions, what role it gives it, and what evidence Flare AI holds for it."),

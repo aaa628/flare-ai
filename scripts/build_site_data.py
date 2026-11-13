@@ -169,7 +169,7 @@ def write_corpus(records, investigations, res=()):
                 f"Values as recorded: {vals}. " + (f"NASA test end: {r['outcome_raw']}. " if r.get("outcome_raw") else "") +
                 (f"Test-log note: {r['observation']} " if r.get("observation") else "") +
                 (f"Flags: {r['qc_flag']}. " if r.get("qc_flag") else "") + (f"Check level: {r['level']} (no person has signed it)." if r["level"] == "machine" else
-                 f"Check level: human-verified by {r.get('verified_by')} on {r.get('verified_date')}, and machine-checked." if r["level"] == "human" else ""))
+                 f"Check level: human-verified by {r.get('verified_by')} ({r.get('verified_date')}), and machine-checked." if r["level"] == "human" else ""))
         src = (f"NASA/TM-20210011385, Appendix A, report page {r.get('source_page')}" if r.get("raw_text")
                else f"NASA PSI {r.get('source_id')}: {r.get('source_file','').split(',')[0]}, row {r.get('source_row')}")
         docs.append({"id": r["id"], "kind": "record", "title": f"{r['experiment']} {r['id']}: {r.get('material_raw','')}",

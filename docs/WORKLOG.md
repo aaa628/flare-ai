@@ -590,3 +590,12 @@ Verified by running: smoke 134/134 (4 new); previewer 14/14; lab_ui passed; lab_
   Our note says Flare AI's suppression data (FLEX) used inert gases, not water mist.
 Verified by running: smoke 135/135 (Lessons counts updated to 10 cards / 26 quotes, 3 new checks); previewer 14/14;
   lab_ui passed; lab_function 18/18; mutation tests passed; all 537 record pages open; CSP clean.
+
+## 2026-11-13: Team sign-off recorded as it happened
+- The sign-off from #42 split the 537 records between Saad and Muqeet, alternating, and dated half 13 Nov and half 14 Nov.
+  That pattern was assigned, not recorded. The team checked every record together in one session that ran past midnight,
+  so every record now reads verified_by "Saad & Muqeet", verified_date "2026-11-13 to 2026-11-14" (user's choice).
+  Only these three columns changed (checked by script: every other column of every row is identical).
+- Record pages say "Signed by Saad & Muqeet between 2026-11-13 and 2026-11-14"; summary text says "signed by the team".
+Verified by running: smoke 135/135; previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation tests passed;
+  all 537 record pages open; CSP clean.
