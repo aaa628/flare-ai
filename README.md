@@ -78,7 +78,7 @@ NASA's source and filling `verified_by` and `verified_date`; the checklist is in
 ```
 site/            the website: index.html, css/style.css, js/app.js, data/data.js (generated),
                  sources/psi/ (byte-identical copies of NASA's PSI files, copied by build_site_data.py)
-                 fonts/ (Archivo + Atkinson Hyperlegible, SIL Open Font License, bundled so the strict CSP and file:// work)
+                 fonts/ (Space Grotesk + IBM Plex Sans, SIL Open Font License, bundled so the strict CSP and file:// work)
                  media/ (home page background loop: NASA FLEX droplet-flame footage, credits in media/CREDITS.txt; stars-*.svg: the starry page background)
 data/            working CSVs, sources.csv, source/ (report text + NASA PSI files), README.md
 scripts/         fetch_psi_catalog.py (refresh PSI metadata + tables), build_catalog.py (investigation catalogue), extract_bass2.py, crosscheck_bass2.py, pdfcheck_bass2.py, psicheck_bass2.py, import_psi.py, build_site_data.py
