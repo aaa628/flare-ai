@@ -447,9 +447,3 @@ Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without er
 - Built from main (includes #23); PR #24 (hero photo) left open and untouched as the user asked.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; Explorer opens 19-110 ms after a click; CSP-served pages
   without errors; no running animations with reduced motion; screenshots of Overview, Explorer, About (1366 px) and Scenario (390 px).
-
-## 2026-11-13: stars made clearly visible (user: "no changes to the background are there")
-- PR #25 was live on main, but the stars were too small and faint to notice on most screens (0.3-1.1 px, 35-95% opacity, layer at 85%).
-  Regenerated the tiles bigger and brighter (0.55-1.8 px, more stars, 9 bright stars with a soft halo) and the layer at 100%.
-  21 KB in total. Twinkle range 20% -> 100%.
-Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors.
