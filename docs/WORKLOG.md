@@ -491,3 +491,15 @@ Verified by running: every CSV field equals the pre-removal data except dates (0
   FLEX ends 186/61/27, investigation O2 ranges, Moon-base zone 48 and 18); smoke 103/103; previewer 14/14; lab_ui passed;
   lab_function 18/18; 3 mutation tests passed; all 537 record pages, 24 investigation pages and 7 other pages open with no NaN or
   JS errors; CSP-served pages without errors.
+
+## 2026-11-13: Lessons page for the 9 challenge background resources
+- Downloaded 8 of the 9 non-data Resources-tab pages (NASA Combustion Science, Researcher's Guide, Apollo 1, Apollo 13, Mir
+  fire, 3 spinoffs); YouTube is refused by the network, so the ScienceCasts video uses the challenge's own description.
+- data/resources_curated.json: 25 exact quotes (labelled Published by NASA) + one Our-interpretation line per resource.
+  build_site_data.py re-checks every quote against data/source/resources/*.txt; tampering test ("13 pounds" -> "15") caught.
+- New Lessons page (nav + overview entry), 9 cards in 3 groups; Lab corpus 691 -> 700 documents (kind nasa_text).
+- Interpretation lines checked against our data: solid-material tests reach at most 22.7% O2 (BASS); every archived experiment
+  NASA's Combustion Science page names (ACME, BASS, DAFT, FLEX, Saffire, SAME, SLICE, SPICE) is among the 24 PSI investigations;
+  FM2 and LUCI are not in PSI (the brief says that data is expected later).
+Verified by running: smoke 108/108 (5 new Lessons checks); previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation
+  tests passed; all record, investigation and other pages open without NaN or JS errors; CSP-served pages without errors.

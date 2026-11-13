@@ -1,0 +1,29 @@
+TITLE: A Researcher’s Guide to: Combustion Science - NASA
+2 min read
+A Researcher’s Guide to: Combustion Science
+Space Station Research Integration Office
+Jul 06, 2016
+Article
+October 2015 Edition
+By Suleyman A. Gokoglu, NASA Glenn Research Center
+Daniel L. Dietrich, NASA Glenn Research Center
+Dennis P. Stocker, NASA Glenn Research Center
+Paul V. Ferkul, Universities Space Research Association
+Sandy L. Olson, NASA Glenn Research Center
+Michael C. Hicks, NASA Glenn Research Center
+Combustion processes remain among the most poorly controlled phenomena, yet have a significant impact on human health, comfort and safety.
+Combustion occurs when fuel and oxygen react to produce carbon dioxide, water and heat. Combustion research involves developing a comprehensive and predictive quantitative understanding of this complex process. In the absence of gravity, buoyancy can be suppressed, and the analyses can be reduced to much simpler one-dimensional systems, adding to the body of knowledge.
+For future exploration missions, fire safety is an important operational element to minimize the likelihood and impact of accidental fires in spacecraft and human habitats. An improved knowledge of combustion in reduced gravity is essential to adapting fire safety concepts and systems to the conditions of the space environment.
+This Researcher’s Guide provides an overview of combustion science research, including past research, lessons learned, opportunities for future research and introductory information on funding opportunities.
+All eBook readers:
+EPUB
+[4.9MB]
+PDF readers:
+PDF
+[1.5 MB]
+Keep Exploring
+Discover More Topics From NASA
+Station Researcher’s Guide Series
+Opportunities and Information for Researchers
+Space Station Research Results
+Latest News from Space Station Research

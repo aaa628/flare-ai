@@ -697,3 +697,15 @@ body::after {
   .made-by { gap:16px; }
   .made-by .badge { width:96px; height:96px; } .made-by .badge img { width:76px; height:76px; }
 }
+
+/* ---------- Lessons page (challenge background resources) ---------- */
+.lesson-list { display:grid; gap:16px; }
+.lesson { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr) minmax(0,1fr); gap:24px; align-items:start; }
+.lesson-head h3 { font-size:19px; margin:0 0 6px; } .lesson-head h3 a { color:var(--text); text-decoration-color:var(--line); }
+.lesson-head h3 a:hover { color:var(--accent-tx); }
+.lesson-event { margin:0 0 6px; color:var(--text); font-weight:700; font-size:15px; }
+.lesson-quotes ul { list-style:none; margin:10px 0 8px; padding:0; }
+.lesson-quotes li { padding:8px 0 8px 14px; border-left:2px solid var(--published); margin-bottom:6px; font-size:15px; color:#e6e6e6; }
+.lesson-quotes q { quotes:"\201C" "\201D"; }
+.lesson-ours p { margin:10px 0 8px; font-size:15px; }
+@media (max-width:960px) { .lesson { grid-template-columns:1fr; gap:14px; } }

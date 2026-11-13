@@ -231,6 +231,7 @@
           answer("How do tests compare, like for like?", "Side by side within one experiment, with refusals when a comparison would mislead.", "#/compare", "Compare"),
           answer("Which NASA investigations matter for a spacecraft or a Moon base?", "All " + INV.length + " PSI combustion investigations, ranked with a visible rule.", "#/investigations", "Investigations"),
           answer("Can I just ask a question?", "Plain-English answers from cited NASA records. It abstains when they don’t support an answer.", "#/lab", "Intelligence Lab"),
+          answer("What have real spacecraft fires taught NASA?", "Apollo 1, Apollo 13 and the Mir fire, plus NASA background and spinoffs, in NASA\u2019s own words.", "#/lessons", "Lessons"),
           answer("How far can each number be trusted?", "Every record carries its check level. The current totals are on the right.", "#/about", "How we handle evidence"))),
       h("aside", { class: "hero-side", "aria-label": "Dataset status" },
         h("h2", null, "Dataset status"),
@@ -2008,6 +2009,41 @@
     return view;
   }
 
+  /* Background resources from the challenge's Resources tab. Not datasets: NASA's own words (quotes checked word for word
+   * against the saved page on every build), plus one line of our interpretation each. */
+  function viewLessons() {
+    setTitle("Lessons");
+    var R = D.resources || [];
+    var GROUPS = [["fires", "Real fires and failures", "What happened, why, and what NASA changed afterwards."],
+      ["science", "The science behind it", "NASA\u2019s own overviews of the combustion research whose results are in Flare AI."],
+      ["spinoffs", "Fire safety on Earth", "Space technology that went on to protect firefighters."]];
+    function card(r) {
+      var meta = r.publisher + (r.published ? ", " + r.published : "");
+      return h("article", { class: "card lesson", id: r.id },
+        h("div", { class: "lesson-head" },
+          h("h3", null, h("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title)),
+          r.event ? h("p", { class: "lesson-event" }, r.event) : null,
+          h("p", { class: "note" }, meta)),
+        h("div", { class: "lesson-quotes" }, chip("published", "Published by NASA"),
+          h("ul", null, r.quotes.map(function (q) { return h("li", null, h("q", null, q)); })),
+          h("p", { class: "note small" }, r.quotes_checked ? "\u2713 Quotes checked word for word against " + r.quote_source + "."
+            : "! A quote could not be matched to the saved page; treat it with care.")),
+        h("div", { class: "lesson-ours" }, chip("interp", "Our interpretation"), h("p", null, r.ours),
+          r.link ? h("a", { class: "textlink", href: r.link[0] }, r.link[1]) : null));
+    }
+    return h("div", null,
+      h("div", { class: "page-head" },
+        h("div", null, h("h1", null, "Lessons from real fires"),
+          h("p", { class: "lead" }, "The challenge\u2019s Resources tab lists one dataset, NASA\u2019s PSI combustion repository (that is the data in Flare AI), and " +
+            R.length + " background pages. These are those pages: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words."))),
+      R.length ? GROUPS.map(function (g) {
+        var items = R.filter(function (r) { return r.group === g[0]; });
+        return items.length ? h("section", { "aria-labelledby": "lg-" + g[0] },
+          h("h2", { id: "lg-" + g[0] }, g[1]), h("p", { class: "muted section-lead" }, g[2]),
+          h("div", { class: "lesson-list" }, items.map(card))) : null;
+      }) : h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No resources loaded"), h("p", { class: "muted" }, "Add them to data/resources_curated.json and rebuild.")));
+  }
+
   function viewAbout() {
     setTitle("About");
     return h("div", null,
@@ -2059,6 +2095,7 @@
     if (route === "explorer") view = viewExplorer();
     else if (route === "experiment") view = viewDetail(decodeURIComponent(seg[1] || ""));
     else if (route === "about") view = viewAbout();
+    else if (route === "lessons") view = viewLessons();
     else if (route === "compare") view = viewCompare(seg.slice(1).join("/"));
     else if (route === "investigations" && seg[1] === "compare") view = viewInvCompare(seg[2] || "");
     else if (route === "investigations") view = viewInvestigations(seg[1] || "");

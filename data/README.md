@@ -164,3 +164,12 @@ that value. The site's oxygen chart counts only rows that have both a calibrated
 
 Two measurements are only comparable if they share the same quantity, unit, and measurement method.
 The Compare screen refuses otherwise: it never charts tests from different experiments, and it leaves out flagged, non-numeric or approximate values, saying why next to each chart.
+
+## Challenge background resources (`resources_curated.json`, `source/resources/`)
+
+The challenge's Resources tab lists one dataset (the PSI combustion repository above) and 9 background pages: NASA Combustion
+Science, the ScienceCasts video, the ISS combustion Researcher's Guide, Apollo 1, Apollo 13, the Mir fire and 3 spinoffs.
+They hold no test records. `resources_curated.json` gives each one 1-4 exact quotes plus one line of our interpretation;
+`source/resources/*.txt` is the page text saved on 2026-11-13 (`source/challenge_resources_2026-11-13.txt` for the
+video, which could not be opened from the build machine). `build_site_data.py` checks every quote word for word against the
+saved text on every build; a resource with an unmatched quote is marked and left out of the Lab corpus. Shown on the Lessons page.
