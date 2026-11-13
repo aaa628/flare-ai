@@ -336,3 +336,61 @@ Verified by running: smoke 103/103 (new: group tooltip wording, no overlapping c
   counts 84/43/121/15 equal the tabs, summary above charts, one panel per experiment, strip label inside its chart, 390 px cards
   and no overflow); previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation tests passed; all 537 record pages + 12 compare
   + 4 main pages OK; CSP-served Scenario pages without errors; solid/liquid/gas modes at 1280 and 390 px with changed inputs.
+
+## 2026-11-13: visual redesign (frontend-design skill), same pages and class names
+- Idea: in orbit a flame is a dim blue sphere, not a yellow teardrop. Palette is night navy (#0a1424) lit by that blue
+  (#7cb8ff); amber is kept for "our interpretation" and cautions only. Machine-checked uses neutral steel, not a status colour.
+- Type: Archivo (wide, for headings and numbers, tabular figures) + Atkinson Hyperlegible (reading text). Bundled in site/fonts/
+  with their OFL licences; no external requests, works under the netlify.toml CSP and from file://.
+- Removed: gradient frame around the app, "628 AEROSPACE / SYSTEM ONLINE" strip, all-caps monospace labels, middle-dot
+  meta strings, arrows on buttons and links, glow shadows. Header scrolls away (not sticky).
+- Overview: new hero with an Earth flame vs orbit flame illustration (labelled as an illustration, not data); "what this site
+  can answer" became a list with one link each; dataset status sits beside it. Nav reordered by task: Overview, Scenario Check,
+  Flame Explorer, Compare, Investigations, Intelligence Lab, About.
+- Long tables (Explorer, Scenario results) scroll inside their own box, also on phones: Scenario page 11,701 -> 3,668 px,
+  Explorer on a phone 76,760 -> 2,133 px. Screen-reader text in tables is pinned (.tablewrap position:relative, .sr top/left).
+- No data, counts or wording rules changed. Copy fix: Investigations chart now says "dashed blue line" (the line changed colour).
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function 18/18; crosscheck and psi_import mutation
+  tests passed (pdfcheck mutation test could not download NASA's PDF here: network 403). CSP-served pages: no console errors,
+  both fonts load, no horizontal scroll at 390 px. Screenshots of all pages at 1366 and 390 px reviewed.
+
+## 2026-11-13: palette changed to amber on warm black (user request)
+- User liked the redesign but not the blue. Accent is now amber #ffb020 on warm black #0c0a07 (panels #17140f).
+- Because amber is now the action colour, cautions moved to orange (--caution #ff8f4d) and "Our interpretation" chips to lilac
+  (#c3a6ff); "Published conclusion" is light blue (#8fbfff). Every status still has a glyph or word, not colour alone.
+- Kept blue on purpose: the orbit flame in the hero illustration (flames in orbit really are blue) and the validated chart
+  series colours that tell experiments apart.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: palette changed to "radiation / ectoplasm" green (user request, replaces amber)
+- Accent is glowing lime #9dff3c on green-black #050805 (panels #0b130c), with one soft green haze behind the top of each page
+  and a light glow only on primary buttons, the active tab, the logo and the H1.
+- Status colours moved so none is lime: measured sky #62d4ff, published lilac #b9a3ff, our interpretation pink #ff7ad9,
+  caution amber #ffc247, problem red #ff5d6c, OK/covered mint #3fe0c0. Each still has a glyph or word, not colour alone.
+- Unchanged on purpose: the hero flame illustration (Earth orange, orbit blue) and the chart series colours.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: palette changed to the American-retro poster colours (user request, replaces green)
+- User's reference palette: cream #DCC9A9, brick red #B83A2D, sage #4E6851, on warm charcoal (#1b1a17, panels #262420).
+- Buttons and the brand use the exact brick red with cream text; links and highlighted text use a lighter red (#e8705e)
+  because #B83A2D is too dark to read as text on charcoal. Headings are cream; a sage rule runs under the header.
+- Status colours: measured dusty blue, published lilac, our interpretation rose, caution mustard, problem coral, OK sage-green.
+- Glow effects from the previous version removed.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: palette tried: black, burgundy (#6D001A) and white (user reference)
+- Buttons/brand use exact burgundy with white text; links use a brighter crimson (#e2375a) for contrast on black; burgundy band
+  under the header. Highlighted Compare tile mini-bars made white so they show on burgundy.
+- Saved as its own commit so it can be restored; superseded by the next palette before its test run finished.
+
+## 2026-11-13: palette tried: purple night with violet ink and blue-violet strokes (user reference artwork)
+- Background purple-black #0f0618 (panels #1a0f29); accent violet #a15cff with dark ink on buttons, lighter violet #bf94ff for
+  text links; "stroke" blue-violet #5b5bff. A blue-violet haze comes in from the right edge (like the reference's brush strokes)
+  and a violet -> blue -> lavender band sits under the header.
+- Status colours: measured cyan, published periwinkle, our interpretation pink, caution amber, problem red, OK mint.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: final palette chosen: black, burgundy and white (user choice)
+- Site files restored to the burgundy commit (51b614a); the purple trial stays in history.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function 18/18; CSP-served pages without errors,
+  both fonts load, no horizontal scroll at 390 px.
