@@ -1,10 +1,8 @@
-jelly-loop.webm, jelly-loop.mp4, jelly-poster.jpg
-Source: "Spherical Flames", NASA Scientific Visualization Studio, ID 11640 (released 2014-09-16)
-        https://svs.gsfc.nasa.gov/11640  (its 1280x720 "superhigh" stream, 162_JellyfishFlame-540-MASTER_superhigh.m3u8)
-Credit (as requested by NASA): Science@NASA and NASA's Goddard Space Flight Center.
-Shows: FLEX fuel droplets burning as flame balls aboard the International Space Station (the "jellyfish" flame).
-Edits by Flare AI: three stretches of raw ISS footage with no captions or people (114.6-126.0 s, 157.0-186.5 s,
-206.0-215.0 s of the source) joined with 0.8 s crossfades, cropped to 960x560 (removes the corner badge and an
-on-screen label), light noise reduction and sharpening, scaled to 1440x840, fades at both ends, audio removed,
-re-encoded. 48 s loop. No AI upscaling: nothing is added to NASA's image.
+bass2-flame-1280.jpg, bass2-flame-1920.jpg, bass2-flame-2560.jpg, bass2-flame-3840.jpg
+Source: NASA Image and Video Library, NASA ID iss040e088023 ("BASS-II Experiment"), 4288x2848 original
+        https://images.nasa.gov/details/iss040e088023
+Photographer: astronaut Reid Wiseman (NASA Johnson Space Center), ISS Expedition 40, 2014.
+NASA's caption: "Image taken on card 15 during BASS-II flame test session with reduced O2 partial pressure.
+Session conducted on GMT 214."
+Credit: NASA. Edits by Flare AI: resized (lanczos) to four widths and saved as JPEG; nothing added or altered.
 Used as decoration only; it is not one of the site's test records. NASA does not endorse this project.

@@ -213,7 +213,7 @@
         h("div", { class: "hero-cta" },
           h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
           h("a", { class: "textlink", href: "#/scenario" }, "Check a condition against NASA tests"))),
-      heroVideo());
+      heroPhoto());
 
     var why = h("section", { class: "why", "aria-labelledby": "why-h" },
       h("div", null,
@@ -339,18 +339,16 @@
     return h("figure", { class: "flames" }, s, noCaption ? null :
       h("figcaption", null, "Without gravity, flames behave differently, so Earth fire-safety rules don’t carry over. NASA’s orbit tests are the evidence."));
   }
-  /* Background: real NASA footage of FLEX fuel droplets burning as flame balls on the ISS (the "jellyfish" flame;
-   * Science@NASA / NASA Goddard SVS 11640, three clean stretches joined, muted). Decoration only: not a record.
-   * Visitors who ask for reduced motion get the still frame. */
-  function heroVideo() {
-    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var v = h("video", { class: "hero-video", poster: "media/jelly-poster.jpg",
-      muted: true, loop: true, playsinline: true, autoplay: !still, preload: still ? "none" : "auto", "aria-hidden": "true", tabindex: -1 },
-      h("source", { src: "media/jelly-loop.webm", type: "video/webm" }),
-      h("source", { src: "media/jelly-loop.mp4", type: "video/mp4" }));
-    v.muted = true;
-    return [h("div", { class: "hero-stage", "aria-hidden": "true" }, v),
-      h("p", { class: "hero-credit" }, "Background: NASA footage of FLEX fuel droplets burning on the ISS. Video: Science@NASA / NASA Goddard. NASA does not endorse this project.")];
+  /* Background: a real NASA photo of a BASS-II flame on the ISS (iss040e088023, taken by astronaut Reid Wiseman,
+   * 2014, during a reduced-oxygen test session). Decoration only: not one of the site's records.
+   * Served in four widths so each screen downloads only what it can show. */
+  function heroPhoto() {
+    var img = h("img", { class: "hero-photo", alt: "", decoding: "async", fetchpriority: "high",
+      src: "media/bass2-flame-1920.jpg",
+      srcset: "media/bass2-flame-1280.jpg 1280w, media/bass2-flame-1920.jpg 1920w, media/bass2-flame-2560.jpg 2560w, media/bass2-flame-3840.jpg 3840w",
+      sizes: "100vw" });
+    return [h("div", { class: "hero-stage", "aria-hidden": "true" }, img),
+      h("p", { class: "hero-credit" }, "Background: a BASS-II flame burning on the ISS during a reduced-oxygen test, photographed by astronaut Reid Wiseman (2014). Image: NASA. NASA does not endorse this project.")];
   }
   function legend(kind, title, text) {
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));

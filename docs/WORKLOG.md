@@ -431,3 +431,12 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; video plays 
 - No AI upscaling on purpose: it would invent detail in NASA footage, which breaks the site's no-invented-data rule.
 Verified by running: smoke 103/103; previewer 14/14; video plays under the netlify.toml CSP and from file://, paused with
   reduced motion; no console errors.
+
+## 2026-11-13: home page video replaced by a 4K NASA photo (user: video still blurry)
+- NASA's FLEX footage is low resolution at source. Replaced with a real 4288x2848 ISS photo of a BASS-II flame (NASA ID
+  iss040e088023, astronaut Reid Wiseman, 2014, reduced-oxygen session; BASS-II is the source of most of our records).
+- Served with srcset in 1280/1920/2560/3840 widths (55 KB / 154 KB / 337 KB / 839 KB), so a phone downloads a small file and a
+  4K screen gets full detail. Full width behind the hero; fades to black toward the heading; phones show it at 45%.
+- Video files and code removed (they stay in git history: PRs #20-#22). PR #23 (smaller video area) is no longer needed.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at
+  390 px; screenshots at 1366, 1920 and 390 px.
