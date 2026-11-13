@@ -7,7 +7,8 @@ Every record carries the file name and row it came from.
 Writes:
   data/bass1_psi.csv        BASS (BASS-I), PSI-26 "As Run Test Matrix" spreadsheet, sheet "as run matrix"
   data/saffire_psi.csv      SAFFIRE-I/II/III, PSI-98/99/100 "Experimental table" CSVs
-  data/bass2_psi_extra.csv  BASS-II tests that are in PSI-25's table but not in the NASA report's Appendix A (O20-O22)
+  data/bass2_psi_extra.csv  BASS-II, PSI-25 "Experimental table" CSV (every test in it that is not already in data/bass2_draft.csv;
+                            with bass2_draft.csv empty, as now, that is every PSI-25 test)
   data/flex_psi.csv         FLEX (Flame Extinguishment Experiment), PSI-69 "Experimental table" CSV (Windows-1252 encoded)
 
 The same functions are used by build_site_data.py to re-read the source files and confirm each CSV row still
@@ -28,7 +29,7 @@ OUT = {"bass1": ROOT / "data" / "bass1_psi.csv",
 COLS = ["id", "experiment", "pi", "source_id", "source_file", "source_row", "material_raw", "flow_mode",
         "airflow_raw", "o2_raw", "o2_note", "o2_vol_pct", "outcome_raw", "qc_flag", "observation", "fields_json",
         "verified_by", "verified_date", "verifier_notes"]
-DATA_COLS = [c for c in COLS if not c.startswith("verified")]  # compared with the source on every build
+DATA_COLS = [c for c in COLS if not c.startswith(("verified", "verifier"))]  # compared with the source on every build (sign-off columns excluded)
 
 
 def show(v):
@@ -154,17 +155,30 @@ def bass2_extra_rows(known_ids):
             continue
         col = dict(zip(hdr, r))
         fields = [[h, v] for h, v in col.items() if v and h not in ("PI", "Test #", "Fuel Sample Material")]
+        # Flags (our reading of NASA's own values; nothing is changed): a final calibrated O2 that is not a plain number,
+        # or that differs from the starting value by more than 3 vol% (a likely sensor glitch), is flagged so the site
+        # leaves it out of charts and says why.
+        flags = []
+        o2s, o2e = col.get("Calibrated initial O2 % by vol", ""), col.get("Calibrated final O2 % by vol", "")
+        try:
+            if abs(float(o2e) - float(o2s)) > 3:
+                flags.append("o2_final_reading_suspect")
+        except ValueError:
+            if o2e:
+                flags.append("o2_final_not_numeric")
         out.append({
             "id": "BASSII-" + r[1], "experiment": "BASS-II", "pi": col["PI"], "source_id": "PSI-25", "source_file": name,
             "source_row": str(n), "material_raw": col["Fuel Sample Material"], "flow_mode": "",
             "airflow_raw": col.get("Air display", ""), "o2_raw": col.get("Calibrated initial O2 % by vol", ""),
-            "o2_note": "Calibrated initial O2 (vol%) from NASA's PSI table; this test is not in the report's Appendix A",
-            "o2_vol_pct": col.get("Calibrated initial O2 % by vol", ""), "observation": "",
+            "o2_note": "Calibrated initial O2 (vol%) as printed in NASA's PSI-25 table",
+            "o2_vol_pct": col.get("Calibrated initial O2 % by vol", ""), "qc_flag": ";".join(flags), "observation": "",
             "fields_json": json.dumps(fields, ensure_ascii=False)})
     return out
 
 
 def bass2_known_ids():
+    if not (ROOT / "data" / "bass2_draft.csv").exists():
+        return set()
     with (ROOT / "data" / "bass2_draft.csv").open(newline="", encoding="utf-8") as f:
         return {r["id"] for r in csv.DictReader(f)}
 

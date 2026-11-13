@@ -68,8 +68,10 @@ def psi_records():
         for r in rows:
             src = want.get(r["id"])
             same = bool(src) and all(r.get(c, "") == src.get(c, "") for c in ip.DATA_COLS)
-            r["verified"] = is_verified(r)
-            r["machine"] = same and not r["verified"]
+            # machine = passed the automated re-read (independent of sign-off). A signed record whose re-read fails is
+            # NOT shown as verified: a sign-off is only valid for the values the person compared.
+            r["machine"] = same
+            r["verified"] = is_verified(r) and same
             r["level"] = "human" if r["verified"] else "machine" if r["machine"] else "none"
             r["auto_check_notes"] = (f"copied from NASA's PSI file {r['source_file']}, row {r['source_row']}; "
                                      "re-read at build time: every value equals the file") if same else \
@@ -80,9 +82,20 @@ def psi_records():
     return out
 
 
-# Facts quoted from the challenge brief for the Intelligence Lab. Emptied with the rest of the NASA data
-# (2026-11-13); add entries back as (id, title, text) when new brief material is loaded.
-BRIEF_FACTS = []
+# Facts from the challenge brief (Details tab), re-checked against the live page on 2026-11-13.
+BRIEF_FACTS = [
+    ("brief-moon", "Challenge brief: Moon base and rover atmosphere",
+     "The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less. "
+     "Spacesuits are filled with 100% oxygen to 4.3 psi; Earth's sea-level pressure is 14.7 psi."),
+    ("brief-partial-g", "Challenge brief: partial gravity",
+     "There is currently no partial-gravity combustion data available in PSI. Partial gravity was mimicked in ACME E-FIELD Flames through an electric field. "
+     "Microgravity and normal-gravity results could bound what occurs at intermediate gravity levels."),
+    ("brief-pillars", "Challenge brief: prevention, detection, suppression",
+     "NASA's spacecraft fire safety work is focused on prevention, detection, and suppression. Flammability studies of solid materials: BASS, BASS-II, "
+     "Saffire-I, -II, -III. Detection: SAME and SAME-R. Suppression: FLEX, by diluting the chamber atmosphere with carbon dioxide and helium."),
+    ("brief-scope", "Challenge brief: scope",
+     "Fire safety involving rockets and propellants is generally beyond the scope of the research available in the PSI database."),
+]
 
 
 def write_corpus(records, investigations):
@@ -147,7 +160,8 @@ def main():
         still_ok = claimed and not cc.check(r, spans)[0]
         if claimed and not still_ok and not r["verified"]:
             stale.append(r["id"])
-        r["machine"] = still_ok and not r["verified"]
+        r["machine"] = still_ok
+        r["verified"] = r["verified"] and still_ok
         r["level"] = "human" if r["verified"] else "machine" if r["machine"] else "none"
     pdf_live = None
     try:
@@ -190,15 +204,18 @@ def main():
             shutil.copyfile(f, tab_dir / f.name)
     investigations = load("build_catalog").catalog()
     sources = read("sources.csv")
-    n_ver = sum(1 for r in records if r["level"] == "human")
-    n_mach = sum(1 for r in records if r["level"] == "machine")
+    n_ver = sum(1 for r in records if r["verified"])
+    n_mach = sum(1 for r in records if r["machine"])
+    n_none = sum(1 for r in records if r["level"] == "none")
+    with_records = sorted({r["source_id"] for r in records})
     payload = {
         "records": records,
         "sources": sources,
         "investigations": investigations,
         "counts": {"records": len(records), "verified": n_ver, "machine": n_mach,
-                   "unchecked": len(records) - n_ver - n_mach, "shown": n_ver + n_mach,
-                   "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"]),
+                   "unchecked": n_none, "shown": len(records) - n_none,
+                   "sources": len(with_records), "sources_listed": len(sources),
+                   "data_sources": sum(1 for x in sources if x["source_id"].startswith("PSI-")), "pdf_match": sum(1 for r in records if r["pdf"]),
                    "psi_agree": sum(1 for r in records if r.get("psi_check", "").startswith("agrees")),
                    "psi_differ": sum(1 for r in records if r.get("psi_check", "").startswith("DIFFERS")),
                    "investigations": len(investigations),

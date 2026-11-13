@@ -1,16 +1,22 @@
 # Flare AI data
 
-**Status: no data loaded (0 records, 0 sources, 0 investigations).** The NASA data used earlier was removed on 2026-11-13
-so new data can be added. Every CSV below is kept as an empty template: the header row only, so the column format the site
-and the build scripts expect is unchanged. The removed rows, source files and this README's earlier notes are in git history
-(before the commit "Remove NASA data; keep every chart and layout at zero").
+**Status: 537 records from NASA PSI; 537 machine-checked, 537 human-verified (team sign-off), 0 unchecked; 24 investigations.**
+All files in `source/psi/` were downloaded fresh from NASA PSI on 2026-11-13 (`scripts/fetch_psi_records.py` writes
+`source/psi/MANIFEST.csv` with each file's PSI investigation, NASA file name, size and SHA-256; `scripts/fetch_psi_catalog.py`
+writes the catalog and tables). Every file was compared byte for byte with the copies used earlier: all identical.
 
-While the data is empty, the website shows every page, table and chart with neutral placeholder labels and 0 values.
+**Sign-off.** The user stated that the 628 Aerospace team verified all records; each record carries `verified_by` =
+"628 Aerospace team", `verified_date` = 2026-11-13 and a `verifier_notes` line saying so. A record is shown as verified only
+while its automated re-read from NASA's file also passes: changing any value drops it to unchecked and voids the sign-off.
+
+**Flags** (our reading of NASA's own values; nothing is changed): BASS-II final calibrated O2 more than 3 vol% from the start
+(`o2_final_reading_suspect`, 6 tests) or not a plain number (`o2_final_not_numeric`, 2 tests); FLEX pressure printed as 0 (1)
+and an identifier used twice (2). Flagged readings are left out of charts, with the reason.
 
 ## Adding data
 
 1. Put the source files under `data/source/` (report text, `data/source/psi/` data files, `data/source/psi/catalog/*.json`).
-2. Fill the CSV templates below. Keep the CSV as UTF-8; spreadsheet programs may rewrite characters such as the en dash and µ.
+2. Fill the CSVs below (header row = the column format). Keep the CSV as UTF-8; spreadsheet programs may rewrite characters such as the en dash and µ.
 3. Run `python scripts/build_site_data.py` (needs `pip install openpyxl`; the PDF comparison also needs `pdftotext`).
    It re-runs every automated check, writes `site/data/data.js` and `netlify/functions/ask/corpus.mjs`, and copies the
    PSI files into `site/sources/psi/`. With empty templates it still runs and writes an all-zero data file.
@@ -19,7 +25,7 @@ While the data is empty, the website shows every page, table and chart with neut
 A person verifies a record by comparing it with its source and filling `verified_by` and `verified_date`.
 Never fill these from an automated check: "machine-checked" is never "verified".
 
-## Templates
+## Files and columns
 
 ### `bass2_draft.csv`
 Report-table test records (one row per test, values kept exactly as printed). Checked at build time by `scripts/crosscheck_bass2.py`, `pdfcheck_bass2.py` and `psicheck_bass2.py` against the source text, PDF and spreadsheet in `data/source/`.
