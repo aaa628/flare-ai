@@ -61,8 +61,10 @@ async def main():
         await pg.screenshot(path=SH+"01_overview_default.png", full_page=True)
         await pg.click("nav a[data-route=explorer]"); await pg.wait_for_selector(".tablewrap")
         n = await pg.locator("tbody tr.row:not([hidden])").count()
-        check("default explorer: shows exactly the human+machine rows", n == C["shown"], f"{n} vs {C['shown']}")
-        chips = await pg.locator("tbody .chip").all_inner_texts()
+        check("default explorer: counts exactly the human+machine rows, shows the first 50", f"Showing {C['shown']} of" in await pg.inner_text(".count") and n == min(50, C["shown"]), f"{n} vs {C['shown']}")
+        check("explorer: page ends (no endless scroll) and offers 'Show more'", await pg.evaluate("document.documentElement.scrollHeight") < 6000 and await pg.locator(".more-row button").count() >= 1)
+        check("header is a plain bar that scrolls away (not fixed)", await pg.evaluate("getComputedStyle(document.querySelector('.top')).position") == "static")
+        chips = await pg.locator("tbody tr.row:not([hidden]) .chip").all_inner_texts()
         check("default explorer: no 'unchecked' chip anywhere", not any("unchecked" in c.lower() for c in chips))
         check("default explorer: every row labelled with its level", sum(1 for c in chips if c.lower() in ("machine-checked", "verified")) == n)
         if none_id:
@@ -189,8 +191,10 @@ async def main():
         await pg.screenshot(path=SH+"02_overview_preview.png", full_page=True)
 
         await pg.goto(SITE+"?preview=draft#/explorer"); await pg.wait_for_selector("tbody tr.row:not([hidden])")
+        check("explorer: all rows counted", f"Showing {C['records']} of" in await pg.inner_text(".count"))
+        await pg.click(".more-row button:has-text('Show all')"); await pg.wait_for_timeout(100)
         n = await pg.locator("tbody tr.row:not([hidden])").count()
-        check("explorer: all rows", n == C["records"], str(n))
+        check("explorer: 'Show all' reveals every row", n == C["records"], str(n))
         await pg.select_option("#fpi", "Olson")
         n = await pg.locator("tbody tr.row:not([hidden])").count(); check("filter Olson = 27 (24 report + 3 PSI-only)", n == 27, str(n))
         await pg.select_option("#fo2", "lt16")
@@ -210,15 +214,15 @@ async def main():
         check("detail: report record links to the PDF at its page", await pg.locator('.record-head a[href*="TM-20210011385.pdf#page="]').count() == 1)
         check("detail: provenance table + technical details lower on the page", await pg.locator(".prov-t tbody tr").count() >= 4 and await pg.locator("details.tech").count() == 1)
         await pg.goto(SITE+"#/explorer"); await pg.wait_for_selector("tbody tr.row:not([hidden])")
-        n = await pg.locator("tbody tr.row:not([hidden])").count(); check("clear resets to all", n == C["records"], str(n))
+        n = await pg.locator("tbody tr.row:not([hidden])").count(); check("clear resets to all (first 50 shown)", n == 50 and f"Showing {C['records']} of" in await pg.inner_text(".count"), str(n))
         await pg.screenshot(path=SH+"03_explorer.png")
 
         # order check: first row should be B1 then B2 (natural, not string order)
-        ids = await pg.locator("tbody tr.row td.id a").all_inner_texts()
+        ids = await pg.locator("tbody tr.row td.id a").all_text_contents()
         check("natural sort B1,B2,B3", ids[:3] == ["B1","B2","B3"], str(ids[:4]))
         check("pairs sorted P3a before P3b", ids.index("P3a") + 1 == ids.index("P3b"))
 
-        mats = await pg.locator("tbody tr.row td:nth-child(3)").all_inner_texts()
+        mats = await pg.locator("tbody tr.row td:nth-child(3)").all_text_contents()
         check("no flow words polluting material column", not any(w in m for m in mats for w in ("Opposed","Concurrent","Stagnation")))
         check("material column never empty", all(m.strip() for m in mats))
         # 3. detail pages
@@ -244,6 +248,7 @@ async def main():
         await m.goto(SITE+"?preview=draft"); await m.wait_for_selector(".chart")
         sw = await m.evaluate("document.documentElement.scrollWidth"); 
         check("mobile: no horizontal page scroll (overview)", sw <= 391, str(sw))
+        check("mobile: main menu is a single row", await m.evaluate("document.getElementById('nav').getBoundingClientRect().height") < 50)
         await m.screenshot(path=SH+"06_mobile_overview.png", full_page=True)
         await m.goto(SITE+"?preview=draft#/experiment/BASSII-P22a"); await m.wait_for_selector(".record-head")
         sw = await m.evaluate("document.documentElement.scrollWidth")
