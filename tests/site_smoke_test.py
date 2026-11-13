@@ -286,9 +286,8 @@ async def main():
         check("investigation: citation names PSI, version, release date and DOI", "version 5, released 31-Jul-2016" in await pg.inner_text(".cite-text") and "https://doi.org/10.60555/mbq8-0451" in await pg.inner_text(".cite-text"))
         await pg.goto(SITE + "#/about"); await pg.wait_for_selector("#si")
         t = await pg.inner_text("main")
-        check("about: Super Intelligence (SI) section covers code, data, checks, text, images and the Lab",
-              all(k in t for k in ("Super Intelligence (SI) use", "Code.", "No data value was produced by SI", "Human-verified records: 0 of 537", "made with SI", "Intelligence Lab.")))
-        check("about: no claim that the team verified the data", "The team reviews and verifies the data" not in t)
+        check("about: short Super Intelligence (SI) note (code, text, marked drawing, data not generated)",
+              all(k in t for k in ("Super Intelligence (SI) use", "Claude", "marked as made with SI", "not generated")))
         check("index.html carries an SI disclosure meta tag", 'name="si-disclosure"' in idx)
         await pg.goto(SITE + "#/"); await pg.wait_for_selector(".flames")
         check("SI-made drawing carries a visible watermark", "Illustration made with SI" in (await pg.inner_html(".flames")))

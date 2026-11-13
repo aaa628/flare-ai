@@ -571,3 +571,7 @@ Verified by running: CSV of all 537 rows equals the data (material and note for 
   data.js / corpus.mjs; SI sections in README.md and data/README.md. Product name "Flare AI" unchanged.
 Verified by running: smoke 134/134 (4 new); previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation tests passed;
   all pages open; CSP clean.
+- Follow-up (user): keep the sentence "The team reviews and verifies the data" (the team verifies records tonight), and keep
+  the SI disclosure minimal: the long About section is cut back to the original short paragraph, renamed SI. Watermark,
+  meta tag and code-file headers stay (required by the Submission Guide). README SI notes shortened to match.
+  Verified by running: smoke 133/133; previewer 14/14; lab_ui passed.

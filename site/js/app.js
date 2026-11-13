@@ -2214,17 +2214,7 @@
           "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
           "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", null, t); }))),
       h("h2", { id: "si" }, "Super Intelligence (SI) use"),
-      h("div", { class: "card" },
-        h("p", null, "Space Apps asks every team to say where Super Intelligence (SI) tools were used. Flare AI used one SI tool, Claude (Anthropic), in these places:"),
-        h("ul", { class: "about-list" }, [
-          ["Code. ", "The website, the data-import and checking scripts, the tests and the Intelligence Lab server function were written with Claude as a coding assistant, working to the team\u2019s instructions; the team directed the work and accepted each change. Each code file says so in its header."],
-          ["NASA data. ", "No data value was produced by SI. Every number and log note is copied from NASA\u2019s files by scripts and re-checked against NASA\u2019s PDF and PSI files on every build. The scripts themselves were written with SI (above)."],
-          ["Checks. ", "\u201cMachine-checked\u201d means those automated checks passed. The 22 flagged report rows were reviewed row by row by Claude (data/ai_review_bass2.csv names it as the reviewer). Human-verified records: " + countLevel("human") + " of " + ALL.length + (countLevel("human") ? ", each signed by a named team member." : "; no team member has signed a record yet.")],
-          ["Text. ", "Plain-language summaries (\u201cWritten with SI\u201d), \u201cOur interpretation\u201d lines and the page wording were drafted with Claude. NASA\u2019s own words are always shown as quotes, checked word for word against the source."],
-          ["Images and video. ", "The Earth/orbit flame drawing was made with SI and carries a visible \u201cmade with SI\u201d mark. The background video is NASA footage (Science@NASA / NASA Goddard), trimmed and cleaned up with tools set up with SI; no SI-generated imagery is added to it."],
-          ["Intelligence Lab. ", "When the server is connected, answers are written by Claude from the cited NASA documents only, and labelled as SI answers. Without it the Lab uses plain keyword search."]
-        ].map(function (x) { return h("li", null, h("b", null, x[0]), x[1]); })),
-        h("p", { class: "note", style: "margin:0" }, "NASA does not endorse this project. No NASA logos or other NASA branding are used.")));
+      h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with Super Intelligence (SI) assistance (Claude): the code, the drafted text and the flame drawing, which is marked as made with SI. NASA\u2019s data values are copied from NASA\u2019s files, not generated. The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }
 
   /* ---------- router ---------- */
