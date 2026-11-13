@@ -402,3 +402,13 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; lab_function
 - Callouts (included/left out, cautions, verdicts, quotes, Lab answers) are rounded tinted panels with a soft coloured edge.
 - Record header keeps its check-level colour as an inset top line inside the rounded box. Slightly more padding in cards.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: home page background video (NASA FLEX footage), on its own branch so it can be dropped
+- Source: NASA SVS 11318 "Great Balls Of Fire", clip ISS_FlexFlame (FLEX droplet burning as a flame ball on the ISS).
+  Credit as NASA asks: Science@NASA and NASA's Goddard Space Flight Center. Details in site/media/CREDITS.txt.
+- Trimmed to the flame-ball part (3.0-8.5 s), slowed, cropped, fades, muted: WebM 152 KB + MP4 484 KB + poster 10 KB.
+- Plays only behind the Overview hero, under a dark gradient so the heading stays sharp; caption names the source and says
+  NASA does not endorse the project. Reduced-motion visitors get the still poster (no autoplay, no download).
+- Revert = revert this one commit (or close its PR); nothing else depends on it.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; video plays (WebM) under the netlify.toml CSP and from
+  file://, paused with reduced motion, absent on other pages; no console errors; no horizontal scroll at 390 px.

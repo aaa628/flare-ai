@@ -213,7 +213,8 @@
         h("div", { class: "hero-cta" },
           h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
           h("a", { class: "textlink", href: "#/scenario" }, "Check a condition against NASA tests"))),
-      flameFigure());
+      flameFigure(),
+      heroVideo());
 
     var start = h("section", { class: "start" },
       h("div", null,
@@ -331,6 +332,19 @@
     s.appendChild(svg("text", { x: 330, y: 280, "text-anchor": "middle", class: "fl-s" }, "nothing rises, flame turns round"));
     return h("figure", { class: "flames" }, s,
       h("figcaption", null, "Without gravity, flames behave differently, so Earth fire-safety rules don’t carry over. NASA’s orbit tests are the evidence."));
+  }
+  /* Background: real NASA footage of a FLEX fuel droplet burning as a flame ball on the ISS
+   * (Science@NASA / NASA Goddard SVS 11318, trimmed, slowed, muted). Decoration only: not a record.
+   * Visitors who ask for reduced motion get the still frame. */
+  function heroVideo() {
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var v = h("video", { class: "hero-video", poster: "media/flex-poster.jpg",
+      muted: true, loop: true, playsinline: true, autoplay: !still, preload: still ? "none" : "auto", "aria-hidden": "true", tabindex: -1 },
+      h("source", { src: "media/flex-loop.webm", type: "video/webm" }),
+      h("source", { src: "media/flex-loop.mp4", type: "video/mp4" }));
+    v.muted = true;
+    return [h("div", { class: "hero-bg", "aria-hidden": "true" }, v),
+      h("p", { class: "hero-credit" }, "Background: a FLEX fuel droplet burning on the ISS. Video: Science@NASA / NASA Goddard. NASA does not endorse this project.")];
   }
   function legend(kind, title, text) {
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));

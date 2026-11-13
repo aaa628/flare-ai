@@ -1,0 +1,7 @@
+flex-loop.mp4, flex-loop.webm, flex-poster.jpg
+Source: "Great Balls Of Fire", NASA Scientific Visualization Studio, ID 11318 (released 2013-08-01)
+        https://svs.gsfc.nasa.gov/11318  (file ISS_FlexFlame-540-MASTER_high.mp4)
+Credit (as requested by NASA): Science@NASA and NASA's Goddard Space Flight Center.
+Shows: a FLEX fuel droplet burning as a flame ball aboard the International Space Station.
+Edits by Flare AI: 3.0-8.5 s trimmed, slowed to 1.7x length, cropped, fades added, audio removed, re-encoded.
+Used as decoration only; it is not one of the site's test records. NASA does not endorse this project.
