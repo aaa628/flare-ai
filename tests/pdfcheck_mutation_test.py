@@ -1,6 +1,4 @@
-"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-working to the 628 Aerospace team's instructions.
-Proves scripts/pdfcheck_bass2.py catches errors: corrupt every row in memory and require the PDF
+"""Proves scripts/pdfcheck_bass2.py catches errors: corrupt every row in memory and require the PDF
 comparison to reject each one. Needs the PDF in data/raw/ (the script downloads it) and pdftotext.
 Run: python tests/pdfcheck_mutation_test.py"""
 import csv, importlib.util, pathlib, sys

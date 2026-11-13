@@ -116,8 +116,3 @@ Code and documentation: MIT (see `LICENSE`). NASA data keeps NASA's terms: PSI d
 
 Developed with AI assistance (Claude). The team reviews, verifies and can explain all data, code and claims.
 Check the official Participant Guides (released Nov 13) for current rules on AI use and pre-built code.
-
-## Super Intelligence (SI) use
-
-Written with Super Intelligence (SI) assistance (Claude, Anthropic): the code, the drafted text and the Earth/orbit flame
-drawing (marked "made with SI" on the site). NASA's data values are copied from NASA's files by scripts, not generated.

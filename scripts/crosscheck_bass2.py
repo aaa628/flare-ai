@@ -1,6 +1,4 @@
-"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-working to the 628 Aerospace team's instructions.
-Independent automated cross-check of data/bass2_draft.csv against the report text.
+"""Independent automated cross-check of data/bass2_draft.csv against the report text.
 
 WHAT THIS IS: a machine consistency check. It does NOT replace a person comparing rows with the
 NASA PDF. It never writes verified_by / verified_date; those stay human-only.

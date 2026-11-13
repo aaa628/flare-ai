@@ -1,5 +1,3 @@
-// SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-// working to the 628 Aerospace team's instructions.
 // Netlify Function: POST /api/ask -> Flare AI Intelligence Lab answer.
 // The Anthropic API key lives ONLY in the Netlify environment variable ANTHROPIC_API_KEY (scope: Functions).
 // It is never in the repository, in site/ or in anything the browser downloads.

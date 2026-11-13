@@ -1,6 +1,4 @@
-"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-working to the 628 Aerospace team's instructions.
-Build the investigation catalogue (all NASA PSI Combustion Science investigations) for the website.
+"""Build the investigation catalogue (all NASA PSI Combustion Science investigations) for the website.
 
 Inputs (committed): data/source/psi/catalog/*.json (NASA PSI metadata, verbatim fields), data/source/psi/tables/*.csv
 (NASA experiment tables, as served), data/investigations_curated.csv (our labels, each with its basis), and the BASS-I

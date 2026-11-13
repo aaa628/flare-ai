@@ -173,8 +173,3 @@ They hold no test records. `resources_curated.json` gives each one 1-4 exact quo
 `source/resources/*.txt` is the page text saved on 2026-11-13 (`source/challenge_resources_2026-11-13.txt` for the
 video, which could not be opened from the build machine). `build_site_data.py` checks every quote word for word against the
 saved text on every build; a resource with an unmatched quote is marked and left out of the Lab corpus. Shown on the Lessons page.
-
-## Super Intelligence (SI) use
-
-Written with Super Intelligence (SI) assistance (Claude, Anthropic): the code, the drafted text and the Earth/orbit flame
-drawing (marked "made with SI" on the site). NASA's data values are copied from NASA's files by scripts, not generated.

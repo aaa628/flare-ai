@@ -1,6 +1,4 @@
-"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-working to the 628 Aerospace team's instructions.
-Compare data/bass2_draft.csv with NASA's own BASS-II spreadsheet in PSI (PSI-25 "Experimental table").
+"""Compare data/bass2_draft.csv with NASA's own BASS-II spreadsheet in PSI (PSI-25 "Experimental table").
 
 This is a second, independent NASA source for the same tests (the first is the report PDF). For each row it
 compares the sample number, calibrated initial/final O2, initial/final CO2 and initial/final CO (the PSI table

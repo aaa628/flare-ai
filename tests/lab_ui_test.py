@@ -1,6 +1,4 @@
-"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-working to the 628 Aerospace team's instructions.
-Browser test of the Intelligence Lab page. The server function is SIMULATED (no API key, no cost):
+"""Browser test of the Intelligence Lab page. The server function is SIMULATED (no API key, no cost):
 1) served over http with /api/ask mocked -> answer, grade, basis labels and citation links render;
 2) a mocked 429 -> falls back to keyword search; 3) opened from file:// -> offline keyword search, no network call.
 Run: python tests/lab_ui_test.py"""

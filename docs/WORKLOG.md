@@ -575,3 +575,6 @@ Verified by running: smoke 134/134 (4 new); previewer 14/14; lab_ui passed; lab_
   the SI disclosure minimal: the long About section is cut back to the original short paragraph, renamed SI. Watermark,
   meta tag and code-file headers stay (required by the Submission Guide). README SI notes shortened to match.
   Verified by running: smoke 133/133; previewer 14/14; lab_ui passed.
+- Follow-up (user): no hidden SI notes. Removed the si-disclosure meta tag, the SI notes in code-file headers and generated
+  files, and the README SI sections. Kept: About "Super Intelligence (SI) use" paragraph, the drawing's visible SI mark,
+  and the SI wording in labels. Verified by running: smoke 132/132; previewer 14/14; lab_ui passed; lab_function 18/18; CSP clean.

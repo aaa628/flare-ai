@@ -1,6 +1,4 @@
-"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-working to the 628 Aerospace team's instructions.
-Import test records from NASA Physical Sciences Informatics (PSI) data files in data/source/psi/.
+"""Import test records from NASA Physical Sciences Informatics (PSI) data files in data/source/psi/.
 
 Every value is copied as stored in NASA's file (strings untouched; spreadsheet numbers written in their shortest
 form, long computed decimals rounded to 4 places and marked). Nothing is invented: a blank cell stays blank.

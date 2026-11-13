@@ -1,6 +1,4 @@
-"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
-working to the 628 Aerospace team's instructions.
-Browser smoke test for the static site (needs: pip install playwright; playwright install chromium).
+"""Browser smoke test for the static site (needs: pip install playwright; playwright install chromium).
 Run: python tests/site_smoke_test.py   (rebuild data first: python scripts/build_site_data.py)
 Checks adapt to the counts in site/data/data.js (human / machine / unchecked)."""
 import asyncio, sys
@@ -288,7 +286,6 @@ async def main():
         t = await pg.inner_text("main")
         check("about: short Super Intelligence (SI) note (code, text, marked drawing, data not generated)",
               all(k in t for k in ("Super Intelligence (SI) use", "Claude", "marked as made with SI", "not generated")))
-        check("index.html carries an SI disclosure meta tag", 'name="si-disclosure"' in idx)
         await pg.goto(SITE + "#/"); await pg.wait_for_selector(".flames")
         check("SI-made drawing carries a visible watermark", "Illustration made with SI" in (await pg.inner_html(".flames")))
         await pg.goto(SITE + "#/lessons"); await pg.wait_for_selector(".lesson")
