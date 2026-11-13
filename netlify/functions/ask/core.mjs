@@ -16,12 +16,18 @@ const STOP = new Set("a an and are as at be by did do does for from has have how
 export function tokens(s) {
   return (s || "").toLowerCase().replace(/[^a-z0-9.%\- ]+/g, " ").split(/\s+/).map((t) => t.replace(/^[.\-]+|[.\-]+$/g, "")).filter((t) => t && !STOP.has(t));
 }
-const DOCS = corpus.map((d) => ({ ...d, toks: tokens(d.title + " " + d.text) }));
-const DF = new Map();
-for (const d of DOCS) for (const t of new Set(d.toks)) DF.set(t, (DF.get(t) || 0) + 1);
-const AVG = DOCS.reduce((a, d) => a + d.toks.length, 0) / Math.max(1, DOCS.length);
+/* Search index over a corpus. The generated corpus is the default; tests pass their own small fixture. */
+export function makeIndex(docs) {
+  const DOCS = docs.map((d) => ({ ...d, toks: tokens(d.title + " " + d.text) }));
+  const DF = new Map();
+  for (const d of DOCS) for (const t of new Set(d.toks)) DF.set(t, (DF.get(t) || 0) + 1);
+  const AVG = DOCS.reduce((a, d) => a + d.toks.length, 0) / Math.max(1, DOCS.length);
+  return { DOCS, DF, AVG };
+}
+const INDEX = makeIndex(corpus);
 
-export function retrieve(question, k = 12) {
+export function retrieve(question, k = 12, index = INDEX) {
+  const { DOCS, DF, AVG } = index;
   const q = [...new Set(tokens(question))];
   const ids = (question.match(/\b(BASSII?-[A-Z0-9-]+|FLEX-\d+|SAFFIREI{1,3}-[A-Z0-9-]+|PSI-\d+)\b/gi) || []).map((x) => x.toUpperCase());
   const N = DOCS.length;
@@ -141,7 +147,7 @@ export async function handle(req, deps) {
   if (question.length < 8) return json(400, { error: "Ask a full question." });
   if (question.length > LIMITS.maxQuestionChars) return json(400, { error: `Questions are limited to ${LIMITS.maxQuestionChars} characters.` });
 
-  const docs = retrieve(question);
+  const docs = retrieve(question, 12, deps.index || INDEX);
   const key = "a:" + (await sha(normalise(question)));
   const cached = await store.get(key);
   if (cached && now - cached.at < LIMITS.cacheHours * 3600e3) return json(200, { ...cached.answer, cached: true, evidence: docs.map(pub) });

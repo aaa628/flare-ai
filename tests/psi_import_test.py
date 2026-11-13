@@ -7,6 +7,9 @@ spec = importlib.util.spec_from_file_location("b", ROOT / "scripts" / "build_sit
 b = importlib.util.module_from_spec(spec); spec.loader.exec_module(b)
 ok = True
 recs = b.psi_records()
+if not recs:
+    print("SKIP: no PSI rows in data/*_psi*.csv (NASA data removed; template only). Nothing to check.")
+    sys.exit(0)
 n = sum(r["level"] == "machine" for r in recs)
 print(("PASS " if n == len(recs) else "FAIL ") + f"unmodified: {n}/{len(recs)} machine-checked"); ok &= n == len(recs)
 real_read = b.read

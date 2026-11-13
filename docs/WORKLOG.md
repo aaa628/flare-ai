@@ -447,3 +447,23 @@ Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without er
 - Built from main (includes #23); PR #24 (hero photo) left open and untouched as the user asked.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; Explorer opens 19-110 ms after a click; CSP-served pages
   without errors; no running animations with reduced motion; screenshots of Overview, Explorer, About (1366 px) and Scenario (390 px).
+
+## 2026-11-13: NASA data removed; site kept as an empty template
+User asked to remove all the data added so far while keeping every layout, chart and format, with values at 0, because new data is coming.
+- Removed: the 537 test records, 8 sources and 24 investigation catalogue entries; the report text, PSI files, tables and catalog JSON
+  (`data/source/`); the served copies (`site/sources/`); the AI Lab corpus, including the challenge-brief facts. The 8 `data/*.csv` files keep
+  only their header rows, so the column formats stay.
+- `scripts/build_site_data.py` now runs on empty templates (skips the source-file checks when there are no rows) and wrote an all-zero `data.js`.
+- `site/js/app.js`: with no records every chart is still drawn with neutral placeholder labels and 0 values.
+  - Overview: 3 bar charts and a 4-row methods table.
+  - Compare: a layout preview with tiles, start/end and change charts, and a 0 donut.
+  - Investigations: both charts. Scenario: 3 empty panels and the results table headers.
+  - NASA-specific text is replaced with neutral lines while empty.
+  - `donut()` no longer produces NaN at 0, and Scenario no longer breaks on an empty list.
+  - With real data, the old code paths run unchanged.
+- Kept, as decoration: the hero video (with its NASA credit) and the flame drawing. Kept: the footer non-endorsement.
+- Tests rewritten for the template:
+  - `site_smoke_test` checks every page at 1280 and 390 px for 0-value charts, no NaN, no old names and no horizontal scroll;
+  - the Lab function test uses a small fake fixture corpus;
+  - the pipeline tests skip when there is no data.
+Verified by running: smoke 95/95; previewer 14/14; lab_ui passed; lab_function 20/20; before/after screenshots of every page compared.

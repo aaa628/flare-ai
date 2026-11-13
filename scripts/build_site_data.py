@@ -54,6 +54,8 @@ def load(name):
 def psi_records():
     """Records imported from NASA PSI files. Machine level only if every data column still equals the source file."""
     ip = load("import_psi")
+    if not any(read(path.name) for path in ip.OUT.values()):
+        return []  # no PSI rows yet: nothing to re-read against NASA's source files
     try:
         exp = ip.expected()
     except ImportError as err:  # openpyxl missing
@@ -78,19 +80,9 @@ def psi_records():
     return out
 
 
-BRIEF_FACTS = [
-    ("brief-moon", "Challenge brief: Moon base and rover atmosphere",
-     "The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less. "
-     "Spacesuits are filled with 100% oxygen to 4.3 psi; Earth's sea-level pressure is 14.7 psi."),
-    ("brief-partial-g", "Challenge brief: partial gravity",
-     "There is currently no partial-gravity combustion data available in PSI. Partial gravity was mimicked in ACME E-FIELD Flames through an electric field. "
-     "Microgravity and normal-gravity results could bound what occurs at intermediate gravity levels."),
-    ("brief-pillars", "Challenge brief: prevention, detection, suppression",
-     "NASA's spacecraft fire safety work is focused on prevention, detection, and suppression. Flammability studies of solid materials: BASS, BASS-II, "
-     "Saffire-I, -II, -III. Detection: SAME and SAME-R. Suppression: FLEX, by diluting the chamber atmosphere with carbon dioxide and helium."),
-    ("brief-scope", "Challenge brief: scope",
-     "Fire safety involving rockets and propellants is generally beyond the scope of the research available in the PSI database."),
-]
+# Facts quoted from the challenge brief for the Intelligence Lab. Emptied with the rest of the NASA data
+# (2026-11-13); add entries back as (id, title, text) when new brief material is loaded.
+BRIEF_FACTS = []
 
 
 def write_corpus(records, investigations):
@@ -145,8 +137,9 @@ def write_corpus(records, investigations):
 
 def main():
     cc = load_crosscheck()
-    spans = cc.table_pages()
     records = read("bass2_draft.csv")
+    # The report text is only needed to re-check report rows; with no rows (empty template) it may be absent.
+    spans = cc.table_pages() if records else {}
     stale = []
     for r in records:
         r["verified"] = is_verified(r)
@@ -165,7 +158,7 @@ def main():
             pdf_live = pc.compare(records)
     except Exception as err:  # e.g. no pdftotext installed: fall back to the stored column
         print("note: PDF comparison not re-run here:", err)
-    psi_live = load("psicheck_bass2").compare(records)
+    psi_live = load("psicheck_bass2").compare(records) if records else {}
     for r in records:
         if pdf_live is not None:
             r["pdf_check"] = pdf_live[r["id"]]
@@ -178,7 +171,8 @@ def main():
     # (also offline). They are CC0; the copies are byte-identical to data/source/psi/.
     psi_dir = ROOT / "site" / "sources" / "psi"
     psi_dir.mkdir(parents=True, exist_ok=True)
-    for f in (DATA / "source" / "psi").iterdir():
+    src_dir = DATA / "source" / "psi"
+    for f in (src_dir.iterdir() if src_dir.exists() else []):
         if f.is_file():
             shutil.copyfile(f, psi_dir / f.name)
     for r in records:
@@ -190,7 +184,8 @@ def main():
     # Investigation catalogue: all NASA PSI combustion investigations (metadata + table summaries), tables served too.
     tab_dir = ROOT / "site" / "sources" / "psi" / "tables"
     tab_dir.mkdir(parents=True, exist_ok=True)
-    for f in (DATA / "source" / "psi" / "tables").iterdir():
+    src_tab = DATA / "source" / "psi" / "tables"
+    for f in (src_tab.iterdir() if src_tab.exists() else []):
         if f.is_file():
             shutil.copyfile(f, tab_dir / f.name)
     investigations = load("build_catalog").catalog()
