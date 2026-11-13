@@ -739,3 +739,13 @@ body::after {
 .brief-card q { quotes:"\201C" "\201D"; }
 .brief-link { margin:10px 0 0; font-size:14.5px; }
 @media (max-width:640px) { .brief-cards { grid-template-columns:1fr; } }
+
+/* ---------- Investigation: how the tests differ ---------- */
+.profile .pf + .pf { margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,.06); }
+.pf-t { margin:0 0 8px; font-size:15px; color:var(--cream); }
+.pf-sample { font-size:15px; margin:4px 0 10px; }
+.pf-cols { display:grid; grid-template-columns:1.4fr 1fr; gap:20px; }
+.pf-list { margin:0; padding-left:18px; font-size:14px; color:#dcdcdc; } .pf-list li { margin:3px 0; }
+.pf-groups { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px 18px; }
+.pf-g b { font-size:13.5px; color:var(--text); }
+@media (max-width:760px) { .pf-cols { grid-template-columns:1fr; } }

@@ -36715,6 +36715,174 @@ window.FLARE_DATA = {
       "mean Zst",
       "Tad (K)"
      ],
+     "profile": {
+      "tests_profiled": 207,
+      "varied": [
+       {
+        "col": "Fuel",
+        "n": 2,
+        "examples": [
+         "C2H4",
+         "C3H8"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Xfuel",
+        "n": 98,
+        "examples": [
+         "1",
+         "RAMPED",
+         "0.292030339",
+         "0.288493924"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mfuel (mg/s)",
+        "n": 142,
+        "examples": [
+         "0.968953877",
+         "RAMPED",
+         "0.639804819",
+         "0.638036948"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mN2 (mg/s)",
+        "n": 99,
+        "examples": [
+         "0",
+         "RAMPED",
+         "1.545139763",
+         "6.166451003"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mtot (mg/s)",
+        "n": 144,
+        "examples": [
+         "0.968953877",
+         "RAMPED",
+         "0.639804819",
+         "2.183176711"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "XO2 (init)",
+        "n": 188,
+        "range": [
+         0.198048193,
+         0.4
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "XO2 (final)",
+        "n": 187,
+        "range": [
+         0.197475265,
+         0.397248069
+        ],
+        "blank_n": 20
+       },
+       {
+        "col": "pinit (atm)",
+        "n": 80,
+        "range": [
+         0.931972789,
+         1.29695676
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "pfinal (atm)",
+        "n": 91,
+        "range": [
+         0.99279114,
+         1.32417516
+        ],
+        "blank_n": 20
+       },
+       {
+        "col": "pmean (atm)",
+        "n": 112,
+        "range": [
+         0.99211068,
+         1.31056596
+        ],
+        "blank_n": 20
+       },
+       {
+        "col": "mean Zst",
+        "n": 135,
+        "examples": [
+         "0.062716477",
+         "RAMPED",
+         "0.062341004",
+         "0.184576296"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Tad (K)",
+        "n": 135,
+        "examples": [
+         "2352.144414",
+         "RAMPED",
+         "2345.932123",
+         "2186.108871"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [
+       {
+        "col": "Flame Type",
+        "value": "Normal"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Flame Type",
+        "Fuel",
+        "Xfuel"
+       ],
+       "Flow": [
+        "mfuel (mg/s)",
+        "mN2 (mg/s)",
+        "mtot (mg/s)"
+       ],
+       "Atmosphere": [
+        "XO2 (init)",
+        "pinit (atm)",
+        "pfinal (atm)",
+        "pmean (atm)"
+       ],
+       "Gas readings": [
+        "XO2 (final)"
+       ],
+       "Calculated by NASA": [
+        "mean Zst",
+        "Tad (K)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel",
+        "n": 2,
+        "examples": [
+         "C2H4",
+         "C3H8"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     },
     {
@@ -36763,6 +36931,154 @@ window.FLARE_DATA = {
       "mean Zst",
       "Tad (K)"
      ],
+     "profile": {
+      "tests_profiled": 120,
+      "varied": [
+       {
+        "col": "XO2",
+        "n": 60,
+        "examples": [
+         "0.37082819",
+         "0.371286026",
+         "0.212319452",
+         "0.849977932"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mO2 (mg/s)",
+        "n": 114,
+        "examples": [
+         "5.116084436",
+         "5.116388106",
+         "2.367048277",
+         "9.799337625"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mN2 (mg/s)",
+        "n": 111,
+        "examples": [
+         "7.599363286",
+         "7.584919544",
+         "7.687948069",
+         "1.514213825"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mtot (mg/s)",
+        "n": 111,
+        "examples": [
+         "12.71544772",
+         "12.70130765",
+         "10.05499635",
+         "11.31355145"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "XC2H4 initial",
+        "n": 120,
+        "range": [
+         0.080313163,
+         0.658125963
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "XC2H4 final",
+        "n": 120,
+        "range": [
+         0.080092897,
+         0.657133201
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "pinit (atm)",
+        "n": 69,
+        "range": [
+         0.42460704,
+         3.0076332
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "pfinal (atm)",
+        "n": 72,
+        "range": [
+         0.42732888,
+         3.02872746
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "pmean (atm)",
+        "n": 89,
+        "range": [
+         0.42596796,
+         3.01818033
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mean Zst",
+        "n": 111,
+        "examples": [
+         "0.302316402",
+         "0.30350118",
+         "0.211548493",
+         "0.755160549"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Tad (K)",
+        "n": 111,
+        "examples": [
+         "2595.073097",
+         "2594.870605",
+         "2192.217132",
+         "2335.819318"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [
+       {
+        "col": "Flame Type",
+        "value": "Inverse"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Flame Type",
+        "XC2H4 initial"
+       ],
+       "Atmosphere": [
+        "XO2",
+        "pinit (atm)",
+        "pfinal (atm)",
+        "pmean (atm)"
+       ],
+       "Flow": [
+        "mO2 (mg/s)",
+        "mN2 (mg/s)",
+        "mtot (mg/s)"
+       ],
+       "Gas readings": [
+        "XC2H4 final"
+       ],
+       "Calculated by NASA": [
+        "mean Zst",
+        "Tad (K)"
+       ]
+      },
+      "sample": [],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -36946,6 +37262,78 @@ window.FLARE_DATA = {
       "Flames Ignited",
       "Notes"
      ],
+     "profile": {
+      "tests_profiled": 18,
+      "varied": [
+       {
+        "col": "Burner Size (mm)",
+        "n": 2,
+        "range": [
+         25.0,
+         50.0
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel Bottle",
+        "n": 4,
+        "examples": [
+         "100% C2H4",
+         "50% C2H4",
+         "100%C2H4",
+         "100% CH4"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Oxygen Conc (percent)",
+        "n": 10,
+        "examples": [
+         "21; 26.5; 40",
+         "26.5; 34",
+         "21; 26.5; 34; 40",
+         "26.5; 40"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Flames Ignited",
+        "n": 12,
+        "range": [
+         0.0,
+         21.0
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Burner Size (mm)",
+        "Fuel Bottle"
+       ],
+       "Atmosphere": [
+        "Oxygen Conc (percent)"
+       ],
+       "Flame result": [
+        "Flames Ignited"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel Bottle",
+        "n": 4,
+        "examples": [
+         "100% C2H4",
+         "50% C2H4",
+         "100%C2H4",
+         "100% CH4"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -37135,6 +37523,99 @@ window.FLARE_DATA = {
       "Flames ignited",
       "Notes"
      ],
+     "profile": {
+      "tests_profiled": 32,
+      "varied": [
+       {
+        "col": "Test Type",
+        "n": 3,
+        "examples": [
+         "Methane based test",
+         "Ethylene based test",
+         "Improved coflow tests"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel MFC",
+        "n": 2,
+        "range": [
+         0.1,
+         0.2
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "N2 MFC",
+        "n": 4,
+        "range": [
+         0.02,
+         0.2
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel Bottle",
+        "n": 30,
+        "examples": [
+         "40% CH4",
+         "40% CH5",
+         "40% CH6",
+         "40% CH7"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel conc. Range",
+        "n": 18,
+        "examples": [
+         "30%-40%",
+         "40%",
+         "25%-40%",
+         "50%-80%"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Flames ignited",
+        "n": 15,
+        "range": [
+         2.0,
+         18.0
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Test Type",
+        "Fuel Bottle",
+        "Fuel conc. Range"
+       ],
+       "Flow": [
+        "Fuel MFC",
+        "N2 MFC"
+       ],
+       "Flame result": [
+        "Flames ignited"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel Bottle",
+        "n": 30,
+        "examples": [
+         "40% CH4",
+         "40% CH5",
+         "40% CH6",
+         "40% CH7"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -37368,6 +37849,88 @@ window.FLARE_DATA = {
       "Flames Ignited",
       "Notes"
      ],
+     "profile": {
+      "tests_profiled": 21,
+      "varied": [
+       {
+        "col": "Test Type",
+        "n": 2,
+        "examples": [
+         "First round of tests with coflow burner",
+         "Second round of tests with gas-jet burner"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Mesh Polarity",
+        "n": 2,
+        "examples": [
+         "negative",
+         "positive"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel Bottle",
+        "n": 4,
+        "examples": [
+         "100% CH4",
+         "40% CH4",
+         "100% C2H4",
+         "30% C2H4"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel Conc",
+        "n": 6,
+        "examples": [
+         "100%",
+         "70%",
+         "40%",
+         "80%"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Flames Ignited",
+        "n": 7,
+        "range": [
+         8.0,
+         15.0
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Test Type",
+        "Fuel Bottle",
+        "Fuel Conc"
+       ],
+       "Hardware settings": [
+        "Mesh Polarity"
+       ],
+       "Flame result": [
+        "Flames Ignited"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel Bottle",
+        "n": 4,
+        "examples": [
+         "100% CH4",
+         "40% CH4",
+         "100% C2H4",
+         "30% C2H4"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -37717,6 +38280,78 @@ window.FLARE_DATA = {
       "Flames Ignited*",
       "Notes"
      ],
+     "profile": {
+      "tests_profiled": 18,
+      "varied": [
+       {
+        "col": "Test Type",
+        "n": 2,
+        "examples": [
+         "First round of tests with nitrogen-diluted fuel and oxygen",
+         "Second round of tests with helium-diluted fuel and oxygen"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Atmosphere*",
+        "n": 9,
+        "examples": [
+         "~21% O2 with N2",
+         "~21% O2 with N3",
+         "~21% O2 with N4",
+         "~30% O2 with N2"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel Bottle",
+        "n": 16,
+        "examples": [
+         "50% C2H4 with N2",
+         "50% C2H4 with N3",
+         "45% CH4 with N2",
+         "45% CH4 with N3"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Flames Ignited*",
+        "n": 12,
+        "range": [
+         7.0,
+         23.0
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Test Type",
+        "Fuel Bottle"
+       ],
+       "Atmosphere": [
+        "Atmosphere*"
+       ],
+       "Flame result": [
+        "Flames Ignited*"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel Bottle",
+        "n": 16,
+        "examples": [
+         "50% C2H4 with N2",
+         "50% C2H4 with N3",
+         "45% CH4 with N2",
+         "45% CH4 with N3"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -37912,6 +38547,158 @@ window.FLARE_DATA = {
       "Initial CO (ppm)",
       "Final CO (ppm)"
      ],
+     "profile": {
+      "tests_profiled": 129,
+      "varied": [
+       {
+        "col": "Fuel Sample Material",
+        "n": 49,
+        "examples": [
+         "100 micron PMMA film 2 cm wide",
+         "200 micron PMMA film 2 cm wide",
+         "100 micron film 2 cm wide",
+         "300 micron PMMA film 2 cm wide"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Flow restrictor",
+        "n": 3,
+        "range": [
+         0.0,
+         2.0
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fan display",
+        "n": 98,
+        "examples": [
+         "62",
+         "47",
+         "61",
+         "59"
+        ],
+        "blank_n": 13
+       },
+       {
+        "col": "Air display",
+        "n": 87,
+        "examples": [
+         "5",
+         "2",
+         "3 5 approaching 10",
+         "10 max"
+        ],
+        "blank_n": 4
+       },
+       {
+        "col": "Radiometer gain (1000 250 50 10)",
+        "n": 12,
+        "examples": [
+         "50",
+         "10",
+         "250",
+         "250>50>250"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Calibrated initial O2 % by vol",
+        "n": 50,
+        "range": [
+         13.6,
+         22.2
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Calibrated final O2 % by vol",
+        "n": 65,
+        "range": [
+         0.6,
+         40.4
+        ],
+        "blank_n": 2
+       },
+       {
+        "col": "Initial CO2 % by vol",
+        "n": 52,
+        "range": [
+         0.0,
+         1.85
+        ],
+        "blank_n": 2
+       },
+       {
+        "col": "Final CO2 % by vol",
+        "n": 80,
+        "range": [
+         0.2,
+         3.22
+        ],
+        "blank_n": 6
+       },
+       {
+        "col": "Initial CO (ppm)",
+        "n": 66,
+        "examples": [
+         "0",
+         "6",
+         "12",
+         "-1"
+        ],
+        "blank_n": 2
+       },
+       {
+        "col": "Final CO (ppm)",
+        "n": 99,
+        "examples": [
+         "6",
+         "19",
+         "10",
+         "12"
+        ],
+        "blank_n": 5
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Fuel Sample Material"
+       ],
+       "Flow": [
+        "Flow restrictor",
+        "Fan display",
+        "Air display"
+       ],
+       "Hardware settings": [
+        "Radiometer gain (1000 250 50 10)"
+       ],
+       "Gas readings": [
+        "Calibrated initial O2 % by vol",
+        "Calibrated final O2 % by vol",
+        "Initial CO2 % by vol",
+        "Final CO2 % by vol",
+        "Initial CO (ppm)",
+        "Final CO (ppm)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel Sample Material",
+        "n": 49,
+        "examples": [
+         "100 micron PMMA film 2 cm wide",
+         "200 micron PMMA film 2 cm wide",
+         "100 micron film 2 cm wide",
+         "300 micron PMMA film 2 cm wide"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -38051,6 +38838,42 @@ window.FLARE_DATA = {
       "Sample #",
       "Fuel Sample Material"
      ],
+     "profile": {
+      "tests_profiled": 122,
+      "varied": [
+       {
+        "col": "Fuel Sample Material",
+        "n": 34,
+        "examples": [
+         "SIBAL 2 cm",
+         "PMMA sphere 2 cm",
+         "PMMA sphere 1 cm",
+         "SIBAL 1 cm"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Fuel Sample Material"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel Sample Material",
+        "n": 34,
+        "examples": [
+         "SIBAL 2 cm",
+         "PMMA sphere 2 cm",
+         "PMMA sphere 1 cm",
+         "SIBAL 1 cm"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     },
     {
@@ -38217,6 +39040,94 @@ window.FLARE_DATA = {
       "Fiber",
       "Fuel"
      ],
+     "profile": {
+      "tests_profiled": 87,
+      "varied": [
+       {
+        "col": "Pressure",
+        "n": 7,
+        "examples": [
+         "1 atm",
+         "1.25 atm",
+         "2 atm",
+         "3 atm"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Oxygen",
+        "n": 2,
+        "range": [
+         0.17,
+         0.21
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Nitrogen",
+        "n": 5,
+        "range": [
+         0.2,
+         0.83
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Helium",
+        "n": 3,
+        "range": [
+         0.0,
+         0.59
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fiber",
+        "n": 2,
+        "examples": [
+         "No",
+         "Yes"
+        ],
+        "blank_n": 9
+       },
+       {
+        "col": "Fuel",
+        "n": 3,
+        "examples": [
+         "C12H26",
+         "[.75]/[.25] C12H26/iso-dodecane",
+         "[.60]/[.40] C12H26/iso-dodecane"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Atmosphere": [
+        "Pressure",
+        "Oxygen",
+        "Nitrogen",
+        "Helium"
+       ],
+       "Fuel and sample": [
+        "Fiber",
+        "Fuel"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel",
+        "n": 3,
+        "examples": [
+         "C12H26",
+         "[.75]/[.25] C12H26/iso-dodecane",
+         "[.60]/[.40] C12H26/iso-dodecane"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -38307,6 +39218,42 @@ window.FLARE_DATA = {
       "Sample Material",
       "Sampled Location"
      ],
+     "profile": {
+      "tests_profiled": 2,
+      "varied": [
+       {
+        "col": "Sampled Location",
+        "n": 2,
+        "examples": [
+         "Sampled air near Express rack 4",
+         "Sampled separated Velcro and the air near Port rack 6 and in Node 1"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [
+       {
+        "col": "Sample Material",
+        "value": "Arizona Road Dust (ARD Fine) in combination with ISS GN2 to create an aerosol for measurement purposes."
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Sample Material",
+        "Sampled Location"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Sample Material",
+        "n": 1,
+        "examples": [
+         "Arizona Road Dust (ARD Fine) in combination with ISS GN2 to create an aerosol for measurement purposes."
+        ]
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -38810,6 +39757,84 @@ window.FLARE_DATA = {
       "Ambient Temperature (C)",
       "Flow Velocity (cm/s)"
      ],
+     "profile": {
+      "tests_profiled": 8,
+      "varied": [
+       {
+        "col": "Sample (Fuel Type)",
+        "n": 8,
+        "examples": [
+         "IsoOctane (pure)",
+         "n-Octane (pure)",
+         "Heptane (pure)",
+         "Decane (pure)"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [
+       {
+        "col": "Initial Droplet Diameter (mm)",
+        "value": "1.5 - 5"
+       },
+       {
+        "col": "Ambient Gas Mixture",
+        "value": "O2/N2 or O2/He"
+       },
+       {
+        "col": "Oxygen Mole Fraction",
+        "value": "0.17; 0.21;0.25; 0.3"
+       },
+       {
+        "col": "Ambient Pressure (atm)",
+        "value": "0.5; 1.0; 1.5; 2.0; or 3.0"
+       },
+       {
+        "col": "Ambient Temperature (C)",
+        "value": "25"
+       },
+       {
+        "col": "Flow Velocity (cm/s)",
+        "value": "0.1 - 5"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Sample (Fuel Type)",
+        "Initial Droplet Diameter (mm)"
+       ],
+       "Atmosphere": [
+        "Ambient Gas Mixture",
+        "Oxygen Mole Fraction",
+        "Ambient Pressure (atm)",
+        "Ambient Temperature (C)"
+       ],
+       "Flow": [
+        "Flow Velocity (cm/s)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Sample (Fuel Type)",
+        "n": 8,
+        "examples": [
+         "IsoOctane (pure)",
+         "n-Octane (pure)",
+         "Heptane (pure)",
+         "Decane (pure)"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Initial Droplet Diameter (mm)",
+        "n": 1,
+        "examples": [
+         "1.5 - 5"
+        ]
+       }
+      ],
+      "planned": true
+     },
      "encoding": "utf-8"
     }
    ],
@@ -39215,6 +40240,154 @@ window.FLARE_DATA = {
       "Burn time; s",
       "Test end"
      ],
+     "profile": {
+      "tests_profiled": 274,
+      "varied": [
+       {
+        "col": "Fuel",
+        "n": 2,
+        "examples": [
+         "Methanol",
+         "Heptane"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Ambient pressure; mmHg",
+        "n": 183,
+        "range": [
+         0.0,
+         2319.9
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "O initial ambient composition; mole fraction",
+        "n": 15,
+        "range": [
+         0.12,
+         0.34
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "N initial ambient composition; mole fraction",
+        "n": 33,
+        "range": [
+         0.09,
+         0.88
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "CO initial ambient composition; mole fraction",
+        "n": 14,
+        "range": [
+         0.0,
+         0.7
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "He initial ambient composition; mole fraction",
+        "n": 10,
+        "range": [
+         0.0,
+         0.45
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Droplet initial diameter; mm",
+        "n": 163,
+        "range": [
+         1.1,
+         4.67
+        ],
+        "blank_n": 12
+       },
+       {
+        "col": "Visible flame extinction diameter; mm",
+        "n": 145,
+        "range": [
+         0.0,
+         4.6
+        ],
+        "blank_n": 77
+       },
+       {
+        "col": "Burning rate; mm",
+        "n": 60,
+        "range": [
+         0.05,
+         1.06
+        ],
+        "blank_n": 16
+       },
+       {
+        "col": "Burn time; s",
+        "n": 164,
+        "examples": [
+         "4.3",
+         "5",
+         "3.2",
+         "7.64"
+        ],
+        "blank_n": 6
+       },
+       {
+        "col": "Test end",
+        "n": 3,
+        "examples": [
+         "Disruption",
+         "Extinction",
+         "Completion"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Fuel",
+        "Droplet initial diameter; mm"
+       ],
+       "Atmosphere": [
+        "Ambient pressure; mmHg",
+        "O initial ambient composition; mole fraction",
+        "N initial ambient composition; mole fraction",
+        "CO initial ambient composition; mole fraction",
+        "He initial ambient composition; mole fraction"
+       ],
+       "Flame result": [
+        "Visible flame extinction diameter; mm",
+        "Burning rate; mm",
+        "Burn time; s",
+        "Test end"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel",
+        "n": 2,
+        "examples": [
+         "Methanol",
+         "Heptane"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Droplet initial diameter; mm",
+        "n": 163,
+        "range": [
+         1.1,
+         4.67
+        ],
+        "blank_n": 12
+       }
+      ],
+      "planned": false
+     },
      "encoding": "windows-1252"
     }
    ],
@@ -39340,6 +40513,121 @@ window.FLARE_DATA = {
       "Camera 1",
       "Camera 2"
      ],
+     "profile": {
+      "tests_profiled": 2,
+      "varied": [
+       {
+        "col": "Percent O2",
+        "n": 2,
+        "examples": [
+         "21.5 - 21.7",
+         "~ 21.5"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Burn Time (s)",
+        "n": 2,
+        "range": [
+         70.0,
+         420.0
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Flow Direction",
+        "n": 2,
+        "examples": [
+         "Concurrent",
+         "Opposed"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [
+       {
+        "col": "Material",
+        "value": "SIBAL Fabric"
+       },
+       {
+        "col": "Sample Thickness (cm)",
+        "value": "0.37"
+       },
+       {
+        "col": "Sample Length (cm)",
+        "value": "40.6"
+       },
+       {
+        "col": "Sample Width (cm)",
+        "value": "94"
+       },
+       {
+        "col": "Air Flow (cm/s)",
+        "value": "20"
+       },
+       {
+        "col": "Ignition Power (W)",
+        "value": "182"
+       },
+       {
+        "col": "Ignition Time (s)",
+        "value": "8"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Material",
+        "Sample Thickness (cm)",
+        "Sample Length (cm)",
+        "Sample Width (cm)"
+       ],
+       "Flow": [
+        "Air Flow (cm/s)",
+        "Flow Direction"
+       ],
+       "Atmosphere": [
+        "Percent O2"
+       ],
+       "Hardware settings": [
+        "Ignition Power (W)",
+        "Ignition Time (s)"
+       ],
+       "Flame result": [
+        "Burn Time (s)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Material",
+        "n": 1,
+        "examples": [
+         "SIBAL Fabric"
+        ]
+       },
+       {
+        "col": "Sample Thickness (cm)",
+        "n": 1,
+        "examples": [
+         "0.37"
+        ]
+       },
+       {
+        "col": "Sample Length (cm)",
+        "n": 1,
+        "examples": [
+         "40.6"
+        ]
+       },
+       {
+        "col": "Sample Width (cm)",
+        "n": 1,
+        "examples": [
+         "94"
+        ]
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -39477,6 +40765,212 @@ window.FLARE_DATA = {
       "Camera 1",
       "Camera 2"
      ],
+     "profile": {
+      "tests_profiled": 9,
+      "varied": [
+       {
+        "col": "Material",
+        "n": 4,
+        "examples": [
+         "Silicone",
+         "Cotton-Fiberglass (SIBAL)",
+         "PMMA & Nomex",
+         "PMMA"
+        ],
+        "blank_n": 2
+       },
+       {
+        "col": "Samle Thickness",
+        "n": 7,
+        "examples": [
+         "0.27 mm",
+         "0.61 mm",
+         "1.03 mm",
+         "037 mm"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Sample Length",
+        "n": 2,
+        "examples": [
+         "29 cm",
+         "5 and 24 cm"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Percent O2 (Note 1)",
+        "n": 4,
+        "examples": [
+         "~ 21.5",
+         "~ 22.1",
+         "22.1 to 22.0",
+         "22.0 to 21.9"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Ignition Power (W)",
+        "n": 2,
+        "examples": [
+         "80 W",
+         "97 W"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Ignition Time (s)",
+        "n": 2,
+        "examples": [
+         "9.2 s",
+         "30 s"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Burn Time (s)",
+        "n": 6,
+        "examples": [
+         "Insignificant",
+         "145 s",
+         "115 s",
+         "140 s"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Flow Direction",
+        "n": 2,
+        "examples": [
+         "Concurrent",
+         "Opposed"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "?-g Burn Length",
+        "n": 5,
+        "examples": [
+         "~ 0",
+         "29 cm",
+         "5 cm & 0 (note 2)",
+         "~ 10 cm (note 3)"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "?-g Spread Length",
+        "n": 4,
+        "examples": [
+         "2.1 mm/s",
+         "2.6 mm/s",
+         "n/a (Nomex)",
+         "Note 4"
+        ],
+        "blank_n": 4
+       },
+       {
+        "col": "1-g Burn Length",
+        "n": 4,
+        "examples": [
+         "Complete",
+         "7.6 cm",
+         "~ 0",
+         "~ 0 (Nomex)"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "1-g Spread Rate",
+        "n": 4,
+        "examples": [
+         "Acceleratory",
+         "1.2 mm/s",
+         "0.6 mm/s",
+         "n/a (Nomex)"
+        ],
+        "blank_n": 1
+       }
+      ],
+      "same": [
+       {
+        "col": "Sample Width (cm)",
+        "value": "5 cm"
+       },
+       {
+        "col": "Air Flow (cm/s)",
+        "value": "20 cm/s"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Material",
+        "Samle Thickness",
+        "Sample Length",
+        "Sample Width (cm)"
+       ],
+       "Flow": [
+        "Air Flow (cm/s)",
+        "Flow Direction"
+       ],
+       "Atmosphere": [
+        "Percent O2 (Note 1)"
+       ],
+       "Hardware settings": [
+        "Ignition Power (W)",
+        "Ignition Time (s)"
+       ],
+       "Flame result": [
+        "Burn Time (s)",
+        "?-g Burn Length",
+        "?-g Spread Length",
+        "1-g Burn Length",
+        "1-g Spread Rate"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Material",
+        "n": 4,
+        "examples": [
+         "Silicone",
+         "Cotton-Fiberglass (SIBAL)",
+         "PMMA & Nomex",
+         "PMMA"
+        ],
+        "blank_n": 2
+       },
+       {
+        "col": "Samle Thickness",
+        "n": 7,
+        "examples": [
+         "0.27 mm",
+         "0.61 mm",
+         "1.03 mm",
+         "037 mm"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Sample Length",
+        "n": 2,
+        "examples": [
+         "29 cm",
+         "5 and 24 cm"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Sample Width (cm)",
+        "n": 1,
+        "examples": [
+         "5 cm"
+        ]
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -39577,6 +41071,85 @@ window.FLARE_DATA = {
       "Camera 1",
       "Camera 2"
      ],
+     "profile": {
+      "tests_profiled": 2,
+      "varied": [
+       {
+        "col": "Direction",
+        "n": 2,
+        "examples": [
+         "Concurrent",
+         "Opposed"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [
+       {
+        "col": "Material",
+        "value": "SIBAL Fabric"
+       },
+       {
+        "col": "Sample Thickness",
+        "value": ".33 cm"
+       },
+       {
+        "col": "Sample Length",
+        "value": "94 cm"
+       },
+       {
+        "col": "Sample Width",
+        "value": "40.6 cm"
+       },
+       {
+        "col": "Air Flow",
+        "value": "30 cm/s"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Material",
+        "Sample Thickness",
+        "Sample Length",
+        "Sample Width"
+       ],
+       "Flow": [
+        "Air Flow",
+        "Direction"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Material",
+        "n": 1,
+        "examples": [
+         "SIBAL Fabric"
+        ]
+       },
+       {
+        "col": "Sample Thickness",
+        "n": 1,
+        "examples": [
+         ".33 cm"
+        ]
+       },
+       {
+        "col": "Sample Length",
+        "n": 1,
+        "examples": [
+         "94 cm"
+        ]
+       },
+       {
+        "col": "Sample Width",
+        "n": 1,
+        "examples": [
+         "40.6 cm"
+        ]
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -39696,6 +41269,102 @@ window.FLARE_DATA = {
       "Primary mixing time (sec)",
       "Net aging time (sec)"
      ],
+     "profile": {
+      "tests_profiled": 109,
+      "varied": [
+       {
+        "col": "Sample Type",
+        "n": 5,
+        "examples": [
+         "Kapton",
+         "Silicone",
+         "Lampwick",
+         "Teflon"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Inlet velocity (cm/s)",
+        "n": 5,
+        "range": [
+         0.0,
+         8.1
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Rt/R0",
+        "n": 20,
+        "range": [
+         1.22,
+         1.48
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Duration (sec)",
+        "n": 2,
+        "range": [
+         60.0,
+         120.0
+        ],
+        "blank_n": 41
+       },
+       {
+        "col": "Primary aging time (sec)",
+        "n": 3,
+        "range": [
+         1.0,
+         720.0
+        ],
+        "blank_n": 42
+       },
+       {
+        "col": "Net aging time (sec)",
+        "n": 66,
+        "range": [
+         21.0,
+         1923.0
+        ],
+        "blank_n": 5
+       }
+      ],
+      "same": [
+       {
+        "col": "Primary mixing time (sec)",
+        "value": "8"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Sample Type"
+       ],
+       "Flow": [
+        "Inlet velocity (cm/s)"
+       ],
+       "Smoke and particles": [
+        "Rt/R0",
+        "Duration (sec)",
+        "Primary aging time (sec)",
+        "Primary mixing time (sec)",
+        "Net aging time (sec)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Sample Type",
+        "n": 5,
+        "examples": [
+         "Kapton",
+         "Silicone",
+         "Lampwick",
+         "Teflon"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -39870,6 +41539,66 @@ window.FLARE_DATA = {
       "Weight loss rate (mg/min)",
       "Aging Duration (minutes)"
      ],
+     "profile": {
+      "tests_profiled": 4,
+      "varied": [
+       {
+        "col": "Air Flow (cm/s)",
+        "n": 2,
+        "range": [
+         5.0,
+         10.0
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Weight loss rate (mg/min)",
+        "n": 2,
+        "range": [
+         1.0,
+         2.0
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Aging Duration (minutes)",
+        "n": 2,
+        "range": [
+         1.0,
+         20.0
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [
+       {
+        "col": "Sample Material",
+        "value": "Teflon"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Sample Material"
+       ],
+       "Flow": [
+        "Air Flow (cm/s)"
+       ],
+       "Smoke and particles": [
+        "Weight loss rate (mg/min)",
+        "Aging Duration (minutes)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Sample Material",
+        "n": 1,
+        "examples": [
+         "Teflon"
+        ]
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -39975,6 +41704,42 @@ window.FLARE_DATA = {
       "Test Date",
       "Fuel Type"
      ],
+     "profile": {
+      "tests_profiled": 12,
+      "varied": [
+       {
+        "col": "Fuel Type",
+        "n": 9,
+        "examples": [
+         "100% CH4",
+         "40% CH4 (balance N2) including 2 pyrometry calibration tests and 2 fan calibrations",
+         "70% CH4 (balance N2) including 1 pyrometry calibration test",
+         "20% C2H4 (balance N2)"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Fuel Type"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel Type",
+        "n": 9,
+        "examples": [
+         "100% CH4",
+         "40% CH4 (balance N2) including 2 pyrometry calibration tests and 2 fan calibrations",
+         "70% CH4 (balance N2) including 1 pyrometry calibration test",
+         "20% C2H4 (balance N2)"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -40111,6 +41876,103 @@ window.FLARE_DATA = {
       "HC Fuel Rate (mg/s)",
       "Air Rate (cm/s)"
      ],
+     "profile": {
+      "tests_profiled": 469,
+      "varied": [
+       {
+        "col": "Fuel",
+        "n": 7,
+        "examples": [
+         "Ethylene",
+         "Propane",
+         "75% Propylene",
+         "75 % Propylene"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Nozzle (mm)",
+        "n": 3,
+        "range": [
+         0.4064,
+         1.6002
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel Rate (sccm)",
+        "n": 284,
+        "range": [
+         0.0,
+         231.6
+        ],
+        "blank_n": 12
+       },
+       {
+        "col": "Fuel Rate (mg/s)",
+        "n": 275,
+        "range": [
+         0.0,
+         4.397
+        ],
+        "blank_n": 12
+       },
+       {
+        "col": "HC Fuel Rate (mg/s)",
+        "n": 269,
+        "range": [
+         0.0,
+         4.397
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Air Rate (cm/s)",
+        "n": 62,
+        "range": [
+         -5.92,
+         85.28
+        ],
+        "blank_n": 25
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Fuel",
+        "Nozzle (mm)"
+       ],
+       "Flow": [
+        "Fuel Rate (sccm)",
+        "Fuel Rate (mg/s)",
+        "HC Fuel Rate (mg/s)",
+        "Air Rate (cm/s)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel",
+        "n": 7,
+        "examples": [
+         "Ethylene",
+         "Propane",
+         "75% Propylene",
+         "75 % Propylene"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Nozzle (mm)",
+        "n": 3,
+        "range": [
+         0.4064,
+         1.6002
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -40415,6 +42277,14 @@ window.FLARE_DATA = {
       "Reference Publication Link",
       "Figure ID in Reference"
      ],
+     "profile": {
+      "tests_profiled": 8,
+      "varied": [],
+      "same": [],
+      "groups": {},
+      "sample": [],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],
@@ -40528,6 +42398,198 @@ window.FLARE_DATA = {
       "Peak burner T (C )",
       "Comments"
      ],
+     "profile": {
+      "tests_profiled": 179,
+      "varied": [
+       {
+        "col": "Fuel",
+        "n": 6,
+        "examples": [
+         "ethane",
+         "50% butane",
+         "propane",
+         "30% butane"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Cool flame?",
+        "n": 8,
+        "examples": [
+         "no, PCI-hot",
+         "yes, PCI-D",
+         "yes, PCI-B",
+         "yes, PCI-C"
+        ],
+        "blank_n": 171
+       },
+       {
+        "col": "XO2 before test",
+        "n": 139,
+        "range": [
+         0.179685675,
+         0.3997
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "XO2 after test",
+        "n": 136,
+        "range": [
+         0.17939183,
+         0.397258964
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "approx p (bar)",
+        "n": 5,
+        "range": [
+         0.50665,
+         3.0399
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Xf",
+        "n": 14,
+        "range": [
+         0.0,
+         1.0
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "mHC (mg/s)",
+        "n": 25,
+        "range": [
+         0.0,
+         3.215
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "TFP",
+        "n": 2,
+        "examples": [
+         "No",
+         "Yes"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Tad (K)",
+        "n": 145,
+        "examples": [
+         "2719.323211",
+         "2713.594987",
+         "2708.596221",
+         "2703.647801"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Zst",
+        "n": 145,
+        "examples": [
+         "0.102651783",
+         "0.101747543",
+         "0.100968644",
+         "0.100206801"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Hot ignition",
+        "n": 2,
+        "examples": [
+         "Yes",
+         "No"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "burn time (sec)",
+        "n": 78,
+        "range": [
+         0.0,
+         304.0
+        ],
+        "blank_n": 4
+       },
+       {
+        "col": "Self-ext or flow term",
+        "n": 2,
+        "examples": [
+         "SE",
+         "FT"
+        ],
+        "blank_n": 46
+       },
+       {
+        "col": "Peak burner T (C )",
+        "n": 129,
+        "range": [
+         32.0,
+         532.162657
+        ],
+        "blank_n": 46
+       }
+      ],
+      "same": [
+       {
+        "col": "Flame Type",
+        "value": "Normal"
+       }
+      ],
+      "groups": {
+       "Fuel and sample": [
+        "Flame Type",
+        "Fuel",
+        "Xf"
+       ],
+       "Flame result": [
+        "Cool flame?",
+        "Hot ignition",
+        "burn time (sec)",
+        "Self-ext or flow term"
+       ],
+       "Atmosphere": [
+        "XO2 before test",
+        "approx p (bar)"
+       ],
+       "Gas readings": [
+        "XO2 after test"
+       ],
+       "Flow": [
+        "mHC (mg/s)"
+       ],
+       "Other": [
+        "TFP"
+       ],
+       "Calculated by NASA": [
+        "Tad (K)",
+        "Zst"
+       ],
+       "Temperature": [
+        "Peak burner T (C )"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel",
+        "n": 6,
+        "examples": [
+         "ethane",
+         "50% butane",
+         "propane",
+         "30% butane"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     },
     {
@@ -40579,6 +42641,220 @@ window.FLARE_DATA = {
       "Color",
       "Comments"
      ],
+     "profile": {
+      "tests_profiled": 154,
+      "varied": [
+       {
+        "col": "Flame Type",
+        "n": 2,
+        "examples": [
+         "Inverse",
+         "inverse"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Fuel",
+        "n": 3,
+        "examples": [
+         "ethane",
+         "propane",
+         "butane"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Xf before test",
+        "n": 140,
+        "range": [
+         0.056479312,
+         0.4287
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Xf after test",
+        "n": 141,
+        "range": [
+         0.055626433,
+         0.427799337
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "approx p (bar)",
+        "n": 6,
+        "range": [
+         0.4953817,
+         3.3099
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "XO2",
+        "n": 12,
+        "range": [
+         0.12,
+         0.85
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "HC burnrate (mg/s)",
+        "n": 17,
+        "range": [
+         0.25,
+         2.5
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "O2 flow rate (mg/s)",
+        "n": 30,
+        "range": [
+         0.931125707,
+         9.084062394
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "TFP",
+        "n": 2,
+        "examples": [
+         "No",
+         "Yes"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Tad (K)",
+        "n": 145,
+        "range": [
+         1567.030825,
+         2978.371796
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Zst",
+        "n": 145,
+        "range": [
+         0.105556515,
+         0.783917907
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Hot ignition",
+        "n": 5,
+        "examples": [
+         "No",
+         "Yes",
+         "flash",
+         "no"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "burn time (sec)",
+        "n": 51,
+        "range": [
+         0.0,
+         152.0
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Self -ext or flow term",
+        "n": 2,
+        "examples": [
+         "FT",
+         "SE"
+        ],
+        "blank_n": 15
+       },
+       {
+        "col": "Peak burner Temp (C)",
+        "n": 141,
+        "range": [
+         25.6,
+         651.5
+        ],
+        "blank_n": 3
+       },
+       {
+        "col": "Peak burner temp (K)",
+        "n": 143,
+        "examples": [
+         "300.25",
+         "436.05",
+         "391.65",
+         "299.85"
+        ],
+        "blank_n": 0
+       },
+       {
+        "col": "Color",
+        "n": 7,
+        "examples": [
+         "yellow",
+         "blue",
+         "limit",
+         "yellow then blue"
+        ],
+        "blank_n": 34
+       }
+      ],
+      "same": [],
+      "groups": {
+       "Fuel and sample": [
+        "Flame Type",
+        "Fuel",
+        "Xf before test"
+       ],
+       "Gas readings": [
+        "Xf after test"
+       ],
+       "Atmosphere": [
+        "approx p (bar)",
+        "XO2"
+       ],
+       "Flow": [
+        "HC burnrate (mg/s)",
+        "O2 flow rate (mg/s)"
+       ],
+       "Other": [
+        "TFP"
+       ],
+       "Calculated by NASA": [
+        "Tad (K)",
+        "Zst"
+       ],
+       "Flame result": [
+        "Hot ignition",
+        "burn time (sec)",
+        "Self -ext or flow term",
+        "Color"
+       ],
+       "Temperature": [
+        "Peak burner Temp (C)",
+        "Peak burner temp (K)"
+       ]
+      },
+      "sample": [
+       {
+        "col": "Fuel",
+        "n": 3,
+        "examples": [
+         "ethane",
+         "propane",
+         "butane"
+        ],
+        "blank_n": 0
+       }
+      ],
+      "planned": false
+     },
      "encoding": "utf-8"
     }
    ],

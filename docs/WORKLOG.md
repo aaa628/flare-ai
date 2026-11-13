@@ -533,3 +533,16 @@ Verified by running: smoke 116/116 (5 new); previewer 14/14; lab_ui passed; lab_
   zone, recomputed from the raw tables: 20 + 28), and a labelled note that every Flare AI record is from microgravity.
 - Shown on the Moon-base view only. Stacked on the hardware-families branch (merge #35 first).
 Verified by running: smoke 120/120 (4 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.
+
+## 2026-11-13: "How the tests differ" on investigation pages (varied / same / sample / measurement types)
+- build_catalog.py profiles each NASA table: every column except bookkeeping (ids, dates, times, notes, camera files) is
+  "varied" (with numeric range or up to 4 examples, value count and empty-cell count) or "same in every test" (with the value).
+  NASA's no-value marks (-, en dash, n/a, none, ?) count as empty. Rows with fewer than 3 filled cells (NASA note rows) are skipped.
+- Sample line = material/fuel columns plus size columns (thickness, length, width, diameter, nozzle, burner size); results
+  such as extinction diameter or burn length are not counted as sample size.
+- Measurement types: columns grouped (our labels) into Atmosphere, Flow, Fuel and sample, Gas readings, Temperature,
+  Flame result, Smoke and particles, Hardware settings, Calculated by NASA (Tad, Zst), Other.
+- FLEX-2 (planned matrix) is labelled "Planned test matrix, not results"; PSI-142 (a list of data files) gets no profile.
+- Checked against raw files: FLEX droplet diameter 1.1-4.67 mm, 163 values, 12 empty; FLEX pressure 0-2319.9 mmHg with one
+  printed 0 (FLEX-114, noted on the card); approximate burn times ("~6", "~9") keep burn time as examples, not a range.
+Verified by running: smoke 127/127 (7 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.

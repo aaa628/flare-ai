@@ -1405,6 +1405,42 @@
   var PSRC = { brief: "brief", label: "Flare AI label", direct: "NASA data" };
   function ptLi(p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label + " ", h("span", { class: "psrc ps-" + p.kind }, PSRC[p.kind] || p.kind), p.ev ? h("span", { class: "ev" }, " \u2014 " + p.ev) : null); }
 
+  /* "How the tests differ": counted from NASA's table (what varied, what stayed the same, sample, measurement groups).
+   * Group names are our labels; column names and values are NASA's, as printed. */
+  function fmtN(n) { return Math.abs(n) >= 100 ? String(Math.round(n * 10) / 10) : String(+n.toPrecision(4)); }
+  function descOf(d) {
+    var blank = d.blank_n ? "; " + d.blank_n + " test" + (d.blank_n > 1 ? "s" : "") + " with no value" : "";
+    if (d.range) return d.col + ": " + fmtN(d.range[0]) + "\u2013" + fmtN(d.range[1]) + " (" + d.n + " values" + blank + ")";
+    if (d.examples) return d.col + ": " + d.examples.map(function (x) { return "\u201c" + x + "\u201d"; }).join(", ") + (d.n > d.examples.length ? " +" + (d.n - d.examples.length) + " more" : "") + (blank ? " (" + blank.slice(2) + ")" : "");
+    return d.col + ": \u201c" + d.value + "\u201d";
+  }
+  function profileCard(v) {
+    var tabs = (v.table_summaries || []).filter(function (t) { return t.profile && t.profile.tests_profiled && (t.profile.varied.length || t.profile.same.length); });
+    if (!tabs.length) return null;
+    var multi = tabs.length > 1;
+    return h("section", { class: "card profile", style: "margin-top:14px" },
+      h("div", { class: "prov-head" }, h("h3", null, "How the tests differ"), chip("measured", "Counted from NASA\u2019s table")),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), "every column of NASA\u2019s table except bookkeeping (test numbers, dates, times, notes, camera files). " +
+        "\u201cVaried\u201d = more than one value across the tests; \u201csame\u201d = one value in every test. Values are NASA\u2019s, as printed. Group names are our labels."),
+      tabs.map(function (t) {
+        var pr = t.profile, ttl = multi ? h("h4", { class: "pf-t" }, t.table.replace(/^PSI-\d+_Experimental table_/, "").replace(/\.csv$/, "")) : null;
+        if (pr.planned) return h("div", { class: "pf" }, ttl, h("p", { class: "callout info" }, h("b", null, "Planned test matrix, not results. "),
+          "Each cell lists the conditions NASA planned: ", pr.same.concat(pr.varied).map(descOf).join("; ") + "."));
+        return h("div", { class: "pf" }, ttl,
+          pr.sample.length ? h("p", { class: "pf-sample" }, h("b", null, "Sample: "), pr.sample.map(descOf).join("; ")) : null,
+          v.accession === "PSI-69" ? h("p", { class: "note" }, "! One FLEX test (FLEX-114) has its pressure printed as 0 in NASA\u2019s table; it is included here as printed and flagged on its record.") : null,
+          h("div", { class: "pf-cols" },
+            h("div", null, h("p", { class: "mini-h" }, "Varied across the " + pr.tests_profiled + " tests (" + pr.varied.length + ")"),
+              pr.varied.length ? h("ul", { class: "pf-list" }, pr.varied.map(function (d) { return h("li", null, descOf(d)); })) : h("p", { class: "note" }, "Nothing varied in the profiled columns.")),
+            h("div", null, h("p", { class: "mini-h" }, "Same in every test (" + pr.same.length + ")"),
+              pr.same.length ? h("ul", { class: "pf-list" }, pr.same.map(function (d) { return h("li", null, descOf(d)); })) : h("p", { class: "note" }, "No column has a single value in every test."))),
+          h("p", { class: "mini-h" }, "What was recorded, by type ", chip("interp", "our grouping")),
+          h("div", { class: "pf-groups" }, Object.keys(pr.groups).map(function (g) {
+            return h("div", { class: "pf-g" }, h("b", null, g), h("div", { class: "cols-chips" }, pr.groups[g].map(function (c) { return h("span", { class: "colchip" }, c); })));
+          })));
+      }));
+  }
+
   function viewInvestigation(acc) {
     var v = invById(acc);
     if (!v) { setTitle("Not found"); return h("div", null, h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")), h("h1", null, "Investigation not found")); }
@@ -1453,6 +1489,7 @@
         h("p", { class: "note" }, h("b", null, "Variables and measurements: "), (v.table_summaries || []).length ? "NASA\u2019s table records " +
           v.table_summaries.map(function (t) { return (t.columns || []).length + " columns"; }).join(" + ") + " (listed below)." : "no experiment table in PSI.",
           " ", h("b", null, "Evidence in Flare AI: "), COVER[coverage(v)].text)),
+      profileCard(v),
       h("section", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, "What NASA\u2019s experiment table records"), chip("measured", "Measured")),
         h("p", { class: "howto" }, h("b", null, "How to read: "), "the columns are NASA’s own (variables and measurements). Ranges are read only from the columns named; unit conversions are arithmetic; anything not a plain number is listed, not guessed."),
         (v.table_summaries || []).length ? v.table_summaries.map(function (t) {
