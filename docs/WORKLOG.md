@@ -369,3 +369,11 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served p
   caution amber #ffc247, problem red #ff5d6c, OK/covered mint #3fe0c0. Each still has a glyph or word, not colour alone.
 - Unchanged on purpose: the hero flame illustration (Earth orange, orbit blue) and the chart series colours.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: palette changed to the American-retro poster colours (user request, replaces green)
+- User's reference palette: cream #DCC9A9, brick red #B83A2D, sage #4E6851, on warm charcoal (#1b1a17, panels #262420).
+- Buttons and the brand use the exact brick red with cream text; links and highlighted text use a lighter red (#e8705e)
+  because #B83A2D is too dark to read as text on charcoal. Headings are cream; a sage rule runs under the header.
+- Status colours: measured dusty blue, published lilac, our interpretation rose, caution mustard, problem coral, OK sage-green.
+- Glow effects from the previous version removed.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
