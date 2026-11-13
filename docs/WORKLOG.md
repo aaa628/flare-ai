@@ -395,3 +395,27 @@ Verified by running:
 - all 537 record pages, 12 compare pages and 4 main pages; CSP-served pages without errors;
 - Scenario counts unchanged (84/43/121/15) at 1280 and 390 px with no sideways scroll;
 - every page screenshotted at 1280 and 390 px and reviewed.
+
+## 2026-11-13 — Header and Explorer scrolling fixes (after the user's review of the redesign)
+
+The user reported that the top ribbon looked stuck and odd, and that the Explore page scrolled "till infinity". No data changed.
+- **Header:** the bar now scrolls away with the page, with a solid background and no blur. On phones the menu is a single row that scrolls sideways (with a fade hint) instead of wrapping onto two rows. "628 Aerospace" appears only in the footer.
+- **Explore root cause:**
+  - Screen-reader-only text inside table rows (`position: absolute` with no positioned ancestor) escaped the table's scroll box and stretched the page to about 45,000 px of empty space.
+  - Fix: `.tablewrap { position: relative }` and `.sr { top: 0; left: 0 }`.
+- **Explore paging:**
+  - Shows 50 matching rows at a time (25 on phones), with "Show N more" and "Show all". Any filter change resets to the first page.
+  - Revealing rows moves keyboard focus to the first new row.
+  - No nested scroll box on wide screens: table headings stick to the page instead.
+- **Page height:** Explore is now 5,328 px at 1280 px (was 45,295) and 5,571 px at 390 px (was 78,825).
+- **ECC code-reviewer findings fixed:**
+  - phone menu width;
+  - tablet-width table overflow;
+  - focus after "Show more";
+  - a pending search timer cancelled when revealing rows.
+
+Verified by running:
+- smoke 107/107 (new: page ends with "Show more", "Show all" reveals all, header not fixed, phone menu is one row);
+- previewer 14/14; lab_ui passed;
+- all 537 record pages; CSP-served pages;
+- Lighthouse 100/100/100 on Overview and Explorer, mobile and desktop.

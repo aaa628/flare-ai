@@ -374,15 +374,30 @@
     var noneRow = h("tr", { hidden: true }, h("td", { colspan: 8, class: "muted" },
       ROWS.length ? h("span", null, "No records match these filters. ", h("button", { type: "button", class: "ghost small", onclick: resetAll }, "Reset all")) : "No checked records yet."));
     tbody.appendChild(noneRow);
-    function draw() {
+    /* 50 matching rows at a time, so the page never becomes endless; "Show more" / "Show all" reveal the rest. */
+    var PAGE = window.innerWidth <= 720 ? 25 : 50, limit = PAGE, moreBox = h("div", { class: "more-row" });
+    /* Reveal more rows, then put keyboard focus on the first newly shown row (the clicked button is rebuilt). */
+    function reveal(newLimit) {
+      clearTimeout(qTimer);
+      var first = limit; limit = newLimit; draw(true);
+      var vis = rowEls.filter(function (x) { return !x.tr.hidden; });
+      if (vis[first]) vis[first].tr.focus();
+    }
+    function draw(keepLimit) {
+      if (!keepLimit) limit = PAGE;
       var shown = 0;
       rowEls.forEach(function (x) {
         var r = x.r, ok = !(state.exp && r.experiment !== state.exp) && !(state.pi && r.pi !== state.pi) &&
           !(state.flow && r.flow_mode !== state.flow) && o2match(r) && !(state.q && searchText(r).indexOf(state.q) < 0);
-        if (x.tr.hidden === ok) x.tr.hidden = !ok;
+        var vis = ok && shown < limit;
+        if (x.tr.hidden === vis) x.tr.hidden = !vis;
         if (ok) shown++;
       });
       var list = { length: shown };
+      moreBox.textContent = "";
+      if (shown > limit) moreBox.appendChild(h("span", { class: "note" }, "Showing " + limit + " of " + shown + " matching records. "));
+      if (shown > limit) moreBox.appendChild(h("button", { type: "button", class: "ghost small", onclick: function () { reveal(limit + PAGE); } }, "Show " + Math.min(PAGE, shown - limit) + " more"));
+      if (shown > limit + PAGE) moreBox.appendChild(h("button", { type: "button", class: "ghost small", onclick: function () { reveal(Infinity); } }, "Show all " + shown));
       count.textContent = "Showing " + list.length + " of " + ROWS.length + " test records" + (PREVIEW ? " (preview includes unchecked rows)" : "");
       active.textContent = "";
       var on = Object.keys(state).filter(function (k) { return state[k]; });
@@ -410,11 +425,12 @@
         evidenceLegend(true)),
       h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
       h("p", { class: "hint" }, "Click a row, or focus it and press Enter, to open the full record."),
-      h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
+      h("div", { class: "tablewrap records-wrap" }, h("table", { class: "records" },
         h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
         h("thead", null, h("tr", null, ["Test", "Experiment", "Material", "Flow", "O2 start (vol%)", "O2 end", "Note / values", ""].map(function (t, i) {
           return h("th", { scope: "col", class: ["", "c-exp", "c-mat", "c-flow", "c-o2", "c-o2e", "", "go"][i] }, t || h("span", { class: "sr" }, "Open")); }))),
         tbody)),
+      moreBox,
       more("What the O2 start tags mean", h("p", null, "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction \u00d7 100 (BASS-I); mol% = ambient O2 mole fraction \u00d7 100 (FLEX); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other.")));
     EXPLORER = { preview: PREVIEW, el: el };
     return el;
