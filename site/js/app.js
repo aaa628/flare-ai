@@ -27,6 +27,8 @@
   (D.sources || []).forEach(function (x) { SOURCES[x.source_id] = x; });
   var SOURCE = SOURCES["20210011385"] || (D.sources || [])[0] || null;
   function sourceOf(r) { return SOURCES[r.source_id] || SOURCE; }
+  function isDataSource(x) { return !/^BG-/.test(x.source_id); }
+  function bgSources() { return (D.sources || []).filter(function (x) { return /^BG-/.test(x.source_id); }); }
   function fromReport(r) { return r.experiment === "BASS-II" && !!r.raw_text; }
   /* Starting O2 as each source states it (BASS-II: calibrated chamber O2; BASS-I: logged O2 fraction x 100). */
   function o2Start(r) { return fromReport(r) ? r.o2_cal_initial : (r.o2_vol_pct || r.o2_raw || ""); }
@@ -133,16 +135,16 @@
   /* ---------- evidence + method vocabulary (shared by every view) ---------- */
   var LEVEL = {
     human: { cls: "ok lv-human", label: "Human-verified", short: "verified",
-      text: "A team member compared it with NASA’s source and signed it." },
+      text: "Signed off by the team after comparing it with NASA’s source file (name and date on every record)." },
     machine: { cls: "mach lv-mach", label: "Machine-checked", short: "machine-checked",
-      text: "Automated checks against NASA’s PDF or data file passed. No person has signed it yet, so it is not “verified”." },
+      text: "Automated checks against NASA’s data file passed. No person has signed it yet, so it is not “verified”." },
     none: { cls: "unver lv-none", label: "Unchecked", short: "unchecked",
       text: "No check passed. Hidden unless the team preview is on." }
   };
   /* How each experiment family was measured. Kept separate everywhere: never pooled into one chart or comparison. */
   var METHOD = {
-    "BASS-II": { src: "NASA/TM-20210011385 report, Appendix A (3 tests only in NASA PSI-25)", o2: "Calibrated O2 sensor in the test chamber, vol% (a raw-sensor column is also printed)", tag: "cal.",
-      other: "CO2 (vol%) and CO (ppm) at start and end of each test", check: "Value-for-value comparison with NASA’s PDF, plus NASA’s own PSI spreadsheet" },
+    "BASS-II": { src: "NASA PSI-25 BASS-II experimental table", o2: "Calibrated O2 sensor in the test chamber, vol%, start and end of each test", tag: "cal.",
+      other: "CO2 (vol%) and CO (ppm) at start and end of each test; fan and air display settings", check: "Copied from NASA’s file and re-read from it on every build" },
     "BASS-I": { src: "NASA PSI-26 “As Run Test Matrix” spreadsheet", o2: "O2 logged under “ISS environment”, as a fraction; shown ×100 as vol%", tag: "logged",
       other: "Pressure (atm) and CO2 (mm Hg), one value per test", check: "Copied from NASA’s file and re-read from it on every build" },
     "FLEX": { src: "NASA PSI-69 FLEX experiment table (Flame Extinguishment Experiment, ISS)", o2: "O2 mole fraction of the ambient gas, as printed; shown \u00d7100 as mole %", tag: "mol%",
@@ -153,15 +155,17 @@
   var BLANK_METHOD = { src: "\u2014", o2: "\u2014", tag: "", other: "\u2014", check: "\u2014" };
   function methodOf(exp) { if (EMPTY) return BLANK_METHOD; return METHOD[/^SAFFIRE/.test(exp) ? "SAFFIRE" : exp] || METHOD["BASS-II"]; }
   function countLevel(lv) { return ALL.filter(function (r) { return r.level === lv; }).length; }
+  /* Machine-checked = passed the automated re-read, whether or not it is also signed (r.machine from the build). */
+  function countMachine() { return ALL.filter(function (r) { return r.machine === true || r.machine === "True"; }).length; }
   function evidenceLegend(compact) {
     return h("div", { class: "ev-legend" + (compact ? " compact" : ""), role: "list", "aria-label": "How each record was checked" },
       ["human", "machine", "none"].map(function (lv) {
         var L = LEVEL[lv];
         return h("div", { class: "ev-item", role: "listitem" },
-          h("div", { class: "ev-top" }, chip(L.cls, L.label), h("b", { class: "ev-n" }, String(countLevel(lv)))),
-          compact ? null : h("p", null, L.text));
+          h("div", { class: "ev-top" }, chip(L.cls, L.label), h("b", { class: "ev-n" }, String(lv === "machine" ? countMachine() : countLevel(lv)))),
+          compact ? null : h("p", null, lv === "machine" ? "Automated checks against NASA’s data file passed (counted whether or not the record is also signed)." : L.text));
       }),
-      compact ? h("p", { class: "ev-note" }, "✓ verified: a person checked NASA’s source. ◇ machine-checked: automated checks only. ! unchecked: hidden.") : null);
+      compact ? h("p", { class: "ev-note" }, "✓ verified: signed off by the team after comparing with NASA’s file. ◇ machine-checked: re-read from NASA’s file on every build. ! unchecked: hidden.") : null);
   }
 
   /* ---------- charts (plain SVG) ---------- */
@@ -195,26 +199,26 @@
         "flagged rows passed a written row-by-row review.", "records were copied from data files and are re-read on every build."].map(function (t) {
         return h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"), h("span", null, h("b", null, "0 of 0"), " " + t));
       })));
+    var human = countLevel("human"), mach = countMachine(), n = ALL.length;
+    var signers = ALL.filter(function (r) { return r.level === "human"; }).map(function (r) { return r.verified_by + " on " + r.verified_date; })
+      .filter(function (x, i, a) { return a.indexOf(x) === i; });
     var rep = ALL.filter(fromReport), files = ALL.filter(function (r) { return !fromReport(r); });
-    var reviewed = rep.filter(function (r) { return /row-by-row review/.test(r.auto_check_notes || ""); }).length;
-    var differ = rep.filter(function (r) { return (r.psi_check || "").indexOf("DIFFERS") === 0; }).map(shortId);
-    var human = countLevel("human");
+    var flagged = ALL.filter(function (r) { return flagsOf(r).length; }).length;
     return h("div", { class: "checks-box" },
       h("div", { class: "signoff-box " + (human ? "some" : "none") },
-        h("p", { class: "so-n" }, h("b", null, String(human)), " of " + ALL.length),
-        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source and signed by a team member."
+        h("p", { class: "so-n" }, h("b", null, String(human)), " of " + n),
+        h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source file and signed off (" + signers.join("; ") + ")."
           : "No person has signed any record yet. Everything below is automated evidence, not a sign-off.")),
-      h("h3", { class: "mini-h" }, "Automated checks (evidence, not a sign-off)"),
+      h("h3", { class: "mini-h" }, "Automated checks (separate from the sign-off)"),
       h("ul", { class: "checks" },
+        h("li", { class: "ck " + (mach === n ? "ok" : "warn") }, h("span", { class: "ck-i", "aria-hidden": "true" }, mach === n ? "\u2713" : "!"),
+          h("span", null, h("b", null, mach + " of " + n), " records are re-read from NASA\u2019s PSI data files on every build; every value equals the file.")),
+        rep.length ? h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
+          h("span", null, h("b", null, D.counts.pdf_match + " of " + rep.length), " BASS-II report records match NASA\u2019s PDF value for value.")) : null,
         h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
-          h("span", null, h("b", null, D.counts.pdf_match + " of " + rep.length), " BASS-II report records match NASA\u2019s PDF value for value: all 8 gas readings, the material and the full log note.")),
-        h("li", { class: "ck " + (differ.length ? "warn" : "ok") }, h("span", { class: "ck-i", "aria-hidden": "true" }, differ.length ? "!" : "\u2713"),
-          h("span", null, h("b", null, D.counts.psi_agree + " of " + rep.length), " also agree with NASA\u2019s own BASS-II spreadsheet (PSI-25)." +
-            (differ.length ? " " + differ.length + " disagree (" + differ.join(", ") + "); both values are shown on those records." : ""))),
-        h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
-          h("span", null, h("b", null, String(reviewed)), " flagged report rows passed only after a written row-by-row review; their flags stay visible.")),
-        h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
-          h("span", null, h("b", null, String(files.length)), " BASS-I, FLEX, SAFFIRE and extra BASS-II records were copied from NASA\u2019s data files and are re-read from them on every build."))));
+          h("span", null, h("b", null, String(files.length)), " records come from NASA\u2019s own data files, with the file name and row on every record.")),
+        h("li", { class: "ck " + (flagged ? "warn" : "ok") }, h("span", { class: "ck-i", "aria-hidden": "true" }, flagged ? "!" : "\u2713"),
+          h("span", null, h("b", null, String(flagged)), " records carry a flag on what NASA printed (a suspect or non-numeric final O2, a pressure printed as 0, or an identifier used twice); flagged readings are left out of charts, with the reason."))));
   }
   function chartCard(question, unit, howTo, chart, extra) {
     return h("figure", { class: "card qcard" },
@@ -230,8 +234,10 @@
     var hero = h("section", { class: "hero", "aria-labelledby": "hero-h" },
       h("div", { class: "hero-main" },
         h("h1", { id: "hero-h" }, "What NASA’s fire experiments prove, and where the data stops."),
-        h("p", { class: "lead" }, "Flare AI gathers " + nAll + " fire tests run in orbit, from " + (D.counts.sources || 0) +
-          " sources. Each number shows how it was checked, and the site says so when the data runs out."),
+        h("p", { class: "lead" }, EMPTY ? "Flare AI gathers " + nAll + " fire tests run in orbit, from " + (D.counts.sources || 0) +
+          " sources. Each number shows how it was checked, and the site says so when the data runs out." :
+          "Flare AI gathers " + nAll + " fire tests NASA ran in orbit, from " + (D.counts.sources || 0) + " NASA PSI data sets, plus " + INV.length +
+          " combustion investigations. Each number shows how it was checked, and the site says so when the data runs out."),
         h("div", { class: "hero-cta" },
           h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
           h("a", { class: "textlink", href: "#/scenario" }, "Check a condition against NASA tests"))),
@@ -292,13 +298,16 @@
       var items = EXP_ORDER.filter(function (k) { return byExp[k]; }).map(function (k) { return { label: k, value: byExp[k] }; });
       var bands = [["13-15", 13, 15], ["15-17", 15, 17], ["17-19", 17, 19], ["19-21", 19, 21], ["21-23", 21, 23]];
       var hist = bands.map(function (b) { return { label: b[0] + " vol%", value: 0, lo: b[1], hi: b[2] }; });
-      var usable = 0, unconfirmed = 0;
-      ROWS.forEach(function (r) {
-        if (!fromReport(r)) return;
-        var v = num(r.o2_cal_initial);
-        if (isNaN(v) || isNaN(num(r.o2_raw_initial))) { unconfirmed++; return; }
+      /* BASS-II tests by their calibrated starting O2 as NASA recorded it (PSI-25, or the report where loaded).
+       * Report rows also need a raw-sensor reading to confirm it; PSI-25 has no raw column. */
+      var usable = 0, unconfirmed = 0, outside = 0, b2 = ROWS.filter(function (r) { return r.experiment === "BASS-II"; });
+      b2.forEach(function (r) {
+        var v = num(o2Start(r));
+        if (isNaN(v) || (fromReport(r) && isNaN(num(r.o2_raw_initial)))) { unconfirmed++; return; }
         usable++;
-        hist.forEach(function (b) { if (v >= b.lo && v < b.hi) b.value++; });
+        var hit = false;
+        hist.forEach(function (b) { if (v >= b.lo && v < b.hi) { b.value++; hit = true; } });
+        if (!hit) outside++;
       });
       var low = hist[0].value;
       var flex = ROWS.filter(function (r) { return r.experiment === "FLEX"; }), endC = {};
@@ -311,15 +320,16 @@
           chartCard("Which experiments does the evidence come from?", "records",
             "each bar is one experiment family; longer bar = more NASA test records available to explore.",
             barChart(items, { label: "Test records per experiment", unit: "records" }),
-            chartNote("all " + ROWS.length + " records shown on this site (human-verified + machine-checked), counted by experiment. SAFFIRE has few records, but they are large, spacecraft-scale fires.",
+            chartNote("all " + ROWS.length + " records shown on this site, counted by experiment. SAFFIRE has few records, but they are large, spacecraft-scale fires.",
               countLevel("none") ? countLevel("none") + " unchecked records (hidden)." : "")),
           chartCard("At what oxygen levels were BASS-II tests run?", "vol% O2",
             "each bar counts BASS-II tests that started in that oxygen band (normal air is about 21 vol%). Short bars mark thin evidence.",
             barChart(hist, { label: "BASS-II tests by starting oxygen band", unit: "tests", alt: true }),
-            chartNote(usable + " BASS-II report records, using the calibrated starting O2 (vol%) where a raw-sensor reading confirms it. Only " + low +
+            chartNote((usable - outside) + " of " + b2.length + " BASS-II tests, by the calibrated starting O2 (vol%) NASA recorded. Only " + low +
               " started below 15 vol%, so conclusions about very low oxygen rest on little data.",
-              unconfirmed + " report records whose starting O2 is not confirmed; " + ((exps["BASS-II"] || 0) - ROWS.filter(fromReport).length) +
-              " PSI-only BASS-II tests (no raw column); all BASS-I, FLEX and SAFFIRE records, because they recorded oxygen differently.")),
+              (unconfirmed ? unconfirmed + " BASS-II tests with no usable starting O2; " : "") +
+              (outside ? outside + " BASS-II tests outside 13-23 vol%; " : "") +
+              "all BASS-I, FLEX and SAFFIRE records, because they recorded oxygen differently.")),
           flex.length ? chartCard("How did FLEX droplet fires end?", "tests",
             "each bar counts FLEX tests by the end-of-test label NASA recorded (\u201cTest end\u201d). These are NASA\u2019s words, not our interpretation.",
             barChart(endItems, { label: "FLEX tests by NASA\u2019s recorded test end", unit: "tests" }),
@@ -332,12 +342,35 @@
         h("a", { class: "btn ghost", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(true); } }, "Open team preview"));
     }
 
-    return h("div", null, hero, why, start, sources, charts,
+    return h("div", null, hero, why, start, sources, charts, EMPTY ? null : whyMatters(),
       h("h2", null, "How every fact is labelled"),
       h("div", { class: "legend" },
         legend("measured", "Measured", "A value or note recorded during a NASA test."),
         legend("published", "Published conclusion", "A conclusion the NASA authors state in a report."),
         legend("interp", "Our interpretation", "Our own reading of the evidence. Always labelled, with the supporting quote.")));
+  }
+  /* Real fires and NASA fire-safety spinoffs from the challenge's resource list. Each line is written only from the
+   * linked NASA page (read 2026-11-13) and labelled Published; none of it is test data or feeds a chart. */
+  var FIRES = [
+    { t: "Apollo 1, 27 Jan 1967", s: "BG-APOLLO-1", x: "During a launch-pad test with the cabin pressurized with 100% oxygen, a flash fire swept through the command module and the crew of three died. Because of the pure-oxygen atmosphere the fire spread quickly; afterwards NASA severely restricted the combustible materials allowed in the spacecraft." },
+    { t: "Apollo 13, April 1970", s: "BG-APOLLO-13", x: "On the third day of the flight oxygen tank number two exploded. Heaters left on in a pre-launch test had reached about 1,000 \u00b0F and degraded the Teflon insulation inside it. The crew got home using the Lunar Module as a lifeboat." },
+    { t: "Mir, 24 Feb 1997", s: "BG-MIR-FIRE", x: "A solid-fuel oxygen generator canister ignited, shooting a three-foot flame across the module, blocking one of the two Soyuz escape routes and filling the station with smoke. NASA says the lessons were passed on to the design and operation of the ISS." }];
+  var SPINOFFS = [
+    { t: "Firefighters\u2019 air tanks (NASA Spinoff 1976)", s: "BG-SPINOFF-AIR-TANKS", x: "Developed with NASA\u2019s Johnson Space Center: a backpack with 30 minutes of air weighing 20 pounds, 13 pounds less than conventional firefighting tanks." },
+    { t: "Fire detector (NASA Spinoff 1978)", s: "BG-SPINOFF-FIRE-DETECTOR", x: "An incipient fire detector first used in space shuttle orbiters. It tells combustion particles apart from dust, so it gives fewer false alarms; it was trialled for mining." },
+    { t: "Firefighter clothing (NASA Spinoff 1982)", s: "BG-SPINOFF-FIRE-ATTIRE", x: "Project FIRES, run with the U.S. Fire Administration and managed by NASA Marshall, applied fire-resistant, heat-protective materials from spacesuits and spacecraft to firefighters\u2019 gear." }];
+  function whyMatters() {
+    function item(it) {
+      var src = SOURCES[it.s];
+      return h("li", null, h("b", null, it.t), " ", chip("published", "Published"), h("span", { style: "display:block;margin-top:4px" }, it.x),
+        src ? h("a", { href: src.url, target: "_blank", rel: "noopener", class: "small" }, "NASA: " + src.title) : null);
+    }
+    return h("section", { "aria-labelledby": "wm-h" },
+      h("h2", { id: "wm-h" }, "Why this matters"),
+      h("p", { class: "muted section-lead" }, "Real fires in spaceflight show why fire safety in orbit matters, and NASA\u2019s fire-safety work has also helped firefighters on Earth. Background from NASA\u2019s pages, not test data."),
+      h("div", { class: "grid cover-grid" },
+        h("section", { class: "card" }, h("h3", null, "Real fires in spaceflight"), h("ul", { class: "about-list" }, FIRES.map(item))),
+        h("section", { class: "card" }, h("h3", null, "NASA fire safety on Earth"), h("ul", { class: "about-list" }, SPINOFFS.map(item)))));
   }
   function answer(q, text, href, label) {
     return h("li", null, h("b", null, q), h("span", null, text), h("a", { class: "go", href: href }, label));
@@ -458,7 +491,7 @@
           h("td", { class: "c-flow", "data-label": "Flow" }, r.flow_mode || "—"),
           h("td", { class: "num c-o2", "data-label": "O2 start" }, o2 ? [o2, h("span", { class: "mtag", title: methodOf(r.experiment).o2 }, methodOf(r.experiment).tag,
             h("span", { class: "sr" }, ": " + methodOf(r.experiment).o2))] : "—"),
-          h("td", { class: "num c-o2e", "data-label": "O2 end" }, (fromReport(r) && r.o2_cal_final) || "—"),
+          h("td", { class: "num c-o2e", "data-label": "O2 end" }, (fromReport(r) ? r.o2_cal_final : r.experiment === "BASS-II" ? fieldVal(r, /^Calibrated final O2/) : "") || "—"),
           h("td", { class: "obs", "data-label": "Note" }, obs, fl.length ? h("div", { class: "flags" }, fl) : null),
           h("td", { class: "go", "aria-hidden": "true" }, "›")));
       });
@@ -580,7 +613,6 @@
     } else {
       c(r.level === "none" ? "warn" : "ok", r.level === "none" ? (r.auto_check_notes || "Could not be re-read from NASA’s file.") :
         "Automated: copied from NASA’s data file and re-read from it on every build; every value equals the file.");
-      if (r.experiment === "BASS-II") c("pending", "Not in the report’s Appendix A, so there is no PDF row to compare with.");
       where = r.source_file.replace(", sheet", " · sheet") + " · " + (/xlsx/.test(r.source_file) ? "spreadsheet row " : "row ") + r.source_row;
     }
     var signed = r.level === "human";
@@ -680,7 +712,7 @@
     var kv = [];
     (r.fields || []).forEach(function (f) { kv.push(h("dt", null, f[0]), h("dd", null, f[1])); });
     return h("div", null,
-      recordHeader(r, "NASA " + r.experiment + ", test " + shortId(r), r.material_raw || "Material not stated"),
+      recordHeader(r, "NASA " + r.experiment + (r.pi ? ", " + r.pi : "") + ", test " + shortId(r), r.material_raw || "Material not stated"),
       callouts,
       provenanceCard(r),
       r.observation ? obsCard(r.observation) : null,
@@ -704,7 +736,7 @@
       { key: "o2c", label: "Oxygen, calibrated sensor", unit: "vol%", pair: [
         function (r) { return fromReport(r) ? r.o2_cal_initial : fieldVal(r, /^Calibrated initial O2/); },
         function (r) { return fromReport(r) ? r.o2_cal_final : fieldVal(r, /^Calibrated final O2/); }] },
-      { key: "o2r", label: "Oxygen, raw sensor", unit: "vol%", pair: [
+      { key: "o2r", label: "Oxygen, raw sensor", unit: "vol%", reportOnly: true, pair: [
         function (r) { return fromReport(r) ? r.o2_raw_initial : ""; },
         function (r) { return fromReport(r) ? r.o2_raw_final : ""; }] },
       { key: "co2", label: "Carbon dioxide", unit: "vol%", pair: [
@@ -734,11 +766,11 @@
     var t = (text || "").replace(/\s+/g, " ").trim();
     var flags = flagsOf(r);
     if (end && (m.key === "o2c" || m.key === "o2r") && flags.indexOf("o2_final_reading_suspect") >= 0)
-      return { text: t || "—", n: NaN, why: "final O2 flagged as suspect (likely sensor glitch or formula leftover)" };
+      return { text: t || "—", n: NaN, why: "final O2 flagged as suspect (more than 3 vol% from the start; likely a sensor glitch)" };
     if (!end && m.key === "o2c" && flags.indexOf("o2_cal_final_formula_artifact") >= 0 && !(r.o2_raw_initial || "").trim())
       return { text: t || "—", n: NaN, why: "starting O2 not confirmed: no raw sensor reading behind it (half of a paired a/b test)" };
     if (m.key === "fp" && flags.indexOf("pressure_printed_zero") >= 0) return { text: t, n: NaN, why: "pressure printed as 0 in NASA\u2019s table (likely a missing value)" };
-    if (!t || /^[-\u2013\u2014]+$|^none$/i.test(t)) return { text: "\u2014", n: NaN, why: t ? "printed as a dash (no value)" : "no value recorded" };
+    if (!t || /^[-\u2013\u2014]+$|^none$/i.test(t)) return { text: "\u2014", n: NaN, why: !t ? "no value recorded" : /^none$/i.test(t) ? "printed as \u201cnone\u201d (no value)" : "printed as a dash (no value)" };
     if (/^~/.test(t)) return { text: t, n: NaN, why: "approximate value (‘" + t + "’), not charted" };
     var u = unit.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&");
     var mm = new RegExp("^(-?\\d+(?:\\.\\d+)?)(?: ?" + u + ")?$").exec(t.replace(/[–−]/g, "-").replace(/ \(rounded\)$/, ""));
@@ -998,12 +1030,12 @@
       return rows.length === list.length ? rows : null;
     }
     var EXAMPLES = [
-      { kind: "worked", tag: "Worked example", title: "Same rod, two airflow settings", ids: ["BASSII-P13a", "BASSII-P13b"],
-        text: "Two BASS-II runs on the same 12.7-mm black rod in opposed flow. Same experiment and method, so every chart is drawn. Look at how much oxygen fell and CO rose in each run." },
-      { kind: "worked", tag: "Worked example", title: "Three opposed-flow rods", ids: ["BASSII-P1", "BASSII-P10", "BASSII-P12"],
+      { kind: "worked", tag: "Worked example", title: "Same rod, two runs", ids: ["BASSII-P13a", "BASSII-P13b"],
+        text: "Two BASS-II runs on the same 0.5-inch black rod. Same experiment and method, so every chart is drawn. Look at how much oxygen fell and CO2 rose in each run." },
+      { kind: "worked", tag: "Worked example", title: "Three black rods", ids: ["BASSII-P1", "BASSII-P10", "BASSII-P12"],
         text: "Comparable readings, but one rod is thicker, so Flare AI adds a \u201cread with care\u201d note about the material." },
       { kind: "worked", tag: "Worked example", title: "FLEX: methanol droplets in normal air", ids: ["FLEX-2", "FLEX-3", "FLEX-5"],
-        text: "Three FLEX runs with methanol at about 1 atm in air. Compare droplet size, extinction diameter and burn time; the donut shows how all FLEX tests ended." },
+        text: "Three FLEX runs with methanol at about 1 atm and 21% oxygen. Compare droplet size, extinction diameter and burn time; the donut shows how all FLEX tests ended." },
       { kind: "limited", tag: "Limited example", title: "Suspect and missing readings", ids: ["BASSII-P22a", "BASSII-P22b", "BASSII-O12"],
         text: "Some values are flagged, missing or over range. Charts are drawn, and each one lists what it left out and why." },
       { kind: "refused", tag: "Refusal example", title: "Two different experiments", ids: ["BASSII-B1", "BASSI-1-1"],
@@ -1064,7 +1096,7 @@
     var mats = picked.map(function (r) { return r.material_raw.toLowerCase(); }).filter(function (e, i, a) { return a.indexOf(e) === i; });
     if (mats.length > 1) cautions.push("Materials differ. A thicker or different fuel burns differently, so differences may come from the sample itself.");
 
-    var measures = measuresFor(exp), cards = [], footnotes = [], nUsed = 0, nOut = 0;
+    var measures = measuresFor(exp).filter(function (m) { return !m.reportOnly || picked.some(fromReport); }), cards = [], footnotes = [], nUsed = 0, nOut = 0;
     var issues = picked.map(function (r) { return flagsOf(r).map(function (f) { return "Flag: " + (FLAG_TEXT[f] || f); }); });
     function limits(m, vals, which) {
       var out = [];
@@ -2152,7 +2184,7 @@
       h("div", { class: "card" }, h("ul", { class: "about-list" },
         ["No invented numbers. Every figure on this site is computed from the data records.",
           "Every fact carries a label: Measured, Published conclusion, or Our interpretation.",
-          "Every record shows how it was checked. Verified means a team member compared it with NASA\u2019s PDF. Machine-checked means automated checks passed, including a value-for-value comparison with NASA\u2019s PDF, and a team member has not yet signed it off. Records with no check are hidden.",
+          "Every record shows how it was checked. Verified means the team signed the record off after comparing it with NASA\u2019s source file (name and date on every record). Machine-checked means the record is re-read from NASA\u2019s data file on every build and every value still matches. Records with no check are hidden.",
           "We never compare measurements that are not comparable, and we say so when we refuse.",
           "Where NASA did not test a condition, we say the data is insufficient instead of guessing.",
           "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", null, t); }))),
@@ -2161,24 +2193,29 @@
         h("p", { class: "note", style: "margin:12px 0 0" }, "Automated checks compare our records with NASA\u2019s own documents and files; they catch copying errors but cannot judge the science. " +
           "\u201cVerified\u201d is reserved for a team member who compares a record with NASA\u2019s source and signs it.")),
       h("h2", null, "Data sources"),
-      h("div", { class: "src-list" }, !(D.sources || []).length ? h("div", { class: "src-item" }, h("p", { class: "muted" }, "No sources yet. They are listed here once new data is added.")) : (D.sources || []).map(function (x) {
+      h("p", { class: "muted" }, "Test records and investigation data come only from NASA\u2019s Physical Sciences Informatics (PSI). Background reading is listed separately below."),
+      h("div", { class: "src-list" }, !(D.sources || []).length ? h("div", { class: "src-item" }, h("p", { class: "muted" }, "No sources yet. They are listed here once new data is added.")) : (D.sources || []).filter(isDataSource).map(function (x) {
         var n = ALL.filter(function (r) { return r.source_id === x.source_id; }).length;
         return h("div", { class: "src-item" }, h("p", null, h("b", null, x.title), " (" + n + " records)"),
           h("p", { class: "note" }, x.authors + ", " + x.type),
           h("p", null, h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.url)));
       })),
+      bgSources().length ? h("h2", null, "Background reading (not test data)") : null,
+      bgSources().length ? h("div", { class: "src-list" }, bgSources().map(function (x) {
+        return h("div", { class: "src-item" }, h("p", null, h("b", null, x.title), x.date ? " (" + x.date + ")" : ""),
+          h("p", { class: "note" }, x.authors + ". " + x.type.replace(/^Background \(not test data\): ?/, "")),
+          h("p", null, h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.url)));
+      })) : null,
       h("h2", null, "Known limits"),
       h("div", { class: "card" }, h("ul", { class: "about-list" }, (EMPTY ? ["No data is loaded yet. Known limits of the data are listed here once new data is added."] :
-        ["Tests P7, P11 and T8 do not appear in the report\u2019s tables (checked in NASA\u2019s PDF).",
-          "Flow velocity is not shown: the report uses fan settings and mixed formats.",
-          "Pressure is not given per test in the report tables.",
-          "Some oxygen readings in NASA's own table look like sensor glitches; they are flagged, not corrected.",
-          "The automated check cannot catch every error. Rows with flags, hand-keyed values or missing readings are always left for a person.",
-          "BASS-I and SAFFIRE records come from NASA\u2019s PSI data files. They were not in a report we could compare against, so their check is: copied from the file, re-read on every build.",
-          "Oxygen was measured differently in each experiment (calibrated chamber sensor, logged station O2, or estimates), so values from different experiments are never compared with each other.",
-          "In 3 BASS-II tests NASA\u2019s report and NASA\u2019s PSI spreadsheet disagree (F3, P22b, P3a). Both values are shown.",
+        ["All records come from NASA\u2019s PSI data files (PSI-25, PSI-26, PSI-69, PSI-98, PSI-99, PSI-100), downloaded fresh and re-read on every build.",
+          "BASS-II (PSI-25) has no flow direction, raw-sensor O2, pressure or log-note column, so those are not shown for BASS-II. Test numbers P7, P11 and T8 do not appear in the table.",
+          "Some final oxygen readings in NASA\u2019s BASS-II table look like sensor glitches (for example 20.8 to 0.6) or are not plain numbers (\u201cOR\u201d, \u201cover\u201d). They are flagged and left out of charts, not corrected.",
+          "Oxygen was measured differently in each experiment (calibrated chamber sensor, O2 logged as a fraction, ambient mole fraction, or approximate values), so values from different experiments are never compared with each other.",
           "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
-          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."]).map(function (t) { return h("li", null, t); }))),
+          "SAFFIRE oxygen values are approximate as printed (SAFFIRE-II derived from CO2; SAFFIRE-III has none).",
+          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records.",
+          "The automated check catches copying errors against NASA\u2019s files; it cannot judge the science."]).map(function (t) { return h("li", null, t); }))),
       h("h2", null, "AI use"),
       h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with AI assistance (Claude). The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }
