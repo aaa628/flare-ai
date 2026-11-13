@@ -440,3 +440,9 @@ Verified by running: smoke 103/103; previewer 14/14; video plays under the netli
 - Video files and code removed (they stay in git history: PRs #20-#22). PR #23 (smaller video area) is no longer needed.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at
   390 px; screenshots at 1366, 1920 and 390 px.
+
+## 2026-11-13: home page photo animated (camera and light only)
+- Slow push-in and drift across the photo (26 s, alternating) and a soft glow that breathes around the flame (6 s), in CSS.
+  No video file, so the photo stays 4K-sharp. The flame itself is never reshaped or made to flicker: the photo still shows
+  what NASA recorded. Reduced-motion visitors get the still photo.
+Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors; no running animations with reduced motion.
