@@ -513,3 +513,46 @@ Verified by running: smoke 108/108 (5 new Lessons checks); previewer 14/14; lab_
   labels that subject line as a Flare AI summary. Quotes unchanged and still checked word for word on every build.
 Verified by running: smoke 111/111 (new: timeline order, type filter, search); previewer 14/14; lab_ui passed; lab_function
   18/18; filters and search exercised in a browser; all pages open without NaN or JS errors; CSP-served pages without errors.
+
+## 2026-11-13: hardware families (from the challenge brief) and two Compare fixes
+- investigations_curated.csv: new hw_family, hw_label, hw_basis for all 24 investigations. ACME (6), MDCA (FLEX, FLEX-2, CFI)
+  and MSG duct (BASS, BASS-II, SPICE, SLICE) quote the brief word for word; Saffire, SAME, DAFT (P-Trak, with the brief's
+  SAME/DAFT instrument sentence) and ground studies use NASA PSI's hardware field.
+- Fix: investigation Compare compared the first phrase of NASA's free-text hardware field, so FLEX vs CFI showed "different
+  hardware" although both used the MDCA. It now compares families; ground studies never count as the same set-up.
+- Fix: two tables with no oxygen column were called "Same: how oxygen was recorded"; now "No oxygen column in these NASA tables".
+- Investigation pages show the family, which investigations share it (links) and the source.
+Verified by running: smoke 116/116 (5 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.
+
+## 2026-11-13: Moon-base context and partial-gravity gap on the Investigations Moon view
+- Two cards in the challenge brief's exact sentences (11 in total; build_site_data.py checks each against
+  data/source/challenge_brief_2026-11-13.txt): spacesuit 100% O2 at 4.3 psi, pre-breathing, Moon base >=30% O2 at <=10.2 psi
+  (>40% more oxygen), CFI-G up to 85% O2 inside-out flames; and no partial-gravity data in PSI (LUCI, FM2 expected), E-FIELD
+  mimicking it, microgravity and 1 g bounding it.
+- Each card adds one data line: CFI-G's two NASA tables (normal 18-40% room O2, inverse 12-85% burner O2; 48 tests in the
+  zone, recomputed from the raw tables: 20 + 28), and a labelled note that every Flare AI record is from microgravity.
+- Shown on the Moon-base view only. Stacked on the hardware-families branch (merge #35 first).
+Verified by running: smoke 120/120 (4 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.
+
+## 2026-11-13: "How the tests differ" on investigation pages (varied / same / sample / measurement types)
+- build_catalog.py profiles each NASA table: every column except bookkeeping (ids, dates, times, notes, camera files) is
+  "varied" (with numeric range or up to 4 examples, value count and empty-cell count) or "same in every test" (with the value).
+  NASA's no-value marks (-, en dash, n/a, none, ?) count as empty. Rows with fewer than 3 filled cells (NASA note rows) are skipped.
+- Sample line = material/fuel columns plus size columns (thickness, length, width, diameter, nozzle, burner size); results
+  such as extinction diameter or burn length are not counted as sample size.
+- Measurement types: columns grouped (our labels) into Atmosphere, Flow, Fuel and sample, Gas readings, Temperature,
+  Flame result, Smoke and particles, Hardware settings, Calculated by NASA (Tad, Zst), Other.
+- FLEX-2 (planned matrix) is labelled "Planned test matrix, not results"; PSI-142 (a list of data files) gets no profile.
+- Checked against raw files: FLEX droplet diameter 1.1-4.67 mm, 163 values, 12 empty; FLEX pressure 0-2319.9 mmHg with one
+  printed 0 (FLEX-114, noted on the card); approximate burn times ("~6", "~9") keep burn time as examples, not a range.
+Verified by running: smoke 127/127 (7 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.
+
+## 2026-11-13: CSV download (Flame Explorer) and copy citation (investigation pages)
+- Explorer: "Download CSV (N rows)" saves exactly the rows currently shown (after filters/search): id, experiment,
+  investigator, material, flow direction, O2 start, O2 method, calibrated O2 end (BASS-II report rows), NASA test end, flags,
+  check level, source, source link, note. Values as printed; UTF-8 with BOM for Excel. A note warns not to pool O2 methods.
+- Investigation pages: "Copy citation" (NASA PSI, title, accession, version, release date, licence, DOI, access date), with
+  a selectable text box if the browser refuses clipboard access.
+- Both work from file:// and under the netlify.toml CSP (Blob download, no server).
+Verified by running: CSV of all 537 rows equals the data (material and note for every row); FLEX filter gives 274 rows;
+  FLEX-1 = 21 mol%, Disruption (as in NASA's file); smoke 130/130 (3 new); previewer 14/14; lab_ui passed; lab_function 18/18.

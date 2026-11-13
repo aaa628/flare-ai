@@ -357,6 +357,22 @@
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));
   }
 
+  /* Downloads and copying, without any server: a Blob link (works from file:// and under the CSP) and the clipboard,
+   * with a selectable text box as the fallback when the browser refuses clipboard access. */
+  function saveFile(name, text, type) {
+    var url = URL.createObjectURL(new Blob(["\ufeff" + text], { type: type }));
+    var a = h("a", { href: url, download: name, style: "display:none" }); document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 1000);
+  }
+  function csvCell(v) { v = v == null ? "" : String(v); return /[",\n\r]/.test(v) ? "\"" + v.replace(/"/g, "\"\"") + "\"" : v; }
+  function copyText(text, statusEl, box) {
+    function fallback() { box.hidden = false; box.value = text; box.focus(); box.select(); statusEl.textContent = "Select and copy the citation below (Ctrl+C)."; }
+    try {
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { statusEl.textContent = "Copied."; box.hidden = true; }, fallback);
+      else fallback();
+    } catch (err) { fallback(); }
+  }
+
   function viewExplorer() {
     setTitle("Flame Explorer");
     var state = { q: "", exp: "", pi: "", flow: "", o2: "" };
@@ -367,6 +383,19 @@
     var o2opts = [["lt16", "Below 16 vol%"], ["16-18", "16 to 18 vol%"], ["18-20", "18 to 20 vol%"], ["ge20", "20 vol% or more"]];
     var LABELS = { q: "Search", exp: "Experiment", pi: "Investigator", flow: "Flow", o2: "Starting O2" };
     var controls = {};
+    var shownNow = [];
+    var csvBtn = h("button", { type: "button", class: "ghost small csv-btn", onclick: function () {
+      var cols = ["id", "experiment", "investigator", "material", "flow_direction", "o2_start", "o2_method", "o2_end_calibrated", "nasa_test_end",
+        "flags", "check_level", "source", "source_link", "note"];
+      var lines = [cols.join(",")].concat(shownNow.map(function (r) {
+        var m = methodOf(r.experiment), L = LEVEL[r.level] || LEVEL.none;
+        var src = fromReport(r) ? "NASA/TM-20210011385, Appendix A, report page " + r.source_page : "NASA PSI " + (r.source_id || "") + ": " + (r.source_file || "").split(",")[0] + ", row " + (r.source_row || "");
+        var href = r.source_href ? (/^https?:/.test(r.source_href) ? r.source_href : "https://psi.nasa.gov/physci/repo/data/investigations/" + (r.source_id || "")) : "";
+        return [r.id, r.experiment, r.pi || "", r.material_raw || "", r.flow_mode || "", o2Start(r), m.tag + " = " + m.o2, fromReport(r) ? (r.o2_cal_final || "") : "",
+          r.outcome_raw || "", flagsOf(r).join(";"), L.label, src, href, r.observation || ""].map(csvCell).join(",");
+      }));
+      saveFile("flare-ai-records-" + shownNow.length + ".csv", lines.join("\r\n") + "\r\n", "text/csv;charset=utf-8");
+    } }, "Download CSV");
 
     function uniq(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }).sort(); }
     function sel(id, label, opts, key) {
@@ -402,6 +431,7 @@
         return true;
       });
       count.textContent = "Showing " + list.length + " of " + ROWS.length + " test records" + (PREVIEW ? " (preview includes unchecked rows)" : "");
+      shownNow = list; csvBtn.textContent = "Download CSV (" + list.length + " rows)"; csvBtn.disabled = !list.length;
       active.textContent = "";
       var on = Object.keys(state).filter(function (k) { return state[k]; });
       on.forEach(function (k) {
@@ -444,7 +474,8 @@
         h("div", null, h("h1", null, "Flame Explorer"),
           h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS, BASS-II and FLEX on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
         evidenceLegend(true)),
-      h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
+      h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active, csvBtn)),
+      h("p", { class: "note small" }, "The CSV holds the rows shown, values exactly as NASA printed them, each with its oxygen method, check level and source. Oxygen methods differ between experiments: never pool them."),
       h("p", { class: "hint" }, "Select a row (or focus it and press Enter) to open the full record: readings, log note and source."),
       h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
         h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
@@ -1320,6 +1351,18 @@
           (function () { var s = INV.filter(function (v) { return fuelKey(v) === "solid" && v.o2_max_pct != null; }); var mx = Math.max.apply(null, s.map(function (v) { return v.o2_max_pct; }));
             return s.length ? "Solid-material investigations recorded at most " + mx + "% O2 (" + s.map(invName).join(", ") + "), so how cabin materials burn in a Moon-base atmosphere is a gap in PSI\u2019s data." : ""; })()),
         h("p", { class: "note", style: "margin:0" }, "Our interpretation of NASA’s tables, using the brief’s thresholds. Counts come from the O2 and pressure columns listed on each investigation’s page.")),
+      lens === "moon" && (D.brief_cards || []).length ? h("div", { class: "grid brief-cards" }, (D.brief_cards || []).map(function (c) {
+        var ef = invById("PSI-22"), cg = invById("PSI-159");
+        return h("section", { class: "card brief-card", id: "brief-" + c.id },
+          h("h3", null, c.title), chip("published", "NASA challenge brief"),
+          h("ul", null, c.quotes.map(function (q) { return h("li", null, h("q", null, q)); })),
+          h("p", { class: "note small" }, c.quotes_checked ? "\u2713 Sentences checked word for word against the challenge brief (saved 2026-11-13)." : "! A sentence could not be matched to the saved brief."),
+          c.id === "moon-atmosphere" && cg ? h("p", { class: "brief-link" }, chip("measured", "In NASA\u2019s tables"), " ",
+            h("a", { href: "#/investigation/PSI-159" }, invName(cg)), ": " + (cg.table_summaries || []).filter(function (t) { return t.o2_range_pct; }).map(function (t) {
+              return t.o2_range_pct.join("\u2013") + "% O2 (" + t.o2_meaning + ")"; }).join("; ") + ". " + cg.joint_tests + " tests fall inside the Moon-base zone.") : null,
+          c.id === "partial-gravity" && ef ? h("p", { class: "brief-link" }, chip("interp", "Our note"), " Every test record in Flare AI is from microgravity (ISS or Cygnus). See ",
+            h("a", { href: "#/investigation/PSI-22" }, invName(ef)), " for the electric-field experiment.") : null);
+      })) : null,
       h("div", { class: "grid qgrid" },
         chartCard("Which investigations tested oxygen above 30%?", "% O2",
           "each bar spans the lowest to highest oxygen in that investigation’s NASA table; colour shows the fuel type (also named in the tooltip). The dashed blue line marks the brief’s 30% Moon-base oxygen.",
@@ -1393,6 +1436,42 @@
   var PSRC = { brief: "brief", label: "Flare AI label", direct: "NASA data" };
   function ptLi(p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label + " ", h("span", { class: "psrc ps-" + p.kind }, PSRC[p.kind] || p.kind), p.ev ? h("span", { class: "ev" }, " \u2014 " + p.ev) : null); }
 
+  /* "How the tests differ": counted from NASA's table (what varied, what stayed the same, sample, measurement groups).
+   * Group names are our labels; column names and values are NASA's, as printed. */
+  function fmtN(n) { return Math.abs(n) >= 100 ? String(Math.round(n * 10) / 10) : String(+n.toPrecision(4)); }
+  function descOf(d) {
+    var blank = d.blank_n ? "; " + d.blank_n + " test" + (d.blank_n > 1 ? "s" : "") + " with no value" : "";
+    if (d.range) return d.col + ": " + fmtN(d.range[0]) + "\u2013" + fmtN(d.range[1]) + " (" + d.n + " values" + blank + ")";
+    if (d.examples) return d.col + ": " + d.examples.map(function (x) { return "\u201c" + x + "\u201d"; }).join(", ") + (d.n > d.examples.length ? " +" + (d.n - d.examples.length) + " more" : "") + (blank ? " (" + blank.slice(2) + ")" : "");
+    return d.col + ": \u201c" + d.value + "\u201d";
+  }
+  function profileCard(v) {
+    var tabs = (v.table_summaries || []).filter(function (t) { return t.profile && t.profile.tests_profiled && (t.profile.varied.length || t.profile.same.length); });
+    if (!tabs.length) return null;
+    var multi = tabs.length > 1;
+    return h("section", { class: "card profile", style: "margin-top:14px" },
+      h("div", { class: "prov-head" }, h("h3", null, "How the tests differ"), chip("measured", "Counted from NASA\u2019s table")),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), "every column of NASA\u2019s table except bookkeeping (test numbers, dates, times, notes, camera files). " +
+        "\u201cVaried\u201d = more than one value across the tests; \u201csame\u201d = one value in every test. Values are NASA\u2019s, as printed. Group names are our labels."),
+      tabs.map(function (t) {
+        var pr = t.profile, ttl = multi ? h("h4", { class: "pf-t" }, t.table.replace(/^PSI-\d+_Experimental table_/, "").replace(/\.csv$/, "")) : null;
+        if (pr.planned) return h("div", { class: "pf" }, ttl, h("p", { class: "callout info" }, h("b", null, "Planned test matrix, not results. "),
+          "Each cell lists the conditions NASA planned: ", pr.same.concat(pr.varied).map(descOf).join("; ") + "."));
+        return h("div", { class: "pf" }, ttl,
+          pr.sample.length ? h("p", { class: "pf-sample" }, h("b", null, "Sample: "), pr.sample.map(descOf).join("; ")) : null,
+          v.accession === "PSI-69" ? h("p", { class: "note" }, "! One FLEX test (FLEX-114) has its pressure printed as 0 in NASA\u2019s table; it is included here as printed and flagged on its record.") : null,
+          h("div", { class: "pf-cols" },
+            h("div", null, h("p", { class: "mini-h" }, "Varied across the " + pr.tests_profiled + " tests (" + pr.varied.length + ")"),
+              pr.varied.length ? h("ul", { class: "pf-list" }, pr.varied.map(function (d) { return h("li", null, descOf(d)); })) : h("p", { class: "note" }, "Nothing varied in the profiled columns.")),
+            h("div", null, h("p", { class: "mini-h" }, "Same in every test (" + pr.same.length + ")"),
+              pr.same.length ? h("ul", { class: "pf-list" }, pr.same.map(function (d) { return h("li", null, descOf(d)); })) : h("p", { class: "note" }, "No column has a single value in every test."))),
+          h("p", { class: "mini-h" }, "What was recorded, by type ", chip("interp", "our grouping")),
+          h("div", { class: "pf-groups" }, Object.keys(pr.groups).map(function (g) {
+            return h("div", { class: "pf-g" }, h("b", null, g), h("div", { class: "cols-chips" }, pr.groups[g].map(function (c) { return h("span", { class: "colchip" }, c); })));
+          })));
+      }));
+  }
+
   function viewInvestigation(acc) {
     var v = invById(acc);
     if (!v) { setTitle("Not found"); return h("div", null, h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")), h("h1", null, "Investigation not found")); }
@@ -1412,9 +1491,15 @@
         h("div", { class: "rh-body" },
           h("div", null, h("h2", { class: "mini-h" }, "Key facts (NASA PSI)"),
             h("div", { class: "inv-facts wide" },
-              fact("Type", v.projectType || "—"), fact("Platform", v.flightProgram || "—"), fact("Hardware", v.experimentHardware || "—"),
+              fact("Type", v.projectType || "—"), fact("Platform", v.flightProgram || "—"), fact("Hardware family", (v.curated || {}).hw_label || "—"), fact("Hardware (NASA PSI)", v.experimentHardware || "not stated"),
               fact("Dates", (v.investigationStartDate || "?") + " → " + (v.investigationEndDate || "?")), fact("Publications listed", String((v.publications || []).length)),
               fact("Tests in NASA table", v.n_tests ? String(v.n_tests) : "none")),
+            (function () {
+              var fam = c.hw_family, mates = fam && fam !== "Ground" ? INV.filter(function (x) { return x !== v && (x.curated || {}).hw_family === fam; }) : [];
+              return c.hw_label ? h("p", { class: "note hw-note" }, h("b", null, "Hardware family: "), c.hw_label + ". ",
+                mates.length ? ["Shared with ", mates.map(function (x, i) { return [i ? ", " : "", h("a", { href: "#/investigation/" + x.accession }, invName(x))]; }), ". "] : null,
+                h("span", { class: "muted" }, "Source: " + c.hw_basis)) : null;
+            })(),
             h("h2", { class: "mini-h", style: "margin-top:16px" }, "Our labels (interpretation)"),
             h("p", { class: "note" }, h("b", null, "Fuel: "), (c.fuel_class || "—") + " — " + (c.fuel_examples || "") + ". ", h("b", null, "Area: "), (c.pillar || "none").replace(";", ", ") +
               ". ", h("b", null, "Brief: "), (c.brief_mention || "none") + ". ", h("span", { class: "muted" }, "Basis: " + (c.basis || "—")))),
@@ -1423,7 +1508,14 @@
             h("div", { class: "rh-actions" },
               h("a", { class: "btn", href: v.landing_page, target: "_blank", rel: "noopener" }, "Open NASA’s PSI page ↗"),
               h("a", { class: "textlink", href: "https://doi.org/" + v.doi, target: "_blank", rel: "noopener" }, "DOI"),
-              ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null)))),
+              ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null),
+            (function () {
+              var cite = "NASA Physical Sciences Informatics (PSI). " + v.title + " (" + v.accession + (v.investigationAcronym ? ", " + v.investigationAcronym : "") +
+                "), version " + v.version + ", released " + v.releaseDate + ". " + v.licenseIdentifier + ". https://doi.org/" + v.doi + ". Accessed " + v.retrieved + ".";
+              var status = h("span", { class: "note small", "aria-live": "polite" }), box = h("textarea", { class: "cite-box", rows: 3, readonly: true, hidden: true, "aria-label": "Citation text" });
+              return h("div", { class: "cite" }, h("p", { class: "note small cite-text" }, cite),
+                h("button", { type: "button", class: "ghost small", onclick: function () { copyText(cite, status, box); } }, "Copy citation"), " ", status, box);
+            })()))),
       h("section", { class: "card meaning", style: "margin-top:14px" },
         h("div", { class: "prov-head" }, h("h3", null, "What this means"), h("span", null, etypeChip(v), " ", h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label))),
         h("div", { class: "cols2" },
@@ -1435,6 +1527,7 @@
         h("p", { class: "note" }, h("b", null, "Variables and measurements: "), (v.table_summaries || []).length ? "NASA\u2019s table records " +
           v.table_summaries.map(function (t) { return (t.columns || []).length + " columns"; }).join(" + ") + " (listed below)." : "no experiment table in PSI.",
           " ", h("b", null, "Evidence in Flare AI: "), COVER[coverage(v)].text)),
+      profileCard(v),
       h("section", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, "What NASA\u2019s experiment table records"), chip("measured", "Measured")),
         h("p", { class: "howto" }, h("b", null, "How to read: "), "the columns are NASA’s own (variables and measurements). Ranges are read only from the columns named; unit conversions are arithmetic; anything not a plain number is listed, not guessed."),
         (v.table_summaries || []).length ? v.table_summaries.map(function (t) {
@@ -1472,7 +1565,8 @@
       ["Fuel and geometry (our label)", function (v) { return (v.curated.fuel_class || "") + ": " + (v.curated.fuel_examples || "") + " \u00b7 " + (v.curated.scale || ""); }],
       ["Fire-safety area (our label)", function (v) { return (v.curated.pillar || "none").replace(";", ", "); }],
       ["Type / platform", function (v) { return (v.projectType || "") + " · " + (v.flightProgram || ""); }],
-      ["Hardware", function (v) { return v.experimentHardware || "—"; }],
+      ["Hardware family", function (v) { var c = v.curated || {}; return c.hw_label ? [h("b", null, c.hw_label), h("span", { class: "pc-mat" }, c.hw_basis)] : "\u2014"; }],
+      ["Hardware (NASA PSI, as printed)", function (v) { return v.experimentHardware || "not stated"; }],
       ["Tests in NASA table", function (v) { return v.n_tests ? String(v.n_tests) : "none"; }],
       ["Oxygen tested", o2], ["Pressure tested", pr],
       ["Moon-base zone tests", function (v) { return v.joint_tests + (v.p_min_psi_at_o2ge30 ? " (lowest psi at ≥30% O2: " + v.p_min_psi_at_o2ge30 + ")" : ""); }],
@@ -1481,19 +1575,22 @@
         return cols.length ? h("div", { class: "cols-chips" }, cols.slice(0, 18).map(function (x) { return h("span", { class: "colchip" }, x); }), cols.length > 18 ? h("span", { class: "muted" }, " +" + (cols.length - 18) + " more") : null) : "no table"; }],
       ["Same / different", function (v) { return ""; }],
       ["Score (our rule)", function (v) { return relevance(v, "station").score + "/" + MAXPTS.station + " ISS · " + relevance(v, "moon").score + "/" + MAXPTS.moon + " Moon"; }]];
-    var hw = list.map(function (v) { return (v.experimentHardware || "").split(",")[0].trim(); });
+    /* Hardware is compared by family (from the challenge brief / NASA PSI), not by NASA's free-text hardware field, which
+     * spells the same rig differently across investigations. Ground studies never count as "same hardware". */
+    var hw = list.map(function (v) { return (v.curated || {}).hw_family || ""; });
     var fu = list.map(fuelKey);
     var same = [], diff = [];
-    (hw.every(function (x) { return x === hw[0]; }) ? same : diff).push("hardware");
+    (hw[0] && hw[0] !== "Ground" && hw.every(function (x) { return x === hw[0]; }) ? same : diff).push("hardware (" + (hw.every(function (x) { return x === hw[0]; }) && hw[0] !== "Ground" ? hw[0] : "different set-ups") + ")");
     (fu.every(function (x) { return x === fu[0]; }) ? same : diff).push("fuel type");
     var o2col = list.map(function (v) { return (v.table_summaries || []).map(function (t) { return t.o2_meaning || "none"; }).join("/"); });
-    (o2col.every(function (x) { return x === o2col[0]; }) ? same : diff).push("how oxygen was recorded");
+    var noO2 = o2col.every(function (x) { return !x || /^(none\/?)+$/.test(x); });
+    if (!noO2) (o2col.every(function (x) { return x === o2col[0]; }) ? same : diff).push("how oxygen was recorded");
     rows = rows.filter(function (r) { return r[0] !== "Same / different"; });
     return h("div", null,
       h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")),
       h("h1", null, "Compare investigations"),
       h("div", { class: "card insight" }, h("p", { style: "margin:0" }, h("b", null, "Same: "), same.join(", ") || "nothing on these three counts", " · ", h("b", null, "Different: "), diff.join(", ") || "nothing on these three counts",
-        ". Values below come from NASA PSI; labels marked “our label” are interpretation. Test values from different investigations are described side by side, never charted together.")),
+        noO2 ? ". No oxygen column in these NASA tables" : "", ". Values below come from NASA PSI; labels marked “our label” are interpretation. Test values from different investigations are described side by side, never charted together.")),
       h("div", { class: "tablewrap", style: "margin-top:14px" }, h("table", { class: "side" },
         h("thead", null, h("tr", null, h("th", { scope: "col" }, h("span", { class: "sr" }, "Property")), list.map(function (v) { return h("th", { scope: "col" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("span", { class: "pc-mat" }, v.accession)); }))),
         h("tbody", null, rows.map(function (r) { return h("tr", null, h("th", { scope: "row" }, r[0]), list.map(function (v) { return h("td", null, r[1](v)); })); })))));
