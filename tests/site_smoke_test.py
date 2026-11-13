@@ -282,6 +282,12 @@ async def main():
         check("explorer CSV: FLEX-1 values equal NASA's table (21 mol% O2, Disruption)", any(r["id"] == "FLEX-1" and r["o2_start"] == "21" and r["nasa_test_end"] == "Disruption" for r in rows))
         await pg.goto(SITE + "#/investigation/PSI-69"); await pg.wait_for_selector(".cite")
         check("investigation: citation names PSI, version, release date and DOI", "version 5, released 31-Jul-2016" in await pg.inner_text(".cite-text") and "https://doi.org/10.60555/mbq8-0451" in await pg.inner_text(".cite-text"))
+        await pg.goto(SITE + "#/about"); await pg.wait_for_selector("#si")
+        t = await pg.inner_text("main")
+        check("about: short Super Intelligence (SI) note (code, text, marked drawing, data not generated)",
+              all(k in t for k in ("Super Intelligence (SI) use", "Claude", "marked as made with SI", "not generated")))
+        await pg.goto(SITE + "#/"); await pg.wait_for_selector(".flames")
+        check("SI-made drawing carries a visible watermark", "Illustration made with SI" in (await pg.inner_html(".flames")))
         await pg.goto(SITE + "#/lessons"); await pg.wait_for_selector(".lesson")
         t = await pg.inner_text("main")
         check("lessons: all 9 challenge background resources shown", await pg.locator(".lesson").count() == 9)

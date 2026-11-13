@@ -337,6 +337,7 @@
     s.appendChild(svg("text", { x: 110, y: 280, "text-anchor": "middle", class: "fl-s" }, "hot gas rises, flame stretches"));
     s.appendChild(svg("text", { x: 330, y: 258, "text-anchor": "middle", class: "fl-l" }, "In orbit"));
     s.appendChild(svg("text", { x: 330, y: 280, "text-anchor": "middle", class: "fl-s" }, "nothing rises, flame turns round"));
+    s.appendChild(svg("text", { x: 436, y: 296, "text-anchor": "end", class: "si-mark" }, "Illustration made with SI (Claude)"));
     return h("figure", { class: "flames" }, s, noCaption ? null :
       h("figcaption", null, "Without gravity, flames behave differently, so Earth fire-safety rules don’t carry over. NASA’s orbit tests are the evidence."));
   }
@@ -351,7 +352,7 @@
       h("source", { src: "media/jelly-loop.mp4", type: "video/mp4" }));
     v.muted = true;
     return [h("div", { class: "hero-stage", "aria-hidden": "true" }, v),
-      h("p", { class: "hero-credit" }, "Background: NASA footage of FLEX fuel droplets burning on the ISS. Video: Science@NASA / NASA Goddard. NASA does not endorse this project.")];
+      h("p", { class: "hero-credit" }, "Background: NASA footage of FLEX fuel droplets burning on the ISS (trimmed and cleaned up with tools set up with SI; nothing SI-generated added). Video: Science@NASA / NASA Goddard. NASA does not endorse this project.")];
   }
   function legend(kind, title, text) {
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));
@@ -1520,7 +1521,7 @@
         h("div", { class: "prov-head" }, h("h3", null, "What this means"), h("span", null, etypeChip(v), " ", h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label))),
         h("div", { class: "cols2" },
           h("div", null, h("p", { class: "mini-h" }, chip("interp", "Ours"), " Plain-language summary"), h("p", null, c.summary_ours || "\u2014"),
-            h("p", { class: "note" }, "Written by Flare AI from NASA\u2019s objective text below. ", h("a", { href: v.landing_page, target: "_blank", rel: "noopener" }, "Check it on NASA\u2019s PSI page"))),
+            h("p", { class: "note" }, "Written with SI (Claude) from NASA\u2019s objective text below. ", h("a", { href: v.landing_page, target: "_blank", rel: "noopener" }, "Check it on NASA\u2019s PSI page"))),
           h("div", null, h("p", { class: "mini-h" }, chip("published", "NASA"), " NASA\u2019s stated impact"),
             h("p", null, (function (t) { t = (t || "").replace(/\s+/g, " ").trim(); return t ? (t.length > 420 ? t.slice(0, 417) + "\u2026" : t) : "NASA\u2019s PSI record gives no research-impact statement."; })(v.researchImpacts)),
             h("p", { class: "note" }, "Quoted from NASA PSI (\u201cResearch impacts\u201d), full text below."))),
@@ -1611,7 +1612,7 @@
     thin: { label: "Thin", glyph: "●○○", text: "Only one cited document supports the answer." },
     none: { label: "None — abstained", glyph: "○○○", text: "No cited document supports an answer, so the Lab does not answer." }
   };
-  var BASIS = { nasa_record: ["measured", "NASA record"], nasa_text: ["published", "NASA text"], brief: ["published", "Challenge brief"], interpretation: ["interp", "AI interpretation"] };
+  var BASIS = { nasa_record: ["measured", "NASA record"], nasa_text: ["published", "NASA text"], brief: ["published", "Challenge brief"], interpretation: ["interp", "SI interpretation"] };
   /* Local keyword search (no AI): used offline, when the server is unavailable, and to show what evidence exists. */
   function localSearch(q, k) {
     var toks = (q.toLowerCase().match(/[a-z0-9%.\-]{3,}/g) || []).filter(function (t) { return ["what", "which", "with", "were", "does", "that", "this", "from", "have", "about", "there", "tests", "test"].indexOf(t) < 0; });
@@ -1639,7 +1640,7 @@
     function renderLocal(q, why) {
       var hits = localSearch(q, 8);
       return h("section", { class: "card lab-local" },
-        h("div", { class: "prov-head" }, h("h3", null, "Matching records (keyword search, no AI)"), chip("unver lv-none", "no AI answer")),
+        h("div", { class: "prov-head" }, h("h3", null, "Matching records (keyword search, no SI)"), chip("unver lv-none", "no SI answer")),
         h("p", { class: "note" }, why),
         hits.length ? h("ul", { class: "fn" }, hits.map(function (d) { return h("li", null, h("a", { href: d.route }, d.title), " ", h("span", { class: "muted" }, d.kind === "record" ? "test record" : "investigation")); }))
           : h("p", { class: "note" }, "No record matches these words. The data may not cover this question."));
@@ -1661,7 +1662,7 @@
           (a.gaps || []).length ? h("div", { class: "lab-gaps" }, h("b", null, "What the data does not cover: "), h("ul", null, a.gaps.map(function (t) { return h("li", null, t); }))) : null,
           h("p", { class: "note grade-rule" }, h("b", null, "Grade rule: "), g.text + " The grade is computed by Flare AI from the citations that survived checking, not chosen by the AI." +
             (a.dropped_points ? " " + a.dropped_points + " point(s) were removed because their citations did not match any retrieved document." : "")),
-          h("p", { class: "note" }, "Answer written by " + (a.model || "Claude") + " from the documents below only. It is not a safety assessment and gives no fire probabilities.")),
+          h("p", { class: "note" }, "Answer written by Super Intelligence (SI): " + (a.model || "Claude") + ", from the documents below only. It is not a safety assessment and gives no fire probabilities.")),
         (a.citations || []).length ? h("section", { class: "card" }, h("h3", null, "Cited documents"),
           h("ul", { class: "fn" }, a.citations.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.source + ")")); }))) : null,
         (a.evidence || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "All " + a.evidence.length + " documents retrieved for this question")),
@@ -1681,8 +1682,8 @@
         .then(function (res) {
           out.textContent = "";
           if (res.ok) out.appendChild(renderAnswer(res.b, q));
-          else out.appendChild(renderLocal(q, (res.b && res.b.error ? res.b.error + " " : "The AI service did not answer (" + res.status + "). ") + "Showing keyword matches instead."));
-        }, function () { out.textContent = ""; out.appendChild(renderLocal(q, "Could not reach the AI service. Showing keyword matches instead.")); })
+          else out.appendChild(renderLocal(q, (res.b && res.b.error ? res.b.error + " " : "The SI service did not answer (" + res.status + "). ") + "Showing keyword matches instead."));
+        }, function () { out.textContent = ""; out.appendChild(renderLocal(q, "Could not reach the SI service. Showing keyword matches instead.")); })
         .then(function () { btn.disabled = false; btn.textContent = "Ask the Lab"; });
     }
     var form = h("form", { class: "lab-form", onsubmit: function (e) { e.preventDefault(); ask(ta.value); } },
@@ -2166,7 +2167,7 @@
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Lessons from real fires"),
           h("p", { class: "lead" }, "The challenge\u2019s Resources tab lists one dataset, NASA\u2019s PSI combustion repository (that is the data in Flare AI), and " +
-            R.length + " background pages. These are those pages: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words."))),
+            R.length + " background pages. These are those pages: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words. The \u201cOur interpretation\u201d lines were drafted with SI (Claude); the quotes are NASA\u2019s."))),
       R.length ? h("div", { class: "lesson-tools" }, tabs, h("div", { class: "lesson-search" }, search), count) : null,
       R.length ? body : h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No resources loaded"), h("p", { class: "muted" }, "Add them to data/resources_curated.json and rebuild.")));
   }
@@ -2210,8 +2211,8 @@
           "In 3 BASS-II tests NASA\u2019s report and NASA\u2019s PSI spreadsheet disagree (F3, P22b, P3a). Both values are shown.",
           "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
           "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", null, t); }))),
-      h("h2", null, "AI use"),
-      h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with AI assistance (Claude). The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
+      h("h2", { id: "si" }, "Super Intelligence (SI) use"),
+      h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with Super Intelligence (SI) assistance (Claude): the code, the drafted text and the flame drawing, which is marked as made with SI. NASA\u2019s data values are copied from NASA\u2019s files, not generated. The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }
 
   /* ---------- router ---------- */

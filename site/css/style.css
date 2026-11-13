@@ -754,3 +754,5 @@ body::after {
 .cite { margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,.06); }
 .cite-text { margin:0 0 8px; color:var(--muted); }
 .cite-box { width:100%; margin-top:8px; font-size:13px; }
+
+.flames .si-mark { fill:var(--dim); font:500 11px var(--sans); }

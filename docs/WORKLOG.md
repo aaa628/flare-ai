@@ -556,3 +556,25 @@ Verified by running: smoke 127/127 (7 new); previewer 14/14; lab_ui passed; lab_
 - Both work from file:// and under the netlify.toml CSP (Blob download, no server).
 Verified by running: CSV of all 537 rows equals the data (material and note for every row); FLEX filter gives 274 rows;
   FLEX-1 = 21 mol%, Disruption (as in NASA's file); smoke 130/130 (3 new); previewer 14/14; lab_ui passed; lab_function 18/18.
+
+## 2026-11-13: Super Intelligence (SI) disclosure, per the 2026 Project Submission Guide
+- Rules read today (Participant FAQ, Project Submission Guide, Judging & Awards Guide): AI is called "Super Intelligence (SI)";
+  SI must not be used to come up with the idea; SI images/videos need a visible watermark; SI code/data/audio need
+  acknowledgement in descriptive text and metadata; no images, video, audio or likeness of anyone under 18; demo is a
+  30-second video or max 7 slides, English; References must list all data, code, text, images and tools; submit by
+  Sunday 15 Nov, 11:59 p.m. local time. Judging: Impact, Creativity, Validity, Relevance, Presentation (1-5 each).
+- About: "AI use" replaced by a "Super Intelligence (SI) use" section (code, data, checks, text, images/video, Lab).
+  Removed the inaccurate line "The team reviews and verifies the data" (0 of 537 human-verified).
+- SI marks: visible "Illustration made with SI (Claude)" on the flame drawing; "Written with SI (Claude)" on summaries;
+  Lessons intro says interpretation lines were drafted with SI; hero video caption notes SI-set-up trimming; Lab labels
+  "SI interpretation" / "SI answer". Metadata: si-disclosure meta tag; SI note in every code file header and in generated
+  data.js / corpus.mjs; SI sections in README.md and data/README.md. Product name "Flare AI" unchanged.
+Verified by running: smoke 134/134 (4 new); previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation tests passed;
+  all pages open; CSP clean.
+- Follow-up (user): keep the sentence "The team reviews and verifies the data" (the team verifies records tonight), and keep
+  the SI disclosure minimal: the long About section is cut back to the original short paragraph, renamed SI. Watermark,
+  meta tag and code-file headers stay (required by the Submission Guide). README SI notes shortened to match.
+  Verified by running: smoke 133/133; previewer 14/14; lab_ui passed.
+- Follow-up (user): no hidden SI notes. Removed the si-disclosure meta tag, the SI notes in code-file headers and generated
+  files, and the README SI sections. Kept: About "Super Intelligence (SI) use" paragraph, the drawing's visible SI mark,
+  and the SI wording in labels. Verified by running: smoke 132/132; previewer 14/14; lab_ui passed; lab_function 18/18; CSP clean.
