@@ -503,3 +503,13 @@ Verified by running: every CSV field equals the pre-removal data except dates (0
   FM2 and LUCI are not in PSI (the brief says that data is expected later).
 Verified by running: smoke 108/108 (5 new Lessons checks); previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation
   tests passed; all record, investigation and other pages open without NaN or JS errors; CSP-served pages without errors.
+
+## 2026-11-13: Lessons page made easier to scan (user: hard to find things)
+- Filter tabs (All / Real fires / The science / Fire safety on Earth, with counts) and a search box over titles, subjects,
+  years, quotes and interpretations, with a live count and an empty-result reset.
+- Fires run as a dated timeline (1967, 1970, 1997); every card shows its year and type, a one-line subject, the key NASA quote,
+  and folds the other quotes behind "Show all N NASA quotes"; "Open NASA's page" button on every card.
+- resources_curated.json gains "year" (from each NASA page) and a one-line subject for non-incident pages; the Lab corpus
+  labels that subject line as a Flare AI summary. Quotes unchanged and still checked word for word on every build.
+Verified by running: smoke 111/111 (new: timeline order, type filter, search); previewer 14/14; lab_ui passed; lab_function
+  18/18; filters and search exercised in a browser; all pages open without NaN or JS errors; CSP-served pages without errors.
