@@ -412,3 +412,13 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served p
 - Revert = revert this one commit (or close its PR); nothing else depends on it.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; video plays (WebM) under the netlify.toml CSP and from
   file://, paused with reduced motion, absent on other pages; no console errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: home page video replaced with a longer, livelier clip (user: "too passive, too short")
+- Now NASA SVS 11640 "Spherical Flames": 48 s of raw FLEX "jellyfish" flame footage (ignition flash, wobbling flame ball,
+  soot streaks, a second burn), three caption-free stretches joined; corner badge and on-screen label cropped out.
+  WebM 1.5 MB + MP4 1.7 MB + poster 17 KB. Credits in site/media/CREDITS.txt. Old 9 s FLEX loop removed.
+- Layout: the video is large on the right half of the hero and fades to black toward the heading (CSS mask), so text
+  always sits on black. The Earth/orbit drawing moved to its own short "Why flames in orbit are different" section below.
+- Phones: video sits behind the text at 60% with top/bottom fades. Reduced motion: still frame, no download.
+Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; video plays under the netlify.toml CSP and from file://,
+  paused with reduced motion, absent on other pages; no console errors; no horizontal scroll at 390 px.

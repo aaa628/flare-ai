@@ -213,8 +213,14 @@
         h("div", { class: "hero-cta" },
           h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
           h("a", { class: "textlink", href: "#/scenario" }, "Check a condition against NASA tests"))),
-      flameFigure(),
       heroVideo());
+
+    var why = h("section", { class: "why", "aria-labelledby": "why-h" },
+      h("div", null,
+        h("h2", { id: "why-h" }, "Why flames in orbit are different"),
+        h("p", { class: "muted" }, "On Earth, hot gas rises and pulls a flame into a teardrop. In orbit nothing rises, so the flame turns round and burns differently. " +
+          "That is why Earth fire-safety rules don\u2019t carry over, and why NASA\u2019s orbit tests are the evidence.")),
+      flameFigure(true));
 
     var start = h("section", { class: "start" },
       h("div", null,
@@ -291,7 +297,7 @@
         h("a", { class: "btn ghost", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(true); } }, "Open team preview"));
     }
 
-    return h("div", null, hero, start, sources, charts,
+    return h("div", null, hero, why, start, sources, charts,
       h("h2", null, "How every fact is labelled"),
       h("div", { class: "legend" },
         legend("measured", "Measured", "A value or note recorded during a NASA test."),
@@ -304,7 +310,7 @@
   /* The site's core idea in one picture: with gravity hot gas rises and the flame stretches into a
    * yellow teardrop; in orbit it does not, and the flame becomes a dim, rounder, bluer ball.
    * Illustration only: not drawn from any record. */
-  function flameFigure() {
+  function flameFigure(noCaption) {
     var s = svg("svg", { viewBox: "0 0 440 300", role: "img", "aria-label": "Illustration: on Earth a candle flame is a tall yellow teardrop; in orbit it is a dim blue sphere." });
     var d = svg("defs");
     var g1 = svg("radialGradient", { id: "fe", cx: "50%", cy: "72%", r: "62%" });
@@ -330,21 +336,21 @@
     s.appendChild(svg("text", { x: 110, y: 280, "text-anchor": "middle", class: "fl-s" }, "hot gas rises, flame stretches"));
     s.appendChild(svg("text", { x: 330, y: 258, "text-anchor": "middle", class: "fl-l" }, "In orbit"));
     s.appendChild(svg("text", { x: 330, y: 280, "text-anchor": "middle", class: "fl-s" }, "nothing rises, flame turns round"));
-    return h("figure", { class: "flames" }, s,
+    return h("figure", { class: "flames" }, s, noCaption ? null :
       h("figcaption", null, "Without gravity, flames behave differently, so Earth fire-safety rules don’t carry over. NASA’s orbit tests are the evidence."));
   }
-  /* Background: real NASA footage of a FLEX fuel droplet burning as a flame ball on the ISS
-   * (Science@NASA / NASA Goddard SVS 11318, trimmed, slowed, muted). Decoration only: not a record.
+  /* Background: real NASA footage of FLEX fuel droplets burning as flame balls on the ISS (the "jellyfish" flame;
+   * Science@NASA / NASA Goddard SVS 11640, three clean stretches joined, muted). Decoration only: not a record.
    * Visitors who ask for reduced motion get the still frame. */
   function heroVideo() {
     var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var v = h("video", { class: "hero-video", poster: "media/flex-poster.jpg",
+    var v = h("video", { class: "hero-video", poster: "media/jelly-poster.jpg",
       muted: true, loop: true, playsinline: true, autoplay: !still, preload: still ? "none" : "auto", "aria-hidden": "true", tabindex: -1 },
-      h("source", { src: "media/flex-loop.webm", type: "video/webm" }),
-      h("source", { src: "media/flex-loop.mp4", type: "video/mp4" }));
+      h("source", { src: "media/jelly-loop.webm", type: "video/webm" }),
+      h("source", { src: "media/jelly-loop.mp4", type: "video/mp4" }));
     v.muted = true;
-    return [h("div", { class: "hero-bg", "aria-hidden": "true" }, v),
-      h("p", { class: "hero-credit" }, "Background: a FLEX fuel droplet burning on the ISS. Video: Science@NASA / NASA Goddard. NASA does not endorse this project.")];
+    return [h("div", { class: "hero-stage", "aria-hidden": "true" }, v),
+      h("p", { class: "hero-credit" }, "Background: NASA footage of FLEX fuel droplets burning on the ISS. Video: Science@NASA / NASA Goddard. NASA does not endorse this project.")];
   }
   function legend(kind, title, text) {
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));
