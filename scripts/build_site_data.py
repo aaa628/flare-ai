@@ -1,13 +1,13 @@
 """Build site/data/data.js from data/bass2_draft.csv and data/sources.csv.
 
 Why data.js and not .json: browsers refuse fetch() on file:// pages, so a
-plain JS file keeps the site working when index.html is double-clicked.
+plain JS file keeps the site working when app.html is double-clicked.
 
 Every row gets one of three trust levels:
   human   : verified_by AND verified_date filled (a person compared the row with the NASA PDF)
   machine : passed scripts/crosscheck_bass2.py (an automated consistency check, NOT a human PDF check).
             The check is re-run here at build time, so an edited row silently drops to "none".
-  none    : neither. Shown only in preview mode (index.html?preview=draft) under a loud warning banner.
+  none    : neither. Shown only in preview mode (app.html?preview=draft) under a loud warning banner.
 The site shows human + machine rows by default, each labelled with its level.
 Separately, r["pdf"] is True when the row matched NASA's PDF (scripts/pdfcheck_bass2.py). If the PDF and
 pdftotext are available the comparison is re-run here; otherwise the stored pdf_check column is used.

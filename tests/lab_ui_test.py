@@ -27,7 +27,7 @@ async def main():
         calls = []
         mode = {"status": 200}
         async def site(route):
-            path = route.request.url.split("http://flare.test/", 1)[1].split("#")[0].split("?")[0] or "index.html"
+            path = route.request.url.split("http://flare.test/", 1)[1].split("#")[0].split("?")[0] or "app.html"
             f = SITE / path
             if not f.is_file(): return await route.fulfill(status=404, body="nf")
             await route.fulfill(status=200, content_type=mimetypes.guess_type(str(f))[0] or "text/plain", body=f.read_bytes())
@@ -37,7 +37,7 @@ async def main():
             else: await route.fulfill(status=429, content_type="application/json", body=json.dumps({"error": "Question limit reached for now."}))
         await pg.route("http://flare.test/**", site)       # registered first = checked last
         await pg.route("http://flare.test/api/ask", api)
-        await pg.goto("http://flare.test/index.html#/lab"); await pg.wait_for_selector(".lab-form")
+        await pg.goto("http://flare.test/app.html#/lab"); await pg.wait_for_selector(".lab-form")
         check("lab: page explains retrieve -> answer -> check", await pg.locator(".lab-how li").count() == 3)
         check("lab: example questions include an abstain example", await pg.locator(".abst-ex").count() == 1)
         await pg.click(".lab-ex .chip-btn >> nth=0"); await pg.wait_for_selector(".lab-answer")
@@ -51,12 +51,12 @@ async def main():
         await pg.fill("#labq", "Which tests used Nomex fabric in BASS?"); await pg.click("button:has-text('Ask the Lab')"); await pg.wait_for_selector(".lab-local")
         check("lab: server limit -> keyword-search fallback with the reason", "Question limit reached" in await pg.inner_text(".lab-local"))
         n = len(calls)
-        await pg.goto((SITE / "index.html").as_uri() + "#/lab"); await pg.wait_for_selector(".lab-form")
+        await pg.goto((SITE / "app.html").as_uri() + "#/lab"); await pg.wait_for_selector(".lab-form")
         await pg.fill("#labq", "How did FLEX methanol droplet tests end?"); await pg.click("button:has-text('Ask the Lab')"); await pg.wait_for_selector(".lab-local")
         t = await pg.inner_text(".lab-local")
         check("lab (file://): offline keyword search, no network call", "online site" in t and len(calls) == n and "FLEX" in t)
         check("lab: no JS errors", not errs, errs)
-        await pg.set_viewport_size({"width": 390, "height": 800}); await pg.goto("http://flare.test/index.html#/lab"); await pg.wait_for_selector(".lab-form")
+        await pg.set_viewport_size({"width": 390, "height": 800}); await pg.goto("http://flare.test/app.html#/lab"); await pg.wait_for_selector(".lab-form")
         check("lab: no horizontal scroll at 390px", await pg.evaluate("document.documentElement.scrollWidth") <= 392)
         await b.close()
 asyncio.run(main())

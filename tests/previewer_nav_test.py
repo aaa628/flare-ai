@@ -1,11 +1,11 @@
 """Regression test: in-app navigation must survive hosted HTML previewers.
 
-Previewers (htmlpreview, githack-style viewers, some IDE panes) serve index.html from one
+Previewers (htmlpreview, githack-style viewers, some IDE panes) serve the app page (app.html) from one
 origin and inject <base href="https://raw...../site/">. A plain href="#/explorer" then resolves
 against the BASE, so the click navigates away to the raw file (shown as unstyled text).
 
 This test simulates that: the page is served from http://previewer.test/view with a <base> tag
-pointing at http://raw.test/site/, where index.html is served as text/plain (like raw.githubusercontent.com)
+pointing at http://raw.test/site/, where app.html is served as text/plain (like raw.githubusercontent.com)
 and assets get proper MIME types. Needs: pip install playwright && playwright install chromium
 
 Run: python tests/previewer_nav_test.py
@@ -39,7 +39,7 @@ async def txt(pg, sel):
 
 
 def page_html():
-    html = (SITE_DIR / "index.html").read_text(encoding="utf-8")
+    html = (SITE_DIR / "app.html").read_text(encoding="utf-8")
     # accept both relative assets and absolute raw.githubusercontent assets: map them onto RAW
     html = re.sub(r"https://raw\.githubusercontent\.com/[^/]+/[^/]+/[^/]+/site/", "", html)
     return html.replace("<head>", f'<head><base href="{RAW}">', 1)
@@ -57,11 +57,11 @@ async def main():
             await route.fulfill(status=200, content_type="text/html; charset=utf-8", body=page_html())
 
         async def raw(route):
-            rel = route.request.url[len(RAW):].split("?")[0].split("#")[0] or "index.html"
+            rel = route.request.url[len(RAW):].split("?")[0].split("#")[0] or "app.html"
             f = SITE_DIR / rel
             if not f.is_file():
                 return await route.fulfill(status=404, body="not found")
-            if rel == "index.html":  # raw hosts show HTML as plain text
+            if rel == "app.html":  # raw hosts show HTML as plain text
                 return await route.fulfill(status=200, content_type="text/plain; charset=utf-8", body=f.read_text(encoding="utf-8"))
             ctype = mimetypes.guess_type(str(f))[0] or "text/plain"
             await route.fulfill(status=200, content_type=ctype, body=f.read_bytes())
