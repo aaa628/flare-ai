@@ -100,6 +100,38 @@ BRIEF_FACTS = [
 ]
 
 
+# Context cards for the Moon-base view, in the challenge brief's exact sentences (checked against the saved brief on every build).
+BRIEF_CARDS = [
+    ("moon-atmosphere", "Why a Moon base raises the fire question", [
+        "To enable flexibility, spacesuits are filled with 100% oxygen to only 4.3 psi (pounds per square inch), where the Earth\u2019s pressure at sea level is 14.7 psi.",
+        "To avoid the bends (decompression sickness), the astronauts pre-breathe 100% oxygen to expel absorbed nitrogen.",
+        "To reduce the pre-breathing duration and thus facilitate lunar excursions, it is expected that the Moon Base and pressurized rover(s) will be at a pressure and oxygen concentration between those in a spacesuit and the Earth\u2019s atmosphere.",
+        "The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less.",
+        "Compared to Earth\u2019s atmosphere, that\u2019s more than a 40% increase in the oxygen concentration making materials much more flammable.",
+        "Microgravity tests with the highest oxygen concentrations were conducted as part of the ACME\u2019s Cool Flames Investigation with Gases (CFI-G).",
+        "In those tests, the combustion chamber was filled with a mixture of nitrogen and a flammable gas (e.g., propane), while an oxygen-nitrogen mixture of up to 85% oxygen flowed from the spherical burner creating an inside-out flame."]),
+    ("partial-gravity", "Data gap: partial gravity", [
+        "Although NASA is heavily focused on the return of astronauts to the Moon\u2019s surface and the establishment of a Moon Base in preparation for the future human exploration of Mars, there is currently no partial-gravity combustion data available in PSI.",
+        "We expect such data will be added in the future, for example from the Lunar-g Combustion Investigation (LUCI) and the Flammability of Materials on the Moon (FM2) experiment.",
+        "Partial gravity was mimicked in ACME\u2019s Electric-Field Effects on Laminar Diffusion Flames (E-FIELD Flames) experiment through the effect of the electric field on the ions that naturally occur in flames.",
+        "Microgravity and normal-gravity results could bound what occurs at intermediate gravity levels."]),
+]
+
+
+def brief_cards():
+    path = DATA / "source" / "challenge_brief_2026-11-13.txt"
+    if not path.exists():
+        return []
+    page = " ".join(path.read_text(encoding="utf-8").split())
+    out = []
+    for cid, title, quotes in BRIEF_CARDS:
+        missing = [q for q in quotes if " ".join(q.split()) not in page]
+        if missing:
+            print("WARNING: brief sentence not found:", missing[0][:80])
+        out.append({"id": cid, "title": title, "quotes": quotes, "quotes_checked": not missing})
+    return out
+
+
 def resources():
     """Background resources from the challenge's Resources tab (history, science overviews, spinoffs). Not datasets.
     Every quote must appear word for word (whitespace aside) in the page text saved in data/source/; a resource whose
@@ -164,7 +196,8 @@ def write_corpus(records, investigations, res=()):
             continue
         docs.append({"id": r["id"], "kind": "nasa_text", "title": f"Challenge resource: {r['title']}", "route": "#/lessons",
                      "source": f"{r['publisher']} ({r['url']})",
-                     "text": ((r.get("event") + ". ") if r.get("event") else "") + "NASA's words: " + " ".join(r["quotes"])})
+                     "text": ((f"Subject (Flare AI summary, {r['year']}): " if r.get("year") else "Subject (Flare AI summary): ") + r["event"] + ". " if r.get("event") else "")
+                     + "NASA's words: " + " ".join(r["quotes"])})
     for i, title, text in BRIEF_FACTS:
         docs.append({"id": i, "kind": "brief", "title": title, "route": "#/investigations", "source": "NASA Space Apps 2026 challenge brief (Details tab)", "text": text})
     out = ROOT / "netlify" / "functions" / "ask" / "corpus.mjs"
@@ -237,6 +270,7 @@ def main():
         "sources": sources,
         "investigations": investigations,
         "resources": res,
+        "brief_cards": brief_cards(),
         "counts": {"records": len(records), "verified": n_ver, "machine": n_mach,
                    "unchecked": len(records) - n_ver - n_mach, "shown": n_ver + n_mach,
                    "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"]),

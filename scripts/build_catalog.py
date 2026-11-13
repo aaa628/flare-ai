@@ -97,6 +97,63 @@ def conditions(name, rows):
     return out
 
 
+# Column profile (what varied, what stayed the same, measurement groups, sample). Purely counted from NASA's table; the
+# group names are our labels. Bookkeeping columns (ids, dates, times, notes, camera files) are not profiled.
+SKIP = re.compile(r"(^|\b)(test ?#|test no|^test$|test day|as run|sample ?#|sample number|sample no|flex number|flex identifier|flex test|identifier|"
+                  r"data id|session|date|day\*?$|^day$|year|month|gmt|local time|time of|notes?$|comments?|description|camera|frames|"
+                  r"reference|figure|link|^pi$|^cir$)", re.I)
+GROUPS = [  # first match wins
+    ("Calculated by NASA", r"^tad|\btad\b|zst|adiabatic"),
+    ("Smoke and particles", r"rt/r0|aging|mixing time|weight loss|^duration"),
+    ("Gas readings", r"calibrated|co2 % by vol|co \(ppm\)|final o2|xo2 \(final\)|xo2 after|xf after|xc2h4 final"),
+    ("Flow", r"air flow|air rate|velocity|fan|air display|flow restrictor|mfc|mo2|mn2|mtot|fuel rate|burnrate|mhc|mfuel|o2 flow|flow rate|direction"),
+    ("Atmosphere", r"oxygen|xo2|o2|nitrogen|helium|initial ambient|ambient gas|atmosphere|pressure|pinit|pfinal|pmean|approx p|ambient temp"),
+    ("Temperature", r"temp|\bt \(c|peak burner"),
+    ("Flame result", r"extinction|burn time|burning rate|ignited|test end|spread|burn length|cool flame|hot ignition|self\s*-?\s*ext|color"),
+    ("Fuel and sample", r"fuel|material|sample|thickness|length|width|diameter|nozzle|burner size|fiber|xfuel|xf\b|xc2h4|fuel conc|flame type|test type"),
+    ("Hardware settings", r"radiometer|polarity|igniter|ignition power|ignition time|mesh"),
+]
+SIZE = re.compile(r"thickness|length|width|diameter|nozzle|burner size", re.I)
+NOT_SIZE = re.compile(r"extinction|burn|spread", re.I)
+MATERIAL = re.compile(r"material|^fuel$|fuel type|sample \(fuel|fuel bottle|^sample type", re.I)
+
+
+BLANK = re.compile(r"[-\u2013\u2014]+|n/?a|none|\?", re.I)  # NASA's "no value" marks
+
+
+def num(v):
+    try:
+        return float(v.replace(",", "").strip())
+    except ValueError:
+        return None
+
+
+def profile(hdr, rows):
+    need = min(3, len([h for h in hdr if h]))
+    tests = [r for r in rows if sum(1 for v in r.values() if (v or "").strip()) >= need]
+    varied, same, groups, sample = [], [], {}, []
+    for col in hdr:
+        if not col or SKIP.search(col):
+            continue
+        vals = [(r.get(col) or "").strip() for r in tests]
+        filled = [v for v in vals if v and not BLANK.fullmatch(v)]
+        blank_n = len(tests) - len(filled)
+        if not filled:
+            continue
+        distinct = sorted(set(filled), key=filled.index)
+        nums = [num(v) for v in filled]
+        if len(distinct) > 1 and all(n is not None for n in nums):
+            desc = {"col": col, "n": len(distinct), "range": [min(nums), max(nums)], "blank_n": blank_n}
+        else:
+            desc = {"col": col, "n": len(distinct), "examples": distinct[:4], "blank_n": blank_n}
+        (varied if len(distinct) > 1 else same).append(desc if len(distinct) > 1 else {"col": col, "value": distinct[0]})
+        g = next((name for name, rx in GROUPS if re.search(rx, col, re.I)), "Other")
+        groups.setdefault(g, []).append(col)
+        if (SIZE.search(col) and not NOT_SIZE.search(col)) or MATERIAL.search(col):
+            sample.append(desc if len(distinct) > 1 else {"col": col, "n": 1, "examples": distinct})
+    return {"tests_profiled": len(tests), "varied": varied, "same": same, "groups": groups, "sample": sample}
+
+
 def summarise(c):
     def rng(v, nd=1):
         return [round(min(v), nd), round(max(v), nd)] if v else None
@@ -143,6 +200,8 @@ def catalog():
             hdr, rows, enc = read_table(name)
             s = summarise(conditions(name, rows))
             s["columns"] = [h for h in hdr if h]
+            s["profile"] = profile(hdr, rows)
+            s["profile"]["planned"] = "PLANNED" in (s.get("o2_meaning") or "")
             s["encoding"] = enc
             tables.append(s)
         if acc == "PSI-26":
