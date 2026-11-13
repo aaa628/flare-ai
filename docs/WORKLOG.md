@@ -467,3 +467,27 @@ User asked to remove all the data added so far while keeping every layout, chart
   - the Lab function test uses a small fake fixture corpus;
   - the pipeline tests skip when there is no data.
 Verified by running: smoke 95/95; previewer 14/14; lab_ui passed; lab_function 20/20; before/after screenshots of every page compared.
+
+## 2026-11-13: NASA data loaded again from the challenge Resources (replaces the empty template)
+- Read the Flame in Freefall Resources tab (spaceappschallenge.org; its certificate chain needed SSL.com's intermediate, fetched
+  from crt.sh and verified against the system roots). It lists ONE data source, "PSI Data Repository: Combustion Science"
+  (psi.nasa.gov, "the source of the data upon which the NASA Space App is to be based"), plus 9 background links (NASA
+  combustion pages, ScienceCasts video, ISS combustion researcher's guide, Apollo 1, Apollo 13, Mir fire, 3 spinoffs).
+- Re-downloaded everything fresh: 24 PSI combustion investigations (catalogue + 22 experiment tables), the 7 PSI record files
+  and NASA/TM-20210011385 (PDF, 144 pages). All PSI files are byte-identical to the copies used before; NASA has not changed them.
+- PSI's download API changed (redirect=false now returns nothing); fetch_psi_catalog.py now follows the redirect.
+- Rebuilt with the normal pipeline: extract_bass2 (--force over the empty template), crosscheck 126/126, import_psi
+  (121 BASS-I, 3 extra BASS-II, 274 FLEX, 13 SAFFIRE), PDF check 126/126, PSI check 123/126 (F3, P22b, P3a differ, as before),
+  build_catalog, build_site_data: 537 records, 8 sources, 24 investigations, Lab corpus 691 documents.
+- Curated files restored from history (our labels, not NASA data): investigations_curated.csv, ai_review_bass2.csv, sources.csv,
+  and the report text the extractor reads. The "O2 end is a formula leftover" flag (6 rows) was re-derived from the numbers by a
+  rule (O2 end = start +/- the raw reading and >3 vol% from start); it finds exactly the same 6 rows the earlier review flagged.
+- Challenge-brief facts for the Lab restored as EXACT sentences from the live brief (10 sentences, each checked verbatim);
+  two earlier entries were paraphrases. Brief text saved as data/source/challenge_brief_2026-11-13.txt.
+- Page code, tests and READMEs restored to the last real-data version (f0aab83); PR #31's empty-template code is not needed.
+- Human-verified count left at 0: no person has compared records with NASA's sources, so none is marked verified.
+Verified by running: every CSV field equals the pre-removal data except dates (0 differences across 8 files); data.js equal
+  except dates; chart values recomputed independently from NASA's raw files (records per experiment, BASS-II O2 bands 5/24/46/22/27,
+  FLEX ends 186/61/27, investigation O2 ranges, Moon-base zone 48 and 18); smoke 103/103; previewer 14/14; lab_ui passed;
+  lab_function 18/18; 3 mutation tests passed; all 537 record pages, 24 investigation pages and 7 other pages open with no NaN or
+  JS errors; CSP-served pages without errors.

@@ -54,9 +54,7 @@ async def main():
         await pg.goto((SITE / "index.html").as_uri() + "#/lab"); await pg.wait_for_selector(".lab-form")
         await pg.fill("#labq", "How did FLEX methanol droplet tests end?"); await pg.click("button:has-text('Ask the Lab')"); await pg.wait_for_selector(".lab-local")
         t = await pg.inner_text(".lab-local")
-        empty = await pg.evaluate("window.FLARE_DATA.records.length === 0")
-        check("lab (file://): offline keyword search, no network call", "online site" in t and len(calls) == n and
-              (("No record matches" in t) if empty else ("FLEX" in t)), t[:200])
+        check("lab (file://): offline keyword search, no network call", "online site" in t and len(calls) == n and "FLEX" in t)
         check("lab: no JS errors", not errs, errs)
         await pg.set_viewport_size({"width": 390, "height": 800}); await pg.goto("http://flare.test/index.html#/lab"); await pg.wait_for_selector(".lab-form")
         check("lab: no horizontal scroll at 390px", await pg.evaluate("document.documentElement.scrollWidth") <= 392)

@@ -6,9 +6,6 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location("cc", ROOT / "scripts" / "crosscheck_bass2.py")
 cc = importlib.util.module_from_spec(spec); spec.loader.exec_module(cc)
 
-if not list(csv.DictReader(open(ROOT / "data" / "bass2_draft.csv", encoding="utf-8"))):
-    print("SKIP: data/bass2_draft.csv has no rows (NASA data removed; template only). Nothing to check.")
-    sys.exit(0)
 spans = cc.table_pages()
 rows = list(csv.DictReader(open(ROOT / "data" / "bass2_draft.csv", encoding="utf-8")))
 strict = [r for r in rows if not cc.check(r, spans, {})[0]]

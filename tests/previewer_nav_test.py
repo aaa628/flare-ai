@@ -47,10 +47,7 @@ def page_html():
 
 async def main():
     async with async_playwright() as p:
-        try:
-            b = await p.chromium.launch()
-        except Exception:  # cloud sandbox: preinstalled Chromium
-            b = await p.chromium.launch(executable_path="/opt/pw-browsers/chromium")
+        b = await p.chromium.launch()
         ctx = await b.new_context(viewport={"width": 1280, "height": 900})
         pg = await ctx.new_page()
         errors = []
@@ -107,14 +104,10 @@ async def main():
         check("preview toggle stays on previewer origin", pg.url.startswith("http://previewer.test/"), pg.url)
         check("preview banner visible after toggle", await pg.is_visible("#preview-banner"))
         await pg.click("a:has-text('Flame Explorer') >> nth=0")  # nav
-        await pg.wait_for_selector("table.records tbody tr")
-        if await pg.query_selector("tbody tr.row"):  # data loaded: open a record
-            await pg.click("tbody tr.row td.id a >> nth=0")
-            await pg.wait_for_selector(".cols")
-            check("test row link opens detail on previewer", pg.url.startswith("http://previewer.test/") and "#/experiment/" in pg.url, pg.url)
-        else:  # empty template: the table and its headers still render
-            check("Explorer table renders on previewer with no data", pg.url.startswith("http://previewer.test/") and
-                  await pg.locator("table.records thead th").count() == 8, pg.url)
+        await pg.wait_for_selector("tbody tr.row")
+        await pg.click("tbody tr.row td.id a >> nth=0")
+        await pg.wait_for_selector(".cols")
+        check("test row link opens detail on previewer", pg.url.startswith("http://previewer.test/") and "#/experiment/" in pg.url, pg.url)
         await pg.click("text=Exit preview")
         await pg.wait_for_timeout(400)
         check("exit preview stays on previewer origin", pg.url.startswith("http://previewer.test/"), pg.url)

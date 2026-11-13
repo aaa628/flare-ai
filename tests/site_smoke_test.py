@@ -1,91 +1,260 @@
 """Browser smoke test for the static site (needs: pip install playwright; playwright install chromium).
 Run: python tests/site_smoke_test.py   (rebuild data first: python scripts/build_site_data.py)
-
-The NASA data was removed on 2026-11-13 and the site is an empty template until new data is added.
-These checks hold the layout in place: every page renders, every chart is still drawn with neutral
-placeholder labels and 0 values, nothing shows NaN, and no old NASA record names or counts remain.
-When new data is loaded, the template checks are skipped and only the shared checks run; add
-data-specific checks back then (see git history for the previous version of this file)."""
-import asyncio, re, sys, pathlib
+Checks adapt to the counts in site/data/data.js (human / machine / unchecked)."""
+import asyncio, sys
 from playwright.async_api import async_playwright
-
+import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = (ROOT / "site" / "index.html").as_uri()
-results = []
-
-
+SH = str(ROOT / "tests" / "_shots") + "/"
+(ROOT / "tests" / "_shots").mkdir(exist_ok=True)
+errs = []; results = []
 def check(name, cond, extra=""):
     results.append((name, bool(cond), extra)); print(("PASS " if cond else "FAIL ") + name, extra)
 
-
-ROUTES = ["", "scenario", "explorer", "compare", "investigations", "investigations/moon", "lab", "about",
-          "scenario/family=liquid&o2=21&psi=14.7&fuel=&diluent=", "scenario/family=gas&o2=30&psi=10.2"]
-BAD = re.compile(r"NaN|undefined|Infinity")
-OLD = re.compile(r"BASS|SAFFIRE|PSI-\d|ACME|SPICE|SLICE|\bCFI\b|\b537\b|Methanol|Heptane|Extinction|Disruption|Completion|20210011385")
-
-
 async def main():
     async with async_playwright() as p:
-        try:
-            b = await p.chromium.launch()
-        except Exception:  # cloud sandbox: preinstalled Chromium
-            b = await p.chromium.launch(executable_path="/opt/pw-browsers/chromium")
-        for width in (1280, 390):
-            pg = await b.new_page(viewport={"width": width, "height": 900})
-            errs = []
-            pg.on("console", lambda m: errs.append(m.text) if m.type == "error" else None)
-            pg.on("pageerror", lambda e: errs.append(str(e)))
-            await pg.goto(SITE); await pg.wait_for_selector("h1")
-            empty = await pg.evaluate("window.FLARE_DATA.records.length === 0")
-            if width == 1280:
-                idx = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
-                check("index.html loads assets with relative links (offline + any static host)",
-                      'href="css/style.css"' in idx and 'src="js/app.js"' in idx and "raw.githubusercontent" not in idx)
-                check("footer keeps the NASA non-endorsement", "NASA does not endorse this project" in await pg.inner_text("footer"))
-                check("data file is the empty template" if empty else "data file has records", True,
-                      str(await pg.evaluate("window.FLARE_DATA.counts")))
-            for r in ROUTES:
-                await pg.goto(SITE + "#/" + r); await pg.wait_for_timeout(500)
-                main_txt = await pg.inner_text("main")
-                svg_txt = await pg.evaluate("[...document.querySelectorAll('main svg')].map(s => s.textContent + ' ' + (s.getAttribute('aria-label') || '')).join(' ')")
-                name = (r or "overview") + " @" + str(width)
-                m = BAD.search(main_txt + svg_txt)
-                check(name + ": no NaN / undefined / Infinity", not m, m.group(0) if m else "")
-                check(name + ": no horizontal scroll", not await pg.evaluate("document.documentElement.scrollWidth > innerWidth"))
-                if empty:
-                    hit = OLD.search(main_txt.replace("NASA footage of FLEX fuel droplets", "") + svg_txt)
-                    check(name + ": no old NASA record names or counts", not hit, hit.group(0) if hit else "")
-            if empty:
-                await pg.goto(SITE + "#/"); await pg.wait_for_timeout(400)
-                vals = await pg.evaluate("[...document.querySelectorAll('.qcard svg.chart text.val')].map(t => t.textContent)")
-                check("Overview: 3 chart cards still drawn", await pg.locator(".qcard svg.chart").count() == 3)
-                check("Overview: every bar reads 0", len(vals) == 12 and all(v.startswith("0 ") for v in vals), str(vals))
-                check("Overview: placeholder labels", "Experiment 1" in await pg.inner_text("main") and "Band 5" in await pg.inner_text("main"))
-                check("Overview: methods table keeps 4 rows", await pg.locator("table.methods tbody tr").count() == 4)
-                await pg.goto(SITE + "#/compare"); await pg.wait_for_timeout(400)
-                check("Compare: layout preview draws its charts", await pg.locator("main svg.chart").count() >= 6)
-                check("Compare: tiles, donut at 0, two tables", await pg.locator(".tiles .tile").count() == 3 and
-                      await pg.locator("svg.donut text.val").first.text_content() == "0" and await pg.locator("main table").count() == 2)
-                await pg.goto(SITE + "#/scenario"); await pg.wait_for_timeout(500)
-                check("Scenario: 3 empty panels drawn", await pg.locator(".scen-panels .panel").count() == 3)
-                check("Scenario: verdict is insufficient data", "Insufficient data" in await pg.inner_text(".verdict"))
-                check("Scenario: results table keeps its headers", await pg.locator("table.scen-t thead th").count() == 7)
-                await pg.goto(SITE + "#/investigations"); await pg.wait_for_timeout(400)
-                check("Investigations: both charts drawn", await pg.locator(".qcard svg.chart").count() == 2)
-                check("Investigations: placeholder rows at 0%", "Investigation 4" in await pg.evaluate("document.querySelector('.qcard svg.chart').textContent"))
-                await pg.goto(SITE + "#/explorer"); await pg.wait_for_timeout(400)
-                check("Explorer: table keeps its 8 columns", await pg.locator("table.records thead th").count() == 8)
-                await pg.goto(SITE + "#/about"); await pg.wait_for_timeout(300)
-                check("About: says there are no sources yet", "No sources yet" in await pg.inner_text("main"))
-                await pg.goto(SITE + "#/experiment/BASSII-B1"); await pg.wait_for_timeout(300)
-                check("old record links show not found", "not found" in (await pg.inner_text("main")).lower())
-                await pg.goto(SITE + "?preview=draft#/"); await pg.wait_for_timeout(400)
-                check("preview mode still draws the charts", await pg.locator(".qcard svg.chart").count() == 3)
-            check("no JS errors @" + str(width), not errs, str(errs[:3]))
-            await pg.close()
-        await b.close()
-    bad = [r for r in results if not r[1]]
-    print(f"\n{len(results) - len(bad)} / {len(results)} checks passed")
-    sys.exit(1 if bad else 0)
+        b = await p.chromium.launch()
+        import mimetypes
 
+        async def newpage(**kw):
+            """New page whose https://raw.githubusercontent.com/<owner>/<repo>/<branch>/site/* requests are
+            served from the local site/ folder (index.html may point its CSS/JS at those URLs)."""
+            ctx = await b.new_context(**kw)
+
+            async def serve(route):
+                import re as _re
+                rel = _re.sub(r"^https://raw\.githubusercontent\.com/[^/]+/[^/]+/[^/]+/site/", "", route.request.url).split("?")[0]
+                f = ROOT / "site" / rel
+                if not f.is_file():
+                    return await route.fulfill(status=404, body="nf")
+                await route.fulfill(status=200, content_type=mimetypes.guess_type(str(f))[0] or "text/plain", body=f.read_bytes())
+            await ctx.route("https://raw.githubusercontent.com/**", serve)
+            return await ctx.new_page()
+        pg = await newpage(viewport={"width":1280,"height":900})
+        pg.on("console", lambda m: errs.append(("console", m.text)) if m.type in ("error","warning") else None)
+        pg.on("pageerror", lambda e: errs.append(("pageerror", str(e))))
+
+        # 1. default mode: human-verified + machine-checked rows shown, unchecked hidden
+        await pg.goto(SITE); await pg.wait_for_selector("h1")
+        idx = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        check("index.html loads assets with relative links (offline + any static host)",
+              'href="css/style.css"' in idx and 'src="js/app.js"' in idx and "raw.githubusercontent" not in idx)
+        C = await pg.evaluate("window.FLARE_DATA.counts")
+        RECS = await pg.evaluate("window.FLARE_DATA.records.map(r => [r.id, r.level])")
+        lv = dict(RECS)
+        mach_id = next(i for i, l in RECS if l == "machine")
+        none_id = next((i for i, l in RECS if l == "none"), None)
+        print("counts:", C)
+        t = await pg.inner_text("main")
+        stats = await pg.inner_text(".hero-side")
+        check("default: evidence legend shows the real counts", all(str(C[k]) in stats for k in ("verified", "machine", "unchecked")), stats.replace("\n", " | "))
+        check("overview: human sign-off shown separately and prominently (0 of N, not a sign-off)", "of " + str(C["records"]) in stats and "not a sign-off" in stats.lower() and await pg.locator(".signoff-box").count() == 1)
+        check("overview: automated checks listed with exact counts", str(C["pdf_match"]) + " of 126" in stats and str(C["psi_agree"]) + " of 126" in stats)
+        check("overview: each chart says what it includes and leaves out", await pg.locator(".qcard .limits").count() == 3 and "Left out" in t)
+        check("overview: says what the site can answer + one primary action", "what this site can answer" in t.lower() and await pg.locator(".hero .btn").count() == 1 and "Investigations" in t)
+        check("overview: four experiment families kept separate (incl. FLEX)", await pg.locator("table.methods tbody tr").count() == 4)
+        check("overview: every chart has a how-to-read line and unit", await pg.locator(".qcard").count() == await pg.locator(".qcard .howto").count() == await pg.locator(".qcard .unit-pill").count() == 3)
+        check("default: three check levels explained", all(x in t.lower() for x in ("machine-checked", "verified", "unchecked")))
+        check("default: charts drawn from shown rows", C["shown"] == 0 or "Which experiments does the evidence come from?" in t)
+        check("default: banner hidden", await pg.is_hidden("#preview-banner"))
+        await pg.screenshot(path=SH+"01_overview_default.png", full_page=True)
+        await pg.click("nav a[data-route=explorer]"); await pg.wait_for_selector(".tablewrap")
+        n = await pg.locator("tbody tr.row").count()
+        check("default explorer: shows exactly the human+machine rows", n == C["shown"], f"{n} vs {C['shown']}")
+        chips = await pg.locator("tbody .chip").all_inner_texts()
+        check("default explorer: no 'unchecked' chip anywhere", not any("unchecked" in c.lower() for c in chips))
+        check("default explorer: every row labelled with its level", sum(1 for c in chips if c.lower() in ("machine-checked", "verified")) == n)
+        if none_id:
+            await pg.goto(SITE+"#/experiment/"+none_id); await pg.wait_for_selector("h1")
+            check("default: UNCHECKED row detail refuses (not found)", "Record not found" in await pg.inner_text("main"), none_id)
+        await pg.goto(SITE+"#/experiment/BASSII-P22b"); await pg.wait_for_selector(".cols")
+        check("P22b: formula-leftover callout shown", "not a reading" in await pg.inner_text("main"))
+        check("P22b: NASA sources disagree callout", "two sources disagree" in await pg.inner_text("main"))
+        # Investigations
+        await pg.goto(SITE+"#/investigations"); await pg.wait_for_selector(".inv-card")
+        INV = await pg.evaluate("window.FLARE_DATA.investigations.length")
+        check("investigations: every PSI combustion investigation listed and ranked", await pg.locator(".inv-card").count() == INV == 24)
+        check("investigations: ranking rule is printed and labelled as ours", "ranking rule" in (await pg.inner_text(".rule")).lower() and "our interpretation" in (await pg.inner_text(".rule")).lower())
+        await pg.click(".need-tabs .need:has-text('Detection')"); await pg.wait_for_timeout(150)
+        check("investigations: browse by need (detection) narrows the ranking", await pg.locator(".inv-card").count() == 4)
+        t = await pg.inner_text("main")
+        check("investigations: coverage levels add up to all investigations", sum(int(x) for x in await pg.locator("ul.cov-list li b").all_inner_texts()) == INV)
+        check("investigations: brief-named studies audited (SAME, SAME-R, FLEX-2, DAFT present)", all(n in t for n in ("SAME-R", "FLEX-2", "DAFT")) and await pg.locator(".brief-audit tbody tr").count() >= 18)
+        check("investigations: gaps include no partial-gravity data and no prediction claim", "No partial-gravity data" in t and "Not a prediction" in t)
+        check("investigations: score labelled relevance-not-safety, inputs tagged by source", "not safety or risk scores" in t and await pg.locator(".inv-card .psrc").count() > 0)
+        await pg.goto(SITE+"#/investigation/PSI-102"); await pg.wait_for_selector(".meaning")
+        t = await pg.inner_text(".meaning")
+        check("investigation detail: our summary and NASA's stated impact shown separately, with link", "Plain-language summary" in t.title() or "PLAIN-LANGUAGE SUMMARY" in t.upper() and "NASA" in t and await pg.locator('.meaning a[href*="psi.nasa.gov"]').count() == 1)
+        await pg.goto(SITE+"#/investigations/moon"); await pg.wait_for_selector(".insight")
+        t = await pg.inner_text(".insight")
+        check("investigations (Moon lens): names the tests inside the brief's zone, and the solid-material gap", "ACME CFI-G" in t and "10.2 psi" in t and "gap" in t)
+        check("investigations: both charts have text alternatives and included/left-out notes", await pg.locator(".qcard svg[aria-label]").count() == 2 and await pg.locator(".qcard .limits").count() == 2)
+        bad = []
+        for acc in await pg.evaluate("window.FLARE_DATA.investigations.map(v => v.accession)"):
+            await pg.goto(SITE+"#/investigation/"+acc); await pg.wait_for_selector(".record-head h1")
+            if await pg.locator('a[href*="psi.nasa.gov/physci/repo/data/investigations/'+acc+'"]').count() < 1: bad.append(acc)
+        check("investigations: all 24 detail pages open with a link to NASA's PSI page", not bad, str(bad))
+        await pg.goto(SITE+"#/investigation/PSI-69"); await pg.wait_for_selector(".tbl-sum")
+        t = await pg.inner_text("main")
+        check("investigation detail: table columns, O2 and pressure ranges with source columns", "Ambient pressure; mmHg" in t and "psi" in t and "10.33" in t)
+        await pg.goto(SITE+"#/investigations/compare/PSI-25,PSI-69,PSI-159"); await pg.wait_for_selector("table.side")
+        check("investigations compare: same/different summary and side-by-side table", "Different:" in await pg.inner_text("main") and await pg.locator("table.side thead th").count() == 4)
+        # Scenario Check
+        await pg.goto(SITE+"#/scenario/family=liquid&o2=34&psi=10.4&fuel=&diluent="); await pg.wait_for_selector(".verdict")
+        t = await pg.inner_text(".scen-out")
+        check("scenario: FLEX near-Moon-base conditions -> covered, with NASA's test-end counts as counts not probability", "Covered" in t and "Counts, not a probability" in t)
+        check("scenario: leave-one-out consistency reported against the always-majority baseline", "Always guessing" in t and "not a prediction" in t)
+        check("scenario chart: group bubbles do not hide each other (merged when they would overlap heavily)", await pg.evaluate("""(() => { const c=[...document.querySelectorAll('.scen-chart .bub circle.grp')].map(e=>[+e.getAttribute('cx'),+e.getAttribute('cy'),+e.getAttribute('r')]);
+          let bad=0; for (let i=0;i<c.length;i++) for (let j=i+1;j<c.length;j++) if (Math.hypot(c[i][0]-c[j][0],c[i][1]-c[j][1]) < 0.6*Math.min(c[i][2],c[j][2])) bad++; return c.length>0 && bad===0; })()"""))
+        check("scenario chart: group tooltip says the bubble is an average position, not a NASA test", "not itself a NASA test condition" in (await pg.locator(".scen-chart .bub circle.grp >> xpath=..").first.get_attribute("data-tip")))
+        check("scenario chart: count labels never overlap each other", await pg.evaluate("""(() => { const b=[...document.querySelectorAll('.scen-chart text.bub-n')].map(e=>e.getBoundingClientRect());
+          for (let i=0;i<b.length;i++) for (let j=i+1;j<b.length;j++) { const a=b[i], c=b[j]; if (a.left<c.right-1 && c.left<a.right-1 && a.top<c.bottom-1 && c.top<a.bottom-1) return false; } return b.length>0; })()"""))
+        check("scenario chart: window label states how many tests are inside", "match window: 9 inside" in await pg.text_content(".scen-chart"))
+        check("scenario chart: axis names the experiment's own oxygen method", "as FLEX recorded it" in await pg.text_content(".scen-chart"))
+        await pg.locator(".scen-chart .bub.in").first.dispatch_event("click"); await pg.wait_for_timeout(200)
+        n_sel = await pg.locator("#scen-tests tbody tr").count()
+        check("scenario chart: clicking a bubble lists exactly its tests", f"Selected on the chart: {n_sel} FLEX test" in await pg.inner_text("#scen-tests") and n_sel >= 1)
+        await pg.click(".seg button:has-text('All tested')"); await pg.wait_for_timeout(150)
+        check("scenario chart: 'All tested conditions' view shows every test (no hidden-tests note)", await pg.locator(".scen-hidden").count() == 0)
+        await pg.goto(SITE+"#/scenario/family=solid&o2=30&psi=10.2"); await pg.wait_for_selector(".verdict")
+        t = await pg.inner_text(".scen-out")
+        check("scenario: solids at the brief's Moon-base atmosphere -> abstains (insufficient data)", "Insufficient data" in t and "will not describe what would happen" in t)
+        check("scenario: table-level investigations listed (CFI-G spans Moon-base conditions)", "ACME CFI-G" in t)
+        await pg.goto(SITE+"#/scenario/family=solid&o2=21&psi=14.7"); await pg.wait_for_selector(".verdict")
+        t = await pg.inner_text(".scen-out")
+        check("scenario: ISS air for solids -> covered, chart has a text alternative, rules shown", "Covered" in t and await pg.locator(".scen-out svg[aria-label]").count() >= 1 and "Oxygen only" in t and "Omitted" in t)
+        cats = await pg.evaluate("[...document.querySelectorAll('.cat-counts li b')].map(b=>+b.textContent)")
+        tabs = await pg.evaluate("[...document.querySelectorAll('#scen-tests .seg button')].map(b=>+(b.textContent.match(/\\((\\d+)\\)/)||[0,-1])[1])")
+        check("scenario: verdict counts (inside/oxygen-only/outside/omitted) = 84/43/121/15 and match the results tabs", cats == [84, 43, 121, 15] and tabs == cats)
+        check("scenario: coverage summary computed from data sits above the charts", "121 tests with both oxygen and pressure" in await pg.inner_text(".cover-sum") and await pg.evaluate("!!(document.querySelector('.cover-sum').compareDocumentPosition(document.querySelector('.scen-panels')) & 4)"))
+        check("scenario: one panel per experiment (BASS-I 2-D, BASS-II oxygen-only strip)", await pg.locator(".scen-panels .panel").count() == 2 and "oxygen window: 43 tests" in await pg.text_content(".scen-panels"))
+        check("scenario: strip label stays inside its chart", await pg.evaluate("""(() => { const t=[...document.querySelectorAll('.scen-panels text.mwin-l')]; return t.length>0 && t.every(e => { const s=e.closest('svg').getBoundingClientRect(), r=e.getBoundingClientRect(); return r.left>=s.left-1 && r.right<=s.right+1; }); })()"""))
+        # Compare screen
+        await pg.goto(SITE+"#/compare/BASSII-P1,BASSII-P10,BASSII-P12"); await pg.wait_for_selector(".viz-grid")
+        t = await pg.inner_text("main")
+        check("compare: 4 measure charts, donut, rules card, table, 3 stat tiles", await pg.locator(".vcard .chart.viz:not(.donut)").count() == 8 and await pg.locator(".donut").count() == 1 and await pg.locator(".tile").count() == 3 and "How this comparison works" in t)
+        check("compare: no averages claim", "No averages" in t)
+        await pg.hover(".chart.viz .mark >> nth=0"); await pg.wait_for_timeout(150)
+        check("compare: hover tooltip shows NASA value", "17.7" in await pg.inner_text(".viz-tip"))
+        await pg.goto(SITE+"#/compare/BASSII-B1,BASSI-1-1"); await pg.wait_for_selector(".refuse-card")
+        check("compare: refuses across experiments, draws no charts", await pg.locator(".chart.viz").count() == 0 and await pg.locator(".refuse-card").count() == 1)
+        check("compare: refusal shows the differing methods next to the reason", await pg.locator(".precheck .pc-warn").count() >= 2)
+        check("compare: refusal lists which conditions failed", await pg.locator(".refuse-card ul.conds li.fail").count() == 3)
+        await pg.goto(SITE+"#/compare"); await pg.wait_for_selector(".examples")
+        check("compare: empty state offers worked, limited and refusal examples", await pg.locator(".ex").count() == 5 and await pg.locator(".ex-refused").count() == 1)
+        await pg.click(".ex-worked >> nth=0"); await pg.wait_for_selector(".viz-grid")
+        check("compare: worked example opens a full comparison", "BASSII-P13a" in pg.url and await pg.locator(".vcard .chart.viz").count() >= 4)
+        await pg.goto(SITE+"#/compare/BASSII-P22a,BASSII-P22b,BASSII-O12"); await pg.wait_for_selector(".viz-grid")
+        t = await pg.inner_text("main")
+        check("compare: flagged O2 and +OR excluded with reasons", "flagged as suspect" in t and "+OR" in t and "not confirmed" in t)
+        check("compare: caution when flow direction differs", "Flow direction differs" in t)
+        check("compare: 'before charting' panel lists source, method and missing fields", all(x in t.lower() for x in ("before charting", "how oxygen was recorded", "missing or suspect here")))
+        check("compare: every chart card says what it left out, next to the chart", await pg.locator(".limits").count() == 4 and await pg.locator(".limits.has").count() >= 3)
+        check("compare: every SVG chart has a text alternative", await pg.evaluate("[...document.querySelectorAll('svg.chart')].every(s => (s.getAttribute('aria-label')||'').length > 20 && s.querySelector('title'))"))
+        check("compare: raw-O2 axis reaches the tallest bar (no clipping)", await pg.evaluate("""(() => { const c=[...document.querySelectorAll('.vcard')].find(e=>e.textContent.includes('Oxygen, raw sensor')); if(!c) return true;
+          return [...c.querySelectorAll('svg.chart path.mark')].every(p => p.getBBox().y >= 15); })()"""))
+        await pg.set_viewport_size({"width":390,"height":844})
+        check("compare: no horizontal scroll at 390px", await pg.evaluate("document.documentElement.scrollWidth") <= 392)
+        await pg.set_viewport_size({"width":1280,"height":900})
+        await pg.goto(SITE+"#/experiment/BASSI-1-1"); await pg.wait_for_selector(".cols")
+        t = await pg.inner_text("main")
+        check("BASS-I detail: source file + row + DOI link", "as run matrix" in t and "row 4" in t and "DOI" in t, t[:200])
+        check("BASS-I detail: O2 shown converted, with NASA's field name and the x100 method", "0.221" in t and "22.1 vol%" in t and "O2 % by volume" in t and "Multiplied by 100" in t)
+        await pg.goto(SITE+"#/experiment/FLEX-114"); await pg.wait_for_selector(".prov-t")
+        t = await pg.inner_text("main")
+        check("FLEX detail: NASA's test-end label, mole fraction with header, interpretation marked as ours", "Test end" in t and "mole fraction" in t and "Our interpretation" in t)
+        check("FLEX detail: pressure printed as 0 is flagged, not hidden", "pressure printed as 0" in t.lower())
+        await pg.goto(SITE+"#/compare/FLEX-113,FLEX-114"); await pg.wait_for_selector(".viz-grid")
+        check("FLEX compare: zero pressure left out with its reason", "pressure printed as 0" in await pg.inner_text("main"))
+        await pg.goto(SITE+"#/experiment/BASSI-1-1"); await pg.wait_for_selector(".prov-t")
+        check("BASS-I detail: exact NASA source file is served by the site", (ROOT / "site" / "sources" / "psi" / "PSI-26_as_run_test_matrix_BASS.xlsx").exists())
+        await pg.goto(SITE+"#/experiment/SAFFIREII-2-5"); await pg.wait_for_selector(".cols")
+        t = await pg.inner_text("main")
+        check("SAFFIRE-II detail: provenance shows NASA field name and unit", "Air Flow (cm/s)" in t and "cm/s" in t, t[:200])
+        check("SAFFIRE-II detail: every NASA column kept under technical details", "2.1 mm/s" in await pg.text_content(".tech"))
+        check("SAFFIRE-II detail: opens NASA dataset page and the exact file", await pg.locator('a[href*="psi.nasa.gov/physci/repo/data/investigations/PSI-99"]').count() == 1 and await pg.locator('a[href="sources/psi/PSI-99_experimental_table_SAFFIRE-II.csv"]').count() == 1)
+        await pg.goto(SITE+"#/experiment/"+mach_id); await pg.wait_for_selector(".cols")
+        t = await pg.inner_text("main")
+        check("default: machine-checked detail says no person has signed it", "No person has signed this record" in t and "machine-checked" in t.lower(), mach_id)
+        check("default: machine-checked detail never claims a PDF check by a person", "Checked against the PDF by" not in t)
+        await pg.screenshot(path=SH+"01b_detail_machine.png", full_page=True)
+
+        # 2. preview mode
+        await pg.goto(SITE+"?preview=draft"); await pg.wait_for_selector(".chart")
+        check("preview: banner visible", await pg.is_visible("#preview-banner"))
+        check("preview: banner says NO check", "NO check" in await pg.inner_text("#preview-banner"))
+        stats = await pg.inner_text(".hero-side")
+        check("preview: legend still shows the real counts", str(C["unchecked"]) in stats, stats.replace("\n"," | "))
+        await pg.screenshot(path=SH+"02_overview_preview.png", full_page=True)
+
+        await pg.goto(SITE+"?preview=draft#/explorer"); await pg.wait_for_selector("tbody tr.row")
+        n = await pg.locator("tbody tr.row").count()
+        check("explorer: all rows", n == C["records"], str(n))
+        await pg.select_option("#fpi", "Olson")
+        n = await pg.locator("tbody tr.row").count(); check("filter Olson = 27 (24 report + 3 PSI-only)", n == 27, str(n))
+        await pg.select_option("#fo2", "lt16")
+        n = await pg.locator("tbody tr.row").count(); check("Olson + O2<16 narrows", 0 < n < 27, str(n))
+        await pg.select_option("#fpi", ""); await pg.select_option("#fo2", "")
+        await pg.fill("#q", "hcl")
+        n = await pg.locator("tbody tr.row").count(); check("search 'hcl' finds rows", 5 < n < C["records"], str(n))
+        await pg.fill("#q", "zzzzqqq")
+        check("search no match message", "No records match" in await pg.inner_text("tbody"))
+        check("explorer: active filter chip shown for the search", await pg.locator(".fchip").count() == 1)
+        await pg.click(".active-filters button:has-text('Reset all')"); await pg.wait_for_selector("tbody tr.row")
+        check("explorer: sticky table headings", await pg.evaluate("getComputedStyle(document.querySelector('table.records thead th')).position") == "sticky")
+        check("explorer: O2 start carries its method tag", "cal." in (await pg.inner_text("tbody tr.row >> nth=0")).lower())
+        await pg.focus("tbody tr.row >> nth=0"); await pg.keyboard.press("Enter"); await pg.wait_for_timeout(200)
+        check("explorer: Enter on a focused row opens the record", "#/experiment/" in pg.url)
+        check("detail: header groups identity, checks and source reference", await pg.locator(".record-head h1").count() == 1 and await pg.locator(".record-head .checks li").count() >= 3 and "source reference" in (await pg.inner_text(".record-head")).lower())
+        check("detail: report record links to the PDF at its page", await pg.locator('.record-head a[href*="TM-20210011385.pdf#page="]').count() == 1)
+        check("detail: provenance table + technical details lower on the page", await pg.locator(".prov-t tbody tr").count() >= 4 and await pg.locator("details.tech").count() == 1)
+        await pg.goto(SITE+"#/explorer"); await pg.wait_for_selector("tbody tr.row")
+        n = await pg.locator("tbody tr.row").count(); check("clear resets to all", n == C["records"], str(n))
+        await pg.screenshot(path=SH+"03_explorer.png")
+
+        # order check: first row should be B1 then B2 (natural, not string order)
+        ids = await pg.locator("tbody tr.row td.id a").all_inner_texts()
+        check("natural sort B1,B2,B3", ids[:3] == ["B1","B2","B3"], str(ids[:4]))
+        check("pairs sorted P3a before P3b", ids.index("P3a") + 1 == ids.index("P3b"))
+
+        mats = await pg.locator("tbody tr.row td:nth-child(3)").all_inner_texts()
+        check("no flow words polluting material column", not any(w in m for m in mats for w in ("Opposed","Concurrent","Stagnation")))
+        check("material column never empty", all(m.strip() for m in mats))
+        # 3. detail pages
+        await pg.goto(SITE+"?preview=draft#/experiment/BASSII-P22a"); await pg.wait_for_selector(".cols")
+        t = await pg.inner_text("main")
+        check("detail P22a: suspect callout", "O2 reading suspect" in t)
+        check("detail P22a: shows 20.8 and 0.6", "20.8" in t and "0.6" in t)
+        check("detail P22a: clean material heading", "9.525-mm black rod" in await pg.inner_text("h1") and "Opposed" not in await pg.inner_text("h1"))
+        check("detail P22a: label chips present", all(x in t for x in ("MEASURED","PUBLISHED","OURS")) or all(x.lower() in t.lower() for x in ("measured","published","ours")))
+        check("detail P22a: Table A.3 page cited", "Table A.3" in t and "report page 107" in t)
+        await pg.screenshot(path=SH+"04_detail_suspect.png", full_page=True)
+        await pg.goto(SITE+"?preview=draft#/experiment/BASSII-M5"); await pg.wait_for_selector(".cols")
+        check("detail M5: hand-keyed callout", "Hand-keyed row" in await pg.inner_text("main"))
+        await pg.goto(SITE+"?preview=draft#/experiment/BASSII-NOPE"); await pg.wait_for_selector("h1")
+        check("detail unknown id: not found", "Record not found" in await pg.inner_text("main"))
+        await pg.goto(SITE+"#/about"); await pg.wait_for_selector("h1")
+        check("about renders", "The rules we hold ourselves to" in await pg.text_content("main"))
+        await pg.screenshot(path=SH+"05_about.png", full_page=True)
+
+        # 4. mobile
+        m = await newpage(viewport={"width":390,"height":800})
+        m.on("pageerror", lambda e: errs.append(("pageerror", str(e))))
+        await m.goto(SITE+"?preview=draft"); await m.wait_for_selector(".chart")
+        sw = await m.evaluate("document.documentElement.scrollWidth"); 
+        check("mobile: no horizontal page scroll (overview)", sw <= 391, str(sw))
+        await m.screenshot(path=SH+"06_mobile_overview.png", full_page=True)
+        await m.goto(SITE+"?preview=draft#/experiment/BASSII-P22a"); await m.wait_for_selector(".cols")
+        sw = await m.evaluate("document.documentElement.scrollWidth")
+        check("mobile: no horizontal page scroll (detail)", sw <= 391, str(sw))
+        await m.screenshot(path=SH+"07_mobile_detail.png", full_page=True)
+        await m.goto(SITE+"#/scenario/family=solid&o2=21&psi=14.7"); await m.wait_for_selector(".verdict")
+        sw = await m.evaluate("document.documentElement.scrollWidth")
+        check("mobile: no horizontal page scroll (scenario)", sw <= 391, str(sw))
+        check("mobile: scenario results table becomes labelled cards, every field fully visible", await m.evaluate("""(() => { const cells=[...document.querySelectorAll('table.scen-t tbody tr:first-child > *')];
+          return cells.length>=5 && cells.every(c => c.getAttribute('data-label') && (c.tagName==='TH' || getComputedStyle(c).display==='flex') && c.getBoundingClientRect().right <= window.innerWidth+1); })()"""))
+        await b.close()
 asyncio.run(main())
+print("\nconsole/page errors:", errs if errs else "none")
+print(sum(1 for r in results if r[1]), "/", len(results), "checks passed")
