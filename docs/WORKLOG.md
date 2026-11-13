@@ -431,3 +431,10 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; video plays 
 - No AI upscaling on purpose: it would invent detail in NASA footage, which breaks the site's no-invented-data rule.
 Verified by running: smoke 103/103; previewer 14/14; video plays under the netlify.toml CSP and from file://, paused with
   reduced motion; no console errors.
+
+## 2026-11-13: home page video area 25% smaller (user: still blurry)
+- Video area 60vw/max 900px -> 45vw/max 675px, aligned to the content's right edge (not the screen edge) so it stays
+  beside the heading on wide monitors; left fade shortened to match. Smaller display = less stretching = crisper.
+- Phones unchanged (video behind the text, full width).
+Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors; no horizontal scroll at 390 px;
+  screenshots at 1366, 1920 and 390 px.
