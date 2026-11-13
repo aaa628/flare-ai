@@ -661,3 +661,19 @@ html, body { overflow-x:clip; }
   .hero-video { opacity:.6; object-fit:cover; object-position:50% 40%; }
   .why { grid-template-columns:1fr; } .why .flames { justify-self:start; max-width:460px; }
 }
+
+/* ---------- starry background: black sky behind every page ----------
+ * Three small SVG star tiles (13 KB together), fixed behind the content. Panels, cards and tables keep their solid
+ * dark fill, so text never sits directly on stars. One sparse layer twinkles slowly; still for reduced motion. */
+html { background:#000; }
+body { background:transparent; position:relative; isolation:isolate; }
+body::before, body::after { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; }
+body::before {
+  background:url("../media/stars-near.svg") 0 0 / 900px 900px repeat, url("../media/stars-far.svg") 120px 60px / 480px 480px repeat;
+  opacity:.85; }
+body::after {
+  background:url("../media/stars-twinkle.svg") 340px 210px / 1300px 1300px repeat;
+  animation:stars-twinkle 7s ease-in-out infinite; will-change:opacity; }
+@keyframes stars-twinkle { 0%, 100% { opacity:.25; } 50% { opacity:1; } }
+.top { background:rgba(0,0,0,.55); }
+.foot { background:rgba(8,8,8,.85); }
