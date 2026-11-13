@@ -446,3 +446,11 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served p
   No video file, so the photo stays 4K-sharp. The flame itself is never reshaped or made to flicker: the photo still shows
   what NASA recorded. Reduced-motion visitors get the still photo.
 Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors; no running animations with reduced motion.
+
+## 2026-11-13: stronger home page animation (user: "make the animation more strong")
+- On arrival: a 2.4 s focus pull (photo starts blurred, dark and zoomed, then settles sharp). Then a 15 s push-in and drift
+  (scale 1.04 -> 1.22, alternating) and two glows that breathe out of step (blue 4.2 s, pink 6.6 s), each also swelling.
+- Still camera and light only; the flame is not reshaped. Peak zoom checked so the flame stays on screen and off the heading.
+- Found the matching NASA video for the photo (BASS-II test O19, PSI-25 raw video, camera clock 16:49 -> photo 16:54:12) but it
+  is 720x480 and nearly black at that moment, so the photo stays.
+Verified by running: smoke 103/103; previewer 14/14; CSP-served pages without errors; no running animations with reduced motion.

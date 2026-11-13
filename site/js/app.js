@@ -347,7 +347,7 @@
       src: "media/bass2-flame-1920.jpg",
       srcset: "media/bass2-flame-1280.jpg 1280w, media/bass2-flame-1920.jpg 1920w, media/bass2-flame-2560.jpg 2560w, media/bass2-flame-3840.jpg 3840w",
       sizes: "100vw" });
-    return [h("div", { class: "hero-stage", "aria-hidden": "true" }, img),
+    return [h("div", { class: "hero-stage", "aria-hidden": "true" }, img, h("div", { class: "hero-glow" })),
       h("p", { class: "hero-credit" }, "Background: a BASS-II flame burning on the ISS during a reduced-oxygen test, photographed by astronaut Reid Wiseman (2014). Image: NASA. NASA does not endorse this project.")];
   }
   function legend(kind, title, text) {
