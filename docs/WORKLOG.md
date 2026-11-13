@@ -546,3 +546,13 @@ Verified by running: smoke 120/120 (4 new); previewer 14/14; lab_ui passed; lab_
 - Checked against raw files: FLEX droplet diameter 1.1-4.67 mm, 163 values, 12 empty; FLEX pressure 0-2319.9 mmHg with one
   printed 0 (FLEX-114, noted on the card); approximate burn times ("~6", "~9") keep burn time as examples, not a range.
 Verified by running: smoke 127/127 (7 new); previewer 14/14; lab_ui passed; lab_function 18/18; all pages open; CSP clean.
+
+## 2026-11-13: CSV download (Flame Explorer) and copy citation (investigation pages)
+- Explorer: "Download CSV (N rows)" saves exactly the rows currently shown (after filters/search): id, experiment,
+  investigator, material, flow direction, O2 start, O2 method, calibrated O2 end (BASS-II report rows), NASA test end, flags,
+  check level, source, source link, note. Values as printed; UTF-8 with BOM for Excel. A note warns not to pool O2 methods.
+- Investigation pages: "Copy citation" (NASA PSI, title, accession, version, release date, licence, DOI, access date), with
+  a selectable text box if the browser refuses clipboard access.
+- Both work from file:// and under the netlify.toml CSP (Blob download, no server).
+Verified by running: CSV of all 537 rows equals the data (material and note for every row); FLEX filter gives 274 rows;
+  FLEX-1 = 21 mol%, Disruption (as in NASA's file); smoke 130/130 (3 new); previewer 14/14; lab_ui passed; lab_function 18/18.

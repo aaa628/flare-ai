@@ -357,6 +357,22 @@
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));
   }
 
+  /* Downloads and copying, without any server: a Blob link (works from file:// and under the CSP) and the clipboard,
+   * with a selectable text box as the fallback when the browser refuses clipboard access. */
+  function saveFile(name, text, type) {
+    var url = URL.createObjectURL(new Blob(["\ufeff" + text], { type: type }));
+    var a = h("a", { href: url, download: name, style: "display:none" }); document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 1000);
+  }
+  function csvCell(v) { v = v == null ? "" : String(v); return /[",\n\r]/.test(v) ? "\"" + v.replace(/"/g, "\"\"") + "\"" : v; }
+  function copyText(text, statusEl, box) {
+    function fallback() { box.hidden = false; box.value = text; box.focus(); box.select(); statusEl.textContent = "Select and copy the citation below (Ctrl+C)."; }
+    try {
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { statusEl.textContent = "Copied."; box.hidden = true; }, fallback);
+      else fallback();
+    } catch (err) { fallback(); }
+  }
+
   function viewExplorer() {
     setTitle("Flame Explorer");
     var state = { q: "", exp: "", pi: "", flow: "", o2: "" };
@@ -367,6 +383,19 @@
     var o2opts = [["lt16", "Below 16 vol%"], ["16-18", "16 to 18 vol%"], ["18-20", "18 to 20 vol%"], ["ge20", "20 vol% or more"]];
     var LABELS = { q: "Search", exp: "Experiment", pi: "Investigator", flow: "Flow", o2: "Starting O2" };
     var controls = {};
+    var shownNow = [];
+    var csvBtn = h("button", { type: "button", class: "ghost small csv-btn", onclick: function () {
+      var cols = ["id", "experiment", "investigator", "material", "flow_direction", "o2_start", "o2_method", "o2_end_calibrated", "nasa_test_end",
+        "flags", "check_level", "source", "source_link", "note"];
+      var lines = [cols.join(",")].concat(shownNow.map(function (r) {
+        var m = methodOf(r.experiment), L = LEVEL[r.level] || LEVEL.none;
+        var src = fromReport(r) ? "NASA/TM-20210011385, Appendix A, report page " + r.source_page : "NASA PSI " + (r.source_id || "") + ": " + (r.source_file || "").split(",")[0] + ", row " + (r.source_row || "");
+        var href = r.source_href ? (/^https?:/.test(r.source_href) ? r.source_href : "https://psi.nasa.gov/physci/repo/data/investigations/" + (r.source_id || "")) : "";
+        return [r.id, r.experiment, r.pi || "", r.material_raw || "", r.flow_mode || "", o2Start(r), m.tag + " = " + m.o2, fromReport(r) ? (r.o2_cal_final || "") : "",
+          r.outcome_raw || "", flagsOf(r).join(";"), L.label, src, href, r.observation || ""].map(csvCell).join(",");
+      }));
+      saveFile("flare-ai-records-" + shownNow.length + ".csv", lines.join("\r\n") + "\r\n", "text/csv;charset=utf-8");
+    } }, "Download CSV");
 
     function uniq(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }).sort(); }
     function sel(id, label, opts, key) {
@@ -402,6 +431,7 @@
         return true;
       });
       count.textContent = "Showing " + list.length + " of " + ROWS.length + " test records" + (PREVIEW ? " (preview includes unchecked rows)" : "");
+      shownNow = list; csvBtn.textContent = "Download CSV (" + list.length + " rows)"; csvBtn.disabled = !list.length;
       active.textContent = "";
       var on = Object.keys(state).filter(function (k) { return state[k]; });
       on.forEach(function (k) {
@@ -444,7 +474,8 @@
         h("div", null, h("h1", null, "Flame Explorer"),
           h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS, BASS-II and FLEX on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
         evidenceLegend(true)),
-      h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
+      h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active, csvBtn)),
+      h("p", { class: "note small" }, "The CSV holds the rows shown, values exactly as NASA printed them, each with its oxygen method, check level and source. Oxygen methods differ between experiments: never pool them."),
       h("p", { class: "hint" }, "Select a row (or focus it and press Enter) to open the full record: readings, log note and source."),
       h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
         h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
@@ -1477,7 +1508,14 @@
             h("div", { class: "rh-actions" },
               h("a", { class: "btn", href: v.landing_page, target: "_blank", rel: "noopener" }, "Open NASA’s PSI page ↗"),
               h("a", { class: "textlink", href: "https://doi.org/" + v.doi, target: "_blank", rel: "noopener" }, "DOI"),
-              ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null)))),
+              ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null),
+            (function () {
+              var cite = "NASA Physical Sciences Informatics (PSI). " + v.title + " (" + v.accession + (v.investigationAcronym ? ", " + v.investigationAcronym : "") +
+                "), version " + v.version + ", released " + v.releaseDate + ". " + v.licenseIdentifier + ". https://doi.org/" + v.doi + ". Accessed " + v.retrieved + ".";
+              var status = h("span", { class: "note small", "aria-live": "polite" }), box = h("textarea", { class: "cite-box", rows: 3, readonly: true, hidden: true, "aria-label": "Citation text" });
+              return h("div", { class: "cite" }, h("p", { class: "note small cite-text" }, cite),
+                h("button", { type: "button", class: "ghost small", onclick: function () { copyText(cite, status, box); } }, "Copy citation"), " ", status, box);
+            })()))),
       h("section", { class: "card meaning", style: "margin-top:14px" },
         h("div", { class: "prov-head" }, h("h3", null, "What this means"), h("span", null, etypeChip(v), " ", h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label))),
         h("div", { class: "cols2" },

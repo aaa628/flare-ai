@@ -31,7 +31,7 @@ async def main():
                 await route.fulfill(status=200, content_type=mimetypes.guess_type(str(f))[0] or "text/plain", body=f.read_bytes())
             await ctx.route("https://raw.githubusercontent.com/**", serve)
             return await ctx.new_page()
-        pg = await newpage(viewport={"width":1280,"height":900})
+        pg = await newpage(viewport={"width":1280,"height":900}, accept_downloads=True)
         pg.on("console", lambda m: errs.append(("console", m.text)) if m.type in ("error","warning") else None)
         pg.on("pageerror", lambda e: errs.append(("pageerror", str(e))))
 
@@ -270,6 +270,18 @@ async def main():
         check("profile: shown for the 19 investigations whose NASA table lists tests", n == 19, str(n))
         await pg.goto(SITE + "#/investigation/PSI-142"); await pg.wait_for_selector("main h1")
         check("profile: not shown for PSI-142 (its table lists data files, not tests)", await pg.locator(".profile").count() == 0)
+        await pg.goto(SITE + "#/explorer"); await pg.wait_for_selector("tbody tr.row")
+        await pg.select_option("#fexp", "FLEX")
+        async with pg.expect_download() as dl:
+            await pg.click(".csv-btn")
+        import csv as _csv, io as _io
+        d = await dl.value
+        rows = list(_csv.DictReader(_io.StringIO(open(await d.path(), encoding="utf-8-sig").read())))
+        check("explorer CSV: downloads exactly the filtered rows (FLEX 274) with method, check level and source",
+              len(rows) == 274 and all(r["experiment"] == "FLEX" and r["o2_method"].startswith("mol%") and r["check_level"] == "Machine-checked" and "PSI-69" in r["source"] for r in rows))
+        check("explorer CSV: FLEX-1 values equal NASA's table (21 mol% O2, Disruption)", any(r["id"] == "FLEX-1" and r["o2_start"] == "21" and r["nasa_test_end"] == "Disruption" for r in rows))
+        await pg.goto(SITE + "#/investigation/PSI-69"); await pg.wait_for_selector(".cite")
+        check("investigation: citation names PSI, version, release date and DOI", "version 5, released 31-Jul-2016" in await pg.inner_text(".cite-text") and "https://doi.org/10.60555/mbq8-0451" in await pg.inner_text(".cite-text"))
         await pg.goto(SITE + "#/lessons"); await pg.wait_for_selector(".lesson")
         t = await pg.inner_text("main")
         check("lessons: all 9 challenge background resources shown", await pg.locator(".lesson").count() == 9)
