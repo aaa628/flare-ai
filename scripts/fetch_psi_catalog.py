@@ -1,4 +1,6 @@
-"""Download NASA PSI metadata and experiment tables for every Combustion Science investigation.
+"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+working to the 628 Aerospace team's instructions.
+Download NASA PSI metadata and experiment tables for every Combustion Science investigation.
 
 Writes (both committed, CC0 NASA data, so the site builds offline):
   data/source/psi/catalog/<PSI-NN>.json   the PSI fields Flare AI uses, copied verbatim, plus retrieval date

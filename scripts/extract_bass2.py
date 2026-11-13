@@ -1,4 +1,6 @@
-"""Draft extractor for NASA/TM-2021-011385 (BASS-II Summary Report), Appendix A.
+"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+working to the 628 Aerospace team's instructions.
+Draft extractor for NASA/TM-2021-011385 (BASS-II Summary Report), Appendix A.
 
 Reads the plain-text version of the PDF and writes DRAFT rows. Nothing here is
 verified: every row needs a human to check it against the PDF page named in

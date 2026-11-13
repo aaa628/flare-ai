@@ -173,3 +173,18 @@ They hold no test records. `resources_curated.json` gives each one 1-4 exact quo
 `source/resources/*.txt` is the page text saved on 2026-11-13 (`source/challenge_resources_2026-11-13.txt` for the
 video, which could not be opened from the build machine). `build_site_data.py` checks every quote word for word against the
 saved text on every build; a resource with an unmatched quote is marked and left out of the Lab corpus. Shown on the Lessons page.
+
+## Super Intelligence (SI) use
+
+Space Apps 2026 requires teams to say where Super Intelligence (SI) tools were used. Flare AI used Claude (Anthropic):
+
+- **Code:** the website, data scripts, tests and the Lab function were written with Claude as a coding assistant, working to the
+  628 Aerospace team's instructions. Every code file says so in its header; `site/index.html` carries an `si-disclosure` meta tag.
+- **Data:** no data value is produced by SI. The CSVs in `data/` and `site/data/data.js` are produced by those scripts,
+  copying NASA's files and re-checking them on every build. The 22 row-by-row reviews in `data/ai_review_bass2.csv` were done by Claude.
+- **Text:** summaries and "Our interpretation" lines were drafted with Claude and are labelled on the site; NASA's own words
+  are shown as quotes checked word for word.
+- **Images:** the Earth/orbit flame drawing was made with SI and carries a visible "made with SI" mark. The NASA video was
+  trimmed and cleaned up with tools set up with SI; nothing SI-generated was added to it.
+- **Lab:** answers are written by Claude at run time from cited NASA documents, labelled as SI answers.
+- **Human verification:** 0 of 537 records are human-verified so far.

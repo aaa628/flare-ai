@@ -1,3 +1,5 @@
+// SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+// working to the 628 Aerospace team's instructions.
 // Intelligence Lab core: retrieval, prompt, answer validation, abuse limits.
 // Pure logic with injected dependencies (Claude client, key-value store, clock) so it can be tested without a key.
 import corpus from "./corpus.mjs";

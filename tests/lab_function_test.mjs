@@ -1,3 +1,5 @@
+// SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+// working to the 628 Aerospace team's instructions.
 // Tests the Intelligence Lab function logic with a FAKE Claude client and in-memory store (no API key, no cost).
 // Run: node tests/lab_function_test.mjs
 import { handle, retrieve, validate, LIMITS } from "../netlify/functions/ask/core.mjs";

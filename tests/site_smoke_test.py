@@ -1,4 +1,6 @@
-"""Browser smoke test for the static site (needs: pip install playwright; playwright install chromium).
+"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+working to the 628 Aerospace team's instructions.
+Browser smoke test for the static site (needs: pip install playwright; playwright install chromium).
 Run: python tests/site_smoke_test.py   (rebuild data first: python scripts/build_site_data.py)
 Checks adapt to the counts in site/data/data.js (human / machine / unchecked)."""
 import asyncio, sys
@@ -282,6 +284,14 @@ async def main():
         check("explorer CSV: FLEX-1 values equal NASA's table (21 mol% O2, Disruption)", any(r["id"] == "FLEX-1" and r["o2_start"] == "21" and r["nasa_test_end"] == "Disruption" for r in rows))
         await pg.goto(SITE + "#/investigation/PSI-69"); await pg.wait_for_selector(".cite")
         check("investigation: citation names PSI, version, release date and DOI", "version 5, released 31-Jul-2016" in await pg.inner_text(".cite-text") and "https://doi.org/10.60555/mbq8-0451" in await pg.inner_text(".cite-text"))
+        await pg.goto(SITE + "#/about"); await pg.wait_for_selector("#si")
+        t = await pg.inner_text("main")
+        check("about: Super Intelligence (SI) section covers code, data, checks, text, images and the Lab",
+              all(k in t for k in ("Super Intelligence (SI) use", "Code.", "No data value was produced by SI", "Human-verified records: 0 of 537", "made with SI", "Intelligence Lab.")))
+        check("about: no claim that the team verified the data", "The team reviews and verifies the data" not in t)
+        check("index.html carries an SI disclosure meta tag", 'name="si-disclosure"' in idx)
+        await pg.goto(SITE + "#/"); await pg.wait_for_selector(".flames")
+        check("SI-made drawing carries a visible watermark", "Illustration made with SI" in (await pg.inner_html(".flames")))
         await pg.goto(SITE + "#/lessons"); await pg.wait_for_selector(".lesson")
         t = await pg.inner_text("main")
         check("lessons: all 9 challenge background resources shown", await pg.locator(".lesson").count() == 9)

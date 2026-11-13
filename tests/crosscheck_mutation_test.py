@@ -1,4 +1,6 @@
-"""Proves scripts/crosscheck_bass2.py can actually catch errors: corrupt a passing row in memory
+"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+working to the 628 Aerospace team's instructions.
+Proves scripts/crosscheck_bass2.py can actually catch errors: corrupt a passing row in memory
 in different ways and require that every corruption is rejected. Run: python tests/crosscheck_mutation_test.py"""
 import csv, importlib.util, pathlib, sys
 

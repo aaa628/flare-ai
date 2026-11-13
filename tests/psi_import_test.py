@@ -1,4 +1,6 @@
-"""Proves the PSI records are checked against NASA's files: unmodified rows are machine-checked, and a row with any
+"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+working to the 628 Aerospace team's instructions.
+Proves the PSI records are checked against NASA's files: unmodified rows are machine-checked, and a row with any
 data value changed drops to unchecked. Run: python tests/psi_import_test.py   (needs openpyxl)"""
 import importlib.util, pathlib, sys, warnings
 warnings.filterwarnings("ignore")

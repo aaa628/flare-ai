@@ -1,4 +1,6 @@
-"""Regression test: in-app navigation must survive hosted HTML previewers.
+"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+working to the 628 Aerospace team's instructions.
+Regression test: in-app navigation must survive hosted HTML previewers.
 
 Previewers (htmlpreview, githack-style viewers, some IDE panes) serve index.html from one
 origin and inject <base href="https://raw...../site/">. A plain href="#/explorer" then resolves

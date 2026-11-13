@@ -1,4 +1,6 @@
-"""Compare every row of data/bass2_draft.csv with NASA's own PDF (NASA/TM-20210011385).
+"""SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, as a coding assistant
+working to the 628 Aerospace team's instructions.
+Compare every row of data/bass2_draft.csv with NASA's own PDF (NASA/TM-20210011385).
 
 WHAT THIS IS: an automated comparison with the text layer of the official PDF, read with
 pdftotext (poppler). This is a different extraction from data/source/TM-20210011385.txt, which the

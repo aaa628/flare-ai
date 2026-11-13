@@ -1,3 +1,5 @@
+/* SI disclosure (NASA Space Apps rules): written with Super Intelligence (SI), Claude by Anthropic, working to the
+ * 628 Aerospace team's instructions. */
 /* Flare AI visual system (black, burgundy and white).
  * Idea: in orbit a flame is a dim blue sphere, not a yellow teardrop. The palette is the night side of
  * the station (deep navy, not black) lit by that blue flame; amber is kept for "our interpretation" and
@@ -754,3 +756,5 @@ body::after {
 .cite { margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,.06); }
 .cite-text { margin:0 0 8px; color:var(--muted); }
 .cite-box { width:100%; margin-top:8px; font-size:13px; }
+
+.flames .si-mark { fill:var(--dim); font:500 11px var(--sans); }
