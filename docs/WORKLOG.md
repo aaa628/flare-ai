@@ -377,3 +377,8 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served p
 - Status colours: measured dusty blue, published lilac, our interpretation rose, caution mustard, problem coral, OK sage-green.
 - Glow effects from the previous version removed.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; CSP-served pages without errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: palette tried: black, burgundy (#6D001A) and white (user reference)
+- Buttons/brand use exact burgundy with white text; links use a brighter crimson (#e2375a) for contrast on black; burgundy band
+  under the header. Highlighted Compare tile mini-bars made white so they show on burgundy.
+- Saved as its own commit so it can be restored; superseded by the next palette before its test run finished.
