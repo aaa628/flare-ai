@@ -48,8 +48,6 @@ so they are **never pooled into one chart or comparison**. Details: [`data/READM
 
 ## Screens
 
-Navigation: **Explore** (Records and Compare tabs), **Scenario Check**, **Investigations**, **Ask the Lab** (the Intelligence Lab), and **About**. Each page shows its tool first; how-to-read notes, methods and rules sit in labelled sections that open on request. Evidence labels, refusals and "insufficient data" verdicts always stay visible.
-
 | Screen | Status | What it does |
 |---|---|---|
 | Overview | built | What the site can answer, one primary action; dataset status that separates **human sign-off (0 of 263)** from each automated check with exact counts; the three experiment families and how each was measured; two question-led charts with "how to read" and "included / left out" notes |
