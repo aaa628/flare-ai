@@ -422,3 +422,12 @@ Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; video plays 
 - Phones: video sits behind the text at 60% with top/bottom fades. Reduced motion: still frame, no download.
 Verified by running: smoke 103/103; previewer 14/14; lab_ui passed; video plays under the netlify.toml CSP and from file://,
   paused with reduced motion, absent on other pages; no console errors; no horizontal scroll at 390 px.
+
+## 2026-11-13: sharper home page video (user: "too blurry")
+- NASA SVS 11640 offers no higher resolution than its 1280x720 "superhigh" stream (an upscale of the same small ISS
+  camera image). Rebuilt the loop from that stream (2.4 Mb/s vs 1.3 Mb/s before) at much higher encode quality, with
+  light noise reduction (removes most coloured speckle), edge sharpening and lanczos scaling to 1440x840 so screens
+  stretch it less. WebM 2.9 MB, MP4 3.4 MB, poster 28 KB.
+- No AI upscaling on purpose: it would invent detail in NASA footage, which breaks the site's no-invented-data rule.
+Verified by running: smoke 103/103; previewer 14/14; video plays under the netlify.toml CSP and from file://, paused with
+  reduced motion; no console errors.
