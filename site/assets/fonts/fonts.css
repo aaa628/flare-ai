@@ -1,6 +1,0 @@
-/* Dealt type pairing (taste-skill "funnel"): Funnel Display / Funnel Sans + DM Mono.
- * Self-hosted latin subsets (SIL Open Font License), so the site works offline and under a strict CSP. */
-@font-face { font-family: "Funnel Display"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(funnel-display.woff2) format("woff2"); }
-@font-face { font-family: "Funnel Sans"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(funnel-sans.woff2) format("woff2"); }
-@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url(dm-mono-400.woff2) format("woff2"); }
-@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url(dm-mono-500.woff2) format("woff2"); }

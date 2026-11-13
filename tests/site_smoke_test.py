@@ -5,7 +5,7 @@ import asyncio, sys
 from playwright.async_api import async_playwright
 import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = (ROOT / "site" / "app.html").as_uri()
+SITE = (ROOT / "site" / "index.html").as_uri()
 SH = str(ROOT / "tests" / "_shots") + "/"
 (ROOT / "tests" / "_shots").mkdir(exist_ok=True)
 errs = []; results = []
@@ -37,8 +37,8 @@ async def main():
 
         # 1. default mode: human-verified + machine-checked rows shown, unchecked hidden
         await pg.goto(SITE); await pg.wait_for_selector("h1")
-        idx = (ROOT / "site" / "app.html").read_text(encoding="utf-8")
-        check("app.html loads assets with relative links (offline + any static host)",
+        idx = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        check("index.html loads assets with relative links (offline + any static host)",
               'href="css/style.css"' in idx and 'src="js/app.js"' in idx and "raw.githubusercontent" not in idx)
         C = await pg.evaluate("window.FLARE_DATA.counts")
         RECS = await pg.evaluate("window.FLARE_DATA.records.map(r => [r.id, r.level])")
@@ -259,41 +259,6 @@ async def main():
         check("mobile: no horizontal page scroll (scenario)", sw <= 391, str(sw))
         check("mobile: scenario results table becomes labelled cards, every field fully visible", await m.evaluate("""(() => { const cells=[...document.querySelectorAll('table.scen-t tbody tr:first-child > *')];
           return cells.length>=5 && cells.every(c => c.getAttribute('data-label') && (c.tagName==='TH' || getComputedStyle(c).display==='flex') && c.getBoundingClientRect().right <= window.innerWidth+1); })()"""))
-        # 5. landing page (index.html): static home page built with the taste-skill kit. Its numbers are written in the
-        #    HTML, so they are compared with the data and with what the app computes (no invented or stale numbers).
-        LAND = (ROOT / "site" / "index.html").as_uri()
-        lp = await newpage(viewport={"width":1280,"height":900})
-        await lp.goto(LAND); await lp.wait_for_selector("h1")
-        ln = await lp.evaluate("Object.fromEntries([...document.querySelectorAll('[data-n]')].map(e => [e.getAttribute('data-n'), e.textContent.trim()]))")
-        allsame = await lp.evaluate("(() => { const m={}; for (const e of document.querySelectorAll('[data-n]')) { const k=e.getAttribute('data-n'); (m[k]=m[k]||new Set()).add(e.textContent.trim()); } return Object.values(m).every(s => s.size===1); })()")
-        ex = C["experiments"]
-        want = {"records": C["records"], "verified": C["verified"], "pdf-match": C["pdf_match"], "psi-agree": C["psi_agree"], "investigations": C["investigations"],
-                "bass2": ex["BASS-II"], "bass1": ex["BASS-I"], "flex": ex["FLEX"], "saffire": ex["SAFFIRE-I"]+ex["SAFFIRE-II"]+ex["SAFFIRE-III"]}
-        check("landing: every dataset number equals the data file", allsame and all(ln.get(k) == str(v) for k, v in want.items()), str({k: ln.get(k) for k in want}))
-        await pg.goto(SITE+"#/scenario/family=solid&o2=21&psi=14.7"); await pg.wait_for_selector(".verdict")
-        cats = await pg.evaluate("[...document.querySelectorAll('.cat-counts li b')].map(b=>+b.textContent)")
-        env = await pg.text_content(".verdict")
-        await pg.goto(SITE+"#/scenario/family=liquid&o2=34&psi=10.4&fuel=&diluent="); await pg.wait_for_selector(".verdict")
-        flex_in = await pg.evaluate("+document.querySelector('.cat-counts .c-in b').textContent")
-        await pg.goto(SITE+"#/scenario/family=solid&o2=30&psi=10.2"); await pg.wait_for_selector(".verdict")
-        moon = await pg.text_content(".verdict")
-        check("landing: Scenario Check numbers in the hero equal what the app computes",
-              ln.get("iss-inside") == str(cats[0]) and ln.get("solid-pool") == str(sum(cats)) and ln.get("flex-inside") == str(flex_in)
-              and ("\u2013" + ln.get("solid-o2max", "x") + "%") in env and "Insufficient data" in moon, str([ln.get("iss-inside"), cats, ln.get("flex-inside"), flex_in]))
-        t = await lp.text_content("body")
-        check("landing: names the product, the main action and the NASA non-endorsement", "Fire test data for space missions" in t and "NASA does not endorse this project" in t
-              and await lp.locator('a.btn--primary[href="app.html#/scenario"]').count() == 3)
-        check("landing: no fire-probability or safety claim; says machine-checked, not verified", "gives no fire probabilities" in t and "none is signed by a person" in t)
-        check("landing: no horizontal scroll at 1280", await lp.evaluate("document.documentElement.scrollWidth") <= 1281)
-        await lp.click('.hero a.btn--secondary'); await lp.wait_for_selector("table.records")
-        check("landing: 'See the test records' opens the app's Explorer", lp.url.endswith("app.html#/explorer"), lp.url)
-        await lp.click("#nav a[data-home]"); await lp.wait_for_selector(".hero--centred")
-        check("app: 'Home' returns to the landing page", lp.url.split("#")[0].endswith("index.html"), lp.url)
-        await lp.goto(LAND + "#/experiment/BASSII-P1"); await lp.wait_for_selector(".record-head")
-        check("old deep links (index.html#/...) still open the app page", lp.url.endswith("app.html#/experiment/BASSII-P1"), lp.url)
-        lm = await newpage(viewport={"width":390,"height":844})
-        await lm.goto(LAND); await lm.wait_for_selector("h1")
-        check("landing mobile: no horizontal scroll at 390", await lm.evaluate("document.documentElement.scrollWidth") <= 391)
         await b.close()
 asyncio.run(main())
 print("\nconsole/page errors:", errs if errs else "none")
