@@ -78,12 +78,6 @@
   function flagsOf(r) {
     return (r.qc_flag || "").split(";").filter(Boolean);
   }
-  /* Lowercased search text per record, built once (Explorer search). */
-  var SEARCH = {};
-  function searchText(r) {
-    return SEARCH[r.id] || (SEARCH[r.id] = (r.id + " " + r.experiment + " " + r.material_raw + " " + (r.observation || "") + " " + (r.pi || "") + " " +
-      (r.fields || []).map(function (f) { return f[1]; }).join(" ")).toLowerCase());
-  }
   function setTitle(t) { document.title = (t ? t + " · " : "") + "Flare AI"; }
 
   /* ---------- preview banner ---------- */
@@ -100,12 +94,12 @@
   }
   /* Footer switch so the team can reach preview mode without editing the URL. */
   function drawFooterToggle() {
-    var foot = document.querySelector(".foot-inner > div:last-child") || document.querySelector(".foot");
+    var foot = document.querySelector(".foot");
     if (!foot) return;
     var t = document.getElementById("preview-toggle");
     if (!t) {
       t = h("a", { id: "preview-toggle", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(!PREVIEW); } });
-      foot.appendChild(h("p", null, t));
+      foot.appendChild(h("p", { style: "margin-top:8px" }, t));
     }
     t.textContent = PREVIEW ? "Hide unchecked rows" : "Team preview: show unchecked rows";
   }
@@ -188,7 +182,8 @@
         h("p", { class: "so-n" }, h("b", null, String(human)), " of " + ALL.length),
         h("p", { class: "so-t" }, h("b", null, "Human sign-off. "), human ? "records were compared with NASA\u2019s source and signed by a team member."
           : "No person has signed any record yet. Everything below is automated evidence, not a sign-off.")),
-      more("Automated checks: evidence, not a sign-off", h("ul", { class: "checks" },
+      h("h3", { class: "mini-h" }, "Automated checks (evidence, not a sign-off)"),
+      h("ul", { class: "checks" },
         h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
           h("span", null, h("b", null, D.counts.pdf_match + " of " + rep.length), " BASS-II report records match NASA\u2019s PDF value for value: all 8 gas readings, the material and the full log note.")),
         h("li", { class: "ck " + (differ.length ? "warn" : "ok") }, h("span", { class: "ck-i", "aria-hidden": "true" }, differ.length ? "!" : "\u2713"),
@@ -197,56 +192,48 @@
         h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
           h("span", null, h("b", null, String(reviewed)), " flagged report rows passed only after a written row-by-row review; their flags stay visible.")),
         h("li", { class: "ck ok" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "\u2713"),
-          h("span", null, h("b", null, String(files.length)), " BASS-I, FLEX, SAFFIRE and extra BASS-II records were copied from NASA\u2019s data files and are re-read from them on every build.")))));
+          h("span", null, h("b", null, String(files.length)), " BASS-I, FLEX, SAFFIRE and extra BASS-II records were copied from NASA\u2019s data files and are re-read from them on every build."))));
   }
   function chartCard(question, unit, howTo, chart, extra) {
     return h("figure", { class: "card qcard" },
       h("figcaption", null, h("h3", null, question), h("span", { class: "unit-pill" }, unit)),
-      chart,
-      more("How to read · what\u2019s left out", h("p", { class: "howto" }, h("b", null, "How to read: "), howTo), extra || null));
+      h("p", { class: "howto" }, h("b", null, "How to read: "), howTo),
+      chart, extra || null);
   }
 
   /* ---------- views ---------- */
-  /* Supporting explanation, closed by default: the page shows the tool first, the method on request. */
-  function more(label) {
-    var d = h("details", { class: "more" }, h("summary", null, label));
-    for (var i = 1; i < arguments.length; i++) append(d, arguments[i]);
-    return d;
-  }
-  function section(label, note) {
-    var d = h("details", { class: "section" }, h("summary", null, label, note ? h("span", { class: "note" }, note) : null));
-    for (var i = 2; i < arguments.length; i++) append(d, arguments[i]);
-    return d;
-  }
   function viewOverview() {
     setTitle("Overview");
     var nAll = D.counts.records || 0, exps = D.counts.experiments || {};
-    function ask(href, q, where) {
-      return h("li", null, h("a", { href: href }, h("b", null, q), h("span", null, where), h("span", { class: "go-arrow", "aria-hidden": "true" }, "\u2192")));
-    }
     var hero = h("section", { class: "hero", "aria-labelledby": "hero-h" },
       h("div", { class: "hero-main" },
-        h("p", { class: "eyebrow" }, nAll + " NASA microgravity fire test records · " + (D.counts.sources || 0) + " NASA sources"),
-        h("h1", { id: "hero-h" }, "What NASA\u2019s fire experiments prove, ", h("span", { class: "hl" }, "and where the data stops.")),
-        h("p", { class: "lead" }, "Flames behave differently without gravity. Flare AI gathers NASA\u2019s test records, shows how each number was checked, and says so when the data runs out."),
-        h("div", { class: "hero-cta" },
-          h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer \u2192"),
-          h("a", { class: "textlink", href: "#/about" }, "How we handle evidence")),
+        h("p", { class: "eyebrow" }, "NASA microgravity fire experiments · " + nAll + " test records · " + (D.counts.sources || 0) + " NASA sources"),
+        h("h1", { id: "hero-h" }, "What NASA’s fire experiments prove, ", h("span", { class: "hl" }, "and where the data stops.")),
+        h("p", { class: "lead" }, "Without gravity, hot gas does not rise, so flames behave differently than on Earth. " +
+          "Flare AI gathers NASA’s scattered test records, shows how each number was checked, and says so when the data runs out."),
         h("h2", { class: "mini-h" }, "What this site can answer"),
         h("ul", { class: "answers" },
-          ask("#/scenario", "Has NASA tested conditions like mine?", "Scenario Check · the closest real tests, or an honest \u201cinsufficient data\u201d"),
-          ask("#/investigations", "Which NASA investigations matter for a spacecraft or Moon base?", "Investigations · all " + INV.length + " PSI combustion studies, ranked by a visible rule"),
-          ask("#/lab", "Can I just ask a question?", "Ask the Lab · plain-English answers from cited NASA records, or none"),
-          ask("#/explorer", "What happened in a specific NASA fire test?", "Explore · readings, the crew\u2019s log note and the exact source"),
-          ask("#/compare", "How do tests compare, like for like?", "Compare · side by side within one experiment, refused when it would mislead"))),
+          h("li", null, h("b", null, "Which NASA investigations matter for a spacecraft or a Moon base?"), h("span", null, "All " + INV.length + " PSI combustion investigations, ranked with a visible rule. ", h("a", { href: "#/investigations" }, "Investigations"))),
+          h("li", null, h("b", null, "Has NASA tested conditions like mine?"), h("span", null, "Enter oxygen, pressure and fuel type to see the closest real tests, or an honest \u201cinsufficient data\u201d. ", h("a", { href: "#/scenario" }, "Scenario Check"))),
+          h("li", null, h("b", null, "Can I just ask a question?"), h("span", null, "The Intelligence Lab answers in plain English from cited NASA records, and abstains when they don\u2019t support an answer. ", h("a", { href: "#/lab" }, "Intelligence Lab"))),
+          h("li", null, h("b", null, "What happened in a specific NASA fire test?"), h("span", null, "Readings, the crew’s log note and the exact source page or file row.")),
+          h("li", null, h("b", null, "How do tests compare, like for like?"), h("span", null, "Side by side within one experiment, with refusals when a comparison would mislead. ", h("a", { href: "#/compare" }, "Compare"))),
+          h("li", null, h("b", null, "Which conditions did NASA actually test?"), h("span", null, "Charts below show where the evidence is, and where it is missing.")),
+          h("li", null, h("b", null, "How far can each number be trusted?"), h("span", null, "Every record carries its check level, shown on the right."))),
+        h("div", { class: "hero-cta" },
+          h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer →"),
+          h("a", { class: "textlink", href: "#/about" }, "How we handle evidence"))),
       h("aside", { class: "hero-side", "aria-label": "Dataset status" },
-        h("h2", null, "Dataset status"),
+        h("h2", { class: "mini-h" }, "Dataset status"),
         checkBreakdown(),
+        h("h3", { class: "mini-h" }, "Check level of every record"),
         evidenceLegend(true)));
 
     var srcRows = [["BASS-II", exps["BASS-II"] || 0], ["BASS-I", exps["BASS-I"] || 0], ["FLEX", exps["FLEX"] || 0],
       ["SAFFIRE", (exps["SAFFIRE-I"] || 0) + (exps["SAFFIRE-II"] || 0) + (exps["SAFFIRE-III"] || 0)]];
-    var sources = section("Four experiment families, kept separate", "each measured oxygen differently, so they are never pooled",
+    var sources = h("section", { "aria-labelledby": "src-h" },
+      h("h2", { id: "src-h" }, "Four experiment families, kept separate"),
+      h("p", { class: "muted section-lead" }, "Each family measured things differently, so Flare AI never pools them into one chart or comparison."),
       h("div", { class: "tablewrap" }, h("table", { class: "methods" },
         h("thead", null, h("tr", null, ["Experiment", "Records", "Source", "Oxygen recorded as", "Other values", "How it was checked"].map(function (t) { return h("th", { scope: "col" }, t); }))),
         h("tbody", null, srcRows.map(function (x) {
@@ -296,28 +283,24 @@
               flex.filter(function (r) { return /Heptane/.test(r.material_raw); }).length + " heptane droplets), labels exactly as recorded.",
               "nothing; but tests ran at different pressures and gas mixes, so these counts are not a rate for any one condition.")) : null));
     } else {
-      charts = h("div", { class: "empty" }, h("h3", null, "No checked records yet"),
+      charts = h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No checked records yet"),
         h("p", { class: "muted" }, "Records appear here once they pass a check."),
         h("a", { class: "btn ghost", href: "#/", onclick: function (e) { e.preventDefault(); setPreview(true); } }, "Open team preview"));
     }
 
-    return h("div", null, hero, charts,
+    return h("div", null, hero, sources, charts,
       h("h2", null, "How every fact is labelled"),
       h("div", { class: "legend" },
         legend("measured", "Measured", "A value or note recorded during a NASA test."),
         legend("published", "Published conclusion", "A conclusion the NASA authors state in a report."),
-        legend("interp", "Our interpretation", "Our own reading of the evidence. Always labelled, with the supporting quote.")),
-      sources);
+        legend("interp", "Our interpretation", "Our own reading of the evidence. Always labelled, with the supporting quote.")));
   }
   function legend(kind, title, text) {
     return h("div", { class: "card" }, chip(kind, title), h("p", null, text));
   }
 
-  /* The Explorer is built once per mode and reused, so returning to it is instant and keeps the filters. */
-  var EXPLORER = null;
   function viewExplorer() {
     setTitle("Flame Explorer");
-    if (EXPLORER && EXPLORER.preview === PREVIEW) return EXPLORER.el;
     var state = { q: "", exp: "", pi: "", flow: "", o2: "" };
     var exps = EXP_ORDER.filter(function (e) { return ROWS.some(function (r) { return r.experiment === e; }); });
     var pis = uniq(ROWS.map(function (r) { return r.pi; }).filter(Boolean));
@@ -334,9 +317,8 @@
       controls[key] = s;
       return h("div", { class: "field" }, h("label", { for: id }, label), s);
     }
-    var qTimer = null;
-    var search = h("input", { type: "search", id: "q", placeholder: "Material, note text, test ID\u2026",
-      oninput: function (e) { var v = e.target.value.toLowerCase(); clearTimeout(qTimer); qTimer = setTimeout(function () { state.q = v; draw(); }, 120); } });
+    var search = h("input", { type: "search", id: "q", placeholder: "Material, note text, test ID...",
+      oninput: function (e) { state.q = e.target.value.toLowerCase(); draw(); } });
     controls.q = search;
     function o2match(r) {
       if (!state.o2) return true;
@@ -344,60 +326,23 @@
       if (isNaN(v)) return false;
       return state.o2 === "lt16" ? v < 16 : state.o2 === "16-18" ? v >= 16 && v < 18 : state.o2 === "18-20" ? v >= 18 && v < 20 : v >= 20;
     }
-    function clear(key) { clearTimeout(qTimer); state[key] = ""; controls[key].value = ""; draw(); }
-    function resetAll() { clearTimeout(qTimer); Object.keys(state).forEach(function (k) { state[k] = ""; controls[k].value = ""; }); draw(); search.focus(); }
+    function clear(key) { state[key] = ""; controls[key].value = ""; draw(); }
+    function resetAll() { Object.keys(state).forEach(function (k) { state[k] = ""; controls[k].value = ""; }); draw(); search.focus(); }
     function valueLabel(key) {
       if (key === "o2") return o2opts.filter(function (o) { return o[0] === state.o2; })[0][1];
       return key === "q" ? "“" + state.q + "”" : state[key];
     }
     function open(r) { location.hash = "#/experiment/" + r.id; }
-    /* Rows are built once; filtering only shows or hides them, so typing and filtering stay instant. */
-    var rowEls = ROWS.map(function (r) {
-      var note = r.observation || (r.fields || []).map(function (f) { return f[0] + ": " + f[1]; }).slice(0, 3).join("; ");
-      var obs = note.length > 140 ? note.slice(0, 137) + "\u2026" : note;
-      var fl = flagsOf(r).map(function (f) { return chip("warn", FLAG_TEXT[f] || f); });
-      var o2 = o2Start(r);
-      var tr = h("tr", { class: "row", tabindex: 0, "aria-label": "Open test " + shortId(r) + ", " + r.material_raw,
-        onclick: function () { open(r); }, onkeydown: function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(r); } } },
-        h("td", { class: "id", "data-label": "Test" }, h("a", { href: "#/experiment/" + r.id, tabindex: -1 }, shortId(r)), levelChip(r)),
-        h("td", { class: "c-exp", "data-label": "Experiment" }, r.experiment + (r.pi ? " · " + r.pi : "")),
-        h("td", { class: "c-mat", "data-label": "Material" }, r.material_raw),
-        h("td", { class: "c-flow", "data-label": "Flow" }, r.flow_mode || "—"),
-        h("td", { class: "num c-o2", "data-label": "O2 start" }, o2 ? [o2, h("span", { class: "mtag", title: methodOf(r.experiment).o2 }, methodOf(r.experiment).tag,
-          h("span", { class: "sr" }, ": " + methodOf(r.experiment).o2))] : "—"),
-        h("td", { class: "num c-o2e", "data-label": "O2 end" }, (fromReport(r) && r.o2_cal_final) || "—"),
-        h("td", { class: "obs", "data-label": "Note" }, obs, fl.length ? h("div", { class: "flags" }, fl) : null),
-        h("td", { class: "go", "aria-hidden": "true" }, "›"));
-      tbody.appendChild(tr);
-      return { r: r, tr: tr };
-    });
-    var noneRow = h("tr", { hidden: true }, h("td", { colspan: 8, class: "muted" },
-      ROWS.length ? h("span", null, "No records match these filters. ", h("button", { type: "button", class: "ghost small", onclick: resetAll }, "Reset all")) : "No checked records yet."));
-    tbody.appendChild(noneRow);
-    /* 50 matching rows at a time, so the page never becomes endless; "Show more" / "Show all" reveal the rest. */
-    var PAGE = window.innerWidth <= 720 ? 25 : 50, limit = PAGE, moreBox = h("div", { class: "more-row" });
-    /* Reveal more rows, then put keyboard focus on the first newly shown row (the clicked button is rebuilt). */
-    function reveal(newLimit) {
-      clearTimeout(qTimer);
-      var first = limit; limit = newLimit; draw(true);
-      var vis = rowEls.filter(function (x) { return !x.tr.hidden; });
-      if (vis[first]) vis[first].tr.focus();
-    }
-    function draw(keepLimit) {
-      if (!keepLimit) limit = PAGE;
-      var shown = 0;
-      rowEls.forEach(function (x) {
-        var r = x.r, ok = !(state.exp && r.experiment !== state.exp) && !(state.pi && r.pi !== state.pi) &&
-          !(state.flow && r.flow_mode !== state.flow) && o2match(r) && !(state.q && searchText(r).indexOf(state.q) < 0);
-        var vis = ok && shown < limit;
-        if (x.tr.hidden === vis) x.tr.hidden = !vis;
-        if (ok) shown++;
+    function draw() {
+      var list = ROWS.filter(function (r) {
+        if (state.exp && r.experiment !== state.exp) return false;
+        if (state.pi && r.pi !== state.pi) return false;
+        if (state.flow && r.flow_mode !== state.flow) return false;
+        if (!o2match(r)) return false;
+        if (state.q && (r.id + " " + r.experiment + " " + r.material_raw + " " + (r.observation || "") + " " + (r.pi || "") + " " +
+          (r.fields || []).map(function (f) { return f[1]; }).join(" ")).toLowerCase().indexOf(state.q) < 0) return false;
+        return true;
       });
-      var list = { length: shown };
-      moreBox.textContent = "";
-      if (shown > limit) moreBox.appendChild(h("span", { class: "note" }, "Showing " + limit + " of " + shown + " matching records. "));
-      if (shown > limit) moreBox.appendChild(h("button", { type: "button", class: "ghost small", onclick: function () { reveal(limit + PAGE); } }, "Show " + Math.min(PAGE, shown - limit) + " more"));
-      if (shown > limit + PAGE) moreBox.appendChild(h("button", { type: "button", class: "ghost small", onclick: function () { reveal(Infinity); } }, "Show all " + shown));
       count.textContent = "Showing " + list.length + " of " + ROWS.length + " test records" + (PREVIEW ? " (preview includes unchecked rows)" : "");
       active.textContent = "";
       var on = Object.keys(state).filter(function (k) { return state[k]; });
@@ -407,7 +352,26 @@
       });
       if (on.length) active.appendChild(h("button", { type: "button", class: "ghost small", onclick: resetAll }, "Reset all"));
       if (state.o2 && !state.exp) active.appendChild(h("p", { class: "fwarn" }, "! Starting O2 was recorded differently in each experiment (cal. / logged / approx.). Pick one experiment to filter like with like."));
-      noneRow.hidden = shown > 0;
+      tbody.textContent = "";
+      list.forEach(function (r) {
+        var note = r.observation || (r.fields || []).map(function (f) { return f[0] + ": " + f[1]; }).slice(0, 3).join("; ");
+        var obs = note.length > 140 ? note.slice(0, 137) + "..." : note;
+        var fl = flagsOf(r).map(function (f) { return chip("warn", FLAG_TEXT[f] || f); });
+        var o2 = o2Start(r);
+        tbody.appendChild(h("tr", { class: "row", tabindex: 0, "aria-label": "Open test " + shortId(r) + ", " + r.material_raw,
+          onclick: function () { open(r); }, onkeydown: function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(r); } } },
+          h("td", { class: "id", "data-label": "Test" }, h("a", { href: "#/experiment/" + r.id, tabindex: -1 }, shortId(r)), levelChip(r)),
+          h("td", { class: "c-exp", "data-label": "Experiment" }, r.experiment + (r.pi ? " · " + r.pi : "")),
+          h("td", { class: "c-mat", "data-label": "Material" }, r.material_raw),
+          h("td", { class: "c-flow", "data-label": "Flow" }, r.flow_mode || "—"),
+          h("td", { class: "num c-o2", "data-label": "O2 start" }, o2 ? [o2, h("span", { class: "mtag", title: methodOf(r.experiment).o2 }, methodOf(r.experiment).tag,
+            h("span", { class: "sr" }, ": " + methodOf(r.experiment).o2))] : "—"),
+          h("td", { class: "num c-o2e", "data-label": "O2 end" }, (fromReport(r) && r.o2_cal_final) || "—"),
+          h("td", { class: "obs", "data-label": "Note" }, obs, fl.length ? h("div", { class: "flags" }, fl) : null),
+          h("td", { class: "go", "aria-hidden": "true" }, "›")));
+      });
+      if (!list.length) tbody.appendChild(h("tr", null, h("td", { colspan: 8, class: "muted" },
+        ROWS.length ? h("span", null, "No records match these filters. ", h("button", { type: "button", class: "ghost small", onclick: resetAll }, "Reset all")) : "No checked records yet.")));
     }
 
     var filters = h("div", { class: "filters" },
@@ -417,23 +381,19 @@
       sel("fflow", "Flow direction", flows.map(function (p) { return [p, p]; }), "flow"),
       sel("fo2", "Starting O2", o2opts, "o2"));
     draw();
-    var el = h("div", null,
-      exploreTabs("records"),
+    return h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Flame Explorer"),
-          h("p", { class: "lead" }, "One row per NASA fire test in orbit. Open any row for its readings, log note and source.")),
+          h("p", { class: "lead" }, "Every row is one NASA fire test in orbit: BASS, BASS-II and FLEX on the space station, SAFFIRE in uncrewed cargo spacecraft.")),
         evidenceLegend(true)),
       h("div", { class: "filter-panel" }, filters, h("div", { class: "filter-status" }, count, active)),
-      h("p", { class: "hint" }, "Click a row, or focus it and press Enter, to open the full record."),
-      h("div", { class: "tablewrap records-wrap" }, h("table", { class: "records" },
+      h("p", { class: "hint" }, "→ Click any row, or focus it and press Enter, to open the full record with its readings, log note and source."),
+      h("div", { class: "tablewrap scroll" }, h("table", { class: "records" },
         h("caption", { class: "sr" }, "NASA fire test records. O2 start uses each experiment\u2019s own method: cal. = calibrated sensor (BASS-II), logged = station O2 (BASS-I), mol% = mole fraction (FLEX), approx. = approximate (SAFFIRE)."),
         h("thead", null, h("tr", null, ["Test", "Experiment", "Material", "Flow", "O2 start (vol%)", "O2 end", "Note / values", ""].map(function (t, i) {
-          return h("th", { scope: "col", class: ["", "c-exp", "c-mat", "c-flow", "c-o2", "c-o2e", "", "go"][i] }, t || h("span", { class: "sr" }, "Open")); }))),
+          return h("th", { scope: "col", class: ["", "c-exp", "c-mat", "c-flow", "c-o2", "c-o2e", "", "go"][i] }, t); }))),
         tbody)),
-      moreBox,
-      more("What the O2 start tags mean", h("p", null, "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction \u00d7 100 (BASS-I); mol% = ambient O2 mole fraction \u00d7 100 (FLEX); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other.")));
-    EXPLORER = { preview: PREVIEW, el: el };
-    return el;
+      h("p", { class: "note", style: "margin-top:10px" }, "O2 start tags: cal. = calibrated chamber sensor (BASS-II); logged = O2 logged as a fraction \u00d7 100 (BASS-I); mol% = ambient O2 mole fraction \u00d7 100 (FLEX); approx. = approximate value as printed (SAFFIRE). These methods differ, so the values are never compared with each other."));
   }
 
   function reading(label, a, b, unit) {
@@ -487,8 +447,8 @@
       ["Flow direction", r.flow_mode || "—", "“" + (header(r, /^(Flow )?Direction/i) || "Flow Direction") + "”", "—", "As printed."]];
   }
   function provenanceCard(r) {
-    return h("details", { class: "section prov" },
-      h("summary", null, "Values and where they come from", h("span", { class: "note" }, "NASA\u2019s field names, units and any conversion")),
+    return h("section", { class: "card prov", "aria-labelledby": "prov-h" },
+      h("div", { class: "prov-head" }, h("h3", { id: "prov-h" }, "Values and where they come from"), chip("measured", "Measured")),
       h("p", { class: "howto" }, h("b", null, "How to read: "), "each row shows the value as displayed, the column name NASA used, the unit as recorded, and anything Flare AI did to it. Most values are shown exactly as recorded."),
       h("div", { class: "tablewrap flat" }, h("table", { class: "prov-t" },
         h("thead", null, h("tr", null, ["Shown here", "Value", "NASA’s field name", "Unit as recorded", "Method / conversion"].map(function (t) { return h("th", { scope: "col" }, t); }))),
@@ -539,36 +499,33 @@
           h("p", { class: "signoff " + (signed ? "yes" : "no") }, signed ? "✓ Signed by " + r.verified_by + " on " + r.verified_date
             : "No person has signed this record. Automated checks below are evidence, not a sign-off."))),
       h("div", { class: "rh-body" },
-        h("div", null, h("h2", { class: "mini-h" }, "How it was checked"),
-          h("p", { class: "ev-sum" }, checks.length + " automated check" + (checks.length === 1 ? "" : "s") + ", " + (signed ? "human-signed" : "no human sign-off yet")),
-          more("Show each check", h("ul", { class: "checks" }, checks,
-            signed ? null : h("li", { class: "ck pending" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "–"), h("span", { class: "sr" }, "Not done: "),
-              "Human sign-off: not yet. A team member must compare this record with NASA’s source and sign it.")))),
+        h("div", null, h("h2", { class: "mini-h" }, "How it was checked"), h("ul", { class: "checks" }, checks,
+          signed ? null : h("li", { class: "ck pending" }, h("span", { class: "ck-i", "aria-hidden": "true" }, "–"), h("span", { class: "sr" }, "Not done: "),
+            "Human sign-off: not yet. A team member must compare this record with NASA’s source and sign it."))),
         h("div", { class: "rh-src" }, h("h2", { class: "mini-h" }, "Source reference"),
           src ? h("p", { class: "src-t" }, src.title) : null,
           src ? h("p", { class: "note" }, src.type) : null,
           h("p", { class: "mono src-w" }, where),
           h("div", { class: "rh-actions" }, sourceLinks(r)))),
-      h("div", { class: "rh-foot rh-actions" },
+      h("div", { class: "rh-foot" },
         (function () { var acc = fromReport(r) ? "PSI-25" : r.source_id; var v = invById(acc);
-          return v ? h("a", { class: "textlink", href: "#/investigation/" + acc }, "About the " + invName(v) + " investigation (" + acc + ") \u2192") : null; })(),
+          return v ? h("a", { class: "textlink", href: "#/investigation/" + acc, style: "margin-right:auto" }, "About the " + invName(v) + " investigation (" + acc + ") \u2192") : null; })(),
         h("a", { class: "btn ghost", href: "#/compare/" + encodeURIComponent(r.id) }, "Compare with other tests \u2192")));
   }
   function techCard(rows, raw) {
-    return h("details", { class: "section tech" }, h("summary", null, "Technical details", h("span", { class: "note" }, "setup columns and the raw extracted text")),
-      rows ? h("dl", { class: "kv" }, rows) : null, raw);
+    return h("details", { class: "card tech" }, h("summary", null, h("b", null, "Technical details"), h("span", { class: "muted" }, " — setup columns and the raw extracted text")),
+      rows ? h("dl", { class: "kv", style: "margin-top:12px" }, rows) : null, raw);
   }
   function labelCards(pubText, ourText) {
-    return h("details", { class: "section" }, h("summary", null, "Published conclusion and our interpretation", h("span", { class: "note" }, "none attached to this single test yet")),
-      h("div", { class: "cols" },
-        h("div", null, h("div", { class: "prov-head" }, h("h3", null, "Published conclusion"), chip("published", "Published")), h("p", { class: "note" }, pubText)),
-        h("div", null, h("div", { class: "prov-head" }, h("h3", null, "Our interpretation"), chip("interp", "Ours")), h("p", { class: "note" }, ourText))));
+    return h("div", { class: "cols" },
+      h("div", { class: "card" }, h("div", { class: "prov-head" }, h("h3", null, "Published conclusion"), chip("published", "Published")), h("p", { class: "note" }, pubText)),
+      h("div", { class: "card" }, h("div", { class: "prov-head" }, h("h3", null, "Our interpretation"), chip("interp", "Ours")), h("p", { class: "note" }, ourText)));
   }
   function obsCard(text) {
-    return h("div", { class: "card obs-card" },
+    return h("div", { class: "card", style: "margin-top:14px" },
       h("div", { class: "prov-head" }, h("h3", null, "What the team observed"), chip("measured", "Measured")),
       h("blockquote", null, text || "No note recorded."),
-      h("p", { class: "note" }, "Test-log note recorded by the NASA team, kept in their words."));
+      h("p", { class: "note", style: "margin-top:8px" }, "Test-log note recorded by the NASA team, kept in their words."));
   }
 
   function viewDetail(id) {
@@ -609,7 +566,8 @@
       callouts,
       h("div", { class: "cols" },
         h("div", { class: "card" },
-          h("div", { class: "prov-head" }, h("h3", null, "Readings, start \u2192 end"), chip("measured", "Measured")),
+          h("div", { class: "prov-head" }, h("h3", null, "Readings"), chip("measured", "Measured")),
+          h("p", { class: "note" }, "Gas readings before and after the test, as printed in NASA's table."),
           reading("Oxygen (calibrated)", r.o2_cal_initial, r.o2_cal_final, "vol%"),
           reading("Oxygen (raw sensor)", r.o2_raw_initial, r.o2_raw_final, "vol%"),
           reading("Carbon dioxide", r.co2_initial, r.co2_final, "vol%"),
@@ -631,8 +589,8 @@
     return h("div", null,
       recordHeader(r, "NASA " + r.experiment + " · test " + shortId(r), r.material_raw || "Material not stated"),
       callouts,
-      r.observation ? obsCard(r.observation) : null,
       provenanceCard(r),
+      r.observation ? obsCard(r.observation) : null,
       labelCards("None attached to this single test.", "None yet."),
       techCard(kv.length ? kv : null, h("p", { class: "note" }, "Every column NASA recorded for this test, as written in " + r.source_file + ", row " + r.source_row + ".")));
   }
@@ -959,12 +917,12 @@
           h("span", { class: "ex-ids" }, rows.map(function (r) { return r.experiment + " " + shortId(r); }).join(" vs ")));
       }));
     }
-    var toolbar = h("div", null, exploreTabs("compare"), h("div", { class: "toolbar" },
+    var toolbar = h("div", { class: "toolbar" },
       h("div", { class: "tb-l" }, h("h1", null, "Compare"),
         h("p", { class: "muted tb-sub" }, "2–4 NASA tests side by side. Like with like only, or Flare AI refuses and says why.")),
       h("div", { class: "tb-r" },
         h("label", { class: "sr", for: "cexp" }, "Experiment"), expSel,
-        h("label", { class: "sr", for: "ctest" }, "Test"), testSel, addBtn)));
+        h("label", { class: "sr", for: "ctest" }, "Test"), testSel, addBtn));
     var chipsRow = h("div", { class: "pick-chips" },
       picked.map(function (r, i) {
         return h("span", { class: "pick" + (i === 0 ? " lead" : "") }, h("a", { href: "#/experiment/" + r.id }, r.experiment + " " + shortId(r)),
@@ -973,7 +931,7 @@
       picked.length >= 2 ? h("details", { class: "ex-drawer" }, h("summary", null, "Examples: worked, limited and refused comparisons"), exampleCards(true)) : null);
 
     if (picked.length < 2) return h("div", { class: "cmp" }, toolbar, chipsRow,
-      h("section", { class: "card vcard ex-start", "aria-labelledby": "ex-h" },
+      h("section", { class: "card vcard", style: "margin-top:18px", "aria-labelledby": "ex-h" },
         cardHead("swap", picked.length ? "Add at least one more test, or start from an example" : "New here? Start from an example", null),
         h("p", { class: "howto", id: "ex-h" }, "Each example opens a ready-made comparison. The refusal example shows what Flare AI does when tests should not be compared."),
         exampleCards(false)));
@@ -993,7 +951,7 @@
               expsPicked.map(function (e) { return e + ": " + methodOf(e).o2.charAt(0).toLowerCase() + methodOf(e).o2.slice(1); }).join("; ") +
               ". One chart would look precise and mean nothing."),
             conditionList(picked),
-            h("p", { class: "muted" }, "You can still read them side by side, or compare tests within one experiment."))),
+            h("p", { class: "muted", style: "margin:8px 0 0" }, "You can still read them side by side, or compare tests within one experiment."))),
         h("div", { class: "viz-grid" }, precheckCard(picked, [], true), tableCard));
     }
 
@@ -1032,8 +990,8 @@
         });
         cards.push(h("div", { class: "card vcard" },
           cardHead(MEASURE_ICON[m.key], m.label, [tag, chip("measured", "Measured")]),
-          more("How to read", h("p", { class: "howto" }, h("b", null, "How to read: "), "solid blue = start of the test, hatched orange = end; bar height is the value in " + m.unit +
-            " from NASA\u2019s table. A dashed n/a box means the value was left out.")),
+          h("p", { class: "howto" }, h("b", null, "How to read: "), "solid blue = start of the test, hatched orange = end; bar height is the value in " + m.unit +
+            " from NASA\u2019s table. A dashed n/a box means the value was left out."),
           legendRow([{ color: COLORS.s1, label: "Start of test" }, { color: COLORS.s2, label: "End of test (hatched)", hatch: true }]),
           groupedBars(groups, [{ name: "start", color: COLORS.s1, vals: st }, { name: "end", color: COLORS.s2, vals: en, hatch: true }], m.unit, m.label + " at start and end of each test"),
           limits(m, st.concat(en), function (i) { return i < groups.length ? "start" : "end"; }),
@@ -1046,7 +1004,7 @@
         if (!vs.some(function (v) { return !isNaN(v.n); })) { picked.forEach(function (r, i) { issues[i].push(m.label + ": no comparable value"); }); return footnotes.push(m.label + ": no comparable values for these tests, so no chart."); }
         cards.push(h("div", { class: "card vcard" },
           cardHead(MEASURE_ICON[m.key], m.label, [tag, chip("measured", "Measured")]),
-          more("How to read", h("p", { class: "howto" }, h("b", null, "How to read: "), "one bar per test; bar height is the value in " + m.unit + " as written in NASA\u2019s file. A dashed n/a box means the value was left out.")),
+          h("p", { class: "howto" }, h("b", null, "How to read: "), "one bar per test; bar height is the value in " + m.unit + " as written in NASA\u2019s file. A dashed n/a box means the value was left out."),
           groupedBars(groups, [{ name: m.label, color: COLORS.s1, vals: vs }], m.unit, m.label + " for each test"),
           limits(m, vs, null)));
       }
@@ -1060,12 +1018,12 @@
         var a = value(hm.pair[0](r), hm.unit, r, hm, false), b = value(hm.pair[1](r), hm.unit, r, hm, true);
         main = [h("span", null, isNaN(a.n) ? "n/a" : fmt(a.n)), h("span", { class: "arr" }, "→"), h("span", null, isNaN(b.n) ? "n/a" : fmt(b.n))];
         sub = hm.label + ", start → end (" + hm.unit + ")";
-        glyph = miniBars([a.n, b.n], i === 0 ? "#ff6a3d" : COLORS.s1);
+        glyph = miniBars([a.n, b.n], i === 0 ? "#1a0a02" : COLORS.s1);
       } else {
         var v = value(hm.single(r), hm.unit, r, hm, false);
         main = h("span", null, isNaN(v.n) ? "n/a" : fmt(v.n));
         sub = hm.label + " (" + hm.unit + ")";
-        glyph = miniBars(picked.map(function (x) { return value(hm.single(x), hm.unit, x, hm, false).n; }).map(function (n, j) { return j === i ? n : NaN; }), i === 0 ? "#ff6a3d" : COLORS.s1);
+        glyph = miniBars(picked.map(function (x) { return value(hm.single(x), hm.unit, x, hm, false).n; }).map(function (n, j) { return j === i ? n : NaN; }), i === 0 ? "#1a0a02" : COLORS.s1);
       }
       return h("a", { class: "tile" + (i === 0 ? " hot" : ""), href: "#/experiment/" + r.id },
         h("div", { class: "tile-top" }, badge("flame", i === 0 ? "dark" : ""), h("div", null, h("b", null, r.experiment + " " + shortId(r)), h("span", null, r.material_raw))),
@@ -1082,7 +1040,7 @@
     var MIXC = exp === "FLEX" ? { "Extinction": COLORS.s1, "Disruption": COLORS.s2, "Completion": COLORS.s3 } : FLOW_COLOR;
     var parts = order.map(function (k) { return { label: k, value: counts[k], color: MIXC[k] || (k === "not stated" ? COLORS.neutral : COLORS.s4) }; });
     var mixCard = h("div", { class: "card vcard" }, cardHead("pie", (exp === "FLEX" ? "How tests ended (NASA\u2019s label), all " : "Flow direction, all ") + exp + " tests", null),
-      more("How to read", h("p", { class: "howto" }, h("b", null, "How to read: "), "each slice is the share of all " + exp + " tests " + (exp === "FLEX" ? "with that end-of-test label as NASA recorded it" : "run with that flow direction") + " (unit: tests); the list shows how many of your selected tests fall in each slice. Context only, not a comparison.")),
+      h("p", { class: "howto" }, h("b", null, "How to read: "), "each slice is the share of all " + exp + " tests " + (exp === "FLEX" ? "with that end-of-test label as NASA recorded it" : "run with that flow direction") + " (unit: tests); the list shows how many of your selected tests fall in each slice. Context only, not a comparison."),
       parts.length > 1 ? h("div", { class: "donut-wrap" }, donut(parts, "Flow direction mix of " + pool.length + " " + exp + " tests"),
         h("ul", { class: "donut-legend" }, parts.map(function (p) {
           var mine = picked.filter(function (r) { return mixKey(r) === p.label; }).length;
@@ -1098,18 +1056,18 @@
 
     return h("div", { class: "cmp" }, toolbar, chipsRow, summary,
       cautions.length ? h("div", { class: "caution" }, badge("alert", "amber"), h("p", null, h("b", null, "Read with care. "), cautions.join(" "))) : null,
+      h("div", { class: "viz-grid" }, precheckCard(picked, issues, false)),
       tiles,
-      h("div", { class: "viz-grid" }, cards, mixCard, tableCard),
-      h("details", { class: "section", open: nOut > 0 ? true : null }, h("summary", null, "Before charting: what you are comparing", h("span", { class: "note" }, nOut ? nOut + " value" + (nOut === 1 ? "" : "s") + " left out, listed per test" : "sources, methods and missing values")),
-        h("div", { class: "viz-grid" }, precheckCard(picked, issues, false))),
-      h("details", { class: "section" }, h("summary", null, "How this comparison works", h("span", { class: "note" }, "same experiment, same measurement, no averages")),
+      h("div", { class: "viz-grid" }, cards, mixCard,
+        h("div", { class: "card vcard" }, cardHead("alert", "How this comparison works", null),
           footnotes.length ? h("ul", { class: "fn" }, footnotes.map(function (t) { return h("li", null, t); })) : null,
           h("ul", { class: "rules" },
             h("li", { class: "ok" }, h("b", null, "Same experiment. "), "All " + picked.length + " tests are " + exp + ", measured the same way."),
             h("li", { class: "ok" }, h("b", null, "Same measurement. "), "Each chart shows one column from NASA\u2019s table; calibrated and raw oxygen are never mixed."),
             h("li", { class: nOut ? "warn" : "ok" }, h("b", null, nOut + " value" + (nOut === 1 ? "" : "s") + " left out. "), nOut ? "Flagged, missing or not plain numbers; each chart lists its own left-out values right under it." : "Every value could be charted."),
-            h("li", { class: "ok" }, h("b", null, "No averages. "), "Two to four tests are too few for averages or trends.")),
-        h("p", { class: "note" }, "Every number is copied from NASA’s record; hover a bar to see it. No averages or trend lines: with 2 to 4 tests they would claim more than the data shows.")));
+            h("li", { class: "ok" }, h("b", null, "No averages. "), "Two to four tests are too few for averages or trends."))),
+        tableCard),
+      h("p", { class: "note", style: "margin-top:14px" }, "Every number is copied from NASA’s record; hover a bar to see it. No averages or trend lines: with 2 to 4 tests they would claim more than the data shows."));
   }
   function sideTable(rows, spec) {
     return h("table", { class: "side" },
@@ -1290,7 +1248,7 @@
     return h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Investigations"),
-          h("p", { class: "lead" }, "All " + INV.length + " NASA PSI combustion investigations, ranked for the crew environment you choose. The ranking rule is ours; every fact comes from NASA.")),
+          h("p", { class: "lead" }, "All " + INV.length + " combustion investigations in NASA’s Physical Sciences Informatics (PSI) database, ranked for the crew environment you choose. The ranking rule is ours and is printed below; every fact comes from NASA PSI.")),
         h("div", { class: "lens", role: "group", "aria-label": "Crew environment" },
           ["station", "moon"].map(function (k) {
             return h("a", { class: "lens-b" + (k === lens ? " on" : ""), href: k === "moon" ? "#/investigations/moon" : "#/investigations", "aria-current": k === lens ? "true" : null },
@@ -1303,35 +1261,7 @@
           (function () { var f = invById("PSI-69"); return f && f.p_min_psi_at_o2ge30 ? "FLEX tested up to " + f.o2_max_pct + "% O2 but only down to " + f.p_min_psi_at_o2ge30 + " psi, just above the zone. " : ""; })() +
           (function () { var s = INV.filter(function (v) { return fuelKey(v) === "solid" && v.o2_max_pct != null; }); var mx = Math.max.apply(null, s.map(function (v) { return v.o2_max_pct; }));
             return s.length ? "Solid-material investigations recorded at most " + mx + "% O2 (" + s.map(invName).join(", ") + "), so how cabin materials burn in a Moon-base atmosphere is a gap in PSI\u2019s data." : ""; })()),
-        h("p", { class: "note" }, "Our interpretation of NASA’s tables, using the brief’s thresholds. Counts come from the O2 and pressure columns listed on each investigation’s page.")),
-      h("section", { class: "gaps", "aria-label": "Known gaps" },
-          h("ul", { class: "rules" },
-            h("li", { class: "warn" }, h("b", null, "No partial-gravity data. "), "The brief notes PSI has no Moon- or Mars-gravity combustion data yet (LUCI and FM2 are expected later). E-FIELD Flames only mimics partial gravity. Microgravity and Earth results may bound it."),
-            h("li", { class: "warn" }, h("b", null, "Cabin materials in a Moon-base atmosphere. "), "No solid-material investigation recorded above 23% O2 (see the answer above)."),
-            h("li", { class: "warn" }, h("b", null, "Not a prediction. "), "These are small, controlled experiments. Flare AI does not claim they predict real mission fires, and gives no fire probabilities."),
-            h("li", { class: "warn" }, h("b", null, "Machine-checked, not verified. "), "Test records are checked automatically against NASA\u2019s files; no person has signed them yet."))),
-      h("h2", null, "Browse by fire-safety need, then rank for a habitat"),
-      tabs,
-      h("div", { class: "lens-inline" }, h("span", { class: "muted" }, "Rank for:"),
-        ["station", "moon"].map(function (k) { return h("a", { class: "lens-b mini" + (k === lens ? " on" : ""), href: k === "moon" ? "#/investigations/moon" : "#/investigations" }, h("b", null, LENSES[k].label)); })),
-      h("div", { class: "filter-panel" },
-        h("div", { class: "filters" },
-          sel("ifuel", "Fuel type", [["solid", "Solid materials"], ["liquid", "Liquid droplets"], ["gas", "Gas flames"], ["smoke", "Smoke / aerosol"]], "fuel"),
-          sel("idata", "Data", [["flight", "Flight tests with a NASA table"], ["ours", "Has test records in Flare AI"]], "data")),
-        h("div", { class: "filter-status" }, count, cmpBtn)),
-      h("p", { class: "note score-note" }, "Scores rank relevance to the chosen habitat. They are not safety or risk scores. Need labels are Flare AI\u2019s classification."),
-      h("details", { class: "more rule" }, h("summary", null, "The ranking rule (our interpretation)"),
-        h("ul", { class: "pts" },
-          h("li", null, h("b", null, "+3"), " named in the challenge brief as fire-safety research (+2 mentioned as related, +1 named only for shared hardware)"),
-          h("li", null, h("b", null, "+2"), " NASA PSI files it under a fire-safety sub-area"),
-          h("li", null, h("b", null, "+2"), " burns cabin-type solid materials (+1 measures smoke from heated materials)"),
-          h("li", null, h("b", null, "+1"), " per fire-safety area addressed: prevention, detection, suppression (from the brief)"),
-          h("li", null, h("b", null, "+1"), " spacecraft-scale fire; ", h("b", null, "+1"), " flight tests with a per-test NASA table"),
-          h("li", null, h("b", null, "Moon base / rover only: +2"), " tested ≥30% O2; ", h("b", null, "+3"), " tested ≥30% O2 at ≤10.2 psi in the same test (+1 near miss ≤11 psi)"),
-          h("li", null, h("b", null, "Spacecraft / ISS only: +1"), " tested near cabin-air oxygen (19–23%)")),
-        h("p", { class: "note" }, "Points never claim safety. They rank how directly each investigation’s published data speaks to the chosen environment. Curated labels (fuel type, area, brief mention) are in data/investigations_curated.csv with their basis.")),
-      listBox,
-      section("Charts: oxygen ranges and Moon-base atmospheres", "two charts from NASA\u2019s tables",
+        h("p", { class: "note", style: "margin:0" }, "Our interpretation of NASA’s tables, using the brief’s thresholds. Counts come from the O2 and pressure columns listed on each investigation’s page.")),
       h("div", { class: "grid qgrid" },
         chartCard("Which investigations tested oxygen above 30%?", "% O2",
           "each bar spans the lowest to highest oxygen in that investigation’s NASA table; colour shows the fuel type (also named in the tooltip). The orange line marks the brief’s 30% Moon-base oxygen.",
@@ -1341,26 +1271,54 @@
         chartCard("Which tested a Moon-base-like atmosphere?", "% O2 vs psi",
           "each box spans the oxygen and pressure range of one NASA table (dashed = inverse flame, O2 from the burner). The shaded corner is the brief’s Moon-base zone. A box touching the zone does not mean every combination was tested; the tooltip gives the count of tests actually inside it.",
           atmosphereChart(INV), chartNote("tables with both an oxygen and a pressure column (pressure converted to psi from mmHg, atm or bar).",
-            "BASS-II, SAFFIRE and ACME BRE (no pressure column), FLEX-2 (planned conditions only), and every investigation without oxygen data.")))),
-      section("Coverage and the studies the brief names", "how deeply each investigation is included",
-        h("div", { class: "grid" },
+            "BASS-II, SAFFIRE and ACME BRE (no pressure column), FLEX-2 (planned conditions only), and every investigation without oxygen data."))),
+      h("h2", null, "What the evidence covers, and what it doesn\u2019t"),
+      h("div", { class: "grid cover-grid" },
         h("section", { class: "card" }, h("h3", null, "Coverage in Flare AI"),
           h("p", { class: "howto" }, "How deeply each of the " + INV.length + " PSI investigations is incorporated. Nothing in PSI\u2019s combustion area is left out; depth differs."),
           h("ul", { class: "cov-list" }, ["records", "table", "description"].map(function (k) {
             return h("li", null, h("span", { class: "cov cov-" + k }, COVER[k].label), h("b", null, String(covCounts[k])), h("span", { class: "muted" }, COVER[k].text),
               h("span", { class: "cov-names" }, INV.filter(function (v) { return coverage(v) === k; }).map(invName).join(", ")));
           }))),
-      h("section", { class: "card" }, h("h3", null, "The studies the challenge brief names"),
+        h("section", { class: "card gaps" }, h("h3", null, "Known gaps"),
+          h("ul", { class: "rules" },
+            h("li", { class: "warn" }, h("b", null, "No partial-gravity data. "), "The brief notes PSI has no Moon- or Mars-gravity combustion data yet (LUCI and FM2 are expected later). E-FIELD Flames only mimics partial gravity. Microgravity and Earth results may bound it."),
+            h("li", { class: "warn" }, h("b", null, "Cabin materials in a Moon-base atmosphere. "), "No solid-material investigation recorded above 23% O2 (see the answer above)."),
+            h("li", { class: "warn" }, h("b", null, "Not a prediction. "), "These are small, controlled experiments. Flare AI does not claim they predict real mission fires, and gives no fire probabilities."),
+            h("li", { class: "warn" }, h("b", null, "Machine-checked, not verified. "), "Test records are checked automatically against NASA\u2019s files; no person has signed them yet.")))),
+      h("section", { class: "card", style: "margin-top:14px" }, h("h3", null, "The studies the challenge brief names"),
         h("p", { class: "howto" }, "Every study the brief mentions, what role it gives it, and what evidence Flare AI holds for it."),
         h("div", { class: "tablewrap flat" }, h("table", { class: "side brief-audit" },
           h("thead", null, h("tr", null, ["Study", "How the brief mentions it", "Fire-safety need (our classification)", "Evidence in Flare AI"].map(function (t) { return h("th", { scope: "col" }, t); }))),
           h("tbody", null, briefRows.map(function (v) {
             var c = v.curated || {};
-            return h("tr", null, h("th", { scope: "row" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("div", { class: "mt1" }, etypeChip(v))),
+            return h("tr", null, h("th", { scope: "row" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("div", { style: "margin-top:4px" }, etypeChip(v))),
               h("td", null, { named: "Named as fire-safety research", related: "Mentioned as related", "named-hardware": "Named for shared hardware" }[c.brief_mention]),
               h("td", null, (c.pillar || "context only").replace(";", ", ")),
-              h("td", null, h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label), h("div", { class: "muted small mt1" }, v.n_tests ? v.n_tests + " rows in NASA\u2019s table" : "no NASA table")));
-          }))))))));
+              h("td", null, h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label), h("div", { class: "muted small", style: "margin-top:4px" }, v.n_tests ? v.n_tests + " rows in NASA\u2019s table" : "no NASA table")));
+          }))))),
+      h("h2", null, "Browse by fire-safety need, then rank for a habitat"),
+      tabs,
+      h("div", { class: "lens-inline" }, h("span", { class: "muted" }, "Rank for:"),
+        ["station", "moon"].map(function (k) { return h("a", { class: "lens-b mini" + (k === lens ? " on" : ""), href: k === "moon" ? "#/investigations/moon" : "#/investigations" }, h("b", null, LENSES[k].label)); })),
+      h("p", { class: "note" }, "Prevention / detection / suppression labels are Flare AI\u2019s classification, following the brief\u2019s three areas; each card shows the basis. Investigations with no label are background science."),
+      h("div", { class: "filter-panel" },
+        h("div", { class: "filters" },
+          sel("ifuel", "Fuel type", [["solid", "Solid materials"], ["liquid", "Liquid droplets"], ["gas", "Gas flames"], ["smoke", "Smoke / aerosol"]], "fuel"),
+          sel("idata", "Data", [["flight", "Flight tests with a NASA table"], ["ours", "Has test records in Flare AI"]], "data")),
+        h("div", { class: "filter-status" }, count, cmpBtn)),
+      h("p", { class: "note score-note" }, "! Scores rank how directly an investigation\u2019s published data speaks to the chosen habitat. They are not safety or risk scores. Each input is tagged: NASA data (from the investigation itself), Flare AI label (our classification), or brief (how the challenge describes it)."),
+      h("details", { class: "card rule" }, h("summary", null, h("b", null, "The ranking rule"), h("span", { class: "muted" }, " — our interpretation; open to see every point")),
+        h("ul", { class: "pts" },
+          h("li", null, h("b", null, "+3"), " named in the challenge brief as fire-safety research (+2 mentioned as related, +1 named only for shared hardware)"),
+          h("li", null, h("b", null, "+2"), " NASA PSI files it under a fire-safety sub-area"),
+          h("li", null, h("b", null, "+2"), " burns cabin-type solid materials (+1 measures smoke from heated materials)"),
+          h("li", null, h("b", null, "+1"), " per fire-safety area addressed: prevention, detection, suppression (from the brief)"),
+          h("li", null, h("b", null, "+1"), " spacecraft-scale fire; ", h("b", null, "+1"), " flight tests with a per-test NASA table"),
+          h("li", null, h("b", null, "Moon base / rover only: +2"), " tested ≥30% O2; ", h("b", null, "+3"), " tested ≥30% O2 at ≤10.2 psi in the same test (+1 near miss ≤11 psi)"),
+          h("li", null, h("b", null, "Spacecraft / ISS only: +1"), " tested near cabin-air oxygen (19–23%)")),
+        h("p", { class: "note" }, "Points never claim safety. They rank how directly each investigation’s published data speaks to the chosen environment. Curated labels (fuel type, area, brief mention) are in data/investigations_curated.csv with their basis.")),
+      listBox);
   }
   function fact(k, v) { return h("div", { class: "fact" }, h("span", null, k), h("b", null, v)); }
   var COVER = {
@@ -1368,11 +1326,9 @@
     table: { label: "NASA table summarised", text: "NASA\u2019s experiment table is summarised here (conditions, columns); its tests are not yet individual Flare AI records." },
     description: { label: "NASA description only", text: "PSI holds no experiment table for this investigation (ground or modelling study); only NASA\u2019s description is shown." }
   };
-  var COV_CACHE = {};
   function coverage(v) {
-    if (COV_CACHE[v.accession]) return COV_CACHE[v.accession];
-    return (COV_CACHE[v.accession] = ALL.some(function (r) { return r.source_id === v.accession || (v.accession === "PSI-25" && fromReport(r)); }) ? "records"
-      : v.n_tests > 0 ? "table" : "description");
+    if (ALL.some(function (r) { return r.source_id === v.accession || (v.accession === "PSI-25" && fromReport(r)); })) return "records";
+    return v.n_tests > 0 ? "table" : "description";
   }
   var ETYPE = { direct: ["Direct", "Studies spacecraft fire safety directly (named for it in the brief)."], related: ["Related", "Related research the brief or PSI connects to fire safety."], context: ["Background", "Combustion science that gives context but does not address a fire-safety need directly."] };
   function etypeChip(v) { var e = ETYPE[(v.curated || {}).evidence_type] || ETYPE.context; return h("span", { class: "etype et-" + ((v.curated || {}).evidence_type || "context"), title: e[1] }, e[0]); }
@@ -1385,7 +1341,7 @@
     setTitle(invName(v));
     var c = v.curated || {}, ours = ALL.filter(function (r) { return r.source_id === v.accession; });
     var rs = relevance(v, "station"), rm = relevance(v, "moon");
-    function text(label, t) { return t ? h("div", { class: "card mt" }, h("div", { class: "prov-head" }, h("h3", null, label), chip("published", "NASA PSI text")),
+    function text(label, t) { return t ? h("div", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, label), chip("published", "NASA PSI text")),
       h("p", { class: "pub-text" }, t)) : null; }
     return h("div", null,
       h("section", { class: "record-head lv-machine", "aria-labelledby": "inv-h" },
@@ -1401,7 +1357,7 @@
               fact("Type", v.projectType || "—"), fact("Platform", v.flightProgram || "—"), fact("Hardware", v.experimentHardware || "—"),
               fact("Dates", (v.investigationStartDate || "?") + " → " + (v.investigationEndDate || "?")), fact("Publications listed", String((v.publications || []).length)),
               fact("Tests in NASA table", v.n_tests ? String(v.n_tests) : "none")),
-            h("h2", { class: "mini-h" }, "Our labels (interpretation)"),
+            h("h2", { class: "mini-h", style: "margin-top:16px" }, "Our labels (interpretation)"),
             h("p", { class: "note" }, h("b", null, "Fuel: "), (c.fuel_class || "—") + " — " + (c.fuel_examples || "") + ". ", h("b", null, "Area: "), (c.pillar || "none").replace(";", ", ") +
               ". ", h("b", null, "Brief: "), (c.brief_mention || "none") + ". ", h("span", { class: "muted" }, "Basis: " + (c.basis || "—")))),
           h("div", { class: "rh-src" }, h("h2", { class: "mini-h" }, "Source reference"),
@@ -1410,7 +1366,7 @@
               h("a", { class: "btn", href: v.landing_page, target: "_blank", rel: "noopener" }, "Open NASA’s PSI page ↗"),
               h("a", { class: "textlink", href: "https://doi.org/" + v.doi, target: "_blank", rel: "noopener" }, "DOI"),
               ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null)))),
-      h("section", { class: "card meaning mt" },
+      h("section", { class: "card meaning", style: "margin-top:14px" },
         h("div", { class: "prov-head" }, h("h3", null, "What this means"), h("span", null, etypeChip(v), " ", h("span", { class: "cov cov-" + coverage(v) }, COVER[coverage(v)].label))),
         h("div", { class: "cols2" },
           h("div", null, h("p", { class: "mini-h" }, chip("interp", "Ours"), " Plain-language summary"), h("p", null, c.summary_ours || "\u2014"),
@@ -1421,7 +1377,7 @@
         h("p", { class: "note" }, h("b", null, "Variables and measurements: "), (v.table_summaries || []).length ? "NASA\u2019s table records " +
           v.table_summaries.map(function (t) { return (t.columns || []).length + " columns"; }).join(" + ") + " (listed below)." : "no experiment table in PSI.",
           " ", h("b", null, "Evidence in Flare AI: "), COVER[coverage(v)].text)),
-      h("section", { class: "card mt" }, h("div", { class: "prov-head" }, h("h3", null, "What NASA\u2019s experiment table records"), chip("measured", "Measured")),
+      h("section", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, "What NASA\u2019s experiment table records"), chip("measured", "Measured")),
         h("p", { class: "howto" }, h("b", null, "How to read: "), "the columns are NASA’s own (variables and measurements). Ranges are read only from the columns named; unit conversions are arithmetic; anything not a plain number is listed, not guessed."),
         (v.table_summaries || []).length ? v.table_summaries.map(function (t) {
           return h("div", { class: "tbl-sum" },
@@ -1437,7 +1393,7 @@
         }) : h("p", { class: "note" }, "NASA PSI has no experiment table for this investigation (ground or modelling study).")),
       text("Objective", v.objective), text("Approach", v.approach), text("Hypothesis", v.hypothesis), text("Research impacts", v.researchImpacts),
       (v.publications || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "Publications listed by NASA PSI (" + v.publications.length + ")")),
-        h("ul", { class: "fn mt" }, v.publications.slice(0, 40).map(function (p) {
+        h("ul", { class: "fn", style: "margin-top:10px" }, v.publications.slice(0, 40).map(function (p) {
           return h("li", null, p.title + (p.authors ? " — " + p.authors.split(",").slice(0, 3).join(",") + (p.authors.split(",").length > 3 ? " et al." : "") : "") + " ",
             p.doi ? h("a", { href: "https://doi.org/" + p.doi, target: "_blank", rel: "noopener" }, "DOI") : null); }))) : null,
       h("details", { class: "card tech" }, h("summary", null, h("b", null, "Why it scores " + rs.score + " / " + rm.score)),
@@ -1478,9 +1434,9 @@
     return h("div", null,
       h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")),
       h("h1", null, "Compare investigations"),
-      h("div", { class: "card insight" }, h("p", null, h("b", null, "Same: "), same.join(", ") || "nothing on these three counts", " · ", h("b", null, "Different: "), diff.join(", ") || "nothing on these three counts",
+      h("div", { class: "card insight" }, h("p", { style: "margin:0" }, h("b", null, "Same: "), same.join(", ") || "nothing on these three counts", " · ", h("b", null, "Different: "), diff.join(", ") || "nothing on these three counts",
         ". Values below come from NASA PSI; labels marked “our label” are interpretation. Test values from different investigations are described side by side, never charted together.")),
-      h("div", { class: "tablewrap mt" }, h("table", { class: "side" },
+      h("div", { class: "tablewrap", style: "margin-top:14px" }, h("table", { class: "side" },
         h("thead", null, h("tr", null, h("th", { scope: "col" }, h("span", { class: "sr" }, "Property")), list.map(function (v) { return h("th", { scope: "col" }, h("a", { href: "#/investigation/" + v.accession }, invName(v)), h("span", { class: "pc-mat" }, v.accession)); }))),
         h("tbody", null, rows.map(function (r) { return h("tr", null, h("th", { scope: "row" }, r[0]), list.map(function (v) { return h("td", null, r[1](v)); })); })))));
   }
@@ -1502,22 +1458,19 @@
   };
   var BASIS = { nasa_record: ["measured", "NASA record"], nasa_text: ["published", "NASA text"], brief: ["published", "Challenge brief"], interpretation: ["interp", "AI interpretation"] };
   /* Local keyword search (no AI): used offline, when the server is unavailable, and to show what evidence exists. */
-  var LOCAL_DOCS = null; /* keyword-search documents, built once per mode */
   function localSearch(q, k) {
     var toks = (q.toLowerCase().match(/[a-z0-9%.\-]{3,}/g) || []).filter(function (t) { return ["what", "which", "with", "were", "does", "that", "this", "from", "have", "about", "there", "tests", "test"].indexOf(t) < 0; });
-    var docs = LOCAL_DOCS && LOCAL_DOCS.rows === ROWS ? LOCAL_DOCS.docs : null;
-    if (!docs) { docs = ROWS.map(function (r) { return { id: r.id, title: r.experiment + " " + shortId(r) + ": " + r.material_raw, route: "#/experiment/" + r.id, kind: "record",
+    var docs = ROWS.map(function (r) { return { id: r.id, title: r.experiment + " " + shortId(r) + ": " + r.material_raw, route: "#/experiment/" + r.id, kind: "record",
       text: (r.experiment + " " + r.material_raw + " " + (r.observation || "") + " " + (r.outcome_raw || "") + " " + (r.fields || []).map(function (f) { return f[0] + " " + f[1]; }).join(" ")).toLowerCase() }; })
       .concat(INV.map(function (v) { return { id: v.accession, title: invName(v) + " (" + v.accession + ")", route: "#/investigation/" + v.accession, kind: "investigation",
         text: (invName(v) + " " + v.title + " " + (v.objective || "") + " " + (v.researchImpacts || "") + " " + JSON.stringify(v.curated || {})).toLowerCase() }; }));
-      LOCAL_DOCS = { rows: ROWS, docs: docs }; }
     return docs.map(function (d) { var s = 0; toks.forEach(function (t) { var i = d.text.indexOf(t); if (i >= 0) s += 1 + (d.title.toLowerCase().indexOf(t) >= 0 ? 1 : 0); }); return { d: d, s: s }; })
       .filter(function (x) { return x.s > 0; }).sort(function (a, b) { return b.s - a.s; }).slice(0, k || 8).map(function (x) { return x.d; });
   }
   function labEndpoint() { return /^https?:$/.test(location.protocol) ? "/api/ask" : null; }
 
   function viewLab() {
-    setTitle("Ask the Lab");
+    setTitle("Intelligence Lab");
     var out = h("div", { class: "lab-out", "aria-live": "polite" });
     var ta = h("textarea", { id: "labq", maxlength: 300, rows: 3, placeholder: "Ask about NASA’s microgravity fire experiments…" });
     var counter = h("span", { class: "muted lab-count" }, "0 / 300");
@@ -1556,8 +1509,8 @@
           h("p", { class: "note" }, "Answer written by " + (a.model || "Claude") + " from the documents below only. It is not a safety assessment and gives no fire probabilities.")),
         (a.citations || []).length ? h("section", { class: "card" }, h("h3", null, "Cited documents"),
           h("ul", { class: "fn" }, a.citations.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.source + ")")); }))) : null,
-        (a.evidence || []).length ? h("details", { class: "section" }, h("summary", null, "All " + a.evidence.length + " documents retrieved for this question"),
-          h("ul", { class: "fn" }, a.evidence.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.kind + ", " + c.source + ")")); }))) : null);
+        (a.evidence || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "All " + a.evidence.length + " documents retrieved for this question")),
+          h("ul", { class: "fn", style: "margin-top:8px" }, a.evidence.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.kind + ", " + c.source + ")")); }))) : null);
     }
     function ask(q) {
       q = (q || "").trim();
@@ -1579,20 +1532,20 @@
     }
     var form = h("form", { class: "lab-form", onsubmit: function (e) { e.preventDefault(); ask(ta.value); } },
       h("label", { for: "labq", class: "sr" }, "Your question"), ta, h("div", { class: "lab-row" }, counter, btn));
-    return h("div", { class: "lab" },
+    return h("div", null,
       h("div", { class: "page-head" },
-        h("div", null, h("h1", null, "Ask the Lab"),
-          h("p", { class: "lead" }, "Ask in plain English. Answers come only from Flare AI\u2019s NASA records, with every point cited, or the Lab says it can\u2019t answer."))),
+        h("div", null, h("h1", null, "Intelligence Lab"),
+          h("p", { class: "lead" }, "Ask a question in plain English. Claude answers only from Flare AI’s NASA records and PSI descriptions, cites every point, and abstains when the records don’t support an answer.")),
+        h("ol", { class: "lab-how", "aria-label": "How the Lab works" },
+          h("li", null, h("b", null, "Retrieve"), " the most relevant test records, investigation texts and brief facts."),
+          h("li", null, h("b", null, "Answer"), " with Claude, from those documents only, with an id on every point."),
+          h("li", null, h("b", null, "Check"), " every citation; drop unsupported points; grade the evidence by a fixed rule."))),
       h("section", { class: "card lab-ask" }, form,
         h("div", { class: "lab-ex" }, h("span", { class: "muted" }, "Try:"), LAB_EXAMPLES.map(function (q, i) {
           return h("button", { type: "button", class: "chip-btn" + (i === LAB_EXAMPLES.length - 1 ? " abst-ex" : ""), onclick: function () { ask(q); } }, q + (i === LAB_EXAMPLES.length - 1 ? " (should abstain)" : ""));
-        })),
-        more("How the Lab works", h("ol", { class: "lab-how", "aria-label": "How the Lab works" },
-          h("li", null, h("b", null, "Retrieve"), " the most relevant test records, investigation texts and brief facts."),
-          h("li", null, h("b", null, "Answer"), " with Claude, from those documents only, with an id on every point."),
-          h("li", null, h("b", null, "Check"), " every citation; drop unsupported points; grade the evidence by a fixed rule.")),
-          h("p", { class: "note" }, "Limits keep the service fair: a few questions per visitor per hour and a daily total. Repeat questions are answered from a cache. The Lab never estimates fire probabilities or certifies safety."))),
-      out);
+        }))),
+      out,
+      h("p", { class: "note", style: "margin-top:14px" }, "Limits keep the service fair: a few questions per visitor per hour and a daily total. Repeat questions are answered from a cache. The Lab never estimates fire probabilities or certifies safety."));
   }
 
   /* ---------- Scenario Check: closest real NASA tests to a set of conditions; abstains outside the tested range ---------- */
@@ -1796,7 +1749,7 @@
     var col = EXP_COL[exp] || "#c98500";
     tests.forEach(function (t) {
       var tip = exp + " " + shortId(t.c.r) + ": " + f1(t.c.o2) + "% O2 (" + t.c.o2How + "), no per-test pressure · " + (t.partial ? "oxygen within the window (partial match)" : "oxygen outside the window");
-      s.appendChild(svg("circle", { cx: x(Math.round(t.c.o2 / binw) * binw), cy: base - (t._k - 0.5) * step, r: 2.9, fill: t.partial ? col : "#16171a", stroke: col, "stroke-width": 1.3, class: "mark", role: "img", tabindex: 0, "data-tip": tip, "aria-label": tip }));
+      s.appendChild(svg("circle", { cx: x(Math.round(t.c.o2 / binw) * binw), cy: base - (t._k - 0.5) * step, r: 2.9, fill: t.partial ? col : "#16171a", stroke: col, "stroke-width": 1.3, class: "mark", tabindex: 0, "data-tip": tip, "aria-label": tip }));
     });
     s.appendChild(svg("line", { x1: x(o2), x2: x(o2), y1: T - 6, y2: base + 4, class: "target-line" }));
     return s;
@@ -1815,7 +1768,7 @@
     ensureTip();
     var st = { family: "solid", o2: 21, psi: 14.7, fuel: "", diluent: "" };
     (arg || "").split("&").forEach(function (kv) { var p = kv.split("="); if (p[0] in st) st[p[0]] = p[0] === "o2" || p[0] === "psi" ? parseFloat(p[1]) : decodeURIComponent(p[1] || ""); });
-    var out = h("div", { class: "scen-out" }), live = h("p", { class: "sr", "aria-live": "polite" });
+    var out = h("div", { class: "scen-out", "aria-live": "polite" });
     var o2In = h("input", { type: "number", id: "so2", min: 0, max: 100, step: 0.5, value: st.o2 });
     var pIn = h("input", { type: "number", id: "spsi", min: 0, max: 60, step: 0.1, value: st.psi });
     var fuelSel = h("select", { id: "sfuel" }, h("option", { value: "" }, "Any"), h("option", { value: "Methanol" }, "Methanol"), h("option", { value: "Heptane" }, "Heptane"));
@@ -1825,7 +1778,7 @@
       h("div", { class: "field" }, h("label", { for: "sfuel" }, "Droplet fuel"), fuelSel),
       h("div", { class: "field" }, h("label", { for: "sdil" }, "Main diluent gas"), dilSel));
     var fam = h("div", { class: "need-tabs three", role: "group", "aria-label": "Fuel type" },
-      [["solid", "Solid materials", "BASS, BASS-II, SAFFIRE"], ["liquid", "Liquid droplets", "FLEX: methanol, heptane"], ["gas", "Gas flames", "ACME, SPICE, SLICE (tables only)"]].map(function (f) {
+      [["solid", "Solid materials", "fabrics, plastics (BASS, BASS-II, SAFFIRE)"], ["liquid", "Liquid droplets", "methanol, heptane (FLEX)"], ["gas", "Gas flames", "ACME, SPICE, SLICE (table level only)"]].map(function (f) {
         return h("button", { type: "button", class: "need" + (st.family === f[0] ? " on" : ""), "aria-pressed": st.family === f[0] ? "true" : "false", onclick: function () {
           st.family = f[0]; Array.prototype.forEach.call(fam.querySelectorAll(".need"), function (b) { b.classList.toggle("on", b === this); b.setAttribute("aria-pressed", b === this ? "true" : "false"); }, this);
           liquidBox.classList.toggle("hide", st.family !== "liquid"); run(); } }, h("b", null, f[1]), h("span", null, f[2]));
@@ -1834,13 +1787,11 @@
       return h("button", { type: "button", class: "chip-btn", title: note, onclick: function () { o2In.value = o2; pIn.value = psi; run(); } }, label);
     }
     function run() {
-      if (view && !view.isConnected) return; /* a pending timer must not rewrite the URL after navigation */
       st.o2 = parseFloat(o2In.value); st.psi = parseFloat(pIn.value); st.fuel = fuelSel.value; st.diluent = dilSel.value;
       try { history.replaceState(null, "", "#/scenario/family=" + st.family + "&o2=" + st.o2 + "&psi=" + st.psi + (st.family === "liquid" ? "&fuel=" + st.fuel + "&diluent=" + st.diluent : "")); } catch (e) { /* sandboxed previewers */ }
       out.textContent = "";
       if (isNaN(st.o2) || isNaN(st.psi) || st.o2 < 0 || st.o2 > 100 || st.psi <= 0) { out.appendChild(h("p", { class: "fwarn" }, "Enter oxygen between 0 and 100% and a pressure above 0 psi.")); return; }
       out.appendChild(result());
-      var vh = out.querySelector(".v-h"); live.textContent = vh ? vh.textContent : "";
     }
     function tableLevel() {
       return INV.filter(function (v) { return (v.table_summaries || []).some(function (t) {
@@ -1849,7 +1800,7 @@
     function result() {
       var tl = tableLevel();
       var tlCard = h("section", { class: "card" }, h("h3", null, "Investigations whose NASA tables span these conditions"),
-        h("p", { class: "howto" }, "Table level only: the ranges include your scenario, but this exact combination may not have been tested."),
+        h("p", { class: "howto" }, "Table level, not individual tests: the oxygen and pressure ranges of these tables include your scenario, but that does not mean this exact combination was tested."),
         tl.length ? h("ul", { class: "fn" }, tl.map(function (v) { return h("li", null, h("a", { href: "#/investigation/" + v.accession }, invName(v)), " — " + fuelLabel(fuelKey(v)) + (v.joint_tests ? "; " + v.joint_tests + " tests in the brief’s Moon-base zone" : "")); }))
           : h("p", { class: "note" }, "None of the 24 PSI investigations’ tables span this oxygen and pressure."));
       if (st.family === "gas") return h("div", null,
@@ -1908,23 +1859,20 @@
           h("td", { "data-label": "What NASA recorded" }, t.cat === "omitted" ? "Omitted: " + t.why : (note || "—") + (t.why && t.cat !== "inside" ? " · " + t.why : "")),
           h("td", { "data-label": "Check" }, levelChip(r)));
       }
-      var showAll = false;
       function showTable(rows, title, note) {
         tableBox.textContent = "";
         var bar = h("div", { class: "seg tabs", role: "tablist", "aria-label": "Result categories" }, TABS.map(function (tb) {
           return h("button", { type: "button", role: "tab", class: tb[0] === tab && !note ? "on" : "", "aria-selected": tb[0] === tab && !note ? "true" : "false",
-            onclick: function () { tab = tb[0]; showAll = false; showTable(tb[2], tb[1], null); } }, tb[1] + " (" + tb[2].length + ")");
+            onclick: function () { tab = tb[0]; showTable(tb[2], tb[1], null); } }, tb[1] + " (" + tb[2].length + ")");
         }));
-        var LIMIT = 12, shownRows = note || showAll ? rows : rows.slice(0, LIMIT);
+        var shownRows = tab === "outside" && !note ? rows.slice(0, 25) : rows;
         tableBox.appendChild(h("div", { class: "prov-head" }, h("h3", null, title + (note ? "" : " — " + rows.length + " test" + (rows.length === 1 ? "" : "s")))));
         tableBox.appendChild(bar);
         if (note) tableBox.appendChild(h("p", { class: "note" }, note, " ", h("button", { type: "button", class: "ghost small", onclick: function () { showTable(TABS.filter(function (x) { return x[0] === tab; })[0][2], TABS.filter(function (x) { return x[0] === tab; })[0][1], null); } }, "Back to the list")));
-
-        tableBox.appendChild(shownRows.length ? h("div", { class: "tablewrap flat scen-tbl" }, h("table", { class: "side scen-t" },
+        if (tab === "outside" && !note && rows.length > 25) tableBox.appendChild(h("p", { class: "note" }, "Showing the 25 nearest of " + rows.length + "."));
+        tableBox.appendChild(shownRows.length ? h("div", { class: "tablewrap flat scen-wrap" }, h("table", { class: "side scen-t" },
           h("thead", null, h("tr", null, ["Test", "Material", "O2 (method)", "Pressure", "Distance (windows)", "What NASA recorded", "Check"].map(function (t) { return h("th", { scope: "col" }, t); }))),
           h("tbody", null, shownRows.map(rowFor)))) : h("p", { class: "note" }, "No tests in this category."));
-        if (shownRows.length < rows.length) tableBox.appendChild(h("p", { class: "more-row" }, h("span", { class: "note" }, "Showing the " + shownRows.length + " nearest of " + rows.length + ". "),
-          h("button", { type: "button", class: "ghost small", onclick: function () { showAll = true; showTable(rows, title, null); } }, "Show all " + rows.length)));
       }
       var cur = TABS.filter(function (x) { return x[0] === tab; })[0];
       showTable(cur[2], cur[1], null);
@@ -1969,10 +1917,10 @@
               o2only.length + " tests with oxygen only (strip panel" + (exps1d.length > 1 ? "s" : "") + "), " + partial.length + " of them oxygen-only matches."),
             h("p", null, h("b", null, "Not on the charts: "), omitted.length + " tests with no usable oxygen value" + (omitted.length ? " (" + Object.keys(omittedWhy).map(function (k) { return omittedWhy[k] + ": " + k; }).join("; ") + ")" : "") +
               ". BASS-II has no per-test pressure; SAFFIRE oxygen is approximate or not given.")),
-          scenarioLegend(), panelsBox,
-          more("How to read these charts", h("p", { class: "howto" }, h("b", null, "How to read: "), "each panel is one experiment. Oxygen was recorded differently in each (method in the panel title), so panels never share an axis and a match means “NASA recorded about this number in this experiment”, not that the atmospheres were measured the same way. Hover for details; click to list tests below."))),
+          h("p", { class: "howto" }, h("b", null, "How to read: "), "each panel is one experiment. Oxygen was recorded differently in each (method in the panel title), so panels never share an axis and a match means “NASA recorded about this number in this experiment”, not that the atmospheres were measured the same way. Hover for details; click to list tests below."),
+          scenarioLegend(), panelsBox),
         tableBox, flexOut, tlCard,
-        h("details", { class: "section" }, h("summary", null, "How Scenario Check decides", h("span", { class: "note" }, "window, categories, conversions")),
+        h("section", { class: "card" }, h("h3", null, "How Scenario Check decides"),
           h("ul", { class: "rules" },
             h("li", { class: "ok" }, h("b", null, "Inside: "), "oxygen within ±" + MATCH.o2 + " points and pressure within ±" + MATCH.psi + " psi (a proposal the team can tune)."),
             h("li", { class: "ok" }, h("b", null, "Oxygen only: "), "oxygen within the window, but NASA recorded no pressure for the test, so the pressure part cannot be checked."),
@@ -1982,55 +1930,53 @@
             h("li", { class: "warn" }, h("b", null, "Abstains "), "when no test lies inside the window, and never gives probabilities, risk scores or safety advice."))));
     }
     [o2In, pIn, fuelSel, dilSel].forEach(function (el) { el.addEventListener("change", run); });
-    var typing = null;
-    [o2In, pIn].forEach(function (el) { el.addEventListener("input", function () { clearTimeout(typing); typing = setTimeout(run, 250); }); });
     var view = h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Scenario Check"),
-          h("p", { class: "lead" }, "Enter the conditions you care about. See the real NASA tests nearby, or a plain \u201cinsufficient data\u201d."))),
-      h("div", { class: "scen-wrap" },
-      h("section", { class: "card scen-form", "aria-label": "Your scenario" },
-        h("div", null, h("h2", { class: "mini-h" }, "Fuel type"), fam),
-        h("div", null, h("h2", { class: "mini-h" }, "Atmosphere"),
-          h("div", { class: "scen-inputs" },
-            h("div", { class: "field" }, h("label", { for: "so2" }, "Oxygen (%)"), o2In),
-            h("div", { class: "field" }, h("label", { for: "spsi" }, "Pressure (psi)"), pIn), liquidBox)),
+          h("p", { class: "lead" }, "Describe the conditions you care about. Flare AI shows the closest real NASA tests, what NASA recorded in them, and says plainly when the data doesn’t reach that far.")),
+        h("div", { class: "card scen-safe" }, h("b", null, "A screening tool, not a safety tool. "), "It finds tests; it does not predict fires or certify materials.")),
+      h("section", { class: "card", style: "margin-top:16px" },
+        h("h2", { class: "mini-h" }, "1. Fuel type"), fam,
+        h("h2", { class: "mini-h" }, "2. Atmosphere"),
+        h("div", { class: "filters" },
+          h("div", { class: "field" }, h("label", { for: "so2" }, "Oxygen (%)"), o2In),
+          h("div", { class: "field" }, h("label", { for: "spsi" }, "Pressure (psi)"), pIn), liquidBox),
         h("div", { class: "lab-ex" }, h("span", { class: "muted" }, "Presets:"),
-          preset("ISS air · 21%, 14.7 psi", 21, 14.7, "Sea-level air"),
-          preset("Moon base · 30%, 10.2 psi", 30, 10.2, "Challenge brief: 30% O2 or more at 10.2 psi or less"),
-          preset("Spacesuit · 100%, 4.3 psi", 100, 4.3, "Challenge brief: spacesuits use 100% O2 at 4.3 psi"),
-          preset("FLEX high-O2 · 34%, 10.4 psi", 34, 10.4, "Close to the brief's Moon-base zone")),
-        h("p", { class: "scen-safe" }, h("b", null, "A screening tool, not a safety tool. "), "It finds tests; it does not predict fires or certify materials.")),
-      out), live);
+          preset("ISS / Earth air: 21%, 14.7 psi", 21, 14.7, "Sea-level air"),
+          preset("Moon base / rover (brief): 30%, 10.2 psi", 30, 10.2, "Challenge brief: 30% O2 or more at 10.2 psi or less"),
+          preset("Spacesuit (brief): 100%, 4.3 psi", 100, 4.3, "Challenge brief: spacesuits use 100% O2 at 4.3 psi"),
+          preset("FLEX high-O2 tests: 34%, 10.4 psi", 34, 10.4, "Close to the brief's Moon-base zone"))),
+      out);
     setTimeout(run, 0);
     return view;
   }
 
   function viewAbout() {
     setTitle("About");
-    return h("div", { class: "about" },
+    return h("div", null,
       h("h1", null, "About Flare AI"),
       h("p", { class: "lead" }, "Built for the NASA Space Apps Challenge 2026, “Flame in Freefall”, by Studio 628 / 628 Aerospace."),
       h("h2", null, "The rules we hold ourselves to"),
-      h("div", { class: "card" }, h("ul", null,
+      h("div", { class: "card" }, h("ul", { style: "margin:0;padding-left:20px" },
         ["No invented numbers. Every figure on this site is computed from the data records.",
           "Every fact carries a label: Measured, Published conclusion, or Our interpretation.",
           "Every record shows how it was checked. Verified means a team member compared it with NASA\u2019s PDF. Machine-checked means automated checks passed, including a value-for-value comparison with NASA\u2019s PDF, and a team member has not yet signed it off. Records with no check are hidden.",
           "We never compare measurements that are not comparable, and we say so when we refuse.",
           "Where NASA did not test a condition, we say the data is insufficient instead of guessing.",
-          "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", null, t); }))),
+          "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
       h("h2", null, "How records are checked"),
       h("div", { class: "card" }, checkBreakdown(),
-        h("p", { class: "note" }, "Automated checks compare our records with NASA\u2019s own documents and files; they catch copying errors but cannot judge the science. " +
+        h("p", { class: "note", style: "margin:12px 0 0" }, "Automated checks compare our records with NASA\u2019s own documents and files; they catch copying errors but cannot judge the science. " +
           "\u201cVerified\u201d is reserved for a team member who compares a record with NASA\u2019s source and signs it.")),
       h("h2", null, "Data sources"),
-      h("div", { class: "card src-list" }, (D.sources || []).map(function (x) {
+      (D.sources || []).map(function (x) {
         var n = ALL.filter(function (r) { return r.source_id === x.source_id; }).length;
-        return h("div", { class: "src-item" }, h("p", null, h("b", null, x.title), h("span", { class: "muted" }, " · " + n + " records")),
-          h("p", { class: "note" }, x.authors + " \u00b7 " + x.type + " \u00b7 ", h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.url)));
-      })),
+        return h("div", { class: "card", style: "margin-bottom:10px" }, h("p", null, x.title + " (" + n + " records)"),
+          h("p", { class: "note" }, x.authors + " \u00b7 " + x.type),
+          h("p", { style: "margin:0" }, h("a", { href: x.url, target: "_blank", rel: "noopener" }, x.url)));
+      }),
       h("h2", null, "Known limits"),
-      h("div", { class: "card" }, h("ul", null,
+      h("div", { class: "card" }, h("ul", { style: "margin:0;padding-left:20px" },
         ["Tests P7, P11 and T8 do not appear in the report\u2019s tables (checked in NASA\u2019s PDF).",
           "Flow velocity is not shown: the report uses fan settings and mixed formats.",
           "Pressure is not given per test in the report tables.",
@@ -2040,9 +1986,9 @@
           "Oxygen was measured differently in each experiment (calibrated chamber sensor, logged station O2, or estimates), so values from different experiments are never compared with each other.",
           "In 3 BASS-II tests NASA\u2019s report and NASA\u2019s PSI spreadsheet disagree (F3, P22b, P3a). Both values are shown.",
           "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
-          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", null, t); }))),
+          "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", { style: "margin:6px 0" }, t); }))),
       h("h2", null, "AI use"),
-      h("div", { class: "card" }, h("p", null, "This project was developed with AI assistance (Claude). The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
+      h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with AI assistance (Claude). The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }
 
   /* ---------- router ---------- */
@@ -2060,33 +2006,14 @@
     else if (route === "lab") view = viewLab();
     else if (route === "scenario") view = viewScenario(seg.slice(1).join("/"));
     else { route = "overview"; view = viewOverview(); }
-    var focusedId = document.activeElement && main.contains(document.activeElement) ? document.activeElement.id : "";
     main.textContent = "";
     main.appendChild(view);
-    document.documentElement.classList.add("ready");
-    var nav = route === "experiment" || route === "compare" ? "explorer" : route === "investigation" ? "investigations" : route;
+    var nav = route === "experiment" ? "explorer" : route === "investigation" ? "investigations" : route;
     Array.prototype.forEach.call(document.querySelectorAll("#nav a"), function (a) {
       if (a.getAttribute("data-route") === nav) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
-    /* Instant jump to the top (no scroll animation), and move focus to the new page heading for screen readers.
-     * Re-renders of the same page (filters, preview toggle) keep the scroll position and focus. */
-    var page = route + (route === "experiment" || route === "investigation" ? "/" + (seg[1] || "") : "");
-    if (page !== lastPage) {
-      window.scrollTo(0, 0);
-      if (lastPage !== null) {
-        var h1 = main.querySelector("h1");
-        if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); }
-      }
-      lastPage = page;
-    } else if (focusedId && document.getElementById(focusedId)) document.getElementById(focusedId).focus({ preventScroll: true });
-  }
-  var lastPage = null;
-  /* "Records | Compare" tabs at the top of both Explore pages. */
-  function exploreTabs(active) {
-    return h("nav", { class: "subnav", "aria-label": "Explore" },
-      h("a", { href: "#/explorer", "aria-current": active === "records" ? "page" : null }, "Records"),
-      h("a", { href: "#/compare", "aria-current": active === "compare" ? "page" : null }, "Compare tests"));
+    window.scrollTo(0, 0);
   }
   window.addEventListener("hashchange", render);
 
