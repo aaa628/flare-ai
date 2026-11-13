@@ -80,12 +80,45 @@ def psi_records():
     return out
 
 
-# Facts quoted from the challenge brief for the Intelligence Lab. Emptied with the rest of the NASA data
-# (2026-11-13); add entries back as (id, title, text) when new brief material is loaded.
-BRIEF_FACTS = []
+# Facts quoted word for word from the challenge brief ("Flame in Freefall", spaceappschallenge.org, checked 2026-11-13)
+# for the Intelligence Lab. Exact sentences only, so a citation never puts words in NASA's mouth.
+BRIEF_FACTS = [
+    ("brief-moon", "Challenge brief: Moon base and rover atmosphere",
+     "The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less. "
+     "To enable flexibility, spacesuits are filled with 100% oxygen to only 4.3 psi (pounds per square inch), where the Earth\u2019s pressure at sea level is 14.7 psi."),
+    ("brief-partial-g", "Challenge brief: partial gravity",
+     "Although NASA is heavily focused on the return of astronauts to the Moon\u2019s surface and the establishment of a Moon Base in preparation for the future human exploration of Mars, there is currently no partial-gravity combustion data available in PSI. "
+     "Partial gravity was mimicked in ACME\u2019s Electric-Field Effects on Laminar Diffusion Flames (E-FIELD Flames) experiment through the effect of the electric field on the ions that naturally occur in flames. "
+     "Microgravity and normal-gravity results could bound what occurs at intermediate gravity levels."),
+    ("brief-pillars", "Challenge brief: prevention, detection, suppression",
+     "NASA\u2019s spacecraft fire safety work is focused on prevention, detection, and suppression. "
+     "Flammability studies focus on solid materials such as fabrics and plastics, as studied in the Burning and Suppression of Solids (BASS and BASS-II) and Spacecraft Fire Safety Demonstration (Saffire-I, -II, and -III) investigations. "
+     "Fire detection was tested in microgravity through the Smoke and Aerosol Measurement Experiment studies (SAME and SAME-R). "
+     "Suppression was studied in the Flame Extinguishment Experiment (FLEX) through dilution of the chamber atmosphere with carbon dioxide and helium, both of which suppress fire."),
+    ("brief-scope", "Challenge brief: scope",
+     "Fire safety involving rockets and propellants is generally beyond the scope of the research available in the PSI database."),
+]
 
 
-def write_corpus(records, investigations):
+def resources():
+    """Background resources from the challenge's Resources tab (history, science overviews, spinoffs). Not datasets.
+    Every quote must appear word for word (whitespace aside) in the page text saved in data/source/; a resource whose
+    quotes do not all match is marked unchecked and the build prints a warning."""
+    path = DATA / "resources_curated.json"
+    if not path.exists():
+        return []
+    norm = lambda t: " ".join(t.split())
+    out = []
+    for r in json.loads(path.read_text(encoding="utf-8")):
+        page = norm((DATA / "source" / r["text_file"]).read_text(encoding="utf-8"))
+        missing = [q for q in r["quotes"] if norm(q) not in page]
+        if missing:
+            print("WARNING: quote not found in", r["text_file"], "->", missing[0][:80])
+        out.append({**r, "quotes_checked": not missing, "quote_source": r.get("quote_source") or "the NASA page linked here"})
+    return out
+
+
+def write_corpus(records, investigations, res=()):
     """Search corpus for the Intelligence Lab server function (netlify/functions/ask/corpus.mjs). Generated; never hand-edit.
     Each document carries the site route and source label it is cited with. Only shown (checked) records are included."""
     docs = []
@@ -126,6 +159,12 @@ def write_corpus(records, investigations):
             for i in range(0, min(len(t), 3000), 1000):
                 docs.append({"id": f"{v['accession']}#{key}{i // 1000 or ''}", "kind": "nasa_text", "title": f"{name}: NASA's stated {label}",
                              "route": "#/investigation/" + v["accession"], "source": f"NASA PSI {v['accession']} description ({label})", "text": t[i:i + 1100]})
+    for r in res:
+        if not r["quotes_checked"]:
+            continue
+        docs.append({"id": r["id"], "kind": "nasa_text", "title": f"Challenge resource: {r['title']}", "route": "#/lessons",
+                     "source": f"{r['publisher']} ({r['url']})",
+                     "text": ((r.get("event") + ". ") if r.get("event") else "") + "NASA's words: " + " ".join(r["quotes"])})
     for i, title, text in BRIEF_FACTS:
         docs.append({"id": i, "kind": "brief", "title": title, "route": "#/investigations", "source": "NASA Space Apps 2026 challenge brief (Details tab)", "text": text})
     out = ROOT / "netlify" / "functions" / "ask" / "corpus.mjs"
@@ -190,24 +229,27 @@ def main():
             shutil.copyfile(f, tab_dir / f.name)
     investigations = load("build_catalog").catalog()
     sources = read("sources.csv")
+    res = resources()
     n_ver = sum(1 for r in records if r["level"] == "human")
     n_mach = sum(1 for r in records if r["level"] == "machine")
     payload = {
         "records": records,
         "sources": sources,
         "investigations": investigations,
+        "resources": res,
         "counts": {"records": len(records), "verified": n_ver, "machine": n_mach,
                    "unchecked": len(records) - n_ver - n_mach, "shown": n_ver + n_mach,
                    "sources": len(sources), "pdf_match": sum(1 for r in records if r["pdf"]),
                    "psi_agree": sum(1 for r in records if r.get("psi_check", "").startswith("agrees")),
                    "psi_differ": sum(1 for r in records if r.get("psi_check", "").startswith("DIFFERS")),
                    "investigations": len(investigations),
+                   "resources": len(res), "resources_checked": sum(1 for r in res if r["quotes_checked"]),
                    "experiments": {e: sum(1 for r in records if r["experiment"] == e)
                                    for e in sorted({r["experiment"] for r in records})}},
     }
     if stale:
         print("WARNING: edited after the automated check, downgraded to unchecked:", ", ".join(stale))
-    write_corpus(records, investigations)
+    write_corpus(records, investigations, res)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
         "// GENERATED by scripts/build_site_data.py. Do not edit by hand.\n"

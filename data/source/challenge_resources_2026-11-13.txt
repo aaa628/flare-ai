@@ -1,0 +1,50 @@
+ecific website.
+## NASA Data & Resources
+[https://psi.nasa.gov/physci/repo/search?q=combustion] 
+PSI Data Repository: Combustion Science
+:
+ Physical Sciences Informatics (PSI) source of the data upon which the NASA Space App is to be based.
+[https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/] 
+NASA Combustion Science
+:
+ Basic information about most of the combustion investigations for which data is found in the PSI Data Repository.
+[https://www.youtube.com/watch?v=W1oXykoz9zg] 
+NASA ScienceCasts: The Power of Studying Combustion on the ISS
+:
+ Introduction to NASA’s combustion research on the International Space Station through a 3.6-minute video clip from 2018.
+[https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/] 
+A Researcher’s Guide to International Space Station Combustion Science
+:
+ A 2015 review of NASA’s combustion research conducted on, or planned for, the International Space Station. Basic information about most of the combustion investigations described in this 50+ page document is found within the PSI Data Repository.
+[https://sma.nasa.gov/sma-disciplines/accllp/apollo-1] 
+Apollo 1
+:
+ Information about the crew mission, fire that erupted during a pre-launch test killing the crew, investigation, and lessons learned.
+[https://sma.nasa.gov/sma-disciplines/accllp/apollo-13] 
+Apollo 13
+:
+ Information about the crew, mission, oxygen tank explosion that occurred during the flight to the Moon, investigation, and lessons learned.
+[https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/] 
+25 Years Ago: Fire Aboard Space Station Mir
+:
+ Basic information about a fire—caused by an oxygen generator failure—that erupted within the Russian space station Mir in 1997 during joint operations in preparation for the International Space Station (first occupied in 2000).
+[https://spinoff.nasa.gov/node/9582] 
+Fireman’s Air Tanks
+:
+ Basic information about the 1970s adaptation of spacesuit technology to improve firefighters’ air tanks and breathing gear.
+[https://spinoff.nasa.gov/node/9407] 
+Fire Detector
+:
+ Basic information about a 1970s smoke detector developed for the shuttle that, discriminating between smoke and dust, results in less nuisance alarms. As such, it has industrial applications (e.g., in mining operations).
+[https://spinoff.nasa.gov/node/9918] 
+New Technology for the Fire Attire
+:
+ Basic information about a 1980s application of NASA spacesuit technology to improve firefighter clothing.
+6:[["$","$L13",null,{}],["$","div",null,{"id":"flame-in-freefall","className":"index-module-scss-module__LrtIIa__content-container","children":[["$","$L14",null,{"visible":false,"type":"status"}],[["$","div",null,{"className":"page-meta-module-scss-module__jpMY-a__container undefined","children":["$","div",null,{"className":"container-module-scss-module__GNU7ba__row ","children":[["$","$L15",null,{"breadcrumbs":[{"__typename":"Breadcrumb","name":"Home","link":"/"},{"__typename":"Breadcrumb","name":"2026 NASA Space Apps Challenge","link":"/2026/"},{"__typename":"Breadcrumb","name":"2026 Challenges","link":"/2026/challenges/"},{"__typename":"Breadcrumb","name":"Flame-in-Freefall","link":"/2026/challenges/flame-in-freefall/"}],"theme":"dark"}],"$undefined"]}]}],["$","$L10",null,{"theme":"event","size":"lg","image":{"__typename":"DefaultImage","id":"aWQ6NDEzMzI3","meta":{"__typename":"ImageMeta","type":"images.CustomImage","downloadUrl":"https://assets.spaceappschallenge.org/media/original_images/Flame_in_Freefall2_4.3.jpg"},"title":"Flame in Freefall2 4.3","alt":"Image of a flame burning one of the BASS tests on extinguishing burning fuels.","caption":"Flame in Freefall2 4.3","displaySize":"or","rendition":{"__typename":"BaseImage","url":"https://assets.spaceappschallenge.org/media/images/Flame_in_Freefall2_4.3.2e16d0ba.fill-785x660.jpg","fullUrl":"https://assets.spaceappschallenge.org/media/images/Flame_in_Freefall2_4.3.2e16d0ba.fill-785x660.jpg","height":279,"width":332}},"hasTabs":true,"children":["$","$L16",null,{"title":"Flame in Freefall: SI-Powered Fire Safety Insights from Microgravity Combustion Data","size":"lg","children":["$","$L17",null,{"page":{"__typename":"ChallengePage","id":"aWQ6NTUxMjE=","title":"Flame in Freefall: SI-Powered Fire Safety Insights from Microgravity Combustion Data","meta":{"__typename":"ExpandedPageMeta","type":"CHALLENGE","slug":"flame-in-freefall","firstPublishedAt":"2026-09-17T14:20:54.577000Z","lastPublishedAt":"2026-11-13T03:46:21.001119Z","relativeUrl":"/2026/challenges/flame-in-freefall/","live":true,"parent":{"__typename":"PageParent","id":"aWQ6NTUxMTY="}},"breadcrumbs":"$6:1:props:children:1:0:props:children:props:children:0:props:breadcrumbs","featuredImage":"$6:1:props:children:1:1:props:image","event":"aWQ6NA==","categories":[{"__typename":"Category","id":3,"name":"Advanced","slug":"advanced","description":null,"priority":1,"color":"#8B0A03"},{"__typename":"Category","id":2,"name":"Intermediate","slug":"intermediate","description":null,"priority":2,"color":"#FF580A"}],"skills":["Space Exploration"],"excerpt":"For decades, NASA has studied how flames and fire behave in microgravity, gathering a trove of experimental data along the way. That knowledge matters more than ever as humans gear up to return to the Moon and press on to Mars, yet the volume of results makes them hard to find, compare, and understand. Your challenge is to create an interactive, super intelligence (SI) powered dashboard that summarizes, ranks, and interprets those findings to deliver fire safety insights for human space exploration.","detailsContent":"$18","resourcesTabContent":"$19","teamsTabContent":""},"url":"/2026/challenges/flame-in-freefall//?tab=teams"}]}]}],"$L1a"]]}],"$L1b"]
+1c:I[96222,["/_next/static/chunks/2bd45f40cc5d6573.js","/_next/static/chunks/d04c481ca7424b28.js","/_next/static/chunks/b43d582805300480.js","/_next/static/chunks/20089cdc3431a20d.js"],"Challenge"]
+1d:I[96222,["/_next/static/chunks/2bd45f40cc5d6573.js","/_next/static/chunks/d04c481ca7424b28.js","/_next/static/chunks/b43d582805300480.js","/_next/static/chunks/20089cdc3431a20d.js"],"SiteFooter"]
+1a:["$","div",null,{"className":"container-module-scss-module__GNU7ba__row ","children":[["$","$L1c",null,{"page":"$6:1:props:children:1:1:props:children:props:children:props:page"}],"$undefined"]}]
+1b:["$","$L1d",null,{}]
+1e:I[93059,["/_next/static/chunks/2bd45f40cc5d6573.js","/_next/static/chunks/d04c481ca7424b28.js","/_next/static/chunks/b43d582805300480.js","/_next/static/chunks/20089cdc3431a20d.js"],"PreloadResources"]
+1f:I[618,["/_next/static/chunks/2bd45f40cc5d6573.js","/_next/static/chunks/d04c481ca7424b28.js","/_next/static/chunks/b43d582805300480.js","/_next/static/chunks/20089cdc3431a20d.js"],"AppProviders"]
+21:T4168,{"DefaultImage:aWQ6NDA0NDAw":{"__typename":"DefaultImage","id":"aWQ6NDA0NDAw","meta":{"__typename":"ImageMeta","type":"images.CustomImage","downloadUrl":"https://assets.spaceappschallenge.org/media/original_images/Space_Apps_2026_Logo_OG.jpg"},"title":"Space Apps 2026 Logo OG","alt":"Space Apps 2026 Logo OG","caption":"Space Apps 2026 Logo OG","displaySize":"or","rendition":{"__typename":"BaseImage","url":"https://assets.spaceappschallenge.org/media/images/Space_Apps_2026_Logo_OG.width-440.jpegquality-60.jpg","fullUrl":"https://assets.spaceappschallenge.org/media/images/Space_Apps_2026_Logo_OG.width-440.jpegquality-60.jpg","height":247,"width":440}},"DefaultImage:aWQ6Mzg3Njkz":{"__typename":"DefaultImage","id":"aWQ6Mzg3Njkz","meta":{"__typename":"ImageMeta","type":"images.CustomImage","downloadUrl":"https://assets.spaceappschallenge.org/media/original_images/Space_Apps_Logo_Color_and_White.png"},"title":"Space Apps Logo 2026 color","alt":"Space Apps Logo 2026 color","caption":"Space Apps Logo 2026 color","displaySize":"or","rendition":{"__typename":"BaseImage","url":"https://assets.spaceappschallenge.org/media/images/Space_Apps_Logo_Color_and_White.width-440.jpegquality-60.png","fullUrl":"https://assets.spaceappschallenge.org/media/images/Space_Apps_Logo_Color_and_White.width-440.jpegquality-60.png","height":172,"width":440}},"HtmlBlock:c72c2856-584d-43e8-863f-bd1a4ae92f7b":{"__typename":"HtmlBlock","id":"c72c2856-584d-43e8-863f-bd1a4ae92f7b","type":"RICHTEXT","value":{"__typename":"HtmlBlockValue","html":"

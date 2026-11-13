@@ -1,0 +1,175 @@
+[
+ {
+  "id": "res-apollo-1",
+  "group": "fires",
+  "title": "Apollo 1",
+  "publisher": "NASA Office of Safety and Mission Assurance (Apollo, Challenger, Columbia Lessons Learned Program)",
+  "published": "",
+  "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+  "text_file": "resources/apollo-1.txt",
+  "event": "Fire in the Apollo command module during a launch-pad test, 27 January 1967",
+  "quotes": [
+   "The astronauts would be wearing spacesuits with the spacecraft’s hatches closed and the cabin pressurized with 100% oxygen.",
+   "During the test, a flash fire swept through the spacecraft so quickly, there was no time to open the hatches.",
+   "Because of the pure oxygen atmosphere, the fire spread quickly, causing a rapid rise in temperature and pressure that led to the rupture of the Command Module pressure vessel.",
+   "Additionally, NASA severely restricted and controlled the number of combustible materials in the spacecraft and made those changes in the Lunar Module as well."
+  ],
+  "ours": "A pure-oxygen cabin made this fire spread fast. The brief's Moon-base atmosphere (30% oxygen or more) raises the same question, and the NASA solid-material tests in Flare AI reach at most 22.7% oxygen.",
+  "link": [
+   "#/investigations/moon",
+   "See the Moon-base data gap"
+  ]
+ },
+ {
+  "id": "res-apollo-13",
+  "group": "fires",
+  "title": "Apollo 13",
+  "publisher": "NASA Office of Safety and Mission Assurance (Apollo, Challenger, Columbia Lessons Learned Program)",
+  "published": "",
+  "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+  "text_file": "resources/apollo-13.txt",
+  "event": "Oxygen tank explosion on the way to the Moon, April 1970",
+  "quotes": [
+   "Things went smoothly until the third day of the mission when, after finishing a 49-minute TV broadcast showing the conditions on board the spacecraft, oxygen tank number two blew up, leading to the subsequent failure of tank number one.",
+   "The report found that the accident was a combination of mistakes and a deficient design.",
+   "For Apollo 14 and future missions, engineers at NASA and North American Rockwell redesigned the oxygen tank system by adding a third tank in a different bay, upgrading thermostats, removing stirring fans and sheathing all electrical wiring in stainless steel."
+  ],
+  "ours": "This was an oxygen-system failure, not a flammability test, so no record in Flare AI covers it. None of the 24 PSI investigations tests oxygen tanks, and the challenge brief puts rockets and propellants outside the PSI data.",
+  "link": [
+   "#/about",
+   "What Flare AI covers"
+  ]
+ },
+ {
+  "id": "res-mir-fire",
+  "group": "fires",
+  "title": "25 Years Ago: Fire Aboard Space Station Mir",
+  "publisher": "NASA (John Uri, Johnson Space Center)",
+  "published": "2022-02-23",
+  "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+  "text_file": "resources/mir-fire.txt",
+  "event": "Fire in an oxygen generator aboard the Mir space station, 24 February 1997",
+  "quotes": [
+   "On Feb. 24, 1997, the six crew members aboard the Russian space station Mir faced significant danger when a fire ignited in an oxygen generating system.",
+   "The flame blocked the evacuation route to the Soyuz spacecraft docked at the aft end of Kvant-1, the vehicle Korzun, Kaleri, and Ewald would use in an emergency evacuation.",
+   "They identified the most likely culprit as latex working glove material inadvertently introduced into the canister.",
+   "The lessons learned from the incident were passed on in the design and operations of the International Space Station."
+  ],
+  "ours": "A real fire in orbit: smoke filled the station and the crew fought the flame with extinguishers. Detecting smoke and suppressing flames in orbit are what SAME, SAME-R and FLEX studied.",
+  "link": [
+   "#/investigations",
+   "See the detection and suppression studies"
+  ]
+ },
+ {
+  "id": "res-combustion-science",
+  "group": "science",
+  "title": "NASA Combustion Science",
+  "publisher": "NASA Glenn Research Center",
+  "published": "",
+  "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
+  "text_file": "resources/nasa-combustion-science.txt",
+  "event": "",
+  "quotes": [
+   "The Space Station environment also provides an important test-bed for studying spacecraft fire risk.",
+   "Typical flame temperatures are on the order of 2,300 degrees Kelvin, whereas ambient temperatures are approximately 300 degrees Kelvin.",
+   "This flow field causes the flame to lift and point upward.",
+   "FM2 is the first-ever combustion experiment to be performed on another planetary body."
+  ],
+  "ours": "The archived experiments this page lists (ACME, BASS, DAFT, FLEX, Saffire, SAME, SLICE, SPICE) are all among the 24 PSI investigations in Flare AI. FM2, which burns materials on the Moon, has no data in PSI yet.",
+  "link": [
+   "#/investigations",
+   "Open the 24 investigations"
+  ]
+ },
+ {
+  "id": "res-researchers-guide",
+  "group": "science",
+  "title": "A Researcher’s Guide to International Space Station Combustion Science",
+  "publisher": "NASA Space Station Research Integration Office (October 2015 edition)",
+  "published": "2016-07-06",
+  "url": "https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/",
+  "text_file": "resources/researchers-guide.txt",
+  "event": "",
+  "quotes": [
+   "For future exploration missions, fire safety is an important operational element to minimize the likelihood and impact of accidental fires in spacecraft and human habitats.",
+   "An improved knowledge of combustion in reduced gravity is essential to adapting fire safety concepts and systems to the conditions of the space environment.",
+   "This Researcher’s Guide provides an overview of combustion science research, including past research, lessons learned, opportunities for future research and introductory information on funding opportunities."
+  ],
+  "ours": "A summary of the same research programme whose results are in PSI. Flare AI quotes this web page only; the full guide is a separate download on NASA's page.",
+  "link": [
+   "#/investigations",
+   "Open the investigations"
+  ]
+ },
+ {
+  "id": "res-sciencecasts",
+  "group": "science",
+  "title": "NASA ScienceCasts: The Power of Studying Combustion on the ISS",
+  "publisher": "NASA (video, YouTube)",
+  "published": "2018",
+  "url": "https://www.youtube.com/watch?v=W1oXykoz9zg",
+  "text_file": "challenge_resources_2026-11-13.txt",
+  "event": "",
+  "quotes": [
+   "Introduction to NASA’s combustion research on the International Space Station through a 3.6-minute video clip from 2018."
+  ],
+  "quote_source": "Challenge Resources tab (the video itself could not be opened from our build machine)",
+  "ours": "A short introduction for anyone new to the topic. Watch it before using the Investigations page.",
+  "link": [
+   "#/investigations",
+   "Open the investigations"
+  ]
+ },
+ {
+  "id": "res-spinoff-air-tanks",
+  "group": "spinoffs",
+  "title": "Fireman’s Air Tanks",
+  "publisher": "NASA Spinoff",
+  "published": "1976",
+  "url": "https://spinoff.nasa.gov/node/9582",
+  "text_file": "resources/spinoff-air-tanks.txt",
+  "event": "",
+  "quotes": [
+   "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks.",
+   "Made of aluminum liner wrapped by resin-impregnated glass fibers, eliminating corrosion as well as lightening the load."
+  ],
+  "ours": "Space hardware already improves fire safety on Earth: here, lighter breathing gear for firefighters.",
+  "link": null
+ },
+ {
+  "id": "res-spinoff-fire-detector",
+  "group": "spinoffs",
+  "title": "Fire Detector",
+  "publisher": "NASA Spinoff",
+  "published": "1978",
+  "url": "https://spinoff.nasa.gov/node/9407",
+  "text_file": "resources/spinoff-fire-detector.txt",
+  "event": "",
+  "quotes": [
+   "Sensor operates by sampling air to determine the presence of combustion particles, but unlike earlier equipment the Brunswick Incipient Fire Detector, originally used in space shuttle orbiters, can discriminate between combustion particles and extraneous matters such as dust.",
+   "Fire detector represents an advancement over commercially available smoke detectors in that it senses and signals the presence of a fire condition before appearance of flame and smoke."
+  ],
+  "ours": "Telling smoke apart from dust is the same problem the SAME and SAME-R experiments studied in orbit.",
+  "link": [
+   "#/investigations",
+   "See SAME and SAME-R"
+  ]
+ },
+ {
+  "id": "res-spinoff-fire-attire",
+  "group": "spinoffs",
+  "title": "New Technology for the Fire Attire",
+  "publisher": "NASA Spinoff",
+  "published": "1982",
+  "url": "https://spinoff.nasa.gov/node/9918",
+  "text_file": "resources/spinoff-fire-attire.txt",
+  "event": "",
+  "quotes": [
+   "This is the goal of Project FIRES, a program jointly sponsored by NASA and the Federal Emergency Management Agency's U.S. Fire Administration with technical management provided by Marshall Space Flight Center.",
+   "A major focus of the effort involves application to the FIRES ensemble of lightweight, fire-resistant, heat-protective materials originally developed for use in astronauts' space suits or in spacecraft components which require thermal protection."
+  ],
+  "ours": "Fire-resistant spacesuit materials, the kind adopted after Apollo 1, went on to protect firefighters.",
+  "link": null
+ }
+]

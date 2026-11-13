@@ -40,8 +40,11 @@ def main():
         out["tables"] = []
         for t in d.get("experimentalTable") or []:
             name = t["file_name"]
-            signed = get(f"{API}/studies/{acc}/download?" + urllib.parse.urlencode({"file": name, "redirect": "false"})).decode().strip().strip('"')
-            (TAB / name).write_bytes(get(signed))
+            # PSI answers a plain download request with a redirect to the file (its old "redirect=false" mode now returns nothing).
+            body = get(f"{API}/studies/{acc}/download?" + urllib.parse.urlencode({"file": name}))
+            if not body:
+                raise SystemExit(f"{acc}: empty download for {name}")
+            (TAB / name).write_bytes(body)
             out["tables"].append(name)
         out["retrieved"] = date.today().isoformat()
         out["landing_page"] = f"https://psi.nasa.gov/physci/repo/data/investigations/{acc}"
