@@ -63,7 +63,7 @@ for i,(src,d,cap) in enumerate(S):
             f"drawtext=fontfile={R}:textfile={t3}:fontsize=22:fontcolor=white@0.75:x=28:y=24,"+",".join(draw))
         cmd=["ffmpeg","-y","-loglevel","error","-ss","20","-t",str(d),"-i","/home/user/flare-ai/site/media/jelly-loop.mp4","-vf",vf+f",fps={FPS},format=yuv420p","-an","-c:v","libx264","-crf","18","-preset","medium",out]
     elif src=="END":
-        a=txt("e1.txt","Flare AI"); b=txt("e2.txt","What NASA's fire experiments prove, and where the data stops."); c=txt("e3.txt","github.com/aaa628/flare-ai")
+        a=txt("e1.txt","Flare AI"); b=txt("e2.txt","What NASA's fire experiments prove, and where the data stops."); c=txt("e3.txt","flare-ai-628.netlify.app")
         vf=(f"drawtext=fontfile={B}:textfile={a}:fontsize=110:fontcolor=white:x=(w-tw)/2:y=360,"
             f"drawtext=fontfile={R}:textfile={b}:fontsize=38:fontcolor=white@0.9:x=(w-tw)/2:y=520,"
             f"drawtext=fontfile={B}:textfile={c}:fontsize=40:fontcolor=0xE0405A:x=(w-tw)/2:y=620,"+draw[-1])

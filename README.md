@@ -9,6 +9,8 @@ Built for the **NASA Space Apps Challenge 2026: Flame in Freefall**.
 
 ## Open it
 
+- **Live site:** https://flare-ai-628.netlify.app
+
 - **Offline:** double-click `site/index.html`. Plain HTML, CSS and JavaScript with relative links; works from disk with no internet.
 - **Local server:** `python3 -m http.server 8000 --directory site`, then open http://localhost:8000.
 - **Demo host:** Netlify (publish directory `site`, no build; config in `netlify.toml`). Steps in [`docs/DEPLOY.md`](docs/DEPLOY.md).

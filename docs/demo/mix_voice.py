@@ -1,4 +1,4 @@
-"""Puts the narrator's recording on the silent video, one line per scene (used for flare-ai-demo.mp4).
+"""Run build_voiced.py first (it writes flare-ai-demo-silent.mp4, not kept in the repo). Puts the narrator's recording on the silent video, one line per scene (used for flare-ai-demo.mp4).
 Line boundaries were found from the pauses in the recording (ffmpeg silencedetect at -30 dB / 0.18 s).
 The recording ran 35 s, so only the 7 script lines are used; the last ~5 s after line 7 are left out."""
 import subprocess

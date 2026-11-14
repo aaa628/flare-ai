@@ -708,3 +708,8 @@ Verified by running: smoke 141/141; previewer 14/14.
 - Scenario Check: singular/plural wording in screen-reader text and the "partly covered" verdict ("1 test matches").
 Verified by running: smoke 146/146 (5 new); previewer 14/14; lab_ui passed; all 537 record pages open; CSP clean;
   screenshots of the chart and the Explorer checked.
+
+## 2026-11-14: Live link
+- Live site: https://flare-ai-628.netlify.app (Netlify project renamed by the team). Added to README and the submission
+  text; both demo videos rebuilt with it on the end card instead of the GitHub link (formal 29.5 s silent; voiced 29.2 s).
+  build_voiced.py builds the narrated version's picture (then mix_voice.py adds the voice).
