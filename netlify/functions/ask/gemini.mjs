@@ -63,8 +63,11 @@ export function geminiClient({ apiKey, model = GEMINI_DEFAULT_MODEL, fetchImpl =
     const timer = setTimeout(() => ctl.abort(), deadlineMs);
     let res;
     try {
+      const start = Date.now();
       for (const v of VARIANTS) {
         res = await call(params, v, ctl.signal);
+        // Google's servers are sometimes briefly overloaded (500/503): one quick retry if there is time left.
+        if ((res.status === 500 || res.status === 503) && Date.now() - start < 3000) res = await call(params, v, ctl.signal);
         if (res.status !== 400) break;
       }
       if (!res.ok) { const e = new Error("Gemini API error " + res.status); e.status = res.status; throw e; }
