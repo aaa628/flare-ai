@@ -692,6 +692,11 @@ Verified by running: smoke 141/141 (6 new); previewer 14/14; lab_ui passed; lab_
   flare-ai-demo-formal.srt. build.py now builds this version. The earlier informal silent copy was removed; the voiced
   version (flare-ai-demo.mp4, informal captions matching the narration) is kept.
 
+## 2026-11-14: SI metadata for code (submission rule)
+- The submission form requires SI-generated code to be acknowledged "in descriptive text and metadata". Added (team's
+  choice): README "SI use" section (code, text, live answers, images/video, data, audio) replacing the old AI note, and
+  one <meta name="ai-disclosure"> line in site/index.html. Visible text on the site is unchanged.
+Verified by running: smoke 141/141; previewer 14/14.
 ## 2026-11-14: Audit fixes 1-6
 - Moon-base chart (Investigations): pressure axis 50 -> 80 psi (CFI's table reaches 73.5 psi and was clipped); gridline at
   10.2 psi; chart a little taller; labels placed by their real width so none overlap (also clear of "Earth/ISS air").
