@@ -687,3 +687,7 @@ A reviewer's list was checked against the code and data before changing anything
   report text is saved; no photo was verified for this).
 Verified by running: smoke 141/141 (6 new); previewer 14/14; lab_ui passed; lab_function 33/33; all 537 record pages open;
   CSP clean.
+- Follow-up (user): formal, sound-less version: docs/demo/flare-ai-demo-formal.mp4 (29.5 s, no audio) with formal captions
+  (no contractions, higher register, e.g. "537 experimental trials, consolidated into one resource"); captions also in
+  flare-ai-demo-formal.srt. build.py now builds this version. The earlier informal silent copy was removed; the voiced
+  version (flare-ai-demo.mp4, informal captions matching the narration) is kept.
