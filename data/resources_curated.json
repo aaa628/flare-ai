@@ -108,6 +108,30 @@
   "year": "2015"
  },
  {
+  "id": "res-bass2-report",
+  "group": "science",
+  "title": "BASS-II Summary Report: the “Goldilocks” flammability zone",
+  "publisher": "NASA Technical Reports Server, NASA/TM-20210011385 (Olson et al.)",
+  "published": "2021-10-01",
+  "year": "2021",
+  "url": "https://ntrs.nasa.gov/citations/20210011385",
+  "text_file": "TM-20210011385.txt",
+  "event": "NASA’s final report on the BASS-II solid-material fire tests aboard the ISS",
+  "quotes": [
+   "The minimum O2 concentration of 13.5 percent O2 at a of 8 to 12 s–1 is significantly lower than the observed upward flame spread limit of 15.4 percent O2 (in normal gravity with an additional 4-cm/s forced flow (Ref. 23)), indicating the material remains flammable under the weak ventilation only obtainable in microgravity.",
+   "This “Goldilocks” zone of flow is unfortunately typical of spacecraft ventilation flows near surfaces.",
+   "Earthbound flammability tests need a reliable method to account for this extension of flammability in microgravity environments.",
+   "This showed that most of the tests released well below 100 W."
+  ],
+  "quote_source": "the NASA report text (NASA/TM-20210011385)",
+  "ours": "In NASA’s words, a BASS-II material stayed flammable at 13.5% oxygen in the gentle airflow found only in microgravity, below the 15.4% upward-spread limit NASA observed in normal gravity. Our reading: a material that passes a flammability test on Earth may still burn in a spacecraft. This is a research finding, not operational guidance.",
+  "link": [
+   "#/investigation/PSI-25",
+   "See BASS-II and its test records"
+  ],
+  "extra": true
+ },
+ {
   "id": "res-sciencecasts",
   "group": "science",
   "title": "NASA ScienceCasts: The Power of Studying Combustion on the ISS",
@@ -125,7 +149,11 @@
    "#/investigations",
    "Open the investigations"
   ],
-  "year": "2018"
+  "year": "2018",
+  "video": {
+   "youtube_id": "W1oXykoz9zg",
+   "minutes": "3.6"
+  }
  },
  {
   "id": "res-spinoff-air-tanks",

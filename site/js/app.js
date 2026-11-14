@@ -219,7 +219,7 @@
     var hero = h("section", { class: "hero", "aria-labelledby": "hero-h" },
       h("div", { class: "hero-main" },
         h("h1", { id: "hero-h" }, "What NASA’s fire experiments prove, and where the data stops."),
-        h("p", { class: "lead" }, "Flare AI gathers " + nAll + " fire tests NASA ran in orbit, from " + (D.counts.sources || 0) +
+        h("p", { class: "lead" }, "Flare AI gathers " + nAll + " fire tests NASA ran in orbit, from " + (D.counts.sources_with_records || D.counts.sources || 0) +
           " NASA sources. Each number shows how it was checked, and the site says so when the data runs out."),
         h("div", { class: "hero-cta" },
           h("a", { class: "btn", href: "#/explorer" }, "Open Flame Explorer"),
@@ -1213,7 +1213,7 @@
     }
     return { score: pts.reduce(function (a, p) { return a + p.n; }, 0), pts: pts };
   }
-  var MAXPTS = { station: 13, moon: 19, mars: 14 };
+  var MAXPTS = { station: 13, moon: 17, mars: 14 }; /* highest score the rule below can give: 12 shared points + the lens points */
   var FUEL_COLOR = { solid: COLORS_FUEL("solid"), liquid: COLORS_FUEL("liquid"), gas: COLORS_FUEL("gas"), smoke: COLORS_FUEL("smoke") };
   function COLORS_FUEL(k) { return { solid: "#3987e5", liquid: "#d95926", gas: "#199e70", smoke: "#c98500" }[k]; }
   function fuelKey(v) { var f = (v.curated && v.curated.fuel_class) || ""; return /^solid/.test(f) ? "solid" : /^liquid/.test(f) ? "liquid" : /^gas/.test(f) ? "gas" : "smoke"; }
@@ -1437,13 +1437,13 @@
           sel("ifuel", "Fuel type", [["solid", "Solid materials"], ["liquid", "Liquid droplets"], ["gas", "Gas flames"], ["smoke", "Smoke / aerosol"]], "fuel"),
           sel("idata", "Data", [["flight", "Flight tests with a NASA table"], ["ours", "Has test records in Flare AI"]], "data")),
         h("div", { class: "filter-status" }, count, cmpBtn)),
-      h("p", { class: "note score-note" }, "! Scores rank how directly an investigation\u2019s published data speaks to the chosen habitat. They are not safety or risk scores. Each input is tagged: NASA data (from the investigation itself), Flare AI label (our classification), or brief (how the challenge describes it)."),
+      h("p", { class: "note score-note" }, "! Scores rank how directly an investigation\u2019s published data speaks to the chosen habitat. They are not safety or risk scores, and not operational guidance. Each input is tagged: NASA data (from the investigation itself), Flare AI label (our classification), or brief (how the challenge describes it)."),
       h("details", { class: "card rule" }, h("summary", null, h("b", null, "The ranking rule"), h("span", { class: "muted" }, " — our interpretation; open to see every point")),
         h("ul", { class: "pts" },
           h("li", null, h("b", null, "+3"), " named in the challenge brief as fire-safety research (+2 mentioned as related, +1 named only for shared hardware)"),
           h("li", null, h("b", null, "+2"), " NASA PSI files it under a fire-safety sub-area"),
           h("li", null, h("b", null, "+2"), " burns cabin-type solid materials (+1 measures smoke from heated materials)"),
-          h("li", null, h("b", null, "+1"), " per fire-safety area addressed: prevention, detection, suppression (from the brief)"),
+          h("li", null, h("b", null, "+1"), " per fire-safety area addressed: prevention, detection, suppression (Flare AI’s classification)"),
           h("li", null, h("b", null, "+1"), " spacecraft-scale fire; ", h("b", null, "+1"), " flight tests with a per-test NASA table"),
           h("li", null, h("b", null, "Moon base / rover only: +2"), " tested ≥30% O2; ", h("b", null, "+3"), " tested ≥30% O2 at ≤10.2 psi in the same test (+1 near miss ≤11 psi)"),
           h("li", null, h("b", null, "Spacecraft / ISS only: +1"), " tested near cabin-air oxygen (19–23%)"),
@@ -2150,6 +2150,18 @@
       ["spinoffs", "Fire safety on Earth", "Space technology that went on to protect firefighters."]];
     var state = { g: "", q: "" }, body = h("div"), count = h("p", { class: "count", "aria-live": "polite" });
     function hay(r) { return (r.title + " " + r.event + " " + r.year + " " + r.publisher + " " + r.quotes.join(" ") + " " + r.ours).toLowerCase(); }
+    /* A video plays inside the card only after a click, from YouTube's privacy-enhanced player (youtube-nocookie.com):
+     * nothing is loaded from YouTube until then. The site's security policy allows frames from that one host only. */
+    function videoButton(r) {
+      var b = h("button", { type: "button", class: "btn ghost small video-btn" }, h("span", { "aria-hidden": "true" }, "\u25B6 "), "Watch the video (YouTube, " + r.video.minutes + " min)");
+      b.addEventListener("click", function () {
+        var box = h("div", { class: "lesson-video" }, h("iframe", { src: "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(r.video.youtube_id) + "?autoplay=1&rel=0",
+          title: r.title + " (YouTube video)", allow: "autoplay; encrypted-media; picture-in-picture; fullscreen",
+          referrerpolicy: "strict-origin-when-cross-origin", loading: "lazy" }));
+        var card = b.closest(".lesson"); card.querySelector(".lesson-main").appendChild(box); b.disabled = true; b.lastChild.textContent = "Playing below";
+      });
+      return b;
+    }
     function card(r) {
       var rest = r.quotes.slice(1);
       return h("article", { class: "card lesson", id: r.id },
@@ -2158,7 +2170,7 @@
         h("div", { class: "lesson-main" },
           h("h3", null, r.title),
           h("p", { class: "lesson-event" }, r.event),
-          h("div", { class: "lesson-quotes" }, chip("published", r.from_brief ? "NASA challenge brief" : "Published by NASA"),
+          h("div", { class: "lesson-quotes" }, chip("published", r.from_brief ? "NASA challenge brief" : r.extra ? "NASA report (not on the Resources tab)" : "Published by NASA"),
             h("blockquote", { class: "lesson-key" }, h("q", null, r.quotes[0])),
             rest.length ? h("details", { class: "lesson-more" }, h("summary", null, "Show all " + r.quotes.length + " NASA quotes"),
               h("ul", null, rest.map(function (q) { return h("li", null, h("q", null, q)); }))) : null,
@@ -2166,7 +2178,8 @@
               : "! A quote could not be matched to the saved page; treat it with care."))),
         h("div", { class: "lesson-ours" }, chip("interp", "Our interpretation"), h("p", null, r.ours),
           h("div", { class: "lesson-links" },
-            h("a", { class: "btn ghost small", href: r.url, target: "_blank", rel: "noopener" }, r.from_brief ? "Open the challenge page" : "Open NASA\u2019s page"),
+            r.video ? videoButton(r) : h("a", { class: "btn ghost small", href: r.url, target: "_blank", rel: "noopener" }, r.from_brief ? "Open the challenge page" : "Open NASA\u2019s page"),
+            r.video ? h("a", { class: "textlink", href: r.url, target: "_blank", rel: "noopener" }, "Open on YouTube \u2197") : null,
             r.link ? h("a", { class: "textlink", href: r.link[0] }, r.link[1]) : null)));
     }
     function draw() {
@@ -2199,7 +2212,7 @@
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Lessons from real fires"),
           h("p", { class: "lead" }, "The challenge\u2019s Resources tab lists one dataset, NASA\u2019s PSI combustion repository (that is the data in Flare AI), and " +
-            R.filter(function (r) { return !r.from_brief; }).length + " background pages. These are those pages, plus one Earth application named in the challenge brief: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words. The \u201cOur interpretation\u201d lines were drafted with SI (Claude); the quotes are NASA\u2019s."))),
+            R.filter(function (r) { return !r.from_brief && !r.extra; }).length + " background pages. These are those pages, plus one Earth application named in the challenge brief and the key finding from NASA\u2019s BASS-II final report: history, science overviews and spinoffs. They hold no test records, so they appear here as NASA\u2019s own words. The \u201cOur interpretation\u201d lines were drafted with SI (Claude); the quotes are NASA\u2019s."))),
       R.length ? h("div", { class: "lesson-tools" }, tabs, h("div", { class: "lesson-search" }, search), count) : null,
       R.length ? body : h("div", { class: "empty", style: "margin-top:24px" }, h("h3", null, "No resources loaded"), h("p", { class: "muted" }, "Add them to data/resources_curated.json and rebuild.")));
   }
