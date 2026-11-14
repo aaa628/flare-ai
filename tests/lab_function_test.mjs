@@ -94,9 +94,16 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
     && !JSON.stringify(s0.body.generationConfig.responseJsonSchema).includes("additionalProperties"));
 
   sent.length = 0;
-  const g2 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ status: 400, body: { error: { message: "schema" } } }, { body: { candidates: [{ content: { parts: [{ text: "```json\n" + JSON.stringify(good) + "\n```" }] }, finishReason: "STOP" }] } }]) });
+  const g2 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ status: 400, body: {} }, { status: 400, body: {} }, { status: 400, body: { error: { message: "schema" } } }, { body: { candidates: [{ content: { parts: [{ text: "```json\n" + JSON.stringify(good) + "\n```" }] }, finishReason: "STOP" }] } }]) });
   const b2 = await (await handle(req(q), { client: g2, store: memStore(), ip: "3.3.3.3", allowedOrigins: [ORIGIN] })).json();
-  check("gemini: schema rejected -> retried once without it, fenced JSON still read", sent.length === 2 && !sent[1].body.generationConfig.responseJsonSchema && /JSON Schema/.test(sent[1].body.systemInstruction.parts[0].text) && b2.status === "answered");
+  check("gemini: fast settings first (minimal thinking), fields a model rejects are dropped step by step",
+    sent.length === 4 && sent[0].body.generationConfig.thinkingConfig.thinkingLevel === "minimal" && sent[1].body.generationConfig.thinkingConfig.thinkingBudget === 0
+    && !sent[2].body.generationConfig.thinkingConfig && sent[2].body.generationConfig.responseJsonSchema
+    && !sent[3].body.generationConfig.responseJsonSchema && /JSON Schema/.test(sent[3].body.systemInstruction.parts[0].text) && b2.status === "answered");
+  const slow = async (url, init) => new Promise((_, rej) => init.signal.addEventListener("abort", () => rej(new DOMException("aborted", "AbortError"))));
+  const g6 = geminiClient({ apiKey: "k", fetchImpl: slow, deadlineMs: 50 });
+  const r6 = await handle(req("Which tests used Nomex fabric samples?"), { client: g6, store: memStore(), ip: "4.4.4.7", allowedOrigins: [ORIGIN] });
+  check("gemini: too slow -> stopped before Netlify's 10 s limit, clean error (page shows keyword matches)", r6.status === 502 && (await r6.json()).detail === "upstream 504");
 
   const g3 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ body: { candidates: [{ content: { parts: [] }, finishReason: "SAFETY" }] } }]) });
   const b3 = await (await handle(req("Which tests used Nomex fabric samples?"), { client: g3, store: memStore(), ip: "4.4.4.4", allowedOrigins: [ORIGIN] })).json();

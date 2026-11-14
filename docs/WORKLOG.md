@@ -613,3 +613,10 @@ Verified by running: smoke 135/135; previewer 14/14; lab_ui passed; lab_function
 - Not tested against Google's live API from the build machine (ai.google.dev is not reachable here); tested with a fake
   server. Test on the live site after adding the key.
 Verified by running: lab_function 26/26 (8 new Gemini checks); smoke 135/135; previewer 14/14; lab_ui passed; CSP clean.
+
+## 2026-11-14: Lab timed out on the live site (504)
+- Live test returned 504: Netlify's free plan stops a function after about 10 s, and Gemini Flash spent longer thinking.
+- gemini.mjs now asks for minimal thinking first (thinkingLevel "minimal"; then thinkingBudget 0 for 2.5 models; then no
+  thinking field; then no schema, each only if the model rejects the previous request with 400), caps output at 4096 tokens,
+  and stops waiting after 8.5 s so the visitor gets a clean error and keyword matches instead of a gateway timeout.
+Verified by running: lab_function 27/27 (fake server, including a slow-server case).
