@@ -629,3 +629,10 @@ Verified by running: lab_function 27/27 (fake server, including a slow-server ca
 - Lab page shows "What the NASA records can tell you instead" with citation links. Cache key prefix bumped (a: -> a2:) so
   answers written under the old prompt are not served again.
 Verified by running: lab_function 31/31; lab_ui passed (new abstention check); smoke 135/135; previewer 14/14; CSP clean.
+
+## 2026-11-14: Lab errors now say why
+- After #46 the live Lab showed only "The AI service is unavailable right now", which hides the cause.
+- The error now names it (took too long / free quota used up / request rejected, check GEMINI_MODEL / key rejected) with the
+  status code, and the function logs one line per question in Netlify (Logs -> Functions -> ask): status code or answer
+  status, time taken and model. Never the key or the question.
+Verified by running: lab_function 31/31.

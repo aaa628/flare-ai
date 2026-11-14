@@ -183,6 +183,7 @@ export async function handle(req, deps) {
     return json(200, { ...answer, evidence: [] });
   }
   let response;
+  const t0 = Date.now();
   try {
     response = await client.beta.messages.create({
       model: MODEL,
@@ -194,7 +195,15 @@ export async function handle(req, deps) {
       messages: [{ role: "user", content: userTurn(question, docs) }],
     });
   } catch (err) {
-    return json(502, { error: "The AI service is unavailable right now.", detail: err?.status ? `upstream ${err.status}` : "network" });
+    const code = err?.status || 0;
+    // Logged for the team in Netlify (Logs -> Functions -> ask). Status code only: never the key, never the question.
+    console.error(`ask: upstream error ${code || "network"} after ${Date.now() - t0} ms`);
+    const why = code === 504 ? "The SI took too long to answer (Netlify allows about 10 seconds)."
+      : code === 429 ? "The free SI quota is used up for now."
+      : code === 400 || code === 404 ? "The SI service rejected the request (check the GEMINI_MODEL name)."
+      : code === 401 || code === 403 ? "The SI service rejected the key."
+      : "The AI service is unavailable right now.";
+    return json(502, { error: why + (code ? ` (code ${code})` : ""), detail: code ? `upstream ${code}` : "network" });
   }
   if (response.stop_reason === "refusal") {
     return json(200, { status: "abstained", grade: "none", summary: "The model declined to answer this question.", key_points: [], gaps: [], citations: [], dropped_points: 0, model: response.model, evidence: docs.map(pub) });
@@ -204,6 +213,7 @@ export async function handle(req, deps) {
   let parsed;
   try { parsed = JSON.parse(text); } catch { return json(502, { error: "The AI returned an unreadable answer." }); }
   const answer = { ...validate(parsed, docs), model: response.model };
+  console.log(`ask: ${answer.status} in ${Date.now() - t0} ms (${response.model})`);
   await store.set(key, { at: now, answer });
   return json(200, { ...answer, evidence: docs.map(pub) });
 }
