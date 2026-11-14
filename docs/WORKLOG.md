@@ -697,3 +697,14 @@ Verified by running: smoke 141/141 (6 new); previewer 14/14; lab_ui passed; lab_
   choice): README "SI use" section (code, text, live answers, images/video, data, audio) replacing the old AI note, and
   one <meta name="ai-disclosure"> line in site/index.html. Visible text on the site is unchanged.
 Verified by running: smoke 141/141; previewer 14/14.
+## 2026-11-14: Audit fixes 1-6
+- Moon-base chart (Investigations): pressure axis 50 -> 80 psi (CFI's table reaches 73.5 psi and was clipped); gridline at
+  10.2 psi; chart a little taller; labels placed by their real width so none overlap (also clear of "Earth/ISS air").
+- Flame Explorer: badges in the list, not only on the record page: "NASA PDF and PSI disagree" (F3, P3a, P22b) and
+  "PSI only (not in NASA's report)" (O20-O22).
+- Unknown "#/..." addresses show "Page not found" with links to Overview and Explorer (the skip link "#main" still works).
+- Record page "Back" returns to the page the visitor came from (e.g. "Back to Intelligence Lab"); Flame Explorer otherwise.
+- Compare (tests and investigations): the same item picked twice counts once.
+- Scenario Check: singular/plural wording in screen-reader text and the "partly covered" verdict ("1 test matches").
+Verified by running: smoke 146/146 (5 new); previewer 14/14; lab_ui passed; all 537 record pages open; CSP clean;
+  screenshots of the chart and the Explorer checked.

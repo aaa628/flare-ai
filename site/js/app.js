@@ -80,6 +80,7 @@
     return r.level === "human" && isMachine(r) ? [chip(L.cls, L.short), " ", chip(LEVEL.machine.cls, LEVEL.machine.short)] : chip(L.cls, L.short);
   }
   function chip(kind, text) { return h("span", { class: "chip " + kind }, text); }
+  function nTests(n) { return n + (n === 1 ? " test" : " tests"); }
   function flagsOf(r) {
     return (r.qc_flag || "").split(";").filter(Boolean);
   }
@@ -458,6 +459,9 @@
         var note = r.observation || (r.fields || []).map(function (f) { return f[0] + ": " + f[1]; }).slice(0, 3).join("; ");
         var obs = note.length > 140 ? note.slice(0, 137) + "..." : note;
         var fl = flagsOf(r).map(function (f) { return chip("warn", FLAG_TEXT[f] || f); });
+        /* data-check badges up front (details stay on the record page) */
+        if ((r.psi_check || "").indexOf("DIFFERS") === 0) fl.push(chip("warn", "NASA PDF and PSI disagree"));
+        if (r.experiment === "BASS-II" && r.source_id === "PSI-25") fl.push(chip("interp", "PSI only (not in NASA\u2019s report)"));
         var o2 = o2Start(r);
         tbody.appendChild(h("tr", { class: "row", tabindex: 0, "aria-label": "Open test " + shortId(r) + ", " + r.material_raw,
           onclick: function () { open(r); }, onkeydown: function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(r); } } },
@@ -594,7 +598,7 @@
     }
     var signed = r.level === "human";
     return h("section", { class: "record-head lv-" + r.level, "aria-labelledby": "rec-h" },
-      h("p", { class: "crumbs" }, h("a", { href: "#/explorer" }, "← Flame Explorer")),
+      h("p", { class: "crumbs" }, backLink()),
       h("div", { class: "rh-top" },
         h("div", { class: "rh-id" }, h("p", { class: "mono muted rh-meta" }, meta), h("h1", { id: "rec-h" }, title)),
         h("div", { class: "rh-status" }, chip(L.cls + " big", L.label), r.level === "human" && isMachine(r) ? [" ", chip(LEVEL.machine.cls + " big", LEVEL.machine.label)] : null,
@@ -972,7 +976,8 @@
   function viewCompare(arg) {
     setTitle("Compare");
     ensureTip();
-    var ids = (arg || "").split(",").map(decodeURIComponent).filter(Boolean);
+    var ids = (arg || "").split(",").map(decodeURIComponent).filter(Boolean)
+      .filter(function (id, i, a) { return a.indexOf(id) === i; }); /* the same test picked twice counts once */
     var picked = ids.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean).slice(0, MAX_PICK);
     function go2(list) { location.hash = "#/compare/" + list.map(function (r) { return encodeURIComponent(r.id); }).join(","); }
 
@@ -1254,14 +1259,14 @@
         if (t.o2_range_pct && t.p_range_psi && !/PLANNED/.test(t.o2_meaning || "")) boxes.push({ v: v, t: t });
       });
     });
-    var W = 640, H = 340, L = 56, R = 16, T = 16, B = 44, xmax = 90, ymax = 50;
+    var W = 640, H = 380, L = 56, R = 16, T = 16, B = 44, xmax = 90, ymax = 80; /* 80 psi so CFI's highest tests (73.5 psi) fit */
     var x = function (p) { return L + (W - L - R) * p / xmax; }, y = function (psi) { return T + (H - T - B) * (1 - psi / ymax); };
     var summary = "Oxygen versus pressure ranges tested: " + boxes.map(function (b) { return invName(b.v) + " (" + b.t.o2_meaning + ") O2 " + b.t.o2_range_pct.join("–") + "%, " +
       b.t.p_range_psi.join("–") + " psi, " + b.t.joint + " tests in the Moon-base zone"; }).join("; ") + ".";
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz", role: "img", "aria-label": summary }, svg("title", null, summary));
     s.appendChild(svg("rect", { x: x(30), y: y(10.2), width: x(xmax) - x(30), height: y(0) - y(10.2), class: "zone" }));
     s.appendChild(svg("text", { x: x(30) + 6, y: y(10.2) + 16, class: "tlabel" }, "Moon base / rover zone (brief): ≥30% O2, ≤10.2 psi"));
-    [0, 10, 20, 30, 40, 50].forEach(function (p) { s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(p), y2: y(p), class: p ? "grid" : "axis" }));
+    [0, 10.2, 20, 40, 60, 80].forEach(function (p) { s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(p), y2: y(p), class: p ? "grid" : "axis" }));
       s.appendChild(svg("text", { x: L - 8, y: y(p) + 4, "text-anchor": "end", class: "tick" }, p)); });
     [0, 21, 30, 50, 70, 90].forEach(function (p) { s.appendChild(svg("text", { x: x(p), y: H - B + 16, "text-anchor": "middle", class: "tick" }, p + "%")); });
     s.appendChild(svg("text", { x: (L + W) / 2, y: H - 6, "text-anchor": "middle", class: "xlab" }, "oxygen (%), as recorded in each table"));
@@ -1279,9 +1284,14 @@
           b.t.joint + " tests inside the zone." }));
       labels.push({ x: bx + 4, y: by + 12, text: invName(b.v).replace("ACME/", "").replace("ACME ", "") + (/burner/.test(b.t.o2_meaning) ? " (inverse)" : "") });
     });
-    /* place labels so they do not overlap: push each down until it clears earlier ones */
-    labels.sort(function (a, b) { return a.y - b.y; }).forEach(function (l, i, arr) {
-      for (var j = 0; j < i; j++) if (Math.abs(arr[j].y - l.y) < 12 && Math.abs(arr[j].x - l.x) < 120) l.y = arr[j].y + 12;
+    /* place labels so they do not overlap: using each label's real width, push it down until it clears every placed label */
+    var earthTxt = "Earth/ISS air"; /* fixed label (right-aligned at the Earth dot): other labels must avoid it too */
+    var placed = [{ x: x(21) - 8 - earthTxt.length * 6.2, y: y(14.7) + 4, w: earthTxt.length * 6.2 + 4 }];
+    labels.sort(function (a, b) { return a.y - b.y || a.x - b.x; }).forEach(function (l) {
+      l.w = l.text.length * 6.2 + 4;
+      var hit = function (q) { return l.x - 2 < q.x - 2 + q.w + 4 && q.x - 2 < l.x - 2 + l.w + 4 && Math.abs(q.y - l.y) < 14; };
+      for (var guard = 0; guard < 40 && placed.some(hit); guard++) l.y += 14;
+      placed.push(l);
       s.appendChild(svg("rect", { x: l.x - 2, y: l.y - 9, width: l.text.length * 6.2 + 4, height: 12, rx: 3, class: "lbg" }));
       s.appendChild(svg("text", { x: l.x, y: l.y, class: "blabel" }, l.text));
     });
@@ -1585,7 +1595,7 @@
 
   function viewInvCompare(arg) {
     setTitle("Compare investigations");
-    var list = (arg || "").split(",").map(invById).filter(Boolean).slice(0, 3);
+    var list = (arg || "").split(",").map(invById).filter(Boolean).filter(function (v, i, a) { return a.indexOf(v) === i; }).slice(0, 3);
     if (list.length < 2) return h("div", null, h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")), h("h1", null, "Compare investigations"),
       h("p", { class: "lead" }, "Tick two or three investigations in the ranking, then press “Compare selected”."));
     function o2(v) { var t = (v.table_summaries || []).filter(function (t) { return t.o2_range_pct; }); return t.length ? t.map(function (t) { return t.o2_range_pct.join("–") + "% (" + t.o2_meaning + ")"; }).join("; ") : "not in table"; }
@@ -1836,9 +1846,9 @@
     }
     var nIn = tests.filter(function (t) { return t.inside; }).length;
     var nGroups = groups.filter(function (g) { return g.length > 1; }).length;
-    var summary = exp + " panel: " + tests.length + " tests with oxygen and pressure; " + nIn + " inside the match window around your scenario (" + o2 + "% oxygen, " + psi +
+    var summary = exp + " panel: " + nTests(tests.length) + " with oxygen and pressure; " + nIn + " inside the match window around your scenario (" + o2 + "% oxygen, " + psi +
       " psi). Shown: " + (vis.length - groups.filter(function (g) { return g.length > 1; }).reduce(function (a, g) { return a + g.length; }, 0)) + " single tests at their real positions and " +
-      nGroups + " groups of overlapping tests." + (tests.length - vis.length ? " " + (tests.length - vis.length) + " tests are outside this zoomed view." : "");
+      nGroups + (nGroups === 1 ? " group" : " groups") + " of overlapping tests." + (tests.length - vis.length ? " " + nTests(tests.length - vis.length) + (tests.length - vis.length === 1 ? " is" : " are") + " outside this zoomed view." : "");
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz scen-chart", role: "img", "aria-label": summary }, svg("title", null, summary));
     xt.forEach(function (t) { s.appendChild(svg("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, class: "grid" })); s.appendChild(svg("text", { x: x(t), y: H - B + 18, "text-anchor": "middle", class: "tick" }, f1(t) + "%")); });
     yt.forEach(function (t) { s.appendChild(svg("line", { x1: L, x2: W - R, y1: y(t), y2: y(t), class: "grid" })); s.appendChild(svg("text", { x: L - 10, y: y(t) + 4, "text-anchor": "end", class: "tick" }, f1(t))); });
@@ -1927,10 +1937,10 @@
     tests.slice().sort(function (a, b) { return a.c.o2 - b.c.o2; }).forEach(function (t) { var k = Math.round(t.c.o2 / binw); t._k = (stacks[k] = (stacks[k] || 0) + 1); maxN = Math.max(maxN, stacks[k]); });
     var T = 22, H = T + maxN * step + 34, base = H - 30;
     var nIn = tests.filter(function (t) { return t.partial; }).length;
-    var summary = exp + " oxygen-only panel: " + tests.length + " tests, no per-test pressure; " + nIn + " within plus or minus " + MATCH.o2 + " points of " + o2 + "% oxygen (pressure cannot be checked).";
+    var summary = exp + " oxygen-only panel: " + nTests(tests.length) + ", no per-test pressure; " + nIn + " within plus or minus " + MATCH.o2 + " points of " + o2 + "% oxygen (pressure cannot be checked).";
     var s = svg("svg", { viewBox: "0 0 " + W + " " + H, class: "chart viz scen-chart strip", role: "img", "aria-label": summary }, svg("title", null, summary));
     s.appendChild(svg("rect", { x: x(Math.max(x0, o2 - MATCH.o2)), y: T - 6, width: x(Math.min(x1, o2 + MATCH.o2)) - x(Math.max(x0, o2 - MATCH.o2)), height: base - T + 8, rx: 5, class: "mwin" }));
-    var wl = x(Math.max(x0, o2 - MATCH.o2)), lbl = "oxygen window: " + nIn + " tests (pressure not recorded)", endAnchor = wl + lbl.length * 6.3 > W - R;
+    var wl = x(Math.max(x0, o2 - MATCH.o2)), lbl = "oxygen window: " + nTests(nIn) + " (pressure not recorded)", endAnchor = wl + lbl.length * 6.3 > W - R;
     s.appendChild(svg("text", { x: endAnchor ? x(Math.min(x1, o2 + MATCH.o2)) : wl + 4, y: T - 10, "text-anchor": endAnchor ? "end" : "start", class: "mwin-l" }, lbl));
     s.appendChild(svg("line", { x1: L, x2: W - R, y1: base + 4, y2: base + 4, class: "axis" }));
     xt.forEach(function (t) { s.appendChild(svg("text", { x: x(t), y: base + 20, "text-anchor": "middle", class: "tick" }, f1(t) + "%")); });
@@ -2014,7 +2024,7 @@
       var cls, head, body;
       if (inside.length >= 3) { cls = "v-ok"; head = "✓ Covered: " + inside.length + " NASA tests inside the oxygen-and-pressure window"; body = "Window: ±" + MATCH.o2 + " points O2 and ±" + MATCH.psi + " psi around your scenario. Their recorded results are listed below."; }
       else if (inside.length) { cls = "v-thin"; head = "! Thin: only " + inside.length + " NASA test" + (inside.length > 1 ? "s" : "") + " inside the oxygen-and-pressure window"; body = "Too few to say much; read them individually."; }
-      else if (partial.length) { cls = "v-thin"; head = "! Partly covered: " + partial.length + " tests match the oxygen only, because their pressure was not recorded"; body = "The pressure part of your scenario cannot be checked for these tests."; }
+      else if (partial.length) { cls = "v-thin"; head = "! Partly covered: " + nTests(partial.length) + (partial.length === 1 ? " matches" : " match") + " the oxygen only, because " + (partial.length === 1 ? "its" : "their") + " pressure was not recorded"; body = "The pressure part of your scenario cannot be checked for these tests."; }
       else { cls = "v-none"; head = "✕ Insufficient data: no NASA test in Flare AI near these conditions"; body = "The available data does not cover this scenario, so Flare AI will not describe what would happen. The nearest tests are listed for orientation only."; }
       var counts = h("ul", { class: "cat-counts", "aria-label": "How every test in this fuel family was handled" },
         h("li", { class: "c-in" }, h("b", null, String(inside.length)), " inside the window (O2 and pressure)"),
@@ -2261,8 +2271,25 @@
   }
 
   /* ---------- router ---------- */
+  /* Record pages link back to the page the visitor came from (search results, a comparison, a scenario...),
+   * falling back to Flame Explorer when they arrived directly. */
+  var prevHash = "", curHash = "";
+  var PAGE_NAMES = { explorer: "Flame Explorer", compare: "Compare", scenario: "Scenario Check", lab: "Intelligence Lab",
+    investigation: "the investigation", investigations: "Investigations", lessons: "Lessons", about: "About", "": "Overview" };
+  function backLink() {
+    var seg = prevHash.replace(/^#\/?/, "").split("/")[0];
+    if (!prevHash || seg === "experiment" || !(seg in PAGE_NAMES)) return h("a", { href: "#/explorer" }, "\u2190 Flame Explorer");
+    return h("a", { href: prevHash }, "\u2190 Back to " + PAGE_NAMES[seg]);
+  }
+  function viewNotFound(hash) {
+    setTitle("Page not found");
+    return h("div", null, h("h1", null, "Page not found"),
+      h("p", { class: "lead" }, "There is no Flare AI page at \u201c" + hash + "\u201d. It may be a typo or an old link."),
+      h("p", null, h("a", { class: "btn", href: "#/" }, "Go to the Overview"), " ", h("a", { class: "btn ghost", href: "#/explorer" }, "Open Flame Explorer")));
+  }
   function render() {
     var hash = location.hash || "#/";
+    if (hash !== curHash) { prevHash = curHash; curHash = hash; }
     var seg = hash.replace(/^#\/?/, "").split("/");
     var route = seg[0] || "overview", view;
     if (route === "explorer") view = viewExplorer();
@@ -2275,7 +2302,8 @@
     else if (route === "investigation") view = viewInvestigation(decodeURIComponent(seg[1] || ""));
     else if (route === "lab") view = viewLab();
     else if (route === "scenario") view = viewScenario(seg.slice(1).join("/"));
-    else { route = "overview"; view = viewOverview(); }
+    else if (route === "overview" || !/^#\//.test(hash)) { route = "overview"; view = viewOverview(); }
+    else { route = "notfound"; view = viewNotFound(hash); }
     main.textContent = "";
     main.appendChild(view);
     var nav = route === "experiment" ? "explorer" : route === "investigation" ? "investigations" : route;

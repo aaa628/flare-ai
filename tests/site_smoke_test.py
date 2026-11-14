@@ -301,6 +301,26 @@ async def main():
               all(k in t for k in ("Super Intelligence (SI) use", "Claude", "marked as made with SI", "not generated")))
         await pg.goto(SITE + "#/"); await pg.wait_for_selector(".flames")
         check("SI-made drawing carries a visible watermark", "Illustration made with SI" in (await pg.inner_html(".flames")))
+        # audit fixes
+        await pg.goto(SITE + "#/investigations/moon"); await pg.wait_for_selector("svg.chart")
+        fits = await pg.evaluate("""() => { const svgs=[...document.querySelectorAll('svg.chart')].filter(s=>/pressure/.test(s.textContent));
+            if(!svgs.length) return null; const s=svgs[0], vb=s.viewBox.baseVal;
+            const ticks=[...s.querySelectorAll('text.tick')].map(t=>t.textContent);
+            const ok=[...s.querySelectorAll('rect.mark')].every(r=>+r.getAttribute('y')>=0 && +r.getAttribute('y')+ +r.getAttribute('height')<=vb.height);
+            const ls=[...s.querySelectorAll('rect.lbg')].map(r=>r.getBBox()); let ov=0;
+            for(let i=0;i<ls.length;i++)for(let j=i+1;j<ls.length;j++){const a=ls[i],b=ls[j]; if(a.x<b.x+b.width&&b.x<a.x+a.width&&a.y<b.y+b.height&&b.y<a.y+a.height)ov++;}
+            return {ticks, ok, ov}; }""")
+        check("moon chart: pressure axis reaches 80 psi, every box (incl. CFI 73.5 psi) fits, no labels overlap", fits and "80" in fits["ticks"] and fits["ok"] and fits["ov"] == 0, fits)
+        await pg.goto(SITE + "#/explorer"); await pg.wait_for_selector("tbody tr.row"); await pg.fill("#q", "BASSII-F3")
+        await pg.wait_for_timeout(300); tF = await pg.inner_text("tbody")
+        await pg.fill("#q", "BASSII-O21"); await pg.wait_for_timeout(300); tO = await pg.inner_text("tbody")
+        check("explorer: badges show 'NASA PDF and PSI disagree' (F3) and 'PSI only' (O21) in the list", "NASA PDF and PSI disagree" in tF and "PSI only" in tO)
+        await pg.goto(SITE + "#/no-such-page"); await pg.wait_for_selector("main h1")
+        check("unknown address shows 'Page not found', not the Overview", (await pg.inner_text("main h1")) == "Page not found")
+        await pg.goto(SITE + "#/lab"); await pg.wait_for_selector(".lab-form"); await pg.evaluate("location.hash = '#/experiment/FLEX-1'"); await pg.wait_for_selector(".crumbs a")
+        check("record page 'Back' returns to where you came from", (await pg.inner_text(".crumbs a")) == "\u2190 Back to Intelligence Lab" and (await pg.get_attribute(".crumbs a", "href")) == "#/lab")
+        await pg.goto(SITE + "#/compare/BASSII-P1,BASSII-P1,BASSII-P10"); await pg.wait_for_selector(".pick")
+        check("compare: the same test picked twice counts once", await pg.locator(".pick").count() == 2)
         await pg.goto(SITE + "#/investigations/moon"); await pg.wait_for_selector(".score-n")
         check("moon ranking: scores are out of 17, the most the printed rule can give", all(x.endswith("/17") for x in await pg.locator(".score-n").all_inner_texts()))
         await pg.goto(SITE + "#/"); await pg.wait_for_selector(".hero")
