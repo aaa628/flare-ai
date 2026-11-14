@@ -644,6 +644,11 @@ Verified by running: lab_function 31/31.
 - A brief Google overload (500/503) gets one quick retry if under 3 s have passed.
 Verified by running: lab_function 33/33.
 
+## 2026-11-14: Submission text drafted
+- docs/SUBMISSION.md: every field of the Space Apps project form (name, summary, details, NASA data, partner data,
+  references, SI answer), with [BRACKETED] items the team must fill in (demo link, live link, idea-origin confirmation).
+- README: the human-verified count was still 0 and the Lab was described as Claude-only; updated to 537 (team sign-off)
+  and Gemini on the live site.
 ## 2026-11-14: 30-second demo video (silent, captioned) and script
 - docs/demo/flare-ai-demo-silent.mp4: 29.5 s, 1920x1080, built from Playwright screenshots of the site, the team's own
   screenshot of the live Lab (a real Gemini answer), and the NASA SVS 11640 footage already used on the site (credited
