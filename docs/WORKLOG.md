@@ -654,6 +654,7 @@ Verified by running: lab_function 33/33.
   screenshot of the live Lab (a real Gemini answer), and the NASA SVS 11640 footage already used on the site (credited
   on screen). English captions burned in; "Edited with SI (Claude)" mark; no people, faces or voices.
 - docs/demo/DEMO_SCRIPT.md: scene-by-scene script (what to show, what to say), rules, recording tips for an adult
+  (Later removed at the team's request once the voice-over was recorded.)
   narrator, upload steps. flare-ai-demo.srt has the same lines. build.py / cap.py are the exact build scripts.
 - Follow-up (user): opening scene now uses the 4K NASA photo of a BASS-II flame (iss040e088023, from the earlier home-page
   version) with a slow push-in, instead of the low-resolution jellyfish footage; added a Compare scene (BASS-II P1/P10/P12
