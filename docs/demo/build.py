@@ -1,6 +1,24 @@
 import subprocess, os, textwrap
 B="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"; R="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 FPS=30; X=0.5
+from PIL import Image
+def motion(base, n, zoom, drift_x, out_w, out_h, vf, out, crf="18"):
+    """base: PIL image already at the framing we want (aspect out_w:out_h, any size >= 2x). Smooth push-in with float
+    precision (no whole-pixel steps, so no shake); ease-in-out so the motion starts and ends gently."""
+    W,H=base.size
+    p=subprocess.Popen(["ffmpeg","-y","-loglevel","error","-f","rawvideo","-pix_fmt","rgb24","-s",f"{out_w}x{out_h}","-r",str(FPS),"-i","-",
+                        "-vf",vf+",format=yuv420p","-c:v","libx264","-crf",crf,"-preset","medium",out],stdin=subprocess.PIPE)
+    for f in range(n):
+        u=f/max(1,n-1); e=u*u*(3-2*u)            # smoothstep easing
+        z=1+zoom*e                                 # zoom factor
+        vw,vh=W/z,H/z                              # visible window in source pixels (float)
+        cx=W/2+drift_x*W*(e-0.5); cy=H/2
+        x0=min(max(cx-vw/2,0),W-vw); y0=min(max(cy-vh/2,0),H-vh)
+        sx=vw/out_w; sy=vh/out_h
+        fr=base.transform((out_w,out_h),Image.AFFINE,(sx,0,x0,0,sy,y0),resample=Image.BICUBIC)
+        p.stdin.write(fr.tobytes())
+    p.stdin.close(); assert p.wait()==0
+
 # (source, seconds, caption)
 S=[("PHOTO", 4.0, "We're 628 Aerospace,\nand this is Flare AI."),
    ("s_overview.png", 4.5, "NASA's space-fire experiments: 24 investigations,\n537 tests, in one place."),
@@ -28,14 +46,14 @@ for i,(src,d,cap) in enumerate(S):
         t1=txt("t1.txt","Flare AI"); t2=txt("t2.txt","628 Aerospace  ·  NASA Space Apps 2026  ·  Flame in Freefall")
         t3=txt("t3.txt","Photo: NASA, BASS-II flame test on the ISS, Expedition 40 (iss040e088023)")
         # 4K NASA photo: crop to 16:9, then a slow push-in with a gentle drift; darkened a little so the title reads
-        vf=("crop=3840:2160:0:(ih-2160)/2,"
-            f"zoompan=z='1+0.08*on/{n}':x='(iw-iw/zoom)*(0.35+0.3*on/{n})':y='(ih-ih/zoom)/2':d={n}:s=1920x1080:fps={FPS},"
-            "eq=brightness=-0.06:saturation=1.1,"
+        vf=("eq=brightness=-0.06:saturation=1.1,"
             f"drawtext=fontfile={B}:textfile={t1}:fontsize=120:fontcolor=white:shadowcolor=black@0.7:shadowx=3:shadowy=3:x=(w-tw)/2:y=170:alpha='min(1,t/0.8)',"
             f"drawtext=fontfile={R}:textfile={t2}:fontsize=34:fontcolor=white:shadowcolor=black@0.7:shadowx=2:shadowy=2:x=(w-tw)/2:y=320:alpha='min(1,t/0.8)',"
             f"drawtext=fontfile={R}:textfile={t3}:fontsize=22:fontcolor=white@0.8:x=28:y=24,"
             f"drawbox=x=0:y=880:w=1920:h=200:color=0x0b0b0b@0.85:t=fill,"+",".join(draw))
-        cmd=["ffmpeg","-y","-loglevel","error","-loop","1","-i","bass2-flame-3840.jpg","-vf",vf+",format=yuv420p","-frames:v",str(n),"-c:v","libx264","-crf","16","-preset","medium",out]
+        im=Image.open("bass2-flame-3840.jpg").convert("RGB"); top=(im.height-2160)//2
+        motion(im.crop((0,top,3840,top+2160)), n, 0.08, 0.06, 1920, 1080, vf, out, crf="16")
+        clips.append((out,d)); continue
     elif src=="JELLY":
         t1=txt("t1.txt","Flare AI"); t2=txt("t2.txt","628 Aerospace  ·  NASA Space Apps 2026  ·  Flame in Freefall")
         t3=txt("t3.txt","Footage: Science@NASA / NASA Goddard (SVS 11640)")
@@ -52,12 +70,12 @@ for i,(src,d,cap) in enumerate(S):
         cmd=["ffmpeg","-y","-loglevel","error","-f","lavfi","-i",f"color=c=0x0b0b0b:s=1920x1080:d={d}:r={FPS}","-vf",vf+",format=yuv420p","-c:v","libx264","-crf","18",out]
     else:
         # fit image into 1920x1080 on a dark background, then a slow push-in (Ken Burns)
-        # screenshot in the top 880 px with a slow push-in; captions get their own band below, so nothing is covered
-        vf=("scale=1840:860:force_original_aspect_ratio=decrease,pad=1920:880:(ow-iw)/2:(oh-ih)/2+10:color=0x0b0b0b,"
-            "scale=3840:1760,"
-            f"zoompan=z='1+0.04*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={n}:s=1920x880:fps={FPS},"
-            "pad=1920:1080:0:0:color=0x0b0b0b,"+",".join(draw))
-        cmd=["ffmpeg","-y","-loglevel","error","-loop","1","-i",src,"-vf",vf+",format=yuv420p","-frames:v",str(n),"-c:v","libx264","-crf","18","-preset","medium",out]
+        # screenshot in the top 880 px with a smooth push-in; captions get their own band below, so nothing is covered
+        im=Image.open(src).convert("RGB"); bw,bh=3840,1760
+        r=min((1840*2)/im.width,(860*2)/im.height); im=im.resize((round(im.width*r),round(im.height*r)),Image.LANCZOS)
+        canvas=Image.new("RGB",(bw,bh),(11,11,11)); canvas.paste(im,((bw-im.width)//2,(bh-im.height)//2+20))
+        motion(canvas, n, 0.04, 0.0, 1920, 880, "pad=1920:1080:0:0:color=0x0b0b0b,"+",".join(draw), out)
+        clips.append((out,d)); continue
     subprocess.run(cmd,check=True); clips.append((out,d))
 # crossfade chain
 inputs=[]; [inputs.extend(["-i",c]) for c,_ in clips]

@@ -653,3 +653,6 @@ Verified by running: lab_function 33/33.
 - Follow-up (user): opening scene now uses the 4K NASA photo of a BASS-II flame (iss040e088023, from the earlier home-page
   version) with a slow push-in, instead of the low-resolution jellyfish footage; added a Compare scene (BASS-II P1/P10/P12
   oxygen start vs end charts). Other scenes shortened so the video stays at 29.5 s. Script table updated.
+- Follow-up (user): video looked shaky. Cause: ffmpeg zoompan moves the picture in whole-pixel steps. Frames are now
+  rendered in Python with sub-pixel (float) affine sampling and eased motion, then encoded by ffmpeg. Measured frame-to-frame
+  unevenness on a screenshot scene: 0.73 before, 0.05 after.
