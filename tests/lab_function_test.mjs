@@ -1,6 +1,7 @@
 // Tests the Intelligence Lab function logic with a FAKE Claude client and in-memory store (no API key, no cost).
 // Run: node tests/lab_function_test.mjs
 import { handle, retrieve, validate, LIMITS } from "../netlify/functions/ask/core.mjs";
+import { geminiClient } from "../netlify/functions/ask/gemini.mjs";
 
 let pass = 0, fail = 0;
 const check = (name, ok, extra = "") => { ok ? pass++ : fail++; console.log((ok ? "PASS " : "FAIL ") + name + (ok ? "" : " " + extra)); };
@@ -69,6 +70,42 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
   for (let i = 0; i < LIMITS.perIpPerHour + 1; i++) last = await handle(req("Question number " + i + " about BASS samples?"), deps);
   check("per-IP hourly limit returns 429", last.status === 429);
   check("no model call beyond the limit", calls.length === LIMITS.perIpPerHour);
+}
+
+// Gemini adapter (FAKE fetch: no key, no network). core.mjs is unchanged, so the same citation checks apply.
+{
+  const sent = [];
+  const gReply = (obj, extra = {}) => ({ candidates: [{ content: { role: "model", parts: [{ text: JSON.stringify(obj) }] }, finishReason: "STOP" }], modelVersion: "gemini-test-flash", ...extra });
+  const fakeFetch = (replies) => async (url, init) => { sent.push({ url, init, body: JSON.parse(init.body) });
+    const r = replies.shift(); return new Response(typeof r.body === "string" ? r.body : JSON.stringify(r.body), { status: r.status || 200 }); };
+  const q = "How did FLEX methanol droplet tests end?";
+  const ids = retrieve(q).filter((d) => d.kind === "record").map((d) => d.id);
+  const good = { status: "answered", summary: "Most ended in extinction.", key_points: [{ text: "Ended in extinction.", basis: "nasa_record", citations: ids.slice(0, 3) },
+    { text: "Invented.", basis: "interpretation", citations: ["FAKE-1"] }], gaps: [] };
+  const g = geminiClient({ apiKey: "test-key-not-real", model: "gemini-test-flash", fetchImpl: fakeFetch([{ body: gReply(good) }]) });
+  const res = await handle(req(q), { client: g, store: memStore(), ip: "2.2.2.2", allowedOrigins: [ORIGIN] }); const b = await res.json();
+  check("gemini: answered, invented citation dropped, grade by our rule", res.status === 200 && b.status === "answered" && b.dropped_points === 1 && b.grade === "strong", JSON.stringify(b).slice(0, 200));
+  check("gemini: answer names the model that wrote it", b.model === "gemini-test-flash");
+  const s0 = sent[0];
+  check("gemini: key sent in a header, never in the URL", s0.init.headers["x-goog-api-key"] === "test-key-not-real" && !s0.url.includes("test-key-not-real") && s0.url.endsWith("/models/gemini-test-flash:generateContent"));
+  check("gemini: same fixed instructions, question wrapped as data, JSON schema requested",
+    /Answer ONLY from the numbered evidence/.test(s0.body.systemInstruction.parts[0].text) && /<visitor_question>/.test(s0.body.contents[0].parts[0].text)
+    && s0.body.generationConfig.responseMimeType === "application/json" && s0.body.generationConfig.responseJsonSchema.required.includes("key_points")
+    && !JSON.stringify(s0.body.generationConfig.responseJsonSchema).includes("additionalProperties"));
+
+  sent.length = 0;
+  const g2 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ status: 400, body: { error: { message: "schema" } } }, { body: { candidates: [{ content: { parts: [{ text: "```json\n" + JSON.stringify(good) + "\n```" }] }, finishReason: "STOP" }] } }]) });
+  const b2 = await (await handle(req(q), { client: g2, store: memStore(), ip: "3.3.3.3", allowedOrigins: [ORIGIN] })).json();
+  check("gemini: schema rejected -> retried once without it, fenced JSON still read", sent.length === 2 && !sent[1].body.generationConfig.responseJsonSchema && /JSON Schema/.test(sent[1].body.systemInstruction.parts[0].text) && b2.status === "answered");
+
+  const g3 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ body: { candidates: [{ content: { parts: [] }, finishReason: "SAFETY" }] } }]) });
+  const b3 = await (await handle(req("Which tests used Nomex fabric samples?"), { client: g3, store: memStore(), ip: "4.4.4.4", allowedOrigins: [ORIGIN] })).json();
+  check("gemini: safety block -> abstained, not an error", b3.status === "abstained");
+  const g4 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ status: 429, body: { error: { message: "quota" } } }]) });
+  const r4 = await handle(req("Which tests used Nomex fabric samples?"), { client: g4, store: memStore(), ip: "4.4.4.5", allowedOrigins: [ORIGIN] });
+  check("gemini: quota exhausted -> 502 error (page falls back to keyword search)", r4.status === 502 && (await r4.json()).detail === "upstream 429");
+  const g5 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ body: { candidates: [{ content: { parts: [{ text: "{\"status\":" }] }, finishReason: "MAX_TOKENS" }] } }]) });
+  check("gemini: cut-off answer -> 502, never a half answer", (await handle(req("Which tests used Nomex fabric samples?"), { client: g5, store: memStore(), ip: "4.4.4.6", allowedOrigins: [ORIGIN] })).status === 502);
 }
 
 // validate(): grade rule edge cases

@@ -599,3 +599,17 @@ Verified by running: smoke 135/135 (Lessons counts updated to 10 cards / 26 quot
 - Record pages say "Signed by Saad & Muqeet between 2026-11-13 and 2026-11-14"; summary text says "signed by the team".
 Verified by running: smoke 135/135; previewer 14/14; lab_ui passed; lab_function 18/18; 3 mutation tests passed;
   all 537 record pages open; CSP clean.
+
+## 2026-11-14: Intelligence Lab can use Google Gemini (free tier)
+- The Claude API is billed separately from a Claude Pro subscription, so the team chose Gemini's free tier for the live Lab.
+- New netlify/functions/ask/gemini.mjs: takes the same request core.mjs builds and returns the same shape, so retrieval,
+  citation checking, evidence grades, cache and limits are unchanged. Key from GEMINI_API_KEY (Netlify secret, Production
+  only), sent in a header, never in the URL. Model: GEMINI_MODEL or Google's alias gemini-flash-latest. If the model rejects
+  the JSON schema field, it retries once without it (the prompt then carries the schema); fenced JSON is tolerated.
+  Safety blocks -> abstained; quota (429) / cut-off answers -> error, and the page shows keyword matches instead.
+- ask.mjs uses Gemini if GEMINI_API_KEY is set, otherwise Claude if ANTHROPIC_API_KEY is set, otherwise 503.
+- Daily ceiling across all visitors lowered from 400 to 200 to stay under the free quota.
+- Lab page and About name Google Gemini as the SI that writes Lab answers, and say questions are sent to Google.
+- Not tested against Google's live API from the build machine (ai.google.dev is not reachable here); tested with a fake
+  server. Test on the live site after adding the key.
+Verified by running: lab_function 26/26 (8 new Gemini checks); smoke 135/135; previewer 14/14; lab_ui passed; CSP clean.
