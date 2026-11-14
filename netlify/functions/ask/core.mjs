@@ -8,7 +8,7 @@ export const LIMITS = {
   perIpPerHour: 8,
   perIpPerDay: 25,
   globalPerDay: 200, // hard daily ceiling across all visitors (kept under the Gemini free-tier daily quota)
-  cacheHours: 24,
+  cacheHours: 24 * 100, // answers are kept ~100 days (through judging, Jan 2027): NASA data does not change, and a cached answer needs no SI call
 };
 
 /* ---------- retrieval (BM25 over the generated corpus) ---------- */

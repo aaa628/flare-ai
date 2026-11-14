@@ -127,6 +127,20 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
   check("answered: 'instead' ignored when there is an answer", v2.status === "answered" && v2.instead.length === 0);
 }
 
+{
+  const sent2 = [];
+  const ff = (replies) => async (url, init) => { sent2.push(1); const r = replies.shift(); return new Response(JSON.stringify(r.body), { status: r.status || 200 }); };
+  const ok = { candidates: [{ content: { parts: [{ text: JSON.stringify({ status: "abstained", summary: "n", key_points: [], gaps: [] }) }] }, finishReason: "STOP" }] };
+  const g = geminiClient({ apiKey: "k", fetchImpl: ff([{ status: 503, body: {} }, { body: ok }]) });
+  const r = await handle(req("Which tests used Nomex fabric samples?"), { client: g, store: memStore(), ip: "8.8.8.1", allowedOrigins: [ORIGIN] });
+  check("gemini: brief overload (503) -> one quick retry, then answered", r.status === 200 && sent2.length === 2);
+  const store = memStore(); const calls = [];
+  const deps = { client: fakeClient(answerWith({ status: "abstained", summary: "n", key_points: [], gaps: [] }), calls), store, ip: "8.8.8.2", allowedOrigins: [ORIGIN], now: Date.UTC(2026, 10, 14) };
+  await handle(req("What is the probability of a fire on a Mars rover?"), deps);
+  const later = await (await handle(req("What is the probability of a fire on a Mars rover?"), { ...deps, now: Date.UTC(2027, 0, 20) })).json();
+  check("cache: an answer from Nov 2026 is still served in Jan 2027 (judging), no SI call", later.cached === true && calls.length === 1);
+}
+
 // validate(): grade rule edge cases
 check("grade: single citation -> thin", validate({ status: "answered", summary: "", key_points: [{ text: "t", basis: "brief", citations: ["brief-moon"] }], gaps: [] }, [{ id: "brief-moon", kind: "brief", title: "b", route: "#/", source: "s" }]).grade === "thin");
 

@@ -636,3 +636,10 @@ Verified by running: lab_function 31/31; lab_ui passed (new abstention check); s
   status code, and the function logs one line per question in Netlify (Logs -> Functions -> ask): status code or answer
   status, time taken and model. Never the key or the question.
 Verified by running: lab_function 31/31.
+
+## 2026-11-14: Lab ready for judging
+- A live question failed once and worked on retry (cause unknown; it happened before #47 added logging). To make judging
+  robust: answers are cached ~100 days instead of 24 h (through Jan 2027), so every question asked once (e.g. all six
+  "Try" examples, asked by the team after deploy) is answered instantly from the cache with no SI call and no quota use.
+- A brief Google overload (500/503) gets one quick retry if under 3 s have passed.
+Verified by running: lab_function 33/33.
