@@ -1627,7 +1627,7 @@
         h("tbody", null, rows.map(function (r) { return h("tr", null, h("th", { scope: "row" }, r[0]), list.map(function (v) { return h("td", null, r[1](v)); })); })))));
   }
 
-  /* ---------- Intelligence Lab: Claude answers only from cited Flare AI documents (server function) ---------- */
+  /* ---------- Intelligence Lab: an SI model (Google Gemini) answers only from cited Flare AI documents (server function) ---------- */
   var LAB_EXAMPLES = [
     "Which investigations tested oxygen at 30% or more at reduced pressure?",
     "How did FLEX methanol droplet tests in normal air end?",
@@ -1692,7 +1692,7 @@
           (a.gaps || []).length ? h("div", { class: "lab-gaps" }, h("b", null, "What the data does not cover: "), h("ul", null, a.gaps.map(function (t) { return h("li", null, t); }))) : null,
           h("p", { class: "note grade-rule" }, h("b", null, "Grade rule: "), g.text + " The grade is computed by Flare AI from the citations that survived checking, not chosen by the AI." +
             (a.dropped_points ? " " + a.dropped_points + " point(s) were removed because their citations did not match any retrieved document." : "")),
-          h("p", { class: "note" }, "Answer written by Super Intelligence (SI): " + (a.model || "Claude") + ", from the documents below only. It is not a safety assessment and gives no fire probabilities.")),
+          h("p", { class: "note" }, "Answer written by Super Intelligence (SI): " + (a.model || "Google Gemini") + ", from the documents below only. It is not a safety assessment and gives no fire probabilities.")),
         (a.citations || []).length ? h("section", { class: "card" }, h("h3", null, "Cited documents"),
           h("ul", { class: "fn" }, a.citations.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.source + ")")); }))) : null,
         (a.evidence || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "All " + a.evidence.length + " documents retrieved for this question")),
@@ -1706,7 +1706,7 @@
       var ep = labEndpoint();
       if (!ep) { out.appendChild(renderLocal(q, "The AI answers need the online site (they run on a secure server). Offline, Flare AI shows the records that match your words instead.")); return; }
       btn.disabled = true; btn.textContent = "Checking the records…";
-      out.appendChild(h("p", { class: "muted" }, "Retrieving NASA records and asking Claude to answer only from them…"));
+      out.appendChild(h("p", { class: "muted" }, "Retrieving NASA records and asking the SI (Google Gemini) to answer only from them…"));
       fetch(ep, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ question: q }) })
         .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, status: r.status, b: b }; }, function () { return { ok: false, status: r.status, b: {} }; }); })
         .then(function (res) {
@@ -1721,17 +1721,17 @@
     return h("div", null,
       h("div", { class: "page-head" },
         h("div", null, h("h1", null, "Intelligence Lab"),
-          h("p", { class: "lead" }, "Ask a question in plain English. Claude answers only from Flare AI’s NASA records and PSI descriptions, cites every point, and abstains when the records don’t support an answer.")),
+          h("p", { class: "lead" }, "Ask a question in plain English. The SI (Google Gemini) answers only from Flare AI’s NASA records and PSI descriptions, cites every point, and abstains when the records don’t support an answer.")),
         h("ol", { class: "lab-how", "aria-label": "How the Lab works" },
           h("li", null, h("b", null, "Retrieve"), " the most relevant test records, investigation texts and brief facts."),
-          h("li", null, h("b", null, "Answer"), " with Claude, from those documents only, with an id on every point."),
+          h("li", null, h("b", null, "Answer"), " with Google Gemini (SI), from those documents only, with an id on every point."),
           h("li", null, h("b", null, "Check"), " every citation; drop unsupported points; grade the evidence by a fixed rule."))),
       h("section", { class: "card lab-ask" }, form,
         h("div", { class: "lab-ex" }, h("span", { class: "muted" }, "Try:"), LAB_EXAMPLES.map(function (q, i) {
           return h("button", { type: "button", class: "chip-btn" + (i === LAB_EXAMPLES.length - 1 ? " abst-ex" : ""), onclick: function () { ask(q); } }, q + (i === LAB_EXAMPLES.length - 1 ? " (should abstain)" : ""));
         }))),
       out,
-      h("p", { class: "note", style: "margin-top:14px" }, "Limits keep the service fair: a few questions per visitor per hour and a daily total. Repeat questions are answered from a cache. The Lab never estimates fire probabilities or certifies safety."));
+      h("p", { class: "note", style: "margin-top:14px" }, "Limits keep the service fair: a few questions per visitor per hour and a daily total. Repeat questions are answered from a cache. Your question and the matching NASA documents are sent to Google\u2019s Gemini API to write the answer, so don\u2019t type personal information. The Lab never estimates fire probabilities or certifies safety."));
   }
 
   /* ---------- Scenario Check: closest real NASA tests to a set of conditions; abstains outside the tested range ---------- */
@@ -2242,7 +2242,7 @@
           "FLEX column headers lost their subscripts in NASA\u2019s file (\u201cO\u201d, \u201cN\u201d, \u201cCO\u201d). We read them as O2, N2 and CO2 because the fractions add up to 1; this reading is labelled as ours. One FLEX test has its pressure printed as 0 and one identifier is used twice; both are flagged.",
           "FLEX-2 (PSI-68) is listed as a source, but NASA PSI holds only its planned test conditions, not per-test results, so it adds no records."].map(function (t) { return h("li", null, t); }))),
       h("h2", { id: "si" }, "Super Intelligence (SI) use"),
-      h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with Super Intelligence (SI) assistance (Claude): the code, the drafted text and the flame drawing, which is marked as made with SI. NASA\u2019s data values are copied from NASA\u2019s files, not generated. The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
+      h("div", { class: "card" }, h("p", { style: "margin:0" }, "This project was developed with Super Intelligence (SI) assistance (Claude): the code, the drafted text and the flame drawing, which is marked as made with SI. The Intelligence Lab\u2019s live answers are written by Google Gemini (SI) and labelled as SI answers. NASA\u2019s data values are copied from NASA\u2019s files, not generated. The team reviews and verifies the data and can explain every claim. NASA does not endorse this project.")));
   }
 
   /* ---------- router ---------- */

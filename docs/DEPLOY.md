@@ -51,7 +51,22 @@ could load the assets; that broke offline use and is replaced by the Netlify lin
 `<base>` resolution (`tests/previewer_nav_test.py` still guards that), so the page also behaves inside previewers
 that inject a `<base>` tag pointing at a real web host.
 
-## Intelligence Lab (Claude): secure setup
+## Intelligence Lab: secure setup
+
+**Current setup (Nov 2026): Google Gemini, free tier.** The function uses Gemini when `GEMINI_API_KEY` is set
+(`netlify/functions/ask/gemini.mjs`), and Claude only if no Gemini key is set (`ANTHROPIC_API_KEY`).
+1. Create a key at Google AI Studio (aistudio.google.com -> Get API key). No card is needed for the free tier.
+2. Netlify -> Project configuration -> Environment variables -> `GEMINI_API_KEY`: tick "Contains secret values",
+   paste the value in **Production only** (leave Deploy Previews, Branch deploys, Agent Runners and Local development empty:
+   the repo is public, so pull-request previews must never get the key). Then Deploys -> Trigger deploy.
+3. Optional, not secret: `GEMINI_MODEL` to pin a model; the default is Google's alias `gemini-flash-latest`.
+4. Free-tier notes: Google may use free-tier prompts to improve its products (the Lab page says questions go to Google;
+   only public NASA documents and the visitor's question are sent). Free-tier quotas are small, so the site's own daily
+   ceiling is 200 questions; when Google's quota runs out the page falls back to keyword search.
+
+The rest of this section describes the original Claude setup, which still works if `ANTHROPIC_API_KEY` is set instead.
+
+### Claude (alternative)
 
 The Lab's AI answers come from one Netlify Function, `netlify/functions/ask/` (served at `/api/ask`). The browser sends only
 the visitor's question; the function retrieves Flare AI documents, calls Claude (`claude-opus-5-5`) with them, checks every

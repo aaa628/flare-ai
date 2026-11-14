@@ -11,7 +11,7 @@ def check(name, cond, extra=""):
     global ok
     ok &= bool(cond); print(("PASS " if cond else "FAIL ") + name + ("" if cond else " " + str(extra)))
 
-ANSWER = {"status": "answered", "grade": "strong", "summary": "Two investigations ran tests at 30% O2 or more at 10.2 psi or less.", "model": "claude-opus-5-5",
+ANSWER = {"status": "answered", "grade": "strong", "summary": "Two investigations ran tests at 30% O2 or more at 10.2 psi or less.", "model": "gemini-flash-latest",
           "key_points": [{"text": "ACME CFI-G ran 48 such tests.", "basis": "nasa_record", "citations": ["PSI-159"]},
                          {"text": "Solid materials were not tested above 23% O2.", "basis": "interpretation", "citations": ["PSI-25", "brief-moon"]}],
           "gaps": ["No partial-gravity data."], "dropped_points": 1,

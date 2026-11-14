@@ -5,8 +5,9 @@
   command = ""
 
 # One serverless function: the Intelligence Lab (POST /api/ask). Netlify installs package.json dependencies automatically.
-# The Anthropic API key is set ONLY in Netlify: Site configuration -> Environment variables -> ANTHROPIC_API_KEY
-# (scope: Functions, mark "Contains secret values"). Never commit it. See docs/DEPLOY.md.
+# The model key is set ONLY in Netlify: Project configuration -> Environment variables -> GEMINI_API_KEY
+# (tick "Contains secret values", value in Production only). ANTHROPIC_API_KEY also works if no Gemini key is set.
+# Never commit a key. See docs/DEPLOY.md.
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"

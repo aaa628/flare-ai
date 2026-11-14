@@ -1,5 +1,5 @@
 // Intelligence Lab core: retrieval, prompt, answer validation, abuse limits.
-// Pure logic with injected dependencies (Claude client, key-value store, clock) so it can be tested without a key.
+// Pure logic with injected dependencies (model client: Gemini adapter or Claude; key-value store; clock) so it can be tested without a key.
 import corpus from "./corpus.mjs";
 
 export const MODEL = "claude-opus-5-5";
@@ -7,7 +7,7 @@ export const LIMITS = {
   maxQuestionChars: 300,
   perIpPerHour: 8,
   perIpPerDay: 25,
-  globalPerDay: 400, // hard daily ceiling across all visitors; also set a monthly spend limit in the Anthropic Console
+  globalPerDay: 200, // hard daily ceiling across all visitors (kept under the Gemini free-tier daily quota)
   cacheHours: 24,
 };
 
