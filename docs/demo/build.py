@@ -20,13 +20,13 @@ def motion(base, n, zoom, drift_x, out_w, out_h, vf, out, crf="18"):
     p.stdin.close(); assert p.wait()==0
 
 # (source, seconds, caption)
-S=[("PHOTO", 3.49, "We're 628 Aerospace,\nand this is Flare AI."),
-   ("s_overview.png", 5.2, "NASA's space-fire experiments: 24 investigations,\n537 tests, in one place."),
-   ("s_moon.png", 3.42, "Rank them for a spacecraft,\na Moon base or Mars."),
-   ("cmp1.png", 4.15, "Compare tests like with like,\nor it refuses and explains why."),
-   ("s_record.png", 4.74, "Every number cites NASA,\nand we checked all 537 by hand."),
-   ("s_lab.png", 4.79, "Our SI answers only from NASA's records,\nor says the data isn't there."),
-   ("s_scen2.png", 4.94, "On the Moon and Mars, knowing what's never\nbeen tested could save a crew."),
+S=[("PHOTO", 3.6, "We are 628 Aerospace,\nand this is Flare AI."),
+   ("s_overview.png", 4.7, "NASA's microgravity combustion research: 24 investigations\nand 537 experimental trials, consolidated into one resource."),
+   ("s_moon.png", 4.3, "Investigations are ranked by their relevance to spacecraft,\nlunar habitats and Martian outposts."),
+   ("cmp1.png", 4.6, "Comparisons are drawn only between commensurable data;\nincompatible requests are declined, with reasons given."),
+   ("s_record.png", 4.4, "Every value is traceable to its NASA source,\nand all 537 records were verified by hand."),
+   ("s_lab.png", 4.6, "Our SI responds exclusively from NASA's records\nand acknowledges when the evidence is insufficient."),
+   ("s_scen2.png", 4.8, "For lunar and Martian missions, identifying what remains\nuntested may prove decisive for crew safety."),
    ("END", 2.0, "")]
 def esc(p): return p.replace(":", "\\:")
 def txt(name, s):
@@ -83,11 +83,11 @@ f=[]; prev="[0:v]"; t=0
 for i in range(1,len(clips)):
     t+=clips[i-1][1]-X
     lab=f"[v{i}]"; f.append(f"{prev}[{i}:v]xfade=transition=fade:duration={X}:offset={t:.3f}{lab}"); prev=lab
-subprocess.run(["ffmpeg","-y","-loglevel","error",*inputs,"-filter_complex",";".join(f),"-map",prev,"-c:v","libx264","-crf","18","-preset","slow","-pix_fmt","yuv420p","-movflags","+faststart","flare-ai-demo-silent.mp4"],check=True)
+subprocess.run(["ffmpeg","-y","-loglevel","error",*inputs,"-filter_complex",";".join(f),"-map",prev,"-c:v","libx264","-crf","18","-preset","slow","-pix_fmt","yuv420p","-movflags","+faststart","flare-ai-demo-formal.mp4"],check=True)
 # SRT with the same timings
 def ts(x): h=int(x//3600); m=int(x%3600//60); s=x%60; return f"{h:02}:{m:02}:{int(s):02},{int(round((s%1)*1000)):03}"
 srt=[]; t=0
 for i,(src,d,cap) in enumerate(S):
     if cap: srt.append(f"{len(srt)+1}\n{ts(t+0.1)} --> {ts(t+d-X)}\n{cap}\n")
     t+=d-X
-open("flare-ai-demo.srt","w").write("\n".join(srt))
+open("flare-ai-demo-formal.srt","w").write("\n".join(srt))

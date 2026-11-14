@@ -666,3 +666,28 @@ Verified by running: lab_function 33/33.
 - Narration added: docs/demo/flare-ai-demo.mp4 (29.2 s). The 35 s recording was split at its pauses into the 7 script
   lines; scenes were re-timed to each line (+0.8 s), so every line plays over its own scene at natural speed. Voice:
   high-pass, light noise reduction, loudness -16 LUFS. The ~5 s after line 7 are not used (video limit 30 s).
+
+## 2026-11-14: Review fixes (video, BASS-II finding, scoring maximum, source count)
+A reviewer's list was checked against the code and data before changing anything.
+- Saffire-I "0.52 mm/s at 20 cm/s" (item 4): not in Flare AI. NASA's Saffire-I table (PSI-98) has no spread-rate column, so
+  no Saffire-I rate is shown anywhere. 0.52 occurs only as FLEX "Burning rate; mm" (droplet burning, a different
+  experiment and measurement). Saffire-II spread values (2.1 / 2.6 mm/s) are shown exactly as NASA printed them.
+  Nothing changed.
+- Moon-base scores were shown out of 19, but the printed rule can give at most 17 (12 shared + 2 + 3). Fixed (MAXPTS.moon
+  17); smoke test checks every Moon score is "/17". Printed rule said fire-safety areas come "from the brief"; the code uses
+  Flare AI's classification, so the rule now says so. Score note adds "not operational guidance".
+- Home page said "from 8 NASA sources"; records come from 7 (FLEX-2 PSI-68 has planned conditions only). Now uses
+  counts.sources_with_records (7).
+- Lessons: the ScienceCasts card now has a "Watch the video (YouTube, 3.6 min)" button with a play icon; a click plays it in
+  the card from youtube-nocookie.com (nothing loads from YouTube before the click), plus "Open on YouTube". CSP adds only
+  frame-src https://www.youtube-nocookie.com (checked: other sites are refused).
+- Lessons: new card "BASS-II Summary Report: the Goldilocks flammability zone" (NASA/TM-20210011385, saved text), 4 quotes
+  checked word for word on every build, including NASA's 13.5% vs 15.4% O2 sentence; labelled "NASA report (not on the
+  Resources tab)"; our reading marked as a research finding, not operational guidance. No NASA photo card added (only the
+  report text is saved; no photo was verified for this).
+Verified by running: smoke 141/141 (6 new); previewer 14/14; lab_ui passed; lab_function 33/33; all 537 record pages open;
+  CSP clean.
+- Follow-up (user): formal, sound-less version: docs/demo/flare-ai-demo-formal.mp4 (29.5 s, no audio) with formal captions
+  (no contractions, higher register, e.g. "537 experimental trials, consolidated into one resource"); captions also in
+  flare-ai-demo-formal.srt. build.py now builds this version. The earlier informal silent copy was removed; the voiced
+  version (flare-ai-demo.mp4, informal captions matching the narration) is kept.
