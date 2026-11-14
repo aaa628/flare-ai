@@ -20,6 +20,12 @@ ANSWER = {"status": "answered", "grade": "strong", "summary": "Two investigation
                         {"id": "brief-moon", "kind": "brief", "title": "Brief", "route": "#/investigations", "source": "challenge brief"}],
           "evidence": [{"id": "PSI-159", "kind": "investigation", "title": "ACME CFI-G", "route": "#/investigation/PSI-159", "source": "NASA PSI", "score": 9.1}]}
 
+ABSTAIN = {"status": "abstained", "grade": "none", "model": "gemini-flash-lite-latest", "key_points": [], "dropped_points": 0,
+           "summary": "NASA's tests record what burned, at what oxygen, pressure and airflow, and how each test ended. They do not give probabilities, so this cannot be answered.",
+           "instead": [{"text": "ACME E-FIELD Flames mimicked partial gravity with an electric field.", "citations": ["PSI-22"]}],
+           "gaps": ["No tests in Mars gravity or a Mars cabin atmosphere."],
+           "citations": [{"id": "PSI-22", "kind": "investigation", "title": "ACME E-FIELD Flames", "route": "#/investigation/PSI-22", "source": "NASA PSI PSI-22"}], "evidence": []}
+
 async def main():
     async with async_playwright() as p:
         b = await p.chromium.launch(executable_path="/opt/pw-browsers/chromium")
@@ -33,7 +39,7 @@ async def main():
             await route.fulfill(status=200, content_type=mimetypes.guess_type(str(f))[0] or "text/plain", body=f.read_bytes())
         async def api(route):
             calls.append(json.loads(route.request.post_data or "{}"))
-            if mode["status"] == 200: await route.fulfill(status=200, content_type="application/json", body=json.dumps(ANSWER))
+            if mode["status"] == 200: await route.fulfill(status=200, content_type="application/json", body=json.dumps(ABSTAIN if mode.get("abst") else ANSWER))
             else: await route.fulfill(status=429, content_type="application/json", body=json.dumps({"error": "Question limit reached for now."}))
         await pg.route("http://flare.test/**", site)       # registered first = checked last
         await pg.route("http://flare.test/api/ask", api)
@@ -47,6 +53,12 @@ async def main():
         check("lab: each point labelled NASA record vs AI interpretation", "NASA record" in t.replace("NASA RECORD", "NASA record") or "NASA RECORD" in t)
         check("lab: citation chips link to site pages", await pg.locator('.lab-answer a.cite[href="#/investigation/PSI-159"]').count() == 1)
         check("lab: dropped-point notice and no-probability disclaimer", "removed because their citations" in t and "no fire probabilities" in t)
+        mode["status"] = 200; mode["abst"] = True
+        await pg.click(".abst-ex"); await pg.wait_for_selector(".lab-answer.abst")
+        t = await pg.inner_text(".lab-out")
+        check("lab: abstention explains why, and shows cited related facts instead", "Abstained" in t and "record what burned" in t
+              and "can tell you instead" in t and await pg.locator('.lab-instead a.cite[href="#/investigation/PSI-22"]').count() == 1 and "What the data does not cover" in t)
+        mode["abst"] = False
         mode["status"] = 429
         await pg.fill("#labq", "Which tests used Nomex fabric in BASS?"); await pg.click("button:has-text('Ask the Lab')"); await pg.wait_for_selector(".lab-local")
         check("lab: server limit -> keyword-search fallback with the reason", "Question limit reached" in await pg.inner_text(".lab-local"))
