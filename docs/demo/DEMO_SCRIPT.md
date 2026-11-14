@@ -8,7 +8,7 @@
 - **No image, video or voice of anyone under 18.** The narrator must be **18 or older**. The video shows only screen
   captures of the site and NASA footage.
 - English captions are on screen, so the voice can be in English or another language.
-- The video was assembled with SI (Claude), so it carries a small "Edited with SI (Claude)" mark. **Leave it in.**
+- The video was assembled with SI (Claude), so it carries a small "Edited with SI" mark. **Leave it in.**
 - The opening photo is credited on screen (NASA, ISS Expedition 40, image iss040e088023). No NASA logos are used.
 
 ## Script (what's on screen, and what to say)

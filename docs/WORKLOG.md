@@ -656,3 +656,4 @@ Verified by running: lab_function 33/33.
 - Follow-up (user): video looked shaky. Cause: ffmpeg zoompan moves the picture in whole-pixel steps. Frames are now
   rendered in Python with sub-pixel (float) affine sampling and eased motion, then encoded by ffmpeg. Measured frame-to-frame
   unevenness on a screenshot scene: 0.73 before, 0.05 after.
+- Follow-up (user): on-screen mark shortened to "Edited with SI" (tool name not shown on the video; Claude is named in References and the SI answer).

@@ -41,7 +41,7 @@ for i,(src,d,cap) in enumerate(S):
         for k,l in enumerate(lines):
             lf=txt(f"cap{i}_{k}.txt",l)
             draw.append(f"drawtext=fontfile={B}:textfile={lf}:fontsize=44:fontcolor=white:x=(w-tw)/2:y={y0+k*58}")
-    draw.append(f"drawtext=fontfile={R}:text='Edited with SI (Claude)':fontsize=22:fontcolor=white@0.7:x=w-tw-28:y=h-44")
+    draw.append(f"drawtext=fontfile={R}:text='Edited with SI':fontsize=22:fontcolor=white@0.7:x=w-tw-28:y=h-44")
     if src=="PHOTO":
         t1=txt("t1.txt","Flare AI"); t2=txt("t2.txt","628 Aerospace  ·  NASA Space Apps 2026  ·  Flame in Freefall")
         t3=txt("t3.txt","Photo: NASA, BASS-II flame test on the ISS, Expedition 40 (iss040e088023)")
