@@ -643,3 +643,10 @@ Verified by running: lab_function 31/31.
   "Try" examples, asked by the team after deploy) is answered instantly from the cache with no SI call and no quota use.
 - A brief Google overload (500/503) gets one quick retry if under 3 s have passed.
 Verified by running: lab_function 33/33.
+
+## 2026-11-14: 30-second demo video (silent, captioned) and script
+- docs/demo/flare-ai-demo-silent.mp4: 29.5 s, 1920x1080, built from Playwright screenshots of the site, the team's own
+  screenshot of the live Lab (a real Gemini answer), and the NASA SVS 11640 footage already used on the site (credited
+  on screen). English captions burned in; "Edited with SI (Claude)" mark; no people, faces or voices.
+- docs/demo/DEMO_SCRIPT.md: scene-by-scene script (what to show, what to say), rules, recording tips for an adult
+  narrator, upload steps. flare-ai-demo.srt has the same lines. build.py / cap.py are the exact build scripts.
