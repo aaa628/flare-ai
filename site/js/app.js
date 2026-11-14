@@ -2236,13 +2236,15 @@
         h("div", { class: "badge" }, h("img", { src: "img/628-emblem.svg", width: "112", height: "112", alt: "628 Aerospace emblem" })),
         h("div", null, h("h2", null, "628 Aerospace"), h("p", { class: "muted" }, "Studio 628 \u00b7 NASA Space Apps Challenge 2026"))),
       h("h2", null, "The rules we hold ourselves to"),
-      h("div", { class: "card" }, h("ul", { class: "about-list" },
+      h("div", { class: "card rules-card" }, h("ul", { class: "about-list" },
         ["No invented numbers. Every figure on this site is computed from the data records.",
           "Every fact carries a label: Measured, Published conclusion, or Our interpretation.",
           "Every record shows how it was checked. Human-verified means a team member compared it with NASA\u2019s source and signed it (name and date on the record). Machine-checked means automated checks passed, including a value-for-value comparison with NASA\u2019s PDF or data file. A record can be both, and then shows both labels. Records with no check are hidden.",
           "We never compare measurements that are not comparable, and we say so when we refuse.",
           "Where NASA did not test a condition, we say the data is insufficient instead of guessing.",
-          "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", null, t); }))),
+          "Flare AI does not calculate fire probabilities and does not certify safety."].map(function (t) { return h("li", null, t); })),
+        /* The 628 Aerospace emblem fills the space beside the rules (decorative: the emblem is labelled at the top of the page). */
+        h("div", { class: "rules-emblem", "aria-hidden": "true" }, h("img", { src: "img/628-emblem.svg", width: "240", height: "240", alt: "" }))),
       h("h2", null, "How records are checked"),
       h("div", { class: "card" }, checkBreakdown(),
         h("p", { class: "note", style: "margin:12px 0 0" }, "Automated checks compare our records with NASA\u2019s own documents and files; they catch copying errors but cannot judge the science. " +

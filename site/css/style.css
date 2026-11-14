@@ -759,3 +759,13 @@ body::after {
 .cite-box { width:100%; margin-top:8px; font-size:13px; }
 
 .flames .si-mark { fill:var(--dim); font:500 11px var(--sans); }
+
+/* About: the 628 Aerospace emblem fills the space beside "The rules we hold ourselves to" */
+.rules-card { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px 40px; align-items:center; }
+.rules-emblem { display:flex; align-items:center; justify-content:center; padding:0 24px 0 8px; }
+.rules-emblem img { display:block; width:clamp(160px, 22vw, 260px); height:auto; opacity:.92; }
+@media (max-width:760px) {
+  .rules-card { grid-template-columns:1fr; }
+  .rules-emblem { padding:4px 0 8px; }
+  .rules-emblem img { width:140px; }
+}
