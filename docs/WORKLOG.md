@@ -650,3 +650,6 @@ Verified by running: lab_function 33/33.
   on screen). English captions burned in; "Edited with SI (Claude)" mark; no people, faces or voices.
 - docs/demo/DEMO_SCRIPT.md: scene-by-scene script (what to show, what to say), rules, recording tips for an adult
   narrator, upload steps. flare-ai-demo.srt has the same lines. build.py / cap.py are the exact build scripts.
+- Follow-up (user): opening scene now uses the 4K NASA photo of a BASS-II flame (iss040e088023, from the earlier home-page
+  version) with a slow push-in, instead of the low-resolution jellyfish footage; added a Compare scene (BASS-II P1/P10/P12
+  oxygen start vs end charts). Other scenes shortened so the video stays at 29.5 s. Script table updated.

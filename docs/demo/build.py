@@ -2,13 +2,14 @@ import subprocess, os, textwrap
 B="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"; R="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 FPS=30; X=0.5
 # (source, seconds, caption)
-S=[("JELLY", 4.5, "We're 628 Aerospace,\nand this is Flare AI."),
-   ("s_overview.png", 5.0, "NASA's space-fire experiments: 24 investigations,\n537 tests, in one place."),
-   ("s_moon.png", 4.5, "Rank them for a spacecraft,\na Moon base or Mars."),
-   ("s_record.png", 5.0, "Every number links to its NASA source,\nand we checked every one by hand."),
-   ("s_lab.png", 6.0, "Ask a question: our SI answers only from NASA's records,\nor tells you the data isn't there."),
-   ("s_scen2.png", 4.5, "Because on the Moon and Mars, knowing what's\nnever been tested could save a crew."),
-   ("END", 3.0, "")]
+S=[("PHOTO", 4.0, "We're 628 Aerospace,\nand this is Flare AI."),
+   ("s_overview.png", 4.5, "NASA's space-fire experiments: 24 investigations,\n537 tests, in one place."),
+   ("s_moon.png", 4.0, "Rank them for a spacecraft,\na Moon base or Mars."),
+   ("cmp1.png", 4.5, "Compare tests like with like,\nor it refuses and explains why."),
+   ("s_record.png", 4.5, "Every number cites NASA,\nand we checked all 537 by hand."),
+   ("s_lab.png", 5.0, "Our SI answers only from NASA's records,\nor says the data isn't there."),
+   ("s_scen2.png", 4.5, "On the Moon and Mars, knowing what's never\nbeen tested could save a crew."),
+   ("END", 2.0, "")]
 def esc(p): return p.replace(":", "\\:")
 def txt(name, s):
     open(name,"w").write(s); return name
@@ -23,7 +24,19 @@ for i,(src,d,cap) in enumerate(S):
             lf=txt(f"cap{i}_{k}.txt",l)
             draw.append(f"drawtext=fontfile={B}:textfile={lf}:fontsize=44:fontcolor=white:x=(w-tw)/2:y={y0+k*58}")
     draw.append(f"drawtext=fontfile={R}:text='Edited with SI (Claude)':fontsize=22:fontcolor=white@0.7:x=w-tw-28:y=h-44")
-    if src=="JELLY":
+    if src=="PHOTO":
+        t1=txt("t1.txt","Flare AI"); t2=txt("t2.txt","628 Aerospace  ·  NASA Space Apps 2026  ·  Flame in Freefall")
+        t3=txt("t3.txt","Photo: NASA, BASS-II flame test on the ISS, Expedition 40 (iss040e088023)")
+        # 4K NASA photo: crop to 16:9, then a slow push-in with a gentle drift; darkened a little so the title reads
+        vf=("crop=3840:2160:0:(ih-2160)/2,"
+            f"zoompan=z='1+0.08*on/{n}':x='(iw-iw/zoom)*(0.35+0.3*on/{n})':y='(ih-ih/zoom)/2':d={n}:s=1920x1080:fps={FPS},"
+            "eq=brightness=-0.06:saturation=1.1,"
+            f"drawtext=fontfile={B}:textfile={t1}:fontsize=120:fontcolor=white:shadowcolor=black@0.7:shadowx=3:shadowy=3:x=(w-tw)/2:y=170:alpha='min(1,t/0.8)',"
+            f"drawtext=fontfile={R}:textfile={t2}:fontsize=34:fontcolor=white:shadowcolor=black@0.7:shadowx=2:shadowy=2:x=(w-tw)/2:y=320:alpha='min(1,t/0.8)',"
+            f"drawtext=fontfile={R}:textfile={t3}:fontsize=22:fontcolor=white@0.8:x=28:y=24,"
+            f"drawbox=x=0:y=880:w=1920:h=200:color=0x0b0b0b@0.85:t=fill,"+",".join(draw))
+        cmd=["ffmpeg","-y","-loglevel","error","-loop","1","-i","bass2-flame-3840.jpg","-vf",vf+",format=yuv420p","-frames:v",str(n),"-c:v","libx264","-crf","16","-preset","medium",out]
+    elif src=="JELLY":
         t1=txt("t1.txt","Flare AI"); t2=txt("t2.txt","628 Aerospace  ·  NASA Space Apps 2026  ·  Flame in Freefall")
         t3=txt("t3.txt","Footage: Science@NASA / NASA Goddard (SVS 11640)")
         vf=("scale=1920:-2,crop=1920:1080,"
