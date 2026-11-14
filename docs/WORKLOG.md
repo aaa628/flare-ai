@@ -620,3 +620,12 @@ Verified by running: lab_function 26/26 (8 new Gemini checks); smoke 135/135; pr
   thinking field; then no schema, each only if the model rejects the previous request with 400), caps output at 4096 tokens,
   and stops waiting after 8.5 s so the visitor gets a clean error and keyword matches instead of a gateway timeout.
 Verified by running: lab_function 27/27 (fake server, including a slow-server case).
+
+## 2026-11-14: Abstentions explain why and point to what the records do show
+- Live test (gemini-3.5-flash-lite) abstained correctly on "probability of a fire on a Mars rover" but only said "no data".
+- Prompt: an abstention must say why (NASA tests record conditions and outcomes, not probabilities) and what data would be
+  needed, and may list up to 3 related facts ("instead"), each citing retrieved documents. validate() keeps only facts whose
+  citations are real documents (max 3), ignores them when there is an answer, and the grade stays "none".
+- Lab page shows "What the NASA records can tell you instead" with citation links. Cache key prefix bumped (a: -> a2:) so
+  answers written under the old prompt are not served again.
+Verified by running: lab_function 31/31; lab_ui passed (new abstention check); smoke 135/135; previewer 14/14; CSP clean.
