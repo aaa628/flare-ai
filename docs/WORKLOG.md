@@ -666,3 +666,7 @@ Verified by running: lab_function 33/33.
 - Narration added: docs/demo/flare-ai-demo.mp4 (29.2 s). The 35 s recording was split at its pauses into the 7 script
   lines; scenes were re-timed to each line (+0.8 s), so every line plays over its own scene at natural speed. Voice:
   high-pass, light noise reduction, loudness -16 LUFS. The ~5 s after line 7 are not used (video limit 30 s).
+- Follow-up (user): formal, sound-less version: docs/demo/flare-ai-demo-formal.mp4 (29.5 s, no audio) with formal captions
+  (no contractions, higher register, e.g. "537 experimental trials, consolidated into one resource"); captions also in
+  flare-ai-demo-formal.srt. build.py now builds this version. The earlier informal silent copy was removed; the voiced
+  version (flare-ai-demo.mp4, informal captions matching the narration) is kept.
