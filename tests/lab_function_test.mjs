@@ -45,6 +45,7 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
   check("answer: evidence grade from our rule (3 records -> strong)", body.grade === "strong", body.grade);
   check("answer: every citation links to a site route", body.citations.every((c) => c.route.startsWith("#/")));
   const p = calls[0];
+  check("model call: schema offers related facts for abstentions", !!calls[0].output_config.format.schema.properties.instead);
   check("model call: claude-opus-5-5, structured output, fallbacks default", p.model === "claude-opus-5-5" && p.output_config.format.type === "json_schema" && p.fallbacks === "default" && p.betas.includes("server-side-fallback-2026-07-01"));
   check("model call: question wrapped as data, evidence included", /<visitor_question>/.test(p.messages[0].content) && /<doc id=/.test(p.messages[0].content));
   const again = await (await handle(req(q.toUpperCase() + "  "), deps)).json();
@@ -113,6 +114,17 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
   check("gemini: quota exhausted -> 502 error (page falls back to keyword search)", r4.status === 502 && (await r4.json()).detail === "upstream 429");
   const g5 = geminiClient({ apiKey: "k", fetchImpl: fakeFetch([{ body: { candidates: [{ content: { parts: [{ text: "{\"status\":" }] }, finishReason: "MAX_TOKENS" }] } }]) });
   check("gemini: cut-off answer -> 502, never a half answer", (await handle(req("Which tests used Nomex fabric samples?"), { client: g5, store: memStore(), ip: "4.4.4.6", allowedOrigins: [ORIGIN] })).status === 502);
+}
+
+// abstentions still help: related cited facts kept, invented ones dropped, never shown with an answer
+{
+  const docs = [{ id: "PSI-22", kind: "investigation", title: "E-FIELD", route: "#/investigation/PSI-22", source: "s" }, { id: "brief-mars", kind: "brief", title: "b", route: "#/", source: "s" }];
+  const v = validate({ status: "abstained", summary: "Tests do not give probabilities.", key_points: [], gaps: ["No Mars tests."],
+    instead: [{ text: "E-FIELD mimicked partial gravity.", citations: ["PSI-22"] }, { text: "Invented.", citations: ["NOPE"] }, { text: "Brief names Mars bases.", citations: ["brief-mars"] }, { text: "x", citations: ["PSI-22"] }, { text: "y", citations: ["PSI-22"] }] }, docs);
+  check("abstain: related facts kept with real citations, invented dropped, at most 3", v.status === "abstained" && v.instead.length === 3 && v.instead.every((p) => p.citations.length) && !v.instead.some((p) => p.text === "Invented."));
+  check("abstain: related facts' documents listed as citations; grade stays none", v.grade === "none" && v.citations.map((c) => c.id).join() === "PSI-22,brief-mars");
+  const v2 = validate({ status: "answered", summary: "", key_points: [{ text: "t", basis: "brief", citations: ["brief-mars"] }], gaps: [], instead: [{ text: "z", citations: ["PSI-22"] }] }, docs);
+  check("answered: 'instead' ignored when there is an answer", v2.status === "answered" && v2.instead.length === 0);
 }
 
 // validate(): grade rule edge cases

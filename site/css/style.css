@@ -469,6 +469,7 @@ ul.cov-list li b { font:700 20px var(--display); } .cov-names { grid-column:1 / 
 ul.kp { list-style:none; margin:0; padding:0; } ul.kp li { padding:9px 0; border-top:1px solid var(--line-2); font-size:15px; }
 .cites { white-space:nowrap; } a.cite { font:600 12px var(--display); background:var(--panel-2); border:1px solid var(--line); border-radius:var(--r-1); padding:1px 6px; margin-left:4px; text-decoration:none; }
 .lab-gaps { margin-top:10px; font-size:14.5px; color:var(--caution); } .lab-gaps ul { margin:4px 0 0; padding-left:18px; }
+.lab-instead { margin-top:12px; font-size:15px; } .lab-instead .kp { margin-top:6px; }
 .grade-rule { margin-top:12px; }
 .need-tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin:8px 0 10px; }
 .need { display:grid; gap:2px; text-align:left; background:var(--panel); color:var(--text); border:1px solid var(--line-2); border-radius:var(--r-2); padding:10px 14px; font:inherit; }
