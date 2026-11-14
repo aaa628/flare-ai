@@ -649,6 +649,23 @@ Verified by running: lab_function 33/33.
   references, SI answer), with [BRACKETED] items the team must fill in (demo link, live link, idea-origin confirmation).
 - README: the human-verified count was still 0 and the Lab was described as Claude-only; updated to 537 (team sign-off)
   and Gemini on the live site.
+## 2026-11-14: 30-second demo video (silent, captioned) and script
+- docs/demo/flare-ai-demo-silent.mp4: 29.5 s, 1920x1080, built from Playwright screenshots of the site, the team's own
+  screenshot of the live Lab (a real Gemini answer), and the NASA SVS 11640 footage already used on the site (credited
+  on screen). English captions burned in; "Edited with SI (Claude)" mark; no people, faces or voices.
+- docs/demo/DEMO_SCRIPT.md: scene-by-scene script (what to show, what to say), rules, recording tips for an adult
+  (Later removed at the team's request once the voice-over was recorded.)
+  narrator, upload steps. flare-ai-demo.srt has the same lines. build.py / cap.py are the exact build scripts.
+- Follow-up (user): opening scene now uses the 4K NASA photo of a BASS-II flame (iss040e088023, from the earlier home-page
+  version) with a slow push-in, instead of the low-resolution jellyfish footage; added a Compare scene (BASS-II P1/P10/P12
+  oxygen start vs end charts). Other scenes shortened so the video stays at 29.5 s. Script table updated.
+- Follow-up (user): video looked shaky. Cause: ffmpeg zoompan moves the picture in whole-pixel steps. Frames are now
+  rendered in Python with sub-pixel (float) affine sampling and eased motion, then encoded by ffmpeg. Measured frame-to-frame
+  unevenness on a screenshot scene: 0.73 before, 0.05 after.
+- Follow-up (user): on-screen mark shortened to "Edited with SI" (tool name not shown on the video; Claude is named in References and the SI answer).
+- Narration added: docs/demo/flare-ai-demo.mp4 (29.2 s). The 35 s recording was split at its pauses into the 7 script
+  lines; scenes were re-timed to each line (+0.8 s), so every line plays over its own scene at natural speed. Voice:
+  high-pass, light noise reduction, loudness -16 LUFS. The ~5 s after line 7 are not used (video limit 30 s).
 
 ## 2026-11-14: Review fixes (video, BASS-II finding, scoring maximum, source count)
 A reviewer's list was checked against the code and data before changing anything.

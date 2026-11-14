@@ -107,6 +107,9 @@ We used NASA data only. Saffire was an international collaboration, but the tabl
 
 **Images and media**
 - "Spherical Flames", NASA SVS ID 11640 (credit above), edited by the team: cropped, trimmed, looped, audio removed.
+- "BASS-II Experiment" photo, NASA Image and Video Library ID iss040e088023 (ISS Expedition 40, 2014, astronaut Reid
+  Wiseman), https://images.nasa.gov/details/iss040e088023. Credit: NASA. Used in the demo video's opening (cropped, slow zoom).
+- Demo video: screen captures of Flare AI, assembled with SI (Claude) and marked "Edited with SI".
 - 628 Aerospace emblem: original work by the team.
 - Flame illustration on the home page: made with SI (Claude) and visibly watermarked "Illustration made with SI (Claude)".
 
