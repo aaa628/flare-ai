@@ -1,34 +1,34 @@
 1
-00:00:00,100 --> 00:00:03,500
+00:00:00,100 --> 00:00:02,990
 We're 628 Aerospace,
 and this is Flare AI.
 
 2
-00:00:03,600 --> 00:00:07,500
+00:00:03,090 --> 00:00:07,690
 NASA's space-fire experiments: 24 investigations,
 537 tests, in one place.
 
 3
-00:00:07,600 --> 00:00:11,000
+00:00:07,790 --> 00:00:10,610
 Rank them for a spacecraft,
 a Moon base or Mars.
 
 4
-00:00:11,100 --> 00:00:15,000
+00:00:10,710 --> 00:00:14,260
 Compare tests like with like,
 or it refuses and explains why.
 
 5
-00:00:15,100 --> 00:00:19,000
+00:00:14,360 --> 00:00:18,500
 Every number cites NASA,
 and we checked all 537 by hand.
 
 6
-00:00:19,100 --> 00:00:23,500
+00:00:18,600 --> 00:00:22,790
 Our SI answers only from NASA's records,
 or says the data isn't there.
 
 7
-00:00:23,600 --> 00:00:27,500
+00:00:22,890 --> 00:00:27,230
 On the Moon and Mars, knowing what's never
 been tested could save a crew.

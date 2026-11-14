@@ -657,3 +657,6 @@ Verified by running: lab_function 33/33.
   rendered in Python with sub-pixel (float) affine sampling and eased motion, then encoded by ffmpeg. Measured frame-to-frame
   unevenness on a screenshot scene: 0.73 before, 0.05 after.
 - Follow-up (user): on-screen mark shortened to "Edited with SI" (tool name not shown on the video; Claude is named in References and the SI answer).
+- Narration added: docs/demo/flare-ai-demo.mp4 (29.2 s). The 35 s recording was split at its pauses into the 7 script
+  lines; scenes were re-timed to each line (+0.8 s), so every line plays over its own scene at natural speed. Voice:
+  high-pass, light noise reduction, loudness -16 LUFS. The ~5 s after line 7 are not used (video limit 30 s).

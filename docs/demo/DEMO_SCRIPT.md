@@ -1,6 +1,7 @@
 # Flare AI: 30-second demo video script
 
-**File:** `flare-ai-demo-silent.mp4` (29.5 s, 1920×1080, English captions burned in, no sound yet).
+**Final file:** `flare-ai-demo.mp4` (29.2 s, 1920×1080, narrator's voice + English captions burned in).
+**Without voice:** `flare-ai-demo-silent.mp4` (same video, no sound). `mix_voice.py` puts the recording on it.
 **Subtitles:** `flare-ai-demo.srt` (the same lines, if YouTube asks for a caption file).
 
 ## Rules this video follows (Space Apps 2026)

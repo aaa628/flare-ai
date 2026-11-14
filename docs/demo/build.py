@@ -20,13 +20,13 @@ def motion(base, n, zoom, drift_x, out_w, out_h, vf, out, crf="18"):
     p.stdin.close(); assert p.wait()==0
 
 # (source, seconds, caption)
-S=[("PHOTO", 4.0, "We're 628 Aerospace,\nand this is Flare AI."),
-   ("s_overview.png", 4.5, "NASA's space-fire experiments: 24 investigations,\n537 tests, in one place."),
-   ("s_moon.png", 4.0, "Rank them for a spacecraft,\na Moon base or Mars."),
-   ("cmp1.png", 4.5, "Compare tests like with like,\nor it refuses and explains why."),
-   ("s_record.png", 4.5, "Every number cites NASA,\nand we checked all 537 by hand."),
-   ("s_lab.png", 5.0, "Our SI answers only from NASA's records,\nor says the data isn't there."),
-   ("s_scen2.png", 4.5, "On the Moon and Mars, knowing what's never\nbeen tested could save a crew."),
+S=[("PHOTO", 3.49, "We're 628 Aerospace,\nand this is Flare AI."),
+   ("s_overview.png", 5.2, "NASA's space-fire experiments: 24 investigations,\n537 tests, in one place."),
+   ("s_moon.png", 3.42, "Rank them for a spacecraft,\na Moon base or Mars."),
+   ("cmp1.png", 4.15, "Compare tests like with like,\nor it refuses and explains why."),
+   ("s_record.png", 4.74, "Every number cites NASA,\nand we checked all 537 by hand."),
+   ("s_lab.png", 4.79, "Our SI answers only from NASA's records,\nor says the data isn't there."),
+   ("s_scen2.png", 4.94, "On the Moon and Mars, knowing what's never\nbeen tested could save a crew."),
    ("END", 2.0, "")]
 def esc(p): return p.replace(":", "\\:")
 def txt(name, s):
