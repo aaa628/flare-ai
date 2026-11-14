@@ -24,32 +24,55 @@ export function geminiSchema(s) {
 const STOP = { STOP: "end_turn", MAX_TOKENS: "max_tokens", SAFETY: "refusal", RECITATION: "refusal", BLOCKLIST: "refusal",
   PROHIBITED_CONTENT: "refusal", SPII: "refusal", IMAGE_SAFETY: "refusal" };
 
-export function geminiClient({ apiKey, model = GEMINI_DEFAULT_MODEL, fetchImpl = fetch }) {
-  async function call(params, withSchema) {
+// Netlify's free plan stops a function after about 10 seconds, so the whole Gemini exchange must finish well inside that.
+export const GEMINI_DEADLINE_MS = 8500;
+
+/* Request variants, fastest first. Gemini 3 models take thinkingLevel; 2.5 models take thinkingBudget. A model that rejects
+   a field answers 400 at once, so the next variant is tried; the last one sends no optional fields at all. */
+const VARIANTS = [
+  { schema: true, thinking: { thinkingLevel: "minimal" } },
+  { schema: true, thinking: { thinkingBudget: 0 } },
+  { schema: true, thinking: null },
+  { schema: false, thinking: null },
+];
+
+export function geminiClient({ apiKey, model = GEMINI_DEFAULT_MODEL, fetchImpl = fetch, deadlineMs = GEMINI_DEADLINE_MS }) {
+  function call(params, v, signal) {
     const schema = params.output_config?.format?.schema;
+    const withSchema = v.schema && schema;
     const body = {
       systemInstruction: { parts: [{ text: params.system + (!withSchema && schema ? "\nReply with JSON only, matching this JSON Schema:\n" + JSON.stringify(schema) : "") }] },
       contents: params.messages.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] })),
       generationConfig: {
-        maxOutputTokens: Math.max(params.max_tokens || 0, 8192),
+        maxOutputTokens: 4096, // answers are short (at most 8 points); a low cap also keeps the reply fast
         temperature: 0.2,
         responseMimeType: "application/json",
-        ...(withSchema && schema ? { responseJsonSchema: geminiSchema(schema) } : {}),
+        ...(withSchema ? { responseJsonSchema: geminiSchema(schema) } : {}),
+        ...(v.thinking ? { thinkingConfig: v.thinking } : {}),
       },
     };
     return fetchImpl(ENDPOINT + encodeURIComponent(model) + ":generateContent", {
       method: "POST",
       headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
       body: JSON.stringify(body),
+      signal,
     });
   }
   async function create(params) {
-    let res = await call(params, true);
-    // If this model rejects the schema field, ask again without it: the system prompt still asks for JSON and
-    // core.mjs drops anything that does not parse or cite real documents.
-    if (res.status === 400) res = await call(params, false);
-    if (!res.ok) { const e = new Error("Gemini API error " + res.status); e.status = res.status; throw e; }
-    const data = await res.json();
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), deadlineMs);
+    let res;
+    try {
+      for (const v of VARIANTS) {
+        res = await call(params, v, ctl.signal);
+        if (res.status !== 400) break;
+      }
+      if (!res.ok) { const e = new Error("Gemini API error " + res.status); e.status = res.status; throw e; }
+      var data = await res.json();
+    } catch (err) {
+      if (ctl.signal.aborted) { const e = new Error("Gemini took too long"); e.status = 504; throw e; }
+      throw err;
+    } finally { clearTimeout(timer); }
     const used = data.modelVersion || model;
     if (data.promptFeedback?.blockReason) return { stop_reason: "refusal", model: used, content: [] };
     const cand = (data.candidates || [])[0];
