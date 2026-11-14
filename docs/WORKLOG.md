@@ -691,3 +691,9 @@ Verified by running: smoke 141/141 (6 new); previewer 14/14; lab_ui passed; lab_
   (no contractions, higher register, e.g. "537 experimental trials, consolidated into one resource"); captions also in
   flare-ai-demo-formal.srt. build.py now builds this version. The earlier informal silent copy was removed; the voiced
   version (flare-ai-demo.mp4, informal captions matching the narration) is kept.
+
+## 2026-11-14: SI metadata for code (submission rule)
+- The submission form requires SI-generated code to be acknowledged "in descriptive text and metadata". Added (team's
+  choice): README "SI use" section (code, text, live answers, images/video, data, audio) replacing the old AI note, and
+  one <meta name="ai-disclosure"> line in site/index.html. Visible text on the site is unchanged.
+Verified by running: smoke 141/141; previewer 14/14.
