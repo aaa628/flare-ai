@@ -771,3 +771,7 @@ body::after {
   .rules-emblem { padding:4px 0 8px; }
   .rules-emblem img { width:140px; }
 }
+
+/* About: the credit line stays on one line on wide screens; on phones the studio name never splits */
+.lead.one-line { max-width:none; }
+.nowrap { white-space:nowrap; }

@@ -2255,7 +2255,7 @@
     setTitle("About");
     return h("div", null,
       h("h1", null, "About Flare AI"),
-      h("p", { class: "lead" }, "Built for the NASA Space Apps Challenge 2026, “Flame in Freefall”, by Studio 628 / 628 Aerospace."),
+      h("p", { class: "lead one-line" }, "Built for the NASA Space Apps Challenge 2026, “Flame in Freefall”, by ", h("span", { class: "nowrap" }, "Studio 628 / 628 Aerospace.")),
       h("div", { class: "made-by" },
         h("div", { class: "badge" }, h("img", { src: "img/628-emblem.svg", width: "112", height: "112", alt: "628 Aerospace emblem" })),
         h("div", null, h("h2", null, "628 Aerospace"), h("p", { class: "muted" }, "Studio 628 \u00b7 NASA Space Apps Challenge 2026"))),
