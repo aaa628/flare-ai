@@ -719,3 +719,4 @@ Verified by running: smoke 146/146 (5 new); previewer 14/14; lab_ui passed; all 
   To fit the 30 s limit the 7 lines (39 s after trimming pauses) are sped up 1.41x, pitch unchanged; scenes re-timed so
   each line plays over its own scene. The last ~5 s of the recording (after line 7) are not used. Method in
   docs/demo/mix_formal_voice.py.
+- Follow-up (user): both narrated videos now read "Edited with SI · Voiced by a human" in the corner (the voice is a human recording, not SI). Silent formal video unchanged.
