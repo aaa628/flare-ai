@@ -746,3 +746,13 @@ Verified by running: smoke 151/151 (5 new); previewer 14/14; lab_ui passed; lab_
   conditions). New basis label "About Flare AI (our description)". An answer citing only the About document is graded
   "thin", never strong. Cache prefix a2 -> a3 so earlier abstentions are not reused.
 Verified by running: lab_function 36/36 (3 new); smoke 151/151; lab_ui passed.
+
+## 2026-11-15: Lab answers longer; page actions
+- Answers were very short (prompt ended "Short."). Now: summary of 3-5 sentences and 4-8 specific key points (test ids,
+  numbers, units) where the documents give them.
+- "Can you open Compare and compare two tests" abstained. The SI may now return one "action" (a Flare AI address) shown as
+  a button. safeAction() allows only known page shapes (compare, experiment, investigation, investigations/moon|mars,
+  explorer/exp=, scenario, lessons, lab, about); compare/experiment ids must be real test records; compare needs 2-4 tests;
+  anything else (outside links, scripts, invented ids) is dropped. The About document now says how to use each page.
+  Cache prefix a3 -> a4.
+Verified by running: lab_function 41/41 (5 new); lab_ui passed (action button); smoke 151/151.
