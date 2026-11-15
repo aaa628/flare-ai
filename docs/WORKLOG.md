@@ -714,6 +714,12 @@ Verified by running: smoke 146/146 (5 new); previewer 14/14; lab_ui passed; all 
   text; both demo videos rebuilt with it on the end card instead of the GitHub link (formal 29.5 s silent; voiced 29.2 s).
   build_voiced.py builds the narrated version's picture (then mix_voice.py adds the voice).
 
+## 2026-11-15: Formal narration
+- New recording (50 s, formal script) put on the formal video: docs/demo/flare-ai-demo-formal-voiced.mp4 (29.8 s).
+  To fit the 30 s limit the 7 lines (39 s after trimming pauses) are sped up 1.41x, pitch unchanged; scenes re-timed so
+  each line plays over its own scene. The last ~5 s of the recording (after line 7) are not used. Method in
+  docs/demo/mix_formal_voice.py.
+- Follow-up (user): both narrated videos now read "Edited with SI · Voiced by a human" in the corner (the voice is a human recording, not SI). Silent formal video unchanged.
 ## 2026-11-15: Second audit (another session's report; its branch was never pushed, so each item was re-checked here)
 Fixed (verified first):
 1. BASS-II investigation showed "3 test records" (only PSI-25-sourced rows); its 126 report records cite the NASA report.
