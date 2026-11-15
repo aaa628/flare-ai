@@ -1719,6 +1719,8 @@
           })) : null,
           abst && (a.instead || []).length ? h("div", { class: "lab-instead" }, h("b", null, "What the NASA records can tell you instead:"),
             h("ul", { class: "kp" }, a.instead.map(function (p) { return h("li", null, p.text, " ", h("span", { class: "cites" }, (p.citations || []).map(cite))); }))) : null,
+          (a.general || []).length ? h("div", { class: "lab-general" }, chip("interp", "General science (not from NASA\u2019s documents)"),
+            h("ul", null, a.general.map(function (t) { return h("li", null, t); }))) : null,
           (a.gaps || []).length ? h("div", { class: "lab-gaps" }, h("b", null, "What the data does not cover: "), h("ul", null, a.gaps.map(function (t) { return h("li", null, t); }))) : null,
           h("p", { class: "note grade-rule" }, h("b", null, "Grade rule: "), g.text + " The grade is computed by Flare AI from the citations that survived checking, not chosen by the AI." +
             (a.dropped_points ? " " + a.dropped_points + " point(s) were removed because their citations did not match any retrieved document." : "")),

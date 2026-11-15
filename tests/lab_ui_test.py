@@ -14,7 +14,7 @@ def check(name, cond, extra=""):
 ANSWER = {"status": "answered", "grade": "strong", "summary": "Two investigations ran tests at 30% O2 or more at 10.2 psi or less.", "model": "gemini-flash-latest",
           "key_points": [{"text": "ACME CFI-G ran 48 such tests.", "basis": "nasa_record", "citations": ["PSI-159"]},
                          {"text": "Solid materials were not tested above 23% O2.", "basis": "interpretation", "citations": ["PSI-25", "brief-moon"]}],
-          "gaps": ["No partial-gravity data."], "dropped_points": 1, "action": {"label": "Compare BASS-II P1 and P10", "route": "#/compare/BASSII-P1,BASSII-P10"},
+          "gaps": ["No partial-gravity data."], "dropped_points": 1, "action": {"label": "Compare BASS-II P1 and P10", "route": "#/compare/BASSII-P1,BASSII-P10"}, "general": ["Without buoyancy, hot gas does not rise, so the flame spreads differently."],
           "citations": [{"id": "PSI-159", "kind": "investigation", "title": "ACME CFI-G", "route": "#/investigation/PSI-159", "source": "NASA PSI PSI-159"},
                         {"id": "PSI-25", "kind": "investigation", "title": "BASS-II", "route": "#/investigation/PSI-25", "source": "NASA PSI PSI-25"},
                         {"id": "brief-moon", "kind": "brief", "title": "Brief", "route": "#/investigations", "source": "challenge brief"}],
@@ -52,6 +52,7 @@ async def main():
         check("lab: answer, grade and grade rule shown", "Evidence grade: Strong" in t and "Grade rule" in t and "not chosen by the AI" in t)
         check("lab: each point labelled NASA record vs AI interpretation", "NASA record" in t.replace("NASA RECORD", "NASA record") or "NASA RECORD" in t)
         check("lab: citation chips link to site pages", await pg.locator('.lab-answer a.cite[href="#/investigation/PSI-159"]').count() == 1)
+        check("lab: general science shown apart, labelled as not from NASA's documents", "General science (not from NASA" in t and "Without buoyancy" in t)
         check("lab: an action from the answer is shown as a button to that page", await pg.locator('.lab-action a[href="#/compare/BASSII-P1,BASSII-P10"]').count() == 1)
         check("lab: dropped-point notice and no-probability disclaimer", "removed because their citations" in t and "no fire probabilities" in t)
         mode["status"] = 200; mode["abst"] = True

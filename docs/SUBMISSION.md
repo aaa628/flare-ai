@@ -31,7 +31,7 @@ for the Moon and Mars depends on knowing exactly what has and hasn't been tested
 
 ## Final project (link)
 
-https://flare-ai-628.netlify.app
+https://flare-ai-628-by-628aerospace.netlify.app
 Source code: https://github.com/aaa628/flare-ai
 
 ## Project details

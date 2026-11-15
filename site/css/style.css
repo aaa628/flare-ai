@@ -467,6 +467,7 @@ ul.cov-list li b { font:700 20px var(--display); } .cov-names { grid-column:1 / 
 .grade.g-strong { color:var(--ok); } .grade.g-moderate { color:var(--caution); } .grade.g-thin, .grade.g-none { color:var(--warn); }
 .lab-sum { font-size:17px; margin:12px 0; }
 .lab-action { margin:4px 0 14px; }
+.lab-general { margin-top:12px; font-size:15px; } .lab-general ul { margin:6px 0 0; padding-left:18px; }
 ul.kp { list-style:none; margin:0; padding:0; } ul.kp li { padding:9px 0; border-top:1px solid var(--line-2); font-size:15px; }
 .cites { white-space:nowrap; } a.cite { font:600 12px var(--display); background:var(--panel-2); border:1px solid var(--line); border-radius:var(--r-1); padding:1px 6px; margin-left:4px; text-decoration:none; }
 .lab-gaps { margin-top:10px; font-size:14.5px; color:var(--caution); } .lab-gaps ul { margin:4px 0 0; padding-left:18px; }
