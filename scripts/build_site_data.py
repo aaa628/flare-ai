@@ -203,6 +203,21 @@ def write_corpus(records, investigations, res=()):
                      "source": f"{r['publisher']} ({r['url']})",
                      "text": ((f"Subject (Flare AI summary, {r['year']}): " if r.get("year") else "Subject (Flare AI summary): ") + r["event"] + ". " if r.get("event") else "")
                      + "NASA's words: " + " ".join(r["quotes"])})
+    # What Flare AI itself is for, so broad questions ("what is the point of this?") get a real answer, not an abstention.
+    n_rec = sum(1 for r in records if r["level"] != "none")
+    exps = sorted({r["experiment"] for r in records if r["level"] != "none"})
+    docs.append({"id": "about-flare-ai", "kind": "about", "title": "About Flare AI: what it is for", "route": "#/about",
+                 "source": "Flare AI About page (the team's own description, not NASA's)",
+                 "text": (f"Flare AI is a website built by team 628 Aerospace for the NASA Space Apps Challenge 2026 challenge \"Flame in Freefall\". "
+                          f"Its purpose is to help mission planners, engineers and students find out what NASA's microgravity fire experiments actually "
+                          f"tested and recorded, so that fire safety for spacecraft, space stations, and future Moon and Mars habitats can be planned on "
+                          f"evidence. It gathers all {len(investigations)} combustion investigations in NASA's Physical Sciences Informatics (PSI) repository "
+                          f"and {n_rec} individual test records ({', '.join(exps)}), each traced to the exact NASA table, row or report page. Users can rank "
+                          f"investigations for a spacecraft, a Moon base or a Mars base, compare tests measured the same way, check a scenario (fuel, oxygen, "
+                          f"pressure) against the closest real NASA tests, and ask questions answered only from NASA's records. It also shows what NASA has "
+                          f"not tested: for example, the challenge's Moon-base atmosphere (30% oxygen or more at 10.2 psi or less) is beyond every "
+                          f"solid-material test in the data, and PSI has no partial-gravity tests. Flare AI never invents numbers, never pools experiments "
+                          f"that measured oxygen differently, and gives no fire probabilities or safety certifications; it is a research-navigation tool.")})
     for i, title, text in BRIEF_FACTS:
         docs.append({"id": i, "kind": "brief", "title": title, "route": "#/investigations", "source": "NASA Space Apps 2026 challenge brief (Details tab)", "text": text})
     out = ROOT / "netlify" / "functions" / "ask" / "corpus.mjs"

@@ -736,3 +736,13 @@ Fixed (verified first):
 14. An investigation's "N test records" link opens Flame Explorer filtered to that experiment (#/explorer/exp=...).
 Not changed now: 7 (focus), 8 (contrast), 13 (all filters in the address), 15-23 (minor; noted for later).
 Verified by running: smoke 151/151 (5 new); previewer 14/14; lab_ui passed; lab_function 33/33; all pages open; CSP clean.
+
+## 2026-11-15: Lab common sense for broad questions
+- Live test: "what is the whole point of all of this" abstained, because no document described Flare AI's purpose.
+- Corpus: new "about-flare-ai" document (kind "about"; the team's own description, labelled as such, built from the real
+  counts). Retrieval always includes it (it replaces the lowest-ranked document, never the exact test asked about).
+- Prompt: answer broad questions about Flare AI, the challenge or the purpose of the research from the about/brief
+  documents; abstain only when an answer would need data the documents lack (probabilities, safety ratings, untested
+  conditions). New basis label "About Flare AI (our description)". An answer citing only the About document is graded
+  "thin", never strong. Cache prefix a2 -> a3 so earlier abstentions are not reused.
+Verified by running: lab_function 36/36 (3 new); smoke 151/151; lab_ui passed.
