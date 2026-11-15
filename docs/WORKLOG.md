@@ -756,3 +756,4 @@ Verified by running: lab_function 36/36 (3 new); smoke 151/151; lab_ui passed.
   anything else (outside links, scripts, invented ids) is dropped. The About document now says how to use each page.
   Cache prefix a3 -> a4.
 Verified by running: lab_function 41/41 (5 new); lab_ui passed (action button); smoke 151/151.
+- Follow-up (user): the Lab can open every tab (Overview, Scenario Check, Flame Explorer, Compare, Investigations, Intelligence Lab, Lessons, About) and pages inside them, including a single investigation and an investigation comparison; investigation ids must be real. lab_function 43/43.

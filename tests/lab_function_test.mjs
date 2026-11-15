@@ -157,6 +157,8 @@ check("action: a comparison of real tests is allowed", safeAction({ label: "Comp
 check("action: an invented test id is refused", safeAction({ label: "x", route: "#/compare/BASSII-P1,FAKE-9" }) === null);
 check("action: outside links and scripts are refused", safeAction({ label: "x", route: "https://evil.example" }) === null && safeAction({ label: "x", route: "javascript:alert(1)" }) === null);
 check("action: pages like the Moon ranking and a scenario are allowed", !!safeAction({ label: "Moon", route: "#/investigations/moon" }) && !!safeAction({ label: "S", route: "#/scenario/family=solid&o2=30&psi=10.2" }));
+check("action: every tab can be opened", ["#/", "#/scenario", "#/explorer", "#/compare", "#/investigations", "#/lab", "#/lessons", "#/about"].every((r) => safeAction({ label: "x", route: r })?.route === r));
+check("action: an investigation and an investigation comparison open only for real PSI ids", !!safeAction({ label: "x", route: "#/investigation/PSI-25" }) && !!safeAction({ label: "x", route: "#/investigations/compare/PSI-25,PSI-26" }) && safeAction({ label: "x", route: "#/investigation/PSI-9999" }) === null);
 check("action: a comparison needs 2 to 4 tests", safeAction({ label: "x", route: "#/compare/BASSII-P1" }) === null);
 
 // validate(): grade rule edge cases

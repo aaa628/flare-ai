@@ -223,7 +223,9 @@ def write_corpus(records, investigations, res=()):
                           f"differently. Flame Explorer (#/explorer) lists and filters every test record. Scenario Check (#/scenario) takes a fuel "
                           f"type, oxygen % and pressure and shows the closest real NASA tests. Investigations (#/investigations) ranks the "
                           f"investigations for a spacecraft, a Moon base (#/investigations/moon) or a Mars base (#/investigations/mars). Lessons "
-                          f"(#/lessons) covers real space fires and NASA spinoffs. Each test has its own page (#/experiment/ID).")})
+                          f"(#/lessons) covers real space fires and NASA spinoffs. Each test has its own page (#/experiment/ID) and each investigation "
+                          f"too (#/investigation/PSI-number). The Overview (#/) summarises the data and its checks, the Intelligence Lab (#/lab) "
+                          f"answers questions, and About (#/about) explains the rules, sources and limits.")})
     for i, title, text in BRIEF_FACTS:
         docs.append({"id": i, "kind": "brief", "title": title, "route": "#/investigations", "source": "NASA Space Apps 2026 challenge brief (Details tab)", "text": text})
     out = ROOT / "netlify" / "functions" / "ask" / "corpus.mjs"
