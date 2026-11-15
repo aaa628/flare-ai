@@ -1,6 +1,6 @@
 // Tests the Intelligence Lab function logic with a FAKE Claude client and in-memory store (no API key, no cost).
 // Run: node tests/lab_function_test.mjs
-import { handle, retrieve, validate, safeAction, LIMITS } from "../netlify/functions/ask/core.mjs";
+import { handle, retrieve, validate, safeAction, expandQuery, LIMITS } from "../netlify/functions/ask/core.mjs";
 import { geminiClient } from "../netlify/functions/ask/gemini.mjs";
 
 let pass = 0, fail = 0;
@@ -160,6 +160,18 @@ check("action: pages like the Moon ranking and a scenario are allowed", !!safeAc
 check("action: every tab can be opened", ["#/", "#/scenario", "#/explorer", "#/compare", "#/investigations", "#/lab", "#/lessons", "#/about"].every((r) => safeAction({ label: "x", route: r })?.route === r));
 check("action: an investigation and an investigation comparison open only for real PSI ids", !!safeAction({ label: "x", route: "#/investigation/PSI-25" }) && !!safeAction({ label: "x", route: "#/investigations/compare/PSI-25,PSI-26" }) && safeAction({ label: "x", route: "#/investigation/PSI-9999" }) === null);
 check("action: a comparison needs 2 to 4 tests", safeAction({ label: "x", route: "#/compare/BASSII-P1" }) === null);
+
+// general science: kept, labelled, never cited, never numeric; never rescues an invented citation
+{
+  const docs = [{ id: "PSI-69", kind: "investigation", title: "FLEX", route: "#/investigation/PSI-69", source: "s" }];
+  const v = validate({ status: "answered", summary: "s", key_points: [{ text: "FLEX burned droplets.", basis: "nasa_text", citations: ["PSI-69"] },
+      { text: "Made-up claim.", basis: "interpretation", citations: ["FAKE-999"] }], gaps: [],
+    general: ["Without buoyancy, hot gas does not rise, so droplet flames are nearly spherical.", "Flames reach 2300 K.", "", "a", "b", "c"] }, docs);
+  check("general science kept separately, without citations, at most 3", Array.isArray(v.general) && v.general.length === 3 && v.general[0].startsWith("Without buoyancy"));
+  check("general science may not carry numbers (no unsourced values)", !v.general.some((g) => /\d/.test(g)));
+  check("an invented citation is still dropped, not rescued", v.dropped_points === 1 && v.key_points.length === 1 && !JSON.stringify(v).includes("FAKE-999"));
+  check("synonyms: 'acrylic' finds PMMA (BASS) documents", /pmma/.test(expandQuery("acrylic sheet")) && retrieve("how does acrylic burn with a fan").some((d) => /PMMA/i.test(d.title + d.text)));
+}
 
 // validate(): grade rule edge cases
 check("grade: single citation -> thin", validate({ status: "answered", summary: "", key_points: [{ text: "t", basis: "brief", citations: ["brief-moon"] }], gaps: [] }, [{ id: "brief-moon", kind: "brief", title: "b", route: "#/", source: "s" }]).grade === "thin");

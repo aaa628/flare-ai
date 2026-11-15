@@ -26,9 +26,23 @@ export function makeIndex(docs) {
 }
 const INDEX = makeIndex(corpus);
 
+/* Everyday words -> the terms NASA's documents use. Only widens the search; the question shown and sent is unchanged. */
+const SYNONYMS = [
+  [/\b(acrylic|plexiglas+|perspex)\b/i, "pmma"],
+  [/\b(wind|fan|breeze|draft|draught|airflow|ventilation)\b/i, "flow velocity forced opposed concurrent"],
+  [/\b(zero[- ]?g|weightless\w*|space|orbit)\b/i, "microgravity iss"],
+  [/\b(moon|lunar|artemis)\b/i, "moon lunar 30% 10.2 psi"],
+  [/\b(mars|martian)\b/i, "mars partial gravity"],
+  [/\b(round|ball|sphere|spherical)\b/i, "spherical droplet flex"],
+  [/\b(cloth|fabric|cotton|textile)\b/i, "sibal fabric cotton fiberglass nomex"],
+  [/\b(put out|extinguish\w*|suppress\w*|snuff\w*)\b/i, "extinction suppression"],
+  [/\b(smoke|soot)\b/i, "smoke soot detection"],
+  [/\b(plastic)\b/i, "pmma plastic"],
+];
+export function expandQuery(q) { return q + " " + SYNONYMS.filter(([re]) => re.test(q)).map(([, add]) => add).join(" "); }
 export function retrieve(question, k = 12, index = INDEX) {
   const { DOCS, DF, AVG } = index;
-  const q = [...new Set(tokens(question))];
+  const q = [...new Set(tokens(expandQuery(question)))];
   const ids = (question.match(/\b(BASSII?-[A-Z0-9-]+|FLEX-\d+|SAFFIREI{1,3}-[A-Z0-9-]+|PSI-\d+)\b/gi) || []).map((x) => x.toUpperCase());
   const N = DOCS.length;
   const scored = DOCS.map((d) => {
@@ -75,6 +89,7 @@ export const SYSTEM = `You are the Intelligence Lab of Flare AI, a research-navi
 Answer ONLY from the numbered evidence documents provided in the user turn. Each document has an id.
 Rules:
 - Every key point must cite at least one evidence id that directly supports it. Do not cite ids you were not given.
+- You may use standard combustion physics to explain the NASA evidence in plain words (no buoyant convection in microgravity, diffusion-limited and spherical flames, cool flames, oxygen dilution, the effect of forced airflow, radiation losses). Put each such explanation in "general", NOT in key_points: it is background knowledge, not from the documents, so it has no citations. Never use "general" for numbers, test results, probabilities, safety ratings or anything specific to a NASA test.
 - Use common sense about what is being asked. Broad questions about Flare AI, its purpose, the challenge or what this research is for ("what is the point of this?", "why does this matter?") are answerable from the "about" and "brief" documents: answer them plainly and cite those documents. Abstain only when answering would need data the documents do not contain, such as fire probabilities, safety ratings, or conditions NASA never tested.
 - If the documents do not support an answer, set status to "abstained". Do not use outside knowledge to fill gaps. An abstention must still help:
   - summary: two or three sentences saying plainly WHY this cannot be answered from these documents (for example: NASA's tests record what burned, at what oxygen, pressure and airflow, and how each test ended; they do not give probabilities or risk), and what kind of data would be needed.
@@ -107,6 +122,7 @@ export const SCHEMA = {
       },
     },
     gaps: { type: "array", items: { type: "string" }, description: "What the evidence does not cover." },
+    general: { type: "array", items: { type: "string" }, description: "Up to 3 short explanations from standard combustion physics (not from the documents, no numbers, no citations)." },
     action: {
       type: "object",
       description: "Optional: one Flare AI page that does what the visitor asked (shown as a button). Omit if not needed.",
@@ -169,6 +185,8 @@ export function validate(parsed, docs, index = INDEX) {
     instead,
     gaps: (parsed.gaps || []).slice(0, 6).map((g) => String(g).slice(0, 300)),
     action: safeAction(parsed.action, index),
+    // background physics, shown separately and labelled "not from NASA's documents"; no citations, no digits allowed
+    general: (Array.isArray(parsed.general) ? parsed.general : []).map((g) => String(g).slice(0, 400)).filter((g) => g && !/\d/.test(g)).slice(0, 3),
     citations: citedIds.map((id) => byId.get(id)).map((d) => ({ id: d.id, kind: d.kind, title: d.title, route: d.route, source: d.source })),
     dropped_points: (parsed.key_points || []).length - points.length + (insteadIn.length - instead.length),
   };

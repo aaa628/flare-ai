@@ -757,3 +757,15 @@ Verified by running: lab_function 36/36 (3 new); smoke 151/151; lab_ui passed.
   Cache prefix a3 -> a4.
 Verified by running: lab_function 41/41 (5 new); lab_ui passed (action button); smoke 151/151.
 - Follow-up (user): the Lab can open every tab (Overview, Scenario Check, Flame Explorer, Compare, Investigations, Intelligence Lab, Lessons, About) and pages inside them, including a single investigation and an investigation comparison; investigation ids must be real. lab_function 43/43.
+
+## 2026-11-15: Lab general science + synonyms; new live link
+- Lab: background combustion physics may be used to explain the evidence, but only in a separate "general" list, shown as
+  "General science (not from NASA's documents)", with no citations and no numbers (any item containing a digit is
+  dropped). Uncited or falsely cited key points are still removed: no citation is ever attached automatically.
+  Rejected from the suggestion: auto-attaching "the top retrieved document" to uncited points (it would fabricate sources).
+- Lab: everyday words are widened to NASA's terms before search (acrylic -> pmma, fan/wind -> flow velocity, cloth ->
+  SIBAL/Nomex, extinguish -> extinction, Moon -> 30% / 10.2 psi, ...). The question itself is unchanged.
+- The "claude/audit3" branch mentioned by another session does not exist on GitHub (never pushed); nothing to merge.
+- Live site moved to a new Netlify account: https://flare-ai-628-by-628aerospace.netlify.app. README and submission text
+  updated; all three demo videos rebuilt with it on the end card (formal silent 29.5 s, voiced 29.2 s, formal voiced 29.8 s).
+Verified by running: lab_function 47/47 (4 new); lab_ui passed (general-science label); smoke 151/151.

@@ -26,7 +26,7 @@ onto the page. You get a URL in seconds. Repeat the drag after each update.
 **Option B, automatic (redeploys on every push to `main`):**
 1. https://app.netlify.com -> Add new site -> Import an existing project -> GitHub -> pick `aaa628/flare-ai`.
 2. Netlify reads `netlify.toml` from the repo root: publish directory `site`, no build command. Click Deploy.
-3. Optional: Site settings -> Change site name, e.g. `flare-ai-628` -> https://flare-ai-628.netlify.app
+3. Optional: Site settings -> Change site name, e.g. `flare-ai-628` -> https://flare-ai-628-by-628aerospace.netlify.app
 
 `netlify.toml` also sets security headers (a Content-Security-Policy: scripts and data only from the site itself, nothing from other domains; inline style attributes are allowed because the charts use them).
 
