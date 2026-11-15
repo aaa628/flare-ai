@@ -1668,7 +1668,7 @@
     thin: { label: "Thin", glyph: "●○○", text: "Only one cited document supports the answer." },
     none: { label: "None — abstained", glyph: "○○○", text: "No cited document supports an answer, so the Lab does not answer." }
   };
-  var BASIS = { nasa_record: ["measured", "NASA record"], nasa_text: ["published", "NASA text"], brief: ["published", "Challenge brief"], interpretation: ["interp", "SI interpretation"] };
+  var BASIS = { nasa_record: ["measured", "NASA record"], nasa_text: ["published", "NASA text"], brief: ["published", "Challenge brief"], about: ["interp", "About Flare AI (our description)"], interpretation: ["interp", "SI interpretation"] };
   /* Local keyword search (no AI): used offline, when the server is unavailable, and to show what evidence exists. */
   function localSearch(q, k) {
     var toks = (q.toLowerCase().match(/[a-z0-9%.\-]{3,}/g) || []).filter(function (t) { return ["what", "which", "with", "were", "does", "that", "this", "from", "have", "about", "there", "tests", "test"].indexOf(t) < 0; });

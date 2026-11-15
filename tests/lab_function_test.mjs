@@ -141,6 +141,17 @@ check("retrieval: exact test id is ranked first", r2[0] && r2[0].id === "FLEX-11
   check("cache: an answer from Nov 2026 is still served in Jan 2027 (judging), no SI call", later.cached === true && calls.length === 1);
 }
 
+// common sense: broad questions about the site get the About document, and an About-only answer is graded thin
+{
+  const r = retrieve("what is the whole point of all of this");
+  check("retrieval: a broad question always gets the 'About Flare AI' document", r.some((d) => d.id === "about-flare-ai"));
+  const r2 = retrieve("What happened in test FLEX-114?");
+  check("retrieval: the About document never pushes out the exact test asked about", r2[0].id === "FLEX-114" && r2.some((d) => d.id === "about-flare-ai"));
+  const v = validate({ status: "answered", summary: "Flare AI helps plan fire safety from NASA data.", key_points: [{ text: "It gathers NASA's fire tests.", basis: "about", citations: ["about-flare-ai"] }], gaps: [] },
+    [{ id: "about-flare-ai", kind: "about", title: "About", route: "#/about", source: "Flare AI" }]);
+  check("an answer from the About document alone is answered, graded thin", v.status === "answered" && v.grade === "thin");
+}
+
 // validate(): grade rule edge cases
 check("grade: single citation -> thin", validate({ status: "answered", summary: "", key_points: [{ text: "t", basis: "brief", citations: ["brief-moon"] }], gaps: [] }, [{ id: "brief-moon", kind: "brief", title: "b", route: "#/", source: "s" }]).grade === "thin");
 
