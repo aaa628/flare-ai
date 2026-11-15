@@ -1712,6 +1712,7 @@
             h("span", { class: "grade g-" + a.grade, title: g.text }, h("span", { "aria-hidden": "true" }, g.glyph + " "), "Evidence grade: " + g.label),
             a.cached ? h("span", { class: "muted small" }, "repeat question — served from cache") : null),
           h("p", { class: "lab-sum" }, a.summary || (abst ? "The evidence does not support an answer." : "")),
+          a.action && /^#\//.test(a.action.route) ? h("p", { class: "lab-action" }, h("a", { class: "btn", href: a.action.route }, "\u2192 " + a.action.label)) : null,
           (a.key_points || []).length ? h("ul", { class: "kp" }, a.key_points.map(function (p) {
             var b = BASIS[p.basis] || BASIS.interpretation;
             return h("li", null, chip(b[0], b[1]), " ", p.text, " ", h("span", { class: "cites" }, (p.citations || []).map(cite)));

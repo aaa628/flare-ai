@@ -217,7 +217,15 @@ def write_corpus(records, investigations, res=()):
                           f"pressure) against the closest real NASA tests, and ask questions answered only from NASA's records. It also shows what NASA has "
                           f"not tested: for example, the challenge's Moon-base atmosphere (30% oxygen or more at 10.2 psi or less) is beyond every "
                           f"solid-material test in the data, and PSI has no partial-gravity tests. Flare AI never invents numbers, never pools experiments "
-                          f"that measured oxygen differently, and gives no fire probabilities or safety certifications; it is a research-navigation tool.")})
+                          f"that measured oxygen differently, and gives no fire probabilities or safety certifications; it is a research-navigation tool. "
+                          f"How to use it: Compare (#/compare) shows 2 to 4 tests side by side; pick tests from the same experiment (for example "
+                          f"BASS-II P1, P10 and P12) and it charts their oxygen and gas readings, or refuses with reasons if they were measured "
+                          f"differently. Flame Explorer (#/explorer) lists and filters every test record. Scenario Check (#/scenario) takes a fuel "
+                          f"type, oxygen % and pressure and shows the closest real NASA tests. Investigations (#/investigations) ranks the "
+                          f"investigations for a spacecraft, a Moon base (#/investigations/moon) or a Mars base (#/investigations/mars). Lessons "
+                          f"(#/lessons) covers real space fires and NASA spinoffs. Each test has its own page (#/experiment/ID) and each investigation "
+                          f"too (#/investigation/PSI-number). The Overview (#/) summarises the data and its checks, the Intelligence Lab (#/lab) "
+                          f"answers questions, and About (#/about) explains the rules, sources and limits.")})
     for i, title, text in BRIEF_FACTS:
         docs.append({"id": i, "kind": "brief", "title": title, "route": "#/investigations", "source": "NASA Space Apps 2026 challenge brief (Details tab)", "text": text})
     out = ROOT / "netlify" / "functions" / "ask" / "corpus.mjs"
