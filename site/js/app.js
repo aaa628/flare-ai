@@ -80,6 +80,18 @@
     return r.level === "human" && isMachine(r) ? [chip(L.cls, L.short), " ", chip(LEVEL.machine.cls, LEVEL.machine.short)] : chip(L.cls, L.short);
   }
   function chip(kind, text) { return h("span", { class: "chip " + kind }, text); }
+  /* a malformed "%" sequence in a link must not crash the page */
+  function dec(s) { try { return decodeURIComponent(s); } catch (e) { return s; } }
+  /* shorten at a word boundary, never mid-word */
+  function clip(t, n) {
+    t = (t || "").replace(/\s+/g, " ").trim();
+    if (t.length <= n) return t;
+    var cut = t.slice(0, n), i = cut.lastIndexOf(" ");
+    return (i > n * 0.6 ? cut.slice(0, i) : cut).replace(/[\s,;:.\u2013-]+$/, "") + "\u2026";
+  }
+  /* test records that belong to an investigation: BASS-II's 126 report records cite the NASA report, not PSI-25 */
+  var REPORT_OF = { "20210011385": "PSI-25" };
+  function recsOf(acc) { return ALL.filter(function (r) { return r.source_id === acc || REPORT_OF[r.source_id] === acc; }); }
   function nTests(n) { return n + (n === 1 ? " test" : " tests"); }
   function flagsOf(r) {
     return (r.qc_flag || "").split(";").filter(Boolean);
@@ -386,9 +398,11 @@
     } catch (err) { fallback(); }
   }
 
-  function viewExplorer() {
+  function viewExplorer(arg) {
     setTitle("Flame Explorer");
     var state = { q: "", exp: "", pi: "", flow: "", o2: "" };
+    /* "#/explorer/exp=BASS-II" opens the Explorer already filtered to one experiment (used by investigation pages) */
+    (arg || "").split("&").forEach(function (kv) { var p = kv.split("="); if (p[0] === "exp") state.exp = dec(p[1] || ""); });
     var exps = EXP_ORDER.filter(function (e) { return ROWS.some(function (r) { return r.experiment === e; }); });
     var pis = uniq(ROWS.map(function (r) { return r.pi; }).filter(Boolean));
     var flows = uniq(ROWS.map(function (r) { return r.flow_mode; }).filter(Boolean));
@@ -419,7 +433,7 @@
       return h("div", { class: "field" }, h("label", { for: id }, label), s);
     }
     var search = h("input", { type: "search", id: "q", placeholder: "Material, note text, test ID...",
-      oninput: function (e) { state.q = e.target.value.toLowerCase(); draw(); } });
+      oninput: function (e) { state.q = e.target.value.toLowerCase().replace(/\s+/g, " ").trim(); draw(); } });
     controls.q = search;
     function o2match(r) {
       if (!state.o2) return true;
@@ -457,7 +471,7 @@
       tbody.textContent = "";
       list.forEach(function (r) {
         var note = r.observation || (r.fields || []).map(function (f) { return f[0] + ": " + f[1]; }).slice(0, 3).join("; ");
-        var obs = note.length > 140 ? note.slice(0, 137) + "..." : note;
+        var obs = clip(note, 140);
         var fl = flagsOf(r).map(function (f) { return chip("warn", FLAG_TEXT[f] || f); });
         /* data-check badges up front (details stay on the record page) */
         if ((r.psi_check || "").indexOf("DIFFERS") === 0) fl.push(chip("warn", "NASA PDF and PSI disagree"));
@@ -485,6 +499,7 @@
       sel("fpi", "BASS-II investigator", pis.map(function (p) { return [p, p]; }), "pi"),
       sel("fflow", "Flow direction", flows.map(function (p) { return [p, p]; }), "flow"),
       sel("fo2", "Starting O2", o2opts, "o2"));
+    Object.keys(state).forEach(function (k) { if (state[k] && controls[k]) controls[k].value = state[k]; });
     draw();
     return h("div", null,
       h("div", { class: "page-head" },
@@ -506,7 +521,7 @@
     return h("div", { class: "reading" }, h("span", null, label),
       h("span", null, h("b", null, a || "—"),
         b != null ? [h("span", { class: "arrow" }, "→"), h("b", null, b || "—")] : null,
-        h("span", { class: "u" }, unit)));
+        h("span", { class: "u" }, h("span", { class: "sr" }, " "), unit)));
   }
 
   /* ---------- provenance: what NASA called each value, its unit, and anything we did to it ---------- */
@@ -976,7 +991,7 @@
   function viewCompare(arg) {
     setTitle("Compare");
     ensureTip();
-    var ids = (arg || "").split(",").map(decodeURIComponent).filter(Boolean)
+    var ids = (arg || "").split(",").map(dec).filter(Boolean)
       .filter(function (id, i, a) { return a.indexOf(id) === i; }); /* the same test picked twice counts once */
     var picked = ids.map(function (id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }).filter(Boolean).slice(0, MAX_PICK);
     function go2(list) { location.hash = "#/compare/" + list.map(function (r) { return encodeURIComponent(r.id); }).join(","); }
@@ -1312,13 +1327,13 @@
         if (state.fuel && fuelKey(x.v) !== state.fuel) return false;
         if (state.pillar && (c.pillar || "").indexOf(state.pillar) < 0) return false;
         if (state.data === "flight" && !(x.v.n_tests > 0 && /Microgravity/.test(x.v.projectType))) return false;
-        if (state.data === "ours" && !ALL.some(function (r) { return r.source_id === x.v.accession; })) return false;
+        if (state.data === "ours" && !recsOf(x.v.accession).length) return false;
         return true;
       }).sort(function (a, b) { return b.r.score - a.r.score || invName(a.v).localeCompare(invName(b.v)); });
       count.textContent = "Showing " + list.length + " of " + INV.length + " NASA PSI combustion investigations, ranked for: " + LENSES[lens].label;
       listBox.textContent = "";
       list.forEach(function (x, i) {
-        var v = x.v, c = v.curated || {}, ours = ALL.filter(function (r) { return r.source_id === v.accession; }).length;
+        var v = x.v, c = v.curated || {}, ours = recsOf(v.accession).length;
         var cb = h("input", { type: "checkbox", id: "pick-" + v.accession, checked: picked.indexOf(v.accession) >= 0, onchange: function (e) {
           if (e.target.checked) { if (picked.length >= 3) { e.target.checked = false; return; } picked.push(v.accession); } else picked = picked.filter(function (a) { return a !== v.accession; });
           cmpBtn.textContent = "Compare selected (" + picked.length + ")"; cmpBtn.disabled = picked.length < 2; } });
@@ -1516,7 +1531,7 @@
     var v = invById(acc);
     if (!v) { setTitle("Not found"); return h("div", null, h("p", { class: "crumbs" }, h("a", { href: "#/investigations" }, "← Investigations")), h("h1", null, "Investigation not found")); }
     setTitle(invName(v));
-    var c = v.curated || {}, ours = ALL.filter(function (r) { return r.source_id === v.accession; });
+    var c = v.curated || {}, ours = recsOf(v.accession);
     var rs = relevance(v, "station"), rm = relevance(v, "moon"), rM = relevance(v, "mars");
     function text(label, t) { return t ? h("div", { class: "card", style: "margin-top:14px" }, h("div", { class: "prov-head" }, h("h3", null, label), chip("published", "NASA PSI text")),
       h("p", { class: "pub-text" }, t)) : null; }
@@ -1548,7 +1563,7 @@
             h("div", { class: "rh-actions" },
               h("a", { class: "btn", href: v.landing_page, target: "_blank", rel: "noopener" }, "Open NASA’s PSI page ↗"),
               h("a", { class: "textlink", href: "https://doi.org/" + v.doi, target: "_blank", rel: "noopener" }, "DOI"),
-              ours.length ? h("a", { class: "textlink", href: "#/explorer" }, ours.length + " test records in Flare AI") : null),
+              ours.length ? h("a", { class: "textlink", href: "#/explorer" + (function (e) { return e.length === 1 ? "/exp=" + encodeURIComponent(e[0]) : ""; })(ours.map(function (r) { return r.experiment; }).filter(function (x, i, a) { return a.indexOf(x) === i; })) }, ours.length + " test records in Flare AI") : null),
             (function () {
               var cite = "NASA Physical Sciences Informatics (PSI). " + v.title + " (" + v.accession + (v.investigationAcronym ? ", " + v.investigationAcronym : "") +
                 "), version " + v.version + ", released " + v.releaseDate + ". " + v.licenseIdentifier + ". https://doi.org/" + v.doi + ". Accessed " + v.retrieved + ".";
@@ -1562,7 +1577,7 @@
           h("div", null, h("p", { class: "mini-h" }, chip("interp", "Ours"), " Plain-language summary"), h("p", null, c.summary_ours || "\u2014"),
             h("p", { class: "note" }, "Written with SI (Claude) from NASA\u2019s objective text below. ", h("a", { href: v.landing_page, target: "_blank", rel: "noopener" }, "Check it on NASA\u2019s PSI page"))),
           h("div", null, h("p", { class: "mini-h" }, chip("published", "NASA"), " NASA\u2019s stated impact"),
-            h("p", null, (function (t) { t = (t || "").replace(/\s+/g, " ").trim(); return t ? (t.length > 420 ? t.slice(0, 417) + "\u2026" : t) : "NASA\u2019s PSI record gives no research-impact statement."; })(v.researchImpacts)),
+            h("p", null, (function (t) { t = (t || "").replace(/\s+/g, " ").trim(); return t ? clip(t, 420) : "NASA\u2019s PSI record gives no research-impact statement."; })(v.researchImpacts)),
             h("p", { class: "note" }, "Quoted from NASA PSI (\u201cResearch impacts\u201d), full text below."))),
         h("p", { class: "note" }, h("b", null, "Variables and measurements: "), (v.table_summaries || []).length ? "NASA\u2019s table records " +
           v.table_summaries.map(function (t) { return (t.columns || []).length + " columns"; }).join(" + ") + " (listed below)." : "no experiment table in PSI.",
@@ -1585,7 +1600,8 @@
       text("Objective", v.objective), text("Approach", v.approach), text("Hypothesis", v.hypothesis), text("Research impacts", v.researchImpacts),
       (v.publications || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "Publications listed by NASA PSI (" + v.publications.length + ")")),
         h("ul", { class: "fn", style: "margin-top:10px" }, v.publications.slice(0, 40).map(function (p) {
-          return h("li", null, p.title + (p.authors ? " — " + p.authors.split(",").slice(0, 3).join(",") + (p.authors.split(",").length > 3 ? " et al." : "") : "") + " ",
+          var au = (p.authors || "").split(",").map(function (x) { return x.trim(); }).filter(function (x) { return x && !/^undefined( undefined)?$/.test(x); });
+          return h("li", null, p.title + (au.length ? " — " + au.slice(0, 3).join(", ") + (au.length > 3 ? " et al." : "") : "") + " ",
             p.doi ? h("a", { href: "https://doi.org/" + p.doi, target: "_blank", rel: "noopener" }, "DOI") : null); }))) : null,
       h("details", { class: "card tech" }, h("summary", null, h("b", null, "Why it scores " + rs.score + " / " + rm.score + " / " + rM.score)),
         h("p", { class: "mini-h" }, "Spacecraft & station"), h("ul", { class: "pts" }, rs.pts.map(function (p) { return h("li", null, h("b", null, "+" + p.n), " " + p.label); })),
@@ -1674,7 +1690,8 @@
     var btn = h("button", { type: "submit", class: "pill-btn" }, "Ask the Lab");
     function cite(id) {
       var c = (cur && cur.citations || []).filter(function (x) { return x.id === id; })[0];
-      return h("a", { class: "cite", href: c ? c.route : "#/", title: c ? c.source : id }, id);
+      if (!c) return h("span", { class: "cite", title: "Not one of the cited documents" }, id); /* no link to nowhere */
+      return h("a", { class: "cite", href: c.route, title: c.source }, id);
     }
     var cur = null;
     function renderLocal(q, why) {
@@ -1697,10 +1714,10 @@
           h("p", { class: "lab-sum" }, a.summary || (abst ? "The evidence does not support an answer." : "")),
           (a.key_points || []).length ? h("ul", { class: "kp" }, a.key_points.map(function (p) {
             var b = BASIS[p.basis] || BASIS.interpretation;
-            return h("li", null, chip(b[0], b[1]), " ", p.text, " ", h("span", { class: "cites" }, p.citations.map(cite)));
+            return h("li", null, chip(b[0], b[1]), " ", p.text, " ", h("span", { class: "cites" }, (p.citations || []).map(cite)));
           })) : null,
           abst && (a.instead || []).length ? h("div", { class: "lab-instead" }, h("b", null, "What the NASA records can tell you instead:"),
-            h("ul", { class: "kp" }, a.instead.map(function (p) { return h("li", null, p.text, " ", h("span", { class: "cites" }, p.citations.map(cite))); }))) : null,
+            h("ul", { class: "kp" }, a.instead.map(function (p) { return h("li", null, p.text, " ", h("span", { class: "cites" }, (p.citations || []).map(cite))); }))) : null,
           (a.gaps || []).length ? h("div", { class: "lab-gaps" }, h("b", null, "What the data does not cover: "), h("ul", null, a.gaps.map(function (t) { return h("li", null, t); }))) : null,
           h("p", { class: "note grade-rule" }, h("b", null, "Grade rule: "), g.text + " The grade is computed by Flare AI from the citations that survived checking, not chosen by the AI." +
             (a.dropped_points ? " " + a.dropped_points + " point(s) were removed because their citations did not match any retrieved document." : "")),
@@ -1710,23 +1727,26 @@
         (a.evidence || []).length ? h("details", { class: "card tech" }, h("summary", null, h("b", null, "All " + a.evidence.length + " documents retrieved for this question")),
           h("ul", { class: "fn", style: "margin-top:8px" }, a.evidence.map(function (c) { return h("li", null, h("a", { href: c.route }, c.id), " — " + c.title + " ", h("span", { class: "muted" }, "(" + c.kind + ", " + c.source + ")")); }))) : null);
     }
+    var busy = false;
     function ask(q) {
+      if (busy) return; /* one question at a time: a second click while loading is ignored */
       q = (q || "").trim();
       if (q.length < 8) { out.textContent = ""; out.appendChild(h("p", { class: "fwarn" }, "Please ask a full question.")); return; }
       ta.value = q; counter.textContent = q.length + " / 300";
       out.textContent = "";
       var ep = labEndpoint();
       if (!ep) { out.appendChild(renderLocal(q, "The AI answers need the online site (they run on a secure server). Offline, Flare AI shows the records that match your words instead.")); return; }
-      btn.disabled = true; btn.textContent = "Checking the records…";
+      busy = true; btn.disabled = true; btn.textContent = "Checking the records…";
       out.appendChild(h("p", { class: "muted" }, "Retrieving NASA records and asking the SI (Google Gemini) to answer only from them…"));
       fetch(ep, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ question: q }) })
         .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, status: r.status, b: b }; }, function () { return { ok: false, status: r.status, b: {} }; }); })
         .then(function (res) {
           out.textContent = "";
-          if (res.ok) out.appendChild(renderAnswer(res.b, q));
+          if (res.ok) { try { out.appendChild(renderAnswer(res.b, q)); } catch (e) { out.textContent = ""; out.appendChild(renderLocal(q, "The SI answer could not be displayed. Showing keyword matches instead.")); } }
           else out.appendChild(renderLocal(q, (res.b && res.b.error ? res.b.error + " " : "The SI service did not answer (" + res.status + "). ") + "Showing keyword matches instead."));
         }, function () { out.textContent = ""; out.appendChild(renderLocal(q, "Could not reach the SI service. Showing keyword matches instead.")); })
-        .then(function () { btn.disabled = false; btn.textContent = "Ask the Lab"; });
+        .catch(function () { /* never leave the button stuck */ })
+        .then(function () { busy = false; btn.disabled = false; btn.textContent = "Ask the Lab"; });
     }
     var form = h("form", { class: "lab-form", onsubmit: function (e) { e.preventDefault(); ask(ta.value); } },
       h("label", { for: "labq", class: "sr" }, "Your question"), ta, h("div", { class: "lab-row" }, counter, btn));
@@ -1965,7 +1985,7 @@
     setTitle("Scenario Check");
     ensureTip();
     var st = { family: "solid", o2: 21, psi: 14.7, fuel: "", diluent: "" };
-    (arg || "").split("&").forEach(function (kv) { var p = kv.split("="); if (p[0] in st) st[p[0]] = p[0] === "o2" || p[0] === "psi" ? parseFloat(p[1]) : decodeURIComponent(p[1] || ""); });
+    (arg || "").split("&").forEach(function (kv) { var p = kv.split("="); if (p[0] in st) st[p[0]] = p[0] === "o2" || p[0] === "psi" ? parseFloat(p[1]) : dec(p[1] || ""); });
     var out = h("div", { class: "scen-out", "aria-live": "polite" });
     var o2In = h("input", { type: "number", id: "so2", min: 0, max: 100, step: 0.5, value: st.o2 });
     var pIn = h("input", { type: "number", id: "spsi", min: 0, max: 60, step: 0.1, value: st.psi });
@@ -1986,7 +2006,8 @@
     }
     function run() {
       st.o2 = parseFloat(o2In.value); st.psi = parseFloat(pIn.value); st.fuel = fuelSel.value; st.diluent = dilSel.value;
-      try { history.replaceState(null, "", "#/scenario/family=" + st.family + "&o2=" + st.o2 + "&psi=" + st.psi + (st.family === "liquid" ? "&fuel=" + st.fuel + "&diluent=" + st.diluent : "")); } catch (e) { /* sandboxed previewers */ }
+      /* an empty box: keep the last good address (never "o2=NaN"), but still show the warning below */
+      if (!isNaN(st.o2) && !isNaN(st.psi)) try { history.replaceState(null, "", "#/scenario/family=" + st.family + "&o2=" + st.o2 + "&psi=" + st.psi + (st.family === "liquid" ? "&fuel=" + st.fuel + "&diluent=" + st.diluent : "")); } catch (e) { /* sandboxed previewers */ }
       out.textContent = "";
       if (isNaN(st.o2) || isNaN(st.psi) || st.o2 < 0 || st.o2 > 100 || st.psi <= 0) { out.appendChild(h("p", { class: "fwarn" }, "Enter oxygen between 0 and 100% and a pressure above 0 psi.")); return; }
       out.appendChild(result());
@@ -2046,7 +2067,7 @@
       var TABS = [["inside", "Inside the window", inside], ["partial", "Oxygen only", partial], ["outside", "Outside, nearest first", outside], ["omitted", "Omitted", omitted]];
       var tab = inside.length ? "inside" : partial.length ? "partial" : "outside";
       function rowFor(t) {
-        var r = t.c.r, note = t.c.outcome ? "Test end: " + t.c.outcome : (r.observation || "").slice(0, 110) + ((r.observation || "").length > 110 ? "…" : "");
+        var r = t.c.r, note = t.c.outcome ? "Test end: " + t.c.outcome : clip(r.observation, 110);
         var catTxt = { inside: "inside", partial: "oxygen only", outside: "outside", omitted: "omitted" }[t.cat];
         return h("tr", null,
           h("th", { scope: "row", "data-label": "Test" }, h("a", { href: "#/experiment/" + r.id }, testLabel(r)), h("span", { class: "cat-tag ct-" + t.cat }, catTxt)),
@@ -2294,14 +2315,14 @@
     if (hash !== curHash) { prevHash = curHash; curHash = hash; }
     var seg = hash.replace(/^#\/?/, "").split("/");
     var route = seg[0] || "overview", view;
-    if (route === "explorer") view = viewExplorer();
-    else if (route === "experiment") view = viewDetail(decodeURIComponent(seg[1] || ""));
+    if (route === "explorer") view = viewExplorer(seg.slice(1).join("/"));
+    else if (route === "experiment") view = viewDetail(dec(seg[1] || ""));
     else if (route === "about") view = viewAbout();
     else if (route === "lessons") view = viewLessons();
     else if (route === "compare") view = viewCompare(seg.slice(1).join("/"));
     else if (route === "investigations" && seg[1] === "compare") view = viewInvCompare(seg[2] || "");
     else if (route === "investigations") view = viewInvestigations(seg[1] || "");
-    else if (route === "investigation") view = viewInvestigation(decodeURIComponent(seg[1] || ""));
+    else if (route === "investigation") view = viewInvestigation(dec(seg[1] || ""));
     else if (route === "lab") view = viewLab();
     else if (route === "scenario") view = viewScenario(seg.slice(1).join("/"));
     else if (route === "overview" || !/^#\//.test(hash)) { route = "overview"; view = viewOverview(); }

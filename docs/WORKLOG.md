@@ -720,3 +720,19 @@ Verified by running: smoke 146/146 (5 new); previewer 14/14; lab_ui passed; all 
   each line plays over its own scene. The last ~5 s of the recording (after line 7) are not used. Method in
   docs/demo/mix_formal_voice.py.
 - Follow-up (user): both narrated videos now read "Edited with SI · Voiced by a human" in the corner (the voice is a human recording, not SI). Silent formal video unchanged.
+## 2026-11-15: Second audit (another session's report; its branch was never pushed, so each item was re-checked here)
+Fixed (verified first):
+1. BASS-II investigation showed "3 test records" (only PSI-25-sourced rows); its 126 report records cite the NASA report.
+   recsOf() now maps the report to PSI-25: page says 129, the "Has test records" filter and list count agree.
+2. A link with a malformed "%" sequence threw URIError and froze the page; all decoding goes through a safe dec().
+3. Units joined to values in text ("+ORppm"): a screen-reader-only space now separates them (visual spacing unchanged).
+4. Shortened texts cut mid-word: clip() cuts at a word boundary (Explorer notes, Scenario notes, investigation text).
+5./6. Lab: the button can no longer stay on "Checking the records..." (render errors caught, state always reset), and a
+   second question while one is loading is ignored (no double request).
+9. NASA's PSI-10 publication lists an author "undefined undefined": that placeholder is no longer shown.
+10. Explorer search ignores extra spaces.
+11. Scenario Check never writes "o2=NaN" into the address (the warning still shows).
+12. A citation id the Lab didn't send is shown as plain text, not a link to the Overview.
+14. An investigation's "N test records" link opens Flame Explorer filtered to that experiment (#/explorer/exp=...).
+Not changed now: 7 (focus), 8 (contrast), 13 (all filters in the address), 15-23 (minor; noted for later).
+Verified by running: smoke 151/151 (5 new); previewer 14/14; lab_ui passed; lab_function 33/33; all pages open; CSP clean.
