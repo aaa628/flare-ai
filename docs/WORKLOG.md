@@ -769,3 +769,6 @@ Verified by running: lab_function 41/41 (5 new); lab_ui passed (action button); 
 - Live site moved to a new Netlify account: https://flare-ai-628-by-628aerospace.netlify.app. README and submission text
   updated; all three demo videos rebuilt with it on the end card (formal silent 29.5 s, voiced 29.2 s, formal voiced 29.8 s).
 Verified by running: lab_function 47/47 (4 new); lab_ui passed (general-science label); smoke 151/151.
+
+## 2026-11-19: CLAUDE.md
+- Added CLAUDE.md (commands, data pipeline, site/Lab architecture, project rules) for future Claude Code sessions.
